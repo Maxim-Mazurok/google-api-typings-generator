@@ -28,21 +28,66 @@ declare namespace gapi.client {
       /** Required. The display name of the custom metric. */
       displayName?: string;
       /** The minimum visible video duration required (in seconds) in order for an impression to be recorded. You must specify minimum_duration, minimum_quartile or both. If both are specified, an impression meets the metric criteria if either requirement is met (whichever happens first). */
-      minimumDuration?: string;
+      minimumDuration?:
+        | 'VIDEO_DURATION_UNSPECIFIED'
+        | 'VIDEO_DURATION_SECONDS_NONE'
+        | 'VIDEO_DURATION_SECONDS_0'
+        | 'VIDEO_DURATION_SECONDS_1'
+        | 'VIDEO_DURATION_SECONDS_2'
+        | 'VIDEO_DURATION_SECONDS_3'
+        | 'VIDEO_DURATION_SECONDS_4'
+        | 'VIDEO_DURATION_SECONDS_5'
+        | 'VIDEO_DURATION_SECONDS_6'
+        | 'VIDEO_DURATION_SECONDS_7'
+        | 'VIDEO_DURATION_SECONDS_8'
+        | 'VIDEO_DURATION_SECONDS_9'
+        | 'VIDEO_DURATION_SECONDS_10'
+        | 'VIDEO_DURATION_SECONDS_11'
+        | 'VIDEO_DURATION_SECONDS_12'
+        | 'VIDEO_DURATION_SECONDS_13'
+        | 'VIDEO_DURATION_SECONDS_14'
+        | 'VIDEO_DURATION_SECONDS_15'
+        | 'VIDEO_DURATION_SECONDS_30'
+        | 'VIDEO_DURATION_SECONDS_45'
+        | 'VIDEO_DURATION_SECONDS_60';
       /** The minimum visible video duration required, based on the video quartiles, in order for an impression to be recorded. You must specify minimum_duration, minimum_quartile or both. If both are specified, an impression meets the metric criteria if either requirement is met (whichever happens first). */
-      minimumQuartile?: string;
+      minimumQuartile?:
+        | 'VIDEO_DURATION_QUARTILE_UNSPECIFIED'
+        | 'VIDEO_DURATION_QUARTILE_NONE'
+        | 'VIDEO_DURATION_QUARTILE_FIRST'
+        | 'VIDEO_DURATION_QUARTILE_SECOND'
+        | 'VIDEO_DURATION_QUARTILE_THIRD'
+        | 'VIDEO_DURATION_QUARTILE_FOURTH';
       /** Required. The minimum percentage of the video ad's pixels visible on the screen in order for an impression to be recorded. */
-      minimumViewability?: string;
+      minimumViewability?:
+        | 'VIEWABILITY_PERCENT_UNSPECIFIED'
+        | 'VIEWABILITY_PERCENT_0'
+        | 'VIEWABILITY_PERCENT_25'
+        | 'VIEWABILITY_PERCENT_50'
+        | 'VIEWABILITY_PERCENT_75'
+        | 'VIEWABILITY_PERCENT_100';
       /** Required. The minimum percentage of the video ad's volume required in order for an impression to be recorded. */
-      minimumVolume?: string;
+      minimumVolume?:
+        | 'VIDEO_VOLUME_PERCENT_UNSPECIFIED'
+        | 'VIDEO_VOLUME_PERCENT_0'
+        | 'VIDEO_VOLUME_PERCENT_10';
     }
     interface AdAsset {
       /** Output only. The ID of the ad asset. Referred to as the asset ID when assigned to an ad. */
       adAssetId?: string;
       /** Required. The type of the ad asset. */
-      adAssetType?: string;
+      adAssetType?:
+        | 'AD_ASSET_TYPE_UNSPECIFIED'
+        | 'AD_ASSET_TYPE_IMAGE'
+        | 'AD_ASSET_TYPE_YOUTUBE_VIDEO';
       /** Output only. The entity status of the ad asset. */
-      entityStatus?: string;
+      entityStatus?:
+        | 'ENTITY_STATUS_UNSPECIFIED'
+        | 'ENTITY_STATUS_ACTIVE'
+        | 'ENTITY_STATUS_ARCHIVED'
+        | 'ENTITY_STATUS_DRAFT'
+        | 'ENTITY_STATUS_PAUSED'
+        | 'ENTITY_STATUS_SCHEDULED_FOR_DELETION';
       /** Identifier. The resource name of the ad asset. */
       name?: string;
       /** Youtube video asset data. */
@@ -50,7 +95,17 @@ declare namespace gapi.client {
     }
     interface AdGroup {
       /** Required. Immutable. The format of the ads in the ad group. */
-      adGroupFormat?: string;
+      adGroupFormat?:
+        | 'AD_GROUP_FORMAT_UNSPECIFIED'
+        | 'AD_GROUP_FORMAT_IN_STREAM'
+        | 'AD_GROUP_FORMAT_VIDEO_DISCOVERY'
+        | 'AD_GROUP_FORMAT_BUMPER'
+        | 'AD_GROUP_FORMAT_NON_SKIPPABLE_IN_STREAM'
+        | 'AD_GROUP_FORMAT_AUDIO'
+        | 'AD_GROUP_FORMAT_RESPONSIVE'
+        | 'AD_GROUP_FORMAT_REACH'
+        | 'AD_GROUP_FORMAT_MASTHEAD'
+        | 'AD_GROUP_FORMAT_DEMAND_GEN';
       /** Output only. The unique ID of the ad group. Assigned by the system. */
       adGroupId?: string;
       /** Optional. Specifies the inventory control of the ad group. This field is required for Demand Gen ad groups. */
@@ -62,7 +117,13 @@ declare namespace gapi.client {
       /** Required. The display name of the ad group. Must be UTF-8 encoded with a maximum size of 255 bytes. */
       displayName?: string;
       /** Required. Controls whether or not the ad group can spend its budget and bid on inventory. If the ad group's parent line item is not active, the ad group can't spend its budget even if its own status is `ENTITY_STATUS_ACTIVE`. */
-      entityStatus?: string;
+      entityStatus?:
+        | 'ENTITY_STATUS_UNSPECIFIED'
+        | 'ENTITY_STATUS_ACTIVE'
+        | 'ENTITY_STATUS_ARCHIVED'
+        | 'ENTITY_STATUS_DRAFT'
+        | 'ENTITY_STATUS_PAUSED'
+        | 'ENTITY_STATUS_SCHEDULED_FOR_DELETION';
       /** Required. Immutable. The unique ID of the line item that the ad group belongs to. */
       lineItemId?: string;
       /** Output only. Identifier. The resource name of the ad group. */
@@ -100,7 +161,13 @@ declare namespace gapi.client {
       /** Output only. Details of an ad sourced from a Display & Video 360 creative. */
       displayVideoSourceAd?: DisplayVideoSourceAd;
       /** Required. The entity status of the ad. */
-      entityStatus?: string;
+      entityStatus?:
+        | 'ENTITY_STATUS_UNSPECIFIED'
+        | 'ENTITY_STATUS_ACTIVE'
+        | 'ENTITY_STATUS_ARCHIVED'
+        | 'ENTITY_STATUS_DRAFT'
+        | 'ENTITY_STATUS_PAUSED'
+        | 'ENTITY_STATUS_SCHEDULED_FOR_DELETION';
       /** Output only. Details of an [in-stream ad skippable after 5 seconds](//support.google.com/displayvideo/answer/6274216), used for brand awareness or reach marketing objectives. */
       inStreamAd?: InStreamAd;
       /** Output only. Details of an [ad served on the YouTube Home feed](//support.google.com/google-ads/answer/9709826). */
@@ -122,49 +189,145 @@ declare namespace gapi.client {
     }
     interface AdGroupInventoryControl {
       /** The inventory strategy. */
-      adGroupInventoryStrategy?: string;
+      adGroupInventoryStrategy?:
+        | 'AD_GROUP_INVENTORY_STRATEGY_UNSPECIFIED'
+        | 'AD_GROUP_INVENTORY_STRATEGY_ALL_GOOGLE_AND_DISPLAY_NETWORK_INVENTORY'
+        | 'AD_GROUP_INVENTORY_STRATEGY_ALL_GOOGLE_INVENTORY';
       /** The selected inventories. */
       selectedInventories?: SelectedInventories;
     }
     interface Adloox {
       /** Optional. Adult and Explicit Sexual Content [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to exclude. */
-      adultExplicitSexualContent?: string;
+      adultExplicitSexualContent?:
+        | 'GARM_RISK_EXCLUSION_UNSPECIFIED'
+        | 'GARM_RISK_EXCLUSION_FLOOR'
+        | 'GARM_RISK_EXCLUSION_HIGH'
+        | 'GARM_RISK_EXCLUSION_MEDIUM'
+        | 'GARM_RISK_EXCLUSION_LOW';
       /** Optional. Arms and Ammunition Content [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to exclude. */
-      armsAmmunitionContent?: string;
+      armsAmmunitionContent?:
+        | 'GARM_RISK_EXCLUSION_UNSPECIFIED'
+        | 'GARM_RISK_EXCLUSION_FLOOR'
+        | 'GARM_RISK_EXCLUSION_HIGH'
+        | 'GARM_RISK_EXCLUSION_MEDIUM'
+        | 'GARM_RISK_EXCLUSION_LOW';
       /** Optional. Crime and Harmful Acts Content [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to exclude. */
-      crimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent?: string;
+      crimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent?:
+        | 'GARM_RISK_EXCLUSION_UNSPECIFIED'
+        | 'GARM_RISK_EXCLUSION_FLOOR'
+        | 'GARM_RISK_EXCLUSION_HIGH'
+        | 'GARM_RISK_EXCLUSION_MEDIUM'
+        | 'GARM_RISK_EXCLUSION_LOW';
       /** Optional. Death, Injury, or Military Conflict Content [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to exclude. */
-      deathInjuryMilitaryConflictContent?: string;
+      deathInjuryMilitaryConflictContent?:
+        | 'GARM_RISK_EXCLUSION_UNSPECIFIED'
+        | 'GARM_RISK_EXCLUSION_FLOOR'
+        | 'GARM_RISK_EXCLUSION_HIGH'
+        | 'GARM_RISK_EXCLUSION_MEDIUM'
+        | 'GARM_RISK_EXCLUSION_LOW';
       /** Optional. Debated Sensitive Social Issue Content [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to exclude. */
-      debatedSensitiveSocialIssueContent?: string;
+      debatedSensitiveSocialIssueContent?:
+        | 'GARM_RISK_EXCLUSION_UNSPECIFIED'
+        | 'GARM_RISK_EXCLUSION_FLOOR'
+        | 'GARM_RISK_EXCLUSION_HIGH'
+        | 'GARM_RISK_EXCLUSION_MEDIUM'
+        | 'GARM_RISK_EXCLUSION_LOW';
       /** Optional. IAB viewability threshold for display ads. */
-      displayIabViewability?: string;
+      displayIabViewability?:
+        | 'DISPLAY_IAB_VIEWABILITY_UNSPECIFIED'
+        | 'DISPLAY_IAB_VIEWABILITY_10'
+        | 'DISPLAY_IAB_VIEWABILITY_20'
+        | 'DISPLAY_IAB_VIEWABILITY_35'
+        | 'DISPLAY_IAB_VIEWABILITY_50'
+        | 'DISPLAY_IAB_VIEWABILITY_75';
       /** Scope3 categories to exclude. */
-      excludedAdlooxCategories?: string[];
+      excludedAdlooxCategories?:
+        | 'ADLOOX_UNSPECIFIED'
+        | 'ADULT_CONTENT_HARD'
+        | 'ADULT_CONTENT_SOFT'
+        | 'ILLEGAL_CONTENT'
+        | 'BORDERLINE_CONTENT'
+        | 'DISCRIMINATORY_CONTENT'
+        | 'VIOLENT_CONTENT_WEAPONS'
+        | 'LOW_VIEWABILITY_DOMAINS'
+        | 'FRAUD'[];
       /** Optional. Scope3's fraud IVT MFA categories to exclude. */
-      excludedFraudIvtMfaCategories?: string[];
+      excludedFraudIvtMfaCategories?:
+        | 'FRAUD_IVT_MFA_CATEGORY_UNSPECIFIED'
+        | 'FRAUD_IVT_MFA'[];
       /** Optional. Hate Speech and Acts of Aggression Content [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to exclude. */
-      hateSpeechActsAggressionContent?: string;
+      hateSpeechActsAggressionContent?:
+        | 'GARM_RISK_EXCLUSION_UNSPECIFIED'
+        | 'GARM_RISK_EXCLUSION_FLOOR'
+        | 'GARM_RISK_EXCLUSION_HIGH'
+        | 'GARM_RISK_EXCLUSION_MEDIUM'
+        | 'GARM_RISK_EXCLUSION_LOW';
       /** Optional. Illegal Drugs/Alcohol Content [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to exclude. */
-      illegalDrugsTobaccoEcigarettesVapingAlcoholContent?: string;
+      illegalDrugsTobaccoEcigarettesVapingAlcoholContent?:
+        | 'GARM_RISK_EXCLUSION_UNSPECIFIED'
+        | 'GARM_RISK_EXCLUSION_FLOOR'
+        | 'GARM_RISK_EXCLUSION_HIGH'
+        | 'GARM_RISK_EXCLUSION_MEDIUM'
+        | 'GARM_RISK_EXCLUSION_LOW';
       /** Optional. Misinformation Content [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to exclude. */
-      misinformationContent?: string;
+      misinformationContent?:
+        | 'GARM_RISK_EXCLUSION_UNSPECIFIED'
+        | 'GARM_RISK_EXCLUSION_FLOOR'
+        | 'GARM_RISK_EXCLUSION_HIGH'
+        | 'GARM_RISK_EXCLUSION_MEDIUM'
+        | 'GARM_RISK_EXCLUSION_LOW';
       /** Optional. Obscenity and Profanity Content [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to exclude. */
-      obscenityProfanityContent?: string;
+      obscenityProfanityContent?:
+        | 'GARM_RISK_EXCLUSION_UNSPECIFIED'
+        | 'GARM_RISK_EXCLUSION_FLOOR'
+        | 'GARM_RISK_EXCLUSION_HIGH'
+        | 'GARM_RISK_EXCLUSION_MEDIUM'
+        | 'GARM_RISK_EXCLUSION_LOW';
       /** Optional. Online Piracy Content [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to exclude. */
-      onlinePiracyContent?: string;
+      onlinePiracyContent?:
+        | 'GARM_RISK_EXCLUSION_UNSPECIFIED'
+        | 'GARM_RISK_EXCLUSION_FLOOR'
+        | 'GARM_RISK_EXCLUSION_HIGH'
+        | 'GARM_RISK_EXCLUSION_MEDIUM'
+        | 'GARM_RISK_EXCLUSION_LOW';
       /** Optional. Spam or Harmful Content [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to exclude. */
-      spamHarmfulContent?: string;
+      spamHarmfulContent?:
+        | 'GARM_RISK_EXCLUSION_UNSPECIFIED'
+        | 'GARM_RISK_EXCLUSION_FLOOR'
+        | 'GARM_RISK_EXCLUSION_HIGH'
+        | 'GARM_RISK_EXCLUSION_MEDIUM'
+        | 'GARM_RISK_EXCLUSION_LOW';
       /** Optional. Terrorism Content [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to exclude. */
-      terrorismContent?: string;
+      terrorismContent?:
+        | 'GARM_RISK_EXCLUSION_UNSPECIFIED'
+        | 'GARM_RISK_EXCLUSION_FLOOR'
+        | 'GARM_RISK_EXCLUSION_HIGH'
+        | 'GARM_RISK_EXCLUSION_MEDIUM'
+        | 'GARM_RISK_EXCLUSION_LOW';
       /** Optional. IAB viewability threshold for video ads. */
-      videoIabViewability?: string;
+      videoIabViewability?:
+        | 'VIDEO_IAB_VIEWABILITY_UNSPECIFIED'
+        | 'VIDEO_IAB_VIEWABILITY_10'
+        | 'VIDEO_IAB_VIEWABILITY_20'
+        | 'VIDEO_IAB_VIEWABILITY_35'
+        | 'VIDEO_IAB_VIEWABILITY_50'
+        | 'VIDEO_IAB_VIEWABILITY_75';
     }
     interface AdPolicy {
       /** The policy approval status of an ad, indicating the approval decision. */
-      adPolicyApprovalStatus?: string;
+      adPolicyApprovalStatus?:
+        | 'AD_POLICY_APPROVAL_STATUS_UNKNOWN'
+        | 'DISAPPROVED'
+        | 'APPROVED_LIMITED'
+        | 'APPROVED'
+        | 'AREA_OF_INTEREST_ONLY';
       /** The policy review status of an ad, indicating where in the review process the ad is currently. */
-      adPolicyReviewStatus?: string;
+      adPolicyReviewStatus?:
+        | 'AD_POLICY_REVIEW_STATUS_UNKNOWN'
+        | 'REVIEW_IN_PROGRESS'
+        | 'REVIEWED'
+        | 'UNDER_APPEAL'
+        | 'ELIGIBLE_MAY_SERVE';
       /** The entries for each policy topic identified as relating to the ad. Each entry includes the topic, restriction level, and guidance on how to fix policy issues. */
       adPolicyTopicEntry?: AdPolicyTopicEntry[];
     }
@@ -178,7 +341,10 @@ declare namespace gapi.client {
       /** Only available when appeal_type is `APPEAL_FORM`. */
       appealFormLink?: string;
       /** Whether the decision can be appealed through a self-service appeal or an appeal form. */
-      appealType?: string;
+      appealType?:
+        | 'AD_POLICY_APPEAL_TYPE_UNKNOWN'
+        | 'SELF_SERVICE_APPEAL'
+        | 'APPEAL_FORM';
     }
     interface AdPolicyTopicConstraint {
       /** Countries where the resource's domain is not covered by the certificates associated with it. */
@@ -209,9 +375,15 @@ declare namespace gapi.client {
       /** Ad policy help center link for the policy topic. */
       helpCenterLink?: string;
       /** The source of the policy decision. */
-      policyDecisionType?: string;
+      policyDecisionType?:
+        | 'AD_POLICY_DECISION_TYPE_UNKNOWN'
+        | 'PURSUANT_TO_NOTICE'
+        | 'GOOGLE_INVESTIGATION';
       /** The policy enforcement means used in the policy review. */
-      policyEnforcementMeans?: string;
+      policyEnforcementMeans?:
+        | 'AD_POLICY_ENFORCEMENT_MEANS_UNKNOWN'
+        | 'AUTOMATED'
+        | 'HUMAN_REVIEW';
       /** Localized label text for policy. Examples include "Trademarks in text", "Contains Alcohol", etc. */
       policyLabel?: string;
       /** The policy topic. Examples include "TRADEMARKS", "ALCOHOL", etc. */
@@ -223,7 +395,14 @@ declare namespace gapi.client {
       /** The evidence used in the policy decision. */
       policyTopicEvidences?: AdPolicyTopicEvidence[];
       /** How ad serving will be affected due to the relation to the ad policy topic. */
-      policyTopicType?: string;
+      policyTopicType?:
+        | 'AD_POLICY_TOPIC_ENTRY_TYPE_UNKNOWN'
+        | 'PROHIBITED'
+        | 'FULLY_LIMITED'
+        | 'LIMITED'
+        | 'DESCRIPTIVE'
+        | 'BROADENING'
+        | 'AREA_OF_INTEREST_ONLY';
     }
     interface AdPolicyTopicEvidence {
       /** Counterfeit enforcement that caused a policy violation. */
@@ -255,13 +434,26 @@ declare namespace gapi.client {
     }
     interface AdPolicyTopicEvidenceDestinationMismatch {
       /** The set of URLs that do not match. The list can include single or multiple uri types. Example 1: [`DISPLAY_URL`, `FINAL_URL`] means ad display URL does not match with the ad final URL. Example 2: [`FINAL_URL`] means ad final URL did not match the crawled url, which is also considered as destination mismatch. */
-      uriTypes?: string[];
+      uriTypes?:
+        | 'AD_POLICY_TOPIC_EVIDENCE_DESTINATION_MISMATCH_URL_TYPE_UNKNOWN'
+        | 'DISPLAY_URL'
+        | 'FINAL_URL'
+        | 'FINAL_MOBILE_URL'
+        | 'TRACKING_URL'
+        | 'MOBILE_TRACKING_URL'[];
     }
     interface AdPolicyTopicEvidenceDestinationNotWorking {
       /** The device where visiting the URL resulted in the error. */
-      device?: string;
+      device?:
+        | 'AD_POLICY_TOPIC_EVIDENCE_DESTINATION_NOT_WORKING_DEVICE_TYPE_UNKNOWN'
+        | 'DESKTOP'
+        | 'ANDROID'
+        | 'IOS';
       /** The type of DNS error. */
-      dnsErrorType?: string;
+      dnsErrorType?:
+        | 'AD_POLICY_TOPIC_EVIDENCE_DESTINATION_NOT_WORKING_DNS_ERROR_TYPE_UNKNOWN'
+        | 'HOSTNAME_NOT_FOUND'
+        | 'GOOGLE_CRAWLER_DNS_ISSUE';
       /** The full URL that didn't work. */
       expandedUri?: string;
       /** The HTTP error code. */
@@ -275,7 +467,11 @@ declare namespace gapi.client {
     }
     interface AdPolicyTopicEvidenceLegalRemoval {
       /** The type of complaint causing the legal removal. */
-      complaintType?: string;
+      complaintType?:
+        | 'AD_POLICY_TOPIC_EVIDENCE_LEGAL_REMOVAL_COMPLAINT_TYPE_UNKNOWN'
+        | 'COPYRIGHT'
+        | 'COURT_ORDER'
+        | 'LOCAL_LEGAL';
       /** The countries restricted due to the legal removal. */
       countryRestrictions?: AdPolicyCriterionRestriction[];
       /** Details on the DMCA regulation legal removal. */
@@ -321,7 +517,12 @@ declare namespace gapi.client {
     }
     interface AdUrl {
       /** The type of the Ad URL. */
-      type?: string;
+      type?:
+        | 'AD_URL_TYPE_UNSPECIFIED'
+        | 'AD_URL_TYPE_BEACON_IMPRESSION'
+        | 'AD_URL_TYPE_BEACON_EXPANDABLE_DCM_IMPRESSION'
+        | 'AD_URL_TYPE_BEACON_CLICK'
+        | 'AD_URL_TYPE_BEACON_SKIP';
       /** The URL string value. */
       url?: string;
     }
@@ -333,7 +534,10 @@ declare namespace gapi.client {
       /** Required. Billing related settings of the advertiser. */
       billingConfig?: AdvertiserBillingConfig;
       /** Optional. Whether this advertiser contains line items that serve European Union political ads. If this field is set to `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING`, then the following will happen: * Any new line items created under this advertiser will be assigned `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` if not otherwise specified. * Any existing line items under this advertiser that do not have a set value be updated to `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` within a day. */
-      containsEuPoliticalAds?: string;
+      containsEuPoliticalAds?:
+        | 'EU_POLITICAL_ADVERTISING_STATUS_UNKNOWN'
+        | 'CONTAINS_EU_POLITICAL_ADVERTISING'
+        | 'DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING';
       /** Required. Creative related settings of the advertiser. */
       creativeConfig?: AdvertiserCreativeConfig;
       /** Settings that control how advertiser data may be accessed. */
@@ -341,7 +545,13 @@ declare namespace gapi.client {
       /** Required. The display name of the advertiser. Must be UTF-8 encoded with a maximum size of 240 bytes. */
       displayName?: string;
       /** Required. Controls whether or not insertion orders and line items of the advertiser can spend their budgets and bid on inventory. * Accepted values are `ENTITY_STATUS_ACTIVE`, `ENTITY_STATUS_PAUSED` and `ENTITY_STATUS_SCHEDULED_FOR_DELETION`. * If set to `ENTITY_STATUS_SCHEDULED_FOR_DELETION`, the advertiser will be deleted 30 days from when it was first scheduled for deletion. */
-      entityStatus?: string;
+      entityStatus?:
+        | 'ENTITY_STATUS_UNSPECIFIED'
+        | 'ENTITY_STATUS_ACTIVE'
+        | 'ENTITY_STATUS_ARCHIVED'
+        | 'ENTITY_STATUS_DRAFT'
+        | 'ENTITY_STATUS_PAUSED'
+        | 'ENTITY_STATUS_SCHEDULED_FOR_DELETION';
       /** Required. General settings of the advertiser. */
       generalConfig?: AdvertiserGeneralConfig;
       /** Integration details of the advertiser. Only integrationCode is currently applicable to advertiser. Other fields of IntegrationDetails are not supported and will be ignored if provided. */
@@ -401,11 +611,47 @@ declare namespace gapi.client {
     }
     interface AgeRangeAssignedTargetingOptionDetails {
       /** Required. The age range of an audience. We only support targeting a continuous age range of an audience. Thus, the age range represented in this field can be 1) targeted solely, or, 2) part of a larger continuous age range. The reach of a continuous age range targeting can be expanded by also targeting an audience of an unknown age. */
-      ageRange?: string;
+      ageRange?:
+        | 'AGE_RANGE_UNSPECIFIED'
+        | 'AGE_RANGE_18_24'
+        | 'AGE_RANGE_25_34'
+        | 'AGE_RANGE_35_44'
+        | 'AGE_RANGE_45_54'
+        | 'AGE_RANGE_55_64'
+        | 'AGE_RANGE_65_PLUS'
+        | 'AGE_RANGE_UNKNOWN'
+        | 'AGE_RANGE_18_20'
+        | 'AGE_RANGE_21_24'
+        | 'AGE_RANGE_25_29'
+        | 'AGE_RANGE_30_34'
+        | 'AGE_RANGE_35_39'
+        | 'AGE_RANGE_40_44'
+        | 'AGE_RANGE_45_49'
+        | 'AGE_RANGE_50_54'
+        | 'AGE_RANGE_55_59'
+        | 'AGE_RANGE_60_64';
     }
     interface AgeRangeTargetingOptionDetails {
       /** Output only. The age range of an audience. */
-      ageRange?: string;
+      ageRange?:
+        | 'AGE_RANGE_UNSPECIFIED'
+        | 'AGE_RANGE_18_24'
+        | 'AGE_RANGE_25_34'
+        | 'AGE_RANGE_35_44'
+        | 'AGE_RANGE_45_54'
+        | 'AGE_RANGE_55_64'
+        | 'AGE_RANGE_65_PLUS'
+        | 'AGE_RANGE_UNKNOWN'
+        | 'AGE_RANGE_18_20'
+        | 'AGE_RANGE_21_24'
+        | 'AGE_RANGE_25_29'
+        | 'AGE_RANGE_30_34'
+        | 'AGE_RANGE_35_39'
+        | 'AGE_RANGE_40_44'
+        | 'AGE_RANGE_45_49'
+        | 'AGE_RANGE_50_54'
+        | 'AGE_RANGE_55_59'
+        | 'AGE_RANGE_60_64';
     }
     interface AlgorithmRules {
       /** Attribution model for the algorithm. This field is only supported for allowlisted partners. */
@@ -419,37 +665,166 @@ declare namespace gapi.client {
       /** Boolean value. */
       boolValue?: boolean;
       /** Video content duration value. */
-      contentDurationValue?: string;
+      contentDurationValue?:
+        | 'CONTENT_DURATION_UNSPECIFIED'
+        | 'CONTENT_DURATION_UNKNOWN'
+        | 'CONTENT_DURATION_0_TO_1_MIN'
+        | 'CONTENT_DURATION_1_TO_5_MIN'
+        | 'CONTENT_DURATION_5_TO_15_MIN'
+        | 'CONTENT_DURATION_15_TO_30_MIN'
+        | 'CONTENT_DURATION_30_TO_60_MIN'
+        | 'CONTENT_DURATION_OVER_60_MIN';
       /** Video genre id value. */
       contentGenreIdValue?: string;
       /** Video delivery type value. */
-      contentStreamTypeValue?: string;
+      contentStreamTypeValue?:
+        | 'CONTENT_STREAM_TYPE_UNSPECIFIED'
+        | 'CONTENT_LIVE_STREAM'
+        | 'CONTENT_ON_DEMAND';
       /** Creative dimension value. */
       creativeDimensionValue?: Dimensions;
       /** Day and time value. Only `TIME_ZONE_RESOLUTION_END_USER` is supported. */
       dayAndTimeValue?: DayAndTime;
       /** Device type value. */
-      deviceTypeValue?: string;
+      deviceTypeValue?:
+        | 'RULE_DEVICE_TYPE_UNSPECIFIED'
+        | 'RULE_DEVICE_TYPE_COMPUTER'
+        | 'RULE_DEVICE_TYPE_CONNECTED_TV'
+        | 'RULE_DEVICE_TYPE_SMART_PHONE'
+        | 'RULE_DEVICE_TYPE_TABLET'
+        | 'RULE_DEVICE_TYPE_CONNECTED_DEVICE'
+        | 'RULE_DEVICE_TYPE_SET_TOP_BOX';
       /** Double value. */
       doubleValue?: number;
       /** Environment value. */
-      environmentValue?: string;
+      environmentValue?:
+        | 'ENVIRONMENT_UNSPECIFIED'
+        | 'ENVIRONMENT_WEB_OPTIMIZED'
+        | 'ENVIRONMENT_WEB_NOT_OPTIMIZED'
+        | 'ENVIRONMENT_APP';
       /** Exchange value. */
-      exchangeValue?: string;
+      exchangeValue?:
+        | 'EXCHANGE_UNSPECIFIED'
+        | 'EXCHANGE_GOOGLE_AD_MANAGER'
+        | 'EXCHANGE_APPNEXUS'
+        | 'EXCHANGE_BRIGHTROLL'
+        | 'EXCHANGE_ADFORM'
+        | 'EXCHANGE_ADMETA'
+        | 'EXCHANGE_ADMIXER'
+        | 'EXCHANGE_ADSMOGO'
+        | 'EXCHANGE_ADSWIZZ'
+        | 'EXCHANGE_BIDSWITCH'
+        | 'EXCHANGE_BRIGHTROLL_DISPLAY'
+        | 'EXCHANGE_CADREON'
+        | 'EXCHANGE_DAILYMOTION'
+        | 'EXCHANGE_FIVE'
+        | 'EXCHANGE_FLUCT'
+        | 'EXCHANGE_FREEWHEEL'
+        | 'EXCHANGE_GENIEE'
+        | 'EXCHANGE_GUMGUM'
+        | 'EXCHANGE_IMOBILE'
+        | 'EXCHANGE_IBILLBOARD'
+        | 'EXCHANGE_IMPROVE_DIGITAL'
+        | 'EXCHANGE_INDEX'
+        | 'EXCHANGE_KARGO'
+        | 'EXCHANGE_MICROAD'
+        | 'EXCHANGE_MOPUB'
+        | 'EXCHANGE_NEND'
+        | 'EXCHANGE_ONE_BY_AOL_DISPLAY'
+        | 'EXCHANGE_ONE_BY_AOL_MOBILE'
+        | 'EXCHANGE_ONE_BY_AOL_VIDEO'
+        | 'EXCHANGE_OOYALA'
+        | 'EXCHANGE_OPENX'
+        | 'EXCHANGE_PERMODO'
+        | 'EXCHANGE_PLATFORMONE'
+        | 'EXCHANGE_PLATFORMID'
+        | 'EXCHANGE_PUBMATIC'
+        | 'EXCHANGE_PULSEPOINT'
+        | 'EXCHANGE_REVENUEMAX'
+        | 'EXCHANGE_RUBICON'
+        | 'EXCHANGE_SMARTCLIP'
+        | 'EXCHANGE_SMARTRTB'
+        | 'EXCHANGE_SMARTSTREAMTV'
+        | 'EXCHANGE_SOVRN'
+        | 'EXCHANGE_SPOTXCHANGE'
+        | 'EXCHANGE_STROER'
+        | 'EXCHANGE_TEADSTV'
+        | 'EXCHANGE_TELARIA'
+        | 'EXCHANGE_TVN'
+        | 'EXCHANGE_UNITED'
+        | 'EXCHANGE_YIELDLAB'
+        | 'EXCHANGE_YIELDMO'
+        | 'EXCHANGE_UNRULYX'
+        | 'EXCHANGE_OPEN8'
+        | 'EXCHANGE_TRITON'
+        | 'EXCHANGE_TRIPLELIFT'
+        | 'EXCHANGE_TABOOLA'
+        | 'EXCHANGE_INMOBI'
+        | 'EXCHANGE_SMAATO'
+        | 'EXCHANGE_AJA'
+        | 'EXCHANGE_SUPERSHIP'
+        | 'EXCHANGE_NEXSTAR_DIGITAL'
+        | 'EXCHANGE_WAZE'
+        | 'EXCHANGE_SOUNDCAST'
+        | 'EXCHANGE_SHARETHROUGH'
+        | 'EXCHANGE_FYBER'
+        | 'EXCHANGE_RED_FOR_PUBLISHERS'
+        | 'EXCHANGE_MEDIANET'
+        | 'EXCHANGE_TAPJOY'
+        | 'EXCHANGE_VISTAR'
+        | 'EXCHANGE_DAX'
+        | 'EXCHANGE_JCD'
+        | 'EXCHANGE_PLACE_EXCHANGE'
+        | 'EXCHANGE_APPLOVIN'
+        | 'EXCHANGE_CONNATIX'
+        | 'EXCHANGE_RESET_DIGITAL'
+        | 'EXCHANGE_HIVESTACK'
+        | 'EXCHANGE_DRAX'
+        | 'EXCHANGE_APPLOVIN_GBID'
+        | 'EXCHANGE_FYBER_GBID'
+        | 'EXCHANGE_UNITY_GBID'
+        | 'EXCHANGE_CHARTBOOST_GBID'
+        | 'EXCHANGE_ADMOST_GBID'
+        | 'EXCHANGE_TOPON_GBID'
+        | 'EXCHANGE_NETFLIX'
+        | 'EXCHANGE_CORE'
+        | 'EXCHANGE_COMMERCE_GRID'
+        | 'EXCHANGE_SPOTIFY'
+        | 'EXCHANGE_TUBI'
+        | 'EXCHANGE_SNAP'
+        | 'EXCHANGE_CADENT';
       /** Integer value. */
       int64Value?: string;
       /** Ad position value. */
-      onScreenPositionValue?: string;
+      onScreenPositionValue?:
+        | 'ON_SCREEN_POSITION_UNSPECIFIED'
+        | 'ON_SCREEN_POSITION_UNKNOWN'
+        | 'ON_SCREEN_POSITION_ABOVE_THE_FOLD'
+        | 'ON_SCREEN_POSITION_BELOW_THE_FOLD';
       /** String value. */
       stringValue?: string;
       /** Video player size value. This field is only supported for allowlisted partners. */
-      videoPlayerSizeValue?: string;
+      videoPlayerSizeValue?:
+        | 'VIDEO_PLAYER_SIZE_UNSPECIFIED'
+        | 'VIDEO_PLAYER_SIZE_SMALL'
+        | 'VIDEO_PLAYER_SIZE_LARGE'
+        | 'VIDEO_PLAYER_SIZE_HD'
+        | 'VIDEO_PLAYER_SIZE_UNKNOWN';
     }
     interface AlgorithmRulesFloodlightActivityConversionSignal {
       /** Required. The type of conversions to be used in impression value computation, for example, post-click conversions. */
-      conversionCounting?: string;
+      conversionCounting?:
+        | 'CONVERSION_COUNTING_UNSPECIFIED'
+        | 'ALL_CONVERSIONS'
+        | 'POST_CLICK'
+        | 'POST_VIEW';
       /** Required. The way to acquire value from the floodlight activity, for example, count of the conversion. */
-      countingMethod?: string;
+      countingMethod?:
+        | 'COUNTING_METHOD_UNSPECIFIED'
+        | 'CONVERSIONS_COUNT'
+        | 'SALES_QUANTITY'
+        | 'SALES_VALUE'
+        | 'UNIQUE_COUNT';
       /** Required. Id of the floodlight activity. */
       floodlightActivityId?: string;
     }
@@ -467,7 +842,11 @@ declare namespace gapi.client {
     }
     interface AlgorithmRulesRuleset {
       /** How to aggregate values of evaluated rules. */
-      aggregationType?: string;
+      aggregationType?:
+        | 'RULE_AGGREGATION_TYPE_UNSPECIFIED'
+        | 'SUM_OF_VALUES'
+        | 'PRODUCT_OF_VALUES'
+        | 'MAXIMUM_VALUE';
       /** Maximum value the ruleset can evaluate to. */
       maxValue?: number;
       /** List of rules to generate the impression value. */
@@ -475,15 +854,44 @@ declare namespace gapi.client {
     }
     interface AlgorithmRulesSignal {
       /** Signal based on active views. This field is only supported for allowlisted partners. */
-      activeViewSignal?: string;
+      activeViewSignal?:
+        | 'ACTIVE_VIEW_SIGNAL_UNSPECIFIED'
+        | 'ACTIVE_VIEW_VIEWED'
+        | 'AUDIBLE'
+        | 'VIDEO_COMPLETED'
+        | 'TIME_ON_SCREEN'
+        | 'VIDEO_PLAYER_SIZE'
+        | 'COMPLETED_IN_VIEW_AUDIBLE';
       /** Signal based on clicks. This field is only supported for allowlisted partners. */
-      clickSignal?: string;
+      clickSignal?: 'CLICK_SIGNAL_UNSPECIFIED' | 'CLICK';
       /** Signal based on impressions. */
-      impressionSignal?: string;
+      impressionSignal?:
+        | 'IMPRESSION_SIGNAL_UNSPECIFIED'
+        | 'DAY_AND_TIME'
+        | 'DEVICE_TYPE'
+        | 'AD_POSITION'
+        | 'OPERATING_SYSTEM_ID'
+        | 'MOBILE_MODEL_ID'
+        | 'EXCHANGE'
+        | 'ENVIRONMENT'
+        | 'COUNTRY_ID'
+        | 'CITY_ID'
+        | 'BROWSER_ID'
+        | 'CREATIVE_DIMENSION'
+        | 'VIDEO_CONTENT_DURATION_BUCKET'
+        | 'VIDEO_DELIVERY_TYPE'
+        | 'VIDEO_GENRE_ID';
     }
     interface AlgorithmRulesSignalComparison {
       /** Operator used to compare the two values. In the resulting experession, the `signal` will be the first value and the `comparisonValue will be the second. */
-      comparisonOperator?: string;
+      comparisonOperator?:
+        | 'COMPARISON_OPERATOR_UNSPECIFIED'
+        | 'EQUAL'
+        | 'GREATER_THAN'
+        | 'LESS_THAN'
+        | 'GREATER_THAN_OR_EQUAL_TO'
+        | 'LESS_THAN_OR_EQUAL_TO'
+        | 'LIST_CONTAINS';
       /** Value to compare signal to. */
       comparisonValue?: AlgorithmRulesComparisonValue;
       /** Signal to compare. */
@@ -491,7 +899,14 @@ declare namespace gapi.client {
     }
     interface AlgorithmRulesSignalValue {
       /** Signal based on active views. Only `TIME_ON_SCREEN` is supported. This field is only supported for allowlisted partners. */
-      activeViewSignal?: string;
+      activeViewSignal?:
+        | 'ACTIVE_VIEW_SIGNAL_UNSPECIFIED'
+        | 'ACTIVE_VIEW_VIEWED'
+        | 'AUDIBLE'
+        | 'VIDEO_COMPLETED'
+        | 'TIME_ON_SCREEN'
+        | 'VIDEO_PLAYER_SIZE'
+        | 'COMPLETED_IN_VIEW_AUDIBLE';
       /** Signal based on floodlight conversion events. This field is only supported for allowlisted partners. */
       floodlightActivityConversionSignal?: AlgorithmRulesFloodlightActivityConversionSignal;
       /** Value to use as result. */
@@ -501,7 +916,21 @@ declare namespace gapi.client {
       /** Required. The ID of the app. Android's Play store app uses bundle ID, for example `com.google.android.gm`. Apple's App store app ID uses 9 digit string, for example `422689480`. */
       appId?: string;
       /** Indicates the platform of the targeted app. If this field is not specified, the app platform will be assumed to be mobile (i.e., Android or iOS), and we will derive the appropriate mobile platform from the app ID. */
-      appPlatform?: string;
+      appPlatform?:
+        | 'APP_PLATFORM_UNSPECIFIED'
+        | 'APP_PLATFORM_IOS'
+        | 'APP_PLATFORM_ANDROID'
+        | 'APP_PLATFORM_ROKU'
+        | 'APP_PLATFORM_AMAZON_FIRETV'
+        | 'APP_PLATFORM_PLAYSTATION'
+        | 'APP_PLATFORM_APPLE_TV'
+        | 'APP_PLATFORM_XBOX'
+        | 'APP_PLATFORM_SAMSUNG_TV'
+        | 'APP_PLATFORM_ANDROID_TV'
+        | 'APP_PLATFORM_GENERIC_CTV'
+        | 'APP_PLATFORM_LG_TV'
+        | 'APP_PLATFORM_VIZIO_TV'
+        | 'APP_PLATFORM_VIDAA';
       /** Output only. The display name of the app. */
       displayName?: string;
       /** Indicates if this option is being negatively targeted. */
@@ -529,7 +958,29 @@ declare namespace gapi.client {
       /** Optional. The associated asset. */
       asset?: Asset;
       /** Optional. The role of this asset for the creative. */
-      role?: string;
+      role?:
+        | 'ASSET_ROLE_UNSPECIFIED'
+        | 'ASSET_ROLE_MAIN'
+        | 'ASSET_ROLE_BACKUP'
+        | 'ASSET_ROLE_POLITE_LOAD'
+        | 'ASSET_ROLE_HEADLINE'
+        | 'ASSET_ROLE_LONG_HEADLINE'
+        | 'ASSET_ROLE_BODY'
+        | 'ASSET_ROLE_LONG_BODY'
+        | 'ASSET_ROLE_CAPTION_URL'
+        | 'ASSET_ROLE_CALL_TO_ACTION'
+        | 'ASSET_ROLE_ADVERTISER_NAME'
+        | 'ASSET_ROLE_PRICE'
+        | 'ASSET_ROLE_ANDROID_APP_ID'
+        | 'ASSET_ROLE_IOS_APP_ID'
+        | 'ASSET_ROLE_RATING'
+        | 'ASSET_ROLE_ICON'
+        | 'ASSET_ROLE_COVER_IMAGE'
+        | 'ASSET_ROLE_BACKGROUND_COLOR'
+        | 'ASSET_ROLE_ACCENT_COLOR'
+        | 'ASSET_ROLE_REQUIRE_LOGO'
+        | 'ASSET_ROLE_REQUIRE_IMAGE'
+        | 'ASSET_ROLE_ENABLE_ASSET_ENHANCEMENTS';
     }
     interface AssignedInventorySource {
       /** Output only. The unique ID of the assigned inventory source. The ID is only unique within a given inventory source group. It may be reused in other contexts. */
@@ -605,7 +1056,11 @@ declare namespace gapi.client {
       /** Household income details. This field will be populated when the targeting_type is `TARGETING_TYPE_HOUSEHOLD_INCOME`. */
       householdIncomeDetails?: HouseholdIncomeAssignedTargetingOptionDetails;
       /** Output only. The inheritance status of the assigned targeting option. */
-      inheritance?: string;
+      inheritance?:
+        | 'INHERITANCE_UNSPECIFIED'
+        | 'NOT_INHERITED'
+        | 'INHERITED_FROM_PARTNER'
+        | 'INHERITED_FROM_ADVERTISER';
       /** Inventory source details. This field will be populated when the targeting_type is `TARGETING_TYPE_INVENTORY_SOURCE`. */
       inventorySourceDetails?: InventorySourceAssignedTargetingOptionDetails;
       /** Inventory source group details. This field will be populated when the targeting_type is `TARGETING_TYPE_INVENTORY_SOURCE_GROUP`. */
@@ -641,7 +1096,57 @@ declare namespace gapi.client {
       /** Sub-exchange details. This field will be populated when the targeting_type is `TARGETING_TYPE_SUB_EXCHANGE`. */
       subExchangeDetails?: SubExchangeAssignedTargetingOptionDetails;
       /** Output only. Identifies the type of this assigned targeting option. */
-      targetingType?: string;
+      targetingType?:
+        | 'TARGETING_TYPE_UNSPECIFIED'
+        | 'TARGETING_TYPE_CHANNEL'
+        | 'TARGETING_TYPE_APP_CATEGORY'
+        | 'TARGETING_TYPE_APP'
+        | 'TARGETING_TYPE_URL'
+        | 'TARGETING_TYPE_DAY_AND_TIME'
+        | 'TARGETING_TYPE_AGE_RANGE'
+        | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+        | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+        | 'TARGETING_TYPE_GENDER'
+        | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+        | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+        | 'TARGETING_TYPE_PARENTAL_STATUS'
+        | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+        | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+        | 'TARGETING_TYPE_DEVICE_TYPE'
+        | 'TARGETING_TYPE_AUDIENCE_GROUP'
+        | 'TARGETING_TYPE_BROWSER'
+        | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+        | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+        | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+        | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+        | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+        | 'TARGETING_TYPE_ENVIRONMENT'
+        | 'TARGETING_TYPE_CARRIER_AND_ISP'
+        | 'TARGETING_TYPE_OPERATING_SYSTEM'
+        | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+        | 'TARGETING_TYPE_KEYWORD'
+        | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+        | 'TARGETING_TYPE_VIEWABILITY'
+        | 'TARGETING_TYPE_CATEGORY'
+        | 'TARGETING_TYPE_INVENTORY_SOURCE'
+        | 'TARGETING_TYPE_LANGUAGE'
+        | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+        | 'TARGETING_TYPE_GEO_REGION'
+        | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+        | 'TARGETING_TYPE_EXCHANGE'
+        | 'TARGETING_TYPE_SUB_EXCHANGE'
+        | 'TARGETING_TYPE_POI'
+        | 'TARGETING_TYPE_BUSINESS_CHAIN'
+        | 'TARGETING_TYPE_CONTENT_DURATION'
+        | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+        | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+        | 'TARGETING_TYPE_OMID'
+        | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+        | 'TARGETING_TYPE_CONTENT_GENRE'
+        | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+        | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+        | 'TARGETING_TYPE_SESSION_POSITION'
+        | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
       /** Third party verification details. This field will be populated when the targeting_type is `TARGETING_TYPE_THIRD_PARTY_VERIFIER`. */
       thirdPartyVerifierDetails?: ThirdPartyVerifierAssignedTargetingOptionDetails;
       /** URL details. This field will be populated when the targeting_type is `TARGETING_TYPE_URL`. */
@@ -665,7 +1170,19 @@ declare namespace gapi.client {
       /** The ID of the partner that the assigned user role applies to. */
       partnerId?: string;
       /** Required. The user role to assign to a user for the entity. */
-      userRole?: string;
+      userRole?:
+        | 'USER_ROLE_UNSPECIFIED'
+        | 'ADMIN'
+        | 'ADMIN_PARTNER_CLIENT'
+        | 'STANDARD'
+        | 'STANDARD_PLANNER'
+        | 'STANDARD_PLANNER_LIMITED'
+        | 'STANDARD_PARTNER_CLIENT'
+        | 'READ_ONLY'
+        | 'REPORTING_ONLY'
+        | 'LIMITED_REPORTING_ONLY'
+        | 'CREATIVE'
+        | 'CREATIVE_ADMIN';
     }
     interface AudienceGroupAssignedTargetingOptionDetails {
       /** Optional. The first party and partner audience ids and recencies of the excluded first party and partner audience group. Used for negative targeting. The COMPLEMENT of the UNION of this group and other excluded audience groups is used as an INTERSECTION to any positive audience targeting. All items are logically ‘OR’ of each other. */
@@ -693,11 +1210,21 @@ declare namespace gapi.client {
     }
     interface AudioContentTypeAssignedTargetingOptionDetails {
       /** Required. The audio content type. */
-      audioContentType?: string;
+      audioContentType?:
+        | 'AUDIO_CONTENT_TYPE_UNSPECIFIED'
+        | 'AUDIO_CONTENT_TYPE_UNKNOWN'
+        | 'AUDIO_CONTENT_TYPE_MUSIC'
+        | 'AUDIO_CONTENT_TYPE_BROADCAST'
+        | 'AUDIO_CONTENT_TYPE_PODCAST';
     }
     interface AudioContentTypeTargetingOptionDetails {
       /** Output only. The audio content type. */
-      audioContentType?: string;
+      audioContentType?:
+        | 'AUDIO_CONTENT_TYPE_UNSPECIFIED'
+        | 'AUDIO_CONTENT_TYPE_UNKNOWN'
+        | 'AUDIO_CONTENT_TYPE_MUSIC'
+        | 'AUDIO_CONTENT_TYPE_BROADCAST'
+        | 'AUDIO_CONTENT_TYPE_PODCAST';
     }
     interface AudioVideoOffset {
       /** Optional. The offset in percentage of the audio or video duration. */
@@ -725,13 +1252,19 @@ declare namespace gapi.client {
     }
     interface AuthorizedSellerStatusAssignedTargetingOptionDetails {
       /** Output only. The authorized seller status to target. */
-      authorizedSellerStatus?: string;
+      authorizedSellerStatus?:
+        | 'AUTHORIZED_SELLER_STATUS_UNSPECIFIED'
+        | 'AUTHORIZED_SELLER_STATUS_AUTHORIZED_DIRECT_SELLERS_ONLY'
+        | 'AUTHORIZED_SELLER_STATUS_AUTHORIZED_AND_NON_PARTICIPATING_PUBLISHERS';
       /** Required. The targeting_option_id of a TargetingOption of type `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS`. */
       targetingOptionId?: string;
     }
     interface AuthorizedSellerStatusTargetingOptionDetails {
       /** Output only. The authorized seller status. */
-      authorizedSellerStatus?: string;
+      authorizedSellerStatus?:
+        | 'AUTHORIZED_SELLER_STATUS_UNSPECIFIED'
+        | 'AUTHORIZED_SELLER_STATUS_AUTHORIZED_DIRECT_SELLERS_ONLY'
+        | 'AUTHORIZED_SELLER_STATUS_AUTHORIZED_AND_NON_PARTICIPATING_PUBLISHERS';
     }
     interface BiddingStrategy {
       /** A bid strategy used by Demand Gen resources. It can only be used for a Demand Gen line item or ad group entity. */
@@ -933,7 +1466,10 @@ declare namespace gapi.client {
       /** Required. The radius of the area around the business chain that will be targeted. The units of the radius are specified by proximity_radius_unit. Must be 1 to 800 if unit is `DISTANCE_UNIT_KILOMETERS` and 1 to 500 if unit is `DISTANCE_UNIT_MILES`. The minimum increment for both cases is 0.1. Inputs will be rounded to the nearest acceptable value if it is too granular, e.g. 15.57 will become 15.6. */
       proximityRadiusAmount?: number;
       /** Required. The unit of distance by which the targeting radius is measured. */
-      proximityRadiusUnit?: string;
+      proximityRadiusUnit?:
+        | 'DISTANCE_UNIT_UNSPECIFIED'
+        | 'DISTANCE_UNIT_MILES'
+        | 'DISTANCE_UNIT_KILOMETERS';
       /** Required. The targeting_option_id of a TargetingOption of type `TARGETING_TYPE_BUSINESS_CHAIN`. Accepted business chain targeting option IDs can be retrieved using SearchTargetingOptions. */
       targetingOptionId?: string;
     }
@@ -949,7 +1485,46 @@ declare namespace gapi.client {
       /** Output only. The display name of the geographic region, e.g. "Ontario, Canada". */
       geoRegion?: string;
       /** Output only. The type of the geographic region. */
-      geoRegionType?: string;
+      geoRegionType?:
+        | 'GEO_REGION_TYPE_UNKNOWN'
+        | 'GEO_REGION_TYPE_OTHER'
+        | 'GEO_REGION_TYPE_COUNTRY'
+        | 'GEO_REGION_TYPE_REGION'
+        | 'GEO_REGION_TYPE_TERRITORY'
+        | 'GEO_REGION_TYPE_PROVINCE'
+        | 'GEO_REGION_TYPE_STATE'
+        | 'GEO_REGION_TYPE_PREFECTURE'
+        | 'GEO_REGION_TYPE_GOVERNORATE'
+        | 'GEO_REGION_TYPE_CANTON'
+        | 'GEO_REGION_TYPE_UNION_TERRITORY'
+        | 'GEO_REGION_TYPE_AUTONOMOUS_COMMUNITY'
+        | 'GEO_REGION_TYPE_DMA_REGION'
+        | 'GEO_REGION_TYPE_METRO'
+        | 'GEO_REGION_TYPE_CONGRESSIONAL_DISTRICT'
+        | 'GEO_REGION_TYPE_COUNTY'
+        | 'GEO_REGION_TYPE_MUNICIPALITY'
+        | 'GEO_REGION_TYPE_CITY'
+        | 'GEO_REGION_TYPE_POSTAL_CODE'
+        | 'GEO_REGION_TYPE_DEPARTMENT'
+        | 'GEO_REGION_TYPE_AIRPORT'
+        | 'GEO_REGION_TYPE_TV_REGION'
+        | 'GEO_REGION_TYPE_OKRUG'
+        | 'GEO_REGION_TYPE_BOROUGH'
+        | 'GEO_REGION_TYPE_CITY_REGION'
+        | 'GEO_REGION_TYPE_ARRONDISSEMENT'
+        | 'GEO_REGION_TYPE_NEIGHBORHOOD'
+        | 'GEO_REGION_TYPE_UNIVERSITY'
+        | 'GEO_REGION_TYPE_DISTRICT'
+        | 'GEO_REGION_TYPE_NATIONAL_PARK'
+        | 'GEO_REGION_TYPE_BARRIO'
+        | 'GEO_REGION_TYPE_SUB_WARD'
+        | 'GEO_REGION_TYPE_MUNICIPALITY_DISTRICT'
+        | 'GEO_REGION_TYPE_SUB_DISTRICT'
+        | 'GEO_REGION_TYPE_QUARTER'
+        | 'GEO_REGION_TYPE_DIVISION'
+        | 'GEO_REGION_TYPE_COMMUNE'
+        | 'GEO_REGION_TYPE_COLLOQUIAL_AREA'
+        | 'GEO_REGION_TYPE_POST_TOWN';
     }
     interface Campaign {
       /** Output only. The unique ID of the advertiser the campaign belongs to. */
@@ -965,7 +1540,13 @@ declare namespace gapi.client {
       /** Required. The display name of the campaign. Must be UTF-8 encoded with a maximum size of 240 bytes. */
       displayName?: string;
       /** Required. Controls whether or not the insertion orders under this campaign can spend their budgets and bid on inventory. * Accepted values are `ENTITY_STATUS_ACTIVE`, `ENTITY_STATUS_ARCHIVED`, and `ENTITY_STATUS_PAUSED`. * For CreateCampaign method, `ENTITY_STATUS_ARCHIVED` is not allowed. */
-      entityStatus?: string;
+      entityStatus?:
+        | 'ENTITY_STATUS_UNSPECIFIED'
+        | 'ENTITY_STATUS_ACTIVE'
+        | 'ENTITY_STATUS_ARCHIVED'
+        | 'ENTITY_STATUS_DRAFT'
+        | 'ENTITY_STATUS_PAUSED'
+        | 'ENTITY_STATUS_SCHEDULED_FOR_DELETION';
       /** Required. The frequency cap setting of the campaign. *Warning*: On **February 28, 2025**, frequency cap time periods greater than 30 days will no longer be accepted. [Read more about this announced change](/display-video/api/deprecations#features.lifetime_frequency_cap) */
       frequencyCap?: FrequencyCap;
       /** Output only. The resource name of the campaign. */
@@ -979,7 +1560,10 @@ declare namespace gapi.client {
       /** The unique ID of the campaign budget. Assigned by the system. Do not set for new budgets. Must be included when updating or adding budgets to campaign_budgets. Otherwise, a new ID will be generated and assigned. */
       budgetId?: string;
       /** Required. Immutable. Specifies whether the budget is measured in currency or impressions. */
-      budgetUnit?: string;
+      budgetUnit?:
+        | 'BUDGET_UNIT_UNSPECIFIED'
+        | 'BUDGET_UNIT_CURRENCY'
+        | 'BUDGET_UNIT_IMPRESSIONS';
       /** Required. The date range for the campaign budget. Linked budget segments may have a different date range. They are resolved relative to the parent advertiser's time zone. Both `start_date` and `end_date` must be before the year 2037. */
       dateRange?: DateRange;
       /** Required. The display name of the budget. Must be UTF-8 encoded with a maximum size of 240 bytes. */
@@ -987,7 +1571,10 @@ declare namespace gapi.client {
       /** Immutable. The ID identifying this budget to the external source. If this field is set and the invoice detail level of the corresponding billing profile is set to "Budget level PO", all impressions served against this budget will include this ID on the invoice. Must be unique under the campaign. */
       externalBudgetId?: string;
       /** Required. The external source of the budget. */
-      externalBudgetSource?: string;
+      externalBudgetSource?:
+        | 'EXTERNAL_BUDGET_SOURCE_UNSPECIFIED'
+        | 'EXTERNAL_BUDGET_SOURCE_NONE'
+        | 'EXTERNAL_BUDGET_SOURCE_MEDIA_OCEAN';
       /** Immutable. The ID used to group budgets to be included the same invoice. If this field is set and the invoice level of the corresponding billing profile is set to "Budget invoice grouping ID", all external_budget_id sharing the same invoice_grouping_id will be grouped in the same invoice. */
       invoiceGroupingId?: string;
       /** Additional metadata for use by the Mediaocean Prisma tool. Required for Mediaocean budgets. Only applicable to prisma_enabled advertisers. */
@@ -1001,7 +1588,12 @@ declare namespace gapi.client {
     }
     interface CampaignGoal {
       /** Required. The type of the campaign goal. */
-      campaignGoalType?: string;
+      campaignGoalType?:
+        | 'CAMPAIGN_GOAL_TYPE_UNSPECIFIED'
+        | 'CAMPAIGN_GOAL_TYPE_APP_INSTALL'
+        | 'CAMPAIGN_GOAL_TYPE_BRAND_AWARENESS'
+        | 'CAMPAIGN_GOAL_TYPE_OFFLINE_ACTION'
+        | 'CAMPAIGN_GOAL_TYPE_ONLINE_ACTION';
       /** Required. The performance goal of the campaign. Acceptable values for performance_goal_type are: * `PERFORMANCE_GOAL_TYPE_CPM` * `PERFORMANCE_GOAL_TYPE_CPC` * `PERFORMANCE_GOAL_TYPE_CPA` * `PERFORMANCE_GOAL_TYPE_CPIAVC` * `PERFORMANCE_GOAL_TYPE_CTR` * `PERFORMANCE_GOAL_TYPE_VIEWABILITY` * `PERFORMANCE_GOAL_TYPE_OTHER` */
       performanceGoal?: PerformanceGoal;
     }
@@ -1033,7 +1625,10 @@ declare namespace gapi.client {
       /** Output only. The display name of the carrier or ISP. */
       displayName?: string;
       /** Output only. The type indicating if it's carrier or ISP. */
-      type?: string;
+      type?:
+        | 'CARRIER_AND_ISP_TYPE_UNSPECIFIED'
+        | 'CARRIER_AND_ISP_TYPE_ISP'
+        | 'CARRIER_AND_ISP_TYPE_CARRIER';
     }
     interface CategoryAssignedTargetingOptionDetails {
       /** Output only. The display name of the category. */
@@ -1127,9 +1722,15 @@ declare namespace gapi.client {
     }
     interface Consent {
       /** Represents consent for ad personalization. */
-      adPersonalization?: string;
+      adPersonalization?:
+        | 'CONSENT_STATUS_UNSPECIFIED'
+        | 'CONSENT_STATUS_GRANTED'
+        | 'CONSENT_STATUS_DENIED';
       /** Represents consent for ad user data. */
-      adUserData?: string;
+      adUserData?:
+        | 'CONSENT_STATUS_UNSPECIFIED'
+        | 'CONSENT_STATUS_GRANTED'
+        | 'CONSENT_STATUS_DENIED';
     }
     interface ContactInfo {
       /** Country code of the member. Must also be set with the following fields: * hashed_first_name * hashed_last_name * zip_codes */
@@ -1153,13 +1754,29 @@ declare namespace gapi.client {
     }
     interface ContentDurationAssignedTargetingOptionDetails {
       /** Output only. The content duration. */
-      contentDuration?: string;
+      contentDuration?:
+        | 'CONTENT_DURATION_UNSPECIFIED'
+        | 'CONTENT_DURATION_UNKNOWN'
+        | 'CONTENT_DURATION_0_TO_1_MIN'
+        | 'CONTENT_DURATION_1_TO_5_MIN'
+        | 'CONTENT_DURATION_5_TO_15_MIN'
+        | 'CONTENT_DURATION_15_TO_30_MIN'
+        | 'CONTENT_DURATION_30_TO_60_MIN'
+        | 'CONTENT_DURATION_OVER_60_MIN';
       /** Required. The targeting_option_id field when targeting_type is `TARGETING_TYPE_CONTENT_DURATION`. */
       targetingOptionId?: string;
     }
     interface ContentDurationTargetingOptionDetails {
       /** Output only. The content duration. */
-      contentDuration?: string;
+      contentDuration?:
+        | 'CONTENT_DURATION_UNSPECIFIED'
+        | 'CONTENT_DURATION_UNKNOWN'
+        | 'CONTENT_DURATION_0_TO_1_MIN'
+        | 'CONTENT_DURATION_1_TO_5_MIN'
+        | 'CONTENT_DURATION_5_TO_15_MIN'
+        | 'CONTENT_DURATION_15_TO_30_MIN'
+        | 'CONTENT_DURATION_30_TO_60_MIN'
+        | 'CONTENT_DURATION_OVER_60_MIN';
     }
     interface ContentGenreAssignedTargetingOptionDetails {
       /** Output only. The display name of the content genre. */
@@ -1175,45 +1792,111 @@ declare namespace gapi.client {
     }
     interface ContentInstreamPositionAssignedTargetingOptionDetails {
       /** Output only. The ad type to target. Only applicable to insertion order targeting and new line items supporting the specified ad type will inherit this targeting option by default. Possible values are: * `AD_TYPE_VIDEO`, the setting will be inherited by new line item when line_item_type is `LINE_ITEM_TYPE_VIDEO_DEFAULT`. * `AD_TYPE_AUDIO`, the setting will be inherited by new line item when line_item_type is `LINE_ITEM_TYPE_AUDIO_DEFAULT`. */
-      adType?: string;
+      adType?:
+        | 'AD_TYPE_UNSPECIFIED'
+        | 'AD_TYPE_DISPLAY'
+        | 'AD_TYPE_VIDEO'
+        | 'AD_TYPE_AUDIO';
       /** Required. The content instream position for video or audio ads. */
-      contentInstreamPosition?: string;
+      contentInstreamPosition?:
+        | 'CONTENT_INSTREAM_POSITION_UNSPECIFIED'
+        | 'CONTENT_INSTREAM_POSITION_PRE_ROLL'
+        | 'CONTENT_INSTREAM_POSITION_MID_ROLL'
+        | 'CONTENT_INSTREAM_POSITION_POST_ROLL'
+        | 'CONTENT_INSTREAM_POSITION_UNKNOWN';
     }
     interface ContentInstreamPositionTargetingOptionDetails {
       /** Output only. The content instream position. */
-      contentInstreamPosition?: string;
+      contentInstreamPosition?:
+        | 'CONTENT_INSTREAM_POSITION_UNSPECIFIED'
+        | 'CONTENT_INSTREAM_POSITION_PRE_ROLL'
+        | 'CONTENT_INSTREAM_POSITION_MID_ROLL'
+        | 'CONTENT_INSTREAM_POSITION_POST_ROLL'
+        | 'CONTENT_INSTREAM_POSITION_UNKNOWN';
     }
     interface ContentOutstreamPositionAssignedTargetingOptionDetails {
       /** Output only. The ad type to target. Only applicable to insertion order targeting and new line items supporting the specified ad type will inherit this targeting option by default. Possible values are: * `AD_TYPE_DISPLAY`, the setting will be inherited by new line item when line_item_type is `LINE_ITEM_TYPE_DISPLAY_DEFAULT`. * `AD_TYPE_VIDEO`, the setting will be inherited by new line item when line_item_type is `LINE_ITEM_TYPE_VIDEO_DEFAULT`. */
-      adType?: string;
+      adType?:
+        | 'AD_TYPE_UNSPECIFIED'
+        | 'AD_TYPE_DISPLAY'
+        | 'AD_TYPE_VIDEO'
+        | 'AD_TYPE_AUDIO';
       /** Required. The content outstream position. */
-      contentOutstreamPosition?: string;
+      contentOutstreamPosition?:
+        | 'CONTENT_OUTSTREAM_POSITION_UNSPECIFIED'
+        | 'CONTENT_OUTSTREAM_POSITION_UNKNOWN'
+        | 'CONTENT_OUTSTREAM_POSITION_IN_ARTICLE'
+        | 'CONTENT_OUTSTREAM_POSITION_IN_BANNER'
+        | 'CONTENT_OUTSTREAM_POSITION_IN_FEED'
+        | 'CONTENT_OUTSTREAM_POSITION_INTERSTITIAL';
     }
     interface ContentOutstreamPositionTargetingOptionDetails {
       /** Output only. The content outstream position. */
-      contentOutstreamPosition?: string;
+      contentOutstreamPosition?:
+        | 'CONTENT_OUTSTREAM_POSITION_UNSPECIFIED'
+        | 'CONTENT_OUTSTREAM_POSITION_UNKNOWN'
+        | 'CONTENT_OUTSTREAM_POSITION_IN_ARTICLE'
+        | 'CONTENT_OUTSTREAM_POSITION_IN_BANNER'
+        | 'CONTENT_OUTSTREAM_POSITION_IN_FEED'
+        | 'CONTENT_OUTSTREAM_POSITION_INTERSTITIAL';
     }
     interface ContentStreamTypeAssignedTargetingOptionDetails {
       /** Output only. The content stream type. */
-      contentStreamType?: string;
+      contentStreamType?:
+        | 'CONTENT_STREAM_TYPE_UNSPECIFIED'
+        | 'CONTENT_LIVE_STREAM'
+        | 'CONTENT_ON_DEMAND';
       /** Required. The targeting_option_id field when targeting_type is `TARGETING_TYPE_CONTENT_STREAM_TYPE`. */
       targetingOptionId?: string;
     }
     interface ContentStreamTypeTargetingOptionDetails {
       /** Output only. The content stream type. */
-      contentStreamType?: string;
+      contentStreamType?:
+        | 'CONTENT_STREAM_TYPE_UNSPECIFIED'
+        | 'CONTENT_LIVE_STREAM'
+        | 'CONTENT_ON_DEMAND';
     }
     interface ContentThemeAssignedTargetingOptionDetails {
       /** Output only. An enum for the DV360 content theme classifier. */
-      contentTheme?: string;
+      contentTheme?:
+        | 'CONTENT_THEME_UNSPECIFIED'
+        | 'CONTENT_THEME_FIGHTING_VIDEO_GAMES'
+        | 'CONTENT_THEME_MATURE_GAMES'
+        | 'CONTENT_THEME_NOT_YET_DETERMINED_HEALTH_SOURCES'
+        | 'CONTENT_THEME_NOT_YET_DETERMINED_NEWS_SOURCES'
+        | 'CONTENT_THEME_POLITICS'
+        | 'CONTENT_THEME_RECENT_NEWS'
+        | 'CONTENT_THEME_RELIGION'
+        | 'CONTENT_THEME_UNPLEASANT_HEALTH_CONTENT'
+        | 'CONTENT_THEME_UNPLEASANT_NEWS';
       /** Required. An enum for the DV360 content theme classified to be EXCLUDED. */
-      excludedContentTheme?: string;
+      excludedContentTheme?:
+        | 'CONTENT_THEME_UNSPECIFIED'
+        | 'CONTENT_THEME_FIGHTING_VIDEO_GAMES'
+        | 'CONTENT_THEME_MATURE_GAMES'
+        | 'CONTENT_THEME_NOT_YET_DETERMINED_HEALTH_SOURCES'
+        | 'CONTENT_THEME_NOT_YET_DETERMINED_NEWS_SOURCES'
+        | 'CONTENT_THEME_POLITICS'
+        | 'CONTENT_THEME_RECENT_NEWS'
+        | 'CONTENT_THEME_RELIGION'
+        | 'CONTENT_THEME_UNPLEASANT_HEALTH_CONTENT'
+        | 'CONTENT_THEME_UNPLEASANT_NEWS';
       /** Required. ID of the content theme to be EXCLUDED. */
       excludedTargetingOptionId?: string;
     }
     interface ContentThemeTargetingOptionDetails {
       /** Output only. An enum for the DV360 content theme content classifier. */
-      contentTheme?: string;
+      contentTheme?:
+        | 'CONTENT_THEME_UNSPECIFIED'
+        | 'CONTENT_THEME_FIGHTING_VIDEO_GAMES'
+        | 'CONTENT_THEME_MATURE_GAMES'
+        | 'CONTENT_THEME_NOT_YET_DETERMINED_HEALTH_SOURCES'
+        | 'CONTENT_THEME_NOT_YET_DETERMINED_NEWS_SOURCES'
+        | 'CONTENT_THEME_POLITICS'
+        | 'CONTENT_THEME_RECENT_NEWS'
+        | 'CONTENT_THEME_RELIGION'
+        | 'CONTENT_THEME_UNPLEASANT_HEALTH_CONTENT'
+        | 'CONTENT_THEME_UNPLEASANT_NEWS';
     }
     interface ConversionCountingConfig {
       /** The Floodlight activity configs used to track conversions. The number of conversions counted is the sum of all of the conversions counted by all of the Floodlight activity IDs specified in this field. This field can't be updated if a custom bidding algorithm is assigned to the line item. If you set this field and assign a custom bidding algorithm in the same request, the floodlight activities must match the ones used by the custom bidding algorithm. */
@@ -1245,7 +1928,57 @@ declare namespace gapi.client {
       /** Required. The assigned targeting options to create and add. */
       assignedTargetingOptions?: AssignedTargetingOption[];
       /** Required. Identifies the type of this assigned targeting option. */
-      targetingType?: string;
+      targetingType?:
+        | 'TARGETING_TYPE_UNSPECIFIED'
+        | 'TARGETING_TYPE_CHANNEL'
+        | 'TARGETING_TYPE_APP_CATEGORY'
+        | 'TARGETING_TYPE_APP'
+        | 'TARGETING_TYPE_URL'
+        | 'TARGETING_TYPE_DAY_AND_TIME'
+        | 'TARGETING_TYPE_AGE_RANGE'
+        | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+        | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+        | 'TARGETING_TYPE_GENDER'
+        | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+        | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+        | 'TARGETING_TYPE_PARENTAL_STATUS'
+        | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+        | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+        | 'TARGETING_TYPE_DEVICE_TYPE'
+        | 'TARGETING_TYPE_AUDIENCE_GROUP'
+        | 'TARGETING_TYPE_BROWSER'
+        | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+        | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+        | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+        | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+        | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+        | 'TARGETING_TYPE_ENVIRONMENT'
+        | 'TARGETING_TYPE_CARRIER_AND_ISP'
+        | 'TARGETING_TYPE_OPERATING_SYSTEM'
+        | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+        | 'TARGETING_TYPE_KEYWORD'
+        | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+        | 'TARGETING_TYPE_VIEWABILITY'
+        | 'TARGETING_TYPE_CATEGORY'
+        | 'TARGETING_TYPE_INVENTORY_SOURCE'
+        | 'TARGETING_TYPE_LANGUAGE'
+        | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+        | 'TARGETING_TYPE_GEO_REGION'
+        | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+        | 'TARGETING_TYPE_EXCHANGE'
+        | 'TARGETING_TYPE_SUB_EXCHANGE'
+        | 'TARGETING_TYPE_POI'
+        | 'TARGETING_TYPE_BUSINESS_CHAIN'
+        | 'TARGETING_TYPE_CONTENT_DURATION'
+        | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+        | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+        | 'TARGETING_TYPE_OMID'
+        | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+        | 'TARGETING_TYPE_CONTENT_GENRE'
+        | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+        | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+        | 'TARGETING_TYPE_SESSION_POSITION'
+        | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
     }
     interface CreateSdfDownloadTaskRequest {
       /** The ID of the advertiser to download SDF for. */
@@ -1259,7 +1992,26 @@ declare namespace gapi.client {
       /** The ID of the partner to download SDF for. */
       partnerId?: string;
       /** Required. The SDF version of the downloaded file. If set to `SDF_VERSION_UNSPECIFIED`, this will default to the version specified by the advertiser or partner identified by `root_id`. An advertiser inherits its SDF version from its partner unless configured otherwise. */
-      version?: string;
+      version?:
+        | 'SDF_VERSION_UNSPECIFIED'
+        | 'SDF_VERSION_3_1'
+        | 'SDF_VERSION_4'
+        | 'SDF_VERSION_4_1'
+        | 'SDF_VERSION_4_2'
+        | 'SDF_VERSION_5'
+        | 'SDF_VERSION_5_1'
+        | 'SDF_VERSION_5_2'
+        | 'SDF_VERSION_5_3'
+        | 'SDF_VERSION_5_4'
+        | 'SDF_VERSION_5_5'
+        | 'SDF_VERSION_6'
+        | 'SDF_VERSION_7'
+        | 'SDF_VERSION_7_1'
+        | 'SDF_VERSION_8'
+        | 'SDF_VERSION_8_1'
+        | 'SDF_VERSION_9'
+        | 'SDF_VERSION_9_1'
+        | 'SDF_VERSION_9_2';
     }
     interface Creative {
       /** Optional. Additional dimensions. Applicable when creative_type is one of: * `CREATIVE_TYPE_STANDARD` * `CREATIVE_TYPE_EXPANDABLE` * `CREATIVE_TYPE_NATIVE` * `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_LIGHTBOX` * `CREATIVE_TYPE_PUBLISHER_HOSTED` If this field is specified, width_pixels and height_pixels are both required and must be greater than or equal to 0. */
@@ -1281,11 +2033,31 @@ declare namespace gapi.client {
       /** Output only. The timestamp when the creative was created. Assigned by the system. */
       createTime?: string;
       /** Output only. A list of attributes of the creative that is generated by the system. */
-      creativeAttributes?: string[];
+      creativeAttributes?:
+        | 'CREATIVE_ATTRIBUTE_UNSPECIFIED'
+        | 'CREATIVE_ATTRIBUTE_VAST'
+        | 'CREATIVE_ATTRIBUTE_VPAID_LINEAR'
+        | 'CREATIVE_ATTRIBUTE_VPAID_NON_LINEAR'[];
       /** Output only. The unique ID of the creative. Assigned by the system. */
       creativeId?: string;
       /** Required. Immutable. The type of the creative. */
-      creativeType?: string;
+      creativeType?:
+        | 'CREATIVE_TYPE_UNSPECIFIED'
+        | 'CREATIVE_TYPE_STANDARD'
+        | 'CREATIVE_TYPE_EXPANDABLE'
+        | 'CREATIVE_TYPE_VIDEO'
+        | 'CREATIVE_TYPE_NATIVE'
+        | 'CREATIVE_TYPE_TEMPLATED_APP_INSTALL'
+        | 'CREATIVE_TYPE_NATIVE_SITE_SQUARE'
+        | 'CREATIVE_TYPE_TEMPLATED_APP_INSTALL_INTERSTITIAL'
+        | 'CREATIVE_TYPE_LIGHTBOX'
+        | 'CREATIVE_TYPE_NATIVE_APP_INSTALL'
+        | 'CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE'
+        | 'CREATIVE_TYPE_AUDIO'
+        | 'CREATIVE_TYPE_PUBLISHER_HOSTED'
+        | 'CREATIVE_TYPE_NATIVE_VIDEO'
+        | 'CREATIVE_TYPE_TEMPLATED_APP_INSTALL_VIDEO'
+        | 'CREATIVE_TYPE_ASSET_BASED_CREATIVE';
       /** Required. Primary dimensions of the creative. Applicable to all creative types. The value of width_pixels and height_pixels defaults to `0` when creative_type is one of: * `CREATIVE_TYPE_VIDEO` * `CREATIVE_TYPE_AUDIO` * `CREATIVE_TYPE_NATIVE_VIDEO` */
       dimensions?: Dimensions;
       /** Required. The display name of the creative. Must be UTF-8 encoded with a maximum size of 240 bytes. */
@@ -1293,15 +2065,39 @@ declare namespace gapi.client {
       /** Output only. Indicates whether the creative is dynamic. */
       dynamic?: boolean;
       /** Required. Controls whether or not the creative can serve. Accepted values are: * `ENTITY_STATUS_ACTIVE` * `ENTITY_STATUS_ARCHIVED` * `ENTITY_STATUS_PAUSED` */
-      entityStatus?: string;
+      entityStatus?:
+        | 'ENTITY_STATUS_UNSPECIFIED'
+        | 'ENTITY_STATUS_ACTIVE'
+        | 'ENTITY_STATUS_ARCHIVED'
+        | 'ENTITY_STATUS_DRAFT'
+        | 'ENTITY_STATUS_PAUSED'
+        | 'ENTITY_STATUS_SCHEDULED_FOR_DELETION';
       /** Required. Exit events for this creative. An exit (also known as a click tag) is any area in your creative that someone can click or tap to open an advertiser's landing page. Every creative must include at least one exit. You can add an exit to your creative in any of the following ways: * Use Google Web Designer's tap area. * Define a JavaScript variable called "clickTag". * Use the Enabler (Enabler.exit()) to track exits in rich media formats. */
       exitEvents?: ExitEvent[];
       /** Optional. Specifies the expanding direction of the creative. Required and only valid for third-party expandable creatives. Third-party expandable creatives are creatives with following hosting source: * `HOSTING_SOURCE_THIRD_PARTY` combined with following creative_type: * `CREATIVE_TYPE_EXPANDABLE` */
-      expandingDirection?: string;
+      expandingDirection?:
+        | 'EXPANDING_DIRECTION_UNSPECIFIED'
+        | 'EXPANDING_DIRECTION_NONE'
+        | 'EXPANDING_DIRECTION_UP'
+        | 'EXPANDING_DIRECTION_DOWN'
+        | 'EXPANDING_DIRECTION_LEFT'
+        | 'EXPANDING_DIRECTION_RIGHT'
+        | 'EXPANDING_DIRECTION_UP_AND_LEFT'
+        | 'EXPANDING_DIRECTION_UP_AND_RIGHT'
+        | 'EXPANDING_DIRECTION_DOWN_AND_LEFT'
+        | 'EXPANDING_DIRECTION_DOWN_AND_RIGHT'
+        | 'EXPANDING_DIRECTION_UP_OR_DOWN'
+        | 'EXPANDING_DIRECTION_LEFT_OR_RIGHT'
+        | 'EXPANDING_DIRECTION_ANY_DIAGONAL';
       /** Optional. Indicates the creative will automatically expand on hover. Optional and only valid for third-party expandable creatives. Third-party expandable creatives are creatives with following hosting source: * `HOSTING_SOURCE_THIRD_PARTY` combined with following creative_type: * `CREATIVE_TYPE_EXPANDABLE` */
       expandOnHover?: boolean;
       /** Required. Indicates where the creative is hosted. */
-      hostingSource?: string;
+      hostingSource?:
+        | 'HOSTING_SOURCE_UNSPECIFIED'
+        | 'HOSTING_SOURCE_CM'
+        | 'HOSTING_SOURCE_THIRD_PARTY'
+        | 'HOSTING_SOURCE_HOSTED'
+        | 'HOSTING_SOURCE_RICH_MEDIA';
       /** Output only. Indicates the third-party VAST tag creative requires HTML5 Video support. Output only and only valid for third-party VAST tag creatives. Third-party VAST tag creatives are creatives with following hosting_source: * `HOSTING_SOURCE_THIRD_PARTY` combined with following creative_type: * `CREATIVE_TYPE_VIDEO` */
       html5Video?: boolean;
       /** Optional. Indicates whether Integral Ad Science (IAS) campaign monitoring is enabled. To enable this for the creative, make sure the Advertiser.creative_config.ias_client_id has been set to your IAS client ID. */
@@ -1359,7 +2155,23 @@ declare namespace gapi.client {
     }
     interface CreativeConfig {
       /** The type of creative that can be assigned to the inventory source. Only the following types are supported: * `CREATIVE_TYPE_STANDARD` * `CREATIVE_TYPE_VIDEO` */
-      creativeType?: string;
+      creativeType?:
+        | 'CREATIVE_TYPE_UNSPECIFIED'
+        | 'CREATIVE_TYPE_STANDARD'
+        | 'CREATIVE_TYPE_EXPANDABLE'
+        | 'CREATIVE_TYPE_VIDEO'
+        | 'CREATIVE_TYPE_NATIVE'
+        | 'CREATIVE_TYPE_TEMPLATED_APP_INSTALL'
+        | 'CREATIVE_TYPE_NATIVE_SITE_SQUARE'
+        | 'CREATIVE_TYPE_TEMPLATED_APP_INSTALL_INTERSTITIAL'
+        | 'CREATIVE_TYPE_LIGHTBOX'
+        | 'CREATIVE_TYPE_NATIVE_APP_INSTALL'
+        | 'CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE'
+        | 'CREATIVE_TYPE_AUDIO'
+        | 'CREATIVE_TYPE_PUBLISHER_HOSTED'
+        | 'CREATIVE_TYPE_NATIVE_VIDEO'
+        | 'CREATIVE_TYPE_TEMPLATED_APP_INSTALL_VIDEO'
+        | 'CREATIVE_TYPE_ASSET_BASED_CREATIVE';
       /** The configuration for display creatives. Applicable when creative_type is `CREATIVE_TYPE_STANDARD`. */
       displayCreativeConfig?: InventorySourceDisplayCreativeConfig;
       /** The configuration for video creatives. Applicable when creative_type is `CREATIVE_TYPE_VIDEO`. */
@@ -1371,11 +2183,20 @@ declare namespace gapi.client {
       /** Output only. The unique ID of the custom bidding algorithm. Assigned by the system. */
       customBiddingAlgorithmId?: string;
       /** Required. Immutable. The type of custom bidding algorithm. */
-      customBiddingAlgorithmType?: string;
+      customBiddingAlgorithmType?:
+        | 'CUSTOM_BIDDING_ALGORITHM_TYPE_UNSPECIFIED'
+        | 'SCRIPT_BASED'
+        | 'RULE_BASED';
       /** Required. The display name of the custom bidding algorithm. Must be UTF-8 encoded with a maximum size of 240 bytes. */
       displayName?: string;
       /** Controls whether or not the custom bidding algorithm can be used as a bidding strategy. Accepted values are: * `ENTITY_STATUS_ACTIVE` * `ENTITY_STATUS_ARCHIVED` */
-      entityStatus?: string;
+      entityStatus?:
+        | 'ENTITY_STATUS_UNSPECIFIED'
+        | 'ENTITY_STATUS_ACTIVE'
+        | 'ENTITY_STATUS_ARCHIVED'
+        | 'ENTITY_STATUS_DRAFT'
+        | 'ENTITY_STATUS_PAUSED'
+        | 'ENTITY_STATUS_SCHEDULED_FOR_DELETION';
       /** Output only. The details of custom bidding models for each advertiser who has access. This field may only include the details of the queried advertiser if the algorithm [`owner`](/display-video/api/reference/rest/v1/customBiddingAlgorithms#CustomBiddingAlgorithm.FIELDS.oneof_owner) is a partner and is being retrieved using an advertiser [`accessor`](/display-video/api/reference/rest/v1/customBiddingAlgorithms/list#body.QUERY_PARAMETERS.oneof_accessor). */
       modelDetails?: CustomBiddingModelDetails[];
       /** Output only. The resource name of the custom bidding algorithm. */
@@ -1385,7 +2206,7 @@ declare namespace gapi.client {
       /** The IDs of the advertisers who have access to this algorithm. If advertiser_id is set, this field will only consist of that value. This field will not be set if the algorithm [`owner`](/display-video/api/reference/rest/v1/customBiddingAlgorithms#CustomBiddingAlgorithm.FIELDS.oneof_owner) is a partner and is being retrieved using an advertiser [`accessor`](/display-video/api/reference/rest/v1/customBiddingAlgorithms/list#body.QUERY_PARAMETERS.oneof_accessor). */
       sharedAdvertiserIds?: string[];
       /** Optional. Immutable. Designates the third party optimization partner that manages this algorithm. */
-      thirdPartyOptimizationPartner?: string;
+      thirdPartyOptimizationPartner?: 'UNKNOWN' | 'SCIBIDS' | 'ADELAIDE';
     }
     interface CustomBiddingAlgorithmRules {
       /** Output only. Whether the rules resource is currently being used for scoring by the parent algorithm. */
@@ -1403,11 +2224,15 @@ declare namespace gapi.client {
       /** Required. Immutable. The reference to the uploaded AlgorithmRules file. */
       rules?: CustomBiddingAlgorithmRulesRef;
       /** Output only. The state of the rules resource. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'ACCEPTED' | 'REJECTED';
     }
     interface CustomBiddingAlgorithmRulesError {
       /** The type of error. */
-      errorCode?: string;
+      errorCode?:
+        | 'ERROR_CODE_UNSPECIFIED'
+        | 'SYNTAX_ERROR'
+        | 'CONSTRAINT_VIOLATION_ERROR'
+        | 'INTERNAL_ERROR';
     }
     interface CustomBiddingAlgorithmRulesRef {
       /** A resource name to be used in media.download to download the rules files. Or media.upload to upload the rules files. Resource names have the format `customBiddingAlgorithms/{custom_bidding_algorithm_id}/rulesRef/{ref_id}`. */
@@ -1417,9 +2242,19 @@ declare namespace gapi.client {
       /** The unique ID of the relevant advertiser. */
       advertiserId?: string;
       /** The readiness state of custom bidding model. */
-      readinessState?: string;
+      readinessState?:
+        | 'READINESS_STATE_UNSPECIFIED'
+        | 'READINESS_STATE_ACTIVE'
+        | 'READINESS_STATE_INSUFFICIENT_DATA'
+        | 'READINESS_STATE_TRAINING'
+        | 'READINESS_STATE_NO_VALID_SCRIPT'
+        | 'READINESS_STATE_EVALUATION_FAILURE';
       /** Output only. The suspension state of custom bidding model. */
-      suspensionState?: string;
+      suspensionState?:
+        | 'SUSPENSION_STATE_UNSPECIFIED'
+        | 'SUSPENSION_STATE_ENABLED'
+        | 'SUSPENSION_STATE_DORMANT'
+        | 'SUSPENSION_STATE_SUSPENDED';
     }
     interface CustomBiddingScript {
       /** Output only. Whether the script is currently being used for scoring by the parent algorithm. */
@@ -1437,7 +2272,7 @@ declare namespace gapi.client {
       /** The reference to the uploaded script file. */
       script?: CustomBiddingScriptRef;
       /** Output only. The state of the custom bidding script. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'ACCEPTED' | 'REJECTED' | 'PENDING';
     }
     interface CustomBiddingScriptRef {
       /** A resource name to be used in media.download to Download the script files. Or media.upload to Upload the script files. Resource names have the format `customBiddingAlgorithms/{custom_bidding_algorithm_id}/scriptRef/{ref_id}`. */
@@ -1445,7 +2280,13 @@ declare namespace gapi.client {
     }
     interface CustomLabel {
       /** The key of the label. */
-      key?: string;
+      key?:
+        | 'CUSTOM_LABEL_KEY_UNSPECIFIED'
+        | 'CUSTOM_LABEL_KEY_0'
+        | 'CUSTOM_LABEL_KEY_1'
+        | 'CUSTOM_LABEL_KEY_2'
+        | 'CUSTOM_LABEL_KEY_3'
+        | 'CUSTOM_LABEL_KEY_4';
       /** The value of the label. */
       value?: string;
     }
@@ -1481,35 +2322,116 @@ declare namespace gapi.client {
     }
     interface DayAndTime {
       /** Required. Day of the week. */
-      dayOfWeek?: string;
+      dayOfWeek?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY';
       /** Required. Hour of the day. */
       hourOfDay?: number;
       /** Required. The mechanism used to determine the relevant timezone. */
-      timeZoneResolution?: string;
+      timeZoneResolution?:
+        | 'TIME_ZONE_RESOLUTION_UNSPECIFIED'
+        | 'TIME_ZONE_RESOLUTION_END_USER'
+        | 'TIME_ZONE_RESOLUTION_ADVERTISER';
     }
     interface DayAndTimeAssignedTargetingOptionDetails {
       /** Required. The day of the week for this day and time targeting setting. */
-      dayOfWeek?: string;
+      dayOfWeek?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY';
       /** Required. The end hour for day and time targeting. Must be between 1 (1 hour after start of day) and 24 (end of day). */
       endHour?: number;
       /** Required. The start hour for day and time targeting. Must be between 0 (start of day) and 23 (1 hour before end of day). */
       startHour?: number;
       /** Required. The mechanism used to determine which timezone to use for this day and time targeting setting. For demand gen line items, this field is always TIME_ZONE_RESOLUTION_ADVERTISER. */
-      timeZoneResolution?: string;
+      timeZoneResolution?:
+        | 'TIME_ZONE_RESOLUTION_UNSPECIFIED'
+        | 'TIME_ZONE_RESOLUTION_END_USER'
+        | 'TIME_ZONE_RESOLUTION_ADVERTISER';
     }
     interface DeleteAssignedTargetingOptionsRequest {
       /** Required. The assigned targeting option IDs to delete. */
       assignedTargetingOptionIds?: string[];
       /** Required. Identifies the type of this assigned targeting option. */
-      targetingType?: string;
+      targetingType?:
+        | 'TARGETING_TYPE_UNSPECIFIED'
+        | 'TARGETING_TYPE_CHANNEL'
+        | 'TARGETING_TYPE_APP_CATEGORY'
+        | 'TARGETING_TYPE_APP'
+        | 'TARGETING_TYPE_URL'
+        | 'TARGETING_TYPE_DAY_AND_TIME'
+        | 'TARGETING_TYPE_AGE_RANGE'
+        | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+        | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+        | 'TARGETING_TYPE_GENDER'
+        | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+        | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+        | 'TARGETING_TYPE_PARENTAL_STATUS'
+        | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+        | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+        | 'TARGETING_TYPE_DEVICE_TYPE'
+        | 'TARGETING_TYPE_AUDIENCE_GROUP'
+        | 'TARGETING_TYPE_BROWSER'
+        | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+        | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+        | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+        | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+        | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+        | 'TARGETING_TYPE_ENVIRONMENT'
+        | 'TARGETING_TYPE_CARRIER_AND_ISP'
+        | 'TARGETING_TYPE_OPERATING_SYSTEM'
+        | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+        | 'TARGETING_TYPE_KEYWORD'
+        | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+        | 'TARGETING_TYPE_VIEWABILITY'
+        | 'TARGETING_TYPE_CATEGORY'
+        | 'TARGETING_TYPE_INVENTORY_SOURCE'
+        | 'TARGETING_TYPE_LANGUAGE'
+        | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+        | 'TARGETING_TYPE_GEO_REGION'
+        | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+        | 'TARGETING_TYPE_EXCHANGE'
+        | 'TARGETING_TYPE_SUB_EXCHANGE'
+        | 'TARGETING_TYPE_POI'
+        | 'TARGETING_TYPE_BUSINESS_CHAIN'
+        | 'TARGETING_TYPE_CONTENT_DURATION'
+        | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+        | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+        | 'TARGETING_TYPE_OMID'
+        | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+        | 'TARGETING_TYPE_CONTENT_GENRE'
+        | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+        | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+        | 'TARGETING_TYPE_SESSION_POSITION'
+        | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
     }
     interface DemandGenBiddingStrategy {
       /** Output only. If AG doesn't set value for tCPA or tROAS, line item bidding value will be the effective_bidding_value, if the bidding strategy type is not tCPA or tROAS, effective_bidding_value is always 0. For line item, it will be the same as the value field. */
       effectiveBiddingValue?: string;
       /** Output only. Source of the effective bidding value. */
-      effectiveBiddingValueSource?: string;
+      effectiveBiddingValueSource?:
+        | 'BIDDING_SOURCE_UNSPECIFIED'
+        | 'BIDDING_SOURCE_LINE_ITEM'
+        | 'BIDDING_SOURCE_AD_GROUP';
       /** Optional. The type of the bidding strategy. This can only be set at the line item level. */
-      type?: string;
+      type?:
+        | 'DEMAND_GEN_BIDDING_STRATEGY_TYPE_UNSPECIFIED'
+        | 'DEMAND_GEN_BIDDING_STRATEGY_TYPE_TARGET_CPA'
+        | 'DEMAND_GEN_BIDDING_STRATEGY_TYPE_TARGET_ROAS'
+        | 'DEMAND_GEN_BIDDING_STRATEGY_TYPE_MAXIMIZE_CONVERSIONS'
+        | 'DEMAND_GEN_BIDDING_STRATEGY_TYPE_MAXIMIZE_CONVERSION_VALUE'
+        | 'DEMAND_GEN_BIDDING_STRATEGY_TYPE_MAXIMIZE_CLICKS';
       /** Optional. The value used by the bidding strategy. This can be set at the line item and ad group level. This field is only applicable for the following strategy types: * `DEMAND_GEN_BIDDING_STRATEGY_TYPE_TARGET_CPA` * `DEMAND_GEN_BIDDING_STRATEGY_TYPE_TARGET_ROAS` Value of this field is in micros of the advertiser's currency or ROAS value. For example, 1000000 represents 1.0 standard units of the currency or 100% ROAS value. If not using an applicable strategy, the value of this field will be 0. */
       value?: string;
     }
@@ -1569,7 +2491,26 @@ declare namespace gapi.client {
       /** Required. The business name shown on the ad. */
       businessName?: string;
       /** Required. The call-to-action button shown on the ad. The supported values are: * `AUTOMATED` * `APPLY_NOW` * `BOOK_NOW` * `CONTACT_US` * `DOWNLOAD` * `GET_QUOTE` * `LEARN_MORE` * `SHOP_NOW` * `SIGN_UP` * `SUBSCRIBE` */
-      callToAction?: string;
+      callToAction?:
+        | 'CALL_TO_ACTION_UNSPECIFIED'
+        | 'AUTOMATED'
+        | 'LEARN_MORE'
+        | 'GET_QUOTE'
+        | 'APPLY_NOW'
+        | 'SIGN_UP'
+        | 'CONTACT_US'
+        | 'SUBSCRIBE'
+        | 'DOWNLOAD'
+        | 'BOOK_NOW'
+        | 'SHOP_NOW'
+        | 'BUY_NOW'
+        | 'DONATE_NOW'
+        | 'ORDER_NOW'
+        | 'PLAY_NOW'
+        | 'SEE_MORE'
+        | 'START_NOW'
+        | 'VISIT_SITE'
+        | 'WATCH_NOW';
       /** Optional. The custom parameters to pass custom values to tracking URL template. */
       customParameters?: {[P in string]: string};
       /** Required. The description of the ad. */
@@ -1603,7 +2544,26 @@ declare namespace gapi.client {
       /** Required. The business name shown on the ad. */
       businessName?: string;
       /** Required. The call-to-action button shown on the ad. The supported values are: * `AUTOMATED` * `LEARN_MORE` * `GET_QUOTE` * `APPLY_NOW` * `SIGN_UP` * `CONTACT_US` * `SUBSCRIBE` * `DOWNLOAD` * `BOOK_NOW` * `SHOP_NOW` * `BUY_NOW` * `DONATE_NOW` * `ORDER_NOW` * `PLAY_NOW` * `SEE_MORE` * `START_NOW` * `VISIT_SITE` * `WATCH_NOW` */
-      callToAction?: string;
+      callToAction?:
+        | 'CALL_TO_ACTION_UNSPECIFIED'
+        | 'AUTOMATED'
+        | 'LEARN_MORE'
+        | 'GET_QUOTE'
+        | 'APPLY_NOW'
+        | 'SIGN_UP'
+        | 'CONTACT_US'
+        | 'SUBSCRIBE'
+        | 'DOWNLOAD'
+        | 'BOOK_NOW'
+        | 'SHOP_NOW'
+        | 'BUY_NOW'
+        | 'DONATE_NOW'
+        | 'ORDER_NOW'
+        | 'PLAY_NOW'
+        | 'SEE_MORE'
+        | 'START_NOW'
+        | 'VISIT_SITE'
+        | 'WATCH_NOW';
       /** Optional. The companion banner used by this ad. */
       companionBanner?: ImageAsset;
       /** Optional. The custom parameters to pass custom values to tracking URL template. */
@@ -1647,21 +2607,47 @@ declare namespace gapi.client {
     }
     interface DeviceTypeAssignedTargetingOptionDetails {
       /** Required. The display name of the device type. */
-      deviceType?: string;
+      deviceType?:
+        | 'DEVICE_TYPE_UNSPECIFIED'
+        | 'DEVICE_TYPE_COMPUTER'
+        | 'DEVICE_TYPE_CONNECTED_TV'
+        | 'DEVICE_TYPE_SMART_PHONE'
+        | 'DEVICE_TYPE_TABLET'
+        | 'DEVICE_TYPE_CONNECTED_DEVICE';
       /** Output only. Bid multiplier allows you to show your ads more or less frequently based on the device type. It will apply a multiplier on the original bid price. When this field is 0, it indicates this field is not applicable instead of multiplying 0 on the original bid price. For example, if the bid price without multiplier is $10.0 and the multiplier is 1.5 for Tablet, the resulting bid price for Tablet will be $15.0. Only applicable to YouTube and Partners line items. */
       youtubeAndPartnersBidMultiplier?: number;
     }
     interface DeviceTypeTargetingOptionDetails {
       /** Output only. The device type that is used to be targeted. */
-      deviceType?: string;
+      deviceType?:
+        | 'DEVICE_TYPE_UNSPECIFIED'
+        | 'DEVICE_TYPE_COMPUTER'
+        | 'DEVICE_TYPE_CONNECTED_TV'
+        | 'DEVICE_TYPE_SMART_PHONE'
+        | 'DEVICE_TYPE_TABLET'
+        | 'DEVICE_TYPE_CONNECTED_DEVICE';
     }
     interface DigitalContentLabelAssignedTargetingOptionDetails {
       /** Required. The display name of the digital content label rating tier to be EXCLUDED. */
-      excludedContentRatingTier?: string;
+      excludedContentRatingTier?:
+        | 'CONTENT_RATING_TIER_UNSPECIFIED'
+        | 'CONTENT_RATING_TIER_UNRATED'
+        | 'CONTENT_RATING_TIER_GENERAL'
+        | 'CONTENT_RATING_TIER_PARENTAL_GUIDANCE'
+        | 'CONTENT_RATING_TIER_TEENS'
+        | 'CONTENT_RATING_TIER_MATURE'
+        | 'CONTENT_RATING_TIER_FAMILIES';
     }
     interface DigitalContentLabelTargetingOptionDetails {
       /** Output only. An enum for the content label brand safety tiers. */
-      contentRatingTier?: string;
+      contentRatingTier?:
+        | 'CONTENT_RATING_TIER_UNSPECIFIED'
+        | 'CONTENT_RATING_TIER_UNRATED'
+        | 'CONTENT_RATING_TIER_GENERAL'
+        | 'CONTENT_RATING_TIER_PARENTAL_GUIDANCE'
+        | 'CONTENT_RATING_TIER_TEENS'
+        | 'CONTENT_RATING_TIER_MATURE'
+        | 'CONTENT_RATING_TIER_FAMILIES';
     }
     interface Dimensions {
       /** The height in pixels. */
@@ -1677,7 +2663,14 @@ declare namespace gapi.client {
       /** Avoid bidding on apps with the star ratings. */
       appStarRating?: DoubleVerifyAppStarRating;
       /** Avoid bidding on apps with the age rating. */
-      avoidedAgeRatings?: string[];
+      avoidedAgeRatings?:
+        | 'AGE_RATING_UNSPECIFIED'
+        | 'APP_AGE_RATE_UNKNOWN'
+        | 'APP_AGE_RATE_4_PLUS'
+        | 'APP_AGE_RATE_9_PLUS'
+        | 'APP_AGE_RATE_12_PLUS'
+        | 'APP_AGE_RATE_17_PLUS'
+        | 'APP_AGE_RATE_18_PLUS'[];
       /** DV Brand Safety Controls. */
       brandSafetyCategories?: DoubleVerifyBrandSafetyCategories;
       /** The custom segment ID provided by DoubleVerify. The ID must start with "51" and consist of eight digits. Custom segment ID cannot be specified along with any of the following fields: * brand_safety_categories * avoided_age_ratings * app_star_rating * fraud_invalid_traffic */
@@ -1691,41 +2684,126 @@ declare namespace gapi.client {
     }
     interface DoubleVerifyAppStarRating {
       /** Avoid bidding on apps with the star ratings. */
-      avoidedStarRating?: string;
+      avoidedStarRating?:
+        | 'APP_STAR_RATE_UNSPECIFIED'
+        | 'APP_STAR_RATE_1_POINT_5_LESS'
+        | 'APP_STAR_RATE_2_LESS'
+        | 'APP_STAR_RATE_2_POINT_5_LESS'
+        | 'APP_STAR_RATE_3_LESS'
+        | 'APP_STAR_RATE_3_POINT_5_LESS'
+        | 'APP_STAR_RATE_4_LESS'
+        | 'APP_STAR_RATE_4_POINT_5_LESS';
       /** Avoid bidding on apps with insufficient star ratings. */
       avoidInsufficientStarRating?: boolean;
     }
     interface DoubleVerifyBrandSafetyCategories {
       /** Brand safety high severity avoidance categories. */
-      avoidedHighSeverityCategories?: string[];
+      avoidedHighSeverityCategories?:
+        | 'HIGHER_SEVERITY_UNSPECIFIED'
+        | 'ADULT_CONTENT_PORNOGRAPHY'
+        | 'COPYRIGHT_INFRINGEMENT'
+        | 'SUBSTANCE_ABUSE'
+        | 'GRAPHIC_VIOLENCE_WEAPONS'
+        | 'HATE_PROFANITY'
+        | 'CRIMINAL_SKILLS'
+        | 'NUISANCE_INCENTIVIZED_MALWARE_CLUTTER'[];
       /** Brand safety medium severity avoidance categories. */
-      avoidedMediumSeverityCategories?: string[];
+      avoidedMediumSeverityCategories?:
+        | 'MEDIUM_SEVERITY_UNSPECIFIED'
+        | 'AD_SERVERS'
+        | 'ADULT_CONTENT_SWIMSUIT'
+        | 'ALTERNATIVE_LIFESTYLES'
+        | 'CELEBRITY_GOSSIP'
+        | 'GAMBLING'
+        | 'OCCULT'
+        | 'SEX_EDUCATION'
+        | 'DISASTER_AVIATION'
+        | 'DISASTER_MAN_MADE'
+        | 'DISASTER_NATURAL'
+        | 'DISASTER_TERRORIST_EVENTS'
+        | 'DISASTER_VEHICLE'
+        | 'ALCOHOL'
+        | 'SMOKING'
+        | 'NEGATIVE_NEWS_FINANCIAL'
+        | 'NON_ENGLISH'
+        | 'PARKING_PAGE'
+        | 'UNMODERATED_UGC'
+        | 'INFLAMMATORY_POLITICS_AND_NEWS'
+        | 'NEGATIVE_NEWS_PHARMACEUTICAL'[];
       /** Unknown or unrateable. */
       avoidUnknownBrandSafetyCategory?: boolean;
     }
     interface DoubleVerifyDisplayViewability {
       /** Target web and app inventory to maximize IAB viewable rate. */
-      iab?: string;
+      iab?:
+        | 'IAB_VIEWED_RATE_UNSPECIFIED'
+        | 'IAB_VIEWED_RATE_80_PERCENT_HIGHER'
+        | 'IAB_VIEWED_RATE_75_PERCENT_HIGHER'
+        | 'IAB_VIEWED_RATE_70_PERCENT_HIGHER'
+        | 'IAB_VIEWED_RATE_65_PERCENT_HIGHER'
+        | 'IAB_VIEWED_RATE_60_PERCENT_HIGHER'
+        | 'IAB_VIEWED_RATE_55_PERCENT_HIGHER'
+        | 'IAB_VIEWED_RATE_50_PERCENT_HIGHER'
+        | 'IAB_VIEWED_RATE_40_PERCENT_HIGHER'
+        | 'IAB_VIEWED_RATE_30_PERCENT_HIGHER';
       /** Target web and app inventory to maximize 100% viewable duration. */
-      viewableDuring?: string;
+      viewableDuring?:
+        | 'AVERAGE_VIEW_DURATION_UNSPECIFIED'
+        | 'AVERAGE_VIEW_DURATION_5_SEC'
+        | 'AVERAGE_VIEW_DURATION_10_SEC'
+        | 'AVERAGE_VIEW_DURATION_15_SEC';
     }
     interface DoubleVerifyFraudInvalidTraffic {
       /** Avoid Sites and Apps with historical Fraud & IVT. */
-      avoidedFraudOption?: string;
+      avoidedFraudOption?:
+        | 'FRAUD_UNSPECIFIED'
+        | 'AD_IMPRESSION_FRAUD_100'
+        | 'AD_IMPRESSION_FRAUD_50'
+        | 'AD_IMPRESSION_FRAUD_25'
+        | 'AD_IMPRESSION_FRAUD_10'
+        | 'AD_IMPRESSION_FRAUD_8'
+        | 'AD_IMPRESSION_FRAUD_6'
+        | 'AD_IMPRESSION_FRAUD_4'
+        | 'AD_IMPRESSION_FRAUD_2';
       /** Insufficient Historical Fraud & IVT Stats. */
       avoidInsufficientOption?: boolean;
     }
     interface DoubleVerifyVideoViewability {
       /** Target inventory to maximize impressions with 400x300 or greater player size. */
-      playerImpressionRate?: string;
+      playerImpressionRate?:
+        | 'PLAYER_SIZE_400X300_UNSPECIFIED'
+        | 'PLAYER_SIZE_400X300_95'
+        | 'PLAYER_SIZE_400X300_70'
+        | 'PLAYER_SIZE_400X300_25'
+        | 'PLAYER_SIZE_400X300_5';
       /** Target web inventory to maximize IAB viewable rate. */
-      videoIab?: string;
+      videoIab?:
+        | 'VIDEO_IAB_UNSPECIFIED'
+        | 'IAB_VIEWABILITY_80_PERCENT_HIGHER'
+        | 'IAB_VIEWABILITY_75_PERCENT_HIGHER'
+        | 'IAB_VIEWABILITY_70_PERCENT_HIGHER'
+        | 'IAB_VIEWABILITY_65_PERCENT_HIHGER'
+        | 'IAB_VIEWABILITY_60_PERCENT_HIGHER'
+        | 'IAB_VIEWABILITY_55_PERCENT_HIHGER'
+        | 'IAB_VIEWABILITY_50_PERCENT_HIGHER'
+        | 'IAB_VIEWABILITY_40_PERCENT_HIHGER'
+        | 'IAB_VIEWABILITY_30_PERCENT_HIHGER';
       /** Target web inventory to maximize fully viewable rate. */
-      videoViewableRate?: string;
+      videoViewableRate?:
+        | 'VIDEO_VIEWABLE_RATE_UNSPECIFIED'
+        | 'VIEWED_PERFORMANCE_40_PERCENT_HIGHER'
+        | 'VIEWED_PERFORMANCE_35_PERCENT_HIGHER'
+        | 'VIEWED_PERFORMANCE_30_PERCENT_HIGHER'
+        | 'VIEWED_PERFORMANCE_25_PERCENT_HIGHER'
+        | 'VIEWED_PERFORMANCE_20_PERCENT_HIGHER'
+        | 'VIEWED_PERFORMANCE_10_PERCENT_HIGHER';
     }
     interface DuplicateLineItemRequest {
       /** Whether this line item will serve European Union political ads. If contains_eu_political_ads has been set to `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` in the parent advertiser, then this field will be assigned `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` if not otherwise specified. This field can then be updated using the UI, API, or Structured Data Files. This field must be assigned when creating a new line item. Otherwise, **the `advertisers.lineItems.create` request will fail**. */
-      containsEuPoliticalAds?: string;
+      containsEuPoliticalAds?:
+        | 'EU_POLITICAL_ADVERTISING_STATUS_UNKNOWN'
+        | 'CONTAINS_EU_POLITICAL_ADVERTISING'
+        | 'DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING';
       /** The display name of the new line item. Must be UTF-8 encoded with a maximum size of 240 bytes. */
       targetDisplayName?: string;
     }
@@ -1782,15 +2860,112 @@ declare namespace gapi.client {
     interface Empty {}
     interface EnvironmentAssignedTargetingOptionDetails {
       /** Required. The serving environment. */
-      environment?: string;
+      environment?:
+        | 'ENVIRONMENT_UNSPECIFIED'
+        | 'ENVIRONMENT_WEB_OPTIMIZED'
+        | 'ENVIRONMENT_WEB_NOT_OPTIMIZED'
+        | 'ENVIRONMENT_APP';
     }
     interface EnvironmentTargetingOptionDetails {
       /** Output only. The serving environment. */
-      environment?: string;
+      environment?:
+        | 'ENVIRONMENT_UNSPECIFIED'
+        | 'ENVIRONMENT_WEB_OPTIMIZED'
+        | 'ENVIRONMENT_WEB_NOT_OPTIMIZED'
+        | 'ENVIRONMENT_APP';
     }
     interface ExchangeAssignedTargetingOptionDetails {
       /** Required. The enum value for the exchange. */
-      exchange?: string;
+      exchange?:
+        | 'EXCHANGE_UNSPECIFIED'
+        | 'EXCHANGE_GOOGLE_AD_MANAGER'
+        | 'EXCHANGE_APPNEXUS'
+        | 'EXCHANGE_BRIGHTROLL'
+        | 'EXCHANGE_ADFORM'
+        | 'EXCHANGE_ADMETA'
+        | 'EXCHANGE_ADMIXER'
+        | 'EXCHANGE_ADSMOGO'
+        | 'EXCHANGE_ADSWIZZ'
+        | 'EXCHANGE_BIDSWITCH'
+        | 'EXCHANGE_BRIGHTROLL_DISPLAY'
+        | 'EXCHANGE_CADREON'
+        | 'EXCHANGE_DAILYMOTION'
+        | 'EXCHANGE_FIVE'
+        | 'EXCHANGE_FLUCT'
+        | 'EXCHANGE_FREEWHEEL'
+        | 'EXCHANGE_GENIEE'
+        | 'EXCHANGE_GUMGUM'
+        | 'EXCHANGE_IMOBILE'
+        | 'EXCHANGE_IBILLBOARD'
+        | 'EXCHANGE_IMPROVE_DIGITAL'
+        | 'EXCHANGE_INDEX'
+        | 'EXCHANGE_KARGO'
+        | 'EXCHANGE_MICROAD'
+        | 'EXCHANGE_MOPUB'
+        | 'EXCHANGE_NEND'
+        | 'EXCHANGE_ONE_BY_AOL_DISPLAY'
+        | 'EXCHANGE_ONE_BY_AOL_MOBILE'
+        | 'EXCHANGE_ONE_BY_AOL_VIDEO'
+        | 'EXCHANGE_OOYALA'
+        | 'EXCHANGE_OPENX'
+        | 'EXCHANGE_PERMODO'
+        | 'EXCHANGE_PLATFORMONE'
+        | 'EXCHANGE_PLATFORMID'
+        | 'EXCHANGE_PUBMATIC'
+        | 'EXCHANGE_PULSEPOINT'
+        | 'EXCHANGE_REVENUEMAX'
+        | 'EXCHANGE_RUBICON'
+        | 'EXCHANGE_SMARTCLIP'
+        | 'EXCHANGE_SMARTRTB'
+        | 'EXCHANGE_SMARTSTREAMTV'
+        | 'EXCHANGE_SOVRN'
+        | 'EXCHANGE_SPOTXCHANGE'
+        | 'EXCHANGE_STROER'
+        | 'EXCHANGE_TEADSTV'
+        | 'EXCHANGE_TELARIA'
+        | 'EXCHANGE_TVN'
+        | 'EXCHANGE_UNITED'
+        | 'EXCHANGE_YIELDLAB'
+        | 'EXCHANGE_YIELDMO'
+        | 'EXCHANGE_UNRULYX'
+        | 'EXCHANGE_OPEN8'
+        | 'EXCHANGE_TRITON'
+        | 'EXCHANGE_TRIPLELIFT'
+        | 'EXCHANGE_TABOOLA'
+        | 'EXCHANGE_INMOBI'
+        | 'EXCHANGE_SMAATO'
+        | 'EXCHANGE_AJA'
+        | 'EXCHANGE_SUPERSHIP'
+        | 'EXCHANGE_NEXSTAR_DIGITAL'
+        | 'EXCHANGE_WAZE'
+        | 'EXCHANGE_SOUNDCAST'
+        | 'EXCHANGE_SHARETHROUGH'
+        | 'EXCHANGE_FYBER'
+        | 'EXCHANGE_RED_FOR_PUBLISHERS'
+        | 'EXCHANGE_MEDIANET'
+        | 'EXCHANGE_TAPJOY'
+        | 'EXCHANGE_VISTAR'
+        | 'EXCHANGE_DAX'
+        | 'EXCHANGE_JCD'
+        | 'EXCHANGE_PLACE_EXCHANGE'
+        | 'EXCHANGE_APPLOVIN'
+        | 'EXCHANGE_CONNATIX'
+        | 'EXCHANGE_RESET_DIGITAL'
+        | 'EXCHANGE_HIVESTACK'
+        | 'EXCHANGE_DRAX'
+        | 'EXCHANGE_APPLOVIN_GBID'
+        | 'EXCHANGE_FYBER_GBID'
+        | 'EXCHANGE_UNITY_GBID'
+        | 'EXCHANGE_CHARTBOOST_GBID'
+        | 'EXCHANGE_ADMOST_GBID'
+        | 'EXCHANGE_TOPON_GBID'
+        | 'EXCHANGE_NETFLIX'
+        | 'EXCHANGE_CORE'
+        | 'EXCHANGE_COMMERCE_GRID'
+        | 'EXCHANGE_SPOTIFY'
+        | 'EXCHANGE_TUBI'
+        | 'EXCHANGE_SNAP'
+        | 'EXCHANGE_CADENT';
     }
     interface ExchangeConfig {
       /** All enabled exchanges in the partner. Duplicate enabled exchanges will be ignored. */
@@ -1798,7 +2973,96 @@ declare namespace gapi.client {
     }
     interface ExchangeConfigEnabledExchange {
       /** The enabled exchange. */
-      exchange?: string;
+      exchange?:
+        | 'EXCHANGE_UNSPECIFIED'
+        | 'EXCHANGE_GOOGLE_AD_MANAGER'
+        | 'EXCHANGE_APPNEXUS'
+        | 'EXCHANGE_BRIGHTROLL'
+        | 'EXCHANGE_ADFORM'
+        | 'EXCHANGE_ADMETA'
+        | 'EXCHANGE_ADMIXER'
+        | 'EXCHANGE_ADSMOGO'
+        | 'EXCHANGE_ADSWIZZ'
+        | 'EXCHANGE_BIDSWITCH'
+        | 'EXCHANGE_BRIGHTROLL_DISPLAY'
+        | 'EXCHANGE_CADREON'
+        | 'EXCHANGE_DAILYMOTION'
+        | 'EXCHANGE_FIVE'
+        | 'EXCHANGE_FLUCT'
+        | 'EXCHANGE_FREEWHEEL'
+        | 'EXCHANGE_GENIEE'
+        | 'EXCHANGE_GUMGUM'
+        | 'EXCHANGE_IMOBILE'
+        | 'EXCHANGE_IBILLBOARD'
+        | 'EXCHANGE_IMPROVE_DIGITAL'
+        | 'EXCHANGE_INDEX'
+        | 'EXCHANGE_KARGO'
+        | 'EXCHANGE_MICROAD'
+        | 'EXCHANGE_MOPUB'
+        | 'EXCHANGE_NEND'
+        | 'EXCHANGE_ONE_BY_AOL_DISPLAY'
+        | 'EXCHANGE_ONE_BY_AOL_MOBILE'
+        | 'EXCHANGE_ONE_BY_AOL_VIDEO'
+        | 'EXCHANGE_OOYALA'
+        | 'EXCHANGE_OPENX'
+        | 'EXCHANGE_PERMODO'
+        | 'EXCHANGE_PLATFORMONE'
+        | 'EXCHANGE_PLATFORMID'
+        | 'EXCHANGE_PUBMATIC'
+        | 'EXCHANGE_PULSEPOINT'
+        | 'EXCHANGE_REVENUEMAX'
+        | 'EXCHANGE_RUBICON'
+        | 'EXCHANGE_SMARTCLIP'
+        | 'EXCHANGE_SMARTRTB'
+        | 'EXCHANGE_SMARTSTREAMTV'
+        | 'EXCHANGE_SOVRN'
+        | 'EXCHANGE_SPOTXCHANGE'
+        | 'EXCHANGE_STROER'
+        | 'EXCHANGE_TEADSTV'
+        | 'EXCHANGE_TELARIA'
+        | 'EXCHANGE_TVN'
+        | 'EXCHANGE_UNITED'
+        | 'EXCHANGE_YIELDLAB'
+        | 'EXCHANGE_YIELDMO'
+        | 'EXCHANGE_UNRULYX'
+        | 'EXCHANGE_OPEN8'
+        | 'EXCHANGE_TRITON'
+        | 'EXCHANGE_TRIPLELIFT'
+        | 'EXCHANGE_TABOOLA'
+        | 'EXCHANGE_INMOBI'
+        | 'EXCHANGE_SMAATO'
+        | 'EXCHANGE_AJA'
+        | 'EXCHANGE_SUPERSHIP'
+        | 'EXCHANGE_NEXSTAR_DIGITAL'
+        | 'EXCHANGE_WAZE'
+        | 'EXCHANGE_SOUNDCAST'
+        | 'EXCHANGE_SHARETHROUGH'
+        | 'EXCHANGE_FYBER'
+        | 'EXCHANGE_RED_FOR_PUBLISHERS'
+        | 'EXCHANGE_MEDIANET'
+        | 'EXCHANGE_TAPJOY'
+        | 'EXCHANGE_VISTAR'
+        | 'EXCHANGE_DAX'
+        | 'EXCHANGE_JCD'
+        | 'EXCHANGE_PLACE_EXCHANGE'
+        | 'EXCHANGE_APPLOVIN'
+        | 'EXCHANGE_CONNATIX'
+        | 'EXCHANGE_RESET_DIGITAL'
+        | 'EXCHANGE_HIVESTACK'
+        | 'EXCHANGE_DRAX'
+        | 'EXCHANGE_APPLOVIN_GBID'
+        | 'EXCHANGE_FYBER_GBID'
+        | 'EXCHANGE_UNITY_GBID'
+        | 'EXCHANGE_CHARTBOOST_GBID'
+        | 'EXCHANGE_ADMOST_GBID'
+        | 'EXCHANGE_TOPON_GBID'
+        | 'EXCHANGE_NETFLIX'
+        | 'EXCHANGE_CORE'
+        | 'EXCHANGE_COMMERCE_GRID'
+        | 'EXCHANGE_SPOTIFY'
+        | 'EXCHANGE_TUBI'
+        | 'EXCHANGE_SNAP'
+        | 'EXCHANGE_CADENT';
       /** Output only. Agency ID of Google Ad Manager. The field is only relevant when Google Ad Manager is the enabled exchange. */
       googleAdManagerAgencyId?: string;
       /** Output only. Network ID of Google Ad Manager. The field is only relevant when Google Ad Manager is the enabled exchange. */
@@ -1808,13 +3072,195 @@ declare namespace gapi.client {
     }
     interface ExchangeReviewStatus {
       /** The exchange reviewing the creative. */
-      exchange?: string;
+      exchange?:
+        | 'EXCHANGE_UNSPECIFIED'
+        | 'EXCHANGE_GOOGLE_AD_MANAGER'
+        | 'EXCHANGE_APPNEXUS'
+        | 'EXCHANGE_BRIGHTROLL'
+        | 'EXCHANGE_ADFORM'
+        | 'EXCHANGE_ADMETA'
+        | 'EXCHANGE_ADMIXER'
+        | 'EXCHANGE_ADSMOGO'
+        | 'EXCHANGE_ADSWIZZ'
+        | 'EXCHANGE_BIDSWITCH'
+        | 'EXCHANGE_BRIGHTROLL_DISPLAY'
+        | 'EXCHANGE_CADREON'
+        | 'EXCHANGE_DAILYMOTION'
+        | 'EXCHANGE_FIVE'
+        | 'EXCHANGE_FLUCT'
+        | 'EXCHANGE_FREEWHEEL'
+        | 'EXCHANGE_GENIEE'
+        | 'EXCHANGE_GUMGUM'
+        | 'EXCHANGE_IMOBILE'
+        | 'EXCHANGE_IBILLBOARD'
+        | 'EXCHANGE_IMPROVE_DIGITAL'
+        | 'EXCHANGE_INDEX'
+        | 'EXCHANGE_KARGO'
+        | 'EXCHANGE_MICROAD'
+        | 'EXCHANGE_MOPUB'
+        | 'EXCHANGE_NEND'
+        | 'EXCHANGE_ONE_BY_AOL_DISPLAY'
+        | 'EXCHANGE_ONE_BY_AOL_MOBILE'
+        | 'EXCHANGE_ONE_BY_AOL_VIDEO'
+        | 'EXCHANGE_OOYALA'
+        | 'EXCHANGE_OPENX'
+        | 'EXCHANGE_PERMODO'
+        | 'EXCHANGE_PLATFORMONE'
+        | 'EXCHANGE_PLATFORMID'
+        | 'EXCHANGE_PUBMATIC'
+        | 'EXCHANGE_PULSEPOINT'
+        | 'EXCHANGE_REVENUEMAX'
+        | 'EXCHANGE_RUBICON'
+        | 'EXCHANGE_SMARTCLIP'
+        | 'EXCHANGE_SMARTRTB'
+        | 'EXCHANGE_SMARTSTREAMTV'
+        | 'EXCHANGE_SOVRN'
+        | 'EXCHANGE_SPOTXCHANGE'
+        | 'EXCHANGE_STROER'
+        | 'EXCHANGE_TEADSTV'
+        | 'EXCHANGE_TELARIA'
+        | 'EXCHANGE_TVN'
+        | 'EXCHANGE_UNITED'
+        | 'EXCHANGE_YIELDLAB'
+        | 'EXCHANGE_YIELDMO'
+        | 'EXCHANGE_UNRULYX'
+        | 'EXCHANGE_OPEN8'
+        | 'EXCHANGE_TRITON'
+        | 'EXCHANGE_TRIPLELIFT'
+        | 'EXCHANGE_TABOOLA'
+        | 'EXCHANGE_INMOBI'
+        | 'EXCHANGE_SMAATO'
+        | 'EXCHANGE_AJA'
+        | 'EXCHANGE_SUPERSHIP'
+        | 'EXCHANGE_NEXSTAR_DIGITAL'
+        | 'EXCHANGE_WAZE'
+        | 'EXCHANGE_SOUNDCAST'
+        | 'EXCHANGE_SHARETHROUGH'
+        | 'EXCHANGE_FYBER'
+        | 'EXCHANGE_RED_FOR_PUBLISHERS'
+        | 'EXCHANGE_MEDIANET'
+        | 'EXCHANGE_TAPJOY'
+        | 'EXCHANGE_VISTAR'
+        | 'EXCHANGE_DAX'
+        | 'EXCHANGE_JCD'
+        | 'EXCHANGE_PLACE_EXCHANGE'
+        | 'EXCHANGE_APPLOVIN'
+        | 'EXCHANGE_CONNATIX'
+        | 'EXCHANGE_RESET_DIGITAL'
+        | 'EXCHANGE_HIVESTACK'
+        | 'EXCHANGE_DRAX'
+        | 'EXCHANGE_APPLOVIN_GBID'
+        | 'EXCHANGE_FYBER_GBID'
+        | 'EXCHANGE_UNITY_GBID'
+        | 'EXCHANGE_CHARTBOOST_GBID'
+        | 'EXCHANGE_ADMOST_GBID'
+        | 'EXCHANGE_TOPON_GBID'
+        | 'EXCHANGE_NETFLIX'
+        | 'EXCHANGE_CORE'
+        | 'EXCHANGE_COMMERCE_GRID'
+        | 'EXCHANGE_SPOTIFY'
+        | 'EXCHANGE_TUBI'
+        | 'EXCHANGE_SNAP'
+        | 'EXCHANGE_CADENT';
       /** Status of the exchange review. */
-      status?: string;
+      status?:
+        | 'REVIEW_STATUS_UNSPECIFIED'
+        | 'REVIEW_STATUS_APPROVED'
+        | 'REVIEW_STATUS_REJECTED'
+        | 'REVIEW_STATUS_PENDING';
     }
     interface ExchangeTargetingOptionDetails {
       /** Output only. The type of exchange. */
-      exchange?: string;
+      exchange?:
+        | 'EXCHANGE_UNSPECIFIED'
+        | 'EXCHANGE_GOOGLE_AD_MANAGER'
+        | 'EXCHANGE_APPNEXUS'
+        | 'EXCHANGE_BRIGHTROLL'
+        | 'EXCHANGE_ADFORM'
+        | 'EXCHANGE_ADMETA'
+        | 'EXCHANGE_ADMIXER'
+        | 'EXCHANGE_ADSMOGO'
+        | 'EXCHANGE_ADSWIZZ'
+        | 'EXCHANGE_BIDSWITCH'
+        | 'EXCHANGE_BRIGHTROLL_DISPLAY'
+        | 'EXCHANGE_CADREON'
+        | 'EXCHANGE_DAILYMOTION'
+        | 'EXCHANGE_FIVE'
+        | 'EXCHANGE_FLUCT'
+        | 'EXCHANGE_FREEWHEEL'
+        | 'EXCHANGE_GENIEE'
+        | 'EXCHANGE_GUMGUM'
+        | 'EXCHANGE_IMOBILE'
+        | 'EXCHANGE_IBILLBOARD'
+        | 'EXCHANGE_IMPROVE_DIGITAL'
+        | 'EXCHANGE_INDEX'
+        | 'EXCHANGE_KARGO'
+        | 'EXCHANGE_MICROAD'
+        | 'EXCHANGE_MOPUB'
+        | 'EXCHANGE_NEND'
+        | 'EXCHANGE_ONE_BY_AOL_DISPLAY'
+        | 'EXCHANGE_ONE_BY_AOL_MOBILE'
+        | 'EXCHANGE_ONE_BY_AOL_VIDEO'
+        | 'EXCHANGE_OOYALA'
+        | 'EXCHANGE_OPENX'
+        | 'EXCHANGE_PERMODO'
+        | 'EXCHANGE_PLATFORMONE'
+        | 'EXCHANGE_PLATFORMID'
+        | 'EXCHANGE_PUBMATIC'
+        | 'EXCHANGE_PULSEPOINT'
+        | 'EXCHANGE_REVENUEMAX'
+        | 'EXCHANGE_RUBICON'
+        | 'EXCHANGE_SMARTCLIP'
+        | 'EXCHANGE_SMARTRTB'
+        | 'EXCHANGE_SMARTSTREAMTV'
+        | 'EXCHANGE_SOVRN'
+        | 'EXCHANGE_SPOTXCHANGE'
+        | 'EXCHANGE_STROER'
+        | 'EXCHANGE_TEADSTV'
+        | 'EXCHANGE_TELARIA'
+        | 'EXCHANGE_TVN'
+        | 'EXCHANGE_UNITED'
+        | 'EXCHANGE_YIELDLAB'
+        | 'EXCHANGE_YIELDMO'
+        | 'EXCHANGE_UNRULYX'
+        | 'EXCHANGE_OPEN8'
+        | 'EXCHANGE_TRITON'
+        | 'EXCHANGE_TRIPLELIFT'
+        | 'EXCHANGE_TABOOLA'
+        | 'EXCHANGE_INMOBI'
+        | 'EXCHANGE_SMAATO'
+        | 'EXCHANGE_AJA'
+        | 'EXCHANGE_SUPERSHIP'
+        | 'EXCHANGE_NEXSTAR_DIGITAL'
+        | 'EXCHANGE_WAZE'
+        | 'EXCHANGE_SOUNDCAST'
+        | 'EXCHANGE_SHARETHROUGH'
+        | 'EXCHANGE_FYBER'
+        | 'EXCHANGE_RED_FOR_PUBLISHERS'
+        | 'EXCHANGE_MEDIANET'
+        | 'EXCHANGE_TAPJOY'
+        | 'EXCHANGE_VISTAR'
+        | 'EXCHANGE_DAX'
+        | 'EXCHANGE_JCD'
+        | 'EXCHANGE_PLACE_EXCHANGE'
+        | 'EXCHANGE_APPLOVIN'
+        | 'EXCHANGE_CONNATIX'
+        | 'EXCHANGE_RESET_DIGITAL'
+        | 'EXCHANGE_HIVESTACK'
+        | 'EXCHANGE_DRAX'
+        | 'EXCHANGE_APPLOVIN_GBID'
+        | 'EXCHANGE_FYBER_GBID'
+        | 'EXCHANGE_UNITY_GBID'
+        | 'EXCHANGE_CHARTBOOST_GBID'
+        | 'EXCHANGE_ADMOST_GBID'
+        | 'EXCHANGE_TOPON_GBID'
+        | 'EXCHANGE_NETFLIX'
+        | 'EXCHANGE_CORE'
+        | 'EXCHANGE_COMMERCE_GRID'
+        | 'EXCHANGE_SPOTIFY'
+        | 'EXCHANGE_TUBI'
+        | 'EXCHANGE_SNAP'
+        | 'EXCHANGE_CADENT';
     }
     interface ExitEvent {
       /** Optional. The name of the click tag of the exit event. The name must be unique within one creative. Leave it empty or unset for creatives containing image assets only. */
@@ -1822,7 +3268,10 @@ declare namespace gapi.client {
       /** Optional. The name used to identify this event in reports. Leave it empty or unset for creatives containing image assets only. */
       reportingName?: string;
       /** Required. The type of the exit event. */
-      type?: string;
+      type?:
+        | 'EXIT_EVENT_TYPE_UNSPECIFIED'
+        | 'EXIT_EVENT_TYPE_DEFAULT'
+        | 'EXIT_EVENT_TYPE_BACKUP';
       /** Required. The click through URL of the exit event. This is required when type is: * `EXIT_EVENT_TYPE_DEFAULT` * `EXIT_EVENT_TYPE_BACKUP` */
       url?: string;
     }
@@ -1832,9 +3281,28 @@ declare namespace gapi.client {
       /** Optional. The app_id matches with the type of the mobile_device_ids being uploaded. Only applicable to audience_type `CUSTOMER_MATCH_DEVICE_ID` */
       appId?: string;
       /** Output only. The source of the audience. */
-      audienceSource?: string;
+      audienceSource?:
+        | 'AUDIENCE_SOURCE_UNSPECIFIED'
+        | 'DISPLAY_VIDEO_360'
+        | 'CAMPAIGN_MANAGER'
+        | 'AD_MANAGER'
+        | 'SEARCH_ADS_360'
+        | 'YOUTUBE'
+        | 'ADS_DATA_HUB';
       /** Immutable. The type of the audience. */
-      audienceType?: string;
+      audienceType?:
+        | 'AUDIENCE_TYPE_UNSPECIFIED'
+        | 'CUSTOMER_MATCH_CONTACT_INFO'
+        | 'CUSTOMER_MATCH_DEVICE_ID'
+        | 'CUSTOMER_MATCH_USER_ID'
+        | 'ACTIVITY_BASED'
+        | 'FREQUENCY_CAP'
+        | 'TAG_BASED'
+        | 'YOUTUBE_USERS'
+        | 'THIRD_PARTY'
+        | 'COMMERCE'
+        | 'LINEAR'
+        | 'AGENCY';
       /** Input only. A list of contact information to define the initial audience members. Only applicable to audience_type `CUSTOMER_MATCH_CONTACT_INFO` */
       contactInfoList?: ContactInfoList;
       /** Optional. The user-provided description of the audience. Only applicable to first party audiences. */
@@ -1852,7 +3320,10 @@ declare namespace gapi.client {
       /** Identifier. The unique ID of the first party and partner audience. Assigned by the system. */
       firstPartyAndPartnerAudienceId?: string;
       /** Output only. Whether the audience is a first party and partner audience. */
-      firstPartyAndPartnerAudienceType?: string;
+      firstPartyAndPartnerAudienceType?:
+        | 'FIRST_PARTY_AND_PARTNER_AUDIENCE_TYPE_UNSPECIFIED'
+        | 'TYPE_FIRST_PARTY'
+        | 'TYPE_PARTNER';
       /** Output only. The estimated audience size for Gmail network. If the size is less than 1000, the number will be hidden and 0 will be returned due to privacy reasons. Otherwise, the number will be rounded off to two significant digits. Only applicable to first party audiences. Only returned in GET request. */
       gmailAudienceSize?: string;
       /** Optional. The duration in days that an entry remains in the audience after the qualifying event. The set value must be greater than 0 and less than or equal to 540. Only applicable to first party audiences. This field is required if one of the following audience_type is used: * `CUSTOMER_MATCH_CONTACT_INFO` * `CUSTOMER_MATCH_DEVICE_ID` */
@@ -1872,7 +3343,37 @@ declare namespace gapi.client {
       /** Required. First party and partner audience id of the first party and partner audience targeting setting. This id is first_party_and_partner_audience_id. */
       firstPartyAndPartnerAudienceId?: string;
       /** Required. The recency of the first party and partner audience targeting setting. Only applicable to first party audiences, otherwise will be ignored. For more info, refer to https://support.google.com/displayvideo/answer/2949947#recency When unspecified, no recency limit will be used. */
-      recency?: string;
+      recency?:
+        | 'RECENCY_NO_LIMIT'
+        | 'RECENCY_1_MINUTE'
+        | 'RECENCY_5_MINUTES'
+        | 'RECENCY_10_MINUTES'
+        | 'RECENCY_15_MINUTES'
+        | 'RECENCY_30_MINUTES'
+        | 'RECENCY_1_HOUR'
+        | 'RECENCY_2_HOURS'
+        | 'RECENCY_3_HOURS'
+        | 'RECENCY_6_HOURS'
+        | 'RECENCY_12_HOURS'
+        | 'RECENCY_1_DAY'
+        | 'RECENCY_2_DAYS'
+        | 'RECENCY_3_DAYS'
+        | 'RECENCY_5_DAYS'
+        | 'RECENCY_7_DAYS'
+        | 'RECENCY_10_DAYS'
+        | 'RECENCY_14_DAYS'
+        | 'RECENCY_15_DAYS'
+        | 'RECENCY_21_DAYS'
+        | 'RECENCY_28_DAYS'
+        | 'RECENCY_30_DAYS'
+        | 'RECENCY_40_DAYS'
+        | 'RECENCY_45_DAYS'
+        | 'RECENCY_60_DAYS'
+        | 'RECENCY_90_DAYS'
+        | 'RECENCY_120_DAYS'
+        | 'RECENCY_180_DAYS'
+        | 'RECENCY_270_DAYS'
+        | 'RECENCY_365_DAYS';
     }
     interface FixedBidStrategy {
       /** The fixed bid amount, in micros of the advertiser's currency. For insertion order entity, bid_amount_micros should be set as 0. For line item entity, bid_amount_micros must be greater than or equal to billable unit of the given currency and smaller than or equal to the upper limit 1000000000. For example, 1500000 represents 1.5 standard units of the currency. */
@@ -1892,7 +3393,10 @@ declare namespace gapi.client {
       /** Output only. A list of configuration objects designating whether remarketing for this Floodlight Activity is enabled and available for a specifc advertiser. If enabled, this Floodlight Activity generates a remarketing user list that is able to be used in targeting under the advertiser. */
       remarketingConfigs?: RemarketingConfig[];
       /** Optional. Whether the Floodlight activity is served. */
-      servingStatus?: string;
+      servingStatus?:
+        | 'FLOODLIGHT_ACTIVITY_SERVING_STATUS_UNSPECIFIED'
+        | 'FLOODLIGHT_ACTIVITY_SERVING_STATUS_ENABLED'
+        | 'FLOODLIGHT_ACTIVITY_SERVING_STATUS_DISABLED';
       /** Output only. Whether tags are required to be compliant. */
       sslRequired?: boolean;
     }
@@ -1910,7 +3414,11 @@ declare namespace gapi.client {
       /** Output only. The resource name of the Floodlight group. */
       name?: string;
       /** Required. The web tag type enabled for the Floodlight group. */
-      webTagType?: string;
+      webTagType?:
+        | 'WEB_TAG_TYPE_UNSPECIFIED'
+        | 'WEB_TAG_TYPE_NONE'
+        | 'WEB_TAG_TYPE_IMAGE'
+        | 'WEB_TAG_TYPE_DYNAMIC';
     }
     interface FrequencyCap {
       /** The maximum number of times a user may be shown the same ad during this period. Must be greater than 0. Required when unlimited is `false` and max_views is not set. */
@@ -1918,7 +3426,14 @@ declare namespace gapi.client {
       /** Optional. The maximum number of times a user may click-through or fully view an ad during this period until it is no longer served to them. Must be greater than 0. Only applicable to YouTube and Partners resources. Required when unlimited is `false` and max_impressions is not set. */
       maxViews?: number;
       /** The time unit in which the frequency cap will be applied. Required when unlimited is `false`. */
-      timeUnit?: string;
+      timeUnit?:
+        | 'TIME_UNIT_UNSPECIFIED'
+        | 'TIME_UNIT_LIFETIME'
+        | 'TIME_UNIT_MONTHS'
+        | 'TIME_UNIT_WEEKS'
+        | 'TIME_UNIT_DAYS'
+        | 'TIME_UNIT_HOURS'
+        | 'TIME_UNIT_MINUTES';
       /** The number of time_unit the frequency cap will last. Required when unlimited is `false`. The following restrictions apply based on the value of time_unit: * `TIME_UNIT_MONTHS` - must be 1 * `TIME_UNIT_WEEKS` - must be between 1 and 4 * `TIME_UNIT_DAYS` - must be between 1 and 6 * `TIME_UNIT_HOURS` - must be between 1 and 23 * `TIME_UNIT_MINUTES` - must be between 1 and 59 */
       timeUnitCount?: number;
       /** Whether unlimited frequency capping is applied. When this field is set to `true`, the remaining frequency cap fields are not applicable. */
@@ -1926,17 +3441,64 @@ declare namespace gapi.client {
     }
     interface GenderAssignedTargetingOptionDetails {
       /** Required. The gender of the audience. */
-      gender?: string;
+      gender?:
+        | 'GENDER_UNSPECIFIED'
+        | 'GENDER_MALE'
+        | 'GENDER_FEMALE'
+        | 'GENDER_UNKNOWN';
     }
     interface GenderTargetingOptionDetails {
       /** Output only. The gender of an audience. */
-      gender?: string;
+      gender?:
+        | 'GENDER_UNSPECIFIED'
+        | 'GENDER_MALE'
+        | 'GENDER_FEMALE'
+        | 'GENDER_UNKNOWN';
     }
     interface GeoRegionAssignedTargetingOptionDetails {
       /** Output only. The display name of the geographic region (e.g., "Ontario, Canada"). */
       displayName?: string;
       /** Output only. The type of geographic region targeting. */
-      geoRegionType?: string;
+      geoRegionType?:
+        | 'GEO_REGION_TYPE_UNKNOWN'
+        | 'GEO_REGION_TYPE_OTHER'
+        | 'GEO_REGION_TYPE_COUNTRY'
+        | 'GEO_REGION_TYPE_REGION'
+        | 'GEO_REGION_TYPE_TERRITORY'
+        | 'GEO_REGION_TYPE_PROVINCE'
+        | 'GEO_REGION_TYPE_STATE'
+        | 'GEO_REGION_TYPE_PREFECTURE'
+        | 'GEO_REGION_TYPE_GOVERNORATE'
+        | 'GEO_REGION_TYPE_CANTON'
+        | 'GEO_REGION_TYPE_UNION_TERRITORY'
+        | 'GEO_REGION_TYPE_AUTONOMOUS_COMMUNITY'
+        | 'GEO_REGION_TYPE_DMA_REGION'
+        | 'GEO_REGION_TYPE_METRO'
+        | 'GEO_REGION_TYPE_CONGRESSIONAL_DISTRICT'
+        | 'GEO_REGION_TYPE_COUNTY'
+        | 'GEO_REGION_TYPE_MUNICIPALITY'
+        | 'GEO_REGION_TYPE_CITY'
+        | 'GEO_REGION_TYPE_POSTAL_CODE'
+        | 'GEO_REGION_TYPE_DEPARTMENT'
+        | 'GEO_REGION_TYPE_AIRPORT'
+        | 'GEO_REGION_TYPE_TV_REGION'
+        | 'GEO_REGION_TYPE_OKRUG'
+        | 'GEO_REGION_TYPE_BOROUGH'
+        | 'GEO_REGION_TYPE_CITY_REGION'
+        | 'GEO_REGION_TYPE_ARRONDISSEMENT'
+        | 'GEO_REGION_TYPE_NEIGHBORHOOD'
+        | 'GEO_REGION_TYPE_UNIVERSITY'
+        | 'GEO_REGION_TYPE_DISTRICT'
+        | 'GEO_REGION_TYPE_NATIONAL_PARK'
+        | 'GEO_REGION_TYPE_BARRIO'
+        | 'GEO_REGION_TYPE_SUB_WARD'
+        | 'GEO_REGION_TYPE_MUNICIPALITY_DISTRICT'
+        | 'GEO_REGION_TYPE_SUB_DISTRICT'
+        | 'GEO_REGION_TYPE_QUARTER'
+        | 'GEO_REGION_TYPE_DIVISION'
+        | 'GEO_REGION_TYPE_COMMUNE'
+        | 'GEO_REGION_TYPE_COLLOQUIAL_AREA'
+        | 'GEO_REGION_TYPE_POST_TOWN';
       /** Indicates if this option is being negatively targeted. */
       negative?: boolean;
       /** Required. The targeting_option_id of a TargetingOption of type `TARGETING_TYPE_GEO_REGION`. */
@@ -1950,7 +3512,46 @@ declare namespace gapi.client {
       /** Output only. The display name of the geographic region (e.g., "Ontario, Canada"). */
       displayName?: string;
       /** Output only. The type of geographic region targeting. */
-      geoRegionType?: string;
+      geoRegionType?:
+        | 'GEO_REGION_TYPE_UNKNOWN'
+        | 'GEO_REGION_TYPE_OTHER'
+        | 'GEO_REGION_TYPE_COUNTRY'
+        | 'GEO_REGION_TYPE_REGION'
+        | 'GEO_REGION_TYPE_TERRITORY'
+        | 'GEO_REGION_TYPE_PROVINCE'
+        | 'GEO_REGION_TYPE_STATE'
+        | 'GEO_REGION_TYPE_PREFECTURE'
+        | 'GEO_REGION_TYPE_GOVERNORATE'
+        | 'GEO_REGION_TYPE_CANTON'
+        | 'GEO_REGION_TYPE_UNION_TERRITORY'
+        | 'GEO_REGION_TYPE_AUTONOMOUS_COMMUNITY'
+        | 'GEO_REGION_TYPE_DMA_REGION'
+        | 'GEO_REGION_TYPE_METRO'
+        | 'GEO_REGION_TYPE_CONGRESSIONAL_DISTRICT'
+        | 'GEO_REGION_TYPE_COUNTY'
+        | 'GEO_REGION_TYPE_MUNICIPALITY'
+        | 'GEO_REGION_TYPE_CITY'
+        | 'GEO_REGION_TYPE_POSTAL_CODE'
+        | 'GEO_REGION_TYPE_DEPARTMENT'
+        | 'GEO_REGION_TYPE_AIRPORT'
+        | 'GEO_REGION_TYPE_TV_REGION'
+        | 'GEO_REGION_TYPE_OKRUG'
+        | 'GEO_REGION_TYPE_BOROUGH'
+        | 'GEO_REGION_TYPE_CITY_REGION'
+        | 'GEO_REGION_TYPE_ARRONDISSEMENT'
+        | 'GEO_REGION_TYPE_NEIGHBORHOOD'
+        | 'GEO_REGION_TYPE_UNIVERSITY'
+        | 'GEO_REGION_TYPE_DISTRICT'
+        | 'GEO_REGION_TYPE_NATIONAL_PARK'
+        | 'GEO_REGION_TYPE_BARRIO'
+        | 'GEO_REGION_TYPE_SUB_WARD'
+        | 'GEO_REGION_TYPE_MUNICIPALITY_DISTRICT'
+        | 'GEO_REGION_TYPE_SUB_DISTRICT'
+        | 'GEO_REGION_TYPE_QUARTER'
+        | 'GEO_REGION_TYPE_DIVISION'
+        | 'GEO_REGION_TYPE_COMMUNE'
+        | 'GEO_REGION_TYPE_COLLOQUIAL_AREA'
+        | 'GEO_REGION_TYPE_POST_TOWN';
     }
     interface GoogleAudience {
       /** Output only. The display name of the Google audience. . */
@@ -1958,7 +3559,14 @@ declare namespace gapi.client {
       /** Output only. The unique ID of the Google audience. Assigned by the system. */
       googleAudienceId?: string;
       /** Output only. The type of Google audience. . */
-      googleAudienceType?: string;
+      googleAudienceType?:
+        | 'GOOGLE_AUDIENCE_TYPE_UNSPECIFIED'
+        | 'GOOGLE_AUDIENCE_TYPE_AFFINITY'
+        | 'GOOGLE_AUDIENCE_TYPE_IN_MARKET'
+        | 'GOOGLE_AUDIENCE_TYPE_INSTALLED_APPS'
+        | 'GOOGLE_AUDIENCE_TYPE_NEW_MOBILE_DEVICES'
+        | 'GOOGLE_AUDIENCE_TYPE_LIFE_EVENT'
+        | 'GOOGLE_AUDIENCE_TYPE_EXTENDED_DEMOGRAPHIC';
       /** Output only. The resource name of the google audience. */
       name?: string;
     }
@@ -1982,7 +3590,96 @@ declare namespace gapi.client {
       /** Required. The display name of the guaranteed order. Must be UTF-8 encoded with a maximum size of 240 bytes. */
       displayName?: string;
       /** Required. Immutable. The exchange where the guaranteed order originated. */
-      exchange?: string;
+      exchange?:
+        | 'EXCHANGE_UNSPECIFIED'
+        | 'EXCHANGE_GOOGLE_AD_MANAGER'
+        | 'EXCHANGE_APPNEXUS'
+        | 'EXCHANGE_BRIGHTROLL'
+        | 'EXCHANGE_ADFORM'
+        | 'EXCHANGE_ADMETA'
+        | 'EXCHANGE_ADMIXER'
+        | 'EXCHANGE_ADSMOGO'
+        | 'EXCHANGE_ADSWIZZ'
+        | 'EXCHANGE_BIDSWITCH'
+        | 'EXCHANGE_BRIGHTROLL_DISPLAY'
+        | 'EXCHANGE_CADREON'
+        | 'EXCHANGE_DAILYMOTION'
+        | 'EXCHANGE_FIVE'
+        | 'EXCHANGE_FLUCT'
+        | 'EXCHANGE_FREEWHEEL'
+        | 'EXCHANGE_GENIEE'
+        | 'EXCHANGE_GUMGUM'
+        | 'EXCHANGE_IMOBILE'
+        | 'EXCHANGE_IBILLBOARD'
+        | 'EXCHANGE_IMPROVE_DIGITAL'
+        | 'EXCHANGE_INDEX'
+        | 'EXCHANGE_KARGO'
+        | 'EXCHANGE_MICROAD'
+        | 'EXCHANGE_MOPUB'
+        | 'EXCHANGE_NEND'
+        | 'EXCHANGE_ONE_BY_AOL_DISPLAY'
+        | 'EXCHANGE_ONE_BY_AOL_MOBILE'
+        | 'EXCHANGE_ONE_BY_AOL_VIDEO'
+        | 'EXCHANGE_OOYALA'
+        | 'EXCHANGE_OPENX'
+        | 'EXCHANGE_PERMODO'
+        | 'EXCHANGE_PLATFORMONE'
+        | 'EXCHANGE_PLATFORMID'
+        | 'EXCHANGE_PUBMATIC'
+        | 'EXCHANGE_PULSEPOINT'
+        | 'EXCHANGE_REVENUEMAX'
+        | 'EXCHANGE_RUBICON'
+        | 'EXCHANGE_SMARTCLIP'
+        | 'EXCHANGE_SMARTRTB'
+        | 'EXCHANGE_SMARTSTREAMTV'
+        | 'EXCHANGE_SOVRN'
+        | 'EXCHANGE_SPOTXCHANGE'
+        | 'EXCHANGE_STROER'
+        | 'EXCHANGE_TEADSTV'
+        | 'EXCHANGE_TELARIA'
+        | 'EXCHANGE_TVN'
+        | 'EXCHANGE_UNITED'
+        | 'EXCHANGE_YIELDLAB'
+        | 'EXCHANGE_YIELDMO'
+        | 'EXCHANGE_UNRULYX'
+        | 'EXCHANGE_OPEN8'
+        | 'EXCHANGE_TRITON'
+        | 'EXCHANGE_TRIPLELIFT'
+        | 'EXCHANGE_TABOOLA'
+        | 'EXCHANGE_INMOBI'
+        | 'EXCHANGE_SMAATO'
+        | 'EXCHANGE_AJA'
+        | 'EXCHANGE_SUPERSHIP'
+        | 'EXCHANGE_NEXSTAR_DIGITAL'
+        | 'EXCHANGE_WAZE'
+        | 'EXCHANGE_SOUNDCAST'
+        | 'EXCHANGE_SHARETHROUGH'
+        | 'EXCHANGE_FYBER'
+        | 'EXCHANGE_RED_FOR_PUBLISHERS'
+        | 'EXCHANGE_MEDIANET'
+        | 'EXCHANGE_TAPJOY'
+        | 'EXCHANGE_VISTAR'
+        | 'EXCHANGE_DAX'
+        | 'EXCHANGE_JCD'
+        | 'EXCHANGE_PLACE_EXCHANGE'
+        | 'EXCHANGE_APPLOVIN'
+        | 'EXCHANGE_CONNATIX'
+        | 'EXCHANGE_RESET_DIGITAL'
+        | 'EXCHANGE_HIVESTACK'
+        | 'EXCHANGE_DRAX'
+        | 'EXCHANGE_APPLOVIN_GBID'
+        | 'EXCHANGE_FYBER_GBID'
+        | 'EXCHANGE_UNITY_GBID'
+        | 'EXCHANGE_CHARTBOOST_GBID'
+        | 'EXCHANGE_ADMOST_GBID'
+        | 'EXCHANGE_TOPON_GBID'
+        | 'EXCHANGE_NETFLIX'
+        | 'EXCHANGE_CORE'
+        | 'EXCHANGE_COMMERCE_GRID'
+        | 'EXCHANGE_SPOTIFY'
+        | 'EXCHANGE_TUBI'
+        | 'EXCHANGE_SNAP'
+        | 'EXCHANGE_CADENT';
       /** Output only. The unique identifier of the guaranteed order. The guaranteed order IDs have the format `{exchange}-{legacy_guaranteed_order_id}`. */
       guaranteedOrderId?: string;
       /** Output only. The legacy ID of the guaranteed order. Assigned by the original exchange. The legacy ID is unique within one exchange, but is not guaranteed to be unique across all guaranteed orders. This ID is used in SDF and UI. */
@@ -2006,19 +3703,44 @@ declare namespace gapi.client {
     }
     interface GuaranteedOrderStatus {
       /** Output only. The configuration status of the guaranteed order. Acceptable values are `PENDING` and `COMPLETED`. A guaranteed order must be configured (fill in the required fields, choose creatives, and select a default campaign) before it can serve. Currently the configuration action can only be performed via UI. */
-      configStatus?: string;
+      configStatus?:
+        | 'GUARANTEED_ORDER_CONFIG_STATUS_UNSPECIFIED'
+        | 'PENDING'
+        | 'COMPLETED';
       /** The user-provided reason for pausing this guaranteed order. Must be UTF-8 encoded with a maximum length of 100 bytes. Only applicable when entity_status is set to `ENTITY_STATUS_PAUSED`. */
       entityPauseReason?: string;
       /** Whether or not the guaranteed order is servable. Acceptable values are `ENTITY_STATUS_ACTIVE`, `ENTITY_STATUS_ARCHIVED`, and `ENTITY_STATUS_PAUSED`. Default value is `ENTITY_STATUS_ACTIVE`. */
-      entityStatus?: string;
+      entityStatus?:
+        | 'ENTITY_STATUS_UNSPECIFIED'
+        | 'ENTITY_STATUS_ACTIVE'
+        | 'ENTITY_STATUS_ARCHIVED'
+        | 'ENTITY_STATUS_DRAFT'
+        | 'ENTITY_STATUS_PAUSED'
+        | 'ENTITY_STATUS_SCHEDULED_FOR_DELETION';
     }
     interface HouseholdIncomeAssignedTargetingOptionDetails {
       /** Required. The household income of the audience. */
-      householdIncome?: string;
+      householdIncome?:
+        | 'HOUSEHOLD_INCOME_UNSPECIFIED'
+        | 'HOUSEHOLD_INCOME_UNKNOWN'
+        | 'HOUSEHOLD_INCOME_LOWER_50_PERCENT'
+        | 'HOUSEHOLD_INCOME_TOP_41_TO_50_PERCENT'
+        | 'HOUSEHOLD_INCOME_TOP_31_TO_40_PERCENT'
+        | 'HOUSEHOLD_INCOME_TOP_21_TO_30_PERCENT'
+        | 'HOUSEHOLD_INCOME_TOP_11_TO_20_PERCENT'
+        | 'HOUSEHOLD_INCOME_TOP_10_PERCENT';
     }
     interface HouseholdIncomeTargetingOptionDetails {
       /** Output only. The household income of an audience. */
-      householdIncome?: string;
+      householdIncome?:
+        | 'HOUSEHOLD_INCOME_UNSPECIFIED'
+        | 'HOUSEHOLD_INCOME_UNKNOWN'
+        | 'HOUSEHOLD_INCOME_LOWER_50_PERCENT'
+        | 'HOUSEHOLD_INCOME_TOP_41_TO_50_PERCENT'
+        | 'HOUSEHOLD_INCOME_TOP_31_TO_40_PERCENT'
+        | 'HOUSEHOLD_INCOME_TOP_21_TO_30_PERCENT'
+        | 'HOUSEHOLD_INCOME_TOP_11_TO_20_PERCENT'
+        | 'HOUSEHOLD_INCOME_TOP_10_PERCENT';
     }
     interface IdFilter {
       /** YouTube Ads to download by ID. All IDs must belong to the same Advertiser or Partner specified in CreateSdfDownloadTaskRequest. */
@@ -2060,13 +3782,22 @@ declare namespace gapi.client {
       /** Required. The display name of the insertion order. Must be UTF-8 encoded with a maximum size of 240 bytes. */
       displayName?: string;
       /** Required. Controls whether or not the insertion order can spend its budget and bid on inventory. * For CreateInsertionOrder method, only `ENTITY_STATUS_DRAFT` is allowed. To activate an insertion order, use UpdateInsertionOrder method and update the status to `ENTITY_STATUS_ACTIVE` after creation. * An insertion order cannot be changed back to `ENTITY_STATUS_DRAFT` status from any other status. * An insertion order cannot be set to `ENTITY_STATUS_ACTIVE` if its parent campaign is not active. */
-      entityStatus?: string;
+      entityStatus?:
+        | 'ENTITY_STATUS_UNSPECIFIED'
+        | 'ENTITY_STATUS_ACTIVE'
+        | 'ENTITY_STATUS_ARCHIVED'
+        | 'ENTITY_STATUS_DRAFT'
+        | 'ENTITY_STATUS_PAUSED'
+        | 'ENTITY_STATUS_SCHEDULED_FOR_DELETION';
       /** Required. The frequency capping setting of the insertion order. */
       frequencyCap?: FrequencyCap;
       /** Output only. The unique ID of the insertion order. Assigned by the system. */
       insertionOrderId?: string;
       /** Optional. The type of insertion order. If this field is unspecified in creation, the value defaults to `RTB`. */
-      insertionOrderType?: string;
+      insertionOrderType?:
+        | 'INSERTION_ORDER_TYPE_UNSPECIFIED'
+        | 'RTB'
+        | 'OVER_THE_TOP';
       /** Optional. Additional integration details of the insertion order. */
       integrationDetails?: IntegrationDetails;
       /** Required. The key performance indicator (KPI) of the insertion order. This is represented as referred to as the "Goal" in the Display & Video 360 interface. */
@@ -2074,23 +3805,42 @@ declare namespace gapi.client {
       /** Output only. The resource name of the insertion order. */
       name?: string;
       /** Optional. Required. The optimization objective of the insertion order. */
-      optimizationObjective?: string;
+      optimizationObjective?:
+        | 'OPTIMIZATION_OBJECTIVE_UNSPECIFIED'
+        | 'CONVERSION'
+        | 'CLICK'
+        | 'BRAND_AWARENESS'
+        | 'CUSTOM'
+        | 'NO_OBJECTIVE';
       /** Required. The budget spending speed setting of the insertion order. pacing_type `PACING_TYPE_ASAP` is not compatible with pacing_period `PACING_PERIOD_FLIGHT`. */
       pacing?: Pacing;
       /** Optional. The partner costs associated with the insertion order. If absent or empty in CreateInsertionOrder method, the newly created insertion order will inherit partner costs from the partner settings. */
       partnerCosts?: PartnerCost[];
       /** Output only. The reservation type of the insertion order. */
-      reservationType?: string;
+      reservationType?:
+        | 'RESERVATION_TYPE_UNSPECIFIED'
+        | 'RESERVATION_TYPE_NOT_GUARANTEED'
+        | 'RESERVATION_TYPE_PROGRAMMATIC_GUARANTEED'
+        | 'RESERVATION_TYPE_TAG_GUARANTEED'
+        | 'RESERVATION_TYPE_PETRA_VIRAL'
+        | 'RESERVATION_TYPE_INSTANT_RESERVE';
       /** Output only. The timestamp when the insertion order was last updated. Assigned by the system. */
       updateTime?: string;
     }
     interface InsertionOrderBudget {
       /** Optional. The type of automation used to manage bid and budget for the insertion order. If this field is unspecified in creation, the value defaults to `INSERTION_ORDER_AUTOMATION_TYPE_NONE`. */
-      automationType?: string;
+      automationType?:
+        | 'INSERTION_ORDER_AUTOMATION_TYPE_UNSPECIFIED'
+        | 'INSERTION_ORDER_AUTOMATION_TYPE_BUDGET'
+        | 'INSERTION_ORDER_AUTOMATION_TYPE_NONE'
+        | 'INSERTION_ORDER_AUTOMATION_TYPE_BID_BUDGET';
       /** Required. The list of budget segments. Use a budget segment to specify a specific budget for a given period of time an insertion order is running. */
       budgetSegments?: InsertionOrderBudgetSegment[];
       /** Required. Immutable. The budget unit specifies whether the budget is currency based or impression based. */
-      budgetUnit?: string;
+      budgetUnit?:
+        | 'BUDGET_UNIT_UNSPECIFIED'
+        | 'BUDGET_UNIT_CURRENCY'
+        | 'BUDGET_UNIT_IMPRESSIONS';
     }
     interface InsertionOrderBudgetSegment {
       /** Required. The budget amount the insertion order will spend for the given date_range. The amount is in micros. Must be greater than 0. For example, 500000000 represents 500 standard units of the currency. */
@@ -2112,33 +3862,73 @@ declare namespace gapi.client {
       /** The custom segment ID provided by Integral Ad Science. The ID must be between `1000001` and `1999999` or `3000001` and `3999999`, inclusive. */
       customSegmentId?: string[];
       /** Display Viewability section (applicable to display line items only). */
-      displayViewability?: string;
+      displayViewability?:
+        | 'PERFORMANCE_VIEWABILITY_UNSPECIFIED'
+        | 'PERFORMANCE_VIEWABILITY_40'
+        | 'PERFORMANCE_VIEWABILITY_50'
+        | 'PERFORMANCE_VIEWABILITY_60'
+        | 'PERFORMANCE_VIEWABILITY_70';
       /** Ad Fraud settings. */
-      excludedAdFraudRisk?: string;
+      excludedAdFraudRisk?:
+        | 'SUSPICIOUS_ACTIVITY_UNSPECIFIED'
+        | 'SUSPICIOUS_ACTIVITY_HR'
+        | 'SUSPICIOUS_ACTIVITY_HMR'
+        | 'SUSPICIOUS_ACTIVITY_FD';
       /** Brand Safety - **Adult content**. */
-      excludedAdultRisk?: string;
+      excludedAdultRisk?: 'ADULT_UNSPECIFIED' | 'ADULT_HR' | 'ADULT_HMR';
       /** Brand Safety - **Alcohol**. */
-      excludedAlcoholRisk?: string;
+      excludedAlcoholRisk?:
+        | 'ALCOHOL_UNSPECIFIED'
+        | 'ALCOHOL_HR'
+        | 'ALCOHOL_HMR';
       /** Brand Safety - **Drugs**. */
-      excludedDrugsRisk?: string;
+      excludedDrugsRisk?: 'DRUGS_UNSPECIFIED' | 'DRUGS_HR' | 'DRUGS_HMR';
       /** Brand Safety - **Gambling**. */
-      excludedGamblingRisk?: string;
+      excludedGamblingRisk?:
+        | 'GAMBLING_UNSPECIFIED'
+        | 'GAMBLING_HR'
+        | 'GAMBLING_HMR';
       /** Brand Safety - **Hate speech**. */
-      excludedHateSpeechRisk?: string;
+      excludedHateSpeechRisk?:
+        | 'HATE_SPEECH_UNSPECIFIED'
+        | 'HATE_SPEECH_HR'
+        | 'HATE_SPEECH_HMR';
       /** Brand Safety - **Illegal downloads**. */
-      excludedIllegalDownloadsRisk?: string;
+      excludedIllegalDownloadsRisk?:
+        | 'ILLEGAL_DOWNLOADS_UNSPECIFIED'
+        | 'ILLEGAL_DOWNLOADS_HR'
+        | 'ILLEGAL_DOWNLOADS_HMR';
       /** Brand Safety - **Offensive language**. */
-      excludedOffensiveLanguageRisk?: string;
+      excludedOffensiveLanguageRisk?:
+        | 'OFFENSIVE_LANGUAGE_UNSPECIFIED'
+        | 'OFFENSIVE_LANGUAGE_HR'
+        | 'OFFENSIVE_LANGUAGE_HMR';
       /** Brand Safety - **Violence**. */
-      excludedViolenceRisk?: string;
+      excludedViolenceRisk?:
+        | 'VIOLENCE_UNSPECIFIED'
+        | 'VIOLENCE_HR'
+        | 'VIOLENCE_HMR';
       /** Brand Safety - **Unrateable**. */
       excludeUnrateable?: boolean;
       /** Optional. The quality sync custom segment ID provided by Integral Ad Science. The ID must be between `3000000` and `4999999`, inclusive. */
       qualitySyncCustomSegmentId?: string[];
       /** True advertising quality (applicable to Display line items only). */
-      traqScoreOption?: string;
+      traqScoreOption?:
+        | 'TRAQ_UNSPECIFIED'
+        | 'TRAQ_250'
+        | 'TRAQ_500'
+        | 'TRAQ_600'
+        | 'TRAQ_700'
+        | 'TRAQ_750'
+        | 'TRAQ_875'
+        | 'TRAQ_1000';
       /** Video Viewability Section (applicable to video line items only). */
-      videoViewability?: string;
+      videoViewability?:
+        | 'VIDEO_VIEWABILITY_UNSPECIFIED'
+        | 'VIDEO_VIEWABILITY_40'
+        | 'VIDEO_VIEWABILITY_50'
+        | 'VIDEO_VIEWABILITY_60'
+        | 'VIDEO_VIEWABILITY_70';
     }
     interface IntegrationDetails {
       /** Additional details of the entry in string format. Must be UTF-8 encoded with a length of no more than 1000 characters. */
@@ -2148,25 +3938,133 @@ declare namespace gapi.client {
     }
     interface InventorySource {
       /** Whether the inventory source has a guaranteed or non-guaranteed delivery. */
-      commitment?: string;
+      commitment?:
+        | 'INVENTORY_SOURCE_COMMITMENT_UNSPECIFIED'
+        | 'INVENTORY_SOURCE_COMMITMENT_GUARANTEED'
+        | 'INVENTORY_SOURCE_COMMITMENT_NON_GUARANTEED';
       /** The creative requirements of the inventory source. Not applicable for auction packages. */
       creativeConfigs?: CreativeConfig[];
       /** The ID in the exchange space that uniquely identifies the inventory source. Must be unique across buyers within each exchange but not necessarily unique across exchanges. */
       dealId?: string;
       /** The delivery method of the inventory source. * For non-guaranteed inventory sources, the only acceptable value is `INVENTORY_SOURCE_DELIVERY_METHOD_PROGRAMMATIC`. * For guaranteed inventory sources, acceptable values are `INVENTORY_SOURCE_DELIVERY_METHOD_TAG` and `INVENTORY_SOURCE_DELIVERY_METHOD_PROGRAMMATIC`. */
-      deliveryMethod?: string;
+      deliveryMethod?:
+        | 'INVENTORY_SOURCE_DELIVERY_METHOD_UNSPECIFIED'
+        | 'INVENTORY_SOURCE_DELIVERY_METHOD_PROGRAMMATIC'
+        | 'INVENTORY_SOURCE_DELIVERY_METHOD_TAG';
       /** The display name of the inventory source. Must be UTF-8 encoded with a maximum size of 240 bytes. */
       displayName?: string;
       /** The exchange to which the inventory source belongs. */
-      exchange?: string;
+      exchange?:
+        | 'EXCHANGE_UNSPECIFIED'
+        | 'EXCHANGE_GOOGLE_AD_MANAGER'
+        | 'EXCHANGE_APPNEXUS'
+        | 'EXCHANGE_BRIGHTROLL'
+        | 'EXCHANGE_ADFORM'
+        | 'EXCHANGE_ADMETA'
+        | 'EXCHANGE_ADMIXER'
+        | 'EXCHANGE_ADSMOGO'
+        | 'EXCHANGE_ADSWIZZ'
+        | 'EXCHANGE_BIDSWITCH'
+        | 'EXCHANGE_BRIGHTROLL_DISPLAY'
+        | 'EXCHANGE_CADREON'
+        | 'EXCHANGE_DAILYMOTION'
+        | 'EXCHANGE_FIVE'
+        | 'EXCHANGE_FLUCT'
+        | 'EXCHANGE_FREEWHEEL'
+        | 'EXCHANGE_GENIEE'
+        | 'EXCHANGE_GUMGUM'
+        | 'EXCHANGE_IMOBILE'
+        | 'EXCHANGE_IBILLBOARD'
+        | 'EXCHANGE_IMPROVE_DIGITAL'
+        | 'EXCHANGE_INDEX'
+        | 'EXCHANGE_KARGO'
+        | 'EXCHANGE_MICROAD'
+        | 'EXCHANGE_MOPUB'
+        | 'EXCHANGE_NEND'
+        | 'EXCHANGE_ONE_BY_AOL_DISPLAY'
+        | 'EXCHANGE_ONE_BY_AOL_MOBILE'
+        | 'EXCHANGE_ONE_BY_AOL_VIDEO'
+        | 'EXCHANGE_OOYALA'
+        | 'EXCHANGE_OPENX'
+        | 'EXCHANGE_PERMODO'
+        | 'EXCHANGE_PLATFORMONE'
+        | 'EXCHANGE_PLATFORMID'
+        | 'EXCHANGE_PUBMATIC'
+        | 'EXCHANGE_PULSEPOINT'
+        | 'EXCHANGE_REVENUEMAX'
+        | 'EXCHANGE_RUBICON'
+        | 'EXCHANGE_SMARTCLIP'
+        | 'EXCHANGE_SMARTRTB'
+        | 'EXCHANGE_SMARTSTREAMTV'
+        | 'EXCHANGE_SOVRN'
+        | 'EXCHANGE_SPOTXCHANGE'
+        | 'EXCHANGE_STROER'
+        | 'EXCHANGE_TEADSTV'
+        | 'EXCHANGE_TELARIA'
+        | 'EXCHANGE_TVN'
+        | 'EXCHANGE_UNITED'
+        | 'EXCHANGE_YIELDLAB'
+        | 'EXCHANGE_YIELDMO'
+        | 'EXCHANGE_UNRULYX'
+        | 'EXCHANGE_OPEN8'
+        | 'EXCHANGE_TRITON'
+        | 'EXCHANGE_TRIPLELIFT'
+        | 'EXCHANGE_TABOOLA'
+        | 'EXCHANGE_INMOBI'
+        | 'EXCHANGE_SMAATO'
+        | 'EXCHANGE_AJA'
+        | 'EXCHANGE_SUPERSHIP'
+        | 'EXCHANGE_NEXSTAR_DIGITAL'
+        | 'EXCHANGE_WAZE'
+        | 'EXCHANGE_SOUNDCAST'
+        | 'EXCHANGE_SHARETHROUGH'
+        | 'EXCHANGE_FYBER'
+        | 'EXCHANGE_RED_FOR_PUBLISHERS'
+        | 'EXCHANGE_MEDIANET'
+        | 'EXCHANGE_TAPJOY'
+        | 'EXCHANGE_VISTAR'
+        | 'EXCHANGE_DAX'
+        | 'EXCHANGE_JCD'
+        | 'EXCHANGE_PLACE_EXCHANGE'
+        | 'EXCHANGE_APPLOVIN'
+        | 'EXCHANGE_CONNATIX'
+        | 'EXCHANGE_RESET_DIGITAL'
+        | 'EXCHANGE_HIVESTACK'
+        | 'EXCHANGE_DRAX'
+        | 'EXCHANGE_APPLOVIN_GBID'
+        | 'EXCHANGE_FYBER_GBID'
+        | 'EXCHANGE_UNITY_GBID'
+        | 'EXCHANGE_CHARTBOOST_GBID'
+        | 'EXCHANGE_ADMOST_GBID'
+        | 'EXCHANGE_TOPON_GBID'
+        | 'EXCHANGE_NETFLIX'
+        | 'EXCHANGE_CORE'
+        | 'EXCHANGE_COMMERCE_GRID'
+        | 'EXCHANGE_SPOTIFY'
+        | 'EXCHANGE_TUBI'
+        | 'EXCHANGE_SNAP'
+        | 'EXCHANGE_CADENT';
       /** Immutable. The ID of the guaranteed order that this inventory source belongs to. Only applicable when commitment is `INVENTORY_SOURCE_COMMITMENT_GUARANTEED`. */
       guaranteedOrderId?: string;
       /** Output only. The unique ID of the inventory source. Assigned by the system. */
       inventorySourceId?: string;
       /** Output only. The product type of the inventory source, denoting the way through which it sells inventory. */
-      inventorySourceProductType?: string;
+      inventorySourceProductType?:
+        | 'INVENTORY_SOURCE_PRODUCT_TYPE_UNSPECIFIED'
+        | 'PREFERRED_DEAL'
+        | 'PRIVATE_AUCTION'
+        | 'PROGRAMMATIC_GUARANTEED'
+        | 'TAG_GUARANTEED'
+        | 'YOUTUBE_RESERVE'
+        | 'INSTANT_RESERVE'
+        | 'GUARANTEED_PACKAGE'
+        | 'PROGRAMMATIC_TV'
+        | 'AUCTION_PACKAGE';
       /** Denotes the type of the inventory source. */
-      inventorySourceType?: string;
+      inventorySourceType?:
+        | 'INVENTORY_SOURCE_TYPE_UNSPECIFIED'
+        | 'INVENTORY_SOURCE_TYPE_PRIVATE'
+        | 'INVENTORY_SOURCE_TYPE_AUCTION_PACKAGE';
       /** Output only. The resource name of the inventory source. */
       name?: string;
       /** The publisher/seller name of the inventory source. */
@@ -2226,15 +4124,30 @@ declare namespace gapi.client {
     }
     interface InventorySourceStatus {
       /** Output only. The configuration status of the inventory source. Only applicable for guaranteed inventory sources. Acceptable values are `INVENTORY_SOURCE_CONFIG_STATUS_PENDING` and `INVENTORY_SOURCE_CONFIG_STATUS_COMPLETED`. An inventory source must be configured (fill in the required fields, choose creatives, and select a default campaign) before it can serve. */
-      configStatus?: string;
+      configStatus?:
+        | 'INVENTORY_SOURCE_CONFIG_STATUS_UNSPECIFIED'
+        | 'INVENTORY_SOURCE_CONFIG_STATUS_PENDING'
+        | 'INVENTORY_SOURCE_CONFIG_STATUS_COMPLETED';
       /** The user-provided reason for pausing this inventory source. Must not exceed 100 characters. Only applicable when entity_status is set to `ENTITY_STATUS_PAUSED`. */
       entityPauseReason?: string;
       /** Whether or not the inventory source is servable. Acceptable values are `ENTITY_STATUS_ACTIVE`, `ENTITY_STATUS_ARCHIVED`, and `ENTITY_STATUS_PAUSED`. Default value is `ENTITY_STATUS_ACTIVE`. */
-      entityStatus?: string;
+      entityStatus?:
+        | 'ENTITY_STATUS_UNSPECIFIED'
+        | 'ENTITY_STATUS_ACTIVE'
+        | 'ENTITY_STATUS_ARCHIVED'
+        | 'ENTITY_STATUS_DRAFT'
+        | 'ENTITY_STATUS_PAUSED'
+        | 'ENTITY_STATUS_SCHEDULED_FOR_DELETION';
       /** Output only. The seller-provided reason for pausing this inventory source. Only applicable for inventory sources synced directly from the publishers and when seller_status is set to `ENTITY_STATUS_PAUSED`. */
       sellerPauseReason?: string;
       /** Output only. The status set by the seller for the inventory source. Only applicable for inventory sources synced directly from the publishers. Acceptable values are `ENTITY_STATUS_ACTIVE` and `ENTITY_STATUS_PAUSED`. */
-      sellerStatus?: string;
+      sellerStatus?:
+        | 'ENTITY_STATUS_UNSPECIFIED'
+        | 'ENTITY_STATUS_ACTIVE'
+        | 'ENTITY_STATUS_ARCHIVED'
+        | 'ENTITY_STATUS_DRAFT'
+        | 'ENTITY_STATUS_PAUSED'
+        | 'ENTITY_STATUS_SCHEDULED_FOR_DELETION';
     }
     interface InventorySourceVideoCreativeConfig {
       /** The duration requirements for the video creatives that can be assigned to the inventory source. */
@@ -2256,7 +4169,10 @@ declare namespace gapi.client {
       /** The unique ID of the invoice. */
       invoiceId?: string;
       /** The type of invoice document. */
-      invoiceType?: string;
+      invoiceType?:
+        | 'INVOICE_TYPE_UNSPECIFIED'
+        | 'INVOICE_TYPE_CREDIT'
+        | 'INVOICE_TYPE_INVOICE';
       /** The date when the invoice was issued. */
       issueDate?: Date;
       /** The resource name of the invoice. */
@@ -2300,7 +4216,28 @@ declare namespace gapi.client {
       /** A KPI string, which can be empty. Must be UTF-8 encoded with a length of no more than 100 characters. Applicable when kpi_type is `KPI_TYPE_OTHER`. */
       kpiString?: string;
       /** Required. The type of KPI. */
-      kpiType?: string;
+      kpiType?:
+        | 'KPI_TYPE_UNSPECIFIED'
+        | 'KPI_TYPE_CPM'
+        | 'KPI_TYPE_CPC'
+        | 'KPI_TYPE_CPA'
+        | 'KPI_TYPE_CTR'
+        | 'KPI_TYPE_VIEWABILITY'
+        | 'KPI_TYPE_CPIAVC'
+        | 'KPI_TYPE_CPE'
+        | 'KPI_TYPE_CPV'
+        | 'KPI_TYPE_CLICK_CVR'
+        | 'KPI_TYPE_IMPRESSION_CVR'
+        | 'KPI_TYPE_VCPM'
+        | 'KPI_TYPE_VTR'
+        | 'KPI_TYPE_AUDIO_COMPLETION_RATE'
+        | 'KPI_TYPE_VIDEO_COMPLETION_RATE'
+        | 'KPI_TYPE_CPCL'
+        | 'KPI_TYPE_CPCV'
+        | 'KPI_TYPE_TOS10'
+        | 'KPI_TYPE_MAXIMIZE_PACING'
+        | 'KPI_TYPE_CUSTOM_IMPRESSION_VALUE_OVER_COST'
+        | 'KPI_TYPE_OTHER';
     }
     interface LanguageAssignedTargetingOptionDetails {
       /** Output only. The display name of the language (e.g., "French"). */
@@ -2324,7 +4261,10 @@ declare namespace gapi.client {
       /** Output only. The unique ID of the campaign that the line item belongs to. */
       campaignId?: string;
       /** Whether this line item will serve European Union political ads. If contains_eu_political_ads has been set to `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` in the parent advertiser, then this field will be assigned `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` if not otherwise specified. This field can then be updated using the UI, API, or Structured Data Files. This field must be assigned when creating a new line item. Otherwise, **the `advertisers.lineItems.create` request will fail**. */
-      containsEuPoliticalAds?: string;
+      containsEuPoliticalAds?:
+        | 'EU_POLITICAL_ADVERTISING_STATUS_UNKNOWN'
+        | 'CONTAINS_EU_POLITICAL_ADVERTISING'
+        | 'DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING';
       /** The conversion tracking setting of the line item. */
       conversionCounting?: ConversionCountingConfig;
       /** The IDs of the creatives associated with the line item. */
@@ -2334,7 +4274,13 @@ declare namespace gapi.client {
       /** Required. The display name of the line item. Must be UTF-8 encoded with a maximum size of 240 bytes. */
       displayName?: string;
       /** Required. Controls whether or not the line item can spend its budget and bid on inventory. * For CreateLineItem method, only `ENTITY_STATUS_DRAFT` is allowed. To activate a line item, use UpdateLineItem method and update the status to `ENTITY_STATUS_ACTIVE` after creation. * A line item cannot be changed back to `ENTITY_STATUS_DRAFT` status from any other status. * If the line item's parent insertion order is not active, the line item can't spend its budget even if its own status is `ENTITY_STATUS_ACTIVE`. */
-      entityStatus?: string;
+      entityStatus?:
+        | 'ENTITY_STATUS_UNSPECIFIED'
+        | 'ENTITY_STATUS_ACTIVE'
+        | 'ENTITY_STATUS_ARCHIVED'
+        | 'ENTITY_STATUS_DRAFT'
+        | 'ENTITY_STATUS_PAUSED'
+        | 'ENTITY_STATUS_SCHEDULED_FOR_DELETION';
       /** Whether to exclude new exchanges from automatically being targeted by the line item. This field is false by default. */
       excludeNewExchanges?: boolean;
       /** Required. The start and end time of the line item's flight. */
@@ -2348,7 +4294,30 @@ declare namespace gapi.client {
       /** Output only. The unique ID of the line item. Assigned by the system. */
       lineItemId?: string;
       /** Required. Immutable. The type of the line item. */
-      lineItemType?: string;
+      lineItemType?:
+        | 'LINE_ITEM_TYPE_UNSPECIFIED'
+        | 'LINE_ITEM_TYPE_DISPLAY_DEFAULT'
+        | 'LINE_ITEM_TYPE_DISPLAY_MOBILE_APP_INSTALL'
+        | 'LINE_ITEM_TYPE_VIDEO_DEFAULT'
+        | 'LINE_ITEM_TYPE_VIDEO_MOBILE_APP_INSTALL'
+        | 'LINE_ITEM_TYPE_DISPLAY_MOBILE_APP_INVENTORY'
+        | 'LINE_ITEM_TYPE_VIDEO_MOBILE_APP_INVENTORY'
+        | 'LINE_ITEM_TYPE_AUDIO_DEFAULT'
+        | 'LINE_ITEM_TYPE_VIDEO_OVER_THE_TOP'
+        | 'LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_ACTION'
+        | 'LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_NON_SKIPPABLE'
+        | 'LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_VIDEO_SEQUENCE'
+        | 'LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_AUDIO'
+        | 'LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_REACH'
+        | 'LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_SIMPLE'
+        | 'LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_NON_SKIPPABLE_OVER_THE_TOP'
+        | 'LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_REACH_OVER_THE_TOP'
+        | 'LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_SIMPLE_OVER_THE_TOP'
+        | 'LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_TARGET_FREQUENCY'
+        | 'LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_VIEW'
+        | 'LINE_ITEM_TYPE_DISPLAY_OUT_OF_HOME'
+        | 'LINE_ITEM_TYPE_VIDEO_OUT_OF_HOME'
+        | 'LINE_ITEM_TYPE_DEMAND_GEN';
       /** The mobile app promoted by the line item. This is applicable only when line_item_type is either `LINE_ITEM_TYPE_DISPLAY_MOBILE_APP_INSTALL` or `LINE_ITEM_TYPE_VIDEO_MOBILE_APP_INSTALL`. */
       mobileApp?: MobileApp;
       /** Output only. The resource name of the line item. */
@@ -2360,13 +4329,30 @@ declare namespace gapi.client {
       /** Required. The partner revenue model setting of the line item. */
       partnerRevenueModel?: PartnerRevenueModel;
       /** Output only. The reservation type of the line item. */
-      reservationType?: string;
+      reservationType?:
+        | 'RESERVATION_TYPE_UNSPECIFIED'
+        | 'RESERVATION_TYPE_NOT_GUARANTEED'
+        | 'RESERVATION_TYPE_PROGRAMMATIC_GUARANTEED'
+        | 'RESERVATION_TYPE_TAG_GUARANTEED'
+        | 'RESERVATION_TYPE_PETRA_VIRAL'
+        | 'RESERVATION_TYPE_INSTANT_RESERVE';
       /** The [optimized targeting](//support.google.com/displayvideo/answer/12060859) settings of the line item. This config is only applicable for display, video, or audio line items that use automated bidding and positively target eligible audience lists. */
       targetingExpansion?: TargetingExpansionConfig;
       /** Output only. The timestamp when the line item was last updated. Assigned by the system. */
       updateTime?: string;
       /** Output only. The warning messages generated by the line item. These warnings do not block saving the line item, but some may block the line item from running. */
-      warningMessages?: string[];
+      warningMessages?:
+        | 'LINE_ITEM_WARNING_MESSAGE_UNSPECIFIED'
+        | 'INVALID_FLIGHT_DATES'
+        | 'EXPIRED'
+        | 'PENDING_FLIGHT'
+        | 'ALL_PARTNER_ENABLED_EXCHANGES_NEGATIVELY_TARGETED'
+        | 'INVALID_INVENTORY_SOURCE'
+        | 'APP_INVENTORY_INVALID_SITE_TARGETING'
+        | 'APP_INVENTORY_INVALID_AUDIENCE_LISTS'
+        | 'NO_VALID_CREATIVE'
+        | 'PARENT_INSERTION_ORDER_PAUSED'
+        | 'PARENT_INSERTION_ORDER_EXPIRED'[];
       /** Output only. Settings specific to YouTube and Partners line items. */
       youtubeAndPartnersSettings?: YoutubeAndPartnersSettings;
     }
@@ -2378,9 +4364,16 @@ declare namespace gapi.client {
     }
     interface LineItemBudget {
       /** Required. The type of the budget allocation. `LINE_ITEM_BUDGET_ALLOCATION_TYPE_AUTOMATIC` is only applicable when automatic budget allocation is enabled for the parent insertion order. For demand gen line items, budget allocation type must be `LINE_ITEM_BUDGET_ALLOCATION_TYPE_FIXED`. Demand Gen line items do not support other budget allocation types. */
-      budgetAllocationType?: string;
+      budgetAllocationType?:
+        | 'LINE_ITEM_BUDGET_ALLOCATION_TYPE_UNSPECIFIED'
+        | 'LINE_ITEM_BUDGET_ALLOCATION_TYPE_AUTOMATIC'
+        | 'LINE_ITEM_BUDGET_ALLOCATION_TYPE_FIXED'
+        | 'LINE_ITEM_BUDGET_ALLOCATION_TYPE_UNLIMITED';
       /** Output only. The budget unit specifies whether the budget is currency based or impression based. This value is inherited from the parent insertion order. */
-      budgetUnit?: string;
+      budgetUnit?:
+        | 'BUDGET_UNIT_UNSPECIFIED'
+        | 'BUDGET_UNIT_CURRENCY'
+        | 'BUDGET_UNIT_IMPRESSIONS';
       /** The maximum budget amount the line item will spend. Must be greater than 0. When budget_allocation_type is: * `LINE_ITEM_BUDGET_ALLOCATION_TYPE_AUTOMATIC`, this field is immutable and is set by the system. * `LINE_ITEM_BUDGET_ALLOCATION_TYPE_FIXED`, if budget_unit is: - `BUDGET_UNIT_CURRENCY`, this field represents maximum budget amount to spend, in micros of the advertiser's currency. For example, 1500000 represents 1.5 standard units of the currency. - `BUDGET_UNIT_IMPRESSIONS`, this field represents the maximum number of impressions to serve. * `LINE_ITEM_BUDGET_ALLOCATION_TYPE_UNLIMITED`, this field is not applicable and will be ignored by the system. */
       maxAmount?: string;
     }
@@ -2388,7 +4381,10 @@ declare namespace gapi.client {
       /** The flight start and end dates of the line item. They are resolved relative to the parent advertiser's time zone. * Required when flight_date_type is `LINE_ITEM_FLIGHT_DATE_TYPE_CUSTOM`. Output only otherwise. * When creating a new flight, both `start_date` and `end_date` must be in the future. * An existing flight with a `start_date` in the past has a mutable `end_date` but an immutable `start_date`. * `end_date` must be the `start_date` or later, both before the year 2037. */
       dateRange?: DateRange;
       /** Required. The type of the line item's flight dates. */
-      flightDateType?: string;
+      flightDateType?:
+        | 'LINE_ITEM_FLIGHT_DATE_TYPE_UNSPECIFIED'
+        | 'LINE_ITEM_FLIGHT_DATE_TYPE_INHERITED'
+        | 'LINE_ITEM_FLIGHT_DATE_TYPE_CUSTOM';
     }
     interface ListAdAssetsResponse {
       /** The list of ad assets. The list will only contain assets of AdAssetType `AD_ASSET_TYPE_YOUTUBE_VIDEO`. This list will be absent if empty. */
@@ -2608,7 +4604,10 @@ declare namespace gapi.client {
       /** Output only. The unique ID of the location list. Assigned by the system. */
       locationListId?: string;
       /** Required. Immutable. The type of location. All locations in the list will share this type. */
-      locationType?: string;
+      locationType?:
+        | 'TARGETING_LOCATION_TYPE_UNSPECIFIED'
+        | 'TARGETING_LOCATION_TYPE_PROXIMITY'
+        | 'TARGETING_LOCATION_TYPE_REGIONAL';
       /** Output only. The resource name of the location list. */
       name?: string;
     }
@@ -2644,7 +4643,10 @@ declare namespace gapi.client {
       /** The YouTube video used by the ad. */
       video?: YoutubeVideoDetails;
       /** The aspect ratio of the autoplaying YouTube video on the Masthead. */
-      videoAspectRatio?: string;
+      videoAspectRatio?:
+        | 'VIDEO_ASPECT_RATIO_UNSPECIFIED'
+        | 'VIDEO_ASPECT_RATIO_WIDESCREEN'
+        | 'VIDEO_ASPECT_RATIO_FIXED_16_9';
     }
     interface MaximizeSpendBidStrategy {
       /** The ID of the Custom Bidding Algorithm used by this strategy. Only applicable when performance_goal_type is set to `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`. Assigning a custom bidding algorithm that uses floodlight activities not identified in floodlightActivityConfigs will return an error. */
@@ -2652,7 +4654,16 @@ declare namespace gapi.client {
       /** The maximum average CPM that may be bid, in micros of the advertiser's currency. Must be greater than or equal to a billable unit of the given currency. For example, 1500000 represents 1.5 standard units of the currency. */
       maxAverageCpmBidAmountMicros?: string;
       /** Required. The type of the performance goal that the bidding strategy tries to minimize while spending the full budget. `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM` is not supported for this strategy. */
-      performanceGoalType?: string;
+      performanceGoalType?:
+        | 'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_UNSPECIFIED'
+        | 'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPA'
+        | 'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPC'
+        | 'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM'
+        | 'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO'
+        | 'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CIVA'
+        | 'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_IVO_TEN'
+        | 'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_AV_VIEWED'
+        | 'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_REACH';
       /** Whether the strategy takes deal floor prices into account. */
       raiseBidForDeals?: boolean;
     }
@@ -2668,7 +4679,7 @@ declare namespace gapi.client {
       /** Output only. The app name. */
       displayName?: string;
       /** Output only. The app platform. */
-      platform?: string;
+      platform?: 'PLATFORM_UNSPECIFIED' | 'IOS' | 'ANDROID';
       /** Output only. The app publisher. */
       publisher?: string;
     }
@@ -2688,11 +4699,23 @@ declare namespace gapi.client {
     }
     interface NativeContentPositionAssignedTargetingOptionDetails {
       /** Required. The content position. */
-      contentPosition?: string;
+      contentPosition?:
+        | 'NATIVE_CONTENT_POSITION_UNSPECIFIED'
+        | 'NATIVE_CONTENT_POSITION_UNKNOWN'
+        | 'NATIVE_CONTENT_POSITION_IN_ARTICLE'
+        | 'NATIVE_CONTENT_POSITION_IN_FEED'
+        | 'NATIVE_CONTENT_POSITION_PERIPHERAL'
+        | 'NATIVE_CONTENT_POSITION_RECOMMENDATION';
     }
     interface NativeContentPositionTargetingOptionDetails {
       /** Output only. The content position. */
-      contentPosition?: string;
+      contentPosition?:
+        | 'NATIVE_CONTENT_POSITION_UNSPECIFIED'
+        | 'NATIVE_CONTENT_POSITION_UNKNOWN'
+        | 'NATIVE_CONTENT_POSITION_IN_ARTICLE'
+        | 'NATIVE_CONTENT_POSITION_IN_FEED'
+        | 'NATIVE_CONTENT_POSITION_PERIPHERAL'
+        | 'NATIVE_CONTENT_POSITION_RECOMMENDATION';
     }
     interface NegativeKeyword {
       /** Required. Immutable. The negatively targeted keyword, for example `car insurance`. Must be UTF-8 encoded with a maximum size of 255 bytes. Maximum number of characters is 80. Maximum number of words is 10. Valid characters are restricted to ASCII characters only. The only URL-escaping permitted is for representing whitespace between words. Leading or trailing whitespace is ignored. */
@@ -2730,7 +4753,12 @@ declare namespace gapi.client {
       /** Required. The landing page URL of the OBA icon. Only URLs of the following domains are allowed: * `https://info.evidon.com` * `https://l.betrad.com` */
       landingPageUrl?: string;
       /** Optional. The position of the OBA icon on the creative. */
-      position?: string;
+      position?:
+        | 'OBA_ICON_POSITION_UNSPECIFIED'
+        | 'OBA_ICON_POSITION_UPPER_RIGHT'
+        | 'OBA_ICON_POSITION_UPPER_LEFT'
+        | 'OBA_ICON_POSITION_LOWER_RIGHT'
+        | 'OBA_ICON_POSITION_LOWER_LEFT';
       /** Optional. The program of the OBA icon. For example: “AdChoices”. */
       program?: string;
       /** Optional. The MIME type of the OBA icon resource. */
@@ -2742,23 +4770,35 @@ declare namespace gapi.client {
     }
     interface OmidAssignedTargetingOptionDetails {
       /** Required. The type of Open Measurement enabled inventory. */
-      omid?: string;
+      omid?: 'OMID_UNSPECIFIED' | 'OMID_FOR_MOBILE_DISPLAY_ADS';
     }
     interface OmidTargetingOptionDetails {
       /** Output only. The type of Open Measurement enabled inventory. */
-      omid?: string;
+      omid?: 'OMID_UNSPECIFIED' | 'OMID_FOR_MOBILE_DISPLAY_ADS';
     }
     interface OnScreenPositionAssignedTargetingOptionDetails {
       /** Output only. The ad type to target. Only applicable to insertion order targeting and new line items supporting the specified ad type will inherit this targeting option by default. Possible values are: * `AD_TYPE_DISPLAY`, the setting will be inherited by new line item when line_item_type is `LINE_ITEM_TYPE_DISPLAY_DEFAULT`. * `AD_TYPE_VIDEO`, the setting will be inherited by new line item when line_item_type is `LINE_ITEM_TYPE_VIDEO_DEFAULT`. */
-      adType?: string;
+      adType?:
+        | 'AD_TYPE_UNSPECIFIED'
+        | 'AD_TYPE_DISPLAY'
+        | 'AD_TYPE_VIDEO'
+        | 'AD_TYPE_AUDIO';
       /** Output only. The on screen position. */
-      onScreenPosition?: string;
+      onScreenPosition?:
+        | 'ON_SCREEN_POSITION_UNSPECIFIED'
+        | 'ON_SCREEN_POSITION_UNKNOWN'
+        | 'ON_SCREEN_POSITION_ABOVE_THE_FOLD'
+        | 'ON_SCREEN_POSITION_BELOW_THE_FOLD';
       /** Required. The targeting_option_id field when targeting_type is `TARGETING_TYPE_ON_SCREEN_POSITION`. */
       targetingOptionId?: string;
     }
     interface OnScreenPositionTargetingOptionDetails {
       /** Output only. The on screen position. */
-      onScreenPosition?: string;
+      onScreenPosition?:
+        | 'ON_SCREEN_POSITION_UNSPECIFIED'
+        | 'ON_SCREEN_POSITION_UNKNOWN'
+        | 'ON_SCREEN_POSITION_ABOVE_THE_FOLD'
+        | 'ON_SCREEN_POSITION_BELOW_THE_FOLD';
     }
     interface OperatingSystemAssignedTargetingOptionDetails {
       /** Output only. The display name of the operating system. */
@@ -2790,25 +4830,56 @@ declare namespace gapi.client {
       /** Maximum currency amount to spend every day in micros of advertiser's currency. Applicable when the budget is currency based. Must be greater than 0. For example, for 1.5 standard unit of the currency, set this field to 1500000. The value assigned will be rounded to whole billable units for the relevant currency by the following rules: any positive value less than a single billable unit will be rounded up to one billable unit and any value larger than a single billable unit will be rounded down to the nearest billable value. For example, if the currency's billable unit is 0.01, and this field is set to 10257770, it will round down to 10250000, a value of 10.25. If set to 505, it will round up to 10000, a value of 0.01. */
       dailyMaxMicros?: string;
       /** Required. The time period in which the pacing budget will be spent. When automatic budget allocation is enabled at the insertion order via automationType, this field is output only and defaults to `PACING_PERIOD_FLIGHT`. */
-      pacingPeriod?: string;
+      pacingPeriod?:
+        | 'PACING_PERIOD_UNSPECIFIED'
+        | 'PACING_PERIOD_DAILY'
+        | 'PACING_PERIOD_FLIGHT';
       /** Required. The type of pacing that defines how the budget amount will be spent across the pacing_period. `PACING_TYPE_ASAP` is not compatible with pacing_period `PACING_PERIOD_FLIGHT` for insertion orders. */
-      pacingType?: string;
+      pacingType?:
+        | 'PACING_TYPE_UNSPECIFIED'
+        | 'PACING_TYPE_AHEAD'
+        | 'PACING_TYPE_ASAP'
+        | 'PACING_TYPE_EVEN';
     }
     interface ParentalStatusAssignedTargetingOptionDetails {
       /** Required. The parental status of the audience. */
-      parentalStatus?: string;
+      parentalStatus?:
+        | 'PARENTAL_STATUS_UNSPECIFIED'
+        | 'PARENTAL_STATUS_PARENT'
+        | 'PARENTAL_STATUS_NOT_A_PARENT'
+        | 'PARENTAL_STATUS_UNKNOWN';
     }
     interface ParentalStatusTargetingOptionDetails {
       /** Output only. The parental status of an audience. */
-      parentalStatus?: string;
+      parentalStatus?:
+        | 'PARENTAL_STATUS_UNSPECIFIED'
+        | 'PARENTAL_STATUS_PARENT'
+        | 'PARENTAL_STATUS_NOT_A_PARENT'
+        | 'PARENTAL_STATUS_UNKNOWN';
     }
     interface ParentEntityFilter {
       /** Required. File types that will be returned. */
-      fileType?: string[];
+      fileType?:
+        | 'FILE_TYPE_UNSPECIFIED'
+        | 'FILE_TYPE_CAMPAIGN'
+        | 'FILE_TYPE_MEDIA_PRODUCT'
+        | 'FILE_TYPE_INSERTION_ORDER'
+        | 'FILE_TYPE_LINE_ITEM'
+        | 'FILE_TYPE_AD_GROUP'
+        | 'FILE_TYPE_AD'
+        | 'FILE_TYPE_LINE_ITEM_QA'
+        | 'FILE_TYPE_AD_GROUP_QA'[];
       /** The IDs of the specified filter type. This is used to filter entities to fetch. If filter type is not `FILTER_TYPE_NONE`, at least one ID must be specified. */
       filterIds?: string[];
       /** Required. Filter type used to filter fetched entities. */
-      filterType?: string;
+      filterType?:
+        | 'FILTER_TYPE_UNSPECIFIED'
+        | 'FILTER_TYPE_NONE'
+        | 'FILTER_TYPE_ADVERTISER_ID'
+        | 'FILTER_TYPE_CAMPAIGN_ID'
+        | 'FILTER_TYPE_MEDIA_PRODUCT_ID'
+        | 'FILTER_TYPE_INSERTION_ORDER_ID'
+        | 'FILTER_TYPE_LINE_ITEM_ID';
     }
     interface Partner {
       /** Ad server related settings of the partner. */
@@ -2820,7 +4891,13 @@ declare namespace gapi.client {
       /** The display name of the partner. Must be UTF-8 encoded with a maximum size of 240 bytes. */
       displayName?: string;
       /** Output only. The status of the partner. */
-      entityStatus?: string;
+      entityStatus?:
+        | 'ENTITY_STATUS_UNSPECIFIED'
+        | 'ENTITY_STATUS_ACTIVE'
+        | 'ENTITY_STATUS_ARCHIVED'
+        | 'ENTITY_STATUS_DRAFT'
+        | 'ENTITY_STATUS_PAUSED'
+        | 'ENTITY_STATUS_SCHEDULED_FOR_DELETION';
       /** Settings that control which exchanges are enabled for the partner. */
       exchangeConfig?: ExchangeConfig;
       /** General settings of the partner. */
@@ -2842,15 +4919,51 @@ declare namespace gapi.client {
     }
     interface PartnerCost {
       /** Required. The type of the partner cost. */
-      costType?: string;
+      costType?:
+        | 'PARTNER_COST_TYPE_UNSPECIFIED'
+        | 'PARTNER_COST_TYPE_ADLOOX'
+        | 'PARTNER_COST_TYPE_ADLOOX_PREBID'
+        | 'PARTNER_COST_TYPE_ADSAFE'
+        | 'PARTNER_COST_TYPE_ADXPOSE'
+        | 'PARTNER_COST_TYPE_AGGREGATE_KNOWLEDGE'
+        | 'PARTNER_COST_TYPE_AGENCY_TRADING_DESK'
+        | 'PARTNER_COST_TYPE_DV360_FEE'
+        | 'PARTNER_COST_TYPE_COMSCORE_VCE'
+        | 'PARTNER_COST_TYPE_DATA_MANAGEMENT_PLATFORM'
+        | 'PARTNER_COST_TYPE_DEFAULT'
+        | 'PARTNER_COST_TYPE_DOUBLE_VERIFY'
+        | 'PARTNER_COST_TYPE_DOUBLE_VERIFY_PREBID'
+        | 'PARTNER_COST_TYPE_EVIDON'
+        | 'PARTNER_COST_TYPE_INTEGRAL_AD_SCIENCE_VIDEO'
+        | 'PARTNER_COST_TYPE_INTEGRAL_AD_SCIENCE_PREBID'
+        | 'PARTNER_COST_TYPE_MEDIA_COST_DATA'
+        | 'PARTNER_COST_TYPE_MOAT_VIDEO'
+        | 'PARTNER_COST_TYPE_NIELSEN_DAR'
+        | 'PARTNER_COST_TYPE_SHOP_LOCAL'
+        | 'PARTNER_COST_TYPE_TERACENT'
+        | 'PARTNER_COST_TYPE_THIRD_PARTY_AD_SERVER'
+        | 'PARTNER_COST_TYPE_TRUST_METRICS'
+        | 'PARTNER_COST_TYPE_VIZU'
+        | 'PARTNER_COST_TYPE_CUSTOM_FEE_1'
+        | 'PARTNER_COST_TYPE_CUSTOM_FEE_2'
+        | 'PARTNER_COST_TYPE_CUSTOM_FEE_3'
+        | 'PARTNER_COST_TYPE_CUSTOM_FEE_4'
+        | 'PARTNER_COST_TYPE_CUSTOM_FEE_5'
+        | 'PARTNER_COST_TYPE_SCIBIDS_FEE';
       /** The CPM fee amount in micros of advertiser's currency. Applicable when the fee_type is `PARTNER_FEE_TYPE_CPM_FEE`. Must be greater than or equal to 0. For example, for 1.5 standard unit of the advertiser's currency, set this field to 1500000. */
       feeAmount?: string;
       /** The media fee percentage in millis (1/1000 of a percent). Applicable when the fee_type is `PARTNER_FEE_TYPE_MEDIA_FEE`. Must be greater than or equal to 0. For example: 100 represents 0.1%. */
       feePercentageMillis?: string;
       /** Required. The fee type for this partner cost. */
-      feeType?: string;
+      feeType?:
+        | 'PARTNER_COST_FEE_TYPE_UNSPECIFIED'
+        | 'PARTNER_COST_FEE_TYPE_CPM_FEE'
+        | 'PARTNER_COST_FEE_TYPE_MEDIA_FEE';
       /** The invoice type for this partner cost. * Required when cost_type is one of: - `PARTNER_COST_TYPE_ADLOOX` - `PARTNER_COST_TYPE_DOUBLE_VERIFY` - `PARTNER_COST_TYPE_INTEGRAL_AD_SCIENCE`. * Output only for other types. */
-      invoiceType?: string;
+      invoiceType?:
+        | 'PARTNER_COST_INVOICE_TYPE_UNSPECIFIED'
+        | 'PARTNER_COST_INVOICE_TYPE_DV360'
+        | 'PARTNER_COST_INVOICE_TYPE_PARTNER';
     }
     interface PartnerDataAccessConfig {
       /** Structured Data Files (SDF) settings for the partner. The SDF configuration for the partner. */
@@ -2866,7 +4979,11 @@ declare namespace gapi.client {
       /** Required. The markup amount of the partner revenue model. Must be greater than or equal to 0. * When the markup_type is set to be `PARTNER_REVENUE_MODEL_MARKUP_TYPE_CPM`, this field represents the CPM markup in micros of advertiser's currency. For example, 1500000 represents 1.5 standard units of the currency. * When the markup_type is set to be `PARTNER_REVENUE_MODEL_MARKUP_TYPE_MEDIA_COST_MARKUP`, this field represents the media cost percent markup in millis. For example, 100 represents 0.1% (decimal 0.001). * When the markup_type is set to be `PARTNER_REVENUE_MODEL_MARKUP_TYPE_TOTAL_MEDIA_COST_MARKUP`, this field represents the total media cost percent markup in millis. For example, 100 represents 0.1% (decimal 0.001). */
       markupAmount?: string;
       /** Required. The markup type of the partner revenue model. Demand Gen line items only support `PARTNER_REVENUE_MODEL_MARKUP_TYPE_TOTAL_MEDIA_COST_MARKUP`. */
-      markupType?: string;
+      markupType?:
+        | 'PARTNER_REVENUE_MODEL_MARKUP_TYPE_UNSPECIFIED'
+        | 'PARTNER_REVENUE_MODEL_MARKUP_TYPE_CPM'
+        | 'PARTNER_REVENUE_MODEL_MARKUP_TYPE_MEDIA_COST_MARKUP'
+        | 'PARTNER_REVENUE_MODEL_MARKUP_TYPE_TOTAL_MEDIA_COST_MARKUP';
     }
     interface PerformanceGoal {
       /** The goal amount, in micros of the advertiser's currency. Applicable when performance_goal_type is one of: * `PERFORMANCE_GOAL_TYPE_CPM` * `PERFORMANCE_GOAL_TYPE_CPC` * `PERFORMANCE_GOAL_TYPE_CPA` * `PERFORMANCE_GOAL_TYPE_CPIAVC` * `PERFORMANCE_GOAL_TYPE_VCPM` For example 1500000 represents 1.5 standard units of the currency. */
@@ -2876,7 +4993,23 @@ declare namespace gapi.client {
       /** A key performance indicator (KPI) string, which can be empty. Must be UTF-8 encoded with a length of no more than 100 characters. Applicable when performance_goal_type is set to `PERFORMANCE_GOAL_TYPE_OTHER`. */
       performanceGoalString?: string;
       /** Required. The type of the performance goal. */
-      performanceGoalType?: string;
+      performanceGoalType?:
+        | 'PERFORMANCE_GOAL_TYPE_UNSPECIFIED'
+        | 'PERFORMANCE_GOAL_TYPE_CPM'
+        | 'PERFORMANCE_GOAL_TYPE_CPC'
+        | 'PERFORMANCE_GOAL_TYPE_CPA'
+        | 'PERFORMANCE_GOAL_TYPE_CTR'
+        | 'PERFORMANCE_GOAL_TYPE_VIEWABILITY'
+        | 'PERFORMANCE_GOAL_TYPE_CPIAVC'
+        | 'PERFORMANCE_GOAL_TYPE_CPE'
+        | 'PERFORMANCE_GOAL_TYPE_CPV'
+        | 'PERFORMANCE_GOAL_TYPE_CLICK_CVR'
+        | 'PERFORMANCE_GOAL_TYPE_IMPRESSION_CVR'
+        | 'PERFORMANCE_GOAL_TYPE_VCPM'
+        | 'PERFORMANCE_GOAL_TYPE_VTR'
+        | 'PERFORMANCE_GOAL_TYPE_AUDIO_COMPLETION_RATE'
+        | 'PERFORMANCE_GOAL_TYPE_VIDEO_COMPLETION_RATE'
+        | 'PERFORMANCE_GOAL_TYPE_OTHER';
     }
     interface PerformanceGoalBidStrategy {
       /** The ID of the Custom Bidding Algorithm used by this strategy. Only applicable when performance_goal_type is set to `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`. Assigning a custom bidding algorithm that uses floodlight activities not identified in floodlightActivityConfigs will return an error. */
@@ -2886,7 +5019,16 @@ declare namespace gapi.client {
       /** Required. The performance goal the bidding strategy will attempt to meet or beat, in micros of the advertiser's currency or in micro of the ROAS (Return On Advertising Spend) value which is also based on advertiser's currency. Must be greater than or equal to a billable unit of the given currency and smaller or equal to upper bounds. Each performance_goal_type has its upper bound: * when performance_goal_type is `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPA`, upper bound is 10000.00 USD. * when performance_goal_type is `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPC`, upper bound is 1000.00 USD. * when performance_goal_type is `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM`, upper bound is 1000.00 USD. * when performance_goal_type is `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`, upper bound is 1000.00 and lower bound is 0.01. Example: If set to `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM`, the bid price will be based on the probability that each available impression will be viewable. For example, if viewable CPM target is $2 and an impression is 40% likely to be viewable, the bid price will be $0.80 CPM (40% of $2). For example, 1500000 represents 1.5 standard units of the currency or ROAS value. */
       performanceGoalAmountMicros?: string;
       /** Required. The type of the performance goal that the bidding strategy will try to meet or beat. For line item level usage, the value must be one of: * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPA` * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPC` * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM` * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`. */
-      performanceGoalType?: string;
+      performanceGoalType?:
+        | 'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_UNSPECIFIED'
+        | 'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPA'
+        | 'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPC'
+        | 'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM'
+        | 'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO'
+        | 'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CIVA'
+        | 'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_IVO_TEN'
+        | 'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_AV_VIEWED'
+        | 'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_REACH';
     }
     interface PoiAssignedTargetingOptionDetails {
       /** Output only. The display name of a POI, e.g. "Times Square", "Space Needle", followed by its full address if available. */
@@ -2898,7 +5040,10 @@ declare namespace gapi.client {
       /** Required. The radius of the area around the POI that will be targeted. The units of the radius are specified by proximity_radius_unit. Must be 1 to 800 if unit is `DISTANCE_UNIT_KILOMETERS` and 1 to 500 if unit is `DISTANCE_UNIT_MILES`. */
       proximityRadiusAmount?: number;
       /** Required. The unit of distance by which the targeting radius is measured. */
-      proximityRadiusUnit?: string;
+      proximityRadiusUnit?:
+        | 'DISTANCE_UNIT_UNSPECIFIED'
+        | 'DISTANCE_UNIT_MILES'
+        | 'DISTANCE_UNIT_KILOMETERS';
       /** Required. The targeting_option_id of a TargetingOption of type `TARGETING_TYPE_POI`. Accepted POI targeting option IDs can be retrieved using `targetingTypes.targetingOptions.search`. If targeting a specific latitude/longitude coordinate removed from an address or POI name, you can generate the necessary targeting option ID by rounding the desired coordinate values to the 6th decimal place, removing the decimals, and concatenating the string values separated by a semicolon. For example, you can target the latitude/longitude pair of 40.7414691, -74.003387 using the targeting option ID "40741469;-74003387". **Upon** **creation, this field value will be updated to append a semicolon and** **alphanumerical hash value if only latitude/longitude coordinates are** **provided.** */
       targetingOptionId?: string;
     }
@@ -2918,7 +5063,14 @@ declare namespace gapi.client {
       /** Required. Relevant client, product, and estimate codes from the Mediaocean Prisma tool. */
       prismaCpeCode?: PrismaCpeCode;
       /** Required. The Prisma type. */
-      prismaType?: string;
+      prismaType?:
+        | 'PRISMA_TYPE_UNSPECIFIED'
+        | 'PRISMA_TYPE_DISPLAY'
+        | 'PRISMA_TYPE_SEARCH'
+        | 'PRISMA_TYPE_VIDEO'
+        | 'PRISMA_TYPE_AUDIO'
+        | 'PRISMA_TYPE_SOCIAL'
+        | 'PRISMA_TYPE_FEE';
       /** Required. The entity allocated this budget (DSP, site, etc.). */
       supplier?: string;
     }
@@ -2936,7 +5088,11 @@ declare namespace gapi.client {
       /** A list of dimensions used to match products. */
       productMatchDimensions?: ProductMatchDimension[];
       /** How products are selected by the product feed. */
-      productMatchType?: string;
+      productMatchType?:
+        | 'PRODUCT_MATCH_TYPE_UNSPECIFIED'
+        | 'PRODUCT_MATCH_TYPE_ALL_PRODUCTS'
+        | 'PRODUCT_MATCH_TYPE_SPECIFIC_PRODUCTS'
+        | 'PRODUCT_MATCH_TYPE_CUSTOM_LABEL';
     }
     interface ProductMatchDimension {
       /** The custom label to match all the products with the label. */
@@ -2950,11 +5106,20 @@ declare namespace gapi.client {
       /** Required. Radius expressed in the distance units set in proximity_radius_unit. This represents the size of the area around a chosen location that will be targeted. Radius should be between 1 and 500 miles or 800 kilometers. */
       proximityRadius?: number;
       /** Required. Radius distance units. */
-      proximityRadiusUnit?: string;
+      proximityRadiusUnit?:
+        | 'PROXIMITY_RADIUS_UNIT_UNSPECIFIED'
+        | 'PROXIMITY_RADIUS_UNIT_MILES'
+        | 'PROXIMITY_RADIUS_UNIT_KILOMETERS';
     }
     interface RateDetails {
       /** The rate type. Acceptable values are `INVENTORY_SOURCE_RATE_TYPE_CPM_FIXED`, `INVENTORY_SOURCE_RATE_TYPE_CPM_FLOOR`, and `INVENTORY_SOURCE_RATE_TYPE_CPD`. */
-      inventorySourceRateType?: string;
+      inventorySourceRateType?:
+        | 'INVENTORY_SOURCE_RATE_TYPE_UNSPECIFIED'
+        | 'INVENTORY_SOURCE_RATE_TYPE_CPM_FIXED'
+        | 'INVENTORY_SOURCE_RATE_TYPE_CPM_FLOOR'
+        | 'INVENTORY_SOURCE_RATE_TYPE_CPD'
+        | 'INVENTORY_SOURCE_RATE_TYPE_CPH'
+        | 'INVENTORY_SOURCE_RATE_TYPE_FLAT';
       /** Output only. The amount that the buyer has committed to spending on the inventory source up front. Only applicable for guaranteed inventory sources. */
       minimumSpend?: Money;
       /** The rate for the inventory source. */
@@ -2996,11 +5161,24 @@ declare namespace gapi.client {
     }
     interface ReviewStatusInfo {
       /** Represents the basic approval needed for a creative to begin serving. Summary of creative_and_landing_page_review_status and content_and_policy_review_status. */
-      approvalStatus?: string;
+      approvalStatus?:
+        | 'APPROVAL_STATUS_UNSPECIFIED'
+        | 'APPROVAL_STATUS_PENDING_NOT_SERVABLE'
+        | 'APPROVAL_STATUS_PENDING_SERVABLE'
+        | 'APPROVAL_STATUS_APPROVED_SERVABLE'
+        | 'APPROVAL_STATUS_REJECTED_NOT_SERVABLE';
       /** Content and policy review status for the creative. */
-      contentAndPolicyReviewStatus?: string;
+      contentAndPolicyReviewStatus?:
+        | 'REVIEW_STATUS_UNSPECIFIED'
+        | 'REVIEW_STATUS_APPROVED'
+        | 'REVIEW_STATUS_REJECTED'
+        | 'REVIEW_STATUS_PENDING';
       /** Creative and landing page review status for the creative. */
-      creativeAndLandingPageReviewStatus?: string;
+      creativeAndLandingPageReviewStatus?:
+        | 'REVIEW_STATUS_UNSPECIFIED'
+        | 'REVIEW_STATUS_APPROVED'
+        | 'REVIEW_STATUS_REJECTED'
+        | 'REVIEW_STATUS_PENDING';
       /** Exchange review statuses for the creative. */
       exchangeReviewStatuses?: ExchangeReviewStatus[];
     }
@@ -3008,7 +5186,11 @@ declare namespace gapi.client {
       /** The column number in the script where the error was thrown. */
       column?: string;
       /** The type of error. */
-      errorCode?: string;
+      errorCode?:
+        | 'ERROR_CODE_UNSPECIFIED'
+        | 'SYNTAX_ERROR'
+        | 'DEPRECATED_SYNTAX'
+        | 'INTERNAL_ERROR';
       /** The detailed error message. */
       errorMessage?: string;
       /** The line number in the script where the error was thrown. */
@@ -3018,7 +5200,26 @@ declare namespace gapi.client {
       /** An administrator email address to which the SDF processing status reports will be sent. */
       adminEmail?: string;
       /** Required. The version of SDF being used. */
-      version?: string;
+      version?:
+        | 'SDF_VERSION_UNSPECIFIED'
+        | 'SDF_VERSION_3_1'
+        | 'SDF_VERSION_4'
+        | 'SDF_VERSION_4_1'
+        | 'SDF_VERSION_4_2'
+        | 'SDF_VERSION_5'
+        | 'SDF_VERSION_5_1'
+        | 'SDF_VERSION_5_2'
+        | 'SDF_VERSION_5_3'
+        | 'SDF_VERSION_5_4'
+        | 'SDF_VERSION_5_5'
+        | 'SDF_VERSION_6'
+        | 'SDF_VERSION_7'
+        | 'SDF_VERSION_7_1'
+        | 'SDF_VERSION_8'
+        | 'SDF_VERSION_8_1'
+        | 'SDF_VERSION_9'
+        | 'SDF_VERSION_9_1'
+        | 'SDF_VERSION_9_2';
     }
     interface SdfDownloadTask {
       /** A resource name to be used in media.download to Download the prepared files. Resource names have the format `download/sdfdownloadtasks/media/{media_id}`. `media_id` will be made available by the long running operation service once the task status is done. */
@@ -3030,7 +5231,26 @@ declare namespace gapi.client {
       /** The time when execution was completed. */
       endTime?: string;
       /** The SDF version used to execute this download task. */
-      version?: string;
+      version?:
+        | 'SDF_VERSION_UNSPECIFIED'
+        | 'SDF_VERSION_3_1'
+        | 'SDF_VERSION_4'
+        | 'SDF_VERSION_4_1'
+        | 'SDF_VERSION_4_2'
+        | 'SDF_VERSION_5'
+        | 'SDF_VERSION_5_1'
+        | 'SDF_VERSION_5_2'
+        | 'SDF_VERSION_5_3'
+        | 'SDF_VERSION_5_4'
+        | 'SDF_VERSION_5_5'
+        | 'SDF_VERSION_6'
+        | 'SDF_VERSION_7'
+        | 'SDF_VERSION_7_1'
+        | 'SDF_VERSION_8'
+        | 'SDF_VERSION_8_1'
+        | 'SDF_VERSION_9'
+        | 'SDF_VERSION_9_1'
+        | 'SDF_VERSION_9_2';
     }
     interface SearchTargetingOptionsRequest {
       /** Required. The Advertiser this request is being made in the context of. */
@@ -3068,15 +5288,57 @@ declare namespace gapi.client {
     }
     interface SensitiveCategoryAssignedTargetingOptionDetails {
       /** Required. An enum for the DV360 Sensitive category content classified to be EXCLUDED. */
-      excludedSensitiveCategory?: string;
+      excludedSensitiveCategory?:
+        | 'SENSITIVE_CATEGORY_UNSPECIFIED'
+        | 'SENSITIVE_CATEGORY_ADULT'
+        | 'SENSITIVE_CATEGORY_DEROGATORY'
+        | 'SENSITIVE_CATEGORY_DOWNLOADS_SHARING'
+        | 'SENSITIVE_CATEGORY_WEAPONS'
+        | 'SENSITIVE_CATEGORY_GAMBLING'
+        | 'SENSITIVE_CATEGORY_VIOLENCE'
+        | 'SENSITIVE_CATEGORY_SUGGESTIVE'
+        | 'SENSITIVE_CATEGORY_PROFANITY'
+        | 'SENSITIVE_CATEGORY_ALCOHOL'
+        | 'SENSITIVE_CATEGORY_DRUGS'
+        | 'SENSITIVE_CATEGORY_TOBACCO'
+        | 'SENSITIVE_CATEGORY_POLITICS'
+        | 'SENSITIVE_CATEGORY_RELIGION'
+        | 'SENSITIVE_CATEGORY_TRAGEDY'
+        | 'SENSITIVE_CATEGORY_TRANSPORTATION_ACCIDENTS'
+        | 'SENSITIVE_CATEGORY_SENSITIVE_SOCIAL_ISSUES'
+        | 'SENSITIVE_CATEGORY_SHOCKING'
+        | 'SENSITIVE_CATEGORY_EMBEDDED_VIDEO'
+        | 'SENSITIVE_CATEGORY_LIVE_STREAMING_VIDEO';
     }
     interface SensitiveCategoryTargetingOptionDetails {
       /** Output only. An enum for the DV360 Sensitive category content classifier. */
-      sensitiveCategory?: string;
+      sensitiveCategory?:
+        | 'SENSITIVE_CATEGORY_UNSPECIFIED'
+        | 'SENSITIVE_CATEGORY_ADULT'
+        | 'SENSITIVE_CATEGORY_DEROGATORY'
+        | 'SENSITIVE_CATEGORY_DOWNLOADS_SHARING'
+        | 'SENSITIVE_CATEGORY_WEAPONS'
+        | 'SENSITIVE_CATEGORY_GAMBLING'
+        | 'SENSITIVE_CATEGORY_VIOLENCE'
+        | 'SENSITIVE_CATEGORY_SUGGESTIVE'
+        | 'SENSITIVE_CATEGORY_PROFANITY'
+        | 'SENSITIVE_CATEGORY_ALCOHOL'
+        | 'SENSITIVE_CATEGORY_DRUGS'
+        | 'SENSITIVE_CATEGORY_TOBACCO'
+        | 'SENSITIVE_CATEGORY_POLITICS'
+        | 'SENSITIVE_CATEGORY_RELIGION'
+        | 'SENSITIVE_CATEGORY_TRAGEDY'
+        | 'SENSITIVE_CATEGORY_TRANSPORTATION_ACCIDENTS'
+        | 'SENSITIVE_CATEGORY_SENSITIVE_SOCIAL_ISSUES'
+        | 'SENSITIVE_CATEGORY_SHOCKING'
+        | 'SENSITIVE_CATEGORY_EMBEDDED_VIDEO'
+        | 'SENSITIVE_CATEGORY_LIVE_STREAMING_VIDEO';
     }
     interface SessionPositionAssignedTargetingOptionDetails {
       /** The position where the ad will show in a session. */
-      sessionPosition?: string;
+      sessionPosition?:
+        | 'SESSION_POSITION_UNSPECIFIED'
+        | 'SESSION_POSITION_FIRST_IMPRESSION';
     }
     interface Site {
       /** Output only. The resource name of the site. */
@@ -3104,13 +5366,25 @@ declare namespace gapi.client {
       /** The target number of times, on average, the ads will be shown to the same person in the timespan dictated by time_unit and time_unit_count. */
       targetCount?: string;
       /** The unit of time in which the target frequency will be applied. The following time unit is applicable: * `TIME_UNIT_WEEKS` */
-      timeUnit?: string;
+      timeUnit?:
+        | 'TIME_UNIT_UNSPECIFIED'
+        | 'TIME_UNIT_LIFETIME'
+        | 'TIME_UNIT_MONTHS'
+        | 'TIME_UNIT_WEEKS'
+        | 'TIME_UNIT_DAYS'
+        | 'TIME_UNIT_HOURS'
+        | 'TIME_UNIT_MINUTES';
       /** The number of time_unit the target frequency will last. The following restrictions apply based on the value of time_unit: * `TIME_UNIT_WEEKS` - must be 1 */
       timeUnitCount?: number;
     }
     interface TargetingExpansionConfig {
       /** Output only. Magnitude of expansion for eligible first-party user lists under this ad group. This field only applies to YouTube and Partners line item and ad group resources. */
-      audienceExpansionLevel?: string;
+      audienceExpansionLevel?:
+        | 'UNKNOWN'
+        | 'NO_REACH'
+        | 'LEAST_REACH'
+        | 'MID_REACH'
+        | 'MOST_REACH';
       /** Output only. Whether to exclude seed list for audience expansion. This field only applies to YouTube and Partners line item and ad group resources. */
       audienceExpansionSeedListExcluded?: boolean;
       /** Required. Whether to enable Optimized Targeting for the line item. Optimized targeting is not compatible with all bid strategies. Attempting to set this field to `true` for a line item using the BiddingStrategy field fixed_bid or one of the following combinations of BiddingStrategy fields and BiddingStrategyPerformanceGoalType will result in an error: maximize_auto_spend_bid: * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CIVA` * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_IVO_TEN` * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_AV_VIEWED` performance_goal_auto_bid: * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM` This also applies if the line item inherits one of the above bid strategies from the parent insertion order. Bid strategies set at the insertion order-level will be inherited by their line items if the `InsertionOrder` budget field automationType is set to `INSERTION_ORDER_AUTOMATION_TYPE_BUDGET` or `INSERTION_ORDER_AUTOMATION_TYPE_BID_BUDGET`. */
@@ -3186,7 +5460,57 @@ declare namespace gapi.client {
       /** Output only. A unique identifier for this targeting option. The tuple {`targeting_type`, `targeting_option_id`} will be unique. */
       targetingOptionId?: string;
       /** Output only. The type of this targeting option. */
-      targetingType?: string;
+      targetingType?:
+        | 'TARGETING_TYPE_UNSPECIFIED'
+        | 'TARGETING_TYPE_CHANNEL'
+        | 'TARGETING_TYPE_APP_CATEGORY'
+        | 'TARGETING_TYPE_APP'
+        | 'TARGETING_TYPE_URL'
+        | 'TARGETING_TYPE_DAY_AND_TIME'
+        | 'TARGETING_TYPE_AGE_RANGE'
+        | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+        | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+        | 'TARGETING_TYPE_GENDER'
+        | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+        | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+        | 'TARGETING_TYPE_PARENTAL_STATUS'
+        | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+        | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+        | 'TARGETING_TYPE_DEVICE_TYPE'
+        | 'TARGETING_TYPE_AUDIENCE_GROUP'
+        | 'TARGETING_TYPE_BROWSER'
+        | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+        | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+        | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+        | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+        | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+        | 'TARGETING_TYPE_ENVIRONMENT'
+        | 'TARGETING_TYPE_CARRIER_AND_ISP'
+        | 'TARGETING_TYPE_OPERATING_SYSTEM'
+        | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+        | 'TARGETING_TYPE_KEYWORD'
+        | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+        | 'TARGETING_TYPE_VIEWABILITY'
+        | 'TARGETING_TYPE_CATEGORY'
+        | 'TARGETING_TYPE_INVENTORY_SOURCE'
+        | 'TARGETING_TYPE_LANGUAGE'
+        | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+        | 'TARGETING_TYPE_GEO_REGION'
+        | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+        | 'TARGETING_TYPE_EXCHANGE'
+        | 'TARGETING_TYPE_SUB_EXCHANGE'
+        | 'TARGETING_TYPE_POI'
+        | 'TARGETING_TYPE_BUSINESS_CHAIN'
+        | 'TARGETING_TYPE_CONTENT_DURATION'
+        | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+        | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+        | 'TARGETING_TYPE_OMID'
+        | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+        | 'TARGETING_TYPE_CONTENT_GENRE'
+        | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+        | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+        | 'TARGETING_TYPE_SESSION_POSITION'
+        | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
       /** User rewarded content details. */
       userRewardedContentDetails?: UserRewardedContentTargetingOptionDetails;
       /** Video player size details. */
@@ -3210,7 +5534,23 @@ declare namespace gapi.client {
     }
     interface ThirdPartyUrl {
       /** Optional. The type of interaction needs to be tracked by the tracking URL */
-      type?: string;
+      type?:
+        | 'THIRD_PARTY_URL_TYPE_UNSPECIFIED'
+        | 'THIRD_PARTY_URL_TYPE_IMPRESSION'
+        | 'THIRD_PARTY_URL_TYPE_CLICK_TRACKING'
+        | 'THIRD_PARTY_URL_TYPE_AUDIO_VIDEO_START'
+        | 'THIRD_PARTY_URL_TYPE_AUDIO_VIDEO_FIRST_QUARTILE'
+        | 'THIRD_PARTY_URL_TYPE_AUDIO_VIDEO_MIDPOINT'
+        | 'THIRD_PARTY_URL_TYPE_AUDIO_VIDEO_THIRD_QUARTILE'
+        | 'THIRD_PARTY_URL_TYPE_AUDIO_VIDEO_COMPLETE'
+        | 'THIRD_PARTY_URL_TYPE_AUDIO_VIDEO_MUTE'
+        | 'THIRD_PARTY_URL_TYPE_AUDIO_VIDEO_PAUSE'
+        | 'THIRD_PARTY_URL_TYPE_AUDIO_VIDEO_REWIND'
+        | 'THIRD_PARTY_URL_TYPE_AUDIO_VIDEO_FULLSCREEN'
+        | 'THIRD_PARTY_URL_TYPE_AUDIO_VIDEO_STOP'
+        | 'THIRD_PARTY_URL_TYPE_AUDIO_VIDEO_CUSTOM'
+        | 'THIRD_PARTY_URL_TYPE_AUDIO_VIDEO_SKIP'
+        | 'THIRD_PARTY_URL_TYPE_AUDIO_VIDEO_PROGRESS';
       /** Optional. Tracking URL used to track the interaction. Provide a URL with optional path or query string, beginning with `https:`. For example, `https://www.example.com/path` */
       url?: string;
     }
@@ -3218,7 +5558,28 @@ declare namespace gapi.client {
       /** The ID used by the platform of the third-party vendor to identify the line item. */
       placementId?: string;
       /** The third-party measurement vendor. */
-      vendor?: string;
+      vendor?:
+        | 'THIRD_PARTY_VENDOR_UNSPECIFIED'
+        | 'THIRD_PARTY_VENDOR_MOAT'
+        | 'THIRD_PARTY_VENDOR_DOUBLE_VERIFY'
+        | 'THIRD_PARTY_VENDOR_INTEGRAL_AD_SCIENCE'
+        | 'THIRD_PARTY_VENDOR_COMSCORE'
+        | 'THIRD_PARTY_VENDOR_TELEMETRY'
+        | 'THIRD_PARTY_VENDOR_MEETRICS'
+        | 'THIRD_PARTY_VENDOR_ZEFR'
+        | 'THIRD_PARTY_VENDOR_NIELSEN'
+        | 'THIRD_PARTY_VENDOR_KANTAR'
+        | 'THIRD_PARTY_VENDOR_DYNATA'
+        | 'THIRD_PARTY_VENDOR_TRANSUNION'
+        | 'THIRD_PARTY_VENDOR_ORIGIN'
+        | 'THIRD_PARTY_VENDOR_GEMIUS'
+        | 'THIRD_PARTY_VENDOR_MEDIA_SCOPE'
+        | 'THIRD_PARTY_VENDOR_AUDIENCE_PROJECT'
+        | 'THIRD_PARTY_VENDOR_VIDEO_AMP'
+        | 'THIRD_PARTY_VENDOR_ISPOT_TV'
+        | 'THIRD_PARTY_VENDOR_INTAGE'
+        | 'THIRD_PARTY_VENDOR_MACROMILL'
+        | 'THIRD_PARTY_VENDOR_VIDEO_RESEARCH';
     }
     interface ThirdPartyVerifierAssignedTargetingOptionDetails {
       /** Third party brand verifier -- Scope3 (previously known as Adloox). */
@@ -3272,11 +5633,20 @@ declare namespace gapi.client {
       /** Optional. The unique creative identifier. */
       id?: string;
       /** Optional. The registry provides unique creative identifiers. */
-      registry?: string;
+      registry?:
+        | 'UNIVERSAL_AD_REGISTRY_UNSPECIFIED'
+        | 'UNIVERSAL_AD_REGISTRY_OTHER'
+        | 'UNIVERSAL_AD_REGISTRY_AD_ID'
+        | 'UNIVERSAL_AD_REGISTRY_CLEARCAST'
+        | 'UNIVERSAL_AD_REGISTRY_DV360'
+        | 'UNIVERSAL_AD_REGISTRY_CM';
     }
     interface UploadAdAssetRequest {
       /** Required. The type of the ad asset. Only `AD_ASSET_TYPE_IMAGE` is supported. */
-      adAssetType?: string;
+      adAssetType?:
+        | 'AD_ASSET_TYPE_UNSPECIFIED'
+        | 'AD_ASSET_TYPE_IMAGE'
+        | 'AD_ASSET_TYPE_YOUTUBE_VIDEO';
       /** Required. The filename of the ad asset, including the file extension. The filename must be UTF-8 encoded with a maximum size of 240 bytes. */
       filename?: string;
     }
@@ -3308,11 +5678,17 @@ declare namespace gapi.client {
       /** Required. The targeting_option_id field when targeting_type is `TARGETING_TYPE_USER_REWARDED_CONTENT`. */
       targetingOptionId?: string;
       /** Output only. User rewarded content status for video ads. */
-      userRewardedContent?: string;
+      userRewardedContent?:
+        | 'USER_REWARDED_CONTENT_UNSPECIFIED'
+        | 'USER_REWARDED_CONTENT_USER_REWARDED'
+        | 'USER_REWARDED_CONTENT_NOT_USER_REWARDED';
     }
     interface UserRewardedContentTargetingOptionDetails {
       /** Output only. User rewarded content status for video ads. */
-      userRewardedContent?: string;
+      userRewardedContent?:
+        | 'USER_REWARDED_CONTENT_UNSPECIFIED'
+        | 'USER_REWARDED_CONTENT_USER_REWARDED'
+        | 'USER_REWARDED_CONTENT_NOT_USER_REWARDED';
     }
     interface VideoAdInventoryControl {
       /** Optional. Whether ads can serve as in-feed format. */
@@ -3324,7 +5700,10 @@ declare namespace gapi.client {
     }
     interface VideoAdSequenceSettings {
       /** The minimum time interval before the same user sees this sequence again. */
-      minimumDuration?: string;
+      minimumDuration?:
+        | 'VIDEO_AD_SEQUENCE_MINIMUM_DURATION_UNSPECIFIED'
+        | 'VIDEO_AD_SEQUENCE_MINIMUM_DURATION_WEEK'
+        | 'VIDEO_AD_SEQUENCE_MINIMUM_DURATION_MONTH';
       /** The steps of which the sequence consists. */
       steps?: VideoAdSequenceStep[];
     }
@@ -3332,7 +5711,12 @@ declare namespace gapi.client {
       /** The ID of the corresponding ad group of the step. */
       adGroupId?: string;
       /** The interaction on the previous step that will lead the viewer to this step. The first step does not have interaction_type. */
-      interactionType?: string;
+      interactionType?:
+        | 'INTERACTION_TYPE_UNSPECIFIED'
+        | 'INTERACTION_TYPE_PAID_VIEW'
+        | 'INTERACTION_TYPE_SKIP'
+        | 'INTERACTION_TYPE_IMPRESSION'
+        | 'INTERACTION_TYPE_ENGAGED_IMPRESSION';
       /** The ID of the previous step. The first step does not have previous step. */
       previousStepId?: string;
       /** The ID of the step. */
@@ -3346,7 +5730,12 @@ declare namespace gapi.client {
       /** The headline of ad. */
       headline?: string;
       /** Thumbnail image used in the ad. */
-      thumbnail?: string;
+      thumbnail?:
+        | 'THUMBNAIL_UNSPECIFIED'
+        | 'THUMBNAIL_DEFAULT'
+        | 'THUMBNAIL_1'
+        | 'THUMBNAIL_2'
+        | 'THUMBNAIL_3';
       /** The YouTube video the ad promotes. */
       video?: YoutubeVideoDetails;
     }
@@ -3378,27 +5767,71 @@ declare namespace gapi.client {
     }
     interface VideoPlayerSizeAssignedTargetingOptionDetails {
       /** Required. The video player size. */
-      videoPlayerSize?: string;
+      videoPlayerSize?:
+        | 'VIDEO_PLAYER_SIZE_UNSPECIFIED'
+        | 'VIDEO_PLAYER_SIZE_SMALL'
+        | 'VIDEO_PLAYER_SIZE_LARGE'
+        | 'VIDEO_PLAYER_SIZE_HD'
+        | 'VIDEO_PLAYER_SIZE_UNKNOWN';
     }
     interface VideoPlayerSizeTargetingOptionDetails {
       /** Output only. The video player size. */
-      videoPlayerSize?: string;
+      videoPlayerSize?:
+        | 'VIDEO_PLAYER_SIZE_UNSPECIFIED'
+        | 'VIDEO_PLAYER_SIZE_SMALL'
+        | 'VIDEO_PLAYER_SIZE_LARGE'
+        | 'VIDEO_PLAYER_SIZE_HD'
+        | 'VIDEO_PLAYER_SIZE_UNKNOWN';
     }
     interface ViewabilityAssignedTargetingOptionDetails {
       /** Required. The predicted viewability percentage. */
-      viewability?: string;
+      viewability?:
+        | 'VIEWABILITY_UNSPECIFIED'
+        | 'VIEWABILITY_10_PERCENT_OR_MORE'
+        | 'VIEWABILITY_20_PERCENT_OR_MORE'
+        | 'VIEWABILITY_30_PERCENT_OR_MORE'
+        | 'VIEWABILITY_40_PERCENT_OR_MORE'
+        | 'VIEWABILITY_50_PERCENT_OR_MORE'
+        | 'VIEWABILITY_60_PERCENT_OR_MORE'
+        | 'VIEWABILITY_70_PERCENT_OR_MORE'
+        | 'VIEWABILITY_80_PERCENT_OR_MORE'
+        | 'VIEWABILITY_90_PERCENT_OR_MORE';
     }
     interface ViewabilityTargetingOptionDetails {
       /** Output only. The predicted viewability percentage. */
-      viewability?: string;
+      viewability?:
+        | 'VIEWABILITY_UNSPECIFIED'
+        | 'VIEWABILITY_10_PERCENT_OR_MORE'
+        | 'VIEWABILITY_20_PERCENT_OR_MORE'
+        | 'VIEWABILITY_30_PERCENT_OR_MORE'
+        | 'VIEWABILITY_40_PERCENT_OR_MORE'
+        | 'VIEWABILITY_50_PERCENT_OR_MORE'
+        | 'VIEWABILITY_60_PERCENT_OR_MORE'
+        | 'VIEWABILITY_70_PERCENT_OR_MORE'
+        | 'VIEWABILITY_80_PERCENT_OR_MORE'
+        | 'VIEWABILITY_90_PERCENT_OR_MORE';
     }
     interface YoutubeAndPartnersBiddingStrategy {
       /** Output only. Source of the effective target CPA value for ad group. */
-      adGroupEffectiveTargetCpaSource?: string;
+      adGroupEffectiveTargetCpaSource?:
+        | 'BIDDING_SOURCE_UNSPECIFIED'
+        | 'BIDDING_SOURCE_LINE_ITEM'
+        | 'BIDDING_SOURCE_AD_GROUP';
       /** Output only. The effective target CPA for ad group, in micros of advertiser's currency. */
       adGroupEffectiveTargetCpaValue?: string;
       /** The type of the bidding strategy. */
-      type?: string;
+      type?:
+        | 'YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_UNSPECIFIED'
+        | 'YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MANUAL_CPV'
+        | 'YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MANUAL_CPM'
+        | 'YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_CPA'
+        | 'YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_CPM'
+        | 'YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_RESERVE_CPM'
+        | 'YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MAXIMIZE_LIFT'
+        | 'YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MAXIMIZE_CONVERSIONS'
+        | 'YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_CPV'
+        | 'YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_ROAS'
+        | 'YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MAXIMIZE_CONVERSION_VALUE';
       /** The value used by the bidding strategy. When the bidding strategy is assigned at the line item level, this field is only applicable for the following strategy types: * `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_CPA` * `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_ROAS` * `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_RESERVE_SHARE_OF_VOICE` When the bidding strategy is assigned at the ad group level, this field is only applicable for the following strategy types: * `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MANUAL_CPM` * `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MANUAL_CPV` * `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_CPA` * `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_CPM` * `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_RESERVE_CPM` * `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_ROAS` If not using an applicable strategy, the value of this field will be 0. */
       value?: string;
     }
@@ -3412,9 +5845,17 @@ declare namespace gapi.client {
     }
     interface YoutubeAndPartnersSettings {
       /** Output only. The kind of content on which the YouTube and Partners ads will be shown. *Warning*: This field will be removed in the near future. Use effective_content_category instead. */
-      contentCategory?: string;
+      contentCategory?:
+        | 'YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_UNSPECIFIED'
+        | 'YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_STANDARD'
+        | 'YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_EXPANDED'
+        | 'YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_LIMITED';
       /** Output only. The content category which takes effect when serving the line item. When content category is set in both line item and advertiser, the stricter one will take effect when serving the line item. New line items will only inherit the advertiser level setting. */
-      effectiveContentCategory?: string;
+      effectiveContentCategory?:
+        | 'YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_UNSPECIFIED'
+        | 'YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_STANDARD'
+        | 'YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_EXPANDED'
+        | 'YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_LIMITED';
       /** Settings that control what YouTube and Partners inventories the line item will target. */
       inventorySourceSettings?: YoutubeAndPartnersInventorySourceConfig;
       /** Optional. The ID of the form to generate leads. */
@@ -3440,13 +5881,21 @@ declare namespace gapi.client {
       /** Identifier. The resource name of the association. For line item-level associations: The name pattern is `advertisers/{advertiser_id}/lineItems/{line_item_id}/youtubeAssetTypes/{youtube_asset_type}/youtubeAssetAssociations/{youtube_asset_association_id}`. For ad group-level associations: The name pattern is `advertisers/{advertiser_id}/adGroups/{ad_group_id}/youtubeAssetTypes/{youtube_asset_type}/youtubeAssetAssociations/{youtube_asset_association_id}`. For `YOUTUBE_ASSET_TYPE_LOCATION` and `YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION` associations: `youtube_asset_association_id` is the ID of the asset set linked, or 0 if the location_matching_type or affiliate_location_matching_type is `DISABLED`. For `YOUTUBE_ASSET_TYPE_SITELINK` associations: `youtube_asset_association_id` is be the ID of the sitelink asset linked. */
       name?: string;
       /** Required. The type of YouTube asset associated with the resource. */
-      youtubeAssetType?: string;
+      youtubeAssetType?:
+        | 'YOUTUBE_ASSET_TYPE_UNSPECIFIED'
+        | 'YOUTUBE_ASSET_TYPE_LOCATION'
+        | 'YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION'
+        | 'YOUTUBE_ASSET_TYPE_SITELINK';
     }
     interface YoutubeAssetAssociationAffiliateLocationAssetFilter {
       /** Optional. The matching function that determines how the affiliate location asset filter matches affiliate location assets. This field is required and can only be set for if affiliate_location_matching_type is `SELECTED_CHAINS`. */
       affiliateLocationMatchingFunction?: YoutubeAssetAssociationAffiliateLocationAssetFilterAffiliateLocationMatchingFunction;
       /** Required. The matching type of this affiliate location asset filter. */
-      affiliateLocationMatchingType?: string;
+      affiliateLocationMatchingType?:
+        | 'AFFILIATE_LOCATION_MATCHING_TYPE_UNSPECIFIED'
+        | 'SELECT_ALL'
+        | 'SELECTED_CHAINS'
+        | 'DISABLED';
       /** Output only. The ID of the asset set that matches the affiliate location assets eligible for serving. */
       assetSetId?: string;
     }
@@ -3472,7 +5921,12 @@ declare namespace gapi.client {
       /** Optional. The matching function that determines how the location asset filter matches location assets. This field is required and can only be set for if location_matching_type is `FILTER` or `SELECTED_ASSETS`. */
       locationMatchingFunction?: YoutubeAssetAssociationLocationAssetFilterLocationMatchingFunction;
       /** Required. The matching type of this location asset filter. */
-      locationMatchingType?: string;
+      locationMatchingType?:
+        | 'LOCATION_MATCHING_TYPE_UNSPECIFIED'
+        | 'SELECT_ALL'
+        | 'FILTER'
+        | 'SELECTED_ASSETS'
+        | 'DISABLED';
     }
     interface YoutubeAssetAssociationLocationAssetFilterLocationMatchingFunction {
       /** Optional. The business name to match with. This field is optional and can only be set if location_matching_type is `FILTER`. */
@@ -3506,7 +5960,10 @@ declare namespace gapi.client {
       /** Output only. The YouTube video ID which can be searched on YouTube webpage. */
       id?: string;
       /** The reason why the video data is not available. */
-      unavailableReason?: string;
+      unavailableReason?:
+        | 'VIDEO_UNAVAILABLE_REASON_UNSPECIFIED'
+        | 'VIDEO_UNAVAILABLE_REASON_PRIVATE'
+        | 'VIDEO_UNAVAILABLE_REASON_DELETED';
       /** Required. The YouTube video asset id. This is ad_asset.ad_asset_id. */
       videoAssetId?: string;
     }
@@ -3514,13 +5971,13 @@ declare namespace gapi.client {
       /** Creates multiple ad assets in a single request. Returns the newly-created ad assets if successful. Only supports the creation of assets of AdAssetType `AD_ASSET_TYPE_YOUTUBE_VIDEO`. */
       bulkCreate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser these ad assets belong to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3543,13 +6000,13 @@ declare namespace gapi.client {
       bulkCreate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The ID of the advertiser these ad assets belong to. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3572,13 +6029,13 @@ declare namespace gapi.client {
       /** Creates an ad asset. Returns the newly-created ad asset if successful. Only supports the creation of assets of AdAssetType `AD_ASSET_TYPE_YOUTUBE_VIDEO`. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser this ad asset belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3601,13 +6058,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The ID of the advertiser this ad asset belongs to. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3630,7 +6087,7 @@ declare namespace gapi.client {
       /** Gets an ad asset. Only supports the retrieval of assets of AdAssetType `AD_ASSET_TYPE_YOUTUBE_VIDEO`. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the ad asset to fetch. Only supports assets of AdAssetType `AD_ASSET_TYPE_YOUTUBE_VIDEO` */
@@ -3638,7 +6095,7 @@ declare namespace gapi.client {
         /** Required. The ID of the advertiser this ad asset belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3659,13 +6116,13 @@ declare namespace gapi.client {
       /** Lists ad assets under an advertiser ID. Only supports the retrieval of assets of AdAssetType `AD_ASSET_TYPE_YOUTUBE_VIDEO`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser the ad assets belong to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3694,13 +6151,13 @@ declare namespace gapi.client {
       /** Uploads and creates an ad asset. Returns the ID of the newly-created ad asset if successful. Only supports the uploading of assets with the AdAssetType `AD_ASSET_TYPE_IMAGE`. */
       upload(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser this ad asset belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3723,13 +6180,13 @@ declare namespace gapi.client {
       upload(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The ID of the advertiser this ad asset belongs to. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3754,13 +6211,13 @@ declare namespace gapi.client {
       /** Creates an ad group ad. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Output only. The unique ID of the advertiser the ad belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3783,13 +6240,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Output only. The unique ID of the advertiser the ad belongs to. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3812,7 +6269,7 @@ declare namespace gapi.client {
       /** Deletes an ad group ad. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the ad to delete. */
@@ -3820,7 +6277,7 @@ declare namespace gapi.client {
         /** Required. The ID of the advertiser the ad belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3841,7 +6298,7 @@ declare namespace gapi.client {
       /** Gets an ad group ad. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the ad to fetch. */
@@ -3849,7 +6306,7 @@ declare namespace gapi.client {
         /** Required. The ID of the advertiser this ad group ad belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3870,13 +6327,13 @@ declare namespace gapi.client {
       /** Lists ad group ads. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser the ads belong to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3905,7 +6362,7 @@ declare namespace gapi.client {
       /** Updates an ad group ad. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Output only. The unique ID of the ad. Assigned by the system. */
@@ -3913,7 +6370,7 @@ declare namespace gapi.client {
         /** Output only. The unique ID of the advertiser the ad belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3938,7 +6395,7 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Output only. The unique ID of the ad. Assigned by the system. */
@@ -3946,7 +6403,7 @@ declare namespace gapi.client {
           /** Output only. The unique ID of the advertiser the ad belongs to. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3973,7 +6430,7 @@ declare namespace gapi.client {
       /** Assigns a targeting option to an ad group. Returns the assigned targeting option if successful. Only ad groups under a line item of line_item_type `LINE_ITEM_TYPE_DEMAND_GEN` are supported for this method. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the ad group the assigned targeting option will belong to. */
@@ -3981,7 +6438,7 @@ declare namespace gapi.client {
         /** Required. The ID of the advertiser the ad group belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3995,7 +6452,57 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Required. Identifies the type of this assigned targeting option. Supported targeting types: * `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP` * `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` * `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_GEO_REGION` * `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_REGIONAL_LOCATION_LIST` * `TARGETING_TYPE_URL` * `TARGETING_TYPE_YOUTUBE_CHANNEL` * `TARGETING_TYPE_YOUTUBE_VIDEO` */
-        targetingType: string;
+        targetingType:
+          | 'TARGETING_TYPE_UNSPECIFIED'
+          | 'TARGETING_TYPE_CHANNEL'
+          | 'TARGETING_TYPE_APP_CATEGORY'
+          | 'TARGETING_TYPE_APP'
+          | 'TARGETING_TYPE_URL'
+          | 'TARGETING_TYPE_DAY_AND_TIME'
+          | 'TARGETING_TYPE_AGE_RANGE'
+          | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+          | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+          | 'TARGETING_TYPE_GENDER'
+          | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+          | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+          | 'TARGETING_TYPE_PARENTAL_STATUS'
+          | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+          | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+          | 'TARGETING_TYPE_DEVICE_TYPE'
+          | 'TARGETING_TYPE_AUDIENCE_GROUP'
+          | 'TARGETING_TYPE_BROWSER'
+          | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+          | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+          | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+          | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+          | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+          | 'TARGETING_TYPE_ENVIRONMENT'
+          | 'TARGETING_TYPE_CARRIER_AND_ISP'
+          | 'TARGETING_TYPE_OPERATING_SYSTEM'
+          | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+          | 'TARGETING_TYPE_KEYWORD'
+          | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+          | 'TARGETING_TYPE_VIEWABILITY'
+          | 'TARGETING_TYPE_CATEGORY'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE'
+          | 'TARGETING_TYPE_LANGUAGE'
+          | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+          | 'TARGETING_TYPE_GEO_REGION'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+          | 'TARGETING_TYPE_EXCHANGE'
+          | 'TARGETING_TYPE_SUB_EXCHANGE'
+          | 'TARGETING_TYPE_POI'
+          | 'TARGETING_TYPE_BUSINESS_CHAIN'
+          | 'TARGETING_TYPE_CONTENT_DURATION'
+          | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+          | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+          | 'TARGETING_TYPE_OMID'
+          | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+          | 'TARGETING_TYPE_CONTENT_GENRE'
+          | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+          | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+          | 'TARGETING_TYPE_SESSION_POSITION'
+          | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -4006,7 +6513,7 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The ID of the ad group the assigned targeting option will belong to. */
@@ -4014,7 +6521,7 @@ declare namespace gapi.client {
           /** Required. The ID of the advertiser the ad group belongs to. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4028,7 +6535,57 @@ declare namespace gapi.client {
           /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
           quotaUser?: string;
           /** Required. Identifies the type of this assigned targeting option. Supported targeting types: * `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP` * `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` * `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_GEO_REGION` * `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_REGIONAL_LOCATION_LIST` * `TARGETING_TYPE_URL` * `TARGETING_TYPE_YOUTUBE_CHANNEL` * `TARGETING_TYPE_YOUTUBE_VIDEO` */
-          targetingType: string;
+          targetingType:
+            | 'TARGETING_TYPE_UNSPECIFIED'
+            | 'TARGETING_TYPE_CHANNEL'
+            | 'TARGETING_TYPE_APP_CATEGORY'
+            | 'TARGETING_TYPE_APP'
+            | 'TARGETING_TYPE_URL'
+            | 'TARGETING_TYPE_DAY_AND_TIME'
+            | 'TARGETING_TYPE_AGE_RANGE'
+            | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+            | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+            | 'TARGETING_TYPE_GENDER'
+            | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+            | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+            | 'TARGETING_TYPE_PARENTAL_STATUS'
+            | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+            | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+            | 'TARGETING_TYPE_DEVICE_TYPE'
+            | 'TARGETING_TYPE_AUDIENCE_GROUP'
+            | 'TARGETING_TYPE_BROWSER'
+            | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+            | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+            | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+            | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+            | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+            | 'TARGETING_TYPE_ENVIRONMENT'
+            | 'TARGETING_TYPE_CARRIER_AND_ISP'
+            | 'TARGETING_TYPE_OPERATING_SYSTEM'
+            | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+            | 'TARGETING_TYPE_KEYWORD'
+            | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+            | 'TARGETING_TYPE_VIEWABILITY'
+            | 'TARGETING_TYPE_CATEGORY'
+            | 'TARGETING_TYPE_INVENTORY_SOURCE'
+            | 'TARGETING_TYPE_LANGUAGE'
+            | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+            | 'TARGETING_TYPE_GEO_REGION'
+            | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+            | 'TARGETING_TYPE_EXCHANGE'
+            | 'TARGETING_TYPE_SUB_EXCHANGE'
+            | 'TARGETING_TYPE_POI'
+            | 'TARGETING_TYPE_BUSINESS_CHAIN'
+            | 'TARGETING_TYPE_CONTENT_DURATION'
+            | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+            | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+            | 'TARGETING_TYPE_OMID'
+            | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+            | 'TARGETING_TYPE_CONTENT_GENRE'
+            | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+            | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+            | 'TARGETING_TYPE_SESSION_POSITION'
+            | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
           /** Upload protocol for media (e.g. "raw", "multipart"). */
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -4039,7 +6596,7 @@ declare namespace gapi.client {
       /** Deletes an assigned targeting option from an ad group. Only ad groups under a line item of line_item_type `LINE_ITEM_TYPE_DEMAND_GEN` are supported for this method. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the ad group the assigned targeting option belongs to. */
@@ -4047,7 +6604,7 @@ declare namespace gapi.client {
         /** Required. The ID of the advertiser the ad group belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The ID of the assigned targeting option to delete. */
         assignedTargetingOptionId: string;
         /** JSONP */
@@ -4063,7 +6620,57 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Required. Identifies the type of this assigned targeting option. Supported targeting types: * `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP` * `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` * `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_SESSION_POSITION` * `TARGETING_TYPE_URL` * `TARGETING_TYPE_YOUTUBE_CHANNEL` * `TARGETING_TYPE_YOUTUBE_VIDEO` */
-        targetingType: string;
+        targetingType:
+          | 'TARGETING_TYPE_UNSPECIFIED'
+          | 'TARGETING_TYPE_CHANNEL'
+          | 'TARGETING_TYPE_APP_CATEGORY'
+          | 'TARGETING_TYPE_APP'
+          | 'TARGETING_TYPE_URL'
+          | 'TARGETING_TYPE_DAY_AND_TIME'
+          | 'TARGETING_TYPE_AGE_RANGE'
+          | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+          | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+          | 'TARGETING_TYPE_GENDER'
+          | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+          | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+          | 'TARGETING_TYPE_PARENTAL_STATUS'
+          | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+          | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+          | 'TARGETING_TYPE_DEVICE_TYPE'
+          | 'TARGETING_TYPE_AUDIENCE_GROUP'
+          | 'TARGETING_TYPE_BROWSER'
+          | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+          | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+          | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+          | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+          | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+          | 'TARGETING_TYPE_ENVIRONMENT'
+          | 'TARGETING_TYPE_CARRIER_AND_ISP'
+          | 'TARGETING_TYPE_OPERATING_SYSTEM'
+          | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+          | 'TARGETING_TYPE_KEYWORD'
+          | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+          | 'TARGETING_TYPE_VIEWABILITY'
+          | 'TARGETING_TYPE_CATEGORY'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE'
+          | 'TARGETING_TYPE_LANGUAGE'
+          | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+          | 'TARGETING_TYPE_GEO_REGION'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+          | 'TARGETING_TYPE_EXCHANGE'
+          | 'TARGETING_TYPE_SUB_EXCHANGE'
+          | 'TARGETING_TYPE_POI'
+          | 'TARGETING_TYPE_BUSINESS_CHAIN'
+          | 'TARGETING_TYPE_CONTENT_DURATION'
+          | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+          | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+          | 'TARGETING_TYPE_OMID'
+          | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+          | 'TARGETING_TYPE_CONTENT_GENRE'
+          | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+          | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+          | 'TARGETING_TYPE_SESSION_POSITION'
+          | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -4072,7 +6679,7 @@ declare namespace gapi.client {
       /** Gets a single targeting option assigned to an ad group. Inherited assigned targeting options are not included. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the ad group the assigned targeting option belongs to. */
@@ -4080,7 +6687,7 @@ declare namespace gapi.client {
         /** Required. The ID of the advertiser the ad group belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. An identifier unique to the targeting type in this line item that identifies the assigned targeting option being requested. */
         assignedTargetingOptionId: string;
         /** JSONP */
@@ -4096,7 +6703,57 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Required. Identifies the type of this assigned targeting option. Supported targeting types include: * `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP` * `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` * `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_SESSION_POSITION` * `TARGETING_TYPE_URL` * `TARGETING_TYPE_YOUTUBE_CHANNEL` * `TARGETING_TYPE_YOUTUBE_VIDEO` */
-        targetingType: string;
+        targetingType:
+          | 'TARGETING_TYPE_UNSPECIFIED'
+          | 'TARGETING_TYPE_CHANNEL'
+          | 'TARGETING_TYPE_APP_CATEGORY'
+          | 'TARGETING_TYPE_APP'
+          | 'TARGETING_TYPE_URL'
+          | 'TARGETING_TYPE_DAY_AND_TIME'
+          | 'TARGETING_TYPE_AGE_RANGE'
+          | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+          | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+          | 'TARGETING_TYPE_GENDER'
+          | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+          | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+          | 'TARGETING_TYPE_PARENTAL_STATUS'
+          | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+          | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+          | 'TARGETING_TYPE_DEVICE_TYPE'
+          | 'TARGETING_TYPE_AUDIENCE_GROUP'
+          | 'TARGETING_TYPE_BROWSER'
+          | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+          | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+          | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+          | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+          | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+          | 'TARGETING_TYPE_ENVIRONMENT'
+          | 'TARGETING_TYPE_CARRIER_AND_ISP'
+          | 'TARGETING_TYPE_OPERATING_SYSTEM'
+          | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+          | 'TARGETING_TYPE_KEYWORD'
+          | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+          | 'TARGETING_TYPE_VIEWABILITY'
+          | 'TARGETING_TYPE_CATEGORY'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE'
+          | 'TARGETING_TYPE_LANGUAGE'
+          | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+          | 'TARGETING_TYPE_GEO_REGION'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+          | 'TARGETING_TYPE_EXCHANGE'
+          | 'TARGETING_TYPE_SUB_EXCHANGE'
+          | 'TARGETING_TYPE_POI'
+          | 'TARGETING_TYPE_BUSINESS_CHAIN'
+          | 'TARGETING_TYPE_CONTENT_DURATION'
+          | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+          | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+          | 'TARGETING_TYPE_OMID'
+          | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+          | 'TARGETING_TYPE_CONTENT_GENRE'
+          | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+          | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+          | 'TARGETING_TYPE_SESSION_POSITION'
+          | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -4105,7 +6762,7 @@ declare namespace gapi.client {
       /** Lists the targeting options assigned to an ad group. Inherited assigned targeting options are not included. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the ad group to list assigned targeting options for. */
@@ -4113,7 +6770,7 @@ declare namespace gapi.client {
         /** Required. The ID of the advertiser the ad group belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4135,7 +6792,57 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Required. Identifies the type of assigned targeting options to list. Supported targeting types include: * `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP` * `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` * `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_SESSION_POSITION` * `TARGETING_TYPE_URL` * `TARGETING_TYPE_YOUTUBE_CHANNEL` * `TARGETING_TYPE_YOUTUBE_VIDEO` */
-        targetingType: string;
+        targetingType:
+          | 'TARGETING_TYPE_UNSPECIFIED'
+          | 'TARGETING_TYPE_CHANNEL'
+          | 'TARGETING_TYPE_APP_CATEGORY'
+          | 'TARGETING_TYPE_APP'
+          | 'TARGETING_TYPE_URL'
+          | 'TARGETING_TYPE_DAY_AND_TIME'
+          | 'TARGETING_TYPE_AGE_RANGE'
+          | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+          | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+          | 'TARGETING_TYPE_GENDER'
+          | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+          | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+          | 'TARGETING_TYPE_PARENTAL_STATUS'
+          | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+          | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+          | 'TARGETING_TYPE_DEVICE_TYPE'
+          | 'TARGETING_TYPE_AUDIENCE_GROUP'
+          | 'TARGETING_TYPE_BROWSER'
+          | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+          | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+          | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+          | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+          | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+          | 'TARGETING_TYPE_ENVIRONMENT'
+          | 'TARGETING_TYPE_CARRIER_AND_ISP'
+          | 'TARGETING_TYPE_OPERATING_SYSTEM'
+          | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+          | 'TARGETING_TYPE_KEYWORD'
+          | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+          | 'TARGETING_TYPE_VIEWABILITY'
+          | 'TARGETING_TYPE_CATEGORY'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE'
+          | 'TARGETING_TYPE_LANGUAGE'
+          | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+          | 'TARGETING_TYPE_GEO_REGION'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+          | 'TARGETING_TYPE_EXCHANGE'
+          | 'TARGETING_TYPE_SUB_EXCHANGE'
+          | 'TARGETING_TYPE_POI'
+          | 'TARGETING_TYPE_BUSINESS_CHAIN'
+          | 'TARGETING_TYPE_CONTENT_DURATION'
+          | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+          | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+          | 'TARGETING_TYPE_OMID'
+          | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+          | 'TARGETING_TYPE_CONTENT_GENRE'
+          | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+          | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+          | 'TARGETING_TYPE_SESSION_POSITION'
+          | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -4149,7 +6856,7 @@ declare namespace gapi.client {
       /** Creates a new association between the identified resource and a YouTube asset. Returns the newly-created association. *Warning:* This method is only available to an informed subset of users. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of an ad group. */
@@ -4157,7 +6864,7 @@ declare namespace gapi.client {
         /** Required. The ID of the advertiser that the linked entity belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4177,14 +6884,18 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Required. The type of YouTube asset associated with the resource. */
-        youtubeAssetType: string;
+        youtubeAssetType:
+          | 'YOUTUBE_ASSET_TYPE_UNSPECIFIED'
+          | 'YOUTUBE_ASSET_TYPE_LOCATION'
+          | 'YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION'
+          | 'YOUTUBE_ASSET_TYPE_SITELINK';
         /** Request body */
         resource: YoutubeAssetAssociation;
       }): Request<YoutubeAssetAssociation>;
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The ID of an ad group. */
@@ -4192,7 +6903,7 @@ declare namespace gapi.client {
           /** Required. The ID of the advertiser that the linked entity belongs to. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4212,14 +6923,18 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
           /** Required. The type of YouTube asset associated with the resource. */
-          youtubeAssetType: string;
+          youtubeAssetType:
+            | 'YOUTUBE_ASSET_TYPE_UNSPECIFIED'
+            | 'YOUTUBE_ASSET_TYPE_LOCATION'
+            | 'YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION'
+            | 'YOUTUBE_ASSET_TYPE_SITELINK';
         },
         body: YoutubeAssetAssociation,
       ): Request<YoutubeAssetAssociation>;
       /** Deletes an existing association between the identified resource and a YouTube asset. *Warning:* This method is only available to an informed subset of users. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of an ad group. */
@@ -4227,7 +6942,7 @@ declare namespace gapi.client {
         /** Required. The ID of the advertiser that the linked entity belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4249,12 +6964,16 @@ declare namespace gapi.client {
         /** Required. The ID of the YouTube asset in the association. For `YOUTUBE_ASSET_TYPE_LOCATION` and `YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION` associations: This should be the ID of the asset set linked, or 0 if the location_asset_filter or affiliate_location_asset_filter is `DISABLED`. For `YOUTUBE_ASSET_TYPE_SITELINK` associations: This should be the ID of the sitelink asset linked. */
         youtubeAssetAssociationId: string;
         /** Required. The type of YouTube asset associated with the resource. */
-        youtubeAssetType: string;
+        youtubeAssetType:
+          | 'YOUTUBE_ASSET_TYPE_UNSPECIFIED'
+          | 'YOUTUBE_ASSET_TYPE_LOCATION'
+          | 'YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION'
+          | 'YOUTUBE_ASSET_TYPE_SITELINK';
       }): Request<{}>;
       /** Lists the YouTube asset associations linked to the given resource. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of an ad group. */
@@ -4262,7 +6981,7 @@ declare namespace gapi.client {
         /** Required. The ID of the advertiser that the linked entity belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4288,7 +7007,11 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Required. The type of YouTube asset being associated with the resource. */
-        youtubeAssetType: string;
+        youtubeAssetType:
+          | 'YOUTUBE_ASSET_TYPE_UNSPECIFIED'
+          | 'YOUTUBE_ASSET_TYPE_LOCATION'
+          | 'YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION'
+          | 'YOUTUBE_ASSET_TYPE_SITELINK';
       }): Request<ListYoutubeAssetAssociationsResponse>;
     }
     interface YoutubeAssetTypesResource {
@@ -4298,13 +7021,13 @@ declare namespace gapi.client {
       /** Bulk edits targeting options for multiple ad groups. The same set of delete and create requests will be applied to all specified ad groups. Specifically, the operation will delete the assigned targeting options provided in BulkEditAdGroupAssignedTargetingOptionsRequest.delete_requests from each ad group, and then create the assigned targeting options provided in BulkEditAdGroupAssignedTargetingOptionsRequest.create_requests. Only ad groups under a line item of line_item_type `LINE_ITEM_TYPE_DEMAND_GEN` are supported for this method. */
       bulkEditAssignedTargetingOptions(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser the ad groups belong to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4327,13 +7050,13 @@ declare namespace gapi.client {
       bulkEditAssignedTargetingOptions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The ID of the advertiser the ad groups belong to. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4356,7 +7079,7 @@ declare namespace gapi.client {
       /** Lists assigned targeting options for multiple ad groups across targeting types. Inherited assigned targeting options are not included. */
       bulkListAssignedTargetingOptions(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The IDs of the ad groups to list assigned targeting options for. */
@@ -4364,7 +7087,7 @@ declare namespace gapi.client {
         /** Required. The ID of the advertiser the line items belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4393,13 +7116,13 @@ declare namespace gapi.client {
       /** Creates a new ad group. Returns the newly created ad group if successful. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Output only. The unique ID of the advertiser the ad group belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4422,13 +7145,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Output only. The unique ID of the advertiser the ad group belongs to. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4451,7 +7174,7 @@ declare namespace gapi.client {
       /** Deletes a AdGroup. Returns error code `NOT_FOUND` if the ad group does not exist. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the ad group to delete. */
@@ -4459,7 +7182,7 @@ declare namespace gapi.client {
         /** Required. The ID of the advertiser this ad group belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4480,7 +7203,7 @@ declare namespace gapi.client {
       /** Gets an ad group. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the ad group to fetch. */
@@ -4488,7 +7211,7 @@ declare namespace gapi.client {
         /** Required. The ID of the advertiser this ad group belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4509,13 +7232,13 @@ declare namespace gapi.client {
       /** Lists ad groups. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser the ad groups belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4544,7 +7267,7 @@ declare namespace gapi.client {
       /** Updates an existing ad group. Returns the updated ad group if successful. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Output only. The unique ID of the ad group. Assigned by the system. */
@@ -4552,7 +7275,7 @@ declare namespace gapi.client {
         /** Output only. The unique ID of the advertiser the ad group belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4577,7 +7300,7 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Output only. The unique ID of the ad group. Assigned by the system. */
@@ -4585,7 +7308,7 @@ declare namespace gapi.client {
           /** Output only. The unique ID of the advertiser the ad group belongs to. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4614,13 +7337,13 @@ declare namespace gapi.client {
       /** Uploads an asset. Returns the ID of the newly uploaded asset if successful. The asset file size should be no more than 10 MB for images, 200 MB for ZIP files, and 1 GB for videos. Must be used within the [multipart media upload process](/display-video/api/guides/how-tos/upload#multipart). Examples using provided client libraries can be found in our [Creating Creatives guide](/display-video/api/guides/creating-creatives/overview#upload_an_asset). */
       upload(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser this asset belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4643,13 +7366,13 @@ declare namespace gapi.client {
       upload(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The ID of the advertiser this asset belongs to. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4674,13 +7397,13 @@ declare namespace gapi.client {
       /** Creates a new campaign. Returns the newly created campaign if successful. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Output only. The unique ID of the advertiser the campaign belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4703,13 +7426,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Output only. The unique ID of the advertiser the campaign belongs to. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4732,13 +7455,13 @@ declare namespace gapi.client {
       /** Permanently deletes a campaign. A deleted campaign cannot be recovered. The campaign should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, to be able to delete it. **This method regularly experiences high latency.** We recommend [increasing your default timeout](/display-video/api/guides/best-practices/timeouts#client_library_timeout) to avoid errors. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser this campaign belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The ID of the campaign we need to delete. */
@@ -4761,13 +7484,13 @@ declare namespace gapi.client {
       /** Gets a campaign. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser this campaign belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the campaign to fetch. */
@@ -4790,13 +7513,13 @@ declare namespace gapi.client {
       /** Lists campaigns in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, campaigns with `ENTITY_STATUS_ARCHIVED` will not be included in the results. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser to list campaigns for. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4825,13 +7548,13 @@ declare namespace gapi.client {
       /** Updates an existing campaign. Returns the updated campaign if successful. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Output only. The unique ID of the advertiser the campaign belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Output only. The unique ID of the campaign. Assigned by the system. */
@@ -4858,13 +7581,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Output only. The unique ID of the advertiser the campaign belongs to. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Output only. The unique ID of the campaign. Assigned by the system. */
@@ -4893,13 +7616,13 @@ declare namespace gapi.client {
       /** Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites provided in BulkEditSitesRequest.created_sites. */
       bulkEdit(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the parent channel. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the parent channel to which the sites belong. */
@@ -4924,13 +7647,13 @@ declare namespace gapi.client {
       bulkEdit(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The ID of the advertiser that owns the parent channel. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID of the parent channel to which the sites belong. */
@@ -4955,13 +7678,13 @@ declare namespace gapi.client {
       /** Creates a site in a channel. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the parent channel. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the parent channel in which the site will be created. */
@@ -4988,13 +7711,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The ID of the advertiser that owns the parent channel. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID of the parent channel in which the site will be created. */
@@ -5021,13 +7744,13 @@ declare namespace gapi.client {
       /** Deletes a site from a channel. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the parent channel. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the parent channel to which the site belongs. */
@@ -5054,13 +7777,13 @@ declare namespace gapi.client {
       /** Lists sites in a channel. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the parent channel. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the parent channel to which the requested sites belong. */
@@ -5093,13 +7816,13 @@ declare namespace gapi.client {
       /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. **This method regularly experiences high latency.** We recommend [increasing your default timeout](/display-video/api/guides/best-practices/timeouts#client_library_timeout) to avoid errors. */
       replace(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the parent channel. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the parent channel whose sites will be replaced. */
@@ -5124,13 +7847,13 @@ declare namespace gapi.client {
       replace(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The ID of the advertiser that owns the parent channel. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID of the parent channel whose sites will be replaced. */
@@ -5157,13 +7880,13 @@ declare namespace gapi.client {
       /** Creates a new channel. Returns the newly created channel if successful. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the created channel. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5188,13 +7911,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The ID of the advertiser that owns the created channel. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5219,13 +7942,13 @@ declare namespace gapi.client {
       /** Gets a channel for a partner or advertiser. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the fetched channel. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the channel to fetch. */
@@ -5250,13 +7973,13 @@ declare namespace gapi.client {
       /** Lists channels for a partner or advertiser. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the channels. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5287,13 +8010,13 @@ declare namespace gapi.client {
       /** Updates a channel. Returns the updated channel if successful. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the created channel. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Output only. The unique ID of the channel. Assigned by the system. */
@@ -5322,13 +8045,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The ID of the advertiser that owns the created channel. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Output only. The unique ID of the channel. Assigned by the system. */
@@ -5360,13 +8083,13 @@ declare namespace gapi.client {
       /** Creates a new creative. Returns the newly created creative if successful. A ["Standard" user role](//support.google.com/displayvideo/answer/2723011) or greater for the parent advertiser or partner is required to make this request. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Output only. The unique ID of the advertiser the creative belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5389,13 +8112,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Output only. The unique ID of the advertiser the creative belongs to. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5418,13 +8141,13 @@ declare namespace gapi.client {
       /** Deletes a creative. Returns error code `NOT_FOUND` if the creative does not exist. The creative should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, before it can be deleted. A ["Standard" user role](//support.google.com/displayvideo/answer/2723011) or greater for the parent advertiser or partner is required to make this request. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser this creative belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The ID of the creative to be deleted. */
@@ -5447,13 +8170,13 @@ declare namespace gapi.client {
       /** Gets a creative. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser this creative belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the creative to fetch. */
@@ -5476,13 +8199,13 @@ declare namespace gapi.client {
       /** Lists creatives in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, creatives with `ENTITY_STATUS_ARCHIVED` will not be included in the results. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser to list creatives for. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5511,13 +8234,13 @@ declare namespace gapi.client {
       /** Updates an existing creative. Returns the updated creative if successful. A ["Standard" user role](//support.google.com/displayvideo/answer/2723011) or greater for the parent advertiser or partner is required to make this request. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Output only. The unique ID of the advertiser the creative belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Output only. The unique ID of the creative. Assigned by the system. */
@@ -5544,13 +8267,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Output only. The unique ID of the advertiser the creative belongs to. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Output only. The unique ID of the creative. Assigned by the system. */
@@ -5579,13 +8302,13 @@ declare namespace gapi.client {
       /** Creates a new insertion order. Returns the newly created insertion order if successful. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Output only. The unique ID of the advertiser the insertion order belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5608,13 +8331,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Output only. The unique ID of the advertiser the insertion order belongs to. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5637,13 +8360,13 @@ declare namespace gapi.client {
       /** Deletes an insertion order. Returns error code `NOT_FOUND` if the insertion order does not exist. The insertion order should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, to be able to delete it. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser this insertion order belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5666,13 +8389,13 @@ declare namespace gapi.client {
       /** Gets an insertion order. Returns error code `NOT_FOUND` if the insertion order does not exist. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser this insertion order belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5695,13 +8418,13 @@ declare namespace gapi.client {
       /** Lists insertion orders in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, insertion orders with `ENTITY_STATUS_ARCHIVED` will not be included in the results. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser to list insertion orders for. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5730,13 +8453,13 @@ declare namespace gapi.client {
       /** Updates an existing insertion order. Returns the updated insertion order if successful. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Output only. The unique ID of the advertiser the insertion order belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5763,13 +8486,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Output only. The unique ID of the advertiser the insertion order belongs to. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5798,13 +8521,13 @@ declare namespace gapi.client {
       /** Lists invoices posted for an advertiser in a given month. Invoices generated by billing profiles with a "Partner" invoice level are not retrievable through this method. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser to list invoices for. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5814,7 +8537,10 @@ declare namespace gapi.client {
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** Select type of invoice to retrieve for Loi Sapin advertisers. Only applicable to Loi Sapin advertisers. Will be ignored otherwise. */
-        loiSapinInvoiceType?: string;
+        loiSapinInvoiceType?:
+          | 'LOI_SAPIN_INVOICE_TYPE_UNSPECIFIED'
+          | 'LOI_SAPIN_INVOICE_TYPE_MEDIA'
+          | 'LOI_SAPIN_INVOICE_TYPE_PLATFORM';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Requested page size. Must be between `1` and `200`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is specified. */
@@ -5833,13 +8559,13 @@ declare namespace gapi.client {
       /** Retrieves the invoice currency used by an advertiser in a given month. */
       lookupInvoiceCurrency(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser to lookup currency for. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5864,13 +8590,13 @@ declare namespace gapi.client {
       /** Assigns a targeting option to a line item. Returns the assigned targeting option if successful. Requests to this endpoint cannot be made concurrently with the following requests updating the same line item: * lineItems.bulkEditAssignedTargetingOptions * lineItems.bulkUpdate * lineItems.patch * DeleteLineItemAssignedTargetingOption YouTube & Partners line items cannot be created or updated using the API. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser the line item belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5886,7 +8612,57 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Required. Identifies the type of this assigned targeting option. Supported targeting types include: * `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP` * `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` * `TARGETING_TYPE_AUDIO_CONTENT_TYPE` * `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` * `TARGETING_TYPE_BROWSER` * `TARGETING_TYPE_BUSINESS_CHAIN` * `TARGETING_TYPE_CARRIER_AND_ISP` * `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_CONTENT_DURATION` * `TARGETING_TYPE_CONTENT_GENRE` * `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` * `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` * `TARGETING_TYPE_CONTENT_STREAM_TYPE` * `TARGETING_TYPE_DAY_AND_TIME` * `TARGETING_TYPE_DEVICE_MAKE_MODEL` * `TARGETING_TYPE_DEVICE_TYPE` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_EXCHANGE` * `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_GEO_REGION` * `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_INVENTORY_SOURCE` * `TARGETING_TYPE_INVENTORY_SOURCE_GROUP` * `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION` * `TARGETING_TYPE_NEGATIVE_KEYWORD_LIST` * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_OPERATING_SYSTEM` * `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_POI` * `TARGETING_TYPE_PROXIMITY_LOCATION_LIST` * `TARGETING_TYPE_REGIONAL_LOCATION_LIST` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_THIRD_PARTY_VERIFIER` * `TARGETING_TYPE_URL` * `TARGETING_TYPE_USER_REWARDED_CONTENT` * `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_VIEWABILITY` */
-        targetingType: string;
+        targetingType:
+          | 'TARGETING_TYPE_UNSPECIFIED'
+          | 'TARGETING_TYPE_CHANNEL'
+          | 'TARGETING_TYPE_APP_CATEGORY'
+          | 'TARGETING_TYPE_APP'
+          | 'TARGETING_TYPE_URL'
+          | 'TARGETING_TYPE_DAY_AND_TIME'
+          | 'TARGETING_TYPE_AGE_RANGE'
+          | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+          | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+          | 'TARGETING_TYPE_GENDER'
+          | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+          | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+          | 'TARGETING_TYPE_PARENTAL_STATUS'
+          | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+          | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+          | 'TARGETING_TYPE_DEVICE_TYPE'
+          | 'TARGETING_TYPE_AUDIENCE_GROUP'
+          | 'TARGETING_TYPE_BROWSER'
+          | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+          | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+          | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+          | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+          | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+          | 'TARGETING_TYPE_ENVIRONMENT'
+          | 'TARGETING_TYPE_CARRIER_AND_ISP'
+          | 'TARGETING_TYPE_OPERATING_SYSTEM'
+          | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+          | 'TARGETING_TYPE_KEYWORD'
+          | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+          | 'TARGETING_TYPE_VIEWABILITY'
+          | 'TARGETING_TYPE_CATEGORY'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE'
+          | 'TARGETING_TYPE_LANGUAGE'
+          | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+          | 'TARGETING_TYPE_GEO_REGION'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+          | 'TARGETING_TYPE_EXCHANGE'
+          | 'TARGETING_TYPE_SUB_EXCHANGE'
+          | 'TARGETING_TYPE_POI'
+          | 'TARGETING_TYPE_BUSINESS_CHAIN'
+          | 'TARGETING_TYPE_CONTENT_DURATION'
+          | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+          | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+          | 'TARGETING_TYPE_OMID'
+          | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+          | 'TARGETING_TYPE_CONTENT_GENRE'
+          | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+          | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+          | 'TARGETING_TYPE_SESSION_POSITION'
+          | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -5897,13 +8673,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The ID of the advertiser the line item belongs to. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5919,7 +8695,57 @@ declare namespace gapi.client {
           /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
           quotaUser?: string;
           /** Required. Identifies the type of this assigned targeting option. Supported targeting types include: * `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP` * `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` * `TARGETING_TYPE_AUDIO_CONTENT_TYPE` * `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` * `TARGETING_TYPE_BROWSER` * `TARGETING_TYPE_BUSINESS_CHAIN` * `TARGETING_TYPE_CARRIER_AND_ISP` * `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_CONTENT_DURATION` * `TARGETING_TYPE_CONTENT_GENRE` * `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` * `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` * `TARGETING_TYPE_CONTENT_STREAM_TYPE` * `TARGETING_TYPE_DAY_AND_TIME` * `TARGETING_TYPE_DEVICE_MAKE_MODEL` * `TARGETING_TYPE_DEVICE_TYPE` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_EXCHANGE` * `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_GEO_REGION` * `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_INVENTORY_SOURCE` * `TARGETING_TYPE_INVENTORY_SOURCE_GROUP` * `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION` * `TARGETING_TYPE_NEGATIVE_KEYWORD_LIST` * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_OPERATING_SYSTEM` * `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_POI` * `TARGETING_TYPE_PROXIMITY_LOCATION_LIST` * `TARGETING_TYPE_REGIONAL_LOCATION_LIST` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_THIRD_PARTY_VERIFIER` * `TARGETING_TYPE_URL` * `TARGETING_TYPE_USER_REWARDED_CONTENT` * `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_VIEWABILITY` */
-          targetingType: string;
+          targetingType:
+            | 'TARGETING_TYPE_UNSPECIFIED'
+            | 'TARGETING_TYPE_CHANNEL'
+            | 'TARGETING_TYPE_APP_CATEGORY'
+            | 'TARGETING_TYPE_APP'
+            | 'TARGETING_TYPE_URL'
+            | 'TARGETING_TYPE_DAY_AND_TIME'
+            | 'TARGETING_TYPE_AGE_RANGE'
+            | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+            | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+            | 'TARGETING_TYPE_GENDER'
+            | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+            | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+            | 'TARGETING_TYPE_PARENTAL_STATUS'
+            | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+            | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+            | 'TARGETING_TYPE_DEVICE_TYPE'
+            | 'TARGETING_TYPE_AUDIENCE_GROUP'
+            | 'TARGETING_TYPE_BROWSER'
+            | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+            | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+            | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+            | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+            | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+            | 'TARGETING_TYPE_ENVIRONMENT'
+            | 'TARGETING_TYPE_CARRIER_AND_ISP'
+            | 'TARGETING_TYPE_OPERATING_SYSTEM'
+            | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+            | 'TARGETING_TYPE_KEYWORD'
+            | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+            | 'TARGETING_TYPE_VIEWABILITY'
+            | 'TARGETING_TYPE_CATEGORY'
+            | 'TARGETING_TYPE_INVENTORY_SOURCE'
+            | 'TARGETING_TYPE_LANGUAGE'
+            | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+            | 'TARGETING_TYPE_GEO_REGION'
+            | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+            | 'TARGETING_TYPE_EXCHANGE'
+            | 'TARGETING_TYPE_SUB_EXCHANGE'
+            | 'TARGETING_TYPE_POI'
+            | 'TARGETING_TYPE_BUSINESS_CHAIN'
+            | 'TARGETING_TYPE_CONTENT_DURATION'
+            | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+            | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+            | 'TARGETING_TYPE_OMID'
+            | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+            | 'TARGETING_TYPE_CONTENT_GENRE'
+            | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+            | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+            | 'TARGETING_TYPE_SESSION_POSITION'
+            | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
           /** Upload protocol for media (e.g. "raw", "multipart"). */
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -5930,13 +8756,13 @@ declare namespace gapi.client {
       /** Deletes an assigned targeting option from a line item. Requests to this endpoint cannot be made concurrently with the following requests updating the same line item: * lineItems.bulkEditAssignedTargetingOptions * lineItems.bulkUpdate * lineItems.patch * CreateLineItemAssignedTargetingOption YouTube & Partners line items cannot be created or updated using the API. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser the line item belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The ID of the assigned targeting option to delete. */
         assignedTargetingOptionId: string;
         /** JSONP */
@@ -5954,7 +8780,57 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Required. Identifies the type of this assigned targeting option. Supported targeting types include: * `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP` * `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` * `TARGETING_TYPE_AUDIO_CONTENT_TYPE` * `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` * `TARGETING_TYPE_BROWSER` * `TARGETING_TYPE_BUSINESS_CHAIN` * `TARGETING_TYPE_CARRIER_AND_ISP` * `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_CONTENT_DURATION` * `TARGETING_TYPE_CONTENT_GENRE` * `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` * `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` * `TARGETING_TYPE_CONTENT_STREAM_TYPE` * `TARGETING_TYPE_DAY_AND_TIME` * `TARGETING_TYPE_DEVICE_MAKE_MODEL` * `TARGETING_TYPE_DEVICE_TYPE` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_EXCHANGE` * `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_GEO_REGION` * `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_INVENTORY_SOURCE` * `TARGETING_TYPE_INVENTORY_SOURCE_GROUP` * `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION` * `TARGETING_TYPE_NEGATIVE_KEYWORD_LIST` * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_OPERATING_SYSTEM` * `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_POI` * `TARGETING_TYPE_PROXIMITY_LOCATION_LIST` * `TARGETING_TYPE_REGIONAL_LOCATION_LIST` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_THIRD_PARTY_VERIFIER` * `TARGETING_TYPE_URL` * `TARGETING_TYPE_USER_REWARDED_CONTENT` * `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_VIEWABILITY` */
-        targetingType: string;
+        targetingType:
+          | 'TARGETING_TYPE_UNSPECIFIED'
+          | 'TARGETING_TYPE_CHANNEL'
+          | 'TARGETING_TYPE_APP_CATEGORY'
+          | 'TARGETING_TYPE_APP'
+          | 'TARGETING_TYPE_URL'
+          | 'TARGETING_TYPE_DAY_AND_TIME'
+          | 'TARGETING_TYPE_AGE_RANGE'
+          | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+          | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+          | 'TARGETING_TYPE_GENDER'
+          | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+          | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+          | 'TARGETING_TYPE_PARENTAL_STATUS'
+          | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+          | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+          | 'TARGETING_TYPE_DEVICE_TYPE'
+          | 'TARGETING_TYPE_AUDIENCE_GROUP'
+          | 'TARGETING_TYPE_BROWSER'
+          | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+          | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+          | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+          | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+          | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+          | 'TARGETING_TYPE_ENVIRONMENT'
+          | 'TARGETING_TYPE_CARRIER_AND_ISP'
+          | 'TARGETING_TYPE_OPERATING_SYSTEM'
+          | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+          | 'TARGETING_TYPE_KEYWORD'
+          | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+          | 'TARGETING_TYPE_VIEWABILITY'
+          | 'TARGETING_TYPE_CATEGORY'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE'
+          | 'TARGETING_TYPE_LANGUAGE'
+          | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+          | 'TARGETING_TYPE_GEO_REGION'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+          | 'TARGETING_TYPE_EXCHANGE'
+          | 'TARGETING_TYPE_SUB_EXCHANGE'
+          | 'TARGETING_TYPE_POI'
+          | 'TARGETING_TYPE_BUSINESS_CHAIN'
+          | 'TARGETING_TYPE_CONTENT_DURATION'
+          | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+          | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+          | 'TARGETING_TYPE_OMID'
+          | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+          | 'TARGETING_TYPE_CONTENT_GENRE'
+          | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+          | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+          | 'TARGETING_TYPE_SESSION_POSITION'
+          | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -5963,13 +8839,13 @@ declare namespace gapi.client {
       /** Gets a single targeting option assigned to a line item. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser the line item belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. An identifier unique to the targeting type in this line item that identifies the assigned targeting option being requested. */
         assignedTargetingOptionId: string;
         /** JSONP */
@@ -5987,7 +8863,57 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Required. Identifies the type of this assigned targeting option. Supported targeting types include: * `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP` * `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` * `TARGETING_TYPE_AUDIO_CONTENT_TYPE` * `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` * `TARGETING_TYPE_BROWSER` * `TARGETING_TYPE_BUSINESS_CHAIN` * `TARGETING_TYPE_CARRIER_AND_ISP` * `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_CONTENT_DURATION` * `TARGETING_TYPE_CONTENT_GENRE` * `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` * `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` * `TARGETING_TYPE_CONTENT_STREAM_TYPE` * `TARGETING_TYPE_DAY_AND_TIME` * `TARGETING_TYPE_DEVICE_MAKE_MODEL` * `TARGETING_TYPE_DEVICE_TYPE` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_EXCHANGE` * `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_GEO_REGION` * `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_INVENTORY_SOURCE` * `TARGETING_TYPE_INVENTORY_SOURCE_GROUP` * `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION` * `TARGETING_TYPE_NEGATIVE_KEYWORD_LIST` * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_OPERATING_SYSTEM` * `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_POI` * `TARGETING_TYPE_PROXIMITY_LOCATION_LIST` * `TARGETING_TYPE_REGIONAL_LOCATION_LIST` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_THIRD_PARTY_VERIFIER` * `TARGETING_TYPE_URL` * `TARGETING_TYPE_USER_REWARDED_CONTENT` * `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_VIEWABILITY` * `TARGETING_TYPE_INVENTORY_MODE` * `TARGETING_TYPE_YOUTUBE_CHANNEL` (only for `LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_VIDEO_SEQUENCE` line items) * `TARGETING_TYPE_YOUTUBE_VIDEO` (only for `LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_VIDEO_SEQUENCE` line items) */
-        targetingType: string;
+        targetingType:
+          | 'TARGETING_TYPE_UNSPECIFIED'
+          | 'TARGETING_TYPE_CHANNEL'
+          | 'TARGETING_TYPE_APP_CATEGORY'
+          | 'TARGETING_TYPE_APP'
+          | 'TARGETING_TYPE_URL'
+          | 'TARGETING_TYPE_DAY_AND_TIME'
+          | 'TARGETING_TYPE_AGE_RANGE'
+          | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+          | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+          | 'TARGETING_TYPE_GENDER'
+          | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+          | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+          | 'TARGETING_TYPE_PARENTAL_STATUS'
+          | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+          | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+          | 'TARGETING_TYPE_DEVICE_TYPE'
+          | 'TARGETING_TYPE_AUDIENCE_GROUP'
+          | 'TARGETING_TYPE_BROWSER'
+          | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+          | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+          | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+          | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+          | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+          | 'TARGETING_TYPE_ENVIRONMENT'
+          | 'TARGETING_TYPE_CARRIER_AND_ISP'
+          | 'TARGETING_TYPE_OPERATING_SYSTEM'
+          | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+          | 'TARGETING_TYPE_KEYWORD'
+          | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+          | 'TARGETING_TYPE_VIEWABILITY'
+          | 'TARGETING_TYPE_CATEGORY'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE'
+          | 'TARGETING_TYPE_LANGUAGE'
+          | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+          | 'TARGETING_TYPE_GEO_REGION'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+          | 'TARGETING_TYPE_EXCHANGE'
+          | 'TARGETING_TYPE_SUB_EXCHANGE'
+          | 'TARGETING_TYPE_POI'
+          | 'TARGETING_TYPE_BUSINESS_CHAIN'
+          | 'TARGETING_TYPE_CONTENT_DURATION'
+          | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+          | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+          | 'TARGETING_TYPE_OMID'
+          | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+          | 'TARGETING_TYPE_CONTENT_GENRE'
+          | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+          | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+          | 'TARGETING_TYPE_SESSION_POSITION'
+          | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -5996,13 +8922,13 @@ declare namespace gapi.client {
       /** Lists the targeting options assigned to a line item. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser the line item belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6026,7 +8952,57 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Required. Identifies the type of assigned targeting options to list. Supported targeting types include: * `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP` * `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` * `TARGETING_TYPE_AUDIO_CONTENT_TYPE` * `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` * `TARGETING_TYPE_BROWSER` * `TARGETING_TYPE_BUSINESS_CHAIN` * `TARGETING_TYPE_CARRIER_AND_ISP` * `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_CONTENT_DURATION` * `TARGETING_TYPE_CONTENT_GENRE` * `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` * `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` * `TARGETING_TYPE_CONTENT_STREAM_TYPE` * `TARGETING_TYPE_DAY_AND_TIME` * `TARGETING_TYPE_DEVICE_MAKE_MODEL` * `TARGETING_TYPE_DEVICE_TYPE` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_EXCHANGE` * `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_GEO_REGION` * `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_INVENTORY_SOURCE` * `TARGETING_TYPE_INVENTORY_SOURCE_GROUP` * `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION` * `TARGETING_TYPE_NEGATIVE_KEYWORD_LIST` * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_OPERATING_SYSTEM` * `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_POI` * `TARGETING_TYPE_PROXIMITY_LOCATION_LIST` * `TARGETING_TYPE_REGIONAL_LOCATION_LIST` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_THIRD_PARTY_VERIFIER` * `TARGETING_TYPE_URL` * `TARGETING_TYPE_USER_REWARDED_CONTENT` * `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_VIEWABILITY` * `TARGETING_TYPE_INVENTORY_MODE` * `TARGETING_TYPE_YOUTUBE_CHANNEL` (only for `LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_VIDEO_SEQUENCE` line items) * `TARGETING_TYPE_YOUTUBE_VIDEO` (only for `LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_VIDEO_SEQUENCE` line items) */
-        targetingType: string;
+        targetingType:
+          | 'TARGETING_TYPE_UNSPECIFIED'
+          | 'TARGETING_TYPE_CHANNEL'
+          | 'TARGETING_TYPE_APP_CATEGORY'
+          | 'TARGETING_TYPE_APP'
+          | 'TARGETING_TYPE_URL'
+          | 'TARGETING_TYPE_DAY_AND_TIME'
+          | 'TARGETING_TYPE_AGE_RANGE'
+          | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+          | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+          | 'TARGETING_TYPE_GENDER'
+          | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+          | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+          | 'TARGETING_TYPE_PARENTAL_STATUS'
+          | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+          | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+          | 'TARGETING_TYPE_DEVICE_TYPE'
+          | 'TARGETING_TYPE_AUDIENCE_GROUP'
+          | 'TARGETING_TYPE_BROWSER'
+          | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+          | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+          | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+          | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+          | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+          | 'TARGETING_TYPE_ENVIRONMENT'
+          | 'TARGETING_TYPE_CARRIER_AND_ISP'
+          | 'TARGETING_TYPE_OPERATING_SYSTEM'
+          | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+          | 'TARGETING_TYPE_KEYWORD'
+          | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+          | 'TARGETING_TYPE_VIEWABILITY'
+          | 'TARGETING_TYPE_CATEGORY'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE'
+          | 'TARGETING_TYPE_LANGUAGE'
+          | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+          | 'TARGETING_TYPE_GEO_REGION'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+          | 'TARGETING_TYPE_EXCHANGE'
+          | 'TARGETING_TYPE_SUB_EXCHANGE'
+          | 'TARGETING_TYPE_POI'
+          | 'TARGETING_TYPE_BUSINESS_CHAIN'
+          | 'TARGETING_TYPE_CONTENT_DURATION'
+          | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+          | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+          | 'TARGETING_TYPE_OMID'
+          | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+          | 'TARGETING_TYPE_CONTENT_GENRE'
+          | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+          | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+          | 'TARGETING_TYPE_SESSION_POSITION'
+          | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -6040,13 +9016,13 @@ declare namespace gapi.client {
       /** Creates a new association between the identified resource and a YouTube asset. Returns the newly-created association. *Warning:* This method is only available to an informed subset of users. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser that the linked entity belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6068,20 +9044,24 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Required. The type of YouTube asset associated with the resource. */
-        youtubeAssetType: string;
+        youtubeAssetType:
+          | 'YOUTUBE_ASSET_TYPE_UNSPECIFIED'
+          | 'YOUTUBE_ASSET_TYPE_LOCATION'
+          | 'YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION'
+          | 'YOUTUBE_ASSET_TYPE_SITELINK';
         /** Request body */
         resource: YoutubeAssetAssociation;
       }): Request<YoutubeAssetAssociation>;
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The ID of the advertiser that the linked entity belongs to. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6103,20 +9083,24 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
           /** Required. The type of YouTube asset associated with the resource. */
-          youtubeAssetType: string;
+          youtubeAssetType:
+            | 'YOUTUBE_ASSET_TYPE_UNSPECIFIED'
+            | 'YOUTUBE_ASSET_TYPE_LOCATION'
+            | 'YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION'
+            | 'YOUTUBE_ASSET_TYPE_SITELINK';
         },
         body: YoutubeAssetAssociation,
       ): Request<YoutubeAssetAssociation>;
       /** Deletes an existing association between the identified resource and a YouTube asset. *Warning:* This method is only available to an informed subset of users. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser that the linked entity belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6140,18 +9124,22 @@ declare namespace gapi.client {
         /** Required. The ID of the YouTube asset in the association. For `YOUTUBE_ASSET_TYPE_LOCATION` and `YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION` associations: This should be the ID of the asset set linked, or 0 if the location_asset_filter or affiliate_location_asset_filter is `DISABLED`. For `YOUTUBE_ASSET_TYPE_SITELINK` associations: This should be the ID of the sitelink asset linked. */
         youtubeAssetAssociationId: string;
         /** Required. The type of YouTube asset associated with the resource. */
-        youtubeAssetType: string;
+        youtubeAssetType:
+          | 'YOUTUBE_ASSET_TYPE_UNSPECIFIED'
+          | 'YOUTUBE_ASSET_TYPE_LOCATION'
+          | 'YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION'
+          | 'YOUTUBE_ASSET_TYPE_SITELINK';
       }): Request<{}>;
       /** Lists the YouTube asset associations linked to the given resource. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser that the linked entity belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6179,7 +9167,11 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Required. The type of YouTube asset being associated with the resource. */
-        youtubeAssetType: string;
+        youtubeAssetType:
+          | 'YOUTUBE_ASSET_TYPE_UNSPECIFIED'
+          | 'YOUTUBE_ASSET_TYPE_LOCATION'
+          | 'YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION'
+          | 'YOUTUBE_ASSET_TYPE_SITELINK';
       }): Request<ListYoutubeAssetAssociationsResponse>;
     }
     interface YoutubeAssetTypesResource {
@@ -6189,13 +9181,13 @@ declare namespace gapi.client {
       /** Bulk edits targeting options under multiple line items. The operation will delete the assigned targeting options provided in BulkEditAssignedTargetingOptionsRequest.delete_requests and then create the assigned targeting options provided in BulkEditAssignedTargetingOptionsRequest.create_requests. Requests to this endpoint cannot be made concurrently with the following requests updating the same line item: * lineItems.bulkUpdate * lineItems.patch * assignedTargetingOptions.create * assignedTargetingOptions.delete YouTube & Partners line items cannot be created or updated using the API. */
       bulkEditAssignedTargetingOptions(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser the line items belong to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6218,13 +9210,13 @@ declare namespace gapi.client {
       bulkEditAssignedTargetingOptions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The ID of the advertiser the line items belong to. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6247,13 +9239,13 @@ declare namespace gapi.client {
       /** Lists assigned targeting options for multiple line items across targeting types. */
       bulkListAssignedTargetingOptions(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser the line items belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6284,13 +9276,13 @@ declare namespace gapi.client {
       /** Updates multiple line items. Requests to this endpoint cannot be made concurrently with the following requests updating the same line item: * BulkEditAssignedTargetingOptions * UpdateLineItem * assignedTargetingOptions.create * assignedTargetingOptions.delete YouTube & Partners line items cannot be created or updated using the API. */
       bulkUpdate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser this line item belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6313,13 +9305,13 @@ declare namespace gapi.client {
       bulkUpdate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The ID of the advertiser this line item belongs to. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6342,13 +9334,13 @@ declare namespace gapi.client {
       /** Creates a new line item. Returns the newly created line item if successful. YouTube & Partners line items cannot be created or updated using the API. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Output only. The unique ID of the advertiser the line item belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6371,13 +9363,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Output only. The unique ID of the advertiser the line item belongs to. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6400,13 +9392,13 @@ declare namespace gapi.client {
       /** Deletes a line item. Returns error code `NOT_FOUND` if the line item does not exist. The line item should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, to be able to delete it. YouTube & Partners line items cannot be created or updated using the API. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser this line item belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6429,13 +9421,13 @@ declare namespace gapi.client {
       /** Duplicates a line item. Returns the ID of the created line item if successful. YouTube & Partners line items cannot be created or updated using the API. **This method regularly experiences high latency.** We recommend [increasing your default timeout](/display-video/api/guides/best-practices/timeouts#client_library_timeout) to avoid errors. */
       duplicate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser this line item belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6460,13 +9452,13 @@ declare namespace gapi.client {
       duplicate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The ID of the advertiser this line item belongs to. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6491,13 +9483,13 @@ declare namespace gapi.client {
       /** Gets a line item. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser this line item belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6520,13 +9512,13 @@ declare namespace gapi.client {
       /** Lists line items in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, line items with `ENTITY_STATUS_ARCHIVED` will not be included in the results. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser to list line items for. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6555,13 +9547,13 @@ declare namespace gapi.client {
       /** Updates an existing line item. Returns the updated line item if successful. Requests to this endpoint cannot be made concurrently with the following requests updating the same line item: * BulkEditAssignedTargetingOptions * BulkUpdateLineItems * assignedTargetingOptions.create * assignedTargetingOptions.delete YouTube & Partners line items cannot be created or updated using the API. **This method regularly experiences high latency.** We recommend [increasing your default timeout](/display-video/api/guides/best-practices/timeouts#client_library_timeout) to avoid errors. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Output only. The unique ID of the advertiser the line item belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6588,13 +9580,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Output only. The unique ID of the advertiser the line item belongs to. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6625,13 +9617,13 @@ declare namespace gapi.client {
       /** Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in deletedAssignedLocations and then create the assigned locations provided in createdAssignedLocations. */
       bulkEdit(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the DV360 advertiser to which the location list belongs. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6656,13 +9648,13 @@ declare namespace gapi.client {
       bulkEdit(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The ID of the DV360 advertiser to which the location list belongs. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6687,13 +9679,13 @@ declare namespace gapi.client {
       /** Creates an assignment between a location and a location list. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the DV360 advertiser to which the location list belongs. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6718,13 +9710,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The ID of the DV360 advertiser to which the location list belongs. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6749,13 +9741,13 @@ declare namespace gapi.client {
       /** Deletes the assignment between a location and a location list. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the DV360 advertiser to which the location list belongs. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The ID of the assigned location to delete. */
         assignedLocationId: string;
         /** JSONP */
@@ -6780,13 +9772,13 @@ declare namespace gapi.client {
       /** Lists locations assigned to a location list. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the DV360 advertiser to which the location list belongs. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6819,13 +9811,13 @@ declare namespace gapi.client {
       /** Creates a new location list. Returns the newly created location list if successful. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the DV360 advertiser to which the location list belongs. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6848,13 +9840,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The ID of the DV360 advertiser to which the location list belongs. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6877,13 +9869,13 @@ declare namespace gapi.client {
       /** Gets a location list. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the DV360 advertiser to which the fetched location list belongs. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6906,13 +9898,13 @@ declare namespace gapi.client {
       /** Lists location lists based on a given advertiser id. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the DV360 advertiser to which the fetched location lists belong. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6941,13 +9933,13 @@ declare namespace gapi.client {
       /** Updates a location list. Returns the updated location list if successful. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the DV360 advertiser to which the location lists belongs. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6974,13 +9966,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The ID of the DV360 advertiser to which the location lists belongs. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7010,13 +10002,13 @@ declare namespace gapi.client {
       /** Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or partial failure. */
       bulkEdit(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the DV360 advertiser to which the parent negative keyword list belongs. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7041,13 +10033,13 @@ declare namespace gapi.client {
       bulkEdit(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The ID of the DV360 advertiser to which the parent negative keyword list belongs. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7072,13 +10064,13 @@ declare namespace gapi.client {
       /** Creates a negative keyword in a negative keyword list. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the DV360 advertiser to which the parent negative keyword list belongs. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7103,13 +10095,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The ID of the DV360 advertiser to which the parent negative keyword list belongs. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7134,13 +10126,13 @@ declare namespace gapi.client {
       /** Deletes a negative keyword from a negative keyword list. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the DV360 advertiser to which the parent negative keyword list belongs. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7165,13 +10157,13 @@ declare namespace gapi.client {
       /** Lists negative keywords in a negative keyword list. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the DV360 advertiser to which the parent negative keyword list belongs. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7202,13 +10194,13 @@ declare namespace gapi.client {
       /** Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keyword list with keywords provided in ReplaceNegativeKeywordsRequest.new_negative_keywords. */
       replace(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the DV360 advertiser to which the parent negative keyword list belongs. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7233,13 +10225,13 @@ declare namespace gapi.client {
       replace(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The ID of the DV360 advertiser to which the parent negative keyword list belongs. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7266,13 +10258,13 @@ declare namespace gapi.client {
       /** Creates a new negative keyword list. Returns the newly created negative keyword list if successful. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the DV360 advertiser to which the negative keyword list will belong. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7295,13 +10287,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The ID of the DV360 advertiser to which the negative keyword list will belong. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7324,13 +10316,13 @@ declare namespace gapi.client {
       /** Deletes a negative keyword list given an advertiser ID and a negative keyword list ID. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the DV360 advertiser to which the negative keyword list belongs. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7353,13 +10345,13 @@ declare namespace gapi.client {
       /** Gets a negative keyword list given an advertiser ID and a negative keyword list ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the DV360 advertiser to which the fetched negative keyword list belongs. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7382,13 +10374,13 @@ declare namespace gapi.client {
       /** Lists negative keyword lists based on a given advertiser id. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the DV360 advertiser to which the fetched negative keyword lists belong. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7413,13 +10405,13 @@ declare namespace gapi.client {
       /** Updates a negative keyword list. Returns the updated negative keyword list if successful. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the DV360 advertiser to which the negative keyword list belongs. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7446,13 +10438,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The ID of the DV360 advertiser to which the negative keyword list belongs. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7482,13 +10474,13 @@ declare namespace gapi.client {
       /** Assigns a targeting option to an advertiser. Returns the assigned targeting option if successful. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7502,7 +10494,57 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Required. Identifies the type of this assigned targeting option. Supported targeting types: * `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_INVENTORY_MODE` */
-        targetingType: string;
+        targetingType:
+          | 'TARGETING_TYPE_UNSPECIFIED'
+          | 'TARGETING_TYPE_CHANNEL'
+          | 'TARGETING_TYPE_APP_CATEGORY'
+          | 'TARGETING_TYPE_APP'
+          | 'TARGETING_TYPE_URL'
+          | 'TARGETING_TYPE_DAY_AND_TIME'
+          | 'TARGETING_TYPE_AGE_RANGE'
+          | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+          | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+          | 'TARGETING_TYPE_GENDER'
+          | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+          | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+          | 'TARGETING_TYPE_PARENTAL_STATUS'
+          | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+          | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+          | 'TARGETING_TYPE_DEVICE_TYPE'
+          | 'TARGETING_TYPE_AUDIENCE_GROUP'
+          | 'TARGETING_TYPE_BROWSER'
+          | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+          | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+          | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+          | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+          | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+          | 'TARGETING_TYPE_ENVIRONMENT'
+          | 'TARGETING_TYPE_CARRIER_AND_ISP'
+          | 'TARGETING_TYPE_OPERATING_SYSTEM'
+          | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+          | 'TARGETING_TYPE_KEYWORD'
+          | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+          | 'TARGETING_TYPE_VIEWABILITY'
+          | 'TARGETING_TYPE_CATEGORY'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE'
+          | 'TARGETING_TYPE_LANGUAGE'
+          | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+          | 'TARGETING_TYPE_GEO_REGION'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+          | 'TARGETING_TYPE_EXCHANGE'
+          | 'TARGETING_TYPE_SUB_EXCHANGE'
+          | 'TARGETING_TYPE_POI'
+          | 'TARGETING_TYPE_BUSINESS_CHAIN'
+          | 'TARGETING_TYPE_CONTENT_DURATION'
+          | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+          | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+          | 'TARGETING_TYPE_OMID'
+          | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+          | 'TARGETING_TYPE_CONTENT_GENRE'
+          | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+          | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+          | 'TARGETING_TYPE_SESSION_POSITION'
+          | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -7513,13 +10555,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The ID of the advertiser. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7533,7 +10575,57 @@ declare namespace gapi.client {
           /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
           quotaUser?: string;
           /** Required. Identifies the type of this assigned targeting option. Supported targeting types: * `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_INVENTORY_MODE` */
-          targetingType: string;
+          targetingType:
+            | 'TARGETING_TYPE_UNSPECIFIED'
+            | 'TARGETING_TYPE_CHANNEL'
+            | 'TARGETING_TYPE_APP_CATEGORY'
+            | 'TARGETING_TYPE_APP'
+            | 'TARGETING_TYPE_URL'
+            | 'TARGETING_TYPE_DAY_AND_TIME'
+            | 'TARGETING_TYPE_AGE_RANGE'
+            | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+            | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+            | 'TARGETING_TYPE_GENDER'
+            | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+            | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+            | 'TARGETING_TYPE_PARENTAL_STATUS'
+            | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+            | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+            | 'TARGETING_TYPE_DEVICE_TYPE'
+            | 'TARGETING_TYPE_AUDIENCE_GROUP'
+            | 'TARGETING_TYPE_BROWSER'
+            | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+            | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+            | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+            | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+            | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+            | 'TARGETING_TYPE_ENVIRONMENT'
+            | 'TARGETING_TYPE_CARRIER_AND_ISP'
+            | 'TARGETING_TYPE_OPERATING_SYSTEM'
+            | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+            | 'TARGETING_TYPE_KEYWORD'
+            | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+            | 'TARGETING_TYPE_VIEWABILITY'
+            | 'TARGETING_TYPE_CATEGORY'
+            | 'TARGETING_TYPE_INVENTORY_SOURCE'
+            | 'TARGETING_TYPE_LANGUAGE'
+            | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+            | 'TARGETING_TYPE_GEO_REGION'
+            | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+            | 'TARGETING_TYPE_EXCHANGE'
+            | 'TARGETING_TYPE_SUB_EXCHANGE'
+            | 'TARGETING_TYPE_POI'
+            | 'TARGETING_TYPE_BUSINESS_CHAIN'
+            | 'TARGETING_TYPE_CONTENT_DURATION'
+            | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+            | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+            | 'TARGETING_TYPE_OMID'
+            | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+            | 'TARGETING_TYPE_CONTENT_GENRE'
+            | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+            | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+            | 'TARGETING_TYPE_SESSION_POSITION'
+            | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
           /** Upload protocol for media (e.g. "raw", "multipart"). */
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -7544,13 +10636,13 @@ declare namespace gapi.client {
       /** Deletes an assigned targeting option from an advertiser. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The ID of the assigned targeting option to delete. */
         assignedTargetingOptionId: string;
         /** JSONP */
@@ -7566,7 +10658,57 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Required. Identifies the type of this assigned targeting option. Supported targeting types: * `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_INVENTORY_MODE` */
-        targetingType: string;
+        targetingType:
+          | 'TARGETING_TYPE_UNSPECIFIED'
+          | 'TARGETING_TYPE_CHANNEL'
+          | 'TARGETING_TYPE_APP_CATEGORY'
+          | 'TARGETING_TYPE_APP'
+          | 'TARGETING_TYPE_URL'
+          | 'TARGETING_TYPE_DAY_AND_TIME'
+          | 'TARGETING_TYPE_AGE_RANGE'
+          | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+          | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+          | 'TARGETING_TYPE_GENDER'
+          | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+          | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+          | 'TARGETING_TYPE_PARENTAL_STATUS'
+          | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+          | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+          | 'TARGETING_TYPE_DEVICE_TYPE'
+          | 'TARGETING_TYPE_AUDIENCE_GROUP'
+          | 'TARGETING_TYPE_BROWSER'
+          | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+          | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+          | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+          | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+          | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+          | 'TARGETING_TYPE_ENVIRONMENT'
+          | 'TARGETING_TYPE_CARRIER_AND_ISP'
+          | 'TARGETING_TYPE_OPERATING_SYSTEM'
+          | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+          | 'TARGETING_TYPE_KEYWORD'
+          | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+          | 'TARGETING_TYPE_VIEWABILITY'
+          | 'TARGETING_TYPE_CATEGORY'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE'
+          | 'TARGETING_TYPE_LANGUAGE'
+          | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+          | 'TARGETING_TYPE_GEO_REGION'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+          | 'TARGETING_TYPE_EXCHANGE'
+          | 'TARGETING_TYPE_SUB_EXCHANGE'
+          | 'TARGETING_TYPE_POI'
+          | 'TARGETING_TYPE_BUSINESS_CHAIN'
+          | 'TARGETING_TYPE_CONTENT_DURATION'
+          | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+          | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+          | 'TARGETING_TYPE_OMID'
+          | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+          | 'TARGETING_TYPE_CONTENT_GENRE'
+          | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+          | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+          | 'TARGETING_TYPE_SESSION_POSITION'
+          | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -7575,13 +10717,13 @@ declare namespace gapi.client {
       /** Gets a single targeting option assigned to an advertiser. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. An identifier unique to the targeting type in this advertiser that identifies the assigned targeting option being requested. */
         assignedTargetingOptionId: string;
         /** JSONP */
@@ -7597,7 +10739,57 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Required. Identifies the type of this assigned targeting option. Supported targeting types: * `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL` * `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_CONTENT_THEME_EXCLUSION` */
-        targetingType: string;
+        targetingType:
+          | 'TARGETING_TYPE_UNSPECIFIED'
+          | 'TARGETING_TYPE_CHANNEL'
+          | 'TARGETING_TYPE_APP_CATEGORY'
+          | 'TARGETING_TYPE_APP'
+          | 'TARGETING_TYPE_URL'
+          | 'TARGETING_TYPE_DAY_AND_TIME'
+          | 'TARGETING_TYPE_AGE_RANGE'
+          | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+          | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+          | 'TARGETING_TYPE_GENDER'
+          | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+          | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+          | 'TARGETING_TYPE_PARENTAL_STATUS'
+          | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+          | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+          | 'TARGETING_TYPE_DEVICE_TYPE'
+          | 'TARGETING_TYPE_AUDIENCE_GROUP'
+          | 'TARGETING_TYPE_BROWSER'
+          | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+          | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+          | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+          | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+          | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+          | 'TARGETING_TYPE_ENVIRONMENT'
+          | 'TARGETING_TYPE_CARRIER_AND_ISP'
+          | 'TARGETING_TYPE_OPERATING_SYSTEM'
+          | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+          | 'TARGETING_TYPE_KEYWORD'
+          | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+          | 'TARGETING_TYPE_VIEWABILITY'
+          | 'TARGETING_TYPE_CATEGORY'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE'
+          | 'TARGETING_TYPE_LANGUAGE'
+          | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+          | 'TARGETING_TYPE_GEO_REGION'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+          | 'TARGETING_TYPE_EXCHANGE'
+          | 'TARGETING_TYPE_SUB_EXCHANGE'
+          | 'TARGETING_TYPE_POI'
+          | 'TARGETING_TYPE_BUSINESS_CHAIN'
+          | 'TARGETING_TYPE_CONTENT_DURATION'
+          | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+          | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+          | 'TARGETING_TYPE_OMID'
+          | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+          | 'TARGETING_TYPE_CONTENT_GENRE'
+          | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+          | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+          | 'TARGETING_TYPE_SESSION_POSITION'
+          | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -7606,13 +10798,13 @@ declare namespace gapi.client {
       /** Lists the targeting options assigned to an advertiser. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7634,7 +10826,57 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Required. Identifies the type of assigned targeting options to list. Supported targeting types: * `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL` * `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_CONTENT_THEME_EXCLUSION` */
-        targetingType: string;
+        targetingType:
+          | 'TARGETING_TYPE_UNSPECIFIED'
+          | 'TARGETING_TYPE_CHANNEL'
+          | 'TARGETING_TYPE_APP_CATEGORY'
+          | 'TARGETING_TYPE_APP'
+          | 'TARGETING_TYPE_URL'
+          | 'TARGETING_TYPE_DAY_AND_TIME'
+          | 'TARGETING_TYPE_AGE_RANGE'
+          | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+          | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+          | 'TARGETING_TYPE_GENDER'
+          | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+          | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+          | 'TARGETING_TYPE_PARENTAL_STATUS'
+          | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+          | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+          | 'TARGETING_TYPE_DEVICE_TYPE'
+          | 'TARGETING_TYPE_AUDIENCE_GROUP'
+          | 'TARGETING_TYPE_BROWSER'
+          | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+          | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+          | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+          | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+          | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+          | 'TARGETING_TYPE_ENVIRONMENT'
+          | 'TARGETING_TYPE_CARRIER_AND_ISP'
+          | 'TARGETING_TYPE_OPERATING_SYSTEM'
+          | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+          | 'TARGETING_TYPE_KEYWORD'
+          | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+          | 'TARGETING_TYPE_VIEWABILITY'
+          | 'TARGETING_TYPE_CATEGORY'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE'
+          | 'TARGETING_TYPE_LANGUAGE'
+          | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+          | 'TARGETING_TYPE_GEO_REGION'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+          | 'TARGETING_TYPE_EXCHANGE'
+          | 'TARGETING_TYPE_SUB_EXCHANGE'
+          | 'TARGETING_TYPE_POI'
+          | 'TARGETING_TYPE_BUSINESS_CHAIN'
+          | 'TARGETING_TYPE_CONTENT_DURATION'
+          | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+          | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+          | 'TARGETING_TYPE_OMID'
+          | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+          | 'TARGETING_TYPE_CONTENT_GENRE'
+          | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+          | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+          | 'TARGETING_TYPE_SESSION_POSITION'
+          | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -7648,13 +10890,13 @@ declare namespace gapi.client {
       /** Audits an advertiser. Returns the counts of used entities per resource type under the advertiser provided. Used entities count towards their respective resource limit. See https://support.google.com/displayvideo/answer/6071450. */
       audit(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser to audit. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7677,11 +10919,11 @@ declare namespace gapi.client {
       /** Creates a new advertiser. Returns the newly created advertiser if successful. **This method regularly experiences high latency.** We recommend [increasing your default timeout](/display-video/api/guides/best-practices/timeouts#client_library_timeout) to avoid errors. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7704,11 +10946,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7731,13 +10973,13 @@ declare namespace gapi.client {
       /** Deletes an advertiser. Deleting an advertiser will delete all of its child resources, for example, campaigns, insertion orders and line items. A deleted advertiser cannot be recovered. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser we need to delete. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7758,13 +11000,13 @@ declare namespace gapi.client {
       /** Edits targeting options under a single advertiser. The operation will delete the assigned targeting options provided in BulkEditAdvertiserAssignedTargetingOptionsRequest.delete_requests and then create the assigned targeting options provided in BulkEditAdvertiserAssignedTargetingOptionsRequest.create_requests . */
       editAssignedTargetingOptions(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7787,13 +11029,13 @@ declare namespace gapi.client {
       editAssignedTargetingOptions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The ID of the advertiser. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7816,13 +11058,13 @@ declare namespace gapi.client {
       /** Gets an advertiser. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser to fetch. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7843,11 +11085,11 @@ declare namespace gapi.client {
       /** Lists advertisers that are accessible to the current user. The order is defined by the order_by parameter. A single partner_id is required. Cross-partner listing is not supported. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7878,13 +11120,13 @@ declare namespace gapi.client {
       /** Lists assigned targeting options of an advertiser across targeting types. */
       listAssignedTargetingOptions(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser the line item belongs to. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7913,13 +11155,13 @@ declare namespace gapi.client {
       /** Updates an existing advertiser. Returns the updated advertiser if successful. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Output only. The unique ID of the advertiser. Assigned by the system. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7944,13 +11186,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Output only. The unique ID of the advertiser. Assigned by the system. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7990,13 +11232,13 @@ declare namespace gapi.client {
       /** Gets a combined audience. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that has access to the fetched combined audience. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the combined audience to fetch. */
@@ -8021,13 +11263,13 @@ declare namespace gapi.client {
       /** Lists combined audiences. The order is defined by the order_by parameter. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that has access to the fetched combined audiences. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8060,13 +11302,13 @@ declare namespace gapi.client {
       /** Creates a new rules resource. Returns the newly created rules resource if successful. Requests creating a custom bidding rules resource under an algorithm assigned to a line item will return an error. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the parent custom bidding algorithm. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the custom bidding algorithm that owns the rules resource. */
@@ -8093,13 +11335,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The ID of the advertiser that owns the parent custom bidding algorithm. */
           advertiserId?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID of the custom bidding algorithm that owns the rules resource. */
@@ -8126,13 +11368,13 @@ declare namespace gapi.client {
       /** Retrieves a rules resource. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the parent custom bidding algorithm. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the custom bidding algorithm that owns the rules resource. */
@@ -8159,13 +11401,13 @@ declare namespace gapi.client {
       /** Lists rules resources that belong to the given algorithm. The order is defined by the order_by parameter. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the parent custom bidding algorithm. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the custom bidding algorithm that owns the rules resource. */
@@ -8198,13 +11440,13 @@ declare namespace gapi.client {
       /** Creates a new custom bidding script. Returns the newly created script if successful. Requests creating a custom bidding script under an algorithm assigned to a line item will return an error. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the parent custom bidding algorithm. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the custom bidding algorithm that owns the script. */
@@ -8231,13 +11473,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The ID of the advertiser that owns the parent custom bidding algorithm. */
           advertiserId?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID of the custom bidding algorithm that owns the script. */
@@ -8264,13 +11506,13 @@ declare namespace gapi.client {
       /** Gets a custom bidding script. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the parent custom bidding algorithm. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the custom bidding algorithm owns the script. */
@@ -8297,13 +11539,13 @@ declare namespace gapi.client {
       /** Lists custom bidding scripts that belong to the given algorithm. The order is defined by the order_by parameter. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the parent custom bidding algorithm. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the custom bidding algorithm owns the script. */
@@ -8336,11 +11578,11 @@ declare namespace gapi.client {
       /** Creates a new custom bidding algorithm. Returns the newly created custom bidding algorithm if successful. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8363,11 +11605,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8390,13 +11632,13 @@ declare namespace gapi.client {
       /** Gets a custom bidding algorithm. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the DV360 partner that has access to the custom bidding algorithm. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the custom bidding algorithm to fetch. */
@@ -8421,13 +11663,13 @@ declare namespace gapi.client {
       /** Lists custom bidding algorithms that are accessible to the current user and can be used in bidding stratgies. The order is defined by the order_by parameter. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the DV360 advertiser that has access to the custom bidding algorithm. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8458,11 +11700,11 @@ declare namespace gapi.client {
       /** Updates an existing custom bidding algorithm. Returns the updated custom bidding algorithm if successful. Requests updating a custom bidding algorithm assigned to a line item will return an error. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Output only. The unique ID of the custom bidding algorithm. Assigned by the system. */
@@ -8489,11 +11731,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Output only. The unique ID of the custom bidding algorithm. Assigned by the system. */
@@ -8520,13 +11762,13 @@ declare namespace gapi.client {
       /** Creates a rules reference object for an AlgorithmRules file. The resulting reference object provides a resource path where the AlgorithmRules file should be uploaded. This reference object should be included when creating a new CustomBiddingAlgorithmRules resource. */
       uploadRules(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the parent custom bidding algorithm. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the custom bidding algorithm that owns the rules resource. */
@@ -8551,13 +11793,13 @@ declare namespace gapi.client {
       /** Creates a custom bidding script reference object for a script file. The resulting reference object provides a resource path to which the script file should be uploaded. This reference object should be included in when creating a new custom bidding script object. */
       uploadScript(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the parent custom bidding algorithm. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the custom bidding algorithm owns the script. */
@@ -8586,13 +11828,13 @@ declare namespace gapi.client {
       /** Gets a custom list. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the DV360 advertiser that has access to the fetched custom lists. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the custom list to fetch. */
@@ -8615,13 +11857,13 @@ declare namespace gapi.client {
       /** Lists custom lists. The order is defined by the order_by parameter. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the DV360 advertiser that has access to the fetched custom lists. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8652,13 +11894,13 @@ declare namespace gapi.client {
       /** Creates a FirstPartyAndPartnerAudience. Only supported for the following audience_type: * `CUSTOMER_MATCH_CONTACT_INFO` * `CUSTOMER_MATCH_DEVICE_ID` */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the advertiser under whom the FirstPartyAndPartnerAudience will be created. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8681,13 +11923,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The ID of the advertiser under whom the FirstPartyAndPartnerAudience will be created. */
           advertiserId?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8710,11 +11952,11 @@ declare namespace gapi.client {
       /** Updates the member list of a Customer Match audience. Only supported for the following audience_type: * `CUSTOMER_MATCH_CONTACT_INFO` * `CUSTOMER_MATCH_DEVICE_ID` */
       editCustomerMatchMembers(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8739,11 +11981,11 @@ declare namespace gapi.client {
       editCustomerMatchMembers(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8768,13 +12010,13 @@ declare namespace gapi.client {
       /** Gets a first party or partner audience. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that has access to the fetched first party and partner audience. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8799,13 +12041,13 @@ declare namespace gapi.client {
       /** Lists first party and partner audiences. The order is defined by the order_by parameter. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that has access to the fetched first party and partner audiences. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8836,13 +12078,13 @@ declare namespace gapi.client {
       /** Updates an existing FirstPartyAndPartnerAudience. Only supported for the following audience_type: * `CUSTOMER_MATCH_CONTACT_INFO` * `CUSTOMER_MATCH_DEVICE_ID` */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the owner advertiser of the updated FirstPartyAndPartnerAudience. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8869,13 +12111,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The ID of the owner advertiser of the updated FirstPartyAndPartnerAudience. */
           advertiserId?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8904,11 +12146,11 @@ declare namespace gapi.client {
       /** Gets a Floodlight activity. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8935,11 +12177,11 @@ declare namespace gapi.client {
       /** Lists Floodlight activities in a Floodlight group. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8972,11 +12214,11 @@ declare namespace gapi.client {
       /** Gets a Floodlight group. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9001,11 +12243,11 @@ declare namespace gapi.client {
       /** Updates an existing Floodlight group. Returns the updated Floodlight group if successful. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9034,11 +12276,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9070,13 +12312,13 @@ declare namespace gapi.client {
       /** Gets a Google audience. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that has access to the fetched Google audience. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9101,13 +12343,13 @@ declare namespace gapi.client {
       /** Lists Google audiences. The order is defined by the order_by parameter. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that has access to the fetched Google audiences. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9140,13 +12382,13 @@ declare namespace gapi.client {
       /** Creates a new guaranteed order. Returns the newly created guaranteed order if successful. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that the request is being made within. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9171,13 +12413,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The ID of the advertiser that the request is being made within. */
           advertiserId?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9202,11 +12444,11 @@ declare namespace gapi.client {
       /** Edits read advertisers of a guaranteed order. */
       editGuaranteedOrderReadAccessors(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9231,11 +12473,11 @@ declare namespace gapi.client {
       editGuaranteedOrderReadAccessors(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9260,13 +12502,13 @@ declare namespace gapi.client {
       /** Gets a guaranteed order. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that has access to the guaranteed order. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9291,13 +12533,13 @@ declare namespace gapi.client {
       /** Lists guaranteed orders that are accessible to the current user. The order is defined by the order_by parameter. If a filter by entity_status is not specified, guaranteed orders with entity status `ENTITY_STATUS_ARCHIVED` will not be included in the results. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that has access to the guaranteed order. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9328,13 +12570,13 @@ declare namespace gapi.client {
       /** Updates an existing guaranteed order. Returns the updated guaranteed order if successful. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that the request is being made within. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9363,13 +12605,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The ID of the advertiser that the request is being made within. */
           advertiserId?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9400,11 +12642,11 @@ declare namespace gapi.client {
       /** Bulk edits multiple assignments between inventory sources and a single inventory source group. The operation will delete the assigned inventory sources provided in BulkEditAssignedInventorySourcesRequest.deleted_assigned_inventory_sources and then create the assigned inventory sources provided in BulkEditAssignedInventorySourcesRequest.created_assigned_inventory_sources. */
       bulkEdit(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9429,11 +12671,11 @@ declare namespace gapi.client {
       bulkEdit(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9458,13 +12700,13 @@ declare namespace gapi.client {
       /** Creates an assignment between an inventory source and an inventory source group. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the parent inventory source group. The parent partner will not have access to this assigned inventory source. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9491,13 +12733,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The ID of the advertiser that owns the parent inventory source group. The parent partner will not have access to this assigned inventory source. */
           advertiserId?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9524,13 +12766,13 @@ declare namespace gapi.client {
       /** Deletes the assignment between an inventory source and an inventory source group. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the parent inventory source group. The parent partner does not have access to this assigned inventory source. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The ID of the assigned inventory source to delete. */
         assignedInventorySourceId: string;
         /** JSONP */
@@ -9557,13 +12799,13 @@ declare namespace gapi.client {
       /** Lists inventory sources assigned to an inventory source group. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that has access to the assignment. If the parent inventory source group is partner-owned, only advertisers to which the parent group is explicitly shared can access the assigned inventory source. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9598,13 +12840,13 @@ declare namespace gapi.client {
       /** Creates a new inventory source group. Returns the newly created inventory source group if successful. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the inventory source group. The parent partner will not have access to this group. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9629,13 +12871,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The ID of the advertiser that owns the inventory source group. The parent partner will not have access to this group. */
           advertiserId?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9660,13 +12902,13 @@ declare namespace gapi.client {
       /** Deletes an inventory source group. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the inventory source group. The parent partner does not have access to this group. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9691,13 +12933,13 @@ declare namespace gapi.client {
       /** Gets an inventory source group. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that has access to the inventory source group. If an inventory source group is partner-owned, only advertisers to which the group is explicitly shared can access the group. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9722,13 +12964,13 @@ declare namespace gapi.client {
       /** Lists inventory source groups that are accessible to the current user. The order is defined by the order_by parameter. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that has access to the inventory source group. If an inventory source group is partner-owned, only advertisers to which the group is explicitly shared can access the group. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9759,13 +13001,13 @@ declare namespace gapi.client {
       /** Updates an inventory source group. Returns the updated inventory source group if successful. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the inventory source group. The parent partner does not have access to this group. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9794,13 +13036,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The ID of the advertiser that owns the inventory source group. The parent partner does not have access to this group. */
           advertiserId?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9832,13 +13074,13 @@ declare namespace gapi.client {
       /** Creates a new inventory source. Returns the newly created inventory source if successful. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that the request is being made within. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9863,13 +13105,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The ID of the advertiser that the request is being made within. */
           advertiserId?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9894,11 +13136,11 @@ declare namespace gapi.client {
       /** Edits read/write accessors of an inventory source. Returns the updated read_write_accessors for the inventory source. */
       editInventorySourceReadWriteAccessors(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9923,11 +13165,11 @@ declare namespace gapi.client {
       editInventorySourceReadWriteAccessors(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9952,13 +13194,13 @@ declare namespace gapi.client {
       /** Gets an inventory source. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. The ID of the DV360 advertiser to which the fetched inventory source is permissioned. If the user only has access to the advertiser and not the parent partner, use this field to specify the relevant advertiser. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9983,13 +13225,13 @@ declare namespace gapi.client {
       /** Lists inventory sources that are accessible to the current user. The order is defined by the order_by parameter. If a filter by entity_status is not specified, inventory sources with entity status `ENTITY_STATUS_ARCHIVED` will not be included in the results. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that has access to the inventory source. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10020,13 +13262,13 @@ declare namespace gapi.client {
       /** Updates an existing inventory source. Returns the updated inventory source if successful. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that the request is being made within. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10055,13 +13297,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The ID of the advertiser that the request is being made within. */
           advertiserId?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10092,11 +13334,11 @@ declare namespace gapi.client {
       /** Downloads media. Download is supported on the URI `/download/{resource_name=**}?alt=media.` **Note**: Download requests will not be successful without including `alt=media` query string. */
       download(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10119,11 +13361,11 @@ declare namespace gapi.client {
       /** Uploads media. Upload is supported on the URI `/upload/media/{resource_name=**}?upload_type=media.` **Note**: Upload requests will not be successful without including `upload_type=media` query string. */
       upload(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10148,11 +13390,11 @@ declare namespace gapi.client {
       upload(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10179,11 +13421,11 @@ declare namespace gapi.client {
       /** Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites provided in BulkEditSitesRequest.created_sites. */
       bulkEdit(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the parent channel to which the sites belong. */
@@ -10210,11 +13452,11 @@ declare namespace gapi.client {
       bulkEdit(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID of the parent channel to which the sites belong. */
@@ -10241,13 +13483,13 @@ declare namespace gapi.client {
       /** Creates a site in a channel. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the parent channel. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the parent channel in which the site will be created. */
@@ -10274,13 +13516,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The ID of the advertiser that owns the parent channel. */
           advertiserId?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID of the parent channel in which the site will be created. */
@@ -10307,13 +13549,13 @@ declare namespace gapi.client {
       /** Deletes a site from a channel. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the parent channel. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the parent channel to which the site belongs. */
@@ -10340,13 +13582,13 @@ declare namespace gapi.client {
       /** Lists sites in a channel. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the parent channel. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the parent channel to which the requested sites belong. */
@@ -10379,11 +13621,11 @@ declare namespace gapi.client {
       /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. **This method regularly experiences high latency.** We recommend [increasing your default timeout](/display-video/api/guides/best-practices/timeouts#client_library_timeout) to avoid errors. */
       replace(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the parent channel whose sites will be replaced. */
@@ -10410,11 +13652,11 @@ declare namespace gapi.client {
       replace(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID of the parent channel whose sites will be replaced. */
@@ -10443,13 +13685,13 @@ declare namespace gapi.client {
       /** Creates a new channel. Returns the newly created channel if successful. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the created channel. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10474,13 +13716,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The ID of the advertiser that owns the created channel. */
           advertiserId?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10505,13 +13747,13 @@ declare namespace gapi.client {
       /** Gets a channel for a partner or advertiser. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the fetched channel. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the channel to fetch. */
@@ -10536,13 +13778,13 @@ declare namespace gapi.client {
       /** Lists channels for a partner or advertiser. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the channels. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10573,13 +13815,13 @@ declare namespace gapi.client {
       /** Updates a channel. Returns the updated channel if successful. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the advertiser that owns the created channel. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Output only. The unique ID of the channel. Assigned by the system. */
@@ -10608,13 +13850,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The ID of the advertiser that owns the created channel. */
           advertiserId?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Output only. The unique ID of the channel. Assigned by the system. */
@@ -10646,11 +13888,11 @@ declare namespace gapi.client {
       /** Assigns a targeting option to a partner. Returns the assigned targeting option if successful. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10666,7 +13908,57 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Required. Identifies the type of this assigned targeting option. Supported targeting types: * `TARGETING_TYPE_CHANNEL` */
-        targetingType: string;
+        targetingType:
+          | 'TARGETING_TYPE_UNSPECIFIED'
+          | 'TARGETING_TYPE_CHANNEL'
+          | 'TARGETING_TYPE_APP_CATEGORY'
+          | 'TARGETING_TYPE_APP'
+          | 'TARGETING_TYPE_URL'
+          | 'TARGETING_TYPE_DAY_AND_TIME'
+          | 'TARGETING_TYPE_AGE_RANGE'
+          | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+          | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+          | 'TARGETING_TYPE_GENDER'
+          | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+          | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+          | 'TARGETING_TYPE_PARENTAL_STATUS'
+          | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+          | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+          | 'TARGETING_TYPE_DEVICE_TYPE'
+          | 'TARGETING_TYPE_AUDIENCE_GROUP'
+          | 'TARGETING_TYPE_BROWSER'
+          | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+          | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+          | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+          | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+          | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+          | 'TARGETING_TYPE_ENVIRONMENT'
+          | 'TARGETING_TYPE_CARRIER_AND_ISP'
+          | 'TARGETING_TYPE_OPERATING_SYSTEM'
+          | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+          | 'TARGETING_TYPE_KEYWORD'
+          | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+          | 'TARGETING_TYPE_VIEWABILITY'
+          | 'TARGETING_TYPE_CATEGORY'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE'
+          | 'TARGETING_TYPE_LANGUAGE'
+          | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+          | 'TARGETING_TYPE_GEO_REGION'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+          | 'TARGETING_TYPE_EXCHANGE'
+          | 'TARGETING_TYPE_SUB_EXCHANGE'
+          | 'TARGETING_TYPE_POI'
+          | 'TARGETING_TYPE_BUSINESS_CHAIN'
+          | 'TARGETING_TYPE_CONTENT_DURATION'
+          | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+          | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+          | 'TARGETING_TYPE_OMID'
+          | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+          | 'TARGETING_TYPE_CONTENT_GENRE'
+          | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+          | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+          | 'TARGETING_TYPE_SESSION_POSITION'
+          | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -10677,11 +13969,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10697,7 +13989,57 @@ declare namespace gapi.client {
           /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
           quotaUser?: string;
           /** Required. Identifies the type of this assigned targeting option. Supported targeting types: * `TARGETING_TYPE_CHANNEL` */
-          targetingType: string;
+          targetingType:
+            | 'TARGETING_TYPE_UNSPECIFIED'
+            | 'TARGETING_TYPE_CHANNEL'
+            | 'TARGETING_TYPE_APP_CATEGORY'
+            | 'TARGETING_TYPE_APP'
+            | 'TARGETING_TYPE_URL'
+            | 'TARGETING_TYPE_DAY_AND_TIME'
+            | 'TARGETING_TYPE_AGE_RANGE'
+            | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+            | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+            | 'TARGETING_TYPE_GENDER'
+            | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+            | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+            | 'TARGETING_TYPE_PARENTAL_STATUS'
+            | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+            | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+            | 'TARGETING_TYPE_DEVICE_TYPE'
+            | 'TARGETING_TYPE_AUDIENCE_GROUP'
+            | 'TARGETING_TYPE_BROWSER'
+            | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+            | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+            | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+            | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+            | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+            | 'TARGETING_TYPE_ENVIRONMENT'
+            | 'TARGETING_TYPE_CARRIER_AND_ISP'
+            | 'TARGETING_TYPE_OPERATING_SYSTEM'
+            | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+            | 'TARGETING_TYPE_KEYWORD'
+            | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+            | 'TARGETING_TYPE_VIEWABILITY'
+            | 'TARGETING_TYPE_CATEGORY'
+            | 'TARGETING_TYPE_INVENTORY_SOURCE'
+            | 'TARGETING_TYPE_LANGUAGE'
+            | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+            | 'TARGETING_TYPE_GEO_REGION'
+            | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+            | 'TARGETING_TYPE_EXCHANGE'
+            | 'TARGETING_TYPE_SUB_EXCHANGE'
+            | 'TARGETING_TYPE_POI'
+            | 'TARGETING_TYPE_BUSINESS_CHAIN'
+            | 'TARGETING_TYPE_CONTENT_DURATION'
+            | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+            | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+            | 'TARGETING_TYPE_OMID'
+            | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+            | 'TARGETING_TYPE_CONTENT_GENRE'
+            | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+            | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+            | 'TARGETING_TYPE_SESSION_POSITION'
+            | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
           /** Upload protocol for media (e.g. "raw", "multipart"). */
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -10708,11 +14050,11 @@ declare namespace gapi.client {
       /** Deletes an assigned targeting option from a partner. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The ID of the assigned targeting option to delete. */
         assignedTargetingOptionId: string;
         /** JSONP */
@@ -10730,7 +14072,57 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Required. Identifies the type of this assigned targeting option. Supported targeting types: * `TARGETING_TYPE_CHANNEL` */
-        targetingType: string;
+        targetingType:
+          | 'TARGETING_TYPE_UNSPECIFIED'
+          | 'TARGETING_TYPE_CHANNEL'
+          | 'TARGETING_TYPE_APP_CATEGORY'
+          | 'TARGETING_TYPE_APP'
+          | 'TARGETING_TYPE_URL'
+          | 'TARGETING_TYPE_DAY_AND_TIME'
+          | 'TARGETING_TYPE_AGE_RANGE'
+          | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+          | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+          | 'TARGETING_TYPE_GENDER'
+          | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+          | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+          | 'TARGETING_TYPE_PARENTAL_STATUS'
+          | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+          | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+          | 'TARGETING_TYPE_DEVICE_TYPE'
+          | 'TARGETING_TYPE_AUDIENCE_GROUP'
+          | 'TARGETING_TYPE_BROWSER'
+          | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+          | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+          | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+          | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+          | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+          | 'TARGETING_TYPE_ENVIRONMENT'
+          | 'TARGETING_TYPE_CARRIER_AND_ISP'
+          | 'TARGETING_TYPE_OPERATING_SYSTEM'
+          | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+          | 'TARGETING_TYPE_KEYWORD'
+          | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+          | 'TARGETING_TYPE_VIEWABILITY'
+          | 'TARGETING_TYPE_CATEGORY'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE'
+          | 'TARGETING_TYPE_LANGUAGE'
+          | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+          | 'TARGETING_TYPE_GEO_REGION'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+          | 'TARGETING_TYPE_EXCHANGE'
+          | 'TARGETING_TYPE_SUB_EXCHANGE'
+          | 'TARGETING_TYPE_POI'
+          | 'TARGETING_TYPE_BUSINESS_CHAIN'
+          | 'TARGETING_TYPE_CONTENT_DURATION'
+          | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+          | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+          | 'TARGETING_TYPE_OMID'
+          | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+          | 'TARGETING_TYPE_CONTENT_GENRE'
+          | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+          | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+          | 'TARGETING_TYPE_SESSION_POSITION'
+          | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -10739,11 +14131,11 @@ declare namespace gapi.client {
       /** Gets a single targeting option assigned to a partner. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. An identifier unique to the targeting type in this partner that identifies the assigned targeting option being requested. */
         assignedTargetingOptionId: string;
         /** JSONP */
@@ -10761,7 +14153,57 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Required. Identifies the type of this assigned targeting option. Supported targeting types: * `TARGETING_TYPE_CHANNEL` */
-        targetingType: string;
+        targetingType:
+          | 'TARGETING_TYPE_UNSPECIFIED'
+          | 'TARGETING_TYPE_CHANNEL'
+          | 'TARGETING_TYPE_APP_CATEGORY'
+          | 'TARGETING_TYPE_APP'
+          | 'TARGETING_TYPE_URL'
+          | 'TARGETING_TYPE_DAY_AND_TIME'
+          | 'TARGETING_TYPE_AGE_RANGE'
+          | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+          | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+          | 'TARGETING_TYPE_GENDER'
+          | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+          | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+          | 'TARGETING_TYPE_PARENTAL_STATUS'
+          | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+          | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+          | 'TARGETING_TYPE_DEVICE_TYPE'
+          | 'TARGETING_TYPE_AUDIENCE_GROUP'
+          | 'TARGETING_TYPE_BROWSER'
+          | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+          | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+          | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+          | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+          | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+          | 'TARGETING_TYPE_ENVIRONMENT'
+          | 'TARGETING_TYPE_CARRIER_AND_ISP'
+          | 'TARGETING_TYPE_OPERATING_SYSTEM'
+          | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+          | 'TARGETING_TYPE_KEYWORD'
+          | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+          | 'TARGETING_TYPE_VIEWABILITY'
+          | 'TARGETING_TYPE_CATEGORY'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE'
+          | 'TARGETING_TYPE_LANGUAGE'
+          | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+          | 'TARGETING_TYPE_GEO_REGION'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+          | 'TARGETING_TYPE_EXCHANGE'
+          | 'TARGETING_TYPE_SUB_EXCHANGE'
+          | 'TARGETING_TYPE_POI'
+          | 'TARGETING_TYPE_BUSINESS_CHAIN'
+          | 'TARGETING_TYPE_CONTENT_DURATION'
+          | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+          | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+          | 'TARGETING_TYPE_OMID'
+          | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+          | 'TARGETING_TYPE_CONTENT_GENRE'
+          | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+          | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+          | 'TARGETING_TYPE_SESSION_POSITION'
+          | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -10770,11 +14212,11 @@ declare namespace gapi.client {
       /** Lists the targeting options assigned to a partner. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10798,7 +14240,57 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Required. Identifies the type of assigned targeting options to list. Supported targeting types: * `TARGETING_TYPE_CHANNEL` */
-        targetingType: string;
+        targetingType:
+          | 'TARGETING_TYPE_UNSPECIFIED'
+          | 'TARGETING_TYPE_CHANNEL'
+          | 'TARGETING_TYPE_APP_CATEGORY'
+          | 'TARGETING_TYPE_APP'
+          | 'TARGETING_TYPE_URL'
+          | 'TARGETING_TYPE_DAY_AND_TIME'
+          | 'TARGETING_TYPE_AGE_RANGE'
+          | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+          | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+          | 'TARGETING_TYPE_GENDER'
+          | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+          | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+          | 'TARGETING_TYPE_PARENTAL_STATUS'
+          | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+          | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+          | 'TARGETING_TYPE_DEVICE_TYPE'
+          | 'TARGETING_TYPE_AUDIENCE_GROUP'
+          | 'TARGETING_TYPE_BROWSER'
+          | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+          | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+          | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+          | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+          | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+          | 'TARGETING_TYPE_ENVIRONMENT'
+          | 'TARGETING_TYPE_CARRIER_AND_ISP'
+          | 'TARGETING_TYPE_OPERATING_SYSTEM'
+          | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+          | 'TARGETING_TYPE_KEYWORD'
+          | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+          | 'TARGETING_TYPE_VIEWABILITY'
+          | 'TARGETING_TYPE_CATEGORY'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE'
+          | 'TARGETING_TYPE_LANGUAGE'
+          | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+          | 'TARGETING_TYPE_GEO_REGION'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+          | 'TARGETING_TYPE_EXCHANGE'
+          | 'TARGETING_TYPE_SUB_EXCHANGE'
+          | 'TARGETING_TYPE_POI'
+          | 'TARGETING_TYPE_BUSINESS_CHAIN'
+          | 'TARGETING_TYPE_CONTENT_DURATION'
+          | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+          | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+          | 'TARGETING_TYPE_OMID'
+          | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+          | 'TARGETING_TYPE_CONTENT_GENRE'
+          | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+          | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+          | 'TARGETING_TYPE_SESSION_POSITION'
+          | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -10812,11 +14304,11 @@ declare namespace gapi.client {
       /** Edits targeting options under a single partner. The operation will delete the assigned targeting options provided in BulkEditPartnerAssignedTargetingOptionsRequest.deleteRequests and then create the assigned targeting options provided in BulkEditPartnerAssignedTargetingOptionsRequest.createRequests . */
       editAssignedTargetingOptions(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10841,11 +14333,11 @@ declare namespace gapi.client {
       editAssignedTargetingOptions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10870,11 +14362,11 @@ declare namespace gapi.client {
       /** Gets a partner. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10897,11 +14389,11 @@ declare namespace gapi.client {
       /** Lists partners that are accessible to the current user. The order is defined by the order_by parameter. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10934,11 +14426,11 @@ declare namespace gapi.client {
       /** Gets the latest state of an asynchronous SDF download task operation. Clients should poll this method at intervals of 30 seconds. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10963,11 +14455,11 @@ declare namespace gapi.client {
       /** Creates an SDF Download Task. Returns an Operation. An SDF Download Task is a long-running, asynchronous operation. The metadata type of this operation is SdfDownloadTaskMetadata. If the request is successful, the response type of the operation is SdfDownloadTask. The response will not include the download files, which must be retrieved with media.download. The state of operation can be retrieved with `sdfdownloadtasks.operations.get`. Any errors can be found in the error.message. Note that error.details is expected to be empty. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10990,11 +14482,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11020,11 +14512,11 @@ declare namespace gapi.client {
       /** Gets the latest state of an asynchronous SDF download task operation. Clients should poll this method at intervals of 30 seconds. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11052,13 +14544,13 @@ declare namespace gapi.client {
       /** Gets a single targeting option. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The Advertiser this request is being made in the context of. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11074,7 +14566,57 @@ declare namespace gapi.client {
         /** Required. The ID of the of targeting option to retrieve. */
         targetingOptionId: string;
         /** Required. The type of targeting option to retrieve. Accepted values are: * `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_USER_REWARDED_CONTENT` * `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` * `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` * `TARGETING_TYPE_DEVICE_TYPE` * `TARGETING_TYPE_BROWSER` * `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_CARRIER_AND_ISP` * `TARGETING_TYPE_OPERATING_SYSTEM` * `TARGETING_TYPE_DEVICE_MAKE_MODEL` * `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_VIEWABILITY` * `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` * `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_GEO_REGION` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_EXCHANGE` * `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION` * `TARGETING_TYPE_OMID` */
-        targetingType: string;
+        targetingType:
+          | 'TARGETING_TYPE_UNSPECIFIED'
+          | 'TARGETING_TYPE_CHANNEL'
+          | 'TARGETING_TYPE_APP_CATEGORY'
+          | 'TARGETING_TYPE_APP'
+          | 'TARGETING_TYPE_URL'
+          | 'TARGETING_TYPE_DAY_AND_TIME'
+          | 'TARGETING_TYPE_AGE_RANGE'
+          | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+          | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+          | 'TARGETING_TYPE_GENDER'
+          | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+          | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+          | 'TARGETING_TYPE_PARENTAL_STATUS'
+          | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+          | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+          | 'TARGETING_TYPE_DEVICE_TYPE'
+          | 'TARGETING_TYPE_AUDIENCE_GROUP'
+          | 'TARGETING_TYPE_BROWSER'
+          | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+          | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+          | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+          | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+          | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+          | 'TARGETING_TYPE_ENVIRONMENT'
+          | 'TARGETING_TYPE_CARRIER_AND_ISP'
+          | 'TARGETING_TYPE_OPERATING_SYSTEM'
+          | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+          | 'TARGETING_TYPE_KEYWORD'
+          | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+          | 'TARGETING_TYPE_VIEWABILITY'
+          | 'TARGETING_TYPE_CATEGORY'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE'
+          | 'TARGETING_TYPE_LANGUAGE'
+          | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+          | 'TARGETING_TYPE_GEO_REGION'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+          | 'TARGETING_TYPE_EXCHANGE'
+          | 'TARGETING_TYPE_SUB_EXCHANGE'
+          | 'TARGETING_TYPE_POI'
+          | 'TARGETING_TYPE_BUSINESS_CHAIN'
+          | 'TARGETING_TYPE_CONTENT_DURATION'
+          | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+          | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+          | 'TARGETING_TYPE_OMID'
+          | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+          | 'TARGETING_TYPE_CONTENT_GENRE'
+          | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+          | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+          | 'TARGETING_TYPE_SESSION_POSITION'
+          | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -11083,13 +14625,13 @@ declare namespace gapi.client {
       /** Lists targeting options of a given type. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The Advertiser this request is being made in the context of. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11111,7 +14653,57 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Required. The type of targeting option to be listed. Accepted values are: * `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_USER_REWARDED_CONTENT` * `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` * `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` * `TARGETING_TYPE_DEVICE_TYPE` * `TARGETING_TYPE_BROWSER` * `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_CARRIER_AND_ISP` * `TARGETING_TYPE_OPERATING_SYSTEM` * `TARGETING_TYPE_DEVICE_MAKE_MODEL` * `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_VIEWABILITY` * `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` * `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_GEO_REGION` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_EXCHANGE` * `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION` * `TARGETING_TYPE_OMID` */
-        targetingType: string;
+        targetingType:
+          | 'TARGETING_TYPE_UNSPECIFIED'
+          | 'TARGETING_TYPE_CHANNEL'
+          | 'TARGETING_TYPE_APP_CATEGORY'
+          | 'TARGETING_TYPE_APP'
+          | 'TARGETING_TYPE_URL'
+          | 'TARGETING_TYPE_DAY_AND_TIME'
+          | 'TARGETING_TYPE_AGE_RANGE'
+          | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+          | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+          | 'TARGETING_TYPE_GENDER'
+          | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+          | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+          | 'TARGETING_TYPE_PARENTAL_STATUS'
+          | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+          | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+          | 'TARGETING_TYPE_DEVICE_TYPE'
+          | 'TARGETING_TYPE_AUDIENCE_GROUP'
+          | 'TARGETING_TYPE_BROWSER'
+          | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+          | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+          | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+          | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+          | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+          | 'TARGETING_TYPE_ENVIRONMENT'
+          | 'TARGETING_TYPE_CARRIER_AND_ISP'
+          | 'TARGETING_TYPE_OPERATING_SYSTEM'
+          | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+          | 'TARGETING_TYPE_KEYWORD'
+          | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+          | 'TARGETING_TYPE_VIEWABILITY'
+          | 'TARGETING_TYPE_CATEGORY'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE'
+          | 'TARGETING_TYPE_LANGUAGE'
+          | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+          | 'TARGETING_TYPE_GEO_REGION'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+          | 'TARGETING_TYPE_EXCHANGE'
+          | 'TARGETING_TYPE_SUB_EXCHANGE'
+          | 'TARGETING_TYPE_POI'
+          | 'TARGETING_TYPE_BUSINESS_CHAIN'
+          | 'TARGETING_TYPE_CONTENT_DURATION'
+          | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+          | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+          | 'TARGETING_TYPE_OMID'
+          | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+          | 'TARGETING_TYPE_CONTENT_GENRE'
+          | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+          | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+          | 'TARGETING_TYPE_SESSION_POSITION'
+          | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -11120,11 +14712,11 @@ declare namespace gapi.client {
       /** Searches for targeting options of a given type based on the given search terms. */
       search(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11138,7 +14730,57 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Required. The type of targeting options to retrieve. Accepted values are: * `TARGETING_TYPE_GEO_REGION` * `TARGETING_TYPE_POI` * `TARGETING_TYPE_BUSINESS_CHAIN` */
-        targetingType: string;
+        targetingType:
+          | 'TARGETING_TYPE_UNSPECIFIED'
+          | 'TARGETING_TYPE_CHANNEL'
+          | 'TARGETING_TYPE_APP_CATEGORY'
+          | 'TARGETING_TYPE_APP'
+          | 'TARGETING_TYPE_URL'
+          | 'TARGETING_TYPE_DAY_AND_TIME'
+          | 'TARGETING_TYPE_AGE_RANGE'
+          | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+          | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+          | 'TARGETING_TYPE_GENDER'
+          | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+          | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+          | 'TARGETING_TYPE_PARENTAL_STATUS'
+          | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+          | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+          | 'TARGETING_TYPE_DEVICE_TYPE'
+          | 'TARGETING_TYPE_AUDIENCE_GROUP'
+          | 'TARGETING_TYPE_BROWSER'
+          | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+          | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+          | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+          | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+          | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+          | 'TARGETING_TYPE_ENVIRONMENT'
+          | 'TARGETING_TYPE_CARRIER_AND_ISP'
+          | 'TARGETING_TYPE_OPERATING_SYSTEM'
+          | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+          | 'TARGETING_TYPE_KEYWORD'
+          | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+          | 'TARGETING_TYPE_VIEWABILITY'
+          | 'TARGETING_TYPE_CATEGORY'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE'
+          | 'TARGETING_TYPE_LANGUAGE'
+          | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+          | 'TARGETING_TYPE_GEO_REGION'
+          | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+          | 'TARGETING_TYPE_EXCHANGE'
+          | 'TARGETING_TYPE_SUB_EXCHANGE'
+          | 'TARGETING_TYPE_POI'
+          | 'TARGETING_TYPE_BUSINESS_CHAIN'
+          | 'TARGETING_TYPE_CONTENT_DURATION'
+          | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+          | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+          | 'TARGETING_TYPE_OMID'
+          | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+          | 'TARGETING_TYPE_CONTENT_GENRE'
+          | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+          | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+          | 'TARGETING_TYPE_SESSION_POSITION'
+          | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -11149,11 +14791,11 @@ declare namespace gapi.client {
       search(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11167,7 +14809,57 @@ declare namespace gapi.client {
           /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
           quotaUser?: string;
           /** Required. The type of targeting options to retrieve. Accepted values are: * `TARGETING_TYPE_GEO_REGION` * `TARGETING_TYPE_POI` * `TARGETING_TYPE_BUSINESS_CHAIN` */
-          targetingType: string;
+          targetingType:
+            | 'TARGETING_TYPE_UNSPECIFIED'
+            | 'TARGETING_TYPE_CHANNEL'
+            | 'TARGETING_TYPE_APP_CATEGORY'
+            | 'TARGETING_TYPE_APP'
+            | 'TARGETING_TYPE_URL'
+            | 'TARGETING_TYPE_DAY_AND_TIME'
+            | 'TARGETING_TYPE_AGE_RANGE'
+            | 'TARGETING_TYPE_REGIONAL_LOCATION_LIST'
+            | 'TARGETING_TYPE_PROXIMITY_LOCATION_LIST'
+            | 'TARGETING_TYPE_GENDER'
+            | 'TARGETING_TYPE_VIDEO_PLAYER_SIZE'
+            | 'TARGETING_TYPE_USER_REWARDED_CONTENT'
+            | 'TARGETING_TYPE_PARENTAL_STATUS'
+            | 'TARGETING_TYPE_CONTENT_INSTREAM_POSITION'
+            | 'TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION'
+            | 'TARGETING_TYPE_DEVICE_TYPE'
+            | 'TARGETING_TYPE_AUDIENCE_GROUP'
+            | 'TARGETING_TYPE_BROWSER'
+            | 'TARGETING_TYPE_HOUSEHOLD_INCOME'
+            | 'TARGETING_TYPE_ON_SCREEN_POSITION'
+            | 'TARGETING_TYPE_THIRD_PARTY_VERIFIER'
+            | 'TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION'
+            | 'TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION'
+            | 'TARGETING_TYPE_ENVIRONMENT'
+            | 'TARGETING_TYPE_CARRIER_AND_ISP'
+            | 'TARGETING_TYPE_OPERATING_SYSTEM'
+            | 'TARGETING_TYPE_DEVICE_MAKE_MODEL'
+            | 'TARGETING_TYPE_KEYWORD'
+            | 'TARGETING_TYPE_NEGATIVE_KEYWORD_LIST'
+            | 'TARGETING_TYPE_VIEWABILITY'
+            | 'TARGETING_TYPE_CATEGORY'
+            | 'TARGETING_TYPE_INVENTORY_SOURCE'
+            | 'TARGETING_TYPE_LANGUAGE'
+            | 'TARGETING_TYPE_AUTHORIZED_SELLER_STATUS'
+            | 'TARGETING_TYPE_GEO_REGION'
+            | 'TARGETING_TYPE_INVENTORY_SOURCE_GROUP'
+            | 'TARGETING_TYPE_EXCHANGE'
+            | 'TARGETING_TYPE_SUB_EXCHANGE'
+            | 'TARGETING_TYPE_POI'
+            | 'TARGETING_TYPE_BUSINESS_CHAIN'
+            | 'TARGETING_TYPE_CONTENT_DURATION'
+            | 'TARGETING_TYPE_CONTENT_STREAM_TYPE'
+            | 'TARGETING_TYPE_NATIVE_CONTENT_POSITION'
+            | 'TARGETING_TYPE_OMID'
+            | 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'
+            | 'TARGETING_TYPE_CONTENT_GENRE'
+            | 'TARGETING_TYPE_YOUTUBE_VIDEO'
+            | 'TARGETING_TYPE_YOUTUBE_CHANNEL'
+            | 'TARGETING_TYPE_SESSION_POSITION'
+            | 'TARGETING_TYPE_CONTENT_THEME_EXCLUSION';
           /** Upload protocol for media (e.g. "raw", "multipart"). */
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -11183,11 +14875,11 @@ declare namespace gapi.client {
       /** Bulk edits user roles for a user. The operation will delete the assigned user roles provided in BulkEditAssignedUserRolesRequest.deletedAssignedUserRoles and then assign the user roles provided in BulkEditAssignedUserRolesRequest.createdAssignedUserRoles. This method has unique authentication requirements. Read the prerequisites in our [Managing Users guide](/display-video/api/guides/users/overview#prerequisites) before using this method. The "Try this method" feature does not work for this method. */
       bulkEditAssignedUserRoles(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11212,11 +14904,11 @@ declare namespace gapi.client {
       bulkEditAssignedUserRoles(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11241,11 +14933,11 @@ declare namespace gapi.client {
       /** Creates a new user. Returns the newly created user if successful. This method has unique authentication requirements. Read the prerequisites in our [Managing Users guide](/display-video/api/guides/users/overview#prerequisites) before using this method. The "Try this method" feature does not work for this method. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11268,11 +14960,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11295,11 +14987,11 @@ declare namespace gapi.client {
       /** Deletes a user. This method has unique authentication requirements. Read the prerequisites in our [Managing Users guide](/display-video/api/guides/users/overview#prerequisites) before using this method. The "Try this method" feature does not work for this method. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11322,11 +15014,11 @@ declare namespace gapi.client {
       /** Gets a user. This method has unique authentication requirements. Read the prerequisites in our [Managing Users guide](/display-video/api/guides/users/overview#prerequisites) before using this method. The "Try this method" feature does not work for this method. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11349,11 +15041,11 @@ declare namespace gapi.client {
       /** Lists users that are accessible to the current user. If two users have user roles on the same partner or advertiser, they can access each other. This method has unique authentication requirements. Read the prerequisites in our [Managing Users guide](/display-video/api/guides/users/overview#prerequisites) before using this method. The "Try this method" feature does not work for this method. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11382,11 +15074,11 @@ declare namespace gapi.client {
       /** Updates an existing user. Returns the updated user if successful. This method has unique authentication requirements. Read the prerequisites in our [Managing Users guide](/display-video/api/guides/users/overview#prerequisites) before using this method. The "Try this method" feature does not work for this method. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11413,11 +15105,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

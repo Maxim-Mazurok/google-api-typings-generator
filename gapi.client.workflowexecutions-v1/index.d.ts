@@ -57,7 +57,11 @@ declare namespace gapi.client {
       /** Input parameters of the execution represented as a JSON string. The size limit is 32KB. *Note*: If you are using the REST API directly to run your workflow, you must escape any JSON string value of `argument`. Example: `'{"argument":"{\"firstName\":\"FIRST\",\"lastName\":\"LAST\"}"}'` */
       argument?: string;
       /** The call logging level associated to this execution. */
-      callLogLevel?: string;
+      callLogLevel?:
+        | 'CALL_LOG_LEVEL_UNSPECIFIED'
+        | 'LOG_ALL_CALLS'
+        | 'LOG_ERRORS_ONLY'
+        | 'LOG_NONE';
       /** Output only. Marks the creation of the execution. */
       createTime?: string;
       /** Optional. If set to true, the execution will not be backlogged when the concurrency quota is exhausted. The backlog execution starts when the concurrency quota becomes available. */
@@ -69,7 +73,10 @@ declare namespace gapi.client {
       /** Output only. The error which caused the execution to finish prematurely. The value is only present if the execution's state is `FAILED` or `CANCELLED`. */
       error?: Error;
       /** Optional. Describes the execution history level to apply to this execution. If not specified, the execution history level is determined by its workflow's execution history level. If the levels are different, the executionHistoryLevel overrides the workflow's execution history level for this execution. */
-      executionHistoryLevel?: string;
+      executionHistoryLevel?:
+        | 'EXECUTION_HISTORY_LEVEL_UNSPECIFIED'
+        | 'EXECUTION_HISTORY_BASIC'
+        | 'EXECUTION_HISTORY_DETAILED';
       /** Labels associated with this execution. Labels can contain at most 64 entries. Keys and values can be no longer than 63 characters and can only contain lowercase letters, numeric characters, underscores, and dashes. Label keys must start with a letter. International characters are allowed. By default, labels are inherited from the workflow but are overridden by any labels associated with the execution. */
       labels?: {[P in string]: string};
       /** Output only. The resource name of the execution. Format: projects/{project}/locations/{location}/workflows/{workflow}/executions/{execution} */
@@ -79,7 +86,14 @@ declare namespace gapi.client {
       /** Output only. Marks the beginning of execution. Note that this will be the same as `createTime` for executions that start immediately. */
       startTime?: string;
       /** Output only. Current state of the execution. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'CANCELLED'
+        | 'UNAVAILABLE'
+        | 'QUEUED';
       /** Output only. Error regarding the state of the Execution resource. For example, this field will have error details if the execution data is unavailable due to revoked KMS key permissions. */
       stateError?: StateError;
       /** Output only. Status tracks the current steps and progress data of this execution. */
@@ -157,7 +171,7 @@ declare namespace gapi.client {
       /** Provides specifics about the error. */
       details?: string;
       /** The type of this state error. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'KMS_ERROR';
     }
     interface Status {
       /** A list of currently executing or last executed step names for the workflow execution currently running. If the workflow has succeeded or failed, this is the last attempted or executed step. Presently, if the current step is inside a subworkflow, the list only includes that step. In the future, the list will contain items for each step in the call stack, starting with the outermost step in the `main` subworkflow, and ending with the most deeply nested step. */
@@ -183,13 +197,38 @@ declare namespace gapi.client {
       /** Output only. The name of the routine this step entry belongs to. A routine name is the subworkflow name defined in the YAML source code. The top level routine name is `main`. */
       routine?: string;
       /** Output only. The state of the step entry. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'STATE_IN_PROGRESS'
+        | 'STATE_SUCCEEDED'
+        | 'STATE_FAILED'
+        | 'STATE_CANCELLED';
       /** Output only. The name of the step this step entry belongs to. */
       step?: string;
       /** Output only. The StepEntryMetadata associated with this step. */
       stepEntryMetadata?: StepEntryMetadata;
       /** Output only. The type of the step this step entry belongs to. */
-      stepType?: string;
+      stepType?:
+        | 'STEP_TYPE_UNSPECIFIED'
+        | 'STEP_ASSIGN'
+        | 'STEP_STD_LIB_CALL'
+        | 'STEP_CONNECTOR_CALL'
+        | 'STEP_SUBWORKFLOW_CALL'
+        | 'STEP_CALL'
+        | 'STEP_SWITCH'
+        | 'STEP_CONDITION'
+        | 'STEP_FOR'
+        | 'STEP_FOR_ITERATION'
+        | 'STEP_PARALLEL_FOR'
+        | 'STEP_PARALLEL_BRANCH'
+        | 'STEP_PARALLEL_BRANCH_ENTRY'
+        | 'STEP_TRY_RETRY_EXCEPT'
+        | 'STEP_TRY'
+        | 'STEP_RETRY'
+        | 'STEP_EXCEPT'
+        | 'STEP_RETURN'
+        | 'STEP_RAISE'
+        | 'STEP_GOTO';
       /** Output only. The most recently updated time of the step entry. */
       updateTime?: string;
       /** Output only. The VariableData associated with this step. */
@@ -201,7 +240,13 @@ declare namespace gapi.client {
       /** Progress number represents the current state of the current progress. eg: A step entry represents the 4th iteration in a progress of PROGRESS_TYPE_FOR. Note: This field is only populated when an iteration exists and the starting value is 1. */
       progressNumber?: string;
       /** Progress type of this step entry. */
-      progressType?: string;
+      progressType?:
+        | 'PROGRESS_TYPE_UNSPECIFIED'
+        | 'PROGRESS_TYPE_FOR'
+        | 'PROGRESS_TYPE_SWITCH'
+        | 'PROGRESS_TYPE_RETRY'
+        | 'PROGRESS_TYPE_PARALLEL_FOR'
+        | 'PROGRESS_TYPE_PARALLEL_BRANCH';
       /** Child thread id that this step entry belongs to. */
       threadId?: string;
     }
@@ -223,11 +268,11 @@ declare namespace gapi.client {
       /** Returns a list of active callbacks that belong to the execution with the given name. The returned callbacks are ordered by callback ID. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -256,11 +301,11 @@ declare namespace gapi.client {
       /** Gets a step entry. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -280,16 +325,19 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Deprecated field. */
-        view?: string;
+        view?:
+          | 'EXECUTION_ENTRY_VIEW_UNSPECIFIED'
+          | 'EXECUTION_ENTRY_VIEW_BASIC'
+          | 'EXECUTION_ENTRY_VIEW_DETAILED';
       }): Request<StepEntry>;
       /** Lists step entries for the corresponding workflow execution. Returned entries are ordered by their create_time. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -319,18 +367,21 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Deprecated field. */
-        view?: string;
+        view?:
+          | 'EXECUTION_ENTRY_VIEW_UNSPECIFIED'
+          | 'EXECUTION_ENTRY_VIEW_BASIC'
+          | 'EXECUTION_ENTRY_VIEW_DETAILED';
       }): Request<ListStepEntriesResponse>;
     }
     interface ExecutionsResource {
       /** Cancels an execution of the given name. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -355,11 +406,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -384,11 +435,11 @@ declare namespace gapi.client {
       /** Creates a new execution using the latest revision of the given workflow. For more information, see Execute a workflow. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -413,11 +464,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -442,11 +493,11 @@ declare namespace gapi.client {
       /** Deletes all step entries for an execution. */
       deleteExecutionHistory(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -471,11 +522,11 @@ declare namespace gapi.client {
       deleteExecutionHistory(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -500,11 +551,11 @@ declare namespace gapi.client {
       /** Returns all metadata stored about an execution, excluding most data that is already accessible using other API methods. */
       exportData(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -527,11 +578,11 @@ declare namespace gapi.client {
       /** Returns an execution of the given name. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -551,16 +602,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Optional. A view defining which fields should be filled in the returned execution. The API will default to the FULL view. */
-        view?: string;
+        view?: 'EXECUTION_VIEW_UNSPECIFIED' | 'BASIC' | 'FULL';
       }): Request<Execution>;
       /** Returns a list of executions which belong to the workflow with the given name. The method returns executions of all workflow revisions. Returned executions are ordered by their start time (newest first). */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -588,7 +639,7 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Optional. A view defining which fields should be filled in the returned executions. The API will default to the BASIC view. */
-        view?: string;
+        view?: 'EXECUTION_VIEW_UNSPECIFIED' | 'BASIC' | 'FULL';
       }): Request<ListExecutionsResponse>;
       callbacks: CallbacksResource;
       stepEntries: StepEntriesResource;
@@ -597,11 +648,11 @@ declare namespace gapi.client {
       /** Triggers a new execution using the latest revision of the given workflow by a Pub/Sub push notification. */
       triggerPubsubExecution(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -626,11 +677,11 @@ declare namespace gapi.client {
       triggerPubsubExecution(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

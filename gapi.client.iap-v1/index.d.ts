@@ -40,7 +40,9 @@ declare namespace gapi.client {
       /** Optional. GCIP claims and endpoint configurations for 3p identity providers. */
       gcipSettings?: GcipSettings;
       /** Optional. Identity sources that IAP can use to authenticate the end user. Only one identity source can be configured. */
-      identitySources?: string[];
+      identitySources?:
+        | 'IDENTITY_SOURCE_UNSPECIFIED'
+        | 'WORKFORCE_IDENTITY_FEDERATION'[];
       /** Optional. Settings to configure IAP's OAuth behavior. */
       oauthSettings?: OAuthSettings;
       /** Optional. Settings to allow google-internal teams to use IAP for apps hosted in a tenant project. */
@@ -72,7 +74,11 @@ declare namespace gapi.client {
       /** Optional. Raw string CEL expression. Must return a list of attributes. A maximum of 45 attributes can be selected. Expressions can select different attribute types from `attributes`: `attributes.saml_attributes`, `attributes.iap_attributes`. The following functions are supported: - filter `.filter(, )`: Returns a subset of `` where `` is true for every item. - in ` in `: Returns true if `` contains ``. - selectByName `.selectByName()`: Returns the attribute in `` with the given `` name, otherwise returns empty. - emitAs `.emitAs()`: Sets the `` name field to the given `` for propagation in selected output credentials. - strict `.strict()`: Ignores the `x-goog-iap-attr-` prefix for the provided `` when propagating with the `HEADER` output credential, such as request headers. - append `.append()` OR `.append()`: Appends the provided `` or `` to the end of ``. Example expression: `attributes.saml_attributes.filter(x, x.name in ['test']).append(attributes.iap_attributes.selectByName('exact').emitAs('custom').strict())` */
       expression?: string;
       /** Optional. Which output credentials attributes selected by the CEL expression should be propagated in. All attributes will be fully duplicated in each selected output credential. */
-      outputCredentials?: string[];
+      outputCredentials?:
+        | 'OUTPUT_CREDENTIALS_UNSPECIFIED'
+        | 'HEADER'
+        | 'JWT'
+        | 'RCTOKEN'[];
     }
     interface Binding {
       /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
@@ -212,9 +218,14 @@ declare namespace gapi.client {
       /** Optional. Reauth session lifetime, how long before a user has to reauthenticate again. */
       maxAge?: string;
       /** Optional. Reauth method requested. */
-      method?: string;
+      method?:
+        | 'METHOD_UNSPECIFIED'
+        | 'LOGIN'
+        | 'PASSWORD'
+        | 'SECURE_KEY'
+        | 'ENROLLED_SECOND_FACTORS';
       /** Optional. How IAP determines the effective policy in cases of hierarchical policies. Policies are merged from higher in the hierarchy to lower in the hierarchy. */
-      policyType?: string;
+      policyType?: 'POLICY_TYPE_UNSPECIFIED' | 'MINIMUM' | 'DEFAULT';
     }
     interface ResetIdentityAwareProxyClientSecretRequest {}
     interface Resource {
@@ -278,11 +289,11 @@ declare namespace gapi.client {
       /** Creates an Identity Aware Proxy (IAP) OAuth client. The client is owned by IAP. Requires that the brand for the project exists and that it is set for internal-only use. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -307,11 +318,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -336,11 +347,11 @@ declare namespace gapi.client {
       /** Deletes an Identity Aware Proxy (IAP) OAuth client. Useful for removing obsolete clients, managing the number of clients in a given project, and cleaning up after tests. Requires that the client is owned by IAP. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -363,11 +374,11 @@ declare namespace gapi.client {
       /** Retrieves an Identity Aware Proxy (IAP) OAuth client. Requires that the client is owned by IAP. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -390,11 +401,11 @@ declare namespace gapi.client {
       /** Lists the existing clients for the brand. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -421,11 +432,11 @@ declare namespace gapi.client {
       /** Resets an Identity Aware Proxy (IAP) OAuth client secret. Useful if the secret was compromised. Requires that the client is owned by IAP. */
       resetSecret(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -450,11 +461,11 @@ declare namespace gapi.client {
       resetSecret(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -481,11 +492,11 @@ declare namespace gapi.client {
       /** Constructs a new OAuth brand for the project if one does not exist. The created brand is "internal only", meaning that OAuth clients created under it only accept requests from users who belong to the same Google Workspace organization as the project. The brand is created in an un-reviewed status. NOTE: The "internal only" status can be manually changed in the Google Cloud Console. Requires that a brand does not already exist for the project, and that the specified support email is owned by the caller. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -510,11 +521,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -539,11 +550,11 @@ declare namespace gapi.client {
       /** Retrieves the OAuth brand of the project. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -566,11 +577,11 @@ declare namespace gapi.client {
       /** Lists the existing brands for the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -596,11 +607,11 @@ declare namespace gapi.client {
       /** Creates a new TunnelDestGroup. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -627,11 +638,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -658,11 +669,11 @@ declare namespace gapi.client {
       /** Deletes a TunnelDestGroup. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -685,11 +696,11 @@ declare namespace gapi.client {
       /** Retrieves an existing TunnelDestGroup. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -712,11 +723,11 @@ declare namespace gapi.client {
       /** Lists the existing TunnelDestGroups. To group across all locations, use a `-` as the location ID. For example: `/v1/projects/123/iap_tunnel/locations/-/destGroups` */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -743,11 +754,11 @@ declare namespace gapi.client {
       /** Updates a TunnelDestGroup. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -774,11 +785,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -818,11 +829,11 @@ declare namespace gapi.client {
       getIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -847,11 +858,11 @@ declare namespace gapi.client {
       /** Gets the IAP settings on a particular IAP protected resource. */
       getIapSettings(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -875,11 +886,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -905,11 +916,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -934,11 +945,11 @@ declare namespace gapi.client {
       /** Updates the IAP settings on a particular IAP protected resource. It replaces all fields unless the `update_mask` is set. */
       updateIapSettings(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -965,11 +976,11 @@ declare namespace gapi.client {
       updateIapSettings(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -996,11 +1007,11 @@ declare namespace gapi.client {
       /** Validates that a given CEL expression conforms to IAP restrictions. */
       validateAttributeExpression(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. User input string expression. Should be of the form `attributes.saml_attributes.filter(attribute, attribute.name in ['{attribute_name}', '{attribute_name}'])` */

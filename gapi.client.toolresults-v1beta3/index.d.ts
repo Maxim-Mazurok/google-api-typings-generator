@@ -92,9 +92,33 @@ declare namespace gapi.client {
     interface AssetIssue {}
     interface AvailableDeepLinks {}
     interface BasicPerfSampleSeries {
-      perfMetricType?: string;
-      perfUnit?: string;
-      sampleSeriesLabel?: string;
+      perfMetricType?:
+        | 'perfMetricTypeUnspecified'
+        | 'memory'
+        | 'cpu'
+        | 'network'
+        | 'graphics';
+      perfUnit?:
+        | 'perfUnitUnspecified'
+        | 'kibibyte'
+        | 'percent'
+        | 'bytesPerSecond'
+        | 'framesPerSecond'
+        | 'byte';
+      sampleSeriesLabel?:
+        | 'sampleSeriesTypeUnspecified'
+        | 'memoryRssPrivate'
+        | 'memoryRssShared'
+        | 'memoryRssTotal'
+        | 'memoryTotal'
+        | 'cpuUser'
+        | 'cpuKernel'
+        | 'cpuTotal'
+        | 'ntBytesTransferred'
+        | 'ntBytesReceived'
+        | 'networkSent'
+        | 'networkReceived'
+        | 'graphicsFrameRate';
     }
     interface BatchCreatePerfSamplesRequest {
       /** The set of PerfSamples to create should not include existing timestamps */
@@ -181,7 +205,7 @@ declare namespace gapi.client {
       /** Lightweight information about execution request. - In response: present if set by create - In create: optional - In update: optional */
       specification?: Specification;
       /** The initial state is IN_PROGRESS. The only legal state transitions is from IN_PROGRESS to COMPLETE. A PRECONDITION_FAILED will be returned if an invalid transition is requested. The state can only be set to COMPLETE once. A FAILED_PRECONDITION will be returned if the state is set to COMPLETE multiple times. If the state is set to COMPLETE, all the in-progress steps within the execution will be set as COMPLETE. If the outcome of the step is not set, the outcome will be set to INCONCLUSIVE. - In response always set - In create/update request: optional */
-      state?: string;
+      state?: 'unknownState' | 'pending' | 'inProgress' | 'complete';
       /** TestExecution Matrix ID that the TestExecutionService uses. - In response: present if set by create - In create: optional - In update: never set */
       testExecutionMatrixId?: string;
     }
@@ -250,7 +274,7 @@ declare namespace gapi.client {
       /** A name to uniquely identify a history within a project. Maximum of 200 characters. - In response always set - In create request: always set */
       name?: string;
       /** The platform of the test history. - In response: always set. Returns the platform of the last execution if unknown. */
-      testPlatform?: string;
+      testPlatform?: 'unknownPlatform' | 'android' | 'ios';
     }
     interface Image {
       /** An error explaining why the thumbnail could not be rendered. */
@@ -279,7 +303,13 @@ declare namespace gapi.client {
     interface IndividualOutcome {
       /** Unique int given to each step. Ranges from 0(inclusive) to total number of steps(exclusive). The primary step is 0. */
       multistepNumber?: number;
-      outcomeSummary?: string;
+      outcomeSummary?:
+        | 'unset'
+        | 'success'
+        | 'failure'
+        | 'inconclusive'
+        | 'skipped'
+        | 'flaky';
       /** How long it took for this step to run. */
       runDuration?: Duration;
       stepId?: string;
@@ -389,7 +419,7 @@ declare namespace gapi.client {
       /** Outcome of the resource */
       outcome?: Outcome;
       /** State of the resource */
-      state?: string;
+      state?: 'unknownState' | 'pending' | 'inProgress' | 'complete';
       /** The combined and rolled-up result of each test suite that was run as part of this environment. Combining: When the test cases from a suite are run in different steps (sharding), the results are added back together in one overview. (e.g., if shard1 has 2 failures and shard2 has 1 failure than the overview failure_count = 3). Rollup: When test cases from the same suite are run multiple times (flaky), the results are combined (e.g., if testcase1.run1 fails, testcase1.run2 passes, and both testcase2.run1 and testcase2.run2 fail then the overview flaky_count = 1 and failure_count = 1). */
       testSuiteOverviews?: TestSuiteOverview[];
     }
@@ -415,7 +445,16 @@ declare namespace gapi.client {
       /** The total number of times this API was observed to have been called. */
       invocationCount?: number;
       /** Which list this API appears on */
-      list?: string;
+      list?:
+        | 'NONE'
+        | 'WHITE'
+        | 'BLACK'
+        | 'GREY'
+        | 'GREY_MAX_O'
+        | 'GREY_MAX_P'
+        | 'GREY_MAX_Q'
+        | 'GREY_MAX_R'
+        | 'GREY_MAX_S';
     }
     interface NonSdkApiInsight {
       /** Optional sample stack traces, for which this insight applies (there should be at least one). */
@@ -453,7 +492,13 @@ declare namespace gapi.client {
       /** More information about a SUCCESS outcome. Returns INVALID_ARGUMENT if this field is set but the summary is not SUCCESS. Optional */
       successDetail?: SuccessDetail;
       /** The simplest way to interpret a result. Required */
-      summary?: string;
+      summary?:
+        | 'unset'
+        | 'success'
+        | 'failure'
+        | 'inconclusive'
+        | 'skipped'
+        | 'flaky';
     }
     interface OverlappingUIElements {
       /** Resource names of the overlapping screen elements */
@@ -482,7 +527,12 @@ declare namespace gapi.client {
       /** Describes the environment in which the performance metrics were collected */
       perfEnvironment?: PerfEnvironment;
       /** Set of resource collected */
-      perfMetrics?: string[];
+      perfMetrics?:
+        | 'perfMetricTypeUnspecified'
+        | 'memory'
+        | 'cpu'
+        | 'network'
+        | 'graphics'[];
       /** The cloud project @OutputOnly */
       projectId?: string;
       /** A tool results step ID. @OutputOnly */
@@ -517,7 +567,13 @@ declare namespace gapi.client {
       /** Step Id and outcome of each individual step. */
       individualOutcome?: IndividualOutcome[];
       /** Rollup test status of multiple steps that were run with the same configuration as a group. */
-      rollUp?: string;
+      rollUp?:
+        | 'unset'
+        | 'success'
+        | 'failure'
+        | 'inconclusive'
+        | 'skipped'
+        | 'flaky';
     }
     interface ProjectSettings {
       /** The name of the Google Cloud Storage bucket to which results are written. By default, this is unset. In update request: optional In response: optional */
@@ -635,7 +691,7 @@ declare namespace gapi.client {
       /** How long it took for this step to run. If unset, this is set to the difference between creation_time and completion_time when the step is set to the COMPLETE state. In some cases, it is appropriate to set this value separately: For instance, if a step is created, but the operation it represents is queued for a few minutes before it executes, it would be appropriate not to include the time spent queued in its run_duration. PRECONDITION_FAILED will be returned if one attempts to set a run_duration on a step which already has this field set. - In response: present if previously set; always present on COMPLETE step - In create request: optional - In update request: optional */
       runDuration?: Duration;
       /** The initial state is IN_PROGRESS. The only legal state transitions are * IN_PROGRESS -> COMPLETE A PRECONDITION_FAILED will be returned if an invalid transition is requested. It is valid to create Step with a state set to COMPLETE. The state can only be set to COMPLETE once. A PRECONDITION_FAILED will be returned if the state is set to COMPLETE multiple times. - In response: always set - In create/update request: optional */
-      state?: string;
+      state?: 'unknownState' | 'pending' | 'inProgress' | 'complete';
       /** A unique identifier within a Execution for this Step. Returns INVALID_ARGUMENT if this field is set or overwritten by the caller. - In response: always set - In create/update request: never set */
       stepId?: string;
       /** An execution of a test runner. */
@@ -658,7 +714,12 @@ declare namespace gapi.client {
     }
     interface SuggestionClusterProto {
       /** Category in which these types of suggestions should appear. Always set. */
-      category?: string;
+      category?:
+        | 'unknownCategory'
+        | 'contentLabeling'
+        | 'touchTargetSize'
+        | 'lowContrast'
+        | 'implementation';
       /** A sequence of suggestions. All of the suggestions within a cluster must have the same SuggestionPriority and belong to the same SuggestionCategory. Suggestions with the same screenshot URL should be adjacent. */
       suggestions?: SuggestionProto[];
     }
@@ -668,7 +729,7 @@ declare namespace gapi.client {
       /** Message, in the user's language, explaining the suggestion, which may contain markup. Always set. */
       longMessage?: SafeHtmlProto;
       /** Relative importance of a suggestion. Always set. */
-      priority?: string;
+      priority?: 'unknownPriority' | 'error' | 'warning' | 'info';
       /** A somewhat human readable identifier of the source view, if it does not have a resource_name. This is a path within the accessibility hierarchy, an element with resource name; similar to an XPath. */
       pseudoResourceId?: string;
       /** Region within the screenshot that is relevant to this suggestion. Optional. */
@@ -696,7 +757,7 @@ declare namespace gapi.client {
       /** The start time of the test case. */
       startTime?: Timestamp;
       /** The status of the test case. Required. */
-      status?: string;
+      status?: 'passed' | 'failed' | 'error' | 'skipped' | 'flaky';
       /** A unique identifier within a Step for this Test Case. */
       testCaseId?: string;
       /** Test case reference, e.g. name, class name and test suite name. Required. */
@@ -724,15 +785,53 @@ declare namespace gapi.client {
     }
     interface TestIssue {
       /** Category of issue. Required. */
-      category?: string;
+      category?: 'unspecifiedCategory' | 'common' | 'robo';
       /** A brief human-readable message describing the issue. Required. */
       errorMessage?: string;
       /** Severity of issue. Required. */
-      severity?: string;
+      severity?:
+        | 'unspecifiedSeverity'
+        | 'info'
+        | 'suggestion'
+        | 'warning'
+        | 'severe';
       /** Deprecated in favor of stack trace fields inside specific warnings. */
       stackTrace?: StackTrace;
       /** Type of issue. Required. */
-      type?: string;
+      type?:
+        | 'unspecifiedType'
+        | 'fatalException'
+        | 'nativeCrash'
+        | 'anr'
+        | 'unusedRoboDirective'
+        | 'compatibleWithOrchestrator'
+        | 'launcherActivityNotFound'
+        | 'startActivityNotFound'
+        | 'incompleteRoboScriptExecution'
+        | 'completeRoboScriptExecution'
+        | 'failedToInstall'
+        | 'availableDeepLinks'
+        | 'nonSdkApiUsageViolation'
+        | 'nonSdkApiUsageReport'
+        | 'encounteredNonAndroidUiWidgetScreen'
+        | 'encounteredLoginScreen'
+        | 'performedGoogleLogin'
+        | 'iosException'
+        | 'iosCrash'
+        | 'performedMonkeyActions'
+        | 'usedRoboDirective'
+        | 'usedRoboIgnoreDirective'
+        | 'insufficientCoverage'
+        | 'inAppPurchases'
+        | 'crashDialogError'
+        | 'uiElementsTooDeep'
+        | 'blankScreen'
+        | 'overlappingUiElements'
+        | 'unityException'
+        | 'deviceOutOfMemory'
+        | 'logcatCollectionError'
+        | 'detectedAppSplashScreen'
+        | 'assetIssue';
       /** Warning message with additional details of the issue. Should always be a message from com.google.devtools.toolresults.v1.warnings */
       warning_migration?: Any;
     }
@@ -831,11 +930,11 @@ declare namespace gapi.client {
       /** Retrieves a single screenshot cluster by its ID */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** A Cluster id Required. */
@@ -864,11 +963,11 @@ declare namespace gapi.client {
       /** Lists Screenshot Clusters Returns the list of screenshot clusters corresponding to an execution. Screenshot clusters are created after the execution is finished. Clusters are created from a set of screenshots. Between any two screenshots, a matching score is calculated based off their metadata that determines how similar they are. Screenshots are placed in the cluster that has screens which have the highest matching scores. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** An Execution id. Required. */
@@ -897,11 +996,11 @@ declare namespace gapi.client {
       /** Gets an Environment. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the Environment does not exist */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. An Environment id. */
@@ -930,11 +1029,11 @@ declare namespace gapi.client {
       /** Lists Environments for a given Execution. The Environments are sorted by display name. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the containing Execution does not exist */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. An Execution id. */
@@ -967,11 +1066,11 @@ declare namespace gapi.client {
       /** Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created. May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** A tool results execution ID. */
@@ -1002,11 +1101,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** A tool results execution ID. */
@@ -1039,11 +1138,11 @@ declare namespace gapi.client {
       /** Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements successfully inserted is returned in the response (omits items which already existed in the database). May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist */
       batchCreate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** A tool results execution ID. */
@@ -1076,11 +1175,11 @@ declare namespace gapi.client {
       batchCreate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** A tool results execution ID. */
@@ -1113,11 +1212,11 @@ declare namespace gapi.client {
       /** Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples; and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size, submit a subsequent request including the page token to return the rest of the samples up to the page limit May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The containing PerfSampleSeries does not exist */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** A tool results execution ID. */
@@ -1154,11 +1253,11 @@ declare namespace gapi.client {
       /** Creates a PerfSampleSeries. May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step does not exist */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** A tool results execution ID. */
@@ -1189,11 +1288,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** A tool results execution ID. */
@@ -1224,11 +1323,11 @@ declare namespace gapi.client {
       /** Gets a PerfSampleSeries. May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** A tool results execution ID. */
@@ -1259,11 +1358,11 @@ declare namespace gapi.client {
       /** Lists PerfSampleSeries for a given Step. The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The resulting PerfSampleSeries are sorted by ids. May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** A tool results execution ID. */
@@ -1271,7 +1370,19 @@ declare namespace gapi.client {
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** Specify one or more PerfMetricType values such as CPU to filter the result */
-        filter?: string | string[];
+        filter?:
+          | 'perfMetricTypeUnspecified'
+          | 'memory'
+          | 'cpu'
+          | 'network'
+          | 'graphics'
+          | (
+              | 'perfMetricTypeUnspecified'
+              | 'memory'
+              | 'cpu'
+              | 'network'
+              | 'graphics'
+            )[];
         /** A tool results history ID. */
         historyId: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1297,11 +1408,11 @@ declare namespace gapi.client {
       /** Gets details of a Test Case for a Step. Experimental test cases API. Still in active development. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the containing Test Case does not exist */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** A Execution id Required. */
@@ -1332,11 +1443,11 @@ declare namespace gapi.client {
       /** Lists Test Cases attached to a Step. Experimental test cases API. Still in active development. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the containing Step does not exist */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** A Execution id Required. */
@@ -1371,11 +1482,11 @@ declare namespace gapi.client {
       /** Lists thumbnails of images attached to a step. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** An Execution id. Required. */
@@ -1410,11 +1521,11 @@ declare namespace gapi.client {
       /** Lists accessibility clusters for a given Step May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist */
       accessibilityClusters(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1439,11 +1550,11 @@ declare namespace gapi.client {
       /** Creates a Step. The returned Step will have the id set. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if the step is too large (more than 10Mib) - NOT_FOUND - if the containing Execution does not exist */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. An Execution id. */
@@ -1474,11 +1585,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. An Execution id. */
@@ -1509,11 +1620,11 @@ declare namespace gapi.client {
       /** Gets a Step. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the Step does not exist */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** A Execution id. Required. */
@@ -1542,11 +1653,11 @@ declare namespace gapi.client {
       /** Retrieves a PerfMetricsSummary. May return any of the following error code(s): - NOT_FOUND - The specified PerfMetricsSummary does not exist */
       getPerfMetricsSummary(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** A tool results execution ID. */
@@ -1575,11 +1686,11 @@ declare namespace gapi.client {
       /** Lists Steps for a given Execution. The steps are sorted by creation_time in descending order. The step_id key will be used to order the steps with the same creation_time. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an argument in the request happens to be invalid; e.g. if an attempt is made to list the children of a nonexistent Step - NOT_FOUND - if the containing Execution does not exist */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** A Execution id. Required. */
@@ -1610,11 +1721,11 @@ declare namespace gapi.client {
       /** Updates an existing Step with the supplied partial entity. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to write project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if the requested state transition is illegal (e.g try to upload a duplicate xml file), if the updated step is too large (more than 10Mib) - NOT_FOUND - if the containing Execution does not exist */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** A Execution id. Required. */
@@ -1647,11 +1758,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** A Execution id. Required. */
@@ -1684,11 +1795,11 @@ declare namespace gapi.client {
       /** Publish xml files to an existing Step. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to write project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if the requested state transition is illegal, e.g. try to upload a duplicate xml file or a file too large. - NOT_FOUND - if the containing Execution does not exist */
       publishXunitXmlFiles(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** A Execution id. Required. */
@@ -1719,11 +1830,11 @@ declare namespace gapi.client {
       publishXunitXmlFiles(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** A Execution id. Required. */
@@ -1760,11 +1871,11 @@ declare namespace gapi.client {
       /** Creates an Execution. The returned Execution will have the id set. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the containing History does not exist */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1793,11 +1904,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1826,11 +1937,11 @@ declare namespace gapi.client {
       /** Gets an Execution. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the Execution does not exist */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** An Execution id. Required. */
@@ -1857,11 +1968,11 @@ declare namespace gapi.client {
       /** Lists Executions for a given History. The executions are sorted by creation_time in descending order. The execution_id key will be used to order the executions with the same creation_time. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the containing History does not exist */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1890,11 +2001,11 @@ declare namespace gapi.client {
       /** Updates an existing Execution with the supplied partial entity. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if the requested state transition is illegal - NOT_FOUND - if the containing History does not exist */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. */
@@ -1925,11 +2036,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. */
@@ -1965,11 +2076,11 @@ declare namespace gapi.client {
       /** Creates a History. The returned History will have the id set. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the containing project does not exist */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1996,11 +2107,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2027,11 +2138,11 @@ declare namespace gapi.client {
       /** Gets a History. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the History does not exist */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2056,11 +2167,11 @@ declare namespace gapi.client {
       /** Lists Histories for a given Project. The histories are sorted by modification time in descending order. The history_id key will be used to order the history with the same modification time. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the History does not exist */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2092,11 +2203,11 @@ declare namespace gapi.client {
       /** Gets the Tool Results settings for a project. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from project */
       getSettings(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2119,11 +2230,11 @@ declare namespace gapi.client {
       /** Creates resources for settings which have not yet been set. Currently, this creates a single resource: a Google Cloud Storage bucket, to be used as the default bucket for this project. The bucket is created in an FTL-own storage project. Except for in rare cases, calling this method in parallel from multiple clients will only create a single bucket. In order to avoid unnecessary storage charges, the bucket is configured to automatically delete objects older than 60 days. The bucket is created with the following permissions: - Owner access for owners of central storage project (FTL-owned) - Writer access for owners/editors of customer project - Reader access for viewers of customer project The default ACL on objects created in the bucket is: - Owner access for owners of central storage project - Reader access for owners/editors/viewers of customer project See Google Cloud Storage documentation for more details. If there is already a default bucket set and the project can access the bucket, this call does nothing. However, if the project doesn't have the permission to access the bucket or the bucket is deleted, a new bucket will be created. May return any canonical error codes, including the following: - PERMISSION_DENIED - if the user is not authorized to write to project - Any error code raised by Google Cloud Storage */
       initializeSettings(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

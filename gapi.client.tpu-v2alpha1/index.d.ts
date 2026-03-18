@@ -28,7 +28,14 @@ declare namespace gapi.client {
       /** Required. Topology of TPU in chips. */
       topology?: string;
       /** Required. Type of TPU. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'V2'
+        | 'V3'
+        | 'V4'
+        | 'V5LITE_POD'
+        | 'V5P'
+        | 'V6E';
     }
     interface AcceleratorType {
       /** The accelerator config. */
@@ -46,7 +53,7 @@ declare namespace gapi.client {
     interface ActiveData {}
     interface AttachedDisk {
       /** The mode in which to attach this disk. If not specified, the default is READ_WRITE mode. Only applicable to data_disks. */
-      mode?: string;
+      mode?: 'DISK_MODE_UNSPECIFIED' | 'READ_WRITE' | 'READ_ONLY';
       /** Specifies the full path to an existing disk. For example: "projects/my-project/zones/us-central1-c/disks/my-disk". */
       sourceDisk?: string;
       /** Optional. The list of worker IDs this disk is attached to. */
@@ -199,7 +206,10 @@ declare namespace gapi.client {
       /** Prefix of node_ids in case of multi-node request Should follow the `^[A-Za-z0-9_.~+%-]+$` regex format. If node_count = 3 and node_id_prefix = "np", node ids of nodes created will be "np-0", "np-1", "np-2". If this field is not provided we use queued_resource_id as the node_id_prefix. */
       nodeIdPrefix?: string;
       /** Optional. The workload type for the multi-node request. */
-      workloadType?: string;
+      workloadType?:
+        | 'WORKLOAD_TYPE_UNSPECIFIED'
+        | 'THROUGHPUT_OPTIMIZED'
+        | 'AVAILABILITY_OPTIMIZED';
     }
     interface NetworkConfig {
       /** Allows the TPU node to send and receive packets with non-matching destination or source IPs. This is required if you plan to use the TPU workers to forward routes. */
@@ -227,7 +237,7 @@ declare namespace gapi.client {
       /** The type of hardware accelerators associated with this node. */
       acceleratorType?: string;
       /** Output only. The API version that created this Node. */
-      apiVersion?: string;
+      apiVersion?: 'API_VERSION_UNSPECIFIED' | 'V1_ALPHA1' | 'V1' | 'V2_ALPHA1';
       /** Optional. Whether Autocheckpoint is enabled. */
       autocheckpointEnabled?: boolean;
       /** Optional. Boot disk configuration. */
@@ -241,7 +251,12 @@ declare namespace gapi.client {
       /** The user-supplied description of the TPU. Maximum of 512 characters. */
       description?: string;
       /** The health status of the TPU node. */
-      health?: string;
+      health?:
+        | 'HEALTH_UNSPECIFIED'
+        | 'HEALTHY'
+        | 'TIMEOUT'
+        | 'UNHEALTHY_TENSORFLOW'
+        | 'UNHEALTHY_MAINTENANCE';
       /** Output only. If this field is populated, it contains a description of why the TPU Node is unhealthy. */
       healthDescription?: string;
       /** Output only. The unique identifier for the TPU Node. */
@@ -271,7 +286,23 @@ declare namespace gapi.client {
       /** Shielded Instance options. */
       shieldedInstanceConfig?: ShieldedInstanceConfig;
       /** Output only. The current state for the TPU Node. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'READY'
+        | 'RESTARTING'
+        | 'REIMAGING'
+        | 'DELETING'
+        | 'REPAIRING'
+        | 'STOPPED'
+        | 'STOPPING'
+        | 'STARTING'
+        | 'PREEMPTED'
+        | 'TERMINATED'
+        | 'HIDING'
+        | 'HIDDEN'
+        | 'UNHIDING'
+        | 'UNKNOWN';
       /** Output only. The Symptoms that have occurred to the TPU Node. */
       symptoms?: Symptom[];
       /** Tags to apply to the TPU Node. Tags are used to identify valid sources or targets for network firewalls. */
@@ -341,7 +372,12 @@ declare namespace gapi.client {
       /** Output only. Immutable. The name of the QueuedResource. */
       name?: string;
       /** Optional. The provisioning model for the resource. */
-      provisioningModel?: string;
+      provisioningModel?:
+        | 'PROVISIONING_MODEL_UNSPECIFIED'
+        | 'STANDARD'
+        | 'SPOT'
+        | 'RESERVATION_BOUND'
+        | 'FLEX_START';
       /** The queueing policy of the QueuedRequest. */
       queueingPolicy?: QueueingPolicy;
       /** Name of the reservation in which the resource should be provisioned. Format: projects/{project}/locations/{zone}/reservations/{reservation} */
@@ -369,9 +405,19 @@ declare namespace gapi.client {
       /** Further data for the provisioning state. */
       provisioningData?: any;
       /** State of the QueuedResource request. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'ACCEPTED'
+        | 'PROVISIONING'
+        | 'FAILED'
+        | 'DELETING'
+        | 'ACTIVE'
+        | 'SUSPENDING'
+        | 'SUSPENDED'
+        | 'WAITING_FOR_RESOURCES';
       /** Output only. The initiator of the QueuedResources's current state. Used to indicate whether the SUSPENDING/SUSPENDED state was initiated by the user or the service. */
-      stateInitiator?: string;
+      stateInitiator?: 'STATE_INITIATOR_UNSPECIFIED' | 'USER' | 'SERVICE';
       /** Further data for the suspended state. */
       suspendedData?: any;
       /** Further data for the suspending state. */
@@ -395,7 +441,14 @@ declare namespace gapi.client {
       /** A standard reservation. */
       standard?: Standard;
       /** Output only. The state of the Reservation. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'APPROVED'
+        | 'PROVISIONING'
+        | 'ACTIVE'
+        | 'DEPROVISIONING'
+        | 'EXPIRED'
+        | 'FAILED';
     }
     interface ResetQueuedResourceRequest {}
     interface RunDuration {
@@ -414,7 +467,11 @@ declare namespace gapi.client {
       /** Defines whether the node is preemptible. */
       preemptible?: boolean;
       /** Optional. Defines the provisioning model for the node. */
-      provisioningModel?: string;
+      provisioningModel?:
+        | 'PROVISIONING_MODEL_UNSPECIFIED'
+        | 'STANDARD'
+        | 'SPOT'
+        | 'RESERVATION_BOUND';
       /** Optional. Name of the reservation in which the node should be provisioned. */
       reservationName?: string;
       /** Whether the node is created under a reservation. */
@@ -445,7 +502,7 @@ declare namespace gapi.client {
     interface Spot {}
     interface Standard {
       /** Capacity units this reservation is measured in. */
-      capacityUnits?: string;
+      capacityUnits?: 'CAPACITY_UNITS_UNSPECIFIED' | 'CORES' | 'CHIPS';
       /** The start and end time of the reservation. */
       interval?: Interval;
       /** The resource type of the reservation. */
@@ -473,7 +530,14 @@ declare namespace gapi.client {
       /** Detailed information of the current Symptom. */
       details?: string;
       /** Type of the Symptom. */
-      symptomType?: string;
+      symptomType?:
+        | 'SYMPTOM_TYPE_UNSPECIFIED'
+        | 'LOW_MEMORY'
+        | 'OUT_OF_MEMORY'
+        | 'EXECUTE_TIMED_OUT'
+        | 'MESH_BUILD_FAIL'
+        | 'HBM_OUT_OF_MEMORY'
+        | 'PROJECT_ABUSE';
       /** A string used to uniquely distinguish a worker within a TPU node. */
       workerId?: string;
     }
@@ -487,9 +551,9 @@ declare namespace gapi.client {
       /** The latest time for the planned maintenance window to start. This timestamp value is in RFC3339 text format. */
       latestWindowStartTime?: string;
       /** The status of the maintenance. */
-      maintenanceStatus?: string;
+      maintenanceStatus?: 'UNKNOWN' | 'PENDING' | 'ONGOING';
       /** Defines the type of maintenance. */
-      type?: string;
+      type?: 'UNKNOWN_TYPE' | 'SCHEDULED' | 'UNSCHEDULED';
       /** The time by which the maintenance disruption will be completed. This timestamp value is in RFC3339 text format. */
       windowEndTime?: string;
       /** The current start time of the maintenance window. This timestamp value is in RFC3339 text format. */
@@ -503,11 +567,11 @@ declare namespace gapi.client {
       /** Gets AcceleratorType. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -530,11 +594,11 @@ declare namespace gapi.client {
       /** Lists accelerator types supported by this API. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -567,11 +631,11 @@ declare namespace gapi.client {
       /** Creates a node. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -600,11 +664,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -633,11 +697,11 @@ declare namespace gapi.client {
       /** Deletes a node. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -662,11 +726,11 @@ declare namespace gapi.client {
       /** Gets the details of a node. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -689,11 +753,11 @@ declare namespace gapi.client {
       /** Retrieves the guest attributes for the node. */
       getGuestAttributes(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -718,11 +782,11 @@ declare namespace gapi.client {
       getGuestAttributes(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -747,11 +811,11 @@ declare namespace gapi.client {
       /** Lists nodes. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -778,11 +842,11 @@ declare namespace gapi.client {
       /** Updates the configurations of a node. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -809,11 +873,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -840,11 +904,11 @@ declare namespace gapi.client {
       /** Perform manual maintenance on a node. */
       performMaintenance(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -869,11 +933,11 @@ declare namespace gapi.client {
       performMaintenance(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -898,11 +962,11 @@ declare namespace gapi.client {
       /** Simulates a maintenance event. */
       simulateMaintenanceEvent(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -927,11 +991,11 @@ declare namespace gapi.client {
       simulateMaintenanceEvent(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -956,11 +1020,11 @@ declare namespace gapi.client {
       /** Starts a node. */
       start(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -985,11 +1049,11 @@ declare namespace gapi.client {
       start(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1014,11 +1078,11 @@ declare namespace gapi.client {
       /** Stops a node. This operation is only available with single TPU nodes. */
       stop(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1043,11 +1107,11 @@ declare namespace gapi.client {
       stop(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1074,11 +1138,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1101,11 +1165,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1128,11 +1192,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1155,11 +1219,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1192,11 +1256,11 @@ declare namespace gapi.client {
       /** Creates a QueuedResource TPU instance. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1225,11 +1289,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1258,11 +1322,11 @@ declare namespace gapi.client {
       /** Deletes a QueuedResource TPU instance. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1289,11 +1353,11 @@ declare namespace gapi.client {
       /** Gets details of a queued resource. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1316,11 +1380,11 @@ declare namespace gapi.client {
       /** Gets the maintenance info for a queued resource. */
       getMaintenanceInfo(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1343,11 +1407,11 @@ declare namespace gapi.client {
       /** Lists queued resources. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1374,11 +1438,11 @@ declare namespace gapi.client {
       /** Perform manual maintenance on specific nodes of a QueuedResource. */
       performMaintenanceQueuedResource(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1403,11 +1467,11 @@ declare namespace gapi.client {
       performMaintenanceQueuedResource(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1432,11 +1496,11 @@ declare namespace gapi.client {
       /** Resets a QueuedResource TPU instance */
       reset(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1461,11 +1525,11 @@ declare namespace gapi.client {
       reset(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1492,11 +1556,11 @@ declare namespace gapi.client {
       /** Retrieves the reservations for the given project in the given location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1525,11 +1589,11 @@ declare namespace gapi.client {
       /** Gets a runtime version. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1552,11 +1616,11 @@ declare namespace gapi.client {
       /** Lists runtime versions supported by this API. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1589,11 +1653,11 @@ declare namespace gapi.client {
       /** Generates the Cloud TPU service identity for the project. */
       generateServiceIdentity(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1618,11 +1682,11 @@ declare namespace gapi.client {
       generateServiceIdentity(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1647,11 +1711,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1674,11 +1738,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */

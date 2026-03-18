@@ -56,7 +56,12 @@ declare namespace gapi.client {
       /** A message describing why the system decided to adjust the current number of workers, why it failed, or why the system decided to not make any changes to the number of workers. */
       description?: StructuredMessage;
       /** The type of autoscaling event to report. */
-      eventType?: string;
+      eventType?:
+        | 'TYPE_UNKNOWN'
+        | 'TARGET_NUM_WORKERS_CHANGED'
+        | 'CURRENT_NUM_WORKERS_CHANGED'
+        | 'ACTUATION_FAILURE'
+        | 'NO_CHANGE';
       /** The target number of workers the worker pool wants to resize to use. */
       targetNumWorkers?: string;
       /** The time this event was emitted to indicate a new target or current num_workers value. */
@@ -66,7 +71,10 @@ declare namespace gapi.client {
     }
     interface AutoscalingSettings {
       /** The algorithm to use for autoscaling. */
-      algorithm?: string;
+      algorithm?:
+        | 'AUTOSCALING_ALGORITHM_UNKNOWN'
+        | 'AUTOSCALING_ALGORITHM_NONE'
+        | 'AUTOSCALING_ALGORITHM_BASIC';
       /** The maximum number of workers to cap scaling at. */
       maxNumWorkers?: number;
     }
@@ -170,11 +178,29 @@ declare namespace gapi.client {
       /** Human-readable description of the counter semantics. */
       description?: string;
       /** Counter aggregation kind. */
-      kind?: string;
+      kind?:
+        | 'INVALID'
+        | 'SUM'
+        | 'MAX'
+        | 'MIN'
+        | 'MEAN'
+        | 'OR'
+        | 'AND'
+        | 'SET'
+        | 'DISTRIBUTION'
+        | 'LATEST_VALUE';
       /** A string referring to the unit type. */
       otherUnits?: string;
       /** System defined Units, see above enum. */
-      standardUnits?: string;
+      standardUnits?:
+        | 'BYTES'
+        | 'BYTES_PER_SEC'
+        | 'MILLISECONDS'
+        | 'MICROSECONDS'
+        | 'NANOSECONDS'
+        | 'TIMESTAMP_MSEC'
+        | 'TIMESTAMP_USEC'
+        | 'TIMESTAMP_NSEC';
     }
     interface CounterStructuredName {
       /** Name of the optimized step being executed by the workers. */
@@ -186,7 +212,7 @@ declare namespace gapi.client {
       /** Counter name. Not necessarily globally-unique, but unique within the context of the other fields. Required. */
       name?: string;
       /** One of the standard Origins defined above. */
-      origin?: string;
+      origin?: 'SYSTEM' | 'USER';
       /** The step name requesting an operation, such as GBK. I.e. the ParDo causing a read/write from shuffle to occur, or a read from side inputs. */
       originalRequestingStepName?: string;
       /** System generated name of the original step in the user's graph, before optimization. */
@@ -194,7 +220,7 @@ declare namespace gapi.client {
       /** A string containing a more specific namespace of the counter's origin. */
       originNamespace?: string;
       /** Portion of this counter, either key or value. */
-      portion?: string;
+      portion?: 'ALL' | 'KEY' | 'VALUE';
       /** ID of a particular worker. */
       workerId?: string;
     }
@@ -286,7 +312,11 @@ declare namespace gapi.client {
     }
     interface DataSamplingConfig {
       /** List of given sampling behaviors to enable. For example, specifying behaviors = [ALWAYS_ON] samples in-flight elements but does not sample exceptions. Can be used to specify multiple behaviors like, behaviors = [ALWAYS_ON, EXCEPTIONS] for specifying periodic sampling and exception sampling. If DISABLED is in the list, then sampling will be disabled and ignore the other given behaviors. Ordering does not matter. */
-      behaviors?: string[];
+      behaviors?:
+        | 'DATA_SAMPLING_BEHAVIOR_UNSPECIFIED'
+        | 'DISABLED'
+        | 'ALWAYS_ON'
+        | 'EXCEPTIONS'[];
     }
     interface DataSamplingReport {
       /** Optional. Delta of bytes written to file from previous report. */
@@ -319,7 +349,11 @@ declare namespace gapi.client {
     interface DeleteSnapshotResponse {}
     interface DerivedSource {
       /** What source to base the produced source on (if any). */
-      derivationMode?: string;
+      derivationMode?:
+        | 'SOURCE_DERIVATION_MODE_UNKNOWN'
+        | 'SOURCE_DERIVATION_MODE_INDEPENDENT'
+        | 'SOURCE_DERIVATION_MODE_CHILD_OF_CURRENT'
+        | 'SOURCE_DERIVATION_MODE_SIBLING_OF_CURRENT';
       /** Specification of the source. */
       source?: Source;
     }
@@ -387,7 +421,10 @@ declare namespace gapi.client {
       /** The list of experiments to enable. This field should be used for SDK related experiments and not for service related experiments. The proper field for service related experiments is service_options. */
       experiments?: string[];
       /** Optional. Which Flexible Resource Scheduling mode to run in. */
-      flexResourceSchedulingGoal?: string;
+      flexResourceSchedulingGoal?:
+        | 'FLEXRS_UNSPECIFIED'
+        | 'FLEXRS_SPEED_OPTIMIZED'
+        | 'FLEXRS_COST_OPTIMIZED';
       /** Experimental settings. */
       internalExperiments?: {[P in string]: any};
       /** The Cloud Dataflow SDK pipeline options specified by the user. These options are passed through the service and are used to recreate the SDK pipeline options on the worker in a language agnostic and platform independent way. */
@@ -399,9 +436,12 @@ declare namespace gapi.client {
       /** Optional. The list of service options to enable. This field should be used for service related experiments only. These experiments, when graduating to GA, should be replaced by dedicated fields or become default (i.e. always on). */
       serviceOptions?: string[];
       /** Output only. The shuffle mode used for the job. */
-      shuffleMode?: string;
+      shuffleMode?: 'SHUFFLE_MODE_UNSPECIFIED' | 'VM_BASED' | 'SERVICE_BASED';
       /** Optional. Specifies the Streaming Engine message processing guarantees. Reduces cost and latency but might result in duplicate messages committed to storage. Designed to run simple mapping streaming ETL jobs at the lowest cost. For example, Change Data Capture (CDC) to BigQuery is a canonical use case. For more information, see [Set the pipeline streaming mode](https://cloud.google.com/dataflow/docs/guides/streaming-modes). */
-      streamingMode?: string;
+      streamingMode?:
+        | 'STREAMING_MODE_UNSPECIFIED'
+        | 'STREAMING_MODE_EXACTLY_ONCE'
+        | 'STREAMING_MODE_AT_LEAST_ONCE';
       /** The prefix of the resources the system should use for temporary storage. The system will append the suffix "/temp-{JOBNAME} to this resource prefix, where {JOBNAME} is the value of the job_name field. The resulting bucket and object prefix is used as the prefix of the resources used to store temporary data needed during the job execution. NOTE: This will override the value in taskrunner_settings. The supported resource type is: Google Cloud Storage: storage.googleapis.com/{bucket}/{object} bucket.storage.googleapis.com/{object} */
       tempStoragePrefix?: string;
       /** Optional. True when any worker pool that uses public IPs is present. */
@@ -425,7 +465,22 @@ declare namespace gapi.client {
       /** The name of the execution stage. */
       executionStageName?: string;
       /** Executions stage states allow the same set of values as JobState. */
-      executionStageState?: string;
+      executionStageState?:
+        | 'JOB_STATE_UNKNOWN'
+        | 'JOB_STATE_STOPPED'
+        | 'JOB_STATE_RUNNING'
+        | 'JOB_STATE_DONE'
+        | 'JOB_STATE_FAILED'
+        | 'JOB_STATE_CANCELLED'
+        | 'JOB_STATE_UPDATED'
+        | 'JOB_STATE_DRAINING'
+        | 'JOB_STATE_DRAINED'
+        | 'JOB_STATE_PENDING'
+        | 'JOB_STATE_CANCELLING'
+        | 'JOB_STATE_QUEUED'
+        | 'JOB_STATE_RESOURCE_CLEANING_UP'
+        | 'JOB_STATE_PAUSING'
+        | 'JOB_STATE_PAUSED';
     }
     interface ExecutionStageSummary {
       /** Collections produced and consumed by component transforms of this stage. */
@@ -437,7 +492,16 @@ declare namespace gapi.client {
       /** Input sources for this stage. */
       inputSource?: StageSource[];
       /** Type of transform this stage is executing. */
-      kind?: string;
+      kind?:
+        | 'UNKNOWN_KIND'
+        | 'PAR_DO_KIND'
+        | 'GROUP_BY_KEY_KIND'
+        | 'FLATTEN_KIND'
+        | 'READ_KIND'
+        | 'WRITE_KIND'
+        | 'CONSTANT_KIND'
+        | 'SINGLETON_KIND'
+        | 'SHUFFLE_KIND';
       /** Dataflow service generated name for this stage. */
       name?: string;
       /** Output sources for this stage. */
@@ -465,7 +529,10 @@ declare namespace gapi.client {
       /** Additional user labels to be specified for the job. Keys and values must follow the restrictions specified in the [labeling restrictions](https://cloud.google.com/compute/docs/labeling-resources#restrictions) page. An object containing a list of "key": value pairs. Example: { "name": "wrench", "mass": "1kg", "count": "3" }. */
       additionalUserLabels?: {[P in string]: string};
       /** The algorithm to use for autoscaling */
-      autoscalingAlgorithm?: string;
+      autoscalingAlgorithm?:
+        | 'AUTOSCALING_ALGORITHM_UNKNOWN'
+        | 'AUTOSCALING_ALGORITHM_NONE'
+        | 'AUTOSCALING_ALGORITHM_BASIC';
       /** Worker disk size, in gigabytes. */
       diskSizeGb?: number;
       /** If true, when processing time is spent almost entirely on garbage collection (GC), saves a heap dump before ending the thread or process. If false, ends the thread or process without saving a heap dump. Does not save a heap dump when the Java Virtual Machine (JVM) has an out of memory error during processing. The location of the heap file is either echoed back to the user, or the user is given the opportunity to download the heap file. */
@@ -475,9 +542,15 @@ declare namespace gapi.client {
       /** Whether to enable Streaming Engine for the job. */
       enableStreamingEngine?: boolean;
       /** Set FlexRS goal for the job. https://cloud.google.com/dataflow/docs/guides/flexrs */
-      flexrsGoal?: string;
+      flexrsGoal?:
+        | 'FLEXRS_UNSPECIFIED'
+        | 'FLEXRS_SPEED_OPTIMIZED'
+        | 'FLEXRS_COST_OPTIMIZED';
       /** Configuration for VM IPs. */
-      ipConfiguration?: string;
+      ipConfiguration?:
+        | 'WORKER_IP_UNSPECIFIED'
+        | 'WORKER_IP_PUBLIC'
+        | 'WORKER_IP_PRIVATE';
       /** Name for the Cloud KMS key for the job. Key format is: projects//locations//keyRings//cryptoKeys/ */
       kmsKeyName?: string;
       /** The machine type to use for launching the job. The default is n1-standard-1. */
@@ -499,7 +572,10 @@ declare namespace gapi.client {
       /** The Cloud Storage path for staging local files. Must be a valid Cloud Storage URL, beginning with `gs://`. */
       stagingLocation?: string;
       /** Optional. Specifies the Streaming Engine message processing guarantees. Reduces cost and latency but might result in duplicate messages committed to storage. Designed to run simple mapping streaming ETL jobs at the lowest cost. For example, Change Data Capture (CDC) to BigQuery is a canonical use case. For more information, see [Set the pipeline streaming mode](https://cloud.google.com/dataflow/docs/guides/streaming-modes). */
-      streamingMode?: string;
+      streamingMode?:
+        | 'STREAMING_MODE_UNSPECIFIED'
+        | 'STREAMING_MODE_EXACTLY_ONCE'
+        | 'STREAMING_MODE_AT_LEAST_ONCE';
       /** Subnetwork to which VMs will be assigned, if desired. You can specify a subnetwork using either a complete URL or an abbreviated path. Expected to be of the form "https://www.googleapis.com/compute/v1/projects/HOST_PROJECT_ID/regions/REGION/subnetworks/SUBNETWORK" or "regions/REGION/subnetworks/SUBNETWORK". If the subnetwork is located in a Shared VPC network, you must use the complete URL. */
       subnetwork?: string;
       /** The Cloud Storage path to use for temporary files. Must be a valid Cloud Storage URL, beginning with `gs://`. */
@@ -541,7 +617,7 @@ declare namespace gapi.client {
       /** The status of the get template request. Any problems with the request will be indicated in the error_details. */
       status?: Status;
       /** Template Type. */
-      templateType?: string;
+      templateType?: 'UNKNOWN' | 'LEGACY' | 'FLEX';
     }
     interface GetWorkerStacktracesRequest {
       /** The end time for the stacktrace query. The returned stacktraces will be a recent stack trace at or shortly before this time. */
@@ -633,7 +709,22 @@ declare namespace gapi.client {
       /** The timestamp when the job was initially created. Immutable and set by the Cloud Dataflow service. */
       createTime?: string;
       /** The current state of the job. Jobs are created in the `JOB_STATE_STOPPED` state unless otherwise specified. A job in the `JOB_STATE_RUNNING` state may asynchronously enter a terminal state. After a job has reached a terminal state, no further state updates may be made. This field might be mutated by the Dataflow service; callers cannot mutate it. */
-      currentState?: string;
+      currentState?:
+        | 'JOB_STATE_UNKNOWN'
+        | 'JOB_STATE_STOPPED'
+        | 'JOB_STATE_RUNNING'
+        | 'JOB_STATE_DONE'
+        | 'JOB_STATE_FAILED'
+        | 'JOB_STATE_CANCELLED'
+        | 'JOB_STATE_UPDATED'
+        | 'JOB_STATE_DRAINING'
+        | 'JOB_STATE_DRAINED'
+        | 'JOB_STATE_PENDING'
+        | 'JOB_STATE_CANCELLING'
+        | 'JOB_STATE_QUEUED'
+        | 'JOB_STATE_RESOURCE_CLEANING_UP'
+        | 'JOB_STATE_PAUSING'
+        | 'JOB_STATE_PAUSED';
       /** The timestamp associated with the current state. */
       currentStateTime?: string;
       /** Optional. The environment for the job. */
@@ -661,7 +752,22 @@ declare namespace gapi.client {
       /** If this job is an update of an existing job, this field is the job ID of the job it replaced. When sending a `CreateJobRequest`, you can update a job by specifying it here. The job named here is stopped, and its intermediate state is transferred to this job. */
       replaceJobId?: string;
       /** The job's requested state. Applies to `UpdateJob` requests. Set `requested_state` with `UpdateJob` requests to switch between the states `JOB_STATE_STOPPED` and `JOB_STATE_RUNNING`. You can also use `UpdateJob` requests to change a job's state from `JOB_STATE_RUNNING` to `JOB_STATE_CANCELLED`, `JOB_STATE_DONE`, or `JOB_STATE_DRAINED`. These states irrevocably terminate the job if it hasn't already reached a terminal state. This field has no effect on `CreateJob` requests. */
-      requestedState?: string;
+      requestedState?:
+        | 'JOB_STATE_UNKNOWN'
+        | 'JOB_STATE_STOPPED'
+        | 'JOB_STATE_RUNNING'
+        | 'JOB_STATE_DONE'
+        | 'JOB_STATE_FAILED'
+        | 'JOB_STATE_CANCELLED'
+        | 'JOB_STATE_UPDATED'
+        | 'JOB_STATE_DRAINING'
+        | 'JOB_STATE_DRAINED'
+        | 'JOB_STATE_PENDING'
+        | 'JOB_STATE_CANCELLING'
+        | 'JOB_STATE_QUEUED'
+        | 'JOB_STATE_RESOURCE_CLEANING_UP'
+        | 'JOB_STATE_PAUSING'
+        | 'JOB_STATE_PAUSED';
       /** This field may ONLY be modified at runtime using the projects.jobs.update method to adjust job behavior. This field has no effect when specified at job creation. */
       runtimeUpdatableParams?: RuntimeUpdatableParams;
       /** Output only. Reserved for future use. This field is set only in responses from the server; it is ignored if it is set in any requests. */
@@ -683,7 +789,7 @@ declare namespace gapi.client {
       /** Optional. The map of transform name prefixes of the job to be replaced to the corresponding name prefixes of the new job. */
       transformNameMapping?: {[P in string]: string};
       /** Optional. The type of Dataflow job. */
-      type?: string;
+      type?: 'JOB_TYPE_UNKNOWN' | 'JOB_TYPE_BATCH' | 'JOB_TYPE_STREAMING';
     }
     interface JobExecutionDetails {
       /** If present, this response does not contain all requested tasks. To obtain the next page of results, repeat the request with page_token set to this value. */
@@ -703,7 +809,13 @@ declare namespace gapi.client {
       /** Deprecated. */
       id?: string;
       /** Importance level of the message. */
-      messageImportance?: string;
+      messageImportance?:
+        | 'JOB_MESSAGE_IMPORTANCE_UNKNOWN'
+        | 'JOB_MESSAGE_DEBUG'
+        | 'JOB_MESSAGE_DETAILED'
+        | 'JOB_MESSAGE_BASIC'
+        | 'JOB_MESSAGE_WARNING'
+        | 'JOB_MESSAGE_ERROR';
       /** The text of the message. */
       messageText?: string;
       /** The timestamp of the message. */
@@ -935,7 +1047,17 @@ declare namespace gapi.client {
     }
     interface NameAndKind {
       /** Counter aggregation kind. */
-      kind?: string;
+      kind?:
+        | 'INVALID'
+        | 'SUM'
+        | 'MAX'
+        | 'MIN'
+        | 'MEAN'
+        | 'OR'
+        | 'AND'
+        | 'SET'
+        | 'DISTRIBUTION'
+        | 'LATEST_VALUE';
       /** Name of the counter. */
       name?: string;
     }
@@ -1001,7 +1123,30 @@ declare namespace gapi.client {
       /** Required. The name of the parameter. */
       name?: string;
       /** Optional. The type of the parameter. Used for selecting input picker. */
-      paramType?: string;
+      paramType?:
+        | 'DEFAULT'
+        | 'TEXT'
+        | 'GCS_READ_BUCKET'
+        | 'GCS_WRITE_BUCKET'
+        | 'GCS_READ_FILE'
+        | 'GCS_WRITE_FILE'
+        | 'GCS_READ_FOLDER'
+        | 'GCS_WRITE_FOLDER'
+        | 'PUBSUB_TOPIC'
+        | 'PUBSUB_SUBSCRIPTION'
+        | 'BIGQUERY_TABLE'
+        | 'JAVASCRIPT_UDF_FILE'
+        | 'SERVICE_ACCOUNT'
+        | 'MACHINE_TYPE'
+        | 'KMS_KEY_NAME'
+        | 'WORKER_REGION'
+        | 'WORKER_ZONE'
+        | 'BOOLEAN'
+        | 'ENUM'
+        | 'NUMBER'
+        | 'KAFKA_TOPIC'
+        | 'KAFKA_READ_TOPIC'
+        | 'KAFKA_WRITE_TOPIC';
       /** Optional. Specifies the name of the parent parameter. Used in conjunction with 'parent_trigger_values' to make this parameter conditional (will only be rendered conditionally). Should be mappable to a ParameterMetadata.name field. */
       parentName?: string;
       /** Optional. The value(s) of the 'parent_name' parameter which will trigger this parameter to be shown. If left empty, ANY non-empty value in parent_name will trigger this parameter to be shown. Only considered when this parameter is conditional (when 'parent_name' has been provided). */
@@ -1178,7 +1323,10 @@ declare namespace gapi.client {
       /** Optional. Whether to enable Streaming Engine for the job. */
       enableStreamingEngine?: boolean;
       /** Optional. Configuration for VM IPs. */
-      ipConfiguration?: string;
+      ipConfiguration?:
+        | 'WORKER_IP_UNSPECIFIED'
+        | 'WORKER_IP_PUBLIC'
+        | 'WORKER_IP_PRIVATE';
       /** Optional. Name for the Cloud KMS key for the job. Key format is: projects//locations//keyRings//cryptoKeys/ */
       kmsKeyName?: string;
       /** Optional. The machine type to use for the job. Defaults to the value from the template if not specified. */
@@ -1192,7 +1340,10 @@ declare namespace gapi.client {
       /** Optional. The email address of the service account to run the job as. */
       serviceAccountEmail?: string;
       /** Optional. Specifies the Streaming Engine message processing guarantees. Reduces cost and latency but might result in duplicate messages committed to storage. Designed to run simple mapping streaming ETL jobs at the lowest cost. For example, Change Data Capture (CDC) to BigQuery is a canonical use case. For more information, see [Set the pipeline streaming mode](https://cloud.google.com/dataflow/docs/guides/streaming-modes). */
-      streamingMode?: string;
+      streamingMode?:
+        | 'STREAMING_MODE_UNSPECIFIED'
+        | 'STREAMING_MODE_EXACTLY_ONCE'
+        | 'STREAMING_MODE_AT_LEAST_ONCE';
       /** Optional. Subnetwork to which VMs will be assigned, if desired. You can specify a subnetwork using either a complete URL or an abbreviated path. Expected to be of the form "https://www.googleapis.com/compute/v1/projects/HOST_PROJECT_ID/regions/REGION/subnetworks/SUBNETWORK" or "regions/REGION/subnetworks/SUBNETWORK". If the subnetwork is located in a Shared VPC network, you must use the complete URL. */
       subnetwork?: string;
       /** Required. The Cloud Storage path to use for temporary files. Must be a valid Cloud Storage URL, beginning with `gs://`. */
@@ -1230,9 +1381,9 @@ declare namespace gapi.client {
     }
     interface SdkBug {
       /** Output only. How severe the SDK bug is. */
-      severity?: string;
+      severity?: 'SEVERITY_UNSPECIFIED' | 'NOTICE' | 'WARNING' | 'SEVERE';
       /** Output only. Describes the impact of this SDK bug. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'GENERAL' | 'PERFORMANCE' | 'DATALOSS';
       /** Output only. Link to more information on the bug. */
       uri?: string;
     }
@@ -1248,7 +1399,7 @@ declare namespace gapi.client {
     }
     interface SDKInfo {
       /** Required. The SDK Language. */
-      language?: string;
+      language?: 'UNKNOWN' | 'JAVA' | 'PYTHON' | 'GO' | 'YAML';
       /** Optional. The SDK version. */
       version?: string;
     }
@@ -1256,7 +1407,12 @@ declare namespace gapi.client {
       /** Output only. Known bugs found in this SDK version. */
       bugs?: SdkBug[];
       /** The support status for this SDK version. */
-      sdkSupportStatus?: string;
+      sdkSupportStatus?:
+        | 'UNKNOWN'
+        | 'SUPPORTED'
+        | 'STALE'
+        | 'DEPRECATED'
+        | 'UNSUPPORTED';
       /** The version of the SDK used to run the job. */
       version?: string;
       /** A readable string describing the version of the SDK. */
@@ -1268,7 +1424,12 @@ declare namespace gapi.client {
       /** The encoded debug information. */
       data?: string;
       /** Format for the data field above (id=5). */
-      dataFormat?: string;
+      dataFormat?:
+        | 'DATA_FORMAT_UNSPECIFIED'
+        | 'RAW'
+        | 'JSON'
+        | 'ZLIB'
+        | 'BROTLI';
       /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains the job specified by job_id. */
       location?: string;
       /** The worker id, i.e., VM hostname. */
@@ -1347,7 +1508,13 @@ declare namespace gapi.client {
       /** The job this snapshot was created from. */
       sourceJobId?: string;
       /** State of the snapshot. */
-      state?: string;
+      state?:
+        | 'UNKNOWN_SNAPSHOT_STATE'
+        | 'PENDING'
+        | 'RUNNING'
+        | 'READY'
+        | 'FAILED'
+        | 'DELETED';
       /** The time after which this snapshot will be automatically deleted. */
       ttl?: string;
     }
@@ -1435,13 +1602,20 @@ declare namespace gapi.client {
       /** If outcome is SPLITTING_HAPPENED, then this is a list of bundles into which the source was split. Otherwise this field is ignored. This list can be empty, which means the source represents an empty input. */
       bundles?: DerivedSource[];
       /** Indicates whether splitting happened and produced a list of bundles. If this is USE_CURRENT_SOURCE_AS_IS, the current source should be processed "as is" without splitting. "bundles" is ignored in this case. If this is SPLITTING_HAPPENED, then "bundles" contains a list of bundles into which the source was split. */
-      outcome?: string;
+      outcome?:
+        | 'SOURCE_SPLIT_OUTCOME_UNKNOWN'
+        | 'SOURCE_SPLIT_OUTCOME_USE_CURRENT'
+        | 'SOURCE_SPLIT_OUTCOME_SPLITTING_HAPPENED';
       /** DEPRECATED in favor of bundles. */
       shards?: SourceSplitShard[];
     }
     interface SourceSplitShard {
       /** DEPRECATED */
-      derivationMode?: string;
+      derivationMode?:
+        | 'SOURCE_DERIVATION_MODE_UNKNOWN'
+        | 'SOURCE_DERIVATION_MODE_INDEPENDENT'
+        | 'SOURCE_DERIVATION_MODE_CHILD_OF_CURRENT'
+        | 'SOURCE_DERIVATION_MODE_SIBLING_OF_CURRENT';
       /** DEPRECATED */
       source?: Source;
     }
@@ -1499,7 +1673,13 @@ declare namespace gapi.client {
       /** Start time of this stage. */
       startTime?: string;
       /** State of this stage. */
-      state?: string;
+      state?:
+        | 'EXECUTION_STATE_UNKNOWN'
+        | 'EXECUTION_STATE_NOT_STARTED'
+        | 'EXECUTION_STATE_RUNNING'
+        | 'EXECUTION_STATE_SUCCEEDED'
+        | 'EXECUTION_STATE_FAILED'
+        | 'EXECUTION_STATE_CANCELLED';
       /** Straggler summary for this stage. */
       stragglerSummary?: StragglerSummary;
     }
@@ -1579,7 +1759,10 @@ declare namespace gapi.client {
       /** Describes the set of data disks this task should apply to. */
       dataDisks?: MountedDataDisk[];
       /** A type of streaming computation task. */
-      taskType?: string;
+      taskType?:
+        | 'STREAMING_COMPUTATION_TASK_UNKNOWN'
+        | 'STREAMING_COMPUTATION_TASK_STOP'
+        | 'STREAMING_COMPUTATION_TASK_START';
     }
     interface StreamingConfigTask {
       /** Chunk size for commit streams from the harness to windmill. */
@@ -1778,7 +1961,16 @@ declare namespace gapi.client {
       /** User names for all collection inputs to this transform. */
       inputCollectionName?: string[];
       /** Type of transform. */
-      kind?: string;
+      kind?:
+        | 'UNKNOWN_KIND'
+        | 'PAR_DO_KIND'
+        | 'GROUP_BY_KEY_KIND'
+        | 'FLATTEN_KIND'
+        | 'READ_KIND'
+        | 'WRITE_KIND'
+        | 'CONSTANT_KIND'
+        | 'SINGLETON_KIND'
+        | 'SHUFFLE_KIND';
       /** User provided name for this transform instance. */
       name?: string;
       /** User names for all collection outputs to this transform. */
@@ -1814,7 +2006,15 @@ declare namespace gapi.client {
       /** The start time of this container. All events will report this so that events can be grouped together across container/VM restarts. */
       containerStartTime?: string;
       /** The event being reported. */
-      event?: string;
+      event?:
+        | 'UNKNOWN_EVENT'
+        | 'OS_START'
+        | 'CONTAINER_START'
+        | 'NETWORK_UP'
+        | 'STAGING_FILES_DOWNLOAD_START'
+        | 'STAGING_FILES_DOWNLOAD_FINISH'
+        | 'SDK_INSTALL_START'
+        | 'SDK_INSTALL_FINISH';
       /** Other stats that can accompany an event. E.g. { "downloaded_bytes" : "123456" } */
       metadata?: {[P in string]: string};
     }
@@ -1866,7 +2066,11 @@ declare namespace gapi.client {
       /** Data disks that are used by a VM in this workflow. */
       dataDisks?: Disk[];
       /** The default package set to install. This allows the service to select a default set of packages which are useful to worker harnesses written in a particular language. */
-      defaultPackageSet?: string;
+      defaultPackageSet?:
+        | 'DEFAULT_PACKAGE_SET_UNKNOWN'
+        | 'DEFAULT_PACKAGE_SET_NONE'
+        | 'DEFAULT_PACKAGE_SET_JAVA'
+        | 'DEFAULT_PACKAGE_SET_PYTHON';
       /** Optional. IOPS provisioned for the root disk for VMs. */
       diskProvisionedIops?: string;
       /** Optional. Throughput provisioned for the root disk for VMs. */
@@ -1878,7 +2082,10 @@ declare namespace gapi.client {
       /** Type of root disk for VMs. If empty or unspecified, the service will attempt to choose a reasonable default. */
       diskType?: string;
       /** Configuration for VM IPs. */
-      ipConfiguration?: string;
+      ipConfiguration?:
+        | 'WORKER_IP_UNSPECIFIED'
+        | 'WORKER_IP_PUBLIC'
+        | 'WORKER_IP_PRIVATE';
       /** The kind of the worker pool; currently only `harness` and `shuffle` are supported. */
       kind?: string;
       /** Machine type (e.g. "n1-standard-1"). If empty or unspecified, the service will attempt to choose a reasonable default. */
@@ -1904,7 +2111,11 @@ declare namespace gapi.client {
       /** Settings passed through to Google Compute Engine workers when using the standard Dataflow task runner. Users should ignore this field. */
       taskrunnerSettings?: TaskRunnerSettings;
       /** Sets the policy for determining when to turndown worker pool. Allowed values are: `TEARDOWN_ALWAYS`, `TEARDOWN_ON_SUCCESS`, and `TEARDOWN_NEVER`. `TEARDOWN_ALWAYS` means workers are always torn down regardless of whether the job succeeds. `TEARDOWN_ON_SUCCESS` means workers are torn down if the job succeeds. `TEARDOWN_NEVER` means the workers are never torn down. If the workers are not torn down by the service, they will continue to run and use Google Compute Engine VM resources in the user's project until they are explicitly terminated by the user. Because of this, Google recommends using the `TEARDOWN_ALWAYS` policy except for small, manually supervised test jobs. If unknown or unspecified, the service will attempt to choose a reasonable default. */
-      teardownPolicy?: string;
+      teardownPolicy?:
+        | 'TEARDOWN_POLICY_UNKNOWN'
+        | 'TEARDOWN_ALWAYS'
+        | 'TEARDOWN_ON_SUCCESS'
+        | 'TEARDOWN_NEVER';
       /** Required. Docker container image that executes the Cloud Dataflow worker harness, residing in Google Container Registry. Deprecated for the Fn API path. Use sdk_harness_container_images instead. */
       workerHarnessContainerImage?: string;
       /** Zone to run the worker pools in. If empty or unspecified, the service will attempt to choose a reasonable default. */
@@ -1981,7 +2192,13 @@ declare namespace gapi.client {
       /** Start time of this work item attempt. */
       startTime?: string;
       /** State of this work item. */
-      state?: string;
+      state?:
+        | 'EXECUTION_STATE_UNKNOWN'
+        | 'EXECUTION_STATE_NOT_STARTED'
+        | 'EXECUTION_STATE_RUNNING'
+        | 'EXECUTION_STATE_SUCCEEDED'
+        | 'EXECUTION_STATE_FAILED'
+        | 'EXECUTION_STATE_CANCELLED';
       /** Information about straggler detections for this work item. */
       stragglerInfo?: StragglerInfo;
       /** Name of this work item. */
@@ -2049,11 +2266,11 @@ declare namespace gapi.client {
       /** Get encoded debug configuration for component. Not cacheable. */
       getConfig(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2080,11 +2297,11 @@ declare namespace gapi.client {
       getConfig(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2111,11 +2328,11 @@ declare namespace gapi.client {
       /** Send encoded debug capture data for component. */
       sendCapture(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2142,11 +2359,11 @@ declare namespace gapi.client {
       sendCapture(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2175,11 +2392,11 @@ declare namespace gapi.client {
       /** Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running in `us-central1`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Return only messages with timestamps < end_time. The default is now (i.e. return up to the latest messages available). */
@@ -2193,7 +2410,13 @@ declare namespace gapi.client {
         /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains the job specified by job_id. */
         location?: string;
         /** Filter to only get messages with importance >= level */
-        minimumImportance?: string;
+        minimumImportance?:
+          | 'JOB_MESSAGE_IMPORTANCE_UNKNOWN'
+          | 'JOB_MESSAGE_DEBUG'
+          | 'JOB_MESSAGE_DETAILED'
+          | 'JOB_MESSAGE_BASIC'
+          | 'JOB_MESSAGE_WARNING'
+          | 'JOB_MESSAGE_ERROR';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** If specified, determines the maximum number of messages to return. If unspecified, the service may choose an appropriate default, or may return an arbitrarily large number of results. */
@@ -2218,11 +2441,11 @@ declare namespace gapi.client {
       /** Leases a dataflow WorkItem to run. */
       lease(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2249,11 +2472,11 @@ declare namespace gapi.client {
       lease(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2280,11 +2503,11 @@ declare namespace gapi.client {
       /** Reports the status of dataflow WorkItems leased by a worker. */
       reportStatus(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2311,11 +2534,11 @@ declare namespace gapi.client {
       reportStatus(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2344,17 +2567,17 @@ declare namespace gapi.client {
       /** List the jobs of a project across all regions. **Note:** This method doesn't support filtering the list of jobs by name. */
       aggregated(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** The kind of filter to use. */
-        filter?: string;
+        filter?: 'UNKNOWN' | 'ALL' | 'TERMINATED' | 'ACTIVE';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains this job. */
@@ -2378,16 +2601,20 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Deprecated. ListJobs always returns summaries now. Use GetJob for other JobViews. */
-        view?: string;
+        view?:
+          | 'JOB_VIEW_UNKNOWN'
+          | 'JOB_VIEW_SUMMARY'
+          | 'JOB_VIEW_ALL'
+          | 'JOB_VIEW_DESCRIPTION';
       }): Request<ListJobsResponse>;
       /** Creates a Dataflow job. To create a job, we recommend using `projects.locations.jobs.create` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.create` is not recommended, as your job will always start in `us-central1`. Do not enter confidential information when you supply string values using the API. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2411,18 +2638,22 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** The level of information requested in response. */
-        view?: string;
+        view?:
+          | 'JOB_VIEW_UNKNOWN'
+          | 'JOB_VIEW_SUMMARY'
+          | 'JOB_VIEW_ALL'
+          | 'JOB_VIEW_DESCRIPTION';
         /** Request body */
         resource: Job;
       }): Request<Job>;
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2446,18 +2677,22 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
           /** The level of information requested in response. */
-          view?: string;
+          view?:
+            | 'JOB_VIEW_UNKNOWN'
+            | 'JOB_VIEW_SUMMARY'
+            | 'JOB_VIEW_ALL'
+            | 'JOB_VIEW_DESCRIPTION';
         },
         body: Job,
       ): Request<Job>;
       /** Gets the state of the specified Cloud Dataflow job. To get the state of a job, we recommend using `projects.locations.jobs.get` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.get` is not recommended, as you can only get the state of jobs that are running in `us-central1`. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2481,16 +2716,20 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** The level of information requested in response. */
-        view?: string;
+        view?:
+          | 'JOB_VIEW_UNKNOWN'
+          | 'JOB_VIEW_SUMMARY'
+          | 'JOB_VIEW_ALL'
+          | 'JOB_VIEW_DESCRIPTION';
       }): Request<Job>;
       /** Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.getMetrics` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.getMetrics` is not recommended, as you can only request the status of jobs that are running in `us-central1`. */
       getMetrics(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2519,17 +2758,17 @@ declare namespace gapi.client {
       /** List the jobs of a project. To list the jobs of a project in a region, we recommend using `projects.locations.jobs.list` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). To list the all jobs across all regions, use `projects.jobs.aggregated`. Using `projects.jobs.list` is not recommended, because you can only get the list of jobs that are running in `us-central1`. `projects.locations.jobs.list` and `projects.jobs.list` support filtering the list of jobs by name. Filtering by name isn't supported by `projects.jobs.aggregated`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** The kind of filter to use. */
-        filter?: string;
+        filter?: 'UNKNOWN' | 'ALL' | 'TERMINATED' | 'ACTIVE';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains this job. */
@@ -2553,16 +2792,20 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Deprecated. ListJobs always returns summaries now. Use GetJob for other JobViews. */
-        view?: string;
+        view?:
+          | 'JOB_VIEW_UNKNOWN'
+          | 'JOB_VIEW_SUMMARY'
+          | 'JOB_VIEW_ALL'
+          | 'JOB_VIEW_DESCRIPTION';
       }): Request<ListJobsResponse>;
       /** Snapshot the state of a streaming job. */
       snapshot(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2589,11 +2832,11 @@ declare namespace gapi.client {
       snapshot(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2620,11 +2863,11 @@ declare namespace gapi.client {
       /** Updates the state of an existing Cloud Dataflow job. To update the state of an existing job, we recommend using `projects.locations.jobs.update` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.update` is not recommended, as you can only update the state of jobs that are running in `us-central1`. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2655,11 +2898,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2695,11 +2938,11 @@ declare namespace gapi.client {
       /** Launch a job with a FlexTemplate. */
       launch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2726,11 +2969,11 @@ declare namespace gapi.client {
       launch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2759,11 +3002,11 @@ declare namespace gapi.client {
       /** Get encoded debug configuration for component. Not cacheable. */
       getConfig(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2792,11 +3035,11 @@ declare namespace gapi.client {
       getConfig(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2825,11 +3068,11 @@ declare namespace gapi.client {
       /** Get worker stacktraces from debug capture. */
       getWorkerStacktraces(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2858,11 +3101,11 @@ declare namespace gapi.client {
       getWorkerStacktraces(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2891,11 +3134,11 @@ declare namespace gapi.client {
       /** Send encoded debug capture data for component. */
       sendCapture(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2924,11 +3167,11 @@ declare namespace gapi.client {
       sendCapture(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2959,11 +3202,11 @@ declare namespace gapi.client {
       /** Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running in `us-central1`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Return only messages with timestamps < end_time. The default is now (i.e. return up to the latest messages available). */
@@ -2977,7 +3220,13 @@ declare namespace gapi.client {
         /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains the job specified by job_id. */
         location: string;
         /** Filter to only get messages with importance >= level */
-        minimumImportance?: string;
+        minimumImportance?:
+          | 'JOB_MESSAGE_IMPORTANCE_UNKNOWN'
+          | 'JOB_MESSAGE_DEBUG'
+          | 'JOB_MESSAGE_DETAILED'
+          | 'JOB_MESSAGE_BASIC'
+          | 'JOB_MESSAGE_WARNING'
+          | 'JOB_MESSAGE_ERROR';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** If specified, determines the maximum number of messages to return. If unspecified, the service may choose an appropriate default, or may return an arbitrarily large number of results. */
@@ -3002,11 +3251,11 @@ declare namespace gapi.client {
       /** Lists snapshots. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3035,11 +3284,11 @@ declare namespace gapi.client {
       /** Request detailed information about the execution status of a stage of the job. EXPERIMENTAL. This API is subject to change or removal without notice. */
       getExecutionDetails(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Upper time bound of work items to include, by start time. */
@@ -3078,11 +3327,11 @@ declare namespace gapi.client {
       /** Leases a dataflow WorkItem to run. */
       lease(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3111,11 +3360,11 @@ declare namespace gapi.client {
       lease(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3144,11 +3393,11 @@ declare namespace gapi.client {
       /** Reports the status of dataflow WorkItems leased by a worker. */
       reportStatus(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3177,11 +3426,11 @@ declare namespace gapi.client {
       reportStatus(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3212,11 +3461,11 @@ declare namespace gapi.client {
       /** Creates a Dataflow job. To create a job, we recommend using `projects.locations.jobs.create` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.create` is not recommended, as your job will always start in `us-central1`. Do not enter confidential information when you supply string values using the API. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3240,18 +3489,22 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** The level of information requested in response. */
-        view?: string;
+        view?:
+          | 'JOB_VIEW_UNKNOWN'
+          | 'JOB_VIEW_SUMMARY'
+          | 'JOB_VIEW_ALL'
+          | 'JOB_VIEW_DESCRIPTION';
         /** Request body */
         resource: Job;
       }): Request<Job>;
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3275,18 +3528,22 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
           /** The level of information requested in response. */
-          view?: string;
+          view?:
+            | 'JOB_VIEW_UNKNOWN'
+            | 'JOB_VIEW_SUMMARY'
+            | 'JOB_VIEW_ALL'
+            | 'JOB_VIEW_DESCRIPTION';
         },
         body: Job,
       ): Request<Job>;
       /** Gets the state of the specified Cloud Dataflow job. To get the state of a job, we recommend using `projects.locations.jobs.get` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.get` is not recommended, as you can only get the state of jobs that are running in `us-central1`. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3310,16 +3567,20 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** The level of information requested in response. */
-        view?: string;
+        view?:
+          | 'JOB_VIEW_UNKNOWN'
+          | 'JOB_VIEW_SUMMARY'
+          | 'JOB_VIEW_ALL'
+          | 'JOB_VIEW_DESCRIPTION';
       }): Request<Job>;
       /** Request detailed information about the execution status of the job. EXPERIMENTAL. This API is subject to change or removal without notice. */
       getExecutionDetails(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3350,11 +3611,11 @@ declare namespace gapi.client {
       /** Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.getMetrics` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.getMetrics` is not recommended, as you can only request the status of jobs that are running in `us-central1`. */
       getMetrics(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3383,17 +3644,17 @@ declare namespace gapi.client {
       /** List the jobs of a project. To list the jobs of a project in a region, we recommend using `projects.locations.jobs.list` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). To list the all jobs across all regions, use `projects.jobs.aggregated`. Using `projects.jobs.list` is not recommended, because you can only get the list of jobs that are running in `us-central1`. `projects.locations.jobs.list` and `projects.jobs.list` support filtering the list of jobs by name. Filtering by name isn't supported by `projects.jobs.aggregated`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** The kind of filter to use. */
-        filter?: string;
+        filter?: 'UNKNOWN' | 'ALL' | 'TERMINATED' | 'ACTIVE';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains this job. */
@@ -3417,16 +3678,20 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Deprecated. ListJobs always returns summaries now. Use GetJob for other JobViews. */
-        view?: string;
+        view?:
+          | 'JOB_VIEW_UNKNOWN'
+          | 'JOB_VIEW_SUMMARY'
+          | 'JOB_VIEW_ALL'
+          | 'JOB_VIEW_DESCRIPTION';
       }): Request<ListJobsResponse>;
       /** Snapshot the state of a streaming job. */
       snapshot(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3455,11 +3720,11 @@ declare namespace gapi.client {
       snapshot(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3488,11 +3753,11 @@ declare namespace gapi.client {
       /** Updates the state of an existing Cloud Dataflow job. To update the state of an existing job, we recommend using `projects.locations.jobs.update` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.update` is not recommended, as you can only update the state of jobs that are running in `us-central1`. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3523,11 +3788,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3565,11 +3830,11 @@ declare namespace gapi.client {
       /** Deletes a snapshot. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3596,11 +3861,11 @@ declare namespace gapi.client {
       /** Gets information about a snapshot. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3627,11 +3892,11 @@ declare namespace gapi.client {
       /** Lists snapshots. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3660,11 +3925,11 @@ declare namespace gapi.client {
       /** Creates a Cloud Dataflow job from a template. Do not enter confidential information when you supply string values using the API. To create a job, we recommend using `projects.locations.templates.create` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.templates.create` is not recommended, because your job will always start in `us-central1`. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3691,11 +3956,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3722,11 +3987,11 @@ declare namespace gapi.client {
       /** Get the template associated with a template. To get the template, we recommend using `projects.locations.templates.get` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.templates.get` is not recommended, because only templates that are running in `us-central1` are retrieved. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3750,16 +4015,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** The view to retrieve. Defaults to METADATA_ONLY. */
-        view?: string;
+        view?: 'METADATA_ONLY';
       }): Request<GetTemplateResponse>;
       /** Launches a template. To launch a template, we recommend using `projects.locations.templates.launch` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.templates.launch` is not recommended, because jobs launched from the template will always start in `us-central1`. */
       launch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Path to the dynamic template specification file on Cloud Storage. The file must be a JSON serialized `DynamicTemplateFileSpec` object. */
@@ -3794,11 +4059,11 @@ declare namespace gapi.client {
       launch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Path to the dynamic template specification file on Cloud Storage. The file must be a JSON serialized `DynamicTemplateFileSpec` object. */
@@ -3835,11 +4100,11 @@ declare namespace gapi.client {
       /** Send a worker_message to the service. */
       workerMessages(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3866,11 +4131,11 @@ declare namespace gapi.client {
       workerMessages(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3903,11 +4168,11 @@ declare namespace gapi.client {
       /** Gets information about a snapshot. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3934,11 +4199,11 @@ declare namespace gapi.client {
       /** Lists snapshots. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3967,11 +4232,11 @@ declare namespace gapi.client {
       /** Creates a Cloud Dataflow job from a template. Do not enter confidential information when you supply string values using the API. To create a job, we recommend using `projects.locations.templates.create` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.templates.create` is not recommended, because your job will always start in `us-central1`. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3996,11 +4261,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4025,11 +4290,11 @@ declare namespace gapi.client {
       /** Get the template associated with a template. To get the template, we recommend using `projects.locations.templates.get` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.templates.get` is not recommended, because only templates that are running in `us-central1` are retrieved. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4053,16 +4318,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** The view to retrieve. Defaults to METADATA_ONLY. */
-        view?: string;
+        view?: 'METADATA_ONLY';
       }): Request<GetTemplateResponse>;
       /** Launches a template. To launch a template, we recommend using `projects.locations.templates.launch` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.templates.launch` is not recommended, because jobs launched from the template will always start in `us-central1`. */
       launch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Path to the dynamic template specification file on Cloud Storage. The file must be a JSON serialized `DynamicTemplateFileSpec` object. */
@@ -4097,11 +4362,11 @@ declare namespace gapi.client {
       launch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Path to the dynamic template specification file on Cloud Storage. The file must be a JSON serialized `DynamicTemplateFileSpec` object. */
@@ -4138,11 +4403,11 @@ declare namespace gapi.client {
       /** Deletes a snapshot. */
       deleteSnapshots(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4169,11 +4434,11 @@ declare namespace gapi.client {
       /** Send a worker_message to the service. */
       workerMessages(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4198,11 +4463,11 @@ declare namespace gapi.client {
       workerMessages(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

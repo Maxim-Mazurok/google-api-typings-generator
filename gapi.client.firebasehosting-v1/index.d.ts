@@ -37,15 +37,35 @@ declare namespace gapi.client {
     }
     interface CustomDomainMetadata {
       /** The `CertState` of the domain name's SSL certificate. */
-      certState?: string;
+      certState?:
+        | 'CERT_STATE_UNSPECIFIED'
+        | 'CERT_PREPARING'
+        | 'CERT_VALIDATING'
+        | 'CERT_PROPAGATING'
+        | 'CERT_ACTIVE'
+        | 'CERT_EXPIRING_SOON'
+        | 'CERT_EXPIRED';
       /** The `HostState` of the domain name this `CustomDomain` refers to. */
-      hostState?: string;
+      hostState?:
+        | 'HOST_STATE_UNSPECIFIED'
+        | 'HOST_UNHOSTED'
+        | 'HOST_UNREACHABLE'
+        | 'HOST_MISMATCH'
+        | 'HOST_CONFLICT'
+        | 'HOST_ACTIVE';
       /** A list of issues that are currently preventing Hosting from completing the operation. These are generally DNS-related issues that Hosting encounters when querying a domain name's records or attempting to mint an SSL certificate. */
       issues?: Status[];
       /** A set of DNS record updates and ACME challenges that allow you to transition domain names to Firebase Hosting with zero downtime. These updates allow Hosting to create an SSL certificate and establish ownership for your custom domain before Hosting begins serving traffic on it. If your domain name is already in active use with another provider, add one of the challenges and make the recommended DNS updates. After adding challenges and adjusting DNS records as necessary, wait for the `ownershipState` to be `OWNERSHIP_ACTIVE` and the `certState` to be `CERT_ACTIVE` before sending traffic to Hosting. */
       liveMigrationSteps?: LiveMigrationStep[];
       /** The `OwnershipState` of the domain name this `CustomDomain` refers to. */
-      ownershipState?: string;
+      ownershipState?:
+        | 'OWNERSHIP_STATE_UNSPECIFIED'
+        | 'OWNERSHIP_MISSING'
+        | 'OWNERSHIP_UNREACHABLE'
+        | 'OWNERSHIP_MISMATCH'
+        | 'OWNERSHIP_CONFLICT'
+        | 'OWNERSHIP_PENDING'
+        | 'OWNERSHIP_ACTIVE';
       /** A set of DNS record updates that allow Hosting to serve secure content on your domain name. The record type determines the update's purpose: - `A` and `AAAA`: Updates your domain name's IP addresses so that they direct traffic to Hosting servers. - `TXT`: Updates ownership permissions on your domain name, letting Hosting know that your custom domain's project has permission to perform actions for that domain name. - `CAA`: Updates your domain name's list of authorized Certificate Authorities (CAs). Only present if you have existing `CAA` records that prohibit Hosting's CA from minting certs for your domain name. These updates include all DNS changes you'll need to get started with Hosting, but, if made all at once, can result in a brief period of downtime for your domain name--while Hosting creates and uploads an SSL cert, for example. If you'd like to add your domain name to Hosting without downtime, complete the `liveMigrationSteps` first, before making the remaining updates in this field. */
       quickSetupUpdates?: DnsUpdates;
     }
@@ -55,9 +75,9 @@ declare namespace gapi.client {
       /** Output only. The data of the record. The meaning of the value depends on record type: - A and AAAA: IP addresses for the domain name. - CNAME: Another domain to check for records. - TXT: Arbitrary text strings associated with the domain name. Hosting uses TXT records to determine which Firebase projects have permission to act on the domain name's behalf. - CAA: The record's flags, tag, and value, e.g. `0 issue "pki.goog"`. */
       rdata?: string;
       /** Output only. An enum that indicates the a required action for this record. */
-      requiredAction?: string;
+      requiredAction?: 'NONE' | 'ADD' | 'REMOVE';
       /** Output only. The record's type, which determines what data the record contains. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'A' | 'CNAME' | 'TXT' | 'AAAA' | 'CAA';
     }
     interface DnsRecordSet {
       /** Output only. An error Hosting services encountered when querying your domain name's DNS records. Note: Hosting ignores `NXDOMAIN` errors, as those generally just mean that a domain name hasn't been set up yet. */
@@ -104,7 +124,13 @@ declare namespace gapi.client {
       /** Output only. Issues that prevent the current step from completing. */
       issues?: Status[];
       /** Output only. The state of the live migration step, indicates whether you should work to complete the step now, in the future, or have already completed it. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PREPARING'
+        | 'PENDING'
+        | 'INCOMPLETE'
+        | 'PROCESSING'
+        | 'COMPLETE';
     }
     interface Operation {
       /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
@@ -130,11 +156,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -159,11 +185,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -188,11 +214,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -215,11 +241,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -252,11 +278,11 @@ declare namespace gapi.client {
       /** CancelOperation is a part of the google.longrunning.Operations interface, but is not implemented for CustomDomain resources. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -281,11 +307,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -310,11 +336,11 @@ declare namespace gapi.client {
       /** DeleteOperation is a part of the google.longrunning.Operations interface, but is not implemented for CustomDomain resources. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

@@ -65,7 +65,12 @@ declare namespace gapi.client {
       /** gdata */
       path?: string;
       /** gdata */
-      referenceType?: string;
+      referenceType?:
+        | 'PATH'
+        | 'BLOB_REF'
+        | 'INLINE'
+        | 'BIGSTORE_REF'
+        | 'COSMO_BINARY_REFERENCE';
       /** gdata */
       sha1Hash?: string;
     }
@@ -175,7 +180,20 @@ declare namespace gapi.client {
       /** gdata */
       path?: string;
       /** gdata */
-      referenceType?: string;
+      referenceType?:
+        | 'PATH'
+        | 'BLOB_REF'
+        | 'INLINE'
+        | 'GET_MEDIA'
+        | 'COMPOSITE_MEDIA'
+        | 'BIGSTORE_REF'
+        | 'DIFF_VERSION_RESPONSE'
+        | 'DIFF_CHECKSUMS_RESPONSE'
+        | 'DIFF_DOWNLOAD_RESPONSE'
+        | 'DIFF_UPLOAD_REQUEST'
+        | 'DIFF_UPLOAD_RESPONSE'
+        | 'COSMO_BINARY_REFERENCE'
+        | 'ARBITRARY_BYTES';
       /** gdata */
       sha1Hash?: string;
       /** gdata */
@@ -255,11 +273,11 @@ declare namespace gapi.client {
       /** Gets the metadata of a specific report. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -286,11 +304,11 @@ declare namespace gapi.client {
       /** Lists reports created by a specific job. Returns NOT_FOUND if the job does not exist. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** If set, only reports created after the specified date/time are returned. */
@@ -327,11 +345,11 @@ declare namespace gapi.client {
       /** Creates a job and returns it. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -356,11 +374,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -385,11 +403,11 @@ declare namespace gapi.client {
       /** Deletes a job. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -414,11 +432,11 @@ declare namespace gapi.client {
       /** Gets a job. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -443,11 +461,11 @@ declare namespace gapi.client {
       /** Lists jobs. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -479,11 +497,11 @@ declare namespace gapi.client {
       /** Method for media download. Download is supported on the URI `/v1/media/{+name}?alt=media`. */
       download(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -508,11 +526,11 @@ declare namespace gapi.client {
       /** Lists report types. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

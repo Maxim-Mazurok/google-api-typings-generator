@@ -58,7 +58,10 @@ declare namespace gapi.client {
       /** The java package for the application under test. The default value is determined by examining the application's manifest. */
       appPackageId?: string;
       /** The option of whether running each test within its own invocation of instrumentation with Android Test Orchestrator or not. ** Orchestrator is only compatible with AndroidJUnitRunner version 1.1 or higher! ** Orchestrator offers the following benefits: - No shared state - Crashes are isolated - Logs are scoped per test See for more information about Android Test Orchestrator. If not set, the test will be run without the orchestrator. */
-      orchestratorOption?: string;
+      orchestratorOption?:
+        | 'ORCHESTRATOR_OPTION_UNSPECIFIED'
+        | 'USE_ORCHESTRATOR'
+        | 'DO_NOT_USE_ORCHESTRATOR';
       /** The option to run tests in multiple shards in parallel. */
       shardingOption?: ShardingOption;
       /** Required. The APK containing the test code to be executed. */
@@ -82,15 +85,25 @@ declare namespace gapi.client {
     }
     interface AndroidModel {
       /** Reasons for access denial. This model is accessible if this list is empty, otherwise the model is viewable only. */
-      accessDeniedReasons?: string[];
+      accessDeniedReasons?:
+        | 'ACCESS_DENIED_REASON_UNSPECIFIED'
+        | 'EULA_NOT_ACCEPTED'[];
       /** The company that this device is branded with. Example: "Google", "Samsung". */
       brand?: string;
       /** The name of the industrial design. This corresponds to android.os.Build.DEVICE. */
       codename?: string;
       /** Whether this device is virtual or physical. */
-      form?: string;
+      form?: 'DEVICE_FORM_UNSPECIFIED' | 'VIRTUAL' | 'PHYSICAL' | 'EMULATOR';
       /** Whether this device is a phone, tablet, wearable, etc. */
-      formFactor?: string;
+      formFactor?:
+        | 'DEVICE_FORM_FACTOR_UNSPECIFIED'
+        | 'PHONE'
+        | 'TABLET'
+        | 'WEARABLE'
+        | 'TV'
+        | 'AUTOMOTIVE'
+        | 'DESKTOP'
+        | 'XR';
       /** The unique opaque id for this model. Use this for invoking the TestExecutionService. */
       id?: string;
       /** Output only. Lab info of this device. */
@@ -134,7 +147,7 @@ declare namespace gapi.client {
       /** A set of directives Robo should apply during the crawl. This allows users to customize the crawl. For example, the username and password for a test account can be provided. */
       roboDirectives?: RoboDirective[];
       /** The mode in which Robo should run. Most clients should allow the server to populate this field automatically. */
-      roboMode?: string;
+      roboMode?: 'ROBO_MODE_UNSPECIFIED' | 'ROBO_VERSION_1' | 'ROBO_VERSION_2';
       /** A JSON file with a sequence of actions Robo should perform as a prologue for the crawl. */
       roboScript?: FileReference;
       /** The intents used to launch the app for the crawl. If none are provided, then the main launcher activity is launched. If some are provided, then only those provided are launched (the main launcher activity must be provided explicitly). */
@@ -222,7 +235,18 @@ declare namespace gapi.client {
     interface CancelDeviceSessionRequest {}
     interface CancelTestMatrixResponse {
       /** The current rolled-up state of the test matrix. If this state is already final, then the cancelation request will have no effect. */
-      testState?: string;
+      testState?:
+        | 'TEST_STATE_UNSPECIFIED'
+        | 'VALIDATING'
+        | 'PENDING'
+        | 'RUNNING'
+        | 'FINISHED'
+        | 'ERROR'
+        | 'UNSUPPORTED_ENVIRONMENT'
+        | 'INCOMPATIBLE_ENVIRONMENT'
+        | 'INCOMPATIBLE_ARCHITECTURE'
+        | 'CANCELLED'
+        | 'INVALID';
     }
     interface ClientInfo {
       /** The list of detailed information about client. */
@@ -256,7 +280,7 @@ declare namespace gapi.client {
       /** An IP address block in CIDR notation eg: 34.68.194.64/29 */
       block?: string;
       /** Whether this block is used by physical or virtual devices */
-      form?: string;
+      form?: 'DEVICE_FORM_UNSPECIFIED' | 'VIRTUAL' | 'PHYSICAL' | 'EMULATOR';
     }
     interface DeviceIpBlockCatalog {
       /** The device IP blocks used by Firebase Test Lab */
@@ -278,7 +302,15 @@ declare namespace gapi.client {
       /** Optional. Name of the DeviceSession, e.g. "projects/{project_id}/deviceSessions/{session_id}" */
       name?: string;
       /** Output only. Current state of the DeviceSession. */
-      state?: string;
+      state?:
+        | 'SESSION_STATE_UNSPECIFIED'
+        | 'REQUESTED'
+        | 'PENDING'
+        | 'ACTIVE'
+        | 'EXPIRED'
+        | 'FINISHED'
+        | 'UNAVAILABLE'
+        | 'ERROR';
       /** Output only. The historical state transitions of the session_state message including the current session state. */
       stateHistories?: SessionStateEvent[];
       /** Optional. The amount of time that a device will be initially allocated for. This can eventually be extended with the UpdateDeviceSession RPC. Default: 15 minutes. */
@@ -374,7 +406,15 @@ declare namespace gapi.client {
       /** Device capabilities. Copied from https://developer.apple.com/library/archive/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/DeviceCompatibilityMatrix/DeviceCompatibilityMatrix.html */
       deviceCapabilities?: string[];
       /** Whether this device is a phone, tablet, wearable, etc. */
-      formFactor?: string;
+      formFactor?:
+        | 'DEVICE_FORM_FACTOR_UNSPECIFIED'
+        | 'PHONE'
+        | 'TABLET'
+        | 'WEARABLE'
+        | 'TV'
+        | 'AUTOMOTIVE'
+        | 'DESKTOP'
+        | 'XR';
       /** The unique opaque id for this model. Use this for invoking the TestExecutionService. */
       id?: string;
       /** The human-readable name for this device model. Examples: "iPhone 4s", "iPad Mini 2". */
@@ -515,7 +555,12 @@ declare namespace gapi.client {
     }
     interface PerAndroidVersionInfo {
       /** The number of online devices for an Android version. */
-      deviceCapacity?: string;
+      deviceCapacity?:
+        | 'DEVICE_CAPACITY_UNSPECIFIED'
+        | 'DEVICE_CAPACITY_HIGH'
+        | 'DEVICE_CAPACITY_MEDIUM'
+        | 'DEVICE_CAPACITY_LOW'
+        | 'DEVICE_CAPACITY_NONE';
       /** Output only. Identifies supported clients for DirectAccess for this Android version. */
       directAccessVersionInfo?: DirectAccessVersionInfo;
       /** Output only. The estimated wait time for a single interactive device session using Direct Access. */
@@ -525,7 +570,12 @@ declare namespace gapi.client {
     }
     interface PerIosVersionInfo {
       /** The number of online devices for an iOS version. */
-      deviceCapacity?: string;
+      deviceCapacity?:
+        | 'DEVICE_CAPACITY_UNSPECIFIED'
+        | 'DEVICE_CAPACITY_HIGH'
+        | 'DEVICE_CAPACITY_MEDIUM'
+        | 'DEVICE_CAPACITY_LOW'
+        | 'DEVICE_CAPACITY_NONE';
       /** An iOS version. */
       versionId?: string;
     }
@@ -553,7 +603,11 @@ declare namespace gapi.client {
     }
     interface RoboDirective {
       /** Required. The type of action that Robo should perform on the specified element. */
-      actionType?: string;
+      actionType?:
+        | 'ACTION_TYPE_UNSPECIFIED'
+        | 'SINGLE_CLICK'
+        | 'ENTER_TEXT'
+        | 'IGNORE';
       /** The text that Robo is directed to set. If left empty, the directive will be treated as a CLICK on the element matching the resource_name. */
       inputText?: string;
       /** Required. The android resource name of the target UI element. For example, in Java: R.string.foo in xml: @string/foo Only the "foo" part is needed. Reference doc: https://developer.android.com/guide/topics/resources/accessing-resources.html */
@@ -579,7 +633,15 @@ declare namespace gapi.client {
       /** Output only. The time that the session_state first encountered that state. */
       eventTime?: string;
       /** Output only. The session_state tracked by this event */
-      sessionState?: string;
+      sessionState?:
+        | 'SESSION_STATE_UNSPECIFIED'
+        | 'REQUESTED'
+        | 'PENDING'
+        | 'ACTIVE'
+        | 'EXPIRED'
+        | 'FINISHED'
+        | 'UNAVAILABLE'
+        | 'ERROR';
       /** Output only. A human-readable message to explain the state. */
       stateMessage?: string;
     }
@@ -647,7 +709,18 @@ declare namespace gapi.client {
       /** Output only. Details about the shard. */
       shard?: Shard;
       /** Output only. Indicates the current progress of the test execution (e.g., FINISHED). */
-      state?: string;
+      state?:
+        | 'TEST_STATE_UNSPECIFIED'
+        | 'VALIDATING'
+        | 'PENDING'
+        | 'RUNNING'
+        | 'FINISHED'
+        | 'ERROR'
+        | 'UNSUPPORTED_ENVIRONMENT'
+        | 'INCOMPATIBLE_ENVIRONMENT'
+        | 'INCOMPATIBLE_ARCHITECTURE'
+        | 'CANCELLED'
+        | 'INVALID';
       /** Output only. Additional details about the running test. */
       testDetails?: TestDetails;
       /** Output only. How to run the test. */
@@ -669,15 +742,70 @@ declare namespace gapi.client {
       /** The number of times a TestExecution should be re-attempted if one or more of its test cases fail for any reason. The maximum number of reruns allowed is 10. Default is 0, which implies no reruns. */
       flakyTestAttempts?: number;
       /** Output only. Describes why the matrix is considered invalid. Only useful for matrices in the INVALID state. */
-      invalidMatrixDetails?: string;
+      invalidMatrixDetails?:
+        | 'INVALID_MATRIX_DETAILS_UNSPECIFIED'
+        | 'DETAILS_UNAVAILABLE'
+        | 'MALFORMED_APK'
+        | 'MALFORMED_TEST_APK'
+        | 'NO_MANIFEST'
+        | 'NO_PACKAGE_NAME'
+        | 'INVALID_PACKAGE_NAME'
+        | 'TEST_SAME_AS_APP'
+        | 'NO_INSTRUMENTATION'
+        | 'NO_SIGNATURE'
+        | 'INSTRUMENTATION_ORCHESTRATOR_INCOMPATIBLE'
+        | 'NO_TEST_RUNNER_CLASS'
+        | 'NO_LAUNCHER_ACTIVITY'
+        | 'FORBIDDEN_PERMISSIONS'
+        | 'INVALID_ROBO_DIRECTIVES'
+        | 'INVALID_RESOURCE_NAME'
+        | 'INVALID_DIRECTIVE_ACTION'
+        | 'TEST_LOOP_INTENT_FILTER_NOT_FOUND'
+        | 'SCENARIO_LABEL_NOT_DECLARED'
+        | 'SCENARIO_LABEL_MALFORMED'
+        | 'SCENARIO_NOT_DECLARED'
+        | 'DEVICE_ADMIN_RECEIVER'
+        | 'MALFORMED_XC_TEST_ZIP'
+        | 'BUILT_FOR_IOS_SIMULATOR'
+        | 'NO_TESTS_IN_XC_TEST_ZIP'
+        | 'USE_DESTINATION_ARTIFACTS'
+        | 'TEST_NOT_APP_HOSTED'
+        | 'PLIST_CANNOT_BE_PARSED'
+        | 'TEST_ONLY_APK'
+        | 'MALFORMED_IPA'
+        | 'MISSING_URL_SCHEME'
+        | 'MALFORMED_APP_BUNDLE'
+        | 'NO_CODE_APK'
+        | 'INVALID_INPUT_APK'
+        | 'INVALID_APK_PREVIEW_SDK'
+        | 'MATRIX_TOO_LARGE'
+        | 'TEST_QUOTA_EXCEEDED'
+        | 'SERVICE_NOT_ACTIVATED'
+        | 'UNKNOWN_PERMISSION_ERROR';
       /** Output Only. The overall outcome of the test. Only set when the test matrix state is FINISHED. */
-      outcomeSummary?: string;
+      outcomeSummary?:
+        | 'OUTCOME_SUMMARY_UNSPECIFIED'
+        | 'SUCCESS'
+        | 'FAILURE'
+        | 'INCONCLUSIVE'
+        | 'SKIPPED';
       /** The cloud project that owns the test matrix. */
       projectId?: string;
       /** Required. Where the results for the matrix are written. */
       resultStorage?: ResultStorage;
       /** Output only. Indicates the current progress of the test matrix. */
-      state?: string;
+      state?:
+        | 'TEST_STATE_UNSPECIFIED'
+        | 'VALIDATING'
+        | 'PENDING'
+        | 'RUNNING'
+        | 'FINISHED'
+        | 'ERROR'
+        | 'UNSUPPORTED_ENVIRONMENT'
+        | 'INCOMPATIBLE_ENVIRONMENT'
+        | 'INCOMPATIBLE_ARCHITECTURE'
+        | 'CANCELLED'
+        | 'INVALID';
       /** Output only. The list of test executions that the service creates for this matrix. */
       testExecutions?: TestExecution[];
       /** Output only. Unique id set by the service. */
@@ -797,11 +925,11 @@ declare namespace gapi.client {
       /** Gets the details of an Android application APK. */
       getApkDetails(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** A path to a file in Google Cloud Storage. Example: gs://build-app-1414623860166/app%40debug-unaligned.apk These paths are expected to be url encoded (percent encoding) */
         'bundleLocation.gcsPath'?: string;
         /** JSONP */
@@ -826,11 +954,11 @@ declare namespace gapi.client {
       getApkDetails(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** A path to a file in Google Cloud Storage. Example: gs://build-app-1414623860166/app%40debug-unaligned.apk These paths are expected to be url encoded (percent encoding) */
           'bundleLocation.gcsPath'?: string;
           /** JSONP */
@@ -857,11 +985,11 @@ declare namespace gapi.client {
       /** POST /v1/projects/{project_id}/deviceSessions/{device_session_id}:cancel Changes the DeviceSession to state FINISHED and terminates all connections. Canceled sessions are not deleted and can be retrieved or listed by the user until they expire based on the 28 day deletion policy. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -886,11 +1014,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -915,11 +1043,11 @@ declare namespace gapi.client {
       /** POST /v1/projects/{project_id}/deviceSessions */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -944,11 +1072,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -973,11 +1101,11 @@ declare namespace gapi.client {
       /** GET /v1/projects/{project_id}/deviceSessions/{device_session_id} Return a DeviceSession, which documents the allocation status and whether the device is allocated. Clients making requests from this API must poll GetDeviceSession. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1000,11 +1128,11 @@ declare namespace gapi.client {
       /** GET /v1/projects/{project_id}/deviceSessions Lists device Sessions owned by the project user. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1033,11 +1161,11 @@ declare namespace gapi.client {
       /** PATCH /v1/projects/{projectId}/deviceSessions/deviceSessionId}:updateDeviceSession Updates the current device session to the fields described by the update_mask. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1064,11 +1192,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1097,11 +1225,11 @@ declare namespace gapi.client {
       /** Cancels unfinished test executions in a test matrix. This call returns immediately and cancellation proceeds asynchronously. If the matrix is already final, this operation will have no effect. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the Test Matrix does not exist */
       cancel(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1126,11 +1254,11 @@ declare namespace gapi.client {
       /** Creates and runs a matrix of tests according to the given specifications. Unsupported environments will be returned in the state UNSUPPORTED. A test matrix is limited to use at most 2000 devices in parallel. The returned matrix will not yet contain the executions that will be created for this matrix. Execution creation happens later on and will require a call to GetTestMatrix. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed or if the matrix tries to use too many simultaneous devices. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1157,11 +1285,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1188,11 +1316,11 @@ declare namespace gapi.client {
       /** Checks the status of a test matrix and the executions once they are created. The test matrix will contain the list of test executions to run if and only if the resultStorage.toolResultsExecution fields have been populated. Note: Flaky test executions may be added to the matrix at a later stage. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the Test Matrix does not exist */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1223,15 +1351,21 @@ declare namespace gapi.client {
       /** Gets the catalog of supported test environments. May return any of the following canonical error codes: - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the environment type does not exist - INTERNAL - if an internal error occurred */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The type of environment that should be listed. */
-        environmentType: string;
+        environmentType:
+          | 'ENVIRONMENT_TYPE_UNSPECIFIED'
+          | 'ANDROID'
+          | 'IOS'
+          | 'NETWORK_CONFIGURATION'
+          | 'PROVIDED_SOFTWARE'
+          | 'DEVICE_IP_BLOCKS';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** Optional. Whether to include viewable only models in the response. This is only applicable for Android models. */

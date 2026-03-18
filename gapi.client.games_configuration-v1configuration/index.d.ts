@@ -33,13 +33,16 @@ declare namespace gapi.client {
   namespace gamesConfiguration {
     interface AchievementConfiguration {
       /** The type of the achievement. */
-      achievementType?: string;
+      achievementType?:
+        | 'ACHIEVEMENT_TYPE_UNSPECIFIED'
+        | 'STANDARD'
+        | 'INCREMENTAL';
       /** The draft data of the achievement. */
       draft?: AchievementConfigurationDetail;
       /** The ID of the achievement. */
       id?: string;
       /** The initial state of the achievement. */
-      initialState?: string;
+      initialState?: 'INITIAL_STATE_UNSPECIFIED' | 'HIDDEN' | 'REVEALED';
       /** Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#achievementConfiguration`. */
       kind?: string;
       /** The read-only published data of the achievement. */
@@ -89,7 +92,11 @@ declare namespace gapi.client {
       /** The curreny code string. Only used for CURRENCY format type. */
       currencyCode?: string;
       /** The formatting for the number. */
-      numberFormatType?: string;
+      numberFormatType?:
+        | 'NUMBER_FORMAT_TYPE_UNSPECIFIED'
+        | 'NUMERIC'
+        | 'TIME_DURATION'
+        | 'CURRENCY';
       /** The number of decimal places for number. Only used for NUMERIC format type. */
       numDecimalPlaces?: number;
       /** An optional suffix for the NUMERIC format type. These strings follow the same plural rules as all Android string resources. */
@@ -108,7 +115,10 @@ declare namespace gapi.client {
       scoreMax?: string;
       /** Minimum score that can be posted to this leaderboard. */
       scoreMin?: string;
-      scoreOrder?: string;
+      scoreOrder?:
+        | 'SCORE_ORDER_UNSPECIFIED'
+        | 'LARGER_IS_BETTER'
+        | 'SMALLER_IS_BETTER';
       /** The token for this resource. */
       token?: string;
     }
@@ -150,13 +160,13 @@ declare namespace gapi.client {
       /** Delete the achievement configuration with the given ID. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the achievement used by this method. */
         achievementId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -177,13 +187,13 @@ declare namespace gapi.client {
       /** Retrieves the metadata of the achievement configuration with the given ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the achievement used by this method. */
         achievementId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -204,11 +214,11 @@ declare namespace gapi.client {
       /** Insert a new achievement configuration in this application. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The application ID from the Google Play developer console. */
         applicationId: string;
         /** JSONP */
@@ -233,11 +243,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** The application ID from the Google Play developer console. */
           applicationId: string;
           /** JSONP */
@@ -262,11 +272,11 @@ declare namespace gapi.client {
       /** Returns a list of the achievement configurations in this application. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The application ID from the Google Play developer console. */
         applicationId: string;
         /** JSONP */
@@ -293,13 +303,13 @@ declare namespace gapi.client {
       /** Update the metadata of the achievement configuration with the given ID. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the achievement used by this method. */
         achievementId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -322,13 +332,13 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The ID of the achievement used by this method. */
           achievementId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -353,11 +363,11 @@ declare namespace gapi.client {
       /** Delete the leaderboard configuration with the given ID. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -380,11 +390,11 @@ declare namespace gapi.client {
       /** Retrieves the metadata of the leaderboard configuration with the given ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -407,11 +417,11 @@ declare namespace gapi.client {
       /** Insert a new leaderboard configuration in this application. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The application ID from the Google Play developer console. */
         applicationId: string;
         /** JSONP */
@@ -436,11 +446,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** The application ID from the Google Play developer console. */
           applicationId: string;
           /** JSONP */
@@ -465,11 +475,11 @@ declare namespace gapi.client {
       /** Returns a list of the leaderboard configurations in this application. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The application ID from the Google Play developer console. */
         applicationId: string;
         /** JSONP */
@@ -496,11 +506,11 @@ declare namespace gapi.client {
       /** Update the metadata of the leaderboard configuration with the given ID. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -525,11 +535,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

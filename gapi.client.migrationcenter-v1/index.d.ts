@@ -133,7 +133,13 @@ declare namespace gapi.client {
       /** Generic asset attributes. */
       attributes?: {[P in string]: string};
       /** Optional. Frame collection type, if not specified the collection type will be based on the source type of the source the frame was reported on. */
-      collectionType?: string;
+      collectionType?:
+        | 'SOURCE_TYPE_UNKNOWN'
+        | 'SOURCE_TYPE_UPLOAD'
+        | 'SOURCE_TYPE_GUEST_OS_SCAN'
+        | 'SOURCE_TYPE_INVENTORY_SCAN'
+        | 'SOURCE_TYPE_CUSTOM'
+        | 'SOURCE_TYPE_DISCOVERY_CLIENT';
       /** Asset information specific for database deployments. */
       databaseDeploymentDetails?: DatabaseDeploymentDetails;
       /** Asset information specific for logical databases. */
@@ -215,7 +221,10 @@ declare namespace gapi.client {
     }
     interface AwsEc2PlatformDetails {
       /** Optional. Whether the machine is hyperthreaded. */
-      hyperthreading?: string;
+      hyperthreading?:
+        | 'HYPERTHREADING_STATUS_UNSPECIFIED'
+        | 'HYPERTHREADING_STATUS_DISABLED'
+        | 'HYPERTHREADING_STATUS_ENABLED';
       /** The location of the machine in the AWS format. */
       location?: string;
       /** AWS platform's machine type label. */
@@ -224,7 +233,10 @@ declare namespace gapi.client {
     interface AwsRds {}
     interface AzureVmPlatformDetails {
       /** Whether the machine is hyperthreaded. */
-      hyperthreading?: string;
+      hyperthreading?:
+        | 'HYPERTHREADING_STATUS_UNSPECIFIED'
+        | 'HYPERTHREADING_STATUS_DISABLED'
+        | 'HYPERTHREADING_STATUS_ENABLED';
       /** The location of the machine in the Azure format. */
       location?: string;
       /** Azure platform's machine type label. */
@@ -274,11 +286,18 @@ declare namespace gapi.client {
     }
     interface ComputeEnginePreferences {
       /** License type to consider when calculating costs for virtual machine insights and recommendations. If unspecified, costs are calculated based on the default licensing plan. */
-      licenseType?: string;
+      licenseType?:
+        | 'LICENSE_TYPE_UNSPECIFIED'
+        | 'LICENSE_TYPE_DEFAULT'
+        | 'LICENSE_TYPE_BRING_YOUR_OWN_LICENSE';
       /** Preferences concerning the machine types to consider on Compute Engine. */
       machinePreferences?: MachinePreferences;
       /** Persistent disk type to use. If unspecified (default), all types are considered, based on available usage data. */
-      persistentDiskType?: string;
+      persistentDiskType?:
+        | 'PERSISTENT_DISK_TYPE_UNSPECIFIED'
+        | 'PERSISTENT_DISK_TYPE_STANDARD'
+        | 'PERSISTENT_DISK_TYPE_BALANCED'
+        | 'PERSISTENT_DISK_TYPE_SSD';
     }
     interface ComputeEngineShapeDescriptor {
       /** Output only. Number of logical cores. */
@@ -298,7 +317,11 @@ declare namespace gapi.client {
       /** Output only. Disk size in GiB. */
       sizeGb?: number;
       /** Output only. Disk type backing the storage. */
-      type?: string;
+      type?:
+        | 'PERSISTENT_DISK_TYPE_UNSPECIFIED'
+        | 'PERSISTENT_DISK_TYPE_STANDARD'
+        | 'PERSISTENT_DISK_TYPE_BALANCED'
+        | 'PERSISTENT_DISK_TYPE_SSD';
     }
     interface CpuUsageSample {
       /** Percentage of total CPU capacity utilized. Must be in the interval [0, 100]. On most systems can be calculated using 100 - idle percentage. */
@@ -424,7 +447,7 @@ declare namespace gapi.client {
       /** Optional. Networking details. */
       network?: DatabaseInstanceNetwork;
       /** Optional. The instance role in the database engine. */
-      role?: string;
+      role?: 'ROLE_UNSPECIFIED' | 'PRIMARY' | 'SECONDARY' | 'ARBITER';
     }
     interface DatabaseInstanceNetwork {
       /** Optional. The instance's host names. */
@@ -436,7 +459,14 @@ declare namespace gapi.client {
     }
     interface DatabaseObjects {
       /** Optional. The category of the objects. */
-      category?: string;
+      category?:
+        | 'CATEGORY_UNSPECIFIED'
+        | 'TABLE'
+        | 'INDEX'
+        | 'CONSTRAINTS'
+        | 'VIEWS'
+        | 'SOURCE_CODE'
+        | 'OTHER';
       /** Optional. The number of objects. */
       count?: string;
     }
@@ -486,7 +516,12 @@ declare namespace gapi.client {
       /** Required. Immutable. Full name of the source object associated with this discovery client. */
       source?: string;
       /** Output only. Current state of the discovery client. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'OFFLINE'
+        | 'DEGRADED'
+        | 'EXPIRED';
       /** Optional. Input only. Client time-to-live. If specified, the backend will not accept new frames after this time. This field is input only. The derived expiration time is provided as output through the `expire_time` field. */
       ttl?: string;
       /** Output only. Time when the discovery client was last updated. This value is not updated by heartbeats, to view the last heartbeat time please refer to the `heartbeat_time` field. */
@@ -506,7 +541,15 @@ declare namespace gapi.client {
       /** Disk hardware address (e.g. 0:1 for SCSI). */
       hwAddress?: string;
       /** Disks interface type. */
-      interfaceType?: string;
+      interfaceType?:
+        | 'INTERFACE_TYPE_UNSPECIFIED'
+        | 'IDE'
+        | 'SATA'
+        | 'SAS'
+        | 'SCSI'
+        | 'NVME'
+        | 'FC'
+        | 'ISCSI';
       /** Partition layout. */
       partitions?: DiskPartitionList;
       /** VMware disk details. */
@@ -583,7 +626,7 @@ declare namespace gapi.client {
     }
     interface FitDescriptor {
       /** Output only. Fit level. */
-      fitLevel?: string;
+      fitLevel?: 'FIT_LEVEL_UNSPECIFIED' | 'FIT' | 'NO_FIT' | 'REQUIRES_EFFORT';
     }
     interface Frames {
       /** A repeated field of asset data. */
@@ -623,7 +666,10 @@ declare namespace gapi.client {
     }
     interface GenericPlatformDetails {
       /** Whether the machine is hyperthreaded. */
-      hyperthreading?: string;
+      hyperthreading?:
+        | 'HYPERTHREADING_STATUS_UNSPECIFIED'
+        | 'HYPERTHREADING_STATUS_DISABLED'
+        | 'HYPERTHREADING_STATUS_ENABLED';
       /** Free text representation of the machine location. The format of this field should not be relied on. Different VMs in the same location may have different string values for this field. */
       location?: string;
     }
@@ -651,7 +697,11 @@ declare namespace gapi.client {
       /** NFS exports. */
       nfsExports?: NfsExportList;
       /** Security-Enhanced Linux (SELinux) mode. */
-      selinuxMode?: string;
+      selinuxMode?:
+        | 'SE_LINUX_MODE_UNSPECIFIED'
+        | 'SE_LINUX_MODE_DISABLED'
+        | 'SE_LINUX_MODE_PERMISSIVE'
+        | 'SE_LINUX_MODE_ENFORCING';
     }
     interface GuestInstalledApplication {
       /** Installed application name. */
@@ -675,7 +725,11 @@ declare namespace gapi.client {
       /** OS and app configuration. */
       config?: GuestConfigDetails;
       /** What family the OS belong to, if known. */
-      family?: string;
+      family?:
+        | 'OS_FAMILY_UNKNOWN'
+        | 'OS_FAMILY_WINDOWS'
+        | 'OS_FAMILY_LINUX'
+        | 'OS_FAMILY_UNIX';
       /** The name of the operating system. */
       osName?: string;
       /** Runtime information. */
@@ -717,11 +771,18 @@ declare namespace gapi.client {
       /** Optional. User-friendly display name. Maximum length is 63 characters. */
       displayName?: string;
       /** Required. The payload format. */
-      format?: string;
+      format?:
+        | 'IMPORT_JOB_FORMAT_UNSPECIFIED'
+        | 'IMPORT_JOB_FORMAT_RVTOOLS_XLSX'
+        | 'IMPORT_JOB_FORMAT_RVTOOLS_CSV'
+        | 'IMPORT_JOB_FORMAT_EXPORTED_AWS_CSV'
+        | 'IMPORT_JOB_FORMAT_EXPORTED_AZURE_CSV'
+        | 'IMPORT_JOB_FORMAT_STRATOZONE_CSV'
+        | 'IMPORT_JOB_FORMAT_DATABASE_ZIP';
       /** Output only. The name of the file. */
       name?: string;
       /** Output only. The state of the import data file. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'CREATING' | 'ACTIVE';
       /** Information about a file that is uploaded to a storage service. */
       uploadFileInfo?: UploadFileInfo;
     }
@@ -729,7 +790,7 @@ declare namespace gapi.client {
       /** The error information. */
       errorDetails?: string;
       /** The severity of the error. */
-      severity?: string;
+      severity?: 'SEVERITY_UNSPECIFIED' | 'ERROR' | 'WARNING' | 'INFO';
     }
     interface ImportJob {
       /** Required. Reference to a source. */
@@ -747,7 +808,15 @@ declare namespace gapi.client {
       /** Output only. The full name of the import job. */
       name?: string;
       /** Output only. The state of the import job. */
-      state?: string;
+      state?:
+        | 'IMPORT_JOB_STATE_UNSPECIFIED'
+        | 'IMPORT_JOB_STATE_PENDING'
+        | 'IMPORT_JOB_STATE_RUNNING'
+        | 'IMPORT_JOB_STATE_COMPLETED'
+        | 'IMPORT_JOB_STATE_FAILED'
+        | 'IMPORT_JOB_STATE_VALIDATING'
+        | 'IMPORT_JOB_STATE_FAILED_VALIDATION'
+        | 'IMPORT_JOB_STATE_READY';
       /** Output only. The timestamp when the import job was last updated. */
       updateTime?: string;
       /** Output only. The report with the validation results of the import job. */
@@ -931,9 +1000,12 @@ declare namespace gapi.client {
       /** Deprecated: use MachineDetails.core_count instead. Number of CPU threads allocated to the machine. */
       cpuThreadCount?: number;
       /** Firmware type. */
-      firmwareType?: string;
+      firmwareType?: 'FIRMWARE_TYPE_UNSPECIFIED' | 'BIOS' | 'EFI';
       /** CPU hyper-threading support. */
-      hyperthreading?: string;
+      hyperthreading?:
+        | 'CPU_HYPER_THREADING_UNSPECIFIED'
+        | 'DISABLED'
+        | 'ENABLED';
       /** Hardware vendor. */
       vendor?: string;
     }
@@ -959,7 +1031,14 @@ declare namespace gapi.client {
       /** Platform specific information. */
       platform?: PlatformDetails;
       /** Power state of the machine. */
-      powerState?: string;
+      powerState?:
+        | 'POWER_STATE_UNSPECIFIED'
+        | 'PENDING'
+        | 'ACTIVE'
+        | 'SUSPENDING'
+        | 'SUSPENDED'
+        | 'DELETING'
+        | 'DELETED';
       /** Machine unique identifier. */
       uuid?: string;
     }
@@ -1043,7 +1122,19 @@ declare namespace gapi.client {
       /** Optional. The number of encrypted tables. */
       encryptedTableCount?: number;
       /** Required. The storage engine. */
-      engine?: string;
+      engine?:
+        | 'ENGINE_UNSPECIFIED'
+        | 'INNODB'
+        | 'MYISAM'
+        | 'MEMORY'
+        | 'CSV'
+        | 'ARCHIVE'
+        | 'BLACKHOLE'
+        | 'NDB'
+        | 'MERGE'
+        | 'FEDERATED'
+        | 'EXAMPLE'
+        | 'OTHER';
       /** Optional. The number of tables. */
       tableCount?: number;
     }
@@ -1069,7 +1160,10 @@ declare namespace gapi.client {
     }
     interface NetworkAddress {
       /** Whether DHCP is used to assign addresses. */
-      assignment?: string;
+      assignment?:
+        | 'ADDRESS_ASSIGNMENT_UNSPECIFIED'
+        | 'ADDRESS_ASSIGNMENT_STATIC'
+        | 'ADDRESS_ASSIGNMENT_DHCP';
       /** Broadcast address. */
       bcast?: string;
       /** Fully qualified domain name. */
@@ -1099,7 +1193,13 @@ declare namespace gapi.client {
       /** Remote port. */
       remotePort?: number;
       /** Network connection state. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'OPENING'
+        | 'OPEN'
+        | 'LISTEN'
+        | 'CLOSING'
+        | 'CLOSED';
     }
     interface NetworkConnectionList {
       /** Network connection entries. */
@@ -1189,7 +1289,10 @@ declare namespace gapi.client {
     }
     interface PhysicalPlatformDetails {
       /** Whether the machine is hyperthreaded. */
-      hyperthreading?: string;
+      hyperthreading?:
+        | 'HYPERTHREADING_STATUS_UNSPECIFIED'
+        | 'HYPERTHREADING_STATUS_DISABLED'
+        | 'HYPERTHREADING_STATUS_ENABLED';
       /** Free text representation of the machine location. The format of this field should not be relied on. Different machines in the same location may have different string values for this field. */
       location?: string;
     }
@@ -1275,7 +1378,10 @@ declare namespace gapi.client {
       /** Output only. The source asset name in the relation. */
       srcAsset?: string;
       /** Optional. The type of the relation. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'LOGICAL_DATABASE'
+        | 'DATABASE_DEPLOYMENT_HOSTING_SERVER';
     }
     interface RemoveAssetsFromGroupRequest {
       /** Optional. When this value is set to `false` and one of the given assets is not an existing member of the group, the operation fails with a `Not Found` error. When set to `true` this situation is silently ignored by the server. Default value is `false`. */
@@ -1295,11 +1401,11 @@ declare namespace gapi.client {
       /** Output only. Name of resource. */
       name?: string;
       /** Report creation state. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'PENDING' | 'SUCCEEDED' | 'FAILED';
       /** Output only. Summary view of the Report. */
       summary?: ReportSummary;
       /** Report type. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'TOTAL_COST_OF_OWNERSHIP';
       /** Output only. Last update timestamp. */
       updateTime?: string;
     }
@@ -1368,7 +1474,11 @@ declare namespace gapi.client {
       /** Count of assets which were allocated. */
       allocatedAssetCount?: string;
       /** Set of disk types allocated to assets. */
-      allocatedDiskTypes?: string[];
+      allocatedDiskTypes?:
+        | 'PERSISTENT_DISK_TYPE_UNSPECIFIED'
+        | 'PERSISTENT_DISK_TYPE_STANDARD'
+        | 'PERSISTENT_DISK_TYPE_BALANCED'
+        | 'PERSISTENT_DISK_TYPE_SSD'[];
       /** Set of regions in which the assets were allocated. */
       allocatedRegions?: string[];
       /** Distribution of assets based on the Machine Series. */
@@ -1510,9 +1620,15 @@ declare namespace gapi.client {
       /** Service name. */
       serviceName?: string;
       /** Service start mode (OS-agnostic). */
-      startMode?: string;
+      startMode?:
+        | 'START_MODE_UNSPECIFIED'
+        | 'BOOT'
+        | 'SYSTEM'
+        | 'AUTO'
+        | 'MANUAL'
+        | 'DISABLED';
       /** Service state (OS-agnostic). */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'ACTIVE' | 'PAUSED' | 'STOPPED';
     }
     interface RunningServiceList {
       /** Running service entries. */
@@ -1546,7 +1662,7 @@ declare namespace gapi.client {
     }
     interface SignedUriDestination {
       /** Required. The file format to export. */
-      fileFormat?: string;
+      fileFormat?: 'FILE_FORMAT_UNSPECIFIED' | 'CSV' | 'XLSX';
     }
     interface SignedUris {
       /** Output only. List of signed URIs. */
@@ -1554,11 +1670,19 @@ declare namespace gapi.client {
     }
     interface SoleTenancyPreferences {
       /** Commitment plan to consider when calculating costs for virtual machine insights and recommendations. If you are unsure which value to set, a 3 year commitment plan is often a good value to start with. */
-      commitmentPlan?: string;
+      commitmentPlan?:
+        | 'COMMITMENT_PLAN_UNSPECIFIED'
+        | 'ON_DEMAND'
+        | 'COMMITMENT_1_YEAR'
+        | 'COMMITMENT_3_YEAR';
       /** CPU overcommit ratio. Acceptable values are between 1.0 and 2.0 inclusive. */
       cpuOvercommitRatio?: number;
       /** Sole Tenancy nodes maintenance policy. */
-      hostMaintenancePolicy?: string;
+      hostMaintenancePolicy?:
+        | 'HOST_MAINTENANCE_POLICY_UNSPECIFIED'
+        | 'HOST_MAINTENANCE_POLICY_DEFAULT'
+        | 'HOST_MAINTENANCE_POLICY_RESTART_IN_PLACE'
+        | 'HOST_MAINTENANCE_POLICY_MIGRATE_WITHIN_NODE_GROUP';
       /** A list of sole tenant node types. An empty list means that all possible node types will be considered. */
       nodeTypes?: SoleTenantNodeType[];
     }
@@ -1584,9 +1708,15 @@ declare namespace gapi.client {
       /** The information confidence of the source. The higher the value, the higher the confidence. */
       priority?: number;
       /** Output only. The state of the source. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'ACTIVE' | 'DELETING' | 'INVALID';
       /** Data source type. */
-      type?: string;
+      type?:
+        | 'SOURCE_TYPE_UNKNOWN'
+        | 'SOURCE_TYPE_UPLOAD'
+        | 'SOURCE_TYPE_GUEST_OS_SCAN'
+        | 'SOURCE_TYPE_INVENTORY_SCAN'
+        | 'SOURCE_TYPE_CUSTOM'
+        | 'SOURCE_TYPE_DISCOVERY_CLIENT';
       /** Output only. The timestamp when the source was last updated. */
       updateTime?: string;
     }
@@ -1618,7 +1748,7 @@ declare namespace gapi.client {
     }
     interface SqlServerTraceFlag {
       /** Required. The trace flag scope. */
-      scope?: string;
+      scope?: 'SCOPE_UNSPECIFIED' | 'OFF' | 'GLOBAL' | 'SESSION';
       /** Required. The trace flag name. */
       traceFlagName?: string;
     }
@@ -1658,33 +1788,67 @@ declare namespace gapi.client {
     }
     interface VirtualMachinePreferences {
       /** Commitment plan to consider when calculating costs for virtual machine insights and recommendations. If you are unsure which value to set, a 3 year commitment plan is often a good value to start with. */
-      commitmentPlan?: string;
+      commitmentPlan?:
+        | 'COMMITMENT_PLAN_UNSPECIFIED'
+        | 'COMMITMENT_PLAN_NONE'
+        | 'COMMITMENT_PLAN_ONE_YEAR'
+        | 'COMMITMENT_PLAN_THREE_YEARS';
       /** Compute Engine preferences concern insights and recommendations for Compute Engine target. */
       computeEnginePreferences?: ComputeEnginePreferences;
       /** Region preferences for assets using this preference set. If you are unsure which value to set, the migration service API region is often a good value to start with. */
       regionPreferences?: RegionPreferences;
       /** Sizing optimization strategy specifies the preferred strategy used when extrapolating usage data to calculate insights and recommendations for a virtual machine. If you are unsure which value to set, a moderate sizing optimization strategy is often a good value to start with. */
-      sizingOptimizationStrategy?: string;
+      sizingOptimizationStrategy?:
+        | 'SIZING_OPTIMIZATION_STRATEGY_UNSPECIFIED'
+        | 'SIZING_OPTIMIZATION_STRATEGY_SAME_AS_SOURCE'
+        | 'SIZING_OPTIMIZATION_STRATEGY_MODERATE'
+        | 'SIZING_OPTIMIZATION_STRATEGY_AGGRESSIVE';
       /** Preferences concerning Sole Tenant nodes and virtual machines. */
       soleTenancyPreferences?: SoleTenancyPreferences;
       /** Target product for assets using this preference set. Specify either target product or business goal, but not both. */
-      targetProduct?: string;
+      targetProduct?:
+        | 'COMPUTE_MIGRATION_TARGET_PRODUCT_UNSPECIFIED'
+        | 'COMPUTE_MIGRATION_TARGET_PRODUCT_COMPUTE_ENGINE'
+        | 'COMPUTE_MIGRATION_TARGET_PRODUCT_VMWARE_ENGINE'
+        | 'COMPUTE_MIGRATION_TARGET_PRODUCT_SOLE_TENANCY';
       /** Preferences concerning insights and recommendations for Google Cloud VMware Engine. */
       vmwareEnginePreferences?: VmwareEnginePreferences;
     }
     interface VmwareDiskConfig {
       /** VMDK backing type. */
-      backingType?: string;
+      backingType?:
+        | 'BACKING_TYPE_UNSPECIFIED'
+        | 'BACKING_TYPE_FLAT_V1'
+        | 'BACKING_TYPE_FLAT_V2'
+        | 'BACKING_TYPE_PMEM'
+        | 'BACKING_TYPE_RDM_V1'
+        | 'BACKING_TYPE_RDM_V2'
+        | 'BACKING_TYPE_SESPARSE'
+        | 'BACKING_TYPE_SESPARSE_V1'
+        | 'BACKING_TYPE_SESPARSE_V2';
       /** RDM compatibility mode. */
-      rdmCompatibility?: string;
+      rdmCompatibility?:
+        | 'RDM_COMPATIBILITY_UNSPECIFIED'
+        | 'PHYSICAL_COMPATIBILITY'
+        | 'VIRTUAL_COMPATIBILITY';
       /** Is VMDK shared with other VMs. */
       shared?: boolean;
       /** VMDK disk mode. */
-      vmdkMode?: string;
+      vmdkMode?:
+        | 'VMDK_MODE_UNSPECIFIED'
+        | 'DEPENDENT'
+        | 'INDEPENDENT_PERSISTENT'
+        | 'INDEPENDENT_NONPERSISTENT';
     }
     interface VmwareEnginePreferences {
       /** Commitment plan to consider when calculating costs for virtual machine insights and recommendations. If you are unsure which value to set, a 3 year commitment plan is often a good value to start with. */
-      commitmentPlan?: string;
+      commitmentPlan?:
+        | 'COMMITMENT_PLAN_UNSPECIFIED'
+        | 'ON_DEMAND'
+        | 'COMMITMENT_1_YEAR_MONTHLY_PAYMENTS'
+        | 'COMMITMENT_3_YEAR_MONTHLY_PAYMENTS'
+        | 'COMMITMENT_1_YEAR_UPFRONT_PAYMENT'
+        | 'COMMITMENT_3_YEAR_UPFRONT_PAYMENT';
       /** CPU overcommit ratio. Acceptable values are between 1.0 and 8.0, with 0.1 increment. */
       cpuOvercommitRatio?: number;
       /** Memory overcommit ratio. Acceptable values are 1.0, 1.25, 1.5, 1.75 and 2.0. */
@@ -1694,7 +1858,10 @@ declare namespace gapi.client {
     }
     interface VmwarePlatformDetails {
       /** Whether the ESX is hyperthreaded. */
-      esxHyperthreading?: string;
+      esxHyperthreading?:
+        | 'HYPERTHREADING_STATUS_UNSPECIFIED'
+        | 'HYPERTHREADING_STATUS_DISABLED'
+        | 'HYPERTHREADING_STATUS_ENABLED';
       /** ESX version. */
       esxVersion?: string;
       /** VMware os enum - https://vdc-repo.vmware.com/vmwb-repository/dcr-public/da47f910-60ac-438b-8b9b-6122f4d14524/16b7274a-bf8b-4b4c-a05e-746f2aa93c8c/doc/vim.vm.GuestOsDescriptor.GuestOsIdentifier.html. */
@@ -1716,11 +1883,11 @@ declare namespace gapi.client {
       /** Aggregates the requested fields based on provided function. */
       aggregateValues(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1745,11 +1912,11 @@ declare namespace gapi.client {
       aggregateValues(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1774,11 +1941,11 @@ declare namespace gapi.client {
       /** Deletes list of Assets. */
       batchDelete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1803,11 +1970,11 @@ declare namespace gapi.client {
       batchDelete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1832,11 +1999,11 @@ declare namespace gapi.client {
       /** Updates the parameters of a list of assets. */
       batchUpdate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1861,11 +2028,11 @@ declare namespace gapi.client {
       batchUpdate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1890,11 +2057,11 @@ declare namespace gapi.client {
       /** Deletes an asset. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1919,11 +2086,11 @@ declare namespace gapi.client {
       /** Gets the details of an asset. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1943,16 +2110,22 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** View of the assets. Defaults to BASIC. */
-        view?: string;
+        view?:
+          | 'ASSET_VIEW_UNSPECIFIED'
+          | 'ASSET_VIEW_BASIC'
+          | 'ASSET_VIEW_FULL'
+          | 'ASSET_VIEW_STANDARD'
+          | 'ASSET_VIEW_UI'
+          | 'ASSET_VIEW_LABELS';
       }): Request<Asset>;
       /** Lists all the assets in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1982,16 +2155,22 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** View of the assets. Defaults to BASIC. */
-        view?: string;
+        view?:
+          | 'ASSET_VIEW_UNSPECIFIED'
+          | 'ASSET_VIEW_BASIC'
+          | 'ASSET_VIEW_FULL'
+          | 'ASSET_VIEW_STANDARD'
+          | 'ASSET_VIEW_UI'
+          | 'ASSET_VIEW_LABELS';
       }): Request<ListAssetsResponse>;
       /** Updates the parameters of an asset. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2020,11 +2199,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2053,11 +2232,11 @@ declare namespace gapi.client {
       /** Reports a set of frames. */
       reportAssetFrames(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2084,11 +2263,11 @@ declare namespace gapi.client {
       reportAssetFrames(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2117,11 +2296,11 @@ declare namespace gapi.client {
       /** Creates a new assets export job. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The ID to use for the asset export job. */
         assetsExportJobId?: string;
         /** JSONP */
@@ -2150,11 +2329,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. The ID to use for the asset export job. */
           assetsExportJobId?: string;
           /** JSONP */
@@ -2183,11 +2362,11 @@ declare namespace gapi.client {
       /** Deletes an assets export job. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2210,11 +2389,11 @@ declare namespace gapi.client {
       /** Gets the details of an assets export job. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2237,11 +2416,11 @@ declare namespace gapi.client {
       /** Lists all the assets export jobs in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2268,11 +2447,11 @@ declare namespace gapi.client {
       /** Runs an assets export job, returning an AssetsExportJobExecution. */
       run(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2297,11 +2476,11 @@ declare namespace gapi.client {
       run(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2328,11 +2507,11 @@ declare namespace gapi.client {
       /** Creates a new discovery client. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. User specified ID for the discovery client. It will become the last component of the discovery client name. The ID must be unique within the project, is restricted to lower-cased letters and has a maximum length of 63 characters. The ID must match the regular expression: `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`. */
@@ -2361,11 +2540,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. User specified ID for the discovery client. It will become the last component of the discovery client name. The ID must be unique within the project, is restricted to lower-cased letters and has a maximum length of 63 characters. The ID must match the regular expression: `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`. */
@@ -2394,11 +2573,11 @@ declare namespace gapi.client {
       /** Deletes a discovery client. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2423,11 +2602,11 @@ declare namespace gapi.client {
       /** Gets the details of a discovery client. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2450,11 +2629,11 @@ declare namespace gapi.client {
       /** Lists all the discovery clients in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2485,11 +2664,11 @@ declare namespace gapi.client {
       /** Updates a discovery client. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2518,11 +2697,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2551,11 +2730,11 @@ declare namespace gapi.client {
       /** Sends a discovery client heartbeat. Healthy clients are expected to send heartbeats regularly (normally every few minutes). */
       sendHeartbeat(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2580,11 +2759,11 @@ declare namespace gapi.client {
       sendHeartbeat(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2611,11 +2790,11 @@ declare namespace gapi.client {
       /** Adds assets to a group. */
       addAssets(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2640,11 +2819,11 @@ declare namespace gapi.client {
       addAssets(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2669,11 +2848,11 @@ declare namespace gapi.client {
       /** Creates a new group in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2702,11 +2881,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2735,11 +2914,11 @@ declare namespace gapi.client {
       /** Deletes a group. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2764,11 +2943,11 @@ declare namespace gapi.client {
       /** Gets the details of a group. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2791,11 +2970,11 @@ declare namespace gapi.client {
       /** Lists all groups in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2826,11 +3005,11 @@ declare namespace gapi.client {
       /** Updates the parameters of a group. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2859,11 +3038,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2892,11 +3071,11 @@ declare namespace gapi.client {
       /** Removes assets from a group. */
       removeAssets(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2921,11 +3100,11 @@ declare namespace gapi.client {
       removeAssets(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2952,11 +3131,11 @@ declare namespace gapi.client {
       /** Creates an import data file. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2985,11 +3164,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3018,11 +3197,11 @@ declare namespace gapi.client {
       /** Delete an import data file. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3047,11 +3226,11 @@ declare namespace gapi.client {
       /** Gets an import data file. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3074,11 +3253,11 @@ declare namespace gapi.client {
       /** List import data files. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3111,11 +3290,11 @@ declare namespace gapi.client {
       /** Creates an import job. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3144,11 +3323,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3177,11 +3356,11 @@ declare namespace gapi.client {
       /** Deletes an import job. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3208,11 +3387,11 @@ declare namespace gapi.client {
       /** Gets the details of an import job. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3232,16 +3411,19 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Optional. The level of details of the import job. Default value is FULL. */
-        view?: string;
+        view?:
+          | 'IMPORT_JOB_VIEW_UNSPECIFIED'
+          | 'IMPORT_JOB_VIEW_BASIC'
+          | 'IMPORT_JOB_VIEW_FULL';
       }): Request<ImportJob>;
       /** Lists all import jobs. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3269,16 +3451,19 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Optional. The level of details of each import job. Default value is BASIC. */
-        view?: string;
+        view?:
+          | 'IMPORT_JOB_VIEW_UNSPECIFIED'
+          | 'IMPORT_JOB_VIEW_BASIC'
+          | 'IMPORT_JOB_VIEW_FULL';
       }): Request<ListImportJobsResponse>;
       /** Updates an import job. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3307,11 +3492,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3340,11 +3525,11 @@ declare namespace gapi.client {
       /** Runs an import job. */
       run(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3369,11 +3554,11 @@ declare namespace gapi.client {
       run(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3398,11 +3583,11 @@ declare namespace gapi.client {
       /** Validates an import job. */
       validate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3427,11 +3612,11 @@ declare namespace gapi.client {
       validate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3459,11 +3644,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3488,11 +3673,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3517,11 +3702,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3544,11 +3729,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3571,11 +3756,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3608,11 +3793,11 @@ declare namespace gapi.client {
       /** Creates a new preference set in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3641,11 +3826,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3674,11 +3859,11 @@ declare namespace gapi.client {
       /** Deletes a preference set. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3703,11 +3888,11 @@ declare namespace gapi.client {
       /** Gets the details of a preference set. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3730,11 +3915,11 @@ declare namespace gapi.client {
       /** Lists all the preference sets in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3763,11 +3948,11 @@ declare namespace gapi.client {
       /** Updates the parameters of a preference set. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3796,11 +3981,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3831,11 +4016,11 @@ declare namespace gapi.client {
       /** Gets the details of an relation. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3858,11 +4043,11 @@ declare namespace gapi.client {
       /** Lists all the relations in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3895,11 +4080,11 @@ declare namespace gapi.client {
       /** Creates a report. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3928,11 +4113,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3961,11 +4146,11 @@ declare namespace gapi.client {
       /** Deletes a Report. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3990,11 +4175,11 @@ declare namespace gapi.client {
       /** Gets details of a single Report. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4014,16 +4199,20 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Determines what information to retrieve for the Report. */
-        view?: string;
+        view?:
+          | 'REPORT_VIEW_UNSPECIFIED'
+          | 'REPORT_VIEW_BASIC'
+          | 'REPORT_VIEW_FULL'
+          | 'REPORT_VIEW_STANDARD';
       }): Request<Report>;
       /** Lists Reports in a given ReportConfig. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4051,18 +4240,22 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Determines what information to retrieve for each Report. */
-        view?: string;
+        view?:
+          | 'REPORT_VIEW_UNSPECIFIED'
+          | 'REPORT_VIEW_BASIC'
+          | 'REPORT_VIEW_FULL'
+          | 'REPORT_VIEW_STANDARD';
       }): Request<ListReportsResponse>;
     }
     interface ReportConfigsResource {
       /** Creates a report configuration. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4091,11 +4284,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4124,11 +4317,11 @@ declare namespace gapi.client {
       /** Deletes a ReportConfig. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4155,11 +4348,11 @@ declare namespace gapi.client {
       /** Gets details of a single ReportConfig. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4182,11 +4375,11 @@ declare namespace gapi.client {
       /** Lists ReportConfigs in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4220,11 +4413,11 @@ declare namespace gapi.client {
       /** Gets the details of an error frame. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4244,16 +4437,19 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Optional. An optional view mode to control the level of details for the frame. The default is a basic frame view. */
-        view?: string;
+        view?:
+          | 'ERROR_FRAME_VIEW_UNSPECIFIED'
+          | 'ERROR_FRAME_VIEW_BASIC'
+          | 'ERROR_FRAME_VIEW_FULL';
       }): Request<ErrorFrame>;
       /** Lists all error frames in a given source and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4277,18 +4473,21 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Optional. An optional view mode to control the level of details of each error frame. The default is a BASIC frame view. */
-        view?: string;
+        view?:
+          | 'ERROR_FRAME_VIEW_UNSPECIFIED'
+          | 'ERROR_FRAME_VIEW_BASIC'
+          | 'ERROR_FRAME_VIEW_FULL';
       }): Request<ListErrorFramesResponse>;
     }
     interface SourcesResource {
       /** Creates a new source in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4317,11 +4516,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4350,11 +4549,11 @@ declare namespace gapi.client {
       /** Deletes a source. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4379,11 +4578,11 @@ declare namespace gapi.client {
       /** Gets the details of a source. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4406,11 +4605,11 @@ declare namespace gapi.client {
       /** Lists all the sources in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4441,11 +4640,11 @@ declare namespace gapi.client {
       /** Updates the parameters of a source. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4474,11 +4673,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4510,11 +4709,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4537,11 +4736,11 @@ declare namespace gapi.client {
       /** Gets the details of regional settings. */
       getSettings(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4564,11 +4763,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */
@@ -4599,11 +4798,11 @@ declare namespace gapi.client {
       /** Updates the regional-level project settings. */
       updateSettings(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4632,11 +4831,11 @@ declare namespace gapi.client {
       updateSettings(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

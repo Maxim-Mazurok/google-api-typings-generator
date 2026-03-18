@@ -375,11 +375,11 @@ declare namespace gapi.client {
       /** Returns metadata about the search performed, metadata about the engine used for the search, and the search results. Uses a small set of url patterns. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Enables or disables [Simplified and Traditional Chinese Search](https://developers.google.com/custom-search/docs/json_api_reference#chineseSearch). The default value for this parameter is 0 (zero), meaning that the feature is enabled. Supported values are: * `1`: Disabled * `0`: Enabled (default) */
         c2coff?: string;
         /** JSONP */
@@ -413,13 +413,46 @@ declare namespace gapi.client {
         /** Appends the specified query terms to the query, as if they were combined with a logical AND operator. */
         hq?: string;
         /** Returns black and white, grayscale, transparent, or color images. Acceptable values are: * `"color"` * `"gray"` * `"mono"`: black and white * `"trans"`: transparent background */
-        imgColorType?: string;
+        imgColorType?:
+          | 'imgColorTypeUndefined'
+          | 'mono'
+          | 'gray'
+          | 'color'
+          | 'trans';
         /** Returns images of a specific dominant color. Acceptable values are: * `"black"` * `"blue"` * `"brown"` * `"gray"` * `"green"` * `"orange"` * `"pink"` * `"purple"` * `"red"` * `"teal"` * `"white"` * `"yellow"` */
-        imgDominantColor?: string;
+        imgDominantColor?:
+          | 'imgDominantColorUndefined'
+          | 'black'
+          | 'blue'
+          | 'brown'
+          | 'gray'
+          | 'green'
+          | 'orange'
+          | 'pink'
+          | 'purple'
+          | 'red'
+          | 'teal'
+          | 'white'
+          | 'yellow';
         /** Returns images of a specified size. Acceptable values are: * `"huge"` * `"icon"` * `"large"` * `"medium"` * `"small"` * `"xlarge"` * `"xxlarge"` */
-        imgSize?: string;
+        imgSize?:
+          | 'imgSizeUndefined'
+          | 'HUGE'
+          | 'ICON'
+          | 'LARGE'
+          | 'MEDIUM'
+          | 'SMALL'
+          | 'XLARGE'
+          | 'XXLARGE';
         /** Returns images of a type. Acceptable values are: * `"clipart"` * `"face"` * `"lineart"` * `"stock"` * `"photo"` * `"animated"` */
-        imgType?: string;
+        imgType?:
+          | 'imgTypeUndefined'
+          | 'clipart'
+          | 'face'
+          | 'lineart'
+          | 'stock'
+          | 'photo'
+          | 'animated';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** Specifies that all search results should contain a link to a particular URL. */
@@ -445,13 +478,13 @@ declare namespace gapi.client {
         /** Filters based on licensing. Supported values include: `cc_publicdomain`, `cc_attribute`, `cc_sharealike`, `cc_noncommercial`, `cc_nonderived` and combinations of these. See [typical combinations](https://wiki.creativecommons.org/wiki/CC_Search_integration). */
         rights?: string;
         /** Search safety level. Acceptable values are: * `"active"`: Enables SafeSearch filtering. * `"off"`: Disables SafeSearch filtering. (default) */
-        safe?: string;
+        safe?: 'safeUndefined' | 'active' | 'high' | 'medium' | 'off';
         /** Specifies the search type: `image`. If unspecified, results are limited to webpages. Acceptable values are: * `"image"`: custom image search. */
-        searchType?: string;
+        searchType?: 'searchTypeUndefined' | 'image';
         /** Specifies a given site which should always be included or excluded from results (see `siteSearchFilter` parameter, below). */
         siteSearch?: string;
         /** Controls whether to include or exclude results from the site named in the `siteSearch` parameter. Acceptable values are: * `"e"`: exclude * `"i"`: include */
-        siteSearchFilter?: string;
+        siteSearchFilter?: 'siteSearchFilterUndefined' | 'e' | 'i';
         /** Optional. Maximum length of snippet text, in characters, to be returned with results. Note: this feature is limited to specific engines. * Valid values are integers between 161 and 1000, inclusive. */
         snippetLength?: number;
         /** The sort expression to apply to the results. The sort parameter specifies that the results be sorted according to the specified expression i.e. sort by date. [Example: sort=date](https://developers.google.com/custom-search/docs/structured_search#sort-by-attribute). */
@@ -468,11 +501,11 @@ declare namespace gapi.client {
       /** Returns metadata about the search performed, metadata about the engine used for the search, and the search results. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Enables or disables [Simplified and Traditional Chinese Search](https://developers.google.com/custom-search/docs/json_api_reference#chineseSearch). The default value for this parameter is 0 (zero), meaning that the feature is enabled. Supported values are: * `1`: Disabled * `0`: Enabled (default) */
         c2coff?: string;
         /** JSONP */
@@ -506,13 +539,46 @@ declare namespace gapi.client {
         /** Appends the specified query terms to the query, as if they were combined with a logical AND operator. */
         hq?: string;
         /** Returns black and white, grayscale, transparent, or color images. Acceptable values are: * `"color"` * `"gray"` * `"mono"`: black and white * `"trans"`: transparent background */
-        imgColorType?: string;
+        imgColorType?:
+          | 'imgColorTypeUndefined'
+          | 'mono'
+          | 'gray'
+          | 'color'
+          | 'trans';
         /** Returns images of a specific dominant color. Acceptable values are: * `"black"` * `"blue"` * `"brown"` * `"gray"` * `"green"` * `"orange"` * `"pink"` * `"purple"` * `"red"` * `"teal"` * `"white"` * `"yellow"` */
-        imgDominantColor?: string;
+        imgDominantColor?:
+          | 'imgDominantColorUndefined'
+          | 'black'
+          | 'blue'
+          | 'brown'
+          | 'gray'
+          | 'green'
+          | 'orange'
+          | 'pink'
+          | 'purple'
+          | 'red'
+          | 'teal'
+          | 'white'
+          | 'yellow';
         /** Returns images of a specified size. Acceptable values are: * `"huge"` * `"icon"` * `"large"` * `"medium"` * `"small"` * `"xlarge"` * `"xxlarge"` */
-        imgSize?: string;
+        imgSize?:
+          | 'imgSizeUndefined'
+          | 'HUGE'
+          | 'ICON'
+          | 'LARGE'
+          | 'MEDIUM'
+          | 'SMALL'
+          | 'XLARGE'
+          | 'XXLARGE';
         /** Returns images of a type. Acceptable values are: * `"clipart"` * `"face"` * `"lineart"` * `"stock"` * `"photo"` * `"animated"` */
-        imgType?: string;
+        imgType?:
+          | 'imgTypeUndefined'
+          | 'clipart'
+          | 'face'
+          | 'lineart'
+          | 'stock'
+          | 'photo'
+          | 'animated';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** Specifies that all search results should contain a link to a particular URL. */
@@ -538,13 +604,13 @@ declare namespace gapi.client {
         /** Filters based on licensing. Supported values include: `cc_publicdomain`, `cc_attribute`, `cc_sharealike`, `cc_noncommercial`, `cc_nonderived` and combinations of these. See [typical combinations](https://wiki.creativecommons.org/wiki/CC_Search_integration). */
         rights?: string;
         /** Search safety level. Acceptable values are: * `"active"`: Enables SafeSearch filtering. * `"off"`: Disables SafeSearch filtering. (default) */
-        safe?: string;
+        safe?: 'safeUndefined' | 'active' | 'high' | 'medium' | 'off';
         /** Specifies the search type: `image`. If unspecified, results are limited to webpages. Acceptable values are: * `"image"`: custom image search. */
-        searchType?: string;
+        searchType?: 'searchTypeUndefined' | 'image';
         /** Specifies a given site which should always be included or excluded from results (see `siteSearchFilter` parameter, below). */
         siteSearch?: string;
         /** Controls whether to include or exclude results from the site named in the `siteSearch` parameter. Acceptable values are: * `"e"`: exclude * `"i"`: include */
-        siteSearchFilter?: string;
+        siteSearchFilter?: 'siteSearchFilterUndefined' | 'e' | 'i';
         /** Optional. Maximum length of snippet text, in characters, to be returned with results. Note: this feature is limited to specific engines. * Valid values are integers between 161 and 1000, inclusive. */
         snippetLength?: number;
         /** The sort expression to apply to the results. The sort parameter specifies that the results be sorted according to the specified expression i.e. sort by date. [Example: sort=date](https://developers.google.com/custom-search/docs/structured_search#sort-by-attribute). */

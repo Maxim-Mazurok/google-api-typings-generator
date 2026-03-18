@@ -36,9 +36,14 @@ declare namespace gapi.client {
     }
     interface GoogleSecuritySafebrowsingV5FullHashFullHashDetail {
       /** Unordered list. Additional attributes about those full hashes. This may be empty. */
-      attributes?: string[];
+      attributes?: 'THREAT_ATTRIBUTE_UNSPECIFIED' | 'CANARY' | 'FRAME_ONLY'[];
       /** The type of threat. This field will never be empty. */
-      threatType?: string;
+      threatType?:
+        | 'THREAT_TYPE_UNSPECIFIED'
+        | 'MALWARE'
+        | 'SOCIAL_ENGINEERING'
+        | 'UNWANTED_SOFTWARE'
+        | 'POTENTIALLY_HARMFUL_APPLICATION';
     }
     interface GoogleSecuritySafebrowsingV5HashList {
       /** The 8-byte additions. */
@@ -68,11 +73,25 @@ declare namespace gapi.client {
       /** A human-readable description about this list. Written in English. */
       description?: string;
       /** The supported hash length for this hash list. Each hash list will support exactly one length. If a different hash length is introduced for the same set of threat types or safe types, it will be introduced as a separate list with a distinct name and respective hash length set. */
-      hashLength?: string;
+      hashLength?:
+        | 'HASH_LENGTH_UNSPECIFIED'
+        | 'FOUR_BYTES'
+        | 'EIGHT_BYTES'
+        | 'SIXTEEN_BYTES'
+        | 'THIRTY_TWO_BYTES';
       /** Unordered list. If not empty, this specifies that the hash list represents a list of likely safe hashes, and this enumerates the ways they are considered likely safe. This field is mutually exclusive with the threat_types field. */
-      likelySafeTypes?: string[];
+      likelySafeTypes?:
+        | 'LIKELY_SAFE_TYPE_UNSPECIFIED'
+        | 'GENERAL_BROWSING'
+        | 'CSD'
+        | 'DOWNLOAD'[];
       /** Unordered list. If not empty, this specifies that the hash list is a kind of threat list, and this enumerates the kind of threats associated with hashes or hash prefixes in this hash list. May be empty if the entry does not represent a threat, i.e. in the case that it represents a likely safe type. */
-      threatTypes?: string[];
+      threatTypes?:
+        | 'THREAT_TYPE_UNSPECIFIED'
+        | 'MALWARE'
+        | 'SOCIAL_ENGINEERING'
+        | 'UNWANTED_SOFTWARE'
+        | 'POTENTIALLY_HARMFUL_APPLICATION'[];
     }
     interface GoogleSecuritySafebrowsingV5ListHashListsResponse {
       /** The hash lists in an arbitrary order. Only metadata about the hash lists will be included, not the contents. */
@@ -142,7 +161,12 @@ declare namespace gapi.client {
     }
     interface GoogleSecuritySafebrowsingV5ThreatUrl {
       /** Unordered list. The unordered list of threat that the URL is classified as. */
-      threatTypes?: string[];
+      threatTypes?:
+        | 'THREAT_TYPE_UNSPECIFIED'
+        | 'MALWARE'
+        | 'SOCIAL_ENGINEERING'
+        | 'UNWANTED_SOFTWARE'
+        | 'POTENTIALLY_HARMFUL_APPLICATION'[];
       /** The requested URL that was matched by one or more threats. */
       url?: string;
     }
@@ -150,11 +174,11 @@ declare namespace gapi.client {
       /** Searches for full hashes matching the specified prefixes. This is a custom method as defined by https://google.aip.dev/136 (the custom method refers to this method having a custom name within Google's general API development nomenclature; it does not refer to using a custom HTTP method). */
       search(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -179,11 +203,11 @@ declare namespace gapi.client {
       /** Gets the latest contents of a hash list. A hash list may either by a threat list or a non-threat list such as the Global Cache. This is a standard Get method as defined by https://google.aip.dev/131 and the HTTP method is also GET. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -214,11 +238,11 @@ declare namespace gapi.client {
       /** Gets multiple hash lists at once. It is very common for a client to need to get multiple hash lists. Using this method is preferred over using the regular Get method multiple times. This is a standard batch Get method as defined by https://google.aip.dev/231 and the HTTP method is also GET. */
       batchGet(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -247,11 +271,11 @@ declare namespace gapi.client {
       /** Lists hash lists. In the V5 API, Google will never remove a hash list that has ever been returned by this method. This enables clients to skip using this method and simply hard-code all hash lists they need. This is a standard List method as defined by https://google.aip.dev/132 and the HTTP method is GET. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -278,11 +302,11 @@ declare namespace gapi.client {
       /** Searches for URLs matching known threats. Each URL and it's host-suffix and path-prefix expressions (up to a limited depth) are checked. This means that the response may contain URLs that were not included in the request, but are expressions of the requested URLs. */
       search(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

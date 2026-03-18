@@ -78,7 +78,11 @@ declare namespace gapi.client {
       /** The literal message providing context and details about the warnings. */
       displayMessage?: string;
       /** The specific warning code for the displayed message. */
-      warningCode?: string;
+      warningCode?:
+        | 'WARNING_CODE_UNSPECIFIED'
+        | 'INSUFFICIENT_PERMISSIONS_PARTIAL_DATA'
+        | 'RESOURCE_LIMIT_EXCEEDED_PARTIAL_DATA'
+        | 'ORG_LESS_PROJECT_PARTIAL_DATA';
     }
     interface GoogleCloudKmsV1CryptoKey {
       /** Output only. The time at which this CryptoKey was created. */
@@ -100,7 +104,14 @@ declare namespace gapi.client {
       /** Output only. A copy of the "primary" CryptoKeyVersion that will be used by Encrypt when this CryptoKey is given in EncryptRequest.name. The CryptoKey's primary version can be updated via UpdateCryptoKeyPrimaryVersion. Keys with purpose ENCRYPT_DECRYPT may have a primary. For other keys, this field will be omitted. */
       primary?: GoogleCloudKmsV1CryptoKeyVersion;
       /** Immutable. The immutable purpose of this CryptoKey. */
-      purpose?: string;
+      purpose?:
+        | 'CRYPTO_KEY_PURPOSE_UNSPECIFIED'
+        | 'ENCRYPT_DECRYPT'
+        | 'ASYMMETRIC_SIGN'
+        | 'ASYMMETRIC_DECRYPT'
+        | 'RAW_ENCRYPT_DECRYPT'
+        | 'MAC'
+        | 'KEY_ENCAPSULATION';
       /** next_rotation_time will be advanced by this period when the service automatically rotates a key. Must be at least 24 hours and at most 876,000 hours. If rotation_period is set, next_rotation_time must also be set. Keys with purpose ENCRYPT_DECRYPT support automatic rotation. For other keys, this field must be omitted. */
       rotationPeriod?: string;
       /** A template describing settings for new CryptoKeyVersion instances. The properties of new CryptoKeyVersion instances created by either CreateCryptoKeyVersion or auto-rotation are controlled by this template. */
@@ -108,7 +119,54 @@ declare namespace gapi.client {
     }
     interface GoogleCloudKmsV1CryptoKeyVersion {
       /** Output only. The CryptoKeyVersionAlgorithm that this CryptoKeyVersion supports. */
-      algorithm?: string;
+      algorithm?:
+        | 'CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED'
+        | 'GOOGLE_SYMMETRIC_ENCRYPTION'
+        | 'AES_128_GCM'
+        | 'AES_256_GCM'
+        | 'AES_128_CBC'
+        | 'AES_256_CBC'
+        | 'AES_128_CTR'
+        | 'AES_256_CTR'
+        | 'RSA_SIGN_PSS_2048_SHA256'
+        | 'RSA_SIGN_PSS_3072_SHA256'
+        | 'RSA_SIGN_PSS_4096_SHA256'
+        | 'RSA_SIGN_PSS_4096_SHA512'
+        | 'RSA_SIGN_PKCS1_2048_SHA256'
+        | 'RSA_SIGN_PKCS1_3072_SHA256'
+        | 'RSA_SIGN_PKCS1_4096_SHA256'
+        | 'RSA_SIGN_PKCS1_4096_SHA512'
+        | 'RSA_SIGN_RAW_PKCS1_2048'
+        | 'RSA_SIGN_RAW_PKCS1_3072'
+        | 'RSA_SIGN_RAW_PKCS1_4096'
+        | 'RSA_DECRYPT_OAEP_2048_SHA256'
+        | 'RSA_DECRYPT_OAEP_3072_SHA256'
+        | 'RSA_DECRYPT_OAEP_4096_SHA256'
+        | 'RSA_DECRYPT_OAEP_4096_SHA512'
+        | 'RSA_DECRYPT_OAEP_2048_SHA1'
+        | 'RSA_DECRYPT_OAEP_3072_SHA1'
+        | 'RSA_DECRYPT_OAEP_4096_SHA1'
+        | 'EC_SIGN_P256_SHA256'
+        | 'EC_SIGN_P384_SHA384'
+        | 'EC_SIGN_SECP256K1_SHA256'
+        | 'EC_SIGN_ED25519'
+        | 'HMAC_SHA256'
+        | 'HMAC_SHA1'
+        | 'HMAC_SHA384'
+        | 'HMAC_SHA512'
+        | 'HMAC_SHA224'
+        | 'EXTERNAL_SYMMETRIC_ENCRYPTION'
+        | 'ML_KEM_768'
+        | 'ML_KEM_1024'
+        | 'KEM_XWING'
+        | 'PQ_SIGN_ML_DSA_44'
+        | 'PQ_SIGN_ML_DSA_65'
+        | 'PQ_SIGN_ML_DSA_87'
+        | 'PQ_SIGN_SLH_DSA_SHA2_128S'
+        | 'PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256'
+        | 'PQ_SIGN_ML_DSA_44_EXTERNAL_MU'
+        | 'PQ_SIGN_ML_DSA_65_EXTERNAL_MU'
+        | 'PQ_SIGN_ML_DSA_87_EXTERNAL_MU';
       /** Output only. Statement that was generated and signed by the HSM at key creation time. Use this statement to verify attributes of the key as stored on the HSM, independently of Google. Only provided for key versions with protection_level HSM. */
       attestation?: GoogleCloudKmsV1KeyOperationAttestation;
       /** Output only. The time at which this CryptoKeyVersion was created. */
@@ -134,17 +192,87 @@ declare namespace gapi.client {
       /** Output only. The resource name for this CryptoKeyVersion in the format `projects/*‍/locations/*‍/keyRings/*‍/cryptoKeys/*‍/cryptoKeyVersions/*`. */
       name?: string;
       /** Output only. The ProtectionLevel describing how crypto operations are performed with this CryptoKeyVersion. */
-      protectionLevel?: string;
+      protectionLevel?:
+        | 'PROTECTION_LEVEL_UNSPECIFIED'
+        | 'SOFTWARE'
+        | 'HSM'
+        | 'EXTERNAL'
+        | 'EXTERNAL_VPC'
+        | 'HSM_SINGLE_TENANT';
       /** Output only. Whether or not this key version is eligible for reimport, by being specified as a target in ImportCryptoKeyVersionRequest.crypto_key_version. */
       reimportEligible?: boolean;
       /** The current state of the CryptoKeyVersion. */
-      state?: string;
+      state?:
+        | 'CRYPTO_KEY_VERSION_STATE_UNSPECIFIED'
+        | 'PENDING_GENERATION'
+        | 'ENABLED'
+        | 'DISABLED'
+        | 'DESTROYED'
+        | 'DESTROY_SCHEDULED'
+        | 'PENDING_IMPORT'
+        | 'IMPORT_FAILED'
+        | 'GENERATION_FAILED'
+        | 'PENDING_EXTERNAL_DESTRUCTION'
+        | 'EXTERNAL_DESTRUCTION_FAILED';
     }
     interface GoogleCloudKmsV1CryptoKeyVersionTemplate {
       /** Required. Algorithm to use when creating a CryptoKeyVersion based on this template. For backwards compatibility, GOOGLE_SYMMETRIC_ENCRYPTION is implied if both this field is omitted and CryptoKey.purpose is ENCRYPT_DECRYPT. */
-      algorithm?: string;
+      algorithm?:
+        | 'CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED'
+        | 'GOOGLE_SYMMETRIC_ENCRYPTION'
+        | 'AES_128_GCM'
+        | 'AES_256_GCM'
+        | 'AES_128_CBC'
+        | 'AES_256_CBC'
+        | 'AES_128_CTR'
+        | 'AES_256_CTR'
+        | 'RSA_SIGN_PSS_2048_SHA256'
+        | 'RSA_SIGN_PSS_3072_SHA256'
+        | 'RSA_SIGN_PSS_4096_SHA256'
+        | 'RSA_SIGN_PSS_4096_SHA512'
+        | 'RSA_SIGN_PKCS1_2048_SHA256'
+        | 'RSA_SIGN_PKCS1_3072_SHA256'
+        | 'RSA_SIGN_PKCS1_4096_SHA256'
+        | 'RSA_SIGN_PKCS1_4096_SHA512'
+        | 'RSA_SIGN_RAW_PKCS1_2048'
+        | 'RSA_SIGN_RAW_PKCS1_3072'
+        | 'RSA_SIGN_RAW_PKCS1_4096'
+        | 'RSA_DECRYPT_OAEP_2048_SHA256'
+        | 'RSA_DECRYPT_OAEP_3072_SHA256'
+        | 'RSA_DECRYPT_OAEP_4096_SHA256'
+        | 'RSA_DECRYPT_OAEP_4096_SHA512'
+        | 'RSA_DECRYPT_OAEP_2048_SHA1'
+        | 'RSA_DECRYPT_OAEP_3072_SHA1'
+        | 'RSA_DECRYPT_OAEP_4096_SHA1'
+        | 'EC_SIGN_P256_SHA256'
+        | 'EC_SIGN_P384_SHA384'
+        | 'EC_SIGN_SECP256K1_SHA256'
+        | 'EC_SIGN_ED25519'
+        | 'HMAC_SHA256'
+        | 'HMAC_SHA1'
+        | 'HMAC_SHA384'
+        | 'HMAC_SHA512'
+        | 'HMAC_SHA224'
+        | 'EXTERNAL_SYMMETRIC_ENCRYPTION'
+        | 'ML_KEM_768'
+        | 'ML_KEM_1024'
+        | 'KEM_XWING'
+        | 'PQ_SIGN_ML_DSA_44'
+        | 'PQ_SIGN_ML_DSA_65'
+        | 'PQ_SIGN_ML_DSA_87'
+        | 'PQ_SIGN_SLH_DSA_SHA2_128S'
+        | 'PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256'
+        | 'PQ_SIGN_ML_DSA_44_EXTERNAL_MU'
+        | 'PQ_SIGN_ML_DSA_65_EXTERNAL_MU'
+        | 'PQ_SIGN_ML_DSA_87_EXTERNAL_MU';
       /** ProtectionLevel to use when creating a CryptoKeyVersion based on this template. Immutable. Defaults to SOFTWARE. */
-      protectionLevel?: string;
+      protectionLevel?:
+        | 'PROTECTION_LEVEL_UNSPECIFIED'
+        | 'SOFTWARE'
+        | 'HSM'
+        | 'EXTERNAL'
+        | 'EXTERNAL_VPC'
+        | 'HSM_SINGLE_TENANT';
     }
     interface GoogleCloudKmsV1ExternalProtectionLevelOptions {
       /** The path to the external key material on the EKM when using EkmConnection e.g., "v0/my/key". Set this field instead of external_key_uri when using an EkmConnection. */
@@ -154,7 +282,19 @@ declare namespace gapi.client {
     }
     interface GoogleCloudKmsV1KeyAccessJustificationsPolicy {
       /** The list of allowed reasons for access to a CryptoKey. Note that empty allowed_access_reasons has a different meaning depending on where this message appears. If this is under KeyAccessJustificationsPolicyConfig, it means allow-all. If this is under CryptoKey, it means deny-all. */
-      allowedAccessReasons?: string[];
+      allowedAccessReasons?:
+        | 'REASON_UNSPECIFIED'
+        | 'CUSTOMER_INITIATED_SUPPORT'
+        | 'GOOGLE_INITIATED_SERVICE'
+        | 'THIRD_PARTY_DATA_REQUEST'
+        | 'GOOGLE_INITIATED_REVIEW'
+        | 'CUSTOMER_INITIATED_ACCESS'
+        | 'GOOGLE_INITIATED_SYSTEM_OPERATION'
+        | 'REASON_NOT_EXPECTED'
+        | 'MODIFIED_CUSTOMER_INITIATED_ACCESS'
+        | 'MODIFIED_GOOGLE_INITIATED_SYSTEM_OPERATION'
+        | 'GOOGLE_RESPONSE_TO_PRODUCTION_ALERT'
+        | 'CUSTOMER_AUTHORIZED_WORKFLOW_SERVICING'[];
     }
     interface GoogleCloudKmsV1KeyOperationAttestation {
       /** Output only. The certificate chains needed to validate the attestation */
@@ -162,7 +302,10 @@ declare namespace gapi.client {
       /** Output only. The attestation data provided by the HSM when the key operation was performed. */
       content?: string;
       /** Output only. The format of the attestation data. */
-      format?: string;
+      format?:
+        | 'ATTESTATION_FORMAT_UNSPECIFIED'
+        | 'CAVIUM_V1_COMPRESSED'
+        | 'CAVIUM_V2_COMPRESSED';
     }
     interface GoogleCloudKmsV1KeyOperationAttestationCertificateChains {
       /** Cavium certificate chain corresponding to the attestation. */
@@ -176,11 +319,11 @@ declare namespace gapi.client {
       /** Returns metadata about the resources protected by the given Cloud KMS CryptoKey in the given Cloud organization/project. */
       search(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The resource name of the CryptoKey. */
@@ -216,11 +359,11 @@ declare namespace gapi.client {
       /** Returns cryptographic keys managed by Cloud KMS in a given Cloud project. Note that this data is sourced from snapshots, meaning it may not completely reflect the actual state of key metadata at call time. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -249,15 +392,15 @@ declare namespace gapi.client {
       /** Returns aggregate information about the resources protected by the given Cloud KMS CryptoKey. By default, summary of resources within the same Cloud organization as the key will be returned, which requires the KMS organization service account to be configured(refer https://docs.cloud.google.com/kms/docs/view-key-usage#required-roles). If the KMS organization service account is not configured or key's project is not part of an organization, set fallback_scope to `FALLBACK_SCOPE_PROJECT` to retrieve a summary of protected resources within the key's project. */
       getProtectedResourcesSummary(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. The scope to use if the kms organization service account is not configured. */
-        fallbackScope?: string;
+        fallbackScope?: 'FALLBACK_SCOPE_UNSPECIFIED' | 'FALLBACK_SCOPE_PROJECT';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -286,11 +429,11 @@ declare namespace gapi.client {
       /** Returns metadata about the resources protected by the given Cloud KMS CryptoKey in the given Cloud organization/project. */
       search(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The resource name of the CryptoKey. */

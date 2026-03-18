@@ -33,11 +33,25 @@ declare namespace gapi.client {
   namespace gmailpostmastertools {
     interface DeliveryError {
       /** The class of delivery error. */
-      errorClass?: string;
+      errorClass?:
+        | 'DELIVERY_ERROR_CLASS_UNSPECIFIED'
+        | 'PERMANENT_ERROR'
+        | 'TEMPORARY_ERROR';
       /** The ratio of messages where the error occurred vs all authenticated traffic. */
       errorRatio?: number;
       /** The type of delivery error. */
-      errorType?: string;
+      errorType?:
+        | 'DELIVERY_ERROR_TYPE_UNSPECIFIED'
+        | 'RATE_LIMIT_EXCEEDED'
+        | 'SUSPECTED_SPAM'
+        | 'CONTENT_SPAMMY'
+        | 'BAD_ATTACHMENT'
+        | 'BAD_DMARC_POLICY'
+        | 'LOW_IP_REPUTATION'
+        | 'LOW_DOMAIN_REPUTATION'
+        | 'IP_IN_RBL'
+        | 'DOMAIN_IN_RBL'
+        | 'BAD_PTR_RECORD';
     }
     interface Domain {
       /** Timestamp when the user registered this domain. Assigned by the server. */
@@ -45,7 +59,7 @@ declare namespace gapi.client {
       /** The resource name of the Domain. Domain names have the form `domains/{domain_name}`, where domain_name is the fully qualified domain name (i.e., mymail.mydomain.com). */
       name?: string;
       /** User’s permission for this domain. Assigned by the server. */
-      permission?: string;
+      permission?: 'PERMISSION_UNSPECIFIED' | 'OWNER' | 'READER' | 'NONE';
     }
     interface FeedbackLoop {
       /** Feedback loop identifier that uniquely identifies individual campaigns. */
@@ -59,7 +73,12 @@ declare namespace gapi.client {
       /** Total number of unique IPs in this reputation category. This metric only pertains to traffic that passed [SPF](http://www.openspf.org/) or [DKIM](http://www.dkim.org/). Deprecated to be complied with ApiLinter for Quantities. Use ip_count instead. */
       numIps?: string;
       /** The reputation category this IP reputation represents. */
-      reputation?: string;
+      reputation?:
+        | 'REPUTATION_CATEGORY_UNSPECIFIED'
+        | 'HIGH'
+        | 'MEDIUM'
+        | 'LOW'
+        | 'BAD';
       /** A sample of IPs in this reputation category. */
       sampleIps?: string[];
     }
@@ -83,7 +102,12 @@ declare namespace gapi.client {
       /** The ratio of mail that passed [DMARC](https://dmarc.org/) alignment checks vs all mail received from the domain that successfully authenticated with either of [SPF](http://www.openspf.org/) or [DKIM](http://www.dkim.org/). */
       dmarcSuccessRatio?: number;
       /** Reputation of the domain. */
-      domainReputation?: string;
+      domainReputation?:
+        | 'REPUTATION_CATEGORY_UNSPECIFIED'
+        | 'HIGH'
+        | 'MEDIUM'
+        | 'LOW'
+        | 'BAD';
       /** The ratio of incoming mail (to Gmail), that passed secure transport (TLS) vs all mail received from that domain. This metric only pertains to traffic that passed [SPF](http://www.openspf.org/) or [DKIM](http://www.dkim.org/). */
       inboundEncryptionRatio?: number;
       /** Reputation information pertaining to the IP addresses of the email servers for the domain. There is exactly one entry for each reputation category except REPUTATION_CATEGORY_UNSPECIFIED. */
@@ -107,11 +131,11 @@ declare namespace gapi.client {
       /** Get traffic statistics for a domain on a specific date. Returns PERMISSION_DENIED if user does not have permission to access TrafficStats for the domain. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -134,11 +158,11 @@ declare namespace gapi.client {
       /** List traffic statistics for all available days. Returns PERMISSION_DENIED if user does not have permission to access TrafficStats for the domain. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
@@ -179,11 +203,11 @@ declare namespace gapi.client {
       /** Gets a specific domain registered by the client. Returns NOT_FOUND if the domain does not exist. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -206,11 +230,11 @@ declare namespace gapi.client {
       /** Lists the domains that have been registered by the client. The order of domains in the response is unspecified and non-deterministic. Newly created domains will not necessarily be added to the end of this list. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

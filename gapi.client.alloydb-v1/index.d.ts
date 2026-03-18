@@ -58,7 +58,14 @@ declare namespace gapi.client {
       /** Output only. Create time stamp */
       createTime?: string;
       /** Output only. The database engine major version of the cluster this backup was created from. Any restored cluster created from this backup will have the same database version. */
-      databaseVersion?: string;
+      databaseVersion?:
+        | 'DATABASE_VERSION_UNSPECIFIED'
+        | 'POSTGRES_13'
+        | 'POSTGRES_14'
+        | 'POSTGRES_15'
+        | 'POSTGRES_16'
+        | 'POSTGRES_17'
+        | 'POSTGRES_18';
       /** Output only. Delete time stamp */
       deleteTime?: string;
       /** User-provided description of the backup. */
@@ -86,11 +93,16 @@ declare namespace gapi.client {
       /** Output only. The size of the backup in bytes. */
       sizeBytes?: string;
       /** Output only. The current state of the backup. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'READY'
+        | 'CREATING'
+        | 'FAILED'
+        | 'DELETING';
       /** Optional. Input only. Immutable. Tag keys/values directly bound to this resource. For example: ``` "123/environment": "production", "123/costCenter": "marketing" ``` */
       tags?: {[P in string]: string};
       /** The backup type, which suggests the trigger for the backup. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'ON_DEMAND' | 'AUTOMATED' | 'CONTINUOUS';
       /** Output only. The system-generated UID of the resource. The UID is assigned when the resource is created, and it is retained until it is deleted. */
       uid?: string;
       /** Output only. Update time stamp Users should not infer any meaning from this field. Its value is generally unrelated to the timing of the backup creation operation. */
@@ -149,7 +161,7 @@ declare namespace gapi.client {
       /** DEPRECATED. Use exclusive_action instead. */
       deleteResource?: boolean;
       /** Excluisive action returned by the CLH. */
-      exclusiveAction?: string;
+      exclusiveAction?: 'UNKNOWN_REPAIR_ACTION' | 'DELETE' | 'RETRY';
     }
     interface CloudSQLBackupRunSource {
       /** Required. The CloudSQL backup run ID. */
@@ -173,7 +185,7 @@ declare namespace gapi.client {
       /** Output only. Cluster created from CloudSQL snapshot. */
       cloudsqlBackupRunSource?: CloudSQLBackupRunSource;
       /** Output only. The type of the cluster. This is an output-only field and it's populated at the Cluster creation time or the Cluster promotion time. The cluster type is determined by which RPC was used to create the cluster (i.e. `CreateCluster` vs. `CreateSecondaryCluster` */
-      clusterType?: string;
+      clusterType?: 'CLUSTER_TYPE_UNSPECIFIED' | 'PRIMARY' | 'SECONDARY';
       /** Optional. Continuous backup configuration for this cluster. */
       continuousBackupConfig?: ContinuousBackupConfig;
       /** Output only. Continuous backup properties for this cluster. */
@@ -181,7 +193,14 @@ declare namespace gapi.client {
       /** Output only. Create time stamp */
       createTime?: string;
       /** Optional. The database engine major version. This is an optional field and it is populated at the Cluster creation time. If a database version is not supplied at cluster creation time, then a default database version will be used. */
-      databaseVersion?: string;
+      databaseVersion?:
+        | 'DATABASE_VERSION_UNSPECIFIED'
+        | 'POSTGRES_13'
+        | 'POSTGRES_14'
+        | 'POSTGRES_15'
+        | 'POSTGRES_16'
+        | 'POSTGRES_17'
+        | 'POSTGRES_18';
       /** Optional. Configuration for Dataplex integration. */
       dataplexConfig?: DataplexConfig;
       /** Output only. Delete time stamp */
@@ -203,7 +222,10 @@ declare namespace gapi.client {
       /** Optional. The maintenance update policy determines when to allow or deny updates. */
       maintenanceUpdatePolicy?: MaintenanceUpdatePolicy;
       /** Input only. Policy to use to automatically select the maintenance version to which to update the cluster's instances. */
-      maintenanceVersionSelectionPolicy?: string;
+      maintenanceVersionSelectionPolicy?:
+        | 'MAINTENANCE_VERSION_SELECTION_POLICY_UNSPECIFIED'
+        | 'MAINTENANCE_VERSION_SELECTION_POLICY_LATEST'
+        | 'MAINTENANCE_VERSION_SELECTION_POLICY_DEFAULT';
       /** Output only. Cluster created via DMS migration. */
       migrationSource?: MigrationSource;
       /** Output only. The name of the cluster resource with the format: * projects/{project}/locations/{region}/clusters/{cluster_id} where the cluster ID segment should satisfy the regex expression `[a-z0-9-]+`. For more details see https://google.aip.dev/122. The prefix of the cluster resource name is the name of the parent resource: * projects/{project}/locations/{region} */
@@ -224,9 +246,20 @@ declare namespace gapi.client {
       /** SSL configuration for this AlloyDB cluster. */
       sslConfig?: SslConfig;
       /** Output only. The current serving state of the cluster. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'READY'
+        | 'STOPPED'
+        | 'EMPTY'
+        | 'CREATING'
+        | 'DELETING'
+        | 'FAILED'
+        | 'BOOTSTRAPPING'
+        | 'MAINTENANCE'
+        | 'PROMOTING'
+        | 'SWITCHOVER';
       /** Optional. Subscription type of the cluster. */
-      subscriptionType?: string;
+      subscriptionType?: 'SUBSCRIPTION_TYPE_UNSPECIFIED' | 'STANDARD' | 'TRIAL';
       /** Optional. Input only. Immutable. Tag keys/values directly bound to this resource. For example: ``` "123/environment": "production", "123/costCenter": "marketing" ``` */
       tags?: {[P in string]: string};
       /** Output only. Metadata for free trial clusters */
@@ -238,9 +271,16 @@ declare namespace gapi.client {
     }
     interface ClusterUpgradeDetails {
       /** Cluster type which can either be primary or secondary. */
-      clusterType?: string;
+      clusterType?: 'CLUSTER_TYPE_UNSPECIFIED' | 'PRIMARY' | 'SECONDARY';
       /** Database version of the cluster after the upgrade operation. This will be the target version if the upgrade was successful otherwise it remains the same as that before the upgrade operation. */
-      databaseVersion?: string;
+      databaseVersion?:
+        | 'DATABASE_VERSION_UNSPECIFIED'
+        | 'POSTGRES_13'
+        | 'POSTGRES_14'
+        | 'POSTGRES_15'
+        | 'POSTGRES_16'
+        | 'POSTGRES_17'
+        | 'POSTGRES_18';
       /** Upgrade details of the instances directly associated with this cluster. */
       instanceUpgradeDetails?: InstanceUpgradeDetails[];
       /** Normalized name of the cluster */
@@ -248,7 +288,15 @@ declare namespace gapi.client {
       /** Array containing stage info associated with this cluster. */
       stageInfo?: StageInfo[];
       /** Upgrade status of the cluster. */
-      upgradeStatus?: string;
+      upgradeStatus?:
+        | 'STATUS_UNSPECIFIED'
+        | 'NOT_STARTED'
+        | 'IN_PROGRESS'
+        | 'SUCCESS'
+        | 'FAILED'
+        | 'PARTIAL_SUCCESS'
+        | 'CANCEL_IN_PROGRESS'
+        | 'CANCELLED';
     }
     interface ConnectionInfo {
       /** Output only. The unique ID of the Instance. */
@@ -284,7 +332,15 @@ declare namespace gapi.client {
       /** Output only. The encryption information for the WALs and backups required for ContinuousBackup. */
       encryptionInfo?: EncryptionInfo;
       /** Output only. Days of the week on which a continuous backup is taken. */
-      schedule?: string[];
+      schedule?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY'[];
     }
     interface ContinuousBackupSource {
       /** Required. The source cluster from which to restore. This cluster must have continuous backup enabled for this operation to succeed. For the required format, see the comment on the Cluster.name field. */
@@ -333,7 +389,10 @@ declare namespace gapi.client {
     }
     interface EncryptionInfo {
       /** Output only. Type of encryption. */
-      encryptionType?: string;
+      encryptionType?:
+        | 'TYPE_UNSPECIFIED'
+        | 'GOOGLE_DEFAULT_ENCRYPTION'
+        | 'CUSTOMER_MANAGED_ENCRYPTION';
       /** Output only. Cloud KMS key versions that are being used to protect the database or the backup. */
       kmsKeyVersions?: string[];
     }
@@ -415,7 +474,7 @@ declare namespace gapi.client {
     }
     interface InjectFaultRequest {
       /** Required. The type of fault to be injected in an instance. */
-      faultType?: string;
+      faultType?: 'FAULT_TYPE_UNSPECIFIED' | 'STOP_VM';
       /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server ignores the request if it has already been completed. The server guarantees that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if the original operation with the same request ID was received, and if so, ignores the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
       requestId?: string;
       /** Optional. If set, performs request validation, for example, permission checks and any other type of validation, but does not actually execute the create request. */
@@ -423,11 +482,11 @@ declare namespace gapi.client {
     }
     interface Instance {
       /** Optional. Specifies whether an instance needs to spin up. Once the instance is active, the activation policy can be updated to the `NEVER` to stop the instance. Likewise, the activation policy can be updated to `ALWAYS` to start the instance. There are restrictions around when an instance can/cannot be activated (for example, a read pool instance should be stopped before stopping primary etc.). Please refer to the API documentation for more details. */
-      activationPolicy?: string;
+      activationPolicy?: 'ACTIVATION_POLICY_UNSPECIFIED' | 'ALWAYS' | 'NEVER';
       /** Annotations to allow client tools to store small amount of arbitrary data. This is distinct from labels. https://google.aip.dev/128 */
       annotations?: {[P in string]: string};
       /** Availability type of an Instance. If empty, defaults to REGIONAL for primary instances. For read pools, availability_type is always UNSPECIFIED. Instances in the read pools are evenly distributed across available zones within the region (i.e. read pools with more than one node will have a node in at least two zones). */
-      availabilityType?: string;
+      availabilityType?: 'AVAILABILITY_TYPE_UNSPECIFIED' | 'ZONAL' | 'REGIONAL';
       /** Optional. Client connection specific configurations */
       clientConnectionConfig?: ClientConnectionConfig;
       /** Optional. The configuration for Managed Connection Pool (MCP). */
@@ -435,7 +494,10 @@ declare namespace gapi.client {
       /** Output only. Create time stamp */
       createTime?: string;
       /** Optional. Controls whether the Data API is enabled for this instance. When enabled, this allows authorized users to connect to the instance from the public internet using the `executeSql` API, even for private IP instances. If this is not specified, the data API is enabled by default for Google internal services like AlloyDB Studio. Disable it explicitly to disallow Google internal services as well. */
-      dataApiAccess?: string;
+      dataApiAccess?:
+        | 'DEFAULT_DATA_API_ENABLED_FOR_GOOGLE_CLOUD_SERVICES'
+        | 'DISABLED'
+        | 'ENABLED';
       /** Database flags. Set at the instance level. They are copied from the primary instance on secondary instance creation. Flags that have restrictions default to the value at primary instance on read instances during creation. Read instances can set new flags or override existing flags that are relevant for reads, for example, for enabling columnar cache on a read instance. Flags set on read instance might or might not be present on the primary instance. This is a list of "key": "value" pairs. "key": The name of the flag. These flags are passed at instance setup time, so include both server options and system variables for Postgres. Flags are specified with underscores, not hyphens. "value": The value of the flag. Booleans are set to **on** for true and **off** for false. This field must be omitted if the flag doesn't take a value. */
       databaseFlags?: {[P in string]: string};
       /** Output only. Delete time stamp */
@@ -447,7 +509,11 @@ declare namespace gapi.client {
       /** The Compute Engine zone that the instance should serve from, per https://cloud.google.com/compute/docs/regions-zones This can ONLY be specified for ZONAL instances. If present for a REGIONAL instance, an error will be thrown. If this is absent for a ZONAL instance, instance is created in a random zone with available capacity. */
       gceZone?: string;
       /** Required. The type of the instance. Specified at creation time. */
-      instanceType?: string;
+      instanceType?:
+        | 'INSTANCE_TYPE_UNSPECIFIED'
+        | 'PRIMARY'
+        | 'READ_POOL'
+        | 'SECONDARY';
       /** Output only. The IP address for the Instance. This is the connection endpoint for an end-user application. */
       ipAddress?: string;
       /** Labels as key value pairs */
@@ -479,7 +545,19 @@ declare namespace gapi.client {
       /** Output only. Reserved for future use. */
       satisfiesPzs?: boolean;
       /** Output only. The current serving state of the instance. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'READY'
+        | 'STOPPED'
+        | 'CREATING'
+        | 'DELETING'
+        | 'MAINTENANCE'
+        | 'FAILED'
+        | 'BOOTSTRAPPING'
+        | 'PROMOTING'
+        | 'SWITCHOVER'
+        | 'STOPPING'
+        | 'STARTING';
       /** Output only. The system-generated UID of the resource. The UID is assigned when the resource is created, and it is retained until it is deleted. */
       uid?: string;
       /** Output only. Update time stamp */
@@ -501,11 +579,23 @@ declare namespace gapi.client {
     }
     interface InstanceUpgradeDetails {
       /** Instance type. */
-      instanceType?: string;
+      instanceType?:
+        | 'INSTANCE_TYPE_UNSPECIFIED'
+        | 'PRIMARY'
+        | 'READ_POOL'
+        | 'SECONDARY';
       /** Normalized name of the instance. */
       name?: string;
       /** Upgrade status of the instance. */
-      upgradeStatus?: string;
+      upgradeStatus?:
+        | 'STATUS_UNSPECIFIED'
+        | 'NOT_STARTED'
+        | 'IN_PROGRESS'
+        | 'SUCCESS'
+        | 'FAILED'
+        | 'PARTIAL_SUCCESS'
+        | 'CANCEL_IN_PROGRESS'
+        | 'CANCELLED';
     }
     interface IntegerRestrictions {
       /** The maximum value that can be specified, if applicable. */
@@ -577,7 +667,15 @@ declare namespace gapi.client {
     }
     interface MaintenanceWindow {
       /** Preferred day of the week for maintenance, e.g. MONDAY, TUESDAY, etc. */
-      day?: string;
+      day?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY';
       /** Preferred time to start the maintenance operation on the specified day. Maintenance will start within 1 hour of this time. */
       startTime?: GoogleTypeTimeOfDay;
     }
@@ -587,7 +685,7 @@ declare namespace gapi.client {
       /** Output only. Place holder for the external source identifier(e.g DMS job name) that created the cluster. */
       referenceId?: string;
       /** Output only. Type of migration source. */
-      sourceType?: string;
+      sourceType?: 'MIGRATION_SOURCE_TYPE_UNSPECIFIED' | 'DMS';
     }
     interface NetworkConfig {
       /** Optional. Name of the allocated IP range for the private IP AlloyDB cluster, for example: "google-managed-services-default". If set, the instance IPs for this cluster will be created in the allocated range. The range name must comply with RFC 1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?`. Field name is intended to be consistent with Cloud SQL. */
@@ -778,25 +876,63 @@ declare namespace gapi.client {
     interface SqlImportOptions {}
     interface SslConfig {
       /** Optional. Certificate Authority (CA) source. Only CA_SOURCE_MANAGED is supported currently, and is the default value. */
-      caSource?: string;
+      caSource?: 'CA_SOURCE_UNSPECIFIED' | 'CA_SOURCE_MANAGED';
       /** Optional. SSL mode. Specifies client-server SSL/TLS connection behavior. */
-      sslMode?: string;
+      sslMode?:
+        | 'SSL_MODE_UNSPECIFIED'
+        | 'SSL_MODE_ALLOW'
+        | 'SSL_MODE_REQUIRE'
+        | 'SSL_MODE_VERIFY_CA'
+        | 'ALLOW_UNENCRYPTED_AND_ENCRYPTED'
+        | 'ENCRYPTED_ONLY';
     }
     interface StageInfo {
       /** logs_url is the URL for the logs associated with a stage if that stage has logs. Right now, only three stages have logs: ALLOYDB_PRECHECK, PG_UPGRADE_CHECK, PRIMARY_INSTANCE_UPGRADE. */
       logsUrl?: string;
       /** The stage. */
-      stage?: string;
+      stage?:
+        | 'STAGE_UNSPECIFIED'
+        | 'ALLOYDB_PRECHECK'
+        | 'PG_UPGRADE_CHECK'
+        | 'PREPARE_FOR_UPGRADE'
+        | 'PRIMARY_INSTANCE_UPGRADE'
+        | 'READ_POOL_INSTANCES_UPGRADE'
+        | 'ROLLBACK'
+        | 'CLEANUP';
       /** Status of the stage. */
-      status?: string;
+      status?:
+        | 'STATUS_UNSPECIFIED'
+        | 'NOT_STARTED'
+        | 'IN_PROGRESS'
+        | 'SUCCESS'
+        | 'FAILED'
+        | 'PARTIAL_SUCCESS'
+        | 'CANCEL_IN_PROGRESS'
+        | 'CANCELLED';
     }
     interface StageStatus {
       /** Read pool instances upgrade metadata. */
       readPoolInstancesUpgrade?: ReadPoolInstancesUpgradeStageStatus;
       /** Upgrade stage. */
-      stage?: string;
+      stage?:
+        | 'STAGE_UNSPECIFIED'
+        | 'ALLOYDB_PRECHECK'
+        | 'PG_UPGRADE_CHECK'
+        | 'PREPARE_FOR_UPGRADE'
+        | 'PRIMARY_INSTANCE_UPGRADE'
+        | 'READ_POOL_INSTANCES_UPGRADE'
+        | 'ROLLBACK'
+        | 'CLEANUP';
       /** State of this stage. */
-      state?: string;
+      state?:
+        | 'STATUS_UNSPECIFIED'
+        | 'NOT_STARTED'
+        | 'IN_PROGRESS'
+        | 'SUCCESS'
+        | 'FAILED'
+        | 'PARTIAL_SUCCESS'
+        | 'CANCEL_IN_PROGRESS'
+        | 'CANCELLED';
     }
     interface Stats {
       /** Number of read pool instances which failed to upgrade. */
@@ -820,7 +956,12 @@ declare namespace gapi.client {
       /** Checks for existence of (multi-cluster) routing configuration that allows automatic failover to a different zone/region in case of an outage. Applicable to Bigtable resources. */
       automaticFailoverRoutingConfigured?: boolean;
       /** Availability type. Potential values: * `ZONAL`: The instance serves data from only one zone. Outages in that zone affect data accessibility. * `REGIONAL`: The instance can serve data from more than one zone in a region (it is highly available). */
-      availabilityType?: string;
+      availabilityType?:
+        | 'AVAILABILITY_TYPE_UNSPECIFIED'
+        | 'ZONAL'
+        | 'REGIONAL'
+        | 'MULTI_REGIONAL'
+        | 'AVAILABILITY_TYPE_OTHER';
       /** Checks for resources that are configured to have redundancy, and ongoing replication across regions */
       crossRegionReplicaConfigured?: boolean;
       externalReplicaConfigured?: boolean;
@@ -860,7 +1001,7 @@ declare namespace gapi.client {
       /** The time the backup operation started. REQUIRED */
       startTime?: string;
       /** The status of this run. REQUIRED */
-      status?: string;
+      status?: 'STATUS_UNSPECIFIED' | 'SUCCESSFUL' | 'FAILED';
     }
     interface StorageDatabasecenterPartnerapiV1mainCompliance {
       /** Industry-wide compliance standards or benchmarks, such as CIS, PCI, and OWASP. */
@@ -878,7 +1019,18 @@ declare namespace gapi.client {
       /** Signal data for boolean signals. */
       signalBoolValue?: boolean;
       /** Required. Signal type of the signal */
-      signalType?: string;
+      signalType?:
+        | 'SIGNAL_TYPE_UNSPECIFIED'
+        | 'SIGNAL_TYPE_OUTDATED_MINOR_VERSION'
+        | 'SIGNAL_TYPE_DATABASE_AUDITING_DISABLED'
+        | 'SIGNAL_TYPE_NO_ROOT_PASSWORD'
+        | 'SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS'
+        | 'SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS'
+        | 'SIGNAL_TYPE_EXTENDED_SUPPORT'
+        | 'SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY'
+        | 'SIGNAL_TYPE_VERSION_NEARING_END_OF_LIFE'
+        | 'SIGNAL_TYPE_LAST_BACKUP_OLD'
+        | 'SIGNAL_TYPE_NOT_PROTECTED_BY_AUTOMATIC_FAILOVER';
     }
     interface StorageDatabasecenterPartnerapiV1mainCustomMetadataData {
       /** Metadata for individual internal resources in an instance. e.g. spanner instance can have multiple databases with unique configuration. */
@@ -894,7 +1046,15 @@ declare namespace gapi.client {
       /** Required. Timestamp when feed is generated. */
       feedTimestamp?: string;
       /** Required. Type feed to be ingested into condor */
-      feedType?: string;
+      feedType?:
+        | 'FEEDTYPE_UNSPECIFIED'
+        | 'RESOURCE_METADATA'
+        | 'OBSERVABILITY_DATA'
+        | 'SECURITY_FINDING_DATA'
+        | 'RECOMMENDATION_SIGNAL_DATA'
+        | 'CONFIG_BASED_SIGNAL_DATA'
+        | 'BACKUPDR_METADATA'
+        | 'DATABASE_RESOURCE_SIGNAL_DATA';
       observabilityMetricData?: StorageDatabasecenterPartnerapiV1mainObservabilityMetricData;
       recommendationSignalData?: StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData;
       resourceHealthSignalData?: StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData;
@@ -920,24 +1080,156 @@ declare namespace gapi.client {
       /** Required. The name of the signal, ex: PUBLIC_SQL_INSTANCE, SQL_LOG_ERROR_VERBOSITY etc. */
       name?: string;
       /** Cloud provider name. Ex: GCP/AWS/Azure/OnPrem/SelfManaged */
-      provider?: string;
+      provider?:
+        | 'PROVIDER_UNSPECIFIED'
+        | 'GCP'
+        | 'AWS'
+        | 'AZURE'
+        | 'ONPREM'
+        | 'SELFMANAGED'
+        | 'PROVIDER_OTHER';
       /** Closest parent container of this resource. In GCP, 'container' refers to a Cloud Resource Manager project. It must be resource name of a Cloud Resource Manager project with the format of "provider//", such as "projects/123". For GCP provided resources, number should be project number. */
       resourceContainer?: string;
       /** Required. Database resource name associated with the signal. Resource name to follow CAIS resource_name format as noted here go/condor-common-datamodel */
       resourceName?: string;
       /** Required. The class of the signal, such as if it's a THREAT or VULNERABILITY. */
-      signalClass?: string;
+      signalClass?:
+        | 'CLASS_UNSPECIFIED'
+        | 'THREAT'
+        | 'VULNERABILITY'
+        | 'MISCONFIGURATION'
+        | 'OBSERVATION'
+        | 'ERROR';
       /** Required. Unique identifier for the signal. This is an unique id which would be mainatined by partner to identify a signal. */
       signalId?: string;
       /** The severity of the signal, such as if it's a HIGH or LOW severity. */
-      signalSeverity?: string;
+      signalSeverity?:
+        | 'SIGNAL_SEVERITY_UNSPECIFIED'
+        | 'CRITICAL'
+        | 'HIGH'
+        | 'MEDIUM'
+        | 'LOW';
       /** Required. Type of signal, for example, `AVAILABLE_IN_MULTIPLE_ZONES`, `LOGGING_MOST_ERRORS`, etc. */
-      signalType?: string;
-      state?: string;
+      signalType?:
+        | 'SIGNAL_TYPE_UNSPECIFIED'
+        | 'SIGNAL_TYPE_NOT_PROTECTED_BY_AUTOMATIC_FAILOVER'
+        | 'SIGNAL_TYPE_GROUP_NOT_REPLICATING_ACROSS_REGIONS'
+        | 'SIGNAL_TYPE_NOT_AVAILABLE_IN_MULTIPLE_ZONES'
+        | 'SIGNAL_TYPE_NOT_AVAILABLE_IN_MULTIPLE_REGIONS'
+        | 'SIGNAL_TYPE_NO_PROMOTABLE_REPLICA'
+        | 'SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY'
+        | 'SIGNAL_TYPE_SHORT_BACKUP_RETENTION'
+        | 'SIGNAL_TYPE_LAST_BACKUP_FAILED'
+        | 'SIGNAL_TYPE_LAST_BACKUP_OLD'
+        | 'SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_2_0'
+        | 'SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_1_3'
+        | 'SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_1_2'
+        | 'SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_1_1'
+        | 'SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_1_0'
+        | 'SIGNAL_TYPE_VIOLATES_CIS_CONTROLS_V8_0'
+        | 'SIGNAL_TYPE_VIOLATES_NIST_800_53'
+        | 'SIGNAL_TYPE_VIOLATES_NIST_800_53_R5'
+        | 'SIGNAL_TYPE_VIOLATES_NIST_CYBERSECURITY_FRAMEWORK_V1_0'
+        | 'SIGNAL_TYPE_VIOLATES_ISO_27001'
+        | 'SIGNAL_TYPE_VIOLATES_ISO_27001_V2022'
+        | 'SIGNAL_TYPE_VIOLATES_PCI_DSS_V3_2_1'
+        | 'SIGNAL_TYPE_VIOLATES_PCI_DSS_V4_0'
+        | 'SIGNAL_TYPE_VIOLATES_CLOUD_CONTROLS_MATRIX_V4'
+        | 'SIGNAL_TYPE_VIOLATES_HIPAA'
+        | 'SIGNAL_TYPE_VIOLATES_SOC2_V2017'
+        | 'SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING'
+        | 'SIGNAL_TYPE_QUERY_DURATIONS_NOT_LOGGED'
+        | 'SIGNAL_TYPE_VERBOSE_ERROR_LOGGING'
+        | 'SIGNAL_TYPE_QUERY_LOCK_WAITS_NOT_LOGGED'
+        | 'SIGNAL_TYPE_LOGGING_MOST_ERRORS'
+        | 'SIGNAL_TYPE_LOGGING_ONLY_CRITICAL_ERRORS'
+        | 'SIGNAL_TYPE_MINIMAL_ERROR_LOGGING'
+        | 'SIGNAL_TYPE_QUERY_STATISTICS_LOGGED'
+        | 'SIGNAL_TYPE_EXCESSIVE_LOGGING_OF_CLIENT_HOSTNAME'
+        | 'SIGNAL_TYPE_EXCESSIVE_LOGGING_OF_PARSER_STATISTICS'
+        | 'SIGNAL_TYPE_EXCESSIVE_LOGGING_OF_PLANNER_STATISTICS'
+        | 'SIGNAL_TYPE_NOT_LOGGING_ONLY_DDL_STATEMENTS'
+        | 'SIGNAL_TYPE_LOGGING_QUERY_STATISTICS'
+        | 'SIGNAL_TYPE_NOT_LOGGING_TEMPORARY_FILES'
+        | 'SIGNAL_TYPE_CONNECTION_MAX_NOT_CONFIGURED'
+        | 'SIGNAL_TYPE_USER_OPTIONS_CONFIGURED'
+        | 'SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS'
+        | 'SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS'
+        | 'SIGNAL_TYPE_NO_ROOT_PASSWORD'
+        | 'SIGNAL_TYPE_WEAK_ROOT_PASSWORD'
+        | 'SIGNAL_TYPE_ENCRYPTION_KEY_NOT_CUSTOMER_MANAGED'
+        | 'SIGNAL_TYPE_SERVER_AUTHENTICATION_NOT_REQUIRED'
+        | 'SIGNAL_TYPE_EXPOSED_BY_OWNERSHIP_CHAINING'
+        | 'SIGNAL_TYPE_EXPOSED_TO_EXTERNAL_SCRIPTS'
+        | 'SIGNAL_TYPE_EXPOSED_TO_LOCAL_DATA_LOADS'
+        | 'SIGNAL_TYPE_CONNECTION_ATTEMPTS_NOT_LOGGED'
+        | 'SIGNAL_TYPE_DISCONNECTIONS_NOT_LOGGED'
+        | 'SIGNAL_TYPE_LOGGING_EXCESSIVE_STATEMENT_INFO'
+        | 'SIGNAL_TYPE_EXPOSED_TO_REMOTE_ACCESS'
+        | 'SIGNAL_TYPE_DATABASE_NAMES_EXPOSED'
+        | 'SIGNAL_TYPE_SENSITIVE_TRACE_INFO_NOT_MASKED'
+        | 'SIGNAL_TYPE_PUBLIC_IP_ENABLED'
+        | 'SIGNAL_TYPE_IDLE'
+        | 'SIGNAL_TYPE_OVERPROVISIONED'
+        | 'SIGNAL_TYPE_HIGH_NUMBER_OF_OPEN_TABLES'
+        | 'SIGNAL_TYPE_HIGH_NUMBER_OF_TABLES'
+        | 'SIGNAL_TYPE_HIGH_TRANSACTION_ID_UTILIZATION'
+        | 'SIGNAL_TYPE_UNDERPROVISIONED'
+        | 'SIGNAL_TYPE_OUT_OF_DISK'
+        | 'SIGNAL_TYPE_SERVER_CERTIFICATE_NEAR_EXPIRY'
+        | 'SIGNAL_TYPE_DATABASE_AUDITING_DISABLED'
+        | 'SIGNAL_TYPE_RESTRICT_AUTHORIZED_NETWORKS'
+        | 'SIGNAL_TYPE_VIOLATE_POLICY_RESTRICT_PUBLIC_IP'
+        | 'SIGNAL_TYPE_QUOTA_LIMIT'
+        | 'SIGNAL_TYPE_NO_PASSWORD_POLICY'
+        | 'SIGNAL_TYPE_CONNECTIONS_PERFORMANCE_IMPACT'
+        | 'SIGNAL_TYPE_TMP_TABLES_PERFORMANCE_IMPACT'
+        | 'SIGNAL_TYPE_TRANS_LOGS_PERFORMANCE_IMPACT'
+        | 'SIGNAL_TYPE_HIGH_JOINS_WITHOUT_INDEXES'
+        | 'SIGNAL_TYPE_SUPERUSER_WRITING_TO_USER_TABLES'
+        | 'SIGNAL_TYPE_USER_GRANTED_ALL_PERMISSIONS'
+        | 'SIGNAL_TYPE_DATA_EXPORT_TO_EXTERNAL_CLOUD_STORAGE_BUCKET'
+        | 'SIGNAL_TYPE_DATA_EXPORT_TO_PUBLIC_CLOUD_STORAGE_BUCKET'
+        | 'SIGNAL_TYPE_WEAK_PASSWORD_HASH_ALGORITHM'
+        | 'SIGNAL_TYPE_NO_USER_PASSWORD_POLICY'
+        | 'SIGNAL_TYPE_HOT_NODE'
+        | 'SIGNAL_TYPE_NO_POINT_IN_TIME_RECOVERY'
+        | 'SIGNAL_TYPE_RESOURCE_SUSPENDED'
+        | 'SIGNAL_TYPE_EXPENSIVE_COMMANDS'
+        | 'SIGNAL_TYPE_NO_MAINTENANCE_POLICY_CONFIGURED'
+        | 'SIGNAL_TYPE_NO_DELETION_PROTECTION'
+        | 'SIGNAL_TYPE_INEFFICIENT_QUERY'
+        | 'SIGNAL_TYPE_READ_INTENSIVE_WORKLOAD'
+        | 'SIGNAL_TYPE_MEMORY_LIMIT'
+        | 'SIGNAL_TYPE_MAX_SERVER_MEMORY'
+        | 'SIGNAL_TYPE_LARGE_ROWS'
+        | 'SIGNAL_TYPE_HIGH_WRITE_PRESSURE'
+        | 'SIGNAL_TYPE_HIGH_READ_PRESSURE'
+        | 'SIGNAL_TYPE_ENCRYPTION_ORG_POLICY_NOT_SATISFIED'
+        | 'SIGNAL_TYPE_LOCATION_ORG_POLICY_NOT_SATISFIED'
+        | 'SIGNAL_TYPE_OUTDATED_MINOR_VERSION'
+        | 'SIGNAL_TYPE_SCHEMA_NOT_OPTIMIZED'
+        | 'SIGNAL_TYPE_MANY_IDLE_CONNECTIONS'
+        | 'SIGNAL_TYPE_REPLICATION_LAG'
+        | 'SIGNAL_TYPE_OUTDATED_VERSION'
+        | 'SIGNAL_TYPE_OUTDATED_CLIENT'
+        | 'SIGNAL_TYPE_DATABOOST_DISABLED'
+        | 'SIGNAL_TYPE_RECOMMENDED_MAINTENANCE_POLICIES'
+        | 'SIGNAL_TYPE_EXTENDED_SUPPORT'
+        | 'SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE'
+        | 'SIGNAL_TYPE_VERSION_NEARING_END_OF_LIFE';
+      state?: 'STATE_UNSPECIFIED' | 'ACTIVE' | 'RESOLVED' | 'MUTED';
     }
     interface StorageDatabasecenterPartnerapiV1mainDatabaseResourceId {
       /** Required. Cloud provider name. Ex: GCP/AWS/Azure/OnPrem/SelfManaged */
-      provider?: string;
+      provider?:
+        | 'PROVIDER_UNSPECIFIED'
+        | 'GCP'
+        | 'AWS'
+        | 'AZURE'
+        | 'ONPREM'
+        | 'SELFMANAGED'
+        | 'PROVIDER_OTHER';
       /** Optional. Needs to be used only when the provider is PROVIDER_OTHER. */
       providerDescription?: string;
       /** Required. The type of resource this ID is identifying. Ex go/keep-sorted start alloydb.googleapis.com/Cluster, alloydb.googleapis.com/Instance, bigtableadmin.googleapis.com/Cluster, bigtableadmin.googleapis.com/Instance compute.googleapis.com/Instance firestore.googleapis.com/Database, redis.googleapis.com/Instance, redis.googleapis.com/Cluster, oracledatabase.googleapis.com/CloudExadataInfrastructure oracledatabase.googleapis.com/CloudVmCluster oracledatabase.googleapis.com/AutonomousDatabase spanner.googleapis.com/Instance, spanner.googleapis.com/Database, sqladmin.googleapis.com/Instance, go/keep-sorted end REQUIRED Please refer go/condor-common-datamodel */
@@ -957,21 +1249,51 @@ declare namespace gapi.client {
       /** The creation time of the resource, i.e. the time when resource is created and recorded in partner service. */
       creationTime?: string;
       /** Current state of the instance. */
-      currentState?: string;
+      currentState?:
+        | 'STATE_UNSPECIFIED'
+        | 'HEALTHY'
+        | 'UNHEALTHY'
+        | 'SUSPENDED'
+        | 'DELETED'
+        | 'STATE_OTHER'
+        | 'STOPPED';
       /** Any custom metadata associated with the resource */
       customMetadata?: StorageDatabasecenterPartnerapiV1mainCustomMetadataData;
       /** Optional. Edition represents whether the instance is ENTERPRISE or ENTERPRISE_PLUS. This information is core to Cloud SQL only and is used to identify the edition of the instance. */
-      edition?: string;
+      edition?:
+        | 'EDITION_UNSPECIFIED'
+        | 'EDITION_ENTERPRISE'
+        | 'EDITION_ENTERPRISE_PLUS'
+        | 'EDITION_STANDARD';
       /** Entitlements associated with the resource */
       entitlements?: StorageDatabasecenterPartnerapiV1mainEntitlement[];
       /** The state that the instance is expected to be in. For example, an instance state can transition to UNHEALTHY due to wrong patch update, while the expected state will remain at the HEALTHY. */
-      expectedState?: string;
+      expectedState?:
+        | 'STATE_UNSPECIFIED'
+        | 'HEALTHY'
+        | 'UNHEALTHY'
+        | 'SUSPENDED'
+        | 'DELETED'
+        | 'STATE_OTHER'
+        | 'STOPPED';
       /** GCBDR configuration for the resource. */
       gcbdrConfiguration?: StorageDatabasecenterPartnerapiV1mainGCBDRConfiguration;
       /** Required. Unique identifier for a Database resource */
       id?: StorageDatabasecenterPartnerapiV1mainDatabaseResourceId;
       /** The type of the instance. Specified at creation time. */
-      instanceType?: string;
+      instanceType?:
+        | 'INSTANCE_TYPE_UNSPECIFIED'
+        | 'SUB_RESOURCE_TYPE_UNSPECIFIED'
+        | 'PRIMARY'
+        | 'SECONDARY'
+        | 'READ_REPLICA'
+        | 'OTHER'
+        | 'SUB_RESOURCE_TYPE_PRIMARY'
+        | 'SUB_RESOURCE_TYPE_SECONDARY'
+        | 'SUB_RESOURCE_TYPE_READ_REPLICA'
+        | 'SUB_RESOURCE_TYPE_EXTERNAL_PRIMARY'
+        | 'SUB_RESOURCE_TYPE_READ_POOL'
+        | 'SUB_RESOURCE_TYPE_OTHER';
       /** Optional. Whether deletion protection is enabled for this resource. */
       isDeletionProtectionEnabled?: boolean;
       /** The resource location. REQUIRED */
@@ -993,7 +1315,14 @@ declare namespace gapi.client {
       /** Required. Different from DatabaseResourceId.unique_id, a resource name can be reused over time. That is, after a resource named "ABC" is deleted, the name "ABC" can be used to to create a new resource within the same source. Resource name to follow CAIS resource_name format as noted here go/condor-common-datamodel */
       resourceName?: string;
       /** Optional. Suspension reason for the resource. */
-      suspensionReason?: string;
+      suspensionReason?:
+        | 'SUSPENSION_REASON_UNSPECIFIED'
+        | 'WIPEOUT_HIDE_EVENT'
+        | 'WIPEOUT_PURGE_EVENT'
+        | 'BILLING_DISABLED'
+        | 'ABUSER_DETECTED'
+        | 'ENCRYPTION_KEY_INACCESSIBLE'
+        | 'REPLICATED_CLUSTER_ENCRYPTION_KEY_INACCESSIBLE';
       /** Optional. Tags associated with this resources. */
       tagsSet?: StorageDatabasecenterPartnerapiV1mainTags;
       /** The time at which the resource was updated and recorded at partner service. */
@@ -1009,7 +1338,13 @@ declare namespace gapi.client {
       /** Required. last time recommendationw as refreshed */
       lastRefreshTime?: string;
       /** Required. Recommendation state */
-      recommendationState?: string;
+      recommendationState?:
+        | 'UNSPECIFIED'
+        | 'ACTIVE'
+        | 'CLAIMED'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'DISMISSED';
       /** Required. Name of recommendation. Examples: organizations/1234/locations/us-central1/recommenders/google.cloudsql.instance.PerformanceRecommender/recommendations/9876 */
       recommender?: string;
       /** Required. ID of recommender. Examples: "google.cloudsql.instance.PerformanceRecommender" */
@@ -1019,7 +1354,114 @@ declare namespace gapi.client {
       /** Required. Database resource name associated with the signal. Resource name to follow CAIS resource_name format as noted here go/condor-common-datamodel */
       resourceName?: string;
       /** Required. Type of signal, for example, `SIGNAL_TYPE_IDLE`, `SIGNAL_TYPE_HIGH_NUMBER_OF_TABLES`, etc. */
-      signalType?: string;
+      signalType?:
+        | 'SIGNAL_TYPE_UNSPECIFIED'
+        | 'SIGNAL_TYPE_NOT_PROTECTED_BY_AUTOMATIC_FAILOVER'
+        | 'SIGNAL_TYPE_GROUP_NOT_REPLICATING_ACROSS_REGIONS'
+        | 'SIGNAL_TYPE_NOT_AVAILABLE_IN_MULTIPLE_ZONES'
+        | 'SIGNAL_TYPE_NOT_AVAILABLE_IN_MULTIPLE_REGIONS'
+        | 'SIGNAL_TYPE_NO_PROMOTABLE_REPLICA'
+        | 'SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY'
+        | 'SIGNAL_TYPE_SHORT_BACKUP_RETENTION'
+        | 'SIGNAL_TYPE_LAST_BACKUP_FAILED'
+        | 'SIGNAL_TYPE_LAST_BACKUP_OLD'
+        | 'SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_2_0'
+        | 'SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_1_3'
+        | 'SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_1_2'
+        | 'SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_1_1'
+        | 'SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_1_0'
+        | 'SIGNAL_TYPE_VIOLATES_CIS_CONTROLS_V8_0'
+        | 'SIGNAL_TYPE_VIOLATES_NIST_800_53'
+        | 'SIGNAL_TYPE_VIOLATES_NIST_800_53_R5'
+        | 'SIGNAL_TYPE_VIOLATES_NIST_CYBERSECURITY_FRAMEWORK_V1_0'
+        | 'SIGNAL_TYPE_VIOLATES_ISO_27001'
+        | 'SIGNAL_TYPE_VIOLATES_ISO_27001_V2022'
+        | 'SIGNAL_TYPE_VIOLATES_PCI_DSS_V3_2_1'
+        | 'SIGNAL_TYPE_VIOLATES_PCI_DSS_V4_0'
+        | 'SIGNAL_TYPE_VIOLATES_CLOUD_CONTROLS_MATRIX_V4'
+        | 'SIGNAL_TYPE_VIOLATES_HIPAA'
+        | 'SIGNAL_TYPE_VIOLATES_SOC2_V2017'
+        | 'SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING'
+        | 'SIGNAL_TYPE_QUERY_DURATIONS_NOT_LOGGED'
+        | 'SIGNAL_TYPE_VERBOSE_ERROR_LOGGING'
+        | 'SIGNAL_TYPE_QUERY_LOCK_WAITS_NOT_LOGGED'
+        | 'SIGNAL_TYPE_LOGGING_MOST_ERRORS'
+        | 'SIGNAL_TYPE_LOGGING_ONLY_CRITICAL_ERRORS'
+        | 'SIGNAL_TYPE_MINIMAL_ERROR_LOGGING'
+        | 'SIGNAL_TYPE_QUERY_STATISTICS_LOGGED'
+        | 'SIGNAL_TYPE_EXCESSIVE_LOGGING_OF_CLIENT_HOSTNAME'
+        | 'SIGNAL_TYPE_EXCESSIVE_LOGGING_OF_PARSER_STATISTICS'
+        | 'SIGNAL_TYPE_EXCESSIVE_LOGGING_OF_PLANNER_STATISTICS'
+        | 'SIGNAL_TYPE_NOT_LOGGING_ONLY_DDL_STATEMENTS'
+        | 'SIGNAL_TYPE_LOGGING_QUERY_STATISTICS'
+        | 'SIGNAL_TYPE_NOT_LOGGING_TEMPORARY_FILES'
+        | 'SIGNAL_TYPE_CONNECTION_MAX_NOT_CONFIGURED'
+        | 'SIGNAL_TYPE_USER_OPTIONS_CONFIGURED'
+        | 'SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS'
+        | 'SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS'
+        | 'SIGNAL_TYPE_NO_ROOT_PASSWORD'
+        | 'SIGNAL_TYPE_WEAK_ROOT_PASSWORD'
+        | 'SIGNAL_TYPE_ENCRYPTION_KEY_NOT_CUSTOMER_MANAGED'
+        | 'SIGNAL_TYPE_SERVER_AUTHENTICATION_NOT_REQUIRED'
+        | 'SIGNAL_TYPE_EXPOSED_BY_OWNERSHIP_CHAINING'
+        | 'SIGNAL_TYPE_EXPOSED_TO_EXTERNAL_SCRIPTS'
+        | 'SIGNAL_TYPE_EXPOSED_TO_LOCAL_DATA_LOADS'
+        | 'SIGNAL_TYPE_CONNECTION_ATTEMPTS_NOT_LOGGED'
+        | 'SIGNAL_TYPE_DISCONNECTIONS_NOT_LOGGED'
+        | 'SIGNAL_TYPE_LOGGING_EXCESSIVE_STATEMENT_INFO'
+        | 'SIGNAL_TYPE_EXPOSED_TO_REMOTE_ACCESS'
+        | 'SIGNAL_TYPE_DATABASE_NAMES_EXPOSED'
+        | 'SIGNAL_TYPE_SENSITIVE_TRACE_INFO_NOT_MASKED'
+        | 'SIGNAL_TYPE_PUBLIC_IP_ENABLED'
+        | 'SIGNAL_TYPE_IDLE'
+        | 'SIGNAL_TYPE_OVERPROVISIONED'
+        | 'SIGNAL_TYPE_HIGH_NUMBER_OF_OPEN_TABLES'
+        | 'SIGNAL_TYPE_HIGH_NUMBER_OF_TABLES'
+        | 'SIGNAL_TYPE_HIGH_TRANSACTION_ID_UTILIZATION'
+        | 'SIGNAL_TYPE_UNDERPROVISIONED'
+        | 'SIGNAL_TYPE_OUT_OF_DISK'
+        | 'SIGNAL_TYPE_SERVER_CERTIFICATE_NEAR_EXPIRY'
+        | 'SIGNAL_TYPE_DATABASE_AUDITING_DISABLED'
+        | 'SIGNAL_TYPE_RESTRICT_AUTHORIZED_NETWORKS'
+        | 'SIGNAL_TYPE_VIOLATE_POLICY_RESTRICT_PUBLIC_IP'
+        | 'SIGNAL_TYPE_QUOTA_LIMIT'
+        | 'SIGNAL_TYPE_NO_PASSWORD_POLICY'
+        | 'SIGNAL_TYPE_CONNECTIONS_PERFORMANCE_IMPACT'
+        | 'SIGNAL_TYPE_TMP_TABLES_PERFORMANCE_IMPACT'
+        | 'SIGNAL_TYPE_TRANS_LOGS_PERFORMANCE_IMPACT'
+        | 'SIGNAL_TYPE_HIGH_JOINS_WITHOUT_INDEXES'
+        | 'SIGNAL_TYPE_SUPERUSER_WRITING_TO_USER_TABLES'
+        | 'SIGNAL_TYPE_USER_GRANTED_ALL_PERMISSIONS'
+        | 'SIGNAL_TYPE_DATA_EXPORT_TO_EXTERNAL_CLOUD_STORAGE_BUCKET'
+        | 'SIGNAL_TYPE_DATA_EXPORT_TO_PUBLIC_CLOUD_STORAGE_BUCKET'
+        | 'SIGNAL_TYPE_WEAK_PASSWORD_HASH_ALGORITHM'
+        | 'SIGNAL_TYPE_NO_USER_PASSWORD_POLICY'
+        | 'SIGNAL_TYPE_HOT_NODE'
+        | 'SIGNAL_TYPE_NO_POINT_IN_TIME_RECOVERY'
+        | 'SIGNAL_TYPE_RESOURCE_SUSPENDED'
+        | 'SIGNAL_TYPE_EXPENSIVE_COMMANDS'
+        | 'SIGNAL_TYPE_NO_MAINTENANCE_POLICY_CONFIGURED'
+        | 'SIGNAL_TYPE_NO_DELETION_PROTECTION'
+        | 'SIGNAL_TYPE_INEFFICIENT_QUERY'
+        | 'SIGNAL_TYPE_READ_INTENSIVE_WORKLOAD'
+        | 'SIGNAL_TYPE_MEMORY_LIMIT'
+        | 'SIGNAL_TYPE_MAX_SERVER_MEMORY'
+        | 'SIGNAL_TYPE_LARGE_ROWS'
+        | 'SIGNAL_TYPE_HIGH_WRITE_PRESSURE'
+        | 'SIGNAL_TYPE_HIGH_READ_PRESSURE'
+        | 'SIGNAL_TYPE_ENCRYPTION_ORG_POLICY_NOT_SATISFIED'
+        | 'SIGNAL_TYPE_LOCATION_ORG_POLICY_NOT_SATISFIED'
+        | 'SIGNAL_TYPE_OUTDATED_MINOR_VERSION'
+        | 'SIGNAL_TYPE_SCHEMA_NOT_OPTIMIZED'
+        | 'SIGNAL_TYPE_MANY_IDLE_CONNECTIONS'
+        | 'SIGNAL_TYPE_REPLICATION_LAG'
+        | 'SIGNAL_TYPE_OUTDATED_VERSION'
+        | 'SIGNAL_TYPE_OUTDATED_CLIENT'
+        | 'SIGNAL_TYPE_DATABOOST_DISABLED'
+        | 'SIGNAL_TYPE_RECOMMENDED_MAINTENANCE_POLICIES'
+        | 'SIGNAL_TYPE_EXTENDED_SUPPORT'
+        | 'SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE'
+        | 'SIGNAL_TYPE_VERSION_NEARING_END_OF_LIFE';
     }
     interface StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData {
       /** Deprecated: Use signal_metadata_list instead. */
@@ -1035,15 +1477,37 @@ declare namespace gapi.client {
       /** This will support array of OneOf signal metadata information for a given signal type. */
       signalMetadataList?: StorageDatabasecenterPartnerapiV1mainSignalMetadata[];
       /** Required. Output only. Signal state of the signal */
-      signalState?: string;
+      signalState?:
+        | 'SIGNAL_STATE_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'INACTIVE'
+        | 'DISMISSED';
       /** Required. Signal type of the signal */
-      signalType?: string;
+      signalType?:
+        | 'SIGNAL_TYPE_UNSPECIFIED'
+        | 'SIGNAL_TYPE_OUTDATED_MINOR_VERSION'
+        | 'SIGNAL_TYPE_DATABASE_AUDITING_DISABLED'
+        | 'SIGNAL_TYPE_NO_ROOT_PASSWORD'
+        | 'SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS'
+        | 'SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS'
+        | 'SIGNAL_TYPE_EXTENDED_SUPPORT'
+        | 'SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY'
+        | 'SIGNAL_TYPE_VERSION_NEARING_END_OF_LIFE'
+        | 'SIGNAL_TYPE_LAST_BACKUP_OLD'
+        | 'SIGNAL_TYPE_NOT_PROTECTED_BY_AUTOMATIC_FAILOVER';
     }
     interface StorageDatabasecenterPartnerapiV1mainEntitlement {
       /** The current state of user's accessibility to a feature/benefit. */
-      entitlementState?: string;
+      entitlementState?:
+        | 'ENTITLEMENT_STATE_UNSPECIFIED'
+        | 'ENTITLED'
+        | 'REVOKED';
       /** An enum that represents the type of this entitlement. */
-      type?: string;
+      type?:
+        | 'ENTITLEMENT_TYPE_UNSPECIFIED'
+        | 'GEMINI'
+        | 'NATIVE'
+        | 'GCA_STANDARD';
     }
     interface StorageDatabasecenterPartnerapiV1mainGCBDRConfiguration {
       /** Whether the resource is managed by GCBDR. */
@@ -1077,9 +1541,23 @@ declare namespace gapi.client {
     }
     interface StorageDatabasecenterPartnerapiV1mainObservabilityMetricData {
       /** Required. Type of aggregation performed on the metric. */
-      aggregationType?: string;
+      aggregationType?:
+        | 'AGGREGATION_TYPE_UNSPECIFIED'
+        | 'PEAK'
+        | 'P99'
+        | 'P95'
+        | 'CURRENT';
       /** Required. Type of metric like CPU, Memory, etc. */
-      metricType?: string;
+      metricType?:
+        | 'METRIC_TYPE_UNSPECIFIED'
+        | 'CPU_UTILIZATION'
+        | 'MEMORY_UTILIZATION'
+        | 'NETWORK_CONNECTIONS'
+        | 'STORAGE_UTILIZATION'
+        | 'STORAGE_USED_BYTES'
+        | 'NODE_COUNT'
+        | 'MEMORY_USED_BYTES'
+        | 'PROCESSING_UNIT_COUNT';
       /** Required. The time the metric value was observed. */
       observationTime?: string;
       /** Required. Database resource name associated with the signal. Resource name to follow CAIS resource_name format as noted here go/condor-common-datamodel */
@@ -1090,7 +1568,14 @@ declare namespace gapi.client {
     interface StorageDatabasecenterPartnerapiV1mainOperationError {
       /** Identifies the specific error that occurred. REQUIRED */
       code?: string;
-      errorType?: string;
+      errorType?:
+        | 'OPERATION_ERROR_TYPE_UNSPECIFIED'
+        | 'KMS_KEY_ERROR'
+        | 'DATABASE_ERROR'
+        | 'STOCKOUT_ERROR'
+        | 'CANCELLATION_ERROR'
+        | 'SQLSERVER_ERROR'
+        | 'INTERNAL_ERROR';
       /** Additional information about the error encountered. REQUIRED */
       message?: string;
     }
@@ -1118,7 +1603,14 @@ declare namespace gapi.client {
       /** Optional. Maintenance window for the database resource. */
       maintenanceSchedule?: StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule;
       /** Output only. Current state of maintenance on the database resource. */
-      maintenanceState?: string;
+      maintenanceState?:
+        | 'MAINTENANCE_STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'READY'
+        | 'UPDATING'
+        | 'REPAIRING'
+        | 'DELETING'
+        | 'ERROR';
       /** Optional. Current Maintenance version of the database resource. Example: "MYSQL_8_0_41.R20250531.01_15" */
       maintenanceVersion?: string;
       /** Optional. Upcoming maintenance for the database resource. This field is populated once SLM generates and publishes upcoming maintenance window. */
@@ -1126,9 +1618,17 @@ declare namespace gapi.client {
     }
     interface StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule {
       /** Optional. Preferred day of the week for maintenance, e.g. MONDAY, TUESDAY, etc. */
-      day?: string;
+      day?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY';
       /** Optional. Phase of the maintenance window. This is to capture order of maintenance. For example, for Cloud SQL resources, this can be used to capture if the maintenance window is in Week1, Week2, Week5, etc. Non production resources are usually part of early phase. For more details, refer to Cloud SQL resources - https://cloud.google.com/sql/docs/mysql/maintenance */
-      phase?: string;
+      phase?: 'PHASE_UNSPECIFIED' | 'ANY' | 'WEEK1' | 'WEEK2' | 'WEEK5';
       /** Optional. Preferred time to start the maintenance operation on the specified day. */
       time?: GoogleTypeTimeOfDay;
     }
@@ -1137,7 +1637,12 @@ declare namespace gapi.client {
       durationBasedRetention?: string;
       quantityBasedRetention?: number;
       /** The unit that 'retained_backups' represents. */
-      retentionUnit?: string;
+      retentionUnit?:
+        | 'RETENTION_UNIT_UNSPECIFIED'
+        | 'COUNT'
+        | 'TIME'
+        | 'DURATION'
+        | 'RETENTION_UNIT_OTHER';
       timeBasedRetention?: string;
       /** Timestamp based retention period i.e. 2024-05-01T00:00:00Z */
       timestampBasedRetentionTime?: string;
@@ -1163,11 +1668,45 @@ declare namespace gapi.client {
     }
     interface StorageDatabasecenterProtoCommonProduct {
       /** The specific engine that the underlying database is running. */
-      engine?: string;
+      engine?:
+        | 'ENGINE_UNSPECIFIED'
+        | 'ENGINE_MYSQL'
+        | 'MYSQL'
+        | 'ENGINE_POSTGRES'
+        | 'POSTGRES'
+        | 'ENGINE_SQL_SERVER'
+        | 'SQL_SERVER'
+        | 'ENGINE_NATIVE'
+        | 'NATIVE'
+        | 'ENGINE_CLOUD_SPANNER_WITH_POSTGRES_DIALECT'
+        | 'ENGINE_CLOUD_SPANNER_WITH_GOOGLESQL_DIALECT'
+        | 'ENGINE_MEMORYSTORE_FOR_REDIS'
+        | 'ENGINE_MEMORYSTORE_FOR_REDIS_CLUSTER'
+        | 'ENGINE_OTHER'
+        | 'ENGINE_FIRESTORE_WITH_NATIVE_MODE'
+        | 'ENGINE_FIRESTORE_WITH_DATASTORE_MODE'
+        | 'ENGINE_FIRESTORE_WITH_MONGODB_COMPATIBILITY_MODE'
+        | 'ENGINE_EXADATA_ORACLE'
+        | 'ENGINE_ADB_SERVERLESS_ORACLE';
       /** Minor version of the underlying database engine. Example values: For MySQL, it could be "8.0.32", "5.7.32" etc.. For Postgres, it could be "14.3", "15.3" etc.. */
       minorVersion?: string;
       /** Type of specific database product. It could be CloudSQL, AlloyDB etc.. */
-      type?: string;
+      type?:
+        | 'PRODUCT_TYPE_UNSPECIFIED'
+        | 'PRODUCT_TYPE_CLOUD_SQL'
+        | 'CLOUD_SQL'
+        | 'PRODUCT_TYPE_ALLOYDB'
+        | 'ALLOYDB'
+        | 'PRODUCT_TYPE_SPANNER'
+        | 'PRODUCT_TYPE_ON_PREM'
+        | 'ON_PREM'
+        | 'PRODUCT_TYPE_MEMORYSTORE'
+        | 'PRODUCT_TYPE_BIGTABLE'
+        | 'PRODUCT_TYPE_FIRESTORE'
+        | 'PRODUCT_TYPE_COMPUTE_ENGINE'
+        | 'PRODUCT_TYPE_ORACLE_ON_GCP'
+        | 'PRODUCT_TYPE_BIGQUERY'
+        | 'PRODUCT_TYPE_OTHER';
       /** Version of the underlying database engine. Example values: For MySQL, it could be "8.0", "5.7" etc.. For Postgres, it could be "14", "15" etc.. */
       version?: string;
     }
@@ -1201,12 +1740,24 @@ declare namespace gapi.client {
       /** Whether setting or updating this flag on an Instance requires a database restart. If a flag that requires database restart is set, the backend will automatically restart the database (making sure to satisfy any availability SLO's). */
       requiresDbRestart?: boolean;
       /** The scope of the flag. */
-      scope?: string;
+      scope?: 'SCOPE_UNSPECIFIED' | 'DATABASE' | 'CONNECTION_POOL';
       /** Restriction on STRING type value. */
       stringRestrictions?: StringRestrictions;
       /** Major database engine versions for which this flag is supported. */
-      supportedDbVersions?: string[];
-      valueType?: string;
+      supportedDbVersions?:
+        | 'DATABASE_VERSION_UNSPECIFIED'
+        | 'POSTGRES_13'
+        | 'POSTGRES_14'
+        | 'POSTGRES_15'
+        | 'POSTGRES_16'
+        | 'POSTGRES_17'
+        | 'POSTGRES_18'[];
+      valueType?:
+        | 'VALUE_TYPE_UNSPECIFIED'
+        | 'STRING'
+        | 'INTEGER'
+        | 'FLOAT'
+        | 'NONE';
     }
     interface SwitchoverClusterRequest {
       /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server ignores the request if it has already been completed. The server guarantees that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if the original operation with the same request ID was received, and if so, ignores the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
@@ -1236,7 +1787,14 @@ declare namespace gapi.client {
       /** Optional. If set, performs request validation, for example, permission checks and any other type of validation, but does not actually execute the create request. */
       validateOnly?: boolean;
       /** Required. The version the cluster is going to be upgraded to. */
-      version?: string;
+      version?:
+        | 'DATABASE_VERSION_UNSPECIFIED'
+        | 'POSTGRES_13'
+        | 'POSTGRES_14'
+        | 'POSTGRES_15'
+        | 'POSTGRES_16'
+        | 'POSTGRES_17'
+        | 'POSTGRES_18';
     }
     interface UpgradeClusterResponse {
       /** Array of upgrade details for the current cluster and all the secondary clusters associated with this cluster. */
@@ -1244,19 +1802,49 @@ declare namespace gapi.client {
       /** A user friendly message summarising the upgrade operation details and the next steps for the user if there is any. */
       message?: string;
       /** Status of upgrade operation. */
-      status?: string;
+      status?:
+        | 'STATUS_UNSPECIFIED'
+        | 'NOT_STARTED'
+        | 'IN_PROGRESS'
+        | 'SUCCESS'
+        | 'FAILED'
+        | 'PARTIAL_SUCCESS'
+        | 'CANCEL_IN_PROGRESS'
+        | 'CANCELLED';
     }
     interface UpgradeClusterStatus {
       /** Whether the operation is cancellable. */
       cancellable?: boolean;
       /** Source database major version. */
-      sourceVersion?: string;
+      sourceVersion?:
+        | 'DATABASE_VERSION_UNSPECIFIED'
+        | 'POSTGRES_13'
+        | 'POSTGRES_14'
+        | 'POSTGRES_15'
+        | 'POSTGRES_16'
+        | 'POSTGRES_17'
+        | 'POSTGRES_18';
       /** Status of all upgrade stages. */
       stages?: StageStatus[];
       /** Cluster Major Version Upgrade state. */
-      state?: string;
+      state?:
+        | 'STATUS_UNSPECIFIED'
+        | 'NOT_STARTED'
+        | 'IN_PROGRESS'
+        | 'SUCCESS'
+        | 'FAILED'
+        | 'PARTIAL_SUCCESS'
+        | 'CANCEL_IN_PROGRESS'
+        | 'CANCELLED';
       /** Target database major version. */
-      targetVersion?: string;
+      targetVersion?:
+        | 'DATABASE_VERSION_UNSPECIFIED'
+        | 'POSTGRES_13'
+        | 'POSTGRES_14'
+        | 'POSTGRES_15'
+        | 'POSTGRES_16'
+        | 'POSTGRES_17'
+        | 'POSTGRES_18';
     }
     interface User {
       /** Optional. List of database roles this user has. The database role strings are subject to the PostgreSQL naming conventions. */
@@ -1268,7 +1856,10 @@ declare namespace gapi.client {
       /** Input only. Password for the user. */
       password?: string;
       /** Optional. Type of this user. */
-      userType?: string;
+      userType?:
+        | 'USER_TYPE_UNSPECIFIED'
+        | 'ALLOYDB_BUILT_IN'
+        | 'ALLOYDB_IAM_USER';
     }
     interface UserPassword {
       /** The initial password for the user. */
@@ -1278,7 +1869,15 @@ declare namespace gapi.client {
     }
     interface WeeklySchedule {
       /** The days of the week to perform a backup. If this field is left empty, the default of every day of the week is used. */
-      daysOfWeek?: string[];
+      daysOfWeek?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY'[];
       /** The times during the day to start a backup. The start times are assumed to be in UTC and to be an exact hour (e.g., 04:00:00). If no start times are provided, a single fixed start time is chosen arbitrarily. */
       startTimes?: GoogleTypeTimeOfDay[];
     }
@@ -1286,11 +1885,11 @@ declare namespace gapi.client {
       /** Creates a new Backup in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. ID of the requesting object. */
         backupId?: string;
         /** JSONP */
@@ -1321,11 +1920,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. ID of the requesting object. */
           backupId?: string;
           /** JSONP */
@@ -1356,11 +1955,11 @@ declare namespace gapi.client {
       /** Deletes a single Backup. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. The current etag of the Backup. If an etag is provided and does not match the current etag of the Backup, deletion will be blocked and an ABORTED error will be returned. */
@@ -1389,11 +1988,11 @@ declare namespace gapi.client {
       /** Gets details of a single Backup. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1413,16 +2012,19 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Optional. The view of the backup to return. */
-        view?: string;
+        view?:
+          | 'BACKUP_VIEW_UNSPECIFIED'
+          | 'BACKUP_VIEW_BASIC'
+          | 'BACKUP_VIEW_CLUSTER_DELETED';
       }): Request<Backup>;
       /** Lists Backups in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1450,18 +2052,21 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Optional. The view of the backup to return. */
-        view?: string;
+        view?:
+          | 'BACKUP_VIEW_UNSPECIFIED'
+          | 'BACKUP_VIEW_BASIC'
+          | 'BACKUP_VIEW_CLUSTER_DELETED';
       }): Request<ListBackupsResponse>;
       /** Updates the parameters of a single Backup. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. If set to true, update succeeds even if instance is not found. In that case, a new backup is created and `update_mask` is ignored. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1492,13 +2097,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Optional. If set to true, update succeeds even if instance is not found. In that case, a new backup is created and `update_mask` is ignored. */
           allowMissing?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1531,11 +2136,11 @@ declare namespace gapi.client {
       /** Creates a new Instance in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1566,11 +2171,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1601,11 +2206,11 @@ declare namespace gapi.client {
       /** Creates a new SECONDARY Instance in a given project and location. */
       createsecondary(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1636,11 +2241,11 @@ declare namespace gapi.client {
       createsecondary(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1671,11 +2276,11 @@ declare namespace gapi.client {
       /** Deletes a single Instance. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. The current etag of the Instance. If an etag is provided and does not match the current etag of the Instance, deletion will be blocked and an ABORTED error will be returned. */
@@ -1704,11 +2309,11 @@ declare namespace gapi.client {
       /** Forces a Failover for a highly available instance. Failover promotes the HA standby instance as the new primary. Imperative only. */
       failover(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1733,11 +2338,11 @@ declare namespace gapi.client {
       failover(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1762,11 +2367,11 @@ declare namespace gapi.client {
       /** Gets details of a single Instance. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1786,16 +2391,19 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** The view of the instance to return. */
-        view?: string;
+        view?:
+          | 'INSTANCE_VIEW_UNSPECIFIED'
+          | 'INSTANCE_VIEW_BASIC'
+          | 'INSTANCE_VIEW_FULL';
       }): Request<Instance>;
       /** Get instance metadata used for a connection. */
       getConnectionInfo(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1820,11 +2428,11 @@ declare namespace gapi.client {
       /** Injects fault in an instance. Imperative only. */
       injectFault(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1849,11 +2457,11 @@ declare namespace gapi.client {
       injectFault(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1878,11 +2486,11 @@ declare namespace gapi.client {
       /** Lists Instances in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1913,13 +2521,13 @@ declare namespace gapi.client {
       /** Updates the parameters of a single Instance. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. If set to true, update succeeds even if instance is not found. In that case, a new instance is created and `update_mask` is ignored. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1950,13 +2558,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Optional. If set to true, update succeeds even if instance is not found. In that case, a new instance is created and `update_mask` is ignored. */
           allowMissing?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1987,11 +2595,11 @@ declare namespace gapi.client {
       /** Restart an Instance in a cluster. Imperative only. */
       restart(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2016,11 +2624,11 @@ declare namespace gapi.client {
       restart(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2047,11 +2655,11 @@ declare namespace gapi.client {
       /** Creates a new User in a given project, location, and cluster. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2082,11 +2690,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2117,11 +2725,11 @@ declare namespace gapi.client {
       /** Deletes a single User. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2148,11 +2756,11 @@ declare namespace gapi.client {
       /** Gets details of a single User. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2175,11 +2783,11 @@ declare namespace gapi.client {
       /** Lists Users in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2210,13 +2818,13 @@ declare namespace gapi.client {
       /** Updates the parameters of a single User. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. Allow missing fields in the update mask. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2247,13 +2855,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Optional. Allow missing fields in the update mask. */
           allowMissing?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2286,11 +2894,11 @@ declare namespace gapi.client {
       /** Creates a new Cluster in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. ID of the requesting object. */
@@ -2321,11 +2929,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. ID of the requesting object. */
@@ -2356,11 +2964,11 @@ declare namespace gapi.client {
       /** Creates a cluster of type SECONDARY in the given location using the primary cluster as the source. */
       createsecondary(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. ID of the requesting object (the secondary cluster). */
@@ -2391,11 +2999,11 @@ declare namespace gapi.client {
       createsecondary(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. ID of the requesting object (the secondary cluster). */
@@ -2426,11 +3034,11 @@ declare namespace gapi.client {
       /** Deletes a single Cluster. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. The current etag of the Cluster. If an etag is provided and does not match the current etag of the Cluster, deletion will be blocked and an ABORTED error will be returned. */
@@ -2461,11 +3069,11 @@ declare namespace gapi.client {
       /** Exports data from the cluster. Imperative only. */
       export(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2490,11 +3098,11 @@ declare namespace gapi.client {
       export(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2519,11 +3127,11 @@ declare namespace gapi.client {
       /** Gets details of a single Cluster. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2543,16 +3151,19 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Optional. The view of the cluster to return. Returns all default fields if not set. */
-        view?: string;
+        view?:
+          | 'CLUSTER_VIEW_UNSPECIFIED'
+          | 'CLUSTER_VIEW_BASIC'
+          | 'CLUSTER_VIEW_CONTINUOUS_BACKUP';
       }): Request<Cluster>;
       /** Imports data to the cluster. Imperative only. */
       import(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2577,11 +3188,11 @@ declare namespace gapi.client {
       import(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2606,11 +3217,11 @@ declare namespace gapi.client {
       /** Lists Clusters in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2641,13 +3252,13 @@ declare namespace gapi.client {
       /** Updates the parameters of a single Cluster. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. If set to true, update succeeds even if cluster is not found. In that case, a new cluster is created and `update_mask` is ignored. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2678,13 +3289,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Optional. If set to true, update succeeds even if cluster is not found. In that case, a new cluster is created and `update_mask` is ignored. */
           allowMissing?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2715,11 +3326,11 @@ declare namespace gapi.client {
       /** Promotes a SECONDARY cluster. This turns down replication from the PRIMARY cluster and promotes a secondary cluster into its own standalone cluster. Imperative only. */
       promote(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2744,11 +3355,11 @@ declare namespace gapi.client {
       promote(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2773,11 +3384,11 @@ declare namespace gapi.client {
       /** Creates a new Cluster in a given project and location, with a volume restored from the provided source, either a backup ID or a point-in-time and a source cluster. */
       restore(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2802,11 +3413,11 @@ declare namespace gapi.client {
       restore(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2831,11 +3442,11 @@ declare namespace gapi.client {
       /** Restores an AlloyDB cluster from a CloudSQL resource. */
       restoreFromCloudSQL(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2860,11 +3471,11 @@ declare namespace gapi.client {
       restoreFromCloudSQL(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2889,11 +3500,11 @@ declare namespace gapi.client {
       /** Switches the roles of PRIMARY and SECONDARY clusters without any data loss. This promotes the SECONDARY cluster to PRIMARY and sets up the original PRIMARY cluster to replicate from this newly promoted cluster. */
       switchover(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2918,11 +3529,11 @@ declare namespace gapi.client {
       switchover(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2947,11 +3558,11 @@ declare namespace gapi.client {
       /** Upgrades a single Cluster. Imperative only. */
       upgrade(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2976,11 +3587,11 @@ declare namespace gapi.client {
       upgrade(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3009,11 +3620,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3038,11 +3649,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3067,11 +3678,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3094,11 +3705,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3121,11 +3732,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3158,11 +3769,11 @@ declare namespace gapi.client {
       /** Lists SupportedDatabaseFlags for a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3182,7 +3793,7 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Optional. The scope for which supported flags are requested. If not specified, default is DATABASE. */
-        scope?: string;
+        scope?: 'SCOPE_UNSPECIFIED' | 'DATABASE' | 'CONNECTION_POOL';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -3193,11 +3804,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3220,11 +3831,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */

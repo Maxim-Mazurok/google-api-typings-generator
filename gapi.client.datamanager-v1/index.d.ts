@@ -68,7 +68,7 @@ declare namespace gapi.client {
       /** Required. The URI of the AWS KMS key used to decrypt the DEK. Should be in the format of `arn:{partition}:kms:{region}:{account_id}:key/{key_id}` or `aws-kms://arn:{partition}:kms:{region}:{account_id}:key/{key_id}` */
       kekUri?: string;
       /** Required. The type of algorithm used to encrypt the data. */
-      keyType?: string;
+      keyType?: 'KEY_TYPE_UNSPECIFIED' | 'XCHACHA20_POLY1305';
       /** Required. The Amazon Resource Name of the IAM Role to assume for KMS decryption access. Should be in the format of `arn:{partition}:iam::{account_id}:role/{role_name}` */
       roleArn?: string;
     }
@@ -92,13 +92,24 @@ declare namespace gapi.client {
     }
     interface Consent {
       /** Optional. Represents if the user consents to ad personalization. */
-      adPersonalization?: string;
+      adPersonalization?:
+        | 'CONSENT_STATUS_UNSPECIFIED'
+        | 'CONSENT_GRANTED'
+        | 'CONSENT_DENIED';
       /** Optional. Represents if the user consents to ad user data. */
-      adUserData?: string;
+      adUserData?:
+        | 'CONSENT_STATUS_UNSPECIFIED'
+        | 'CONSENT_GRANTED'
+        | 'CONSENT_DENIED';
     }
     interface ContactIdInfo {
       /** Optional. Immutable. Source of the upload data */
-      dataSourceType?: string;
+      dataSourceType?:
+        | 'DATA_SOURCE_TYPE_UNSPECIFIED'
+        | 'DATA_SOURCE_TYPE_FIRST_PARTY'
+        | 'DATA_SOURCE_TYPE_THIRD_PARTY_CREDIT_BUREAU'
+        | 'DATA_SOURCE_TYPE_THIRD_PARTY_VOTER_FILE'
+        | 'DATA_SOURCE_TYPE_THIRD_PARTY_PARTNER_DATA';
       /** Output only. Match rate for customer match user lists. */
       matchRatePercentage?: number;
     }
@@ -137,7 +148,35 @@ declare namespace gapi.client {
     }
     interface ErrorCount {
       /** The error reason of the failed records. */
-      reason?: string;
+      reason?:
+        | 'PROCESSING_ERROR_REASON_UNSPECIFIED'
+        | 'PROCESSING_ERROR_REASON_INVALID_CUSTOM_VARIABLE'
+        | 'PROCESSING_ERROR_REASON_CUSTOM_VARIABLE_NOT_ENABLED'
+        | 'PROCESSING_ERROR_REASON_EVENT_TOO_OLD'
+        | 'PROCESSING_ERROR_REASON_DENIED_CONSENT'
+        | 'PROCESSING_ERROR_REASON_NO_CONSENT'
+        | 'PROCESSING_ERROR_REASON_UNKNOWN_CONSENT'
+        | 'PROCESSING_ERROR_REASON_DUPLICATE_GCLID'
+        | 'PROCESSING_ERROR_REASON_DUPLICATE_TRANSACTION_ID'
+        | 'PROCESSING_ERROR_REASON_INVALID_GBRAID'
+        | 'PROCESSING_ERROR_REASON_INVALID_GCLID'
+        | 'PROCESSING_ERROR_REASON_INVALID_MERCHANT_ID'
+        | 'PROCESSING_ERROR_REASON_INVALID_WBRAID'
+        | 'PROCESSING_ERROR_REASON_INTERNAL_ERROR'
+        | 'PROCESSING_ERROR_REASON_DESTINATION_ACCOUNT_ENHANCED_CONVERSIONS_TERMS_NOT_SIGNED'
+        | 'PROCESSING_ERROR_REASON_INVALID_EVENT'
+        | 'PROCESSING_ERROR_REASON_INSUFFICIENT_MATCHED_TRANSACTIONS'
+        | 'PROCESSING_ERROR_REASON_INSUFFICIENT_TRANSACTIONS'
+        | 'PROCESSING_ERROR_REASON_INVALID_FORMAT'
+        | 'PROCESSING_ERROR_REASON_DECRYPTION_ERROR'
+        | 'PROCESSING_ERROR_REASON_DEK_DECRYPTION_ERROR'
+        | 'PROCESSING_ERROR_REASON_INVALID_WIP'
+        | 'PROCESSING_ERROR_REASON_INVALID_KEK'
+        | 'PROCESSING_ERROR_REASON_WIP_AUTH_FAILED'
+        | 'PROCESSING_ERROR_REASON_KEK_PERMISSION_DENIED'
+        | 'PROCESSING_ERROR_REASON_AWS_AUTH_FAILED'
+        | 'PROCESSING_ERROR_REASON_USER_IDENTIFIER_DECRYPTION_ERROR'
+        | 'PROCESSING_ERROR_OPERATING_ACCOUNT_MISMATCH_FOR_AD_IDENTIFIER';
       /** The count of records that failed to upload for a given reason. */
       recordCount?: string;
     }
@@ -169,7 +208,13 @@ declare namespace gapi.client {
       /** Optional. The name of the event. Required for GA4 events. */
       eventName?: string;
       /** Optional. Signal for where the event happened (web, app, in-store, etc.). */
-      eventSource?: string;
+      eventSource?:
+        | 'EVENT_SOURCE_UNSPECIFIED'
+        | 'WEB'
+        | 'APP'
+        | 'IN_STORE'
+        | 'PHONE'
+        | 'OTHER';
       /** Required. The time the event occurred. */
       eventTimestamp?: string;
       /** Optional. A list of key/value pairs for experimental fields that may eventually be promoted to be part of the API. */
@@ -203,7 +248,7 @@ declare namespace gapi.client {
       /** Required. Google Cloud Platform [Cloud Key Management Service resource ID](//cloud.google.com/kms/docs/getting-resource-ids). Should be in the format of `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{key}` or `gcp-kms://projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{key}` */
       kekUri?: string;
       /** Required. The type of algorithm used to encrypt the data. */
-      keyType?: string;
+      keyType?: 'KEY_TYPE_UNSPECIFIED' | 'XCHACHA20_POLY1305';
       /** Required. The [Workload Identity](//cloud.google.com/iam/docs/workload-identity-federation) pool provider required to use KEK. */
       wipProvider?: string;
     }
@@ -215,7 +260,7 @@ declare namespace gapi.client {
       /** Required. The list of destinations to send the audience members to. */
       destinations?: Destination[];
       /** Optional. Required for UserData uploads. The encoding type of the user identifiers. For hashed user identifiers, this is the encoding type of the hashed string. For encrypted hashed user identifiers, this is the encoding type of the outer encrypted string, but not necessarily the inner hashed string, meaning the inner hashed string could be encoded in a different way than the outer encrypted string. For non `UserData` uploads, this field is ignored. */
-      encoding?: string;
+      encoding?: 'ENCODING_UNSPECIFIED' | 'HEX' | 'BASE64';
       /** Optional. Encryption information for UserData uploads. If not set, it's assumed that uploaded identifying information is hashed but not encrypted. For non `UserData` uploads, this field is ignored. */
       encryptionInfo?: EncryptionInfo;
       /** Optional. The terms of service that the user has accepted/rejected. */
@@ -251,7 +296,13 @@ declare namespace gapi.client {
       /** Optional. Additional information for `PSEUDONYMOUS_ID` is one of the `upload_key_types`. */
       pseudonymousIdInfo?: PseudonymousIdInfo;
       /** Required. Immutable. Upload key types of this user list. */
-      uploadKeyTypes?: string[];
+      uploadKeyTypes?:
+        | 'UPLOAD_KEY_TYPE_UNSPECIFIED'
+        | 'CONTACT_ID'
+        | 'MOBILE_ID'
+        | 'USER_ID'
+        | 'PAIR_ID'
+        | 'PSEUDONYMOUS_ID'[];
       /** Optional. Additional information when `USER_ID` is one of the `upload_key_types`. */
       userIdInfo?: UserIdInfo;
     }
@@ -261,7 +312,7 @@ declare namespace gapi.client {
       /** Required. The list of destinations to send the events to. */
       destinations?: Destination[];
       /** Optional. Required for UserData uploads. The encoding type of the user identifiers. For hashed user identifiers, this is the encoding type of the hashed string. For encrypted hashed user identifiers, this is the encoding type of the outer encrypted string, but not necessarily the inner hashed string, meaning the inner hashed string could be encoded in a different way than the outer encrypted string. For non `UserData` uploads, this field is ignored. */
-      encoding?: string;
+      encoding?: 'ENCODING_UNSPECIFIED' | 'HEX' | 'BASE64';
       /** Optional. Encryption information for UserData uploads. If not set, it's assumed that uploaded identifying information is hashed but not encrypted. For non `UserData` uploads, this field is ignored. */
       encryptionInfo?: EncryptionInfo;
       /** Required. The list of events to send to the specified destinations. At most 2000 Event resources can be sent in a single request. */
@@ -299,7 +350,18 @@ declare namespace gapi.client {
       /** The total count of audience members sent in the upload request for the destination. Includes all audience members in the request, regardless of whether they were successfully ingested or not. */
       recordCount?: string;
       /** The match rate range of the upload. */
-      uploadMatchRateRange?: string;
+      uploadMatchRateRange?:
+        | 'MATCH_RATE_RANGE_UNKNOWN'
+        | 'MATCH_RATE_RANGE_NOT_ELIGIBLE'
+        | 'MATCH_RATE_RANGE_LESS_THAN_20'
+        | 'MATCH_RATE_RANGE_20_TO_30'
+        | 'MATCH_RATE_RANGE_31_TO_40'
+        | 'MATCH_RATE_RANGE_41_TO_50'
+        | 'MATCH_RATE_RANGE_51_TO_60'
+        | 'MATCH_RATE_RANGE_61_TO_70'
+        | 'MATCH_RATE_RANGE_71_TO_80'
+        | 'MATCH_RATE_RANGE_81_TO_90'
+        | 'MATCH_RATE_RANGE_91_TO_100';
       /** The total count of user identifiers sent in the upload request for the destination. Includes all user identifiers in the request, regardless of whether they were successfully ingested or not. */
       userIdentifierCount?: string;
     }
@@ -359,13 +421,31 @@ declare namespace gapi.client {
       /** Insights for values of a given dimension. */
       attributes?: MarketingDataInsightsAttribute[];
       /** The dimension to which the insight belongs. */
-      dimension?: string;
+      dimension?:
+        | 'AUDIENCE_INSIGHTS_DIMENSION_UNSPECIFIED'
+        | 'AUDIENCE_INSIGHTS_DIMENSION_UNKNOWN'
+        | 'AFFINITY_USER_INTEREST'
+        | 'IN_MARKET_USER_INTEREST'
+        | 'AGE_RANGE'
+        | 'GENDER';
     }
     interface MarketingDataInsightsAttribute {
       /** Age range of the audience for which the lift is provided. */
-      ageRange?: string;
+      ageRange?:
+        | 'AGE_RANGE_UNSPECIFIED'
+        | 'AGE_RANGE_UNKNOWN'
+        | 'AGE_RANGE_18_24'
+        | 'AGE_RANGE_25_34'
+        | 'AGE_RANGE_35_44'
+        | 'AGE_RANGE_45_54'
+        | 'AGE_RANGE_55_64'
+        | 'AGE_RANGE_65_UP';
       /** Gender of the audience for which the lift is provided. */
-      gender?: string;
+      gender?:
+        | 'GENDER_UNSPECIFIED'
+        | 'GENDER_UNKNOWN'
+        | 'GENDER_MALE'
+        | 'GENDER_FEMALE';
       /** Measure of lift that the audience has for the attribute value as compared to the baseline. Range [0-1]. */
       lift?: number;
       /** The user interest ID. */
@@ -379,9 +459,14 @@ declare namespace gapi.client {
       /** Required. Immutable. A string that uniquely identifies a mobile application from which the data was collected. */
       appId?: string;
       /** Optional. Immutable. Source of the upload data. */
-      dataSourceType?: string;
+      dataSourceType?:
+        | 'DATA_SOURCE_TYPE_UNSPECIFIED'
+        | 'DATA_SOURCE_TYPE_FIRST_PARTY'
+        | 'DATA_SOURCE_TYPE_THIRD_PARTY_CREDIT_BUREAU'
+        | 'DATA_SOURCE_TYPE_THIRD_PARTY_VOTER_FILE'
+        | 'DATA_SOURCE_TYPE_THIRD_PARTY_PARTNER_DATA';
       /** Required. Immutable. The key space of mobile IDs. */
-      keySpace?: string;
+      keySpace?: 'KEY_SPACE_UNSPECIFIED' | 'IOS' | 'ANDROID';
     }
     interface PairData {
       /** Required. Cleanroom-provided PII data, hashed with SHA256, and encrypted with an EC commutative cipher using publisher key for the [PAIR]((//support.google.com/admanager/answer/15067908)) user list. At most 10 `pairIds` can be provided in a single AudienceMember. */
@@ -403,7 +488,11 @@ declare namespace gapi.client {
       /** Optional. The commerce partner name. Only allowed if `partner_audience_source` is `COMMERCE_AUDIENCE`. */
       commercePartner?: string;
       /** Required. Immutable. The source of the partner audience. */
-      partnerAudienceSource?: string;
+      partnerAudienceSource?:
+        | 'PARTNER_AUDIENCE_SOURCE_UNSPECIFIED'
+        | 'COMMERCE_AUDIENCE'
+        | 'LINEAR_TV_AUDIENCE'
+        | 'AGENCY_PROVIDER_AUDIENCE';
     }
     interface PartnerLink {
       /** Identifier. The name of the partner link. Format: accountTypes/{account_type}/accounts/{account}/partnerLinks/{partner_link} */
@@ -423,15 +512,31 @@ declare namespace gapi.client {
       /** Required. The ID of the account. For example, your Google Ads account ID. */
       accountId?: string;
       /** Optional. The type of the account. For example, `GOOGLE_ADS`. Either `account_type` or the deprecated `product` is required. If both are set, the values must match. */
-      accountType?: string;
+      accountType?:
+        | 'ACCOUNT_TYPE_UNSPECIFIED'
+        | 'GOOGLE_ADS'
+        | 'DISPLAY_VIDEO_PARTNER'
+        | 'DISPLAY_VIDEO_ADVERTISER'
+        | 'DATA_PARTNER'
+        | 'GOOGLE_ANALYTICS_PROPERTY'
+        | 'GOOGLE_AD_MANAGER_AUDIENCE_LINK';
       /** Deprecated. Use `account_type` instead. */
-      product?: string;
+      product?:
+        | 'PRODUCT_UNSPECIFIED'
+        | 'GOOGLE_ADS'
+        | 'DISPLAY_VIDEO_PARTNER'
+        | 'DISPLAY_VIDEO_ADVERTISER'
+        | 'DATA_PARTNER';
     }
     interface PseudonymousIdInfo {
       /** Optional. Immutable. The number of billable records (e.g. uploaded or matched). */
       billableRecordCount?: string;
       /** Output only. Sync status of the user list. */
-      syncStatus?: string;
+      syncStatus?:
+        | 'SYNC_STATUS_UNSPECIFIED'
+        | 'CREATED'
+        | 'READY_FOR_USE'
+        | 'FAILED';
     }
     interface RemoveAudienceMembersRequest {
       /** Required. The list of users to remove. */
@@ -439,7 +544,7 @@ declare namespace gapi.client {
       /** Required. The list of destinations to remove the users from. */
       destinations?: Destination[];
       /** Optional. Required for UserData uploads. The encoding type of the user identifiers. Applies to only the outer encoding for encrypted user identifiers. For non `UserData` uploads, this field is ignored. */
-      encoding?: string;
+      encoding?: 'ENCODING_UNSPECIFIED' | 'HEX' | 'BASE64';
       /** Optional. Encryption information for UserData uploads. If not set, it's assumed that uploaded identifying information is hashed but not encrypted. For non `UserData` uploads, this field is ignored. */
       encryptionInfo?: EncryptionInfo;
       /** Optional. For testing purposes. If `true`, the request is validated but not executed. Only errors are returned, not results. */
@@ -503,7 +608,12 @@ declare namespace gapi.client {
       /** The status of the ingest events request. */
       eventsIngestionStatus?: IngestEventsStatus;
       /** The request status of the destination. */
-      requestStatus?: string;
+      requestStatus?:
+        | 'REQUEST_STATUS_UNKNOWN'
+        | 'SUCCESS'
+        | 'PROCESSING'
+        | 'FAILED'
+        | 'PARTIAL_SUCCESS';
       /** A warning info containing the warning reason and warning counts related to the upload. */
       warningInfo?: WarningInfo;
     }
@@ -549,7 +659,10 @@ declare namespace gapi.client {
     }
     interface TermsOfService {
       /** Optional. The Customer Match terms of service: https://support.google.com/adspolicy/answer/6299717. This must be accepted when ingesting UserData or MobileData. This field is not required for Partner Match User list. */
-      customerMatchTermsOfServiceStatus?: string;
+      customerMatchTermsOfServiceStatus?:
+        | 'TERMS_OF_SERVICE_STATUS_UNSPECIFIED'
+        | 'ACCEPTED'
+        | 'REJECTED';
     }
     interface UserData {
       /** Required. The identifiers for the user. It's possible to provide multiple instances of the same type of data (for example, multiple email addresses). To increase the likelihood of a match, provide as many identifiers as possible. At most 10 `userIdentifiers` can be provided in a single AudienceMember or Event. */
@@ -569,15 +682,29 @@ declare namespace gapi.client {
     }
     interface UserIdInfo {
       /** Optional. Immutable. Source of the upload data. */
-      dataSourceType?: string;
+      dataSourceType?:
+        | 'DATA_SOURCE_TYPE_UNSPECIFIED'
+        | 'DATA_SOURCE_TYPE_FIRST_PARTY'
+        | 'DATA_SOURCE_TYPE_THIRD_PARTY_CREDIT_BUREAU'
+        | 'DATA_SOURCE_TYPE_THIRD_PARTY_VOTER_FILE'
+        | 'DATA_SOURCE_TYPE_THIRD_PARTY_PARTNER_DATA';
     }
     interface UserList {
       /** Output only. The reason this account has been granted access to the list. */
-      accessReason?: string;
+      accessReason?:
+        | 'ACCESS_REASON_UNSPECIFIED'
+        | 'OWNED'
+        | 'SHARED'
+        | 'LICENSED'
+        | 'SUBSCRIBED'
+        | 'AFFILIATED';
       /** Optional. Indicates if this share is still enabled. When a user list is shared with the account this field is set to `ENABLED`. Later the user list owner can decide to revoke the share and make it `DISABLED`. */
-      accountAccessStatus?: string;
+      accountAccessStatus?:
+        | 'ACCESS_STATUS_UNSPECIFIED'
+        | 'ENABLED'
+        | 'DISABLED';
       /** Output only. The reason why this user list membership status is closed. */
-      closingReason?: string;
+      closingReason?: 'CLOSING_REASON_UNSPECIFIED' | 'UNUSED';
       /** Optional. A description of the user list. */
       description?: string;
       /** Required. The display name of the user list. */
@@ -591,7 +718,7 @@ declare namespace gapi.client {
       /** Optional. The duration a user remains in the user list. Valid durations are exact multiples of 24 hours (86400 seconds). Providing a value that is not an exact multiple of 24 hours will result in an INVALID_ARGUMENT error. */
       membershipDuration?: string;
       /** Optional. Membership status of this user list. */
-      membershipStatus?: string;
+      membershipStatus?: 'MEMBERSHIP_STATUS_UNSPECIFIED' | 'OPEN' | 'CLOSED';
       /** Identifier. The resource name of the user list. Format: accountTypes/{account_type}/accounts/{account}/userLists/{user_list} */
       name?: string;
       /** Output only. An option that indicates if a user may edit a list. */
@@ -607,7 +734,12 @@ declare namespace gapi.client {
       /** Immutable. ID of client customer which the user list is being licensed to. */
       clientAccountId?: string;
       /** Immutable. Account type of client customer which the user list is being licensed to. */
-      clientAccountType?: string;
+      clientAccountType?:
+        | 'USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_UNKNOWN'
+        | 'USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_GOOGLE_ADS'
+        | 'USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_DISPLAY_VIDEO_PARTNER'
+        | 'USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_DISPLAY_VIDEO_ADVERTISER'
+        | 'USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_GOOGLE_AD_MANAGER_AUDIENCE_LINK';
       /** Output only. Pricing history of this user list license. This field is read-only. */
       historicalPricings?: UserListLicensePricing[];
       /** Output only. Metrics related to this license This field is read-only and only populated if the start and end dates are set in the ListUserListDirectLicenses call */
@@ -617,7 +749,10 @@ declare namespace gapi.client {
       /** Optional. UserListDirectLicense pricing. */
       pricing?: UserListLicensePricing;
       /** Optional. Status of UserListDirectLicense - ENABLED or DISABLED. */
-      status?: string;
+      status?:
+        | 'USER_LIST_LICENSE_STATUS_UNSPECIFIED'
+        | 'USER_LIST_LICENSE_STATUS_ENABLED'
+        | 'USER_LIST_LICENSE_STATUS_DISABLED';
       /** Output only. Name of the user list being licensed. This field is read-only. */
       userListDisplayName?: string;
       /** Immutable. ID of the user list being licensed. */
@@ -627,7 +762,11 @@ declare namespace gapi.client {
       /** Output only. Pricing history of this user list license. This field is read-only. */
       historicalPricings?: UserListLicensePricing[];
       /** Immutable. Product type of client customer which the user list is being licensed to. */
-      licenseType?: string;
+      licenseType?:
+        | 'USER_LIST_GLOBAL_LICENSE_TYPE_UNSPECIFIED'
+        | 'USER_LIST_GLOBAL_LICENSE_TYPE_RESELLER'
+        | 'USER_LIST_GLOBAL_LICENSE_TYPE_DATA_MART_SELL_SIDE'
+        | 'USER_LIST_GLOBAL_LICENSE_TYPE_DATA_MART_BUY_SIDE';
       /** Output only. Metrics related to this license This field is read-only and only populated if the start and end dates are set in the ListUserListGlobalLicenses call */
       metrics?: UserListLicenseMetrics;
       /** Identifier. The resource name of the user list global license. */
@@ -635,7 +774,10 @@ declare namespace gapi.client {
       /** Optional. UserListGlobalLicense pricing. */
       pricing?: UserListLicensePricing;
       /** Optional. Status of UserListGlobalLicense - ENABLED or DISABLED. */
-      status?: string;
+      status?:
+        | 'USER_LIST_LICENSE_STATUS_UNSPECIFIED'
+        | 'USER_LIST_LICENSE_STATUS_ENABLED'
+        | 'USER_LIST_LICENSE_STATUS_DISABLED';
       /** Output only. Name of the user list being licensed. This field is read-only. */
       userListDisplayName?: string;
       /** Immutable. ID of the user list being licensed. */
@@ -647,11 +789,20 @@ declare namespace gapi.client {
       /** Output only. ID of client customer which the user list is being licensed to. */
       clientAccountId?: string;
       /** Output only. Product type of client customer which the user list is being licensed to. */
-      clientAccountType?: string;
+      clientAccountType?:
+        | 'USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_UNKNOWN'
+        | 'USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_GOOGLE_ADS'
+        | 'USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_DISPLAY_VIDEO_PARTNER'
+        | 'USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_DISPLAY_VIDEO_ADVERTISER'
+        | 'USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_GOOGLE_AD_MANAGER_AUDIENCE_LINK';
       /** Output only. Pricing history of this user list license. */
       historicalPricings?: UserListLicensePricing[];
       /** Output only. Product type of client customer which the user list is being licensed to. */
-      licenseType?: string;
+      licenseType?:
+        | 'USER_LIST_GLOBAL_LICENSE_TYPE_UNSPECIFIED'
+        | 'USER_LIST_GLOBAL_LICENSE_TYPE_RESELLER'
+        | 'USER_LIST_GLOBAL_LICENSE_TYPE_DATA_MART_SELL_SIDE'
+        | 'USER_LIST_GLOBAL_LICENSE_TYPE_DATA_MART_BUY_SIDE';
       /** Output only. Metrics related to this license This field is only populated if the start and end dates are set in the ListUserListGlobalLicenseCustomerInfos call. */
       metrics?: UserListLicenseMetrics;
       /** Identifier. The resource name of the user list global license customer. */
@@ -659,7 +810,10 @@ declare namespace gapi.client {
       /** Output only. UserListDirectLicense pricing. */
       pricing?: UserListLicensePricing;
       /** Output only. Status of UserListDirectLicense - ENABLED or DISABLED. */
-      status?: string;
+      status?:
+        | 'USER_LIST_LICENSE_STATUS_UNSPECIFIED'
+        | 'USER_LIST_LICENSE_STATUS_ENABLED'
+        | 'USER_LIST_LICENSE_STATUS_DISABLED';
       /** Output only. Name of the user list being licensed. */
       userListDisplayName?: string;
       /** Output only. ID of the user list being licensed. */
@@ -679,11 +833,19 @@ declare namespace gapi.client {
     }
     interface UserListLicensePricing {
       /** Output only. The buyer approval state of this pricing. This field is read-only. */
-      buyerApprovalState?: string;
+      buyerApprovalState?:
+        | 'USER_LIST_PRICING_BUYER_APPROVAL_STATE_UNSPECIFIED'
+        | 'PENDING'
+        | 'APPROVED'
+        | 'REJECTED';
       /** Optional. The cost associated with the model, in micro units (10^-6), in the currency specified by the currency_code field. For example, 2000000 means $2 if `currency_code` is `USD`. */
       costMicros?: string;
       /** Immutable. The cost type of this pricing. Can be set only in the `create` operation. Can't be updated for an existing license. */
-      costType?: string;
+      costType?:
+        | 'USER_LIST_PRICING_COST_TYPE_UNSPECIFIED'
+        | 'CPC'
+        | 'CPM'
+        | 'MEDIA_SHARE';
       /** Optional. The currency in which cost and max_cost is specified. Must be a three-letter currency code defined in ISO 4217. */
       currencyCode?: string;
       /** Optional. End time of the pricing. */
@@ -701,9 +863,17 @@ declare namespace gapi.client {
       /** Optional. A bucket of any additional [user properties](https://developers.google.com/analytics/devguides/collection/protocol/ga4/user-properties) for the user associated with this event. */
       additionalUserProperties?: UserProperty[];
       /** Optional. Type of the customer associated with the event. */
-      customerType?: string;
+      customerType?:
+        | 'CUSTOMER_TYPE_UNSPECIFIED'
+        | 'NEW'
+        | 'RETURNING'
+        | 'REENGAGED';
       /** Optional. The advertiser-assessed value of the customer. */
-      customerValueBucket?: string;
+      customerValueBucket?:
+        | 'CUSTOMER_VALUE_BUCKET_UNSPECIFIED'
+        | 'LOW'
+        | 'MEDIUM'
+        | 'HIGH';
     }
     interface UserProperty {
       /** Required. The name of the user property to use. */
@@ -713,7 +883,17 @@ declare namespace gapi.client {
     }
     interface WarningCount {
       /** The warning reason. */
-      reason?: string;
+      reason?:
+        | 'PROCESSING_WARNING_REASON_UNSPECIFIED'
+        | 'PROCESSING_WARNING_REASON_KEK_PERMISSION_DENIED'
+        | 'PROCESSING_WARNING_REASON_DEK_DECRYPTION_ERROR'
+        | 'PROCESSING_WARNING_REASON_DECRYPTION_ERROR'
+        | 'PROCESSING_WARNING_REASON_WIP_AUTH_FAILED'
+        | 'PROCESSING_WARNING_REASON_INVALID_WIP'
+        | 'PROCESSING_WARNING_REASON_INVALID_KEK'
+        | 'PROCESSING_WARNING_REASON_USER_IDENTIFIER_DECRYPTION_ERROR'
+        | 'PROCESSING_WARNING_REASON_INTERNAL_ERROR'
+        | 'PROCESSING_WARNING_REASON_AWS_AUTH_FAILED';
       /** The count of records that have a warning. */
       recordCount?: string;
     }
@@ -725,11 +905,11 @@ declare namespace gapi.client {
       /** Retrieves marketing data insights for a given user list. This feature is only available to data partners. Authorization Headers: This method supports the following optional headers to define how the API authorizes access for the request: * `login-account`: (Optional) The resource name of the account where the Google Account of the credentials is a user. If not set, defaults to the account of the request. Format: `accountTypes/{loginAccountType}/accounts/{loginAccountId}` * `linked-account`: (Optional) The resource name of the account with an established product link to the `login-account`. Format: `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}` */
       retrieve(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -754,11 +934,11 @@ declare namespace gapi.client {
       retrieve(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -785,11 +965,11 @@ declare namespace gapi.client {
       /** Creates a partner link for the given account. Authorization Headers: This method supports the following optional headers to define how the API authorizes access for the request: * `login-account`: (Optional) The resource name of the account where the Google Account of the credentials is a user. If not set, defaults to the account of the request. Format: `accountTypes/{loginAccountType}/accounts/{loginAccountId}` * `linked-account`: (Optional) The resource name of the account with an established product link to the `login-account`. Format: `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}` */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -814,11 +994,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -843,11 +1023,11 @@ declare namespace gapi.client {
       /** Deletes a partner link for the given account. Authorization Headers: This method supports the following optional headers to define how the API authorizes access for the request: * `login-account`: (Optional) The resource name of the account where the Google Account of the credentials is a user. If not set, defaults to the account of the request. Format: `accountTypes/{loginAccountType}/accounts/{loginAccountId}` * `linked-account`: (Optional) The resource name of the account with an established product link to the `login-account`. Format: `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}` */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -870,11 +1050,11 @@ declare namespace gapi.client {
       /** Searches for all partner links to and from a given account. Authorization Headers: This method supports the following optional headers to define how the API authorizes access for the request: * `login-account`: (Optional) The resource name of the account where the Google Account of the credentials is a user. If not set, defaults to the account of the request. Format: `accountTypes/{loginAccountType}/accounts/{loginAccountId}` * `linked-account`: (Optional) The resource name of the account with an established product link to the `login-account`. Format: `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}` */
       search(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -905,11 +1085,11 @@ declare namespace gapi.client {
       /** Creates a user list direct license. This feature is only available to data partners. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -934,11 +1114,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -963,11 +1143,11 @@ declare namespace gapi.client {
       /** Retrieves a user list direct license. This feature is only available to data partners. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -990,11 +1170,11 @@ declare namespace gapi.client {
       /** Lists all user list direct licenses owned by the parent account. This feature is only available to data partners. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1023,11 +1203,11 @@ declare namespace gapi.client {
       /** Updates a user list direct license. This feature is only available to data partners. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1054,11 +1234,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1087,11 +1267,11 @@ declare namespace gapi.client {
       /** Lists all customer info for a user list global license. This feature is only available to data partners. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1122,11 +1302,11 @@ declare namespace gapi.client {
       /** Creates a user list global license. This feature is only available to data partners. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1151,11 +1331,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1180,11 +1360,11 @@ declare namespace gapi.client {
       /** Retrieves a user list global license. This feature is only available to data partners. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1207,11 +1387,11 @@ declare namespace gapi.client {
       /** Lists all user list global licenses owned by the parent account. This feature is only available to data partners. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1240,11 +1420,11 @@ declare namespace gapi.client {
       /** Updates a user list global license. This feature is only available to data partners. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1271,11 +1451,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1305,11 +1485,11 @@ declare namespace gapi.client {
       /** Creates a UserList. Authorization Headers: This method supports the following optional headers to define how the API authorizes access for the request: * `login-account`: (Optional) The resource name of the account where the Google Account of the credentials is a user. If not set, defaults to the account of the request. Format: `accountTypes/{loginAccountType}/accounts/{loginAccountId}` * `linked-account`: (Optional) The resource name of the account with an established product link to the `login-account`. Format: `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}` */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1336,11 +1516,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1367,11 +1547,11 @@ declare namespace gapi.client {
       /** Deletes a UserList. Authorization Headers: This method supports the following optional headers to define how the API authorizes access for the request: * `login-account`: (Optional) The resource name of the account where the Google Account of the credentials is a user. If not set, defaults to the account of the request. Format: `accountTypes/{loginAccountType}/accounts/{loginAccountId}` * `linked-account`: (Optional) The resource name of the account with an established product link to the `login-account`. Format: `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}` */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1396,11 +1576,11 @@ declare namespace gapi.client {
       /** Gets a UserList. Authorization Headers: This method supports the following optional headers to define how the API authorizes access for the request: * `login-account`: (Optional) The resource name of the account where the Google Account of the credentials is a user. If not set, defaults to the account of the request. Format: `accountTypes/{loginAccountType}/accounts/{loginAccountId}` * `linked-account`: (Optional) The resource name of the account with an established product link to the `login-account`. Format: `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}` */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1423,11 +1603,11 @@ declare namespace gapi.client {
       /** Lists UserLists. Authorization Headers: This method supports the following optional headers to define how the API authorizes access for the request: * `login-account`: (Optional) The resource name of the account where the Google Account of the credentials is a user. If not set, defaults to the account of the request. Format: `accountTypes/{loginAccountType}/accounts/{loginAccountId}` * `linked-account`: (Optional) The resource name of the account with an established product link to the `login-account`. Format: `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}` */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1456,11 +1636,11 @@ declare namespace gapi.client {
       /** Updates a UserList. Authorization Headers: This method supports the following optional headers to define how the API authorizes access for the request: * `login-account`: (Optional) The resource name of the account where the Google Account of the credentials is a user. If not set, defaults to the account of the request. Format: `accountTypes/{loginAccountType}/accounts/{loginAccountId}` * `linked-account`: (Optional) The resource name of the account with an established product link to the `login-account`. Format: `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}` */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1489,11 +1669,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1534,11 +1714,11 @@ declare namespace gapi.client {
       /** Uploads a list of AudienceMember resources to the provided Destination. */
       ingest(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1561,11 +1741,11 @@ declare namespace gapi.client {
       ingest(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1588,11 +1768,11 @@ declare namespace gapi.client {
       /** Removes a list of AudienceMember resources from the provided Destination. */
       remove(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1615,11 +1795,11 @@ declare namespace gapi.client {
       remove(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1644,11 +1824,11 @@ declare namespace gapi.client {
       /** Uploads a list of Event resources from the provided Destination. */
       ingest(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1671,11 +1851,11 @@ declare namespace gapi.client {
       ingest(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1700,11 +1880,11 @@ declare namespace gapi.client {
       /** Gets the status of a request given request id. */
       retrieve(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

@@ -66,7 +66,7 @@ declare namespace gapi.client {
       /** Relinquish ownership of a website or domain. */
       delete(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** The id of a verified site or domain. */
@@ -85,7 +85,7 @@ declare namespace gapi.client {
       /** Get the most current data for a website or domain. */
       get(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** The id of a verified site or domain. */
@@ -104,7 +104,7 @@ declare namespace gapi.client {
       /** Get a verification token for placing on a website or domain. */
       getToken(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -123,7 +123,7 @@ declare namespace gapi.client {
       getToken(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -142,7 +142,7 @@ declare namespace gapi.client {
       /** Attempt verification of a website or domain. */
       insert(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -163,7 +163,7 @@ declare namespace gapi.client {
       insert(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -184,7 +184,7 @@ declare namespace gapi.client {
       /** Get the list of your verified websites and domains. */
       list(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -201,7 +201,7 @@ declare namespace gapi.client {
       /** Modify the list of owners for your website or domain. This method supports patch semantics. */
       patch(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** The id of a verified site or domain. */
@@ -222,7 +222,7 @@ declare namespace gapi.client {
       patch(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** The id of a verified site or domain. */
@@ -243,7 +243,7 @@ declare namespace gapi.client {
       /** Modify the list of owners for your website or domain. */
       update(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** The id of a verified site or domain. */
@@ -264,7 +264,7 @@ declare namespace gapi.client {
       update(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** The id of a verified site or domain. */

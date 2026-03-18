@@ -30,7 +30,14 @@ declare namespace gapi.client {
   namespace androidpublisher {
     interface Abi {
       /** Alias for an abi. */
-      alias?: string;
+      alias?:
+        | 'UNSPECIFIED_CPU_ARCHITECTURE'
+        | 'ARMEABI'
+        | 'ARMEABI_V7A'
+        | 'ARM64_V8A'
+        | 'X86'
+        | 'X86_64'
+        | 'RISCV64';
     }
     interface AbiTargeting {
       /** Targeting of other sibling directories that were in the Bundle. For main splits this is targeting of other main splits. */
@@ -46,7 +53,10 @@ declare namespace gapi.client {
       /** Required. The unique base plan ID of the base plan to activate. */
       basePlanId?: string;
       /** Optional. The latency tolerance for the propagation of this product update. Defaults to latency-sensitive. */
-      latencyTolerance?: string;
+      latencyTolerance?:
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
       /** Required. The parent app (package name) of the base plan to activate. */
       packageName?: string;
       /** Required. The parent subscription (ID) of the base plan to activate. */
@@ -54,7 +64,10 @@ declare namespace gapi.client {
     }
     interface ActivateOneTimeProductOfferRequest {
       /** Optional. The latency tolerance for the propagation of this update. Defaults to latency-sensitive. */
-      latencyTolerance?: string;
+      latencyTolerance?:
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
       /** Required. The offer ID of the offer to activate. */
       offerId?: string;
       /** Required. The parent app (package name) of the offer to activate. */
@@ -66,7 +79,10 @@ declare namespace gapi.client {
     }
     interface ActivatePurchaseOptionRequest {
       /** Optional. The latency tolerance for the propagation of this product update. Defaults to latency-sensitive. */
-      latencyTolerance?: string;
+      latencyTolerance?:
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
       /** Required. The parent app (package name) of the purchase option to activate. */
       packageName?: string;
       /** Required. The parent one-time product (ID) of the purchase option to activate. */
@@ -78,7 +94,10 @@ declare namespace gapi.client {
       /** Required. The parent base plan (ID) of the offer to activate. */
       basePlanId?: string;
       /** Optional. The latency tolerance for the propagation of this product update. Defaults to latency-sensitive. */
-      latencyTolerance?: string;
+      latencyTolerance?:
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
       /** Required. The unique offer ID of the offer to activate. */
       offerId?: string;
       /** Required. The parent app (package name) of the offer to activate. */
@@ -189,7 +208,13 @@ declare namespace gapi.client {
       /** Data about the remote in-app update action such as such as recovered user base, recoverable user base etc. Set only if the recovery action type is Remote In-App Update. */
       remoteInAppUpdateData?: RemoteInAppUpdateData;
       /** The status of the recovery action. */
-      status?: string;
+      status?:
+        | 'RECOVERY_STATUS_UNSPECIFIED'
+        | 'RECOVERY_STATUS_ACTIVE'
+        | 'RECOVERY_STATUS_CANCELED'
+        | 'RECOVERY_STATUS_DRAFT'
+        | 'RECOVERY_STATUS_GENERATION_IN_PROGRESS'
+        | 'RECOVERY_STATUS_GENERATION_FAILED';
       /** Specifies targeting criteria for the recovery action such as regions, android sdk versions, app versions etc. */
       targeting?: Targeting;
     }
@@ -210,7 +235,11 @@ declare namespace gapi.client {
     }
     interface AssetModuleMetadata {
       /** Indicates the delivery type for persistent install. */
-      deliveryType?: string;
+      deliveryType?:
+        | 'UNKNOWN_DELIVERY_TYPE'
+        | 'INSTALL_TIME'
+        | 'ON_DEMAND'
+        | 'FAST_FOLLOW';
       /** Module name. */
       name?: string;
     }
@@ -232,9 +261,15 @@ declare namespace gapi.client {
       /** Subscription offer id which is legacy compatible. The backward compatible subscription offer is returned by the Google Play Billing Library deprecated method querySkuDetailsAsync(). Only one subscription offer can be marked as legacy compatible for a given renewing base plan. To have no Subscription offer as legacy compatible set this field as empty string. */
       legacyCompatibleSubscriptionOfferId?: string;
       /** The proration mode for the base plan determines what happens when a user switches to this plan from another base plan. If unspecified, defaults to CHARGE_ON_NEXT_BILLING_DATE. */
-      prorationMode?: string;
+      prorationMode?:
+        | 'SUBSCRIPTION_PRORATION_MODE_UNSPECIFIED'
+        | 'SUBSCRIPTION_PRORATION_MODE_CHARGE_ON_NEXT_BILLING_DATE'
+        | 'SUBSCRIPTION_PRORATION_MODE_CHARGE_FULL_PRICE_IMMEDIATELY';
       /** Whether users should be able to resubscribe to this base plan in Google Play surfaces. Defaults to RESUBSCRIBE_STATE_ACTIVE if not specified. */
-      resubscribeState?: string;
+      resubscribeState?:
+        | 'RESUBSCRIBE_STATE_UNSPECIFIED'
+        | 'RESUBSCRIBE_STATE_ACTIVE'
+        | 'RESUBSCRIBE_STATE_INACTIVE';
     }
     interface AutoRenewingPlan {
       /** If the subscription is currently set to auto-renew, e.g. the user has not canceled the subscription */
@@ -265,7 +300,7 @@ declare namespace gapi.client {
       /** Region-specific information for this base plan. */
       regionalConfigs?: RegionalBasePlanConfig[];
       /** Output only. The state of the base plan, i.e. whether it's active. Draft and inactive base plans can be activated or deleted. Active base plans can be made inactive. Inactive base plans can be canceled. This field cannot be changed by updating the resource. Use the dedicated endpoints instead. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'DRAFT' | 'ACTIVE' | 'INACTIVE';
     }
     interface BasePriceOfferPhase {}
     interface BatchDeleteOneTimeProductOffersRequest {
@@ -415,7 +450,10 @@ declare namespace gapi.client {
     }
     interface CancellationContext {
       /** Required. The type of cancellation for the purchased subscription. */
-      cancellationType?: string;
+      cancellationType?:
+        | 'CANCELLATION_TYPE_UNSPECIFIED'
+        | 'USER_REQUESTED_STOP_RENEWALS'
+        | 'DEVELOPER_REQUESTED_STOP_PAYMENTS';
     }
     interface CancellationEvent {
       /** The time when the order was canceled. */
@@ -423,7 +461,10 @@ declare namespace gapi.client {
     }
     interface CancelOneTimeProductOfferRequest {
       /** Optional. The latency tolerance for the propagation of this update. Defaults to latency-sensitive. */
-      latencyTolerance?: string;
+      latencyTolerance?:
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
       /** Required. The offer ID of the offer to cancel. */
       offerId?: string;
       /** Required. The parent app (package name) of the offer to cancel. */
@@ -440,7 +481,13 @@ declare namespace gapi.client {
     interface CancelSubscriptionPurchaseResponse {}
     interface CancelSurveyResult {
       /** The reason the user selected in the cancel survey. */
-      reason?: string;
+      reason?:
+        | 'CANCEL_SURVEY_REASON_UNSPECIFIED'
+        | 'CANCEL_SURVEY_REASON_NOT_ENOUGH_USAGE'
+        | 'CANCEL_SURVEY_REASON_TECHNICAL_ISSUES'
+        | 'CANCEL_SURVEY_REASON_COST_RELATED'
+        | 'CANCEL_SURVEY_REASON_FOUND_BETTER_APP'
+        | 'CANCEL_SURVEY_REASON_OTHERS';
       /** Only set for CANCEL_SURVEY_REASON_OTHERS. This is the user's freeform response to the survey. */
       reasonUserInput?: string;
     }
@@ -494,7 +541,10 @@ declare namespace gapi.client {
       /** Required. The unique base plan ID of the base plan to deactivate. */
       basePlanId?: string;
       /** Optional. The latency tolerance for the propagation of this product update. Defaults to latency-sensitive. */
-      latencyTolerance?: string;
+      latencyTolerance?:
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
       /** Required. The parent app (package name) of the base plan to deactivate. */
       packageName?: string;
       /** Required. The parent subscription (ID) of the base plan to deactivate. */
@@ -502,7 +552,10 @@ declare namespace gapi.client {
     }
     interface DeactivateOneTimeProductOfferRequest {
       /** Optional. The latency tolerance for the propagation of this update. Defaults to latency-sensitive. */
-      latencyTolerance?: string;
+      latencyTolerance?:
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
       /** Required. The offer ID of the offer to deactivate. */
       offerId?: string;
       /** Required. The parent app (package name) of the offer to deactivate. */
@@ -514,7 +567,10 @@ declare namespace gapi.client {
     }
     interface DeactivatePurchaseOptionRequest {
       /** Optional. The latency tolerance for the propagation of this product update. Defaults to latency-sensitive. */
-      latencyTolerance?: string;
+      latencyTolerance?:
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
       /** Required. The parent app (package name) of the purchase option to deactivate. */
       packageName?: string;
       /** Required. The parent one-time product (ID) of the purchase option to deactivate. */
@@ -526,7 +582,10 @@ declare namespace gapi.client {
       /** Required. The parent base plan (ID) of the offer to deactivate. */
       basePlanId?: string;
       /** Optional. The latency tolerance for the propagation of this product update. Defaults to latency-sensitive. */
-      latencyTolerance?: string;
+      latencyTolerance?:
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
       /** Required. The unique offer ID of the offer to deactivate. */
       offerId?: string;
       /** Required. The parent app (package name) of the offer to deactivate. */
@@ -557,7 +616,10 @@ declare namespace gapi.client {
     }
     interface DeleteOneTimeProductOfferRequest {
       /** Optional. The latency tolerance for the propagation of this product update. Defaults to latency-sensitive. */
-      latencyTolerance?: string;
+      latencyTolerance?:
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
       /** Required. The unique offer ID of the offer to delete. */
       offerId?: string;
       /** Required. The parent app (package name) of the offer to delete. */
@@ -569,7 +631,10 @@ declare namespace gapi.client {
     }
     interface DeleteOneTimeProductRequest {
       /** Optional. The latency tolerance for the propagation of this product update. Defaults to latency-sensitive. */
-      latencyTolerance?: string;
+      latencyTolerance?:
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
       /** Required. The parent app (package name) of the one-time product to delete. */
       packageName?: string;
       /** Required. The one-time product ID of the one-time product to delete. */
@@ -579,7 +644,10 @@ declare namespace gapi.client {
       /** Optional. This field has no effect for purchase options with no offers under them. For purchase options with associated offers: * If `force` is set to false (default), an error will be returned. * If `force` is set to true, any associated offers under the purchase option will be deleted. */
       force?: boolean;
       /** Optional. The latency tolerance for the propagation of this product update. Defaults to latency-sensitive. */
-      latencyTolerance?: string;
+      latencyTolerance?:
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
       /** Required. The parent app (package name) of the purchase option to delete. */
       packageName?: string;
       /** Required. The parent one-time product (ID) of the purchase option to delete. */
@@ -589,7 +657,10 @@ declare namespace gapi.client {
     }
     interface DeobfuscationFile {
       /** The type of the deobfuscation file. */
-      symbolType?: string;
+      symbolType?:
+        | 'deobfuscationFileTypeUnspecified'
+        | 'proguard'
+        | 'nativeCode';
     }
     interface DeobfuscationFilesUploadResponse {
       /** The uploaded Deobfuscation File configuration. */
@@ -758,15 +829,24 @@ declare namespace gapi.client {
       /** Optional. The external transaction id associated with the app download event through an external link. Required when reporting transactions made in externally installed apps. */
       appDownloadEventExternalTransactionId?: string;
       /** Optional. The category of the downloaded app though this transaction. This must match the category provided in Play Console during the external app verification process. Only required for app downloads. */
-      installedAppCategory?: string;
+      installedAppCategory?:
+        | 'EXTERNAL_OFFER_APP_CATEGORY_UNSPECIFIED'
+        | 'APP'
+        | 'GAME';
       /** Optional. The package name of the app downloaded through this transaction. Required when link_type is LINK_TO_APP_DOWNLOAD. */
       installedAppPackage?: string;
       /** Optional. The type of content being reported by this transaction. Required when reporting app downloads or purchased digital content offers made in app installed through Google Play. */
-      linkType?: string;
+      linkType?:
+        | 'EXTERNAL_OFFER_LINK_TYPE_UNSPECIFIED'
+        | 'LINK_TO_DIGITAL_CONTENT_OFFER'
+        | 'LINK_TO_APP_DOWNLOAD';
     }
     interface ExternalSubscription {
       /** Required. The type of the external subscription. */
-      subscriptionType?: string;
+      subscriptionType?:
+        | 'SUBSCRIPTION_TYPE_UNSPECIFIED'
+        | 'RECURRING'
+        | 'PREPAID';
     }
     interface ExternalTransaction {
       /** Output only. The time when this transaction was created. This is the time when Google was notified of the transaction. */
@@ -794,7 +874,10 @@ declare namespace gapi.client {
       /** Optional. The transaction program code, used to help determine service fee for eligible apps participating in partner programs. Developers participating in the Play Media Experience Program (https://play.google.com/console/about/programs/mediaprogram/) must provide the program code when reporting alternative billing transactions. If you are an eligible developer, please contact your BDM for more information on how to set this field. Note: this field can not be used for external offers transactions. */
       transactionProgramCode?: number;
       /** Output only. The current state of the transaction. */
-      transactionState?: string;
+      transactionState?:
+        | 'TRANSACTION_STATE_UNSPECIFIED'
+        | 'TRANSACTION_REPORTED'
+        | 'TRANSACTION_CANCELED';
       /** Required. The time when the transaction was completed. */
       transactionTime?: string;
       /** Required. User address for tax computation. */
@@ -848,7 +931,13 @@ declare namespace gapi.client {
       /** ID of the recovery action. */
       recoveryId?: string;
       /** The status of the recovery action corresponding to the recovery apk. */
-      recoveryStatus?: string;
+      recoveryStatus?:
+        | 'RECOVERY_STATUS_UNSPECIFIED'
+        | 'RECOVERY_STATUS_ACTIVE'
+        | 'RECOVERY_STATUS_CANCELED'
+        | 'RECOVERY_STATUS_DRAFT'
+        | 'RECOVERY_STATUS_GENERATION_IN_PROGRESS'
+        | 'RECOVERY_STATUS_GENERATION_FAILED';
     }
     interface GeneratedSplitApk {
       /** Download ID, which uniquely identifies the APK to download. Should be supplied to `generatedapks.download` method. */
@@ -892,7 +981,22 @@ declare namespace gapi.client {
     }
     interface Grant {
       /** The permissions granted to the user for this app. */
-      appLevelPermissions?: string[];
+      appLevelPermissions?:
+        | 'APP_LEVEL_PERMISSION_UNSPECIFIED'
+        | 'CAN_ACCESS_APP'
+        | 'CAN_VIEW_FINANCIAL_DATA'
+        | 'CAN_MANAGE_PERMISSIONS'
+        | 'CAN_REPLY_TO_REVIEWS'
+        | 'CAN_MANAGE_PUBLIC_APKS'
+        | 'CAN_MANAGE_TRACK_APKS'
+        | 'CAN_MANAGE_TRACK_USERS'
+        | 'CAN_MANAGE_PUBLIC_LISTING'
+        | 'CAN_MANAGE_DRAFT_APPS'
+        | 'CAN_MANAGE_ORDERS'
+        | 'CAN_MANAGE_APP_CONTENT'
+        | 'CAN_VIEW_NON_FINANCIAL_DATA'
+        | 'CAN_VIEW_APP_QUALITY'
+        | 'CAN_MANAGE_DEEPLINKS'[];
       /** Required. Resource name for this grant, following the pattern "developers/{developer}/users/{email}/grants/{package_name}". If this grant is for a draft app, the app ID will be used in this resource name instead of the package name. */
       name?: string;
       /** Immutable. The package name of the app. This will be empty for draft apps. */
@@ -936,11 +1040,11 @@ declare namespace gapi.client {
       /** Prices per buyer region. None of these can be zero, as in-app products are never free. Map key is region code, as defined by ISO 3166-2. */
       prices?: {[P in string]: Price};
       /** The type of the product, e.g. a recurring subscription. */
-      purchaseType?: string;
+      purchaseType?: 'purchaseTypeUnspecified' | 'managedUser' | 'subscription';
       /** Stock-keeping-unit (SKU) of the product, unique within an app. */
       sku?: string;
       /** The status of the product, e.g. whether it's active. */
-      status?: string;
+      status?: 'statusUnspecified' | 'active' | 'inactive';
       /** Subscription period, specified in ISO 8601 format. Acceptable values are P1W (one week), P1M (one month), P3M (three months), P6M (six months), and P1Y (one year). */
       subscriptionPeriod?: string;
       /** Details about taxes and legal compliance. Only applicable to subscription products. */
@@ -974,7 +1078,10 @@ declare namespace gapi.client {
     }
     interface InappproductsDeleteRequest {
       /** Optional. The latency tolerance for the propagation of this product update. Defaults to latency-sensitive. */
-      latencyTolerance?: string;
+      latencyTolerance?:
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
       /** Package name of the app. */
       packageName?: string;
       /** Unique identifier for the in-app product. */
@@ -998,7 +1105,10 @@ declare namespace gapi.client {
       /** The new in-app product. */
       inappproduct?: InAppProduct;
       /** Optional. The latency tolerance for the propagation of this product update. Defaults to latency-sensitive. */
-      latencyTolerance?: string;
+      latencyTolerance?:
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
       /** Package name of the app. */
       packageName?: string;
       /** Unique identifier for the in-app product. */
@@ -1024,11 +1134,20 @@ declare namespace gapi.client {
       /** Grace period of the subscription, specified in ISO 8601 format. Acceptable values must be in days and between P0D and the lesser of 30D and base plan billing period. If not specified, a default value will be used based on the billing period. The sum of gracePeriodDuration and accountHoldDuration must be between P30D and P60D days, inclusive. */
       gracePeriodDuration?: string;
       /** The proration mode for the base plan determines what happens when a user switches to this plan from another base plan. If unspecified, defaults to CHARGE_ON_NEXT_BILLING_DATE. */
-      prorationMode?: string;
+      prorationMode?:
+        | 'SUBSCRIPTION_PRORATION_MODE_UNSPECIFIED'
+        | 'SUBSCRIPTION_PRORATION_MODE_CHARGE_ON_NEXT_BILLING_DATE'
+        | 'SUBSCRIPTION_PRORATION_MODE_CHARGE_FULL_PRICE_IMMEDIATELY';
       /** Required. Immutable. Installments base plan renewal type. Determines the behavior at the end of the initial commitment. The renewal type is immutable after the base plan is created. */
-      renewalType?: string;
+      renewalType?:
+        | 'RENEWAL_TYPE_UNSPECIFIED'
+        | 'RENEWAL_TYPE_RENEWS_WITHOUT_COMMITMENT'
+        | 'RENEWAL_TYPE_RENEWS_WITH_COMMITMENT';
       /** Whether users should be able to resubscribe to this base plan in Google Play surfaces. Defaults to RESUBSCRIBE_STATE_ACTIVE if not specified. */
-      resubscribeState?: string;
+      resubscribeState?:
+        | 'RESUBSCRIBE_STATE_UNSPECIFIED'
+        | 'RESUBSCRIBE_STATE_ACTIVE'
+        | 'RESUBSCRIBE_STATE_INACTIVE';
     }
     interface InternalAppSharingArtifact {
       /** The sha256 fingerprint of the certificate used to sign the generated artifact. */
@@ -1064,7 +1183,14 @@ declare namespace gapi.client {
       /** The product ID of the subscription line item being replaced. */
       productId?: string;
       /** The replacement mode applied during the purchase. */
-      replacementMode?: string;
+      replacementMode?:
+        | 'REPLACEMENT_MODE_UNSPECIFIED'
+        | 'WITH_TIME_PRORATION'
+        | 'CHARGE_PRORATED_PRICE'
+        | 'WITHOUT_PRORATION'
+        | 'CHARGE_FULL_PRICE'
+        | 'DEFERRED'
+        | 'KEEP_EXISTING';
     }
     interface LanguageTargeting {
       /** Alternative languages. */
@@ -1160,7 +1286,10 @@ declare namespace gapi.client {
     }
     interface ManagedProductTaxAndComplianceSettings {
       /** Digital content or service classification for products distributed to users in the European Economic Area (EEA). The withdrawal regime under EEA consumer laws depends on this classification. Refer to the [Help Center article](https://support.google.com/googleplay/android-developer/answer/10463498) for more information. */
-      eeaWithdrawalRightType?: string;
+      eeaWithdrawalRightType?:
+        | 'WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED'
+        | 'WITHDRAWAL_RIGHT_DIGITAL_CONTENT'
+        | 'WITHDRAWAL_RIGHT_SERVICE';
       /** Whether this in-app product is declared as a product representing a tokenized digital asset. */
       isTokenizedDigitalAsset?: boolean;
       /** Product tax category code to assign to the in-app product. Product tax category determines the transaction tax rates applied to the product. Refer to the [Help Center article](https://support.google.com/googleplay/android-developer/answer/16408159) for more information. */
@@ -1174,7 +1303,10 @@ declare namespace gapi.client {
       /** Required. The unique base plan ID of the base plan to update prices on. */
       basePlanId?: string;
       /** Optional. The latency tolerance for the propagation of this product update. Defaults to latency-sensitive. */
-      latencyTolerance?: string;
+      latencyTolerance?:
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
       /** Required. Package name of the parent app. Must be equal to the package_name field on the Subscription resource. */
       packageName?: string;
       /** Required. The ID of the subscription to update. Must be equal to the product_id field on the Subscription resource. */
@@ -1187,11 +1319,15 @@ declare namespace gapi.client {
     interface MigrateBasePlanPricesResponse {}
     interface ModuleMetadata {
       /** Indicates the delivery type (e.g. on-demand) of the module. */
-      deliveryType?: string;
+      deliveryType?:
+        | 'UNKNOWN_DELIVERY_TYPE'
+        | 'INSTALL_TIME'
+        | 'ON_DEMAND'
+        | 'FAST_FOLLOW';
       /** Names of the modules that this module directly depends on. Each module implicitly depends on the base module. */
       dependencies?: string[];
       /** Indicates the type of this feature module. */
-      moduleType?: string;
+      moduleType?: 'UNKNOWN_MODULE_TYPE' | 'FEATURE_MODULE';
       /** Module name. */
       name?: string;
       /** The targeting that makes a conditional module installed. Relevant only for Split APKs. */
@@ -1320,14 +1456,22 @@ declare namespace gapi.client {
       /** Output only. The version of the regions configuration that was used to generate the one-time product offer. */
       regionsVersion?: RegionsVersion;
       /** Output only. The current state of this offer. This field cannot be changed by updating the resource. Use the dedicated endpoints instead. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'DRAFT'
+        | 'ACTIVE'
+        | 'CANCELLED'
+        | 'INACTIVE';
     }
     interface OneTimeProductOfferNoPriceOverrideOptions {}
     interface OneTimeProductOfferRegionalPricingAndAvailabilityConfig {
       /** The absolute value of the discount that is subtracted from the purchase option price. It should be between 0 and the purchase option price. */
       absoluteDiscount?: Money;
       /** Required. The availability for this region. */
-      availability?: string;
+      availability?:
+        | 'AVAILABILITY_UNSPECIFIED'
+        | 'AVAILABLE'
+        | 'NO_LONGER_AVAILABLE';
       /** The price defined in the purchase option for this region will be used. */
       noOverride?: any;
       /** Required. Region code this configuration applies to, as defined by ISO 3166-2, e.g., "US". */
@@ -1339,7 +1483,10 @@ declare namespace gapi.client {
       /** Required. Time when the pre-order will stop being available. */
       endTime?: string;
       /** Required. Immutable. Specifies how price changes affect pre-existing pre-orders. */
-      priceChangeBehavior?: string;
+      priceChangeBehavior?:
+        | 'PRE_ORDER_PRICE_CHANGE_BEHAVIOR_UNSPECIFIED'
+        | 'PRE_ORDER_PRICE_CHANGE_BEHAVIOR_TWO_POINT_LOWEST'
+        | 'PRE_ORDER_PRICE_CHANGE_BEHAVIOR_NEW_ORDERS_ONLY';
       /** Required. Time on which the product associated with the pre-order will be released and the pre-order orders fulfilled. */
       releaseTime?: string;
       /** Required. Time when the pre-order will start being available. */
@@ -1359,13 +1506,21 @@ declare namespace gapi.client {
       /** A purchase option that can be rented. */
       rentOption?: OneTimeProductRentPurchaseOption;
       /** Output only. The state of the purchase option, i.e., whether it's active. This field cannot be changed by updating the resource. Use the dedicated endpoints instead. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'DRAFT'
+        | 'ACTIVE'
+        | 'INACTIVE'
+        | 'INACTIVE_PUBLISHED';
       /** Optional. Details about taxes and legal compliance. */
       taxAndComplianceSettings?: PurchaseOptionTaxAndComplianceSettings;
     }
     interface OneTimeProductPurchaseOptionNewRegionsConfig {
       /** Required. The regional availability for the new regions config. When set to AVAILABLE, the pricing information will be used for any new regions Play may launch in the future. */
-      availability?: string;
+      availability?:
+        | 'AVAILABILITY_UNSPECIFIED'
+        | 'AVAILABLE'
+        | 'NO_LONGER_AVAILABLE';
       /** Required. Price in EUR to use for any new regions Play may launch in. */
       eurPrice?: Money;
       /** Required. Price in USD to use for any new regions Play may launch in. */
@@ -1373,7 +1528,12 @@ declare namespace gapi.client {
     }
     interface OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig {
       /** The availability of the purchase option. */
-      availability?: string;
+      availability?:
+        | 'AVAILABILITY_UNSPECIFIED'
+        | 'AVAILABLE'
+        | 'NO_LONGER_AVAILABLE'
+        | 'AVAILABLE_IF_RELEASED'
+        | 'AVAILABLE_FOR_OFFERS_ONLY';
       /** The price of the purchase option in the specified region. Must be set in the currency that is linked to the specified region. */
       price?: Money;
       /** Required. Region code this configuration applies to, as defined by ISO 3166-2, e.g., "US". */
@@ -1429,9 +1589,22 @@ declare namespace gapi.client {
       /** The token provided to the user's device when the subscription or item was purchased. */
       purchaseToken?: string;
       /** The originating sales channel of the order. */
-      salesChannel?: string;
+      salesChannel?:
+        | 'SALES_CHANNEL_UNSPECIFIED'
+        | 'IN_APP'
+        | 'PC_EMULATOR'
+        | 'NATIVE_PC'
+        | 'PLAY_STORE'
+        | 'OUTSIDE_PLAY_STORE';
       /** The state of the order. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PENDING'
+        | 'PROCESSED'
+        | 'CANCELED'
+        | 'PENDING_REFUND'
+        | 'PARTIALLY_REFUNDED'
+        | 'REFUNDED';
       /** The total tax paid as a part of this order. */
       tax?: Money;
       /** The final amount paid by the customer, taking into account discounts and taxes. */
@@ -1510,7 +1683,7 @@ declare namespace gapi.client {
       /** Details for the partial refund. */
       refundDetails?: RefundDetails;
       /** The state of the partial refund. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'PENDING' | 'PROCESSED_SUCCESSFULLY';
     }
     interface PausedStateContext {
       /** Time at which the subscription will be automatically resumed. */
@@ -1536,7 +1709,10 @@ declare namespace gapi.client {
       /** Required. Immutable. Subscription period, specified in ISO 8601 format. For a list of acceptable billing periods, refer to the help center. The duration is immutable after the base plan is created. */
       billingPeriodDuration?: string;
       /** Whether users should be able to extend this prepaid base plan in Google Play surfaces. Defaults to TIME_EXTENSION_ACTIVE if not specified. */
-      timeExtension?: string;
+      timeExtension?:
+        | 'TIME_EXTENSION_UNSPECIFIED'
+        | 'TIME_EXTENSION_ACTIVE'
+        | 'TIME_EXTENSION_INACTIVE';
     }
     interface PrepaidPlan {
       /** If present, this is the time after which top up purchases are allowed for the prepaid plan. Will not be present for expired prepaid plans. */
@@ -1554,7 +1730,11 @@ declare namespace gapi.client {
       /** The new price which requires user consent. */
       newPrice?: Money;
       /** Output only. The state of the price step-up consent. */
-      state?: string;
+      state?:
+        | 'CONSENT_STATE_UNSPECIFIED'
+        | 'PENDING'
+        | 'CONFIRMED'
+        | 'COMPLETED';
     }
     interface ProcessedEvent {
       /** The time when the order was processed. */
@@ -1568,7 +1748,10 @@ declare namespace gapi.client {
     }
     interface ProductOfferDetails {
       /** Output only. The consumption state of the purchase. */
-      consumptionState?: string;
+      consumptionState?:
+        | 'CONSUMPTION_STATE_UNSPECIFIED'
+        | 'CONSUMPTION_STATE_YET_TO_BE_CONSUMED'
+        | 'CONSUMPTION_STATE_CONSUMED';
       /** The offer ID. Only present for offers. */
       offerId?: string;
       /** The latest offer tags associated with the offer. It includes tags inherited from the purchase option. */
@@ -1624,7 +1807,10 @@ declare namespace gapi.client {
     }
     interface ProductPurchaseV2 {
       /** Output only. The acknowledgement state of the purchase. */
-      acknowledgementState?: string;
+      acknowledgementState?:
+        | 'ACKNOWLEDGEMENT_STATE_UNSPECIFIED'
+        | 'ACKNOWLEDGEMENT_STATE_PENDING'
+        | 'ACKNOWLEDGEMENT_STATE_ACKNOWLEDGED';
       /** This kind represents a ProductPurchaseV2 object in the androidpublisher service. */
       kind?: string;
       /** An obfuscated version of the id that is uniquely associated with the user's account in your app. Only present if specified using https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setobfuscatedaccountid when the purchase was made. */
@@ -1646,19 +1832,34 @@ declare namespace gapi.client {
     }
     interface ProrationPeriodDetails {
       /** Represent the original offer phase from the purchased the line item if the proration period contains any of them. For example, a proration period from CHARGE_FULL_PRICE plan change may merge the 1st offer phase of the subscription offer of the new product user purchased. In this case, the original offer phase will be set here. */
-      originalOfferPhase?: string;
+      originalOfferPhase?:
+        | 'OFFER_PHASE_UNSPECIFIED'
+        | 'BASE'
+        | 'INTRODUCTORY'
+        | 'FREE_TRIAL';
     }
     interface ProrationPeriodOfferPhase {
       /** The original offer phase type before the proration period. Only set when the proration period is updated from an existing offer phase. */
-      originalOfferPhaseType?: string;
+      originalOfferPhaseType?:
+        | 'ORIGINAL_OFFER_PHASE_TYPE_UNSPECIFIED'
+        | 'BASE'
+        | 'INTRODUCTORY'
+        | 'FREE_TRIAL';
     }
     interface PurchaseOptionTaxAndComplianceSettings {
       /** Optional. Digital content or service classification for products distributed to users in eligible regions. If unset, it defaults to `WITHDRAWAL_RIGHT_DIGITAL_CONTENT`. Refer to the [Help Center article](https://support.google.com/googleplay/android-developer/answer/10463498) for more information. */
-      withdrawalRightType?: string;
+      withdrawalRightType?:
+        | 'WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED'
+        | 'WITHDRAWAL_RIGHT_DIGITAL_CONTENT'
+        | 'WITHDRAWAL_RIGHT_SERVICE';
     }
     interface PurchaseStateContext {
       /** Output only. The purchase state of the purchase. */
-      purchaseState?: string;
+      purchaseState?:
+        | 'PURCHASE_STATE_UNSPECIFIED'
+        | 'PURCHASED'
+        | 'CANCELLED'
+        | 'PENDING';
     }
     interface RecurringExternalTransaction {
       /** Details of an external subscription. */
@@ -1668,7 +1869,10 @@ declare namespace gapi.client {
       /** The external transaction id of the first transaction of this recurring series of transactions. For example, for a subscription this would be the transaction id of the first payment. Required when creating recurring external transactions. */
       initialExternalTransactionId?: string;
       /** Input only. Provided during the call to Create. Must only be used when migrating a subscription from manual monthly reporting to automated reporting. */
-      migratedTransactionProgram?: string;
+      migratedTransactionProgram?:
+        | 'EXTERNAL_TRANSACTION_PROGRAM_UNSPECIFIED'
+        | 'USER_CHOICE_BILLING'
+        | 'ALTERNATIVE_BILLING_ONLY';
       /** Details of a recurring external transaction product which doesn't belong to any other specific category. */
       otherRecurringProduct?: any;
     }
@@ -1684,7 +1888,7 @@ declare namespace gapi.client {
       /** Details for the full refund. */
       refundDetails?: RefundDetails;
       /** The reason the order was refunded. */
-      refundReason?: string;
+      refundReason?: 'REFUND_REASON_UNSPECIFIED' | 'OTHER' | 'CHARGEBACK';
     }
     interface RefundExternalTransactionRequest {
       /** A full-amount refund. */
@@ -1706,13 +1910,21 @@ declare namespace gapi.client {
       /** Required. Subscribers in all legacy price cohorts before this time will be migrated to the current price. Subscribers in any newer price cohorts are unaffected. Affected subscribers will receive one or more notifications from Google Play about the price change. Price decreases occur at the subscriber's next billing date. Price increases occur at the subscriber's next billing date following a notification period that varies by region and price increase type. */
       oldestAllowedPriceVersionTime?: string;
       /** Optional. The requested type of price increase */
-      priceIncreaseType?: string;
+      priceIncreaseType?:
+        | 'PRICE_INCREASE_TYPE_UNSPECIFIED'
+        | 'PRICE_INCREASE_TYPE_OPT_IN'
+        | 'PRICE_INCREASE_TYPE_OPT_OUT';
       /** Required. Region code this configuration applies to, as defined by ISO 3166-2, e.g. "US". */
       regionCode?: string;
     }
     interface RegionalProductAgeRatingInfo {
       /** The age rating tier of a product for the given region. */
-      productAgeRatingTier?: string;
+      productAgeRatingTier?:
+        | 'PRODUCT_AGE_RATING_TIER_UNKNOWN'
+        | 'PRODUCT_AGE_RATING_TIER_EVERYONE'
+        | 'PRODUCT_AGE_RATING_TIER_THIRTEEN_AND_ABOVE'
+        | 'PRODUCT_AGE_RATING_TIER_SIXTEEN_AND_ABOVE'
+        | 'PRODUCT_AGE_RATING_TIER_EIGHTEEN_AND_ABOVE';
       /** Region code this configuration applies to, as defined by ISO 3166-2, e.g. "US". */
       regionCode?: string;
     }
@@ -1741,17 +1953,43 @@ declare namespace gapi.client {
       /** Required. Region code this configuration applies to, as defined by ISO 3166-2, e.g. "US". */
       regionCode?: string;
       /** To collect communications or amusement taxes in the United States, choose the appropriate tax category. [Learn more](https://support.google.com/googleplay/android-developer/answer/10463498#streaming_tax). */
-      streamingTaxType?: string;
+      streamingTaxType?:
+        | 'STREAMING_TAX_TYPE_UNSPECIFIED'
+        | 'STREAMING_TAX_TYPE_TELCO_VIDEO_RENTAL'
+        | 'STREAMING_TAX_TYPE_TELCO_VIDEO_SALES'
+        | 'STREAMING_TAX_TYPE_TELCO_VIDEO_MULTI_CHANNEL'
+        | 'STREAMING_TAX_TYPE_TELCO_AUDIO_RENTAL'
+        | 'STREAMING_TAX_TYPE_TELCO_AUDIO_SALES'
+        | 'STREAMING_TAX_TYPE_TELCO_AUDIO_MULTI_CHANNEL';
       /** Tax tier to specify reduced tax rate. Developers who sell digital news, magazines, newspapers, books, or audiobooks in various regions may be eligible for reduced tax rates. [Learn more](https://support.google.com/googleplay/android-developer/answer/10463498). */
-      taxTier?: string;
+      taxTier?:
+        | 'TAX_TIER_UNSPECIFIED'
+        | 'TAX_TIER_BOOKS_1'
+        | 'TAX_TIER_NEWS_1'
+        | 'TAX_TIER_NEWS_2'
+        | 'TAX_TIER_MUSIC_OR_AUDIO_1'
+        | 'TAX_TIER_LIVE_OR_BROADCAST_1';
     }
     interface RegionalTaxRateInfo {
       /** You must tell us if your app contains streaming products to correctly charge US state and local sales tax. Field only supported in the United States. */
       eligibleForStreamingServiceTaxRate?: boolean;
       /** To collect communications or amusement taxes in the United States, choose the appropriate tax category. [Learn more](https://support.google.com/googleplay/android-developer/answer/10463498#streaming_tax). */
-      streamingTaxType?: string;
+      streamingTaxType?:
+        | 'STREAMING_TAX_TYPE_UNSPECIFIED'
+        | 'STREAMING_TAX_TYPE_TELCO_VIDEO_RENTAL'
+        | 'STREAMING_TAX_TYPE_TELCO_VIDEO_SALES'
+        | 'STREAMING_TAX_TYPE_TELCO_VIDEO_MULTI_CHANNEL'
+        | 'STREAMING_TAX_TYPE_TELCO_AUDIO_RENTAL'
+        | 'STREAMING_TAX_TYPE_TELCO_AUDIO_SALES'
+        | 'STREAMING_TAX_TYPE_TELCO_AUDIO_MULTI_CHANNEL';
       /** Tax tier to specify reduced tax rate. Developers who sell digital news, magazines, newspapers, books, or audiobooks in various regions may be eligible for reduced tax rates. [Learn more](https://support.google.com/googleplay/android-developer/answer/10463498). */
-      taxTier?: string;
+      taxTier?:
+        | 'TAX_TIER_UNSPECIFIED'
+        | 'TAX_TIER_BOOKS_1'
+        | 'TAX_TIER_NEWS_1'
+        | 'TAX_TIER_NEWS_2'
+        | 'TAX_TIER_MUSIC_OR_AUDIO_1'
+        | 'TAX_TIER_LIVE_OR_BROADCAST_1';
     }
     interface Regions {
       /** Regions targeted by the recovery action. Region codes are ISO 3166 Alpha-2 country codes. For example, US stands for United States of America. See https://www.iso.org/iso-3166-country-codes.html for the complete list of country codes. */
@@ -1765,7 +2003,14 @@ declare namespace gapi.client {
       /** List of active artifacts on this release. */
       activeArtifacts?: ArtifactSummary[];
       /** The lifecycle state of a release. */
-      releaseLifecycleState?: string;
+      releaseLifecycleState?:
+        | 'RELEASE_LIFECYCLE_STATE_UNSPECIFIED'
+        | 'RELEASE_LIFECYCLE_STATE_DRAFT'
+        | 'RELEASE_LIFECYCLE_STATE_NOT_SENT_FOR_REVIEW'
+        | 'RELEASE_LIFECYCLE_STATE_IN_REVIEW'
+        | 'RELEASE_LIFECYCLE_STATE_APPROVED_NOT_PUBLISHED'
+        | 'RELEASE_LIFECYCLE_STATE_NOT_APPROVED'
+        | 'RELEASE_LIFECYCLE_STATE_PUBLISHED';
       /** Name of the release. */
       releaseName?: string;
       /** Identifier of the track. More on [track name](https://developers.google.com/android-publisher/tracks). */
@@ -1850,7 +2095,16 @@ declare namespace gapi.client {
     interface SafetyLabelsUpdateResponse {}
     interface ScreenDensity {
       /** Alias for a screen density. */
-      densityAlias?: string;
+      densityAlias?:
+        | 'DENSITY_UNSPECIFIED'
+        | 'NODPI'
+        | 'LDPI'
+        | 'MDPI'
+        | 'TVDPI'
+        | 'HDPI'
+        | 'XHDPI'
+        | 'XXHDPI'
+        | 'XXXHDPI';
       /** Value for density dpi. */
       densityDpi?: number;
     }
@@ -1940,7 +2194,11 @@ declare namespace gapi.client {
       /** The offer ID for the current subscription offer. */
       offerId?: string;
       /** The pricing phase for the billing period funded by this order. Deprecated. Use offer_phase_details instead. */
-      offerPhase?: string;
+      offerPhase?:
+        | 'OFFER_PHASE_UNSPECIFIED'
+        | 'BASE'
+        | 'INTRODUCTORY'
+        | 'FREE_TRIAL';
       /** The pricing phase details for the entitlement period funded by this order. */
       offerPhaseDetails?: OfferPhaseDetails;
       /** The end of the billing period funded by this order. This is a snapshot of the billing/service period end time at the moment the order was processed, and should be used only for accounting. To get the current end time of the subscription service period, use purchases.subscriptionsv2.get. */
@@ -1954,9 +2212,18 @@ declare namespace gapi.client {
       /** New recurring price for the subscription item. */
       newPrice?: Money;
       /** Price change mode specifies how the subscription item price is changing. */
-      priceChangeMode?: string;
+      priceChangeMode?:
+        | 'PRICE_CHANGE_MODE_UNSPECIFIED'
+        | 'PRICE_DECREASE'
+        | 'PRICE_INCREASE'
+        | 'OPT_OUT_PRICE_INCREASE';
       /** State the price change is currently in. */
-      priceChangeState?: string;
+      priceChangeState?:
+        | 'PRICE_CHANGE_STATE_UNSPECIFIED'
+        | 'OUTSTANDING'
+        | 'CONFIRMED'
+        | 'APPLIED'
+        | 'CANCELED';
     }
     interface SubscriptionListing {
       /** A list of benefits shown to the user on platforms such as the Play Store and in restoration flows in the language of this listing. Plain text. Ordered list of at most four benefits. */
@@ -1986,7 +2253,7 @@ declare namespace gapi.client {
       /** Required. The region-specific configuration of this offer. Must contain at least one entry. */
       regionalConfigs?: RegionalSubscriptionOfferConfig[];
       /** Output only. The current state of this offer. Can be changed using Activate and Deactivate actions. NB: the base plan state supersedes this state, so an active offer may not be available if the base plan is not active. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'DRAFT' | 'ACTIVE' | 'INACTIVE';
       /** The requirements that users need to fulfil to be eligible for this offer. Represents the requirements that Play will evaluate to decide whether an offer should be returned. Developers may further filter these offers themselves. */
       targeting?: SubscriptionOfferTargeting;
     }
@@ -2112,7 +2379,10 @@ declare namespace gapi.client {
     }
     interface SubscriptionPurchaseV2 {
       /** The acknowledgement state of the subscription. */
-      acknowledgementState?: string;
+      acknowledgementState?:
+        | 'ACKNOWLEDGEMENT_STATE_UNSPECIFIED'
+        | 'ACKNOWLEDGEMENT_STATE_PENDING'
+        | 'ACKNOWLEDGEMENT_STATE_ACKNOWLEDGED';
       /** Additional context around canceled subscriptions. Only present if the subscription currently has subscription_state SUBSCRIPTION_STATE_CANCELED or SUBSCRIPTION_STATE_EXPIRED. */
       canceledStateContext?: CanceledStateContext;
       /** Entity tag representing the current state of the subscription. The developer will provide this etag for subscription actions. This etag is always present for auto-renewing and prepaid subscriptions. */
@@ -2138,13 +2408,25 @@ declare namespace gapi.client {
       /** User profile associated with purchases made with 'Subscribe with Google'. */
       subscribeWithGoogleInfo?: SubscribeWithGoogleInfo;
       /** The current state of the subscription. */
-      subscriptionState?: string;
+      subscriptionState?:
+        | 'SUBSCRIPTION_STATE_UNSPECIFIED'
+        | 'SUBSCRIPTION_STATE_PENDING'
+        | 'SUBSCRIPTION_STATE_ACTIVE'
+        | 'SUBSCRIPTION_STATE_PAUSED'
+        | 'SUBSCRIPTION_STATE_IN_GRACE_PERIOD'
+        | 'SUBSCRIPTION_STATE_ON_HOLD'
+        | 'SUBSCRIPTION_STATE_CANCELED'
+        | 'SUBSCRIPTION_STATE_EXPIRED'
+        | 'SUBSCRIPTION_STATE_PENDING_PURCHASE_CANCELED';
       /** Only present if this subscription purchase is a test purchase. */
       testPurchase?: any;
     }
     interface SubscriptionTaxAndComplianceSettings {
       /** Digital content or service classification for products distributed to users in the European Economic Area (EEA). The withdrawal regime under EEA consumer laws depends on this classification. Refer to the [Help Center article](https://support.google.com/googleplay/android-developer/answer/10463498) for more information. */
-      eeaWithdrawalRightType?: string;
+      eeaWithdrawalRightType?:
+        | 'WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED'
+        | 'WITHDRAWAL_RIGHT_DIGITAL_CONTENT'
+        | 'WITHDRAWAL_RIGHT_SERVICE';
       /** Whether this subscription is declared as a product representing a tokenized digital asset. */
       isTokenizedDigitalAsset?: boolean;
       /** Product tax category code to assign to the subscription. Product tax category determines the transaction tax rates applied to the subscription. Refer to the [Help Center article](https://support.google.com/googleplay/android-developer/answer/16408159) for more information. */
@@ -2222,11 +2504,22 @@ declare namespace gapi.client {
     interface TestPurchase {}
     interface TestPurchaseContext {
       /** The fop type of the test purchase. */
-      fopType?: string;
+      fopType?: 'FOP_TYPE_UNSPECIFIED' | 'TEST';
     }
     interface TextureCompressionFormat {
       /** Alias for texture compression format. */
-      alias?: string;
+      alias?:
+        | 'UNSPECIFIED_TEXTURE_COMPRESSION_FORMAT'
+        | 'ETC1_RGB8'
+        | 'PALETTED'
+        | 'THREE_DC'
+        | 'ATC'
+        | 'LATC'
+        | 'DXT1'
+        | 'S3TC'
+        | 'PVRTC'
+        | 'ASTC'
+        | 'ETC2';
     }
     interface TextureCompressionFormatTargeting {
       /** List of alternative TCFs (TCFs targeted by the sibling splits). */
@@ -2253,11 +2546,15 @@ declare namespace gapi.client {
     }
     interface TrackConfig {
       /** Required. Form factor of the new track. Defaults to the default track. */
-      formFactor?: string;
+      formFactor?:
+        | 'FORM_FACTOR_UNSPECIFIED'
+        | 'DEFAULT'
+        | 'WEAR'
+        | 'AUTOMOTIVE';
       /** Required. Identifier of the new track. For default tracks, this field consists of the track alias only. Form factor tracks have a special prefix as an identifier, for example `wear:production`, `automotive:production`. This prefix must match the value of the `form_factor` field, if it is not a default track. [More on track name](https://developers.google.com/android-publisher/tracks#ff-track-name) */
       track?: string;
       /** Required. Type of the new track. Currently, the only supported value is closedTesting. */
-      type?: string;
+      type?: 'TRACK_TYPE_UNSPECIFIED' | 'CLOSED_TESTING';
     }
     interface TrackCountryAvailability {
       /** A list of one or more countries where artifacts in this track are available. This list includes all countries that are targeted by the track, even if only specific carriers are targeted in that country. */
@@ -2277,7 +2574,12 @@ declare namespace gapi.client {
       /** A description of what is new in this release. */
       releaseNotes?: LocalizedText[];
       /** The status of the release. */
-      status?: string;
+      status?:
+        | 'statusUnspecified'
+        | 'draft'
+        | 'inProgress'
+        | 'halted'
+        | 'completed';
       /** Fraction of users who are eligible for a staged release. 0 < fraction < 1. Can only be set when status is "inProgress" or "halted". */
       userFraction?: number;
       /** Version codes of all APKs in the release. Must include version codes to retain from previous releases. */
@@ -2303,7 +2605,10 @@ declare namespace gapi.client {
       /** Optional. If set to true, and the offer with the given package_name, product_id, purchase_option_id and offer_id doesn't exist, an offer will be created. If a new offer is created, the update_mask is ignored. */
       allowMissing?: boolean;
       /** Optional. The latency tolerance for the propagation of this offer update. Defaults to latency-sensitive. */
-      latencyTolerance?: string;
+      latencyTolerance?:
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
       /** Required. The one-time product offer to update. */
       oneTimeProductOffer?: OneTimeProductOffer;
       /** Required. The version of the available regions being used for the offer. */
@@ -2323,7 +2628,10 @@ declare namespace gapi.client {
       /** Optional. If set to true, and the one-time product with the given package_name and product_id doesn't exist, the one-time product will be created. If a new one-time product is created, update_mask is ignored. */
       allowMissing?: boolean;
       /** Optional. The latency tolerance for the propagation of this product upsert. Defaults to latency-sensitive. */
-      latencyTolerance?: string;
+      latencyTolerance?:
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
       /** Required. The one-time product to upsert. */
       oneTimeProduct?: OneTimeProduct;
       /** Required. The version of the available regions being used for the one-time product. */
@@ -2341,7 +2649,10 @@ declare namespace gapi.client {
       /** Optional. If set to true, and the subscription offer with the given package_name, product_id, base_plan_id and offer_id doesn't exist, an offer will be created. If a new offer is created, update_mask is ignored. */
       allowMissing?: boolean;
       /** Optional. The latency tolerance for the propagation of this product update. Defaults to latency-sensitive. */
-      latencyTolerance?: string;
+      latencyTolerance?:
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
       /** Required. The version of the available regions being used for the subscription_offer. */
       regionsVersion?: RegionsVersion;
       /** Required. The subscription offer to update. */
@@ -2359,7 +2670,10 @@ declare namespace gapi.client {
       /** Optional. If set to true, and the subscription with the given package_name and product_id doesn't exist, the subscription will be created. If a new subscription is created, update_mask is ignored. */
       allowMissing?: boolean;
       /** Optional. The latency tolerance for the propagation of this product update. Defaults to latency-sensitive. */
-      latencyTolerance?: string;
+      latencyTolerance?:
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+        | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
       /** Required. The version of the available regions being used for the subscription. */
       regionsVersion?: RegionsVersion;
       /** Required. The subscription to update. */
@@ -2377,9 +2691,33 @@ declare namespace gapi.client {
     }
     interface User {
       /** Output only. The state of the user's access to the Play Console. */
-      accessState?: string;
+      accessState?:
+        | 'ACCESS_STATE_UNSPECIFIED'
+        | 'INVITED'
+        | 'INVITATION_EXPIRED'
+        | 'ACCESS_GRANTED'
+        | 'ACCESS_EXPIRED';
       /** Permissions for the user which apply across the developer account. */
-      developerAccountPermissions?: string[];
+      developerAccountPermissions?:
+        | 'DEVELOPER_LEVEL_PERMISSION_UNSPECIFIED'
+        | 'CAN_SEE_ALL_APPS'
+        | 'CAN_VIEW_FINANCIAL_DATA_GLOBAL'
+        | 'CAN_MANAGE_PERMISSIONS_GLOBAL'
+        | 'CAN_EDIT_GAMES_GLOBAL'
+        | 'CAN_PUBLISH_GAMES_GLOBAL'
+        | 'CAN_REPLY_TO_REVIEWS_GLOBAL'
+        | 'CAN_MANAGE_PUBLIC_APKS_GLOBAL'
+        | 'CAN_MANAGE_TRACK_APKS_GLOBAL'
+        | 'CAN_MANAGE_TRACK_USERS_GLOBAL'
+        | 'CAN_MANAGE_PUBLIC_LISTING_GLOBAL'
+        | 'CAN_MANAGE_DRAFT_APPS_GLOBAL'
+        | 'CAN_CREATE_MANAGED_PLAY_APPS_GLOBAL'
+        | 'CAN_CHANGE_MANAGED_PLAY_SETTING_GLOBAL'
+        | 'CAN_MANAGE_ORDERS_GLOBAL'
+        | 'CAN_MANAGE_APP_CONTENT_GLOBAL'
+        | 'CAN_VIEW_NON_FINANCIAL_DATA_GLOBAL'
+        | 'CAN_VIEW_APP_QUALITY_GLOBAL'
+        | 'CAN_MANAGE_DEEPLINKS_GLOBAL'[];
       /** Immutable. The user's email address. */
       email?: string;
       /** The time at which the user's access expires, if set. When setting this value, it must always be in the future. */
@@ -2494,13 +2832,13 @@ declare namespace gapi.client {
       /** Creates a new device tier config for an app. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Whether the service should accept device IDs that are unknown to Play's device catalog. */
         allowUnknownDevices?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2525,13 +2863,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Whether the service should accept device IDs that are unknown to Play's device catalog. */
           allowUnknownDevices?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2556,11 +2894,11 @@ declare namespace gapi.client {
       /** Returns a particular device tier config. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Id of an existing device tier config. */
@@ -2585,11 +2923,11 @@ declare namespace gapi.client {
       /** Returns created device tier configs, ordered by descending creation time. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2618,11 +2956,11 @@ declare namespace gapi.client {
       /** Returns the list of all releases for a given track. This excludes any releases that are obsolete. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2650,11 +2988,11 @@ declare namespace gapi.client {
       /** Writes the Safety Labels declaration of an app. */
       dataSafety(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2679,11 +3017,11 @@ declare namespace gapi.client {
       dataSafety(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2712,11 +3050,11 @@ declare namespace gapi.client {
       /** Incrementally update targeting for a recovery action. Note that only the criteria selected during the creation of recovery action can be expanded. */
       addTargeting(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. ID corresponding to the app recovery action. */
         appRecoveryId: string;
         /** JSONP */
@@ -2743,11 +3081,11 @@ declare namespace gapi.client {
       addTargeting(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. ID corresponding to the app recovery action. */
           appRecoveryId: string;
           /** JSONP */
@@ -2774,11 +3112,11 @@ declare namespace gapi.client {
       /** Cancel an already executing app recovery action. Note that this action changes status of the recovery action to CANCELED. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. ID corresponding to the app recovery action. */
         appRecoveryId: string;
         /** JSONP */
@@ -2805,11 +3143,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. ID corresponding to the app recovery action. */
           appRecoveryId: string;
           /** JSONP */
@@ -2836,11 +3174,11 @@ declare namespace gapi.client {
       /** Create an app recovery action with recovery status as DRAFT. Note that this action does not execute the recovery action. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2865,11 +3203,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2894,11 +3232,11 @@ declare namespace gapi.client {
       /** Deploy an already created app recovery action with recovery status DRAFT. Note that this action activates the recovery action for all targeted users and changes its status to ACTIVE. */
       deploy(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. ID corresponding to the app recovery action to deploy. */
         appRecoveryId: string;
         /** JSONP */
@@ -2925,11 +3263,11 @@ declare namespace gapi.client {
       deploy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. ID corresponding to the app recovery action to deploy. */
           appRecoveryId: string;
           /** JSONP */
@@ -2956,11 +3294,11 @@ declare namespace gapi.client {
       /** List all app recovery action resources associated with a particular package name and app version. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2987,11 +3325,11 @@ declare namespace gapi.client {
       /** Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to organizations using Managed Play whose application is configured to restrict distribution to the organizations. */
       addexternallyhosted(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -3018,11 +3356,11 @@ declare namespace gapi.client {
       addexternallyhosted(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Identifier of the edit. */
@@ -3049,11 +3387,11 @@ declare namespace gapi.client {
       /** Lists all current APKs of the app and edit. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -3078,11 +3416,11 @@ declare namespace gapi.client {
       /** Uploads an APK and adds to the current edit. */
       upload(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -3109,11 +3447,11 @@ declare namespace gapi.client {
       /** Lists all current Android App Bundles of the app and edit. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -3138,13 +3476,13 @@ declare namespace gapi.client {
       /** Uploads a new Android App Bundle to this edit. If you are using the Google API client libraries, please increase the timeout of the http request before calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts and Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java. */
       upload(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Deprecated. The installation warning has been removed, it's not necessary to set this field anymore. */
         ackBundleInstallationWarning?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Device tier config (DTC) to be used for generating deliverables (APKs). Contains id of the DTC or "LATEST" for last uploaded DTC. */
@@ -3173,11 +3511,11 @@ declare namespace gapi.client {
       /** Gets country availability. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -3206,17 +3544,20 @@ declare namespace gapi.client {
       /** Uploads a new deobfuscation file and attaches to the specified APK. */
       upload(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The version code of the APK whose Deobfuscation File is being uploaded. */
         apkVersionCode: number;
         /** JSONP */
         callback?: string;
         /** The type of the deobfuscation file. */
-        deobfuscationFileType: string;
+        deobfuscationFileType:
+          | 'deobfuscationFileTypeUnspecified'
+          | 'proguard'
+          | 'nativeCode';
         /** Unique identifier for this edit. */
         editId: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3241,11 +3582,11 @@ declare namespace gapi.client {
       /** Gets details of an app. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -3270,11 +3611,11 @@ declare namespace gapi.client {
       /** Patches details of an app. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -3301,11 +3642,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Identifier of the edit. */
@@ -3332,11 +3673,11 @@ declare namespace gapi.client {
       /** Updates details of an app. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -3363,11 +3704,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Identifier of the edit. */
@@ -3396,11 +3737,11 @@ declare namespace gapi.client {
       /** Fetches the expansion file configuration for the specified APK. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The version code of the APK whose expansion file configuration is being read or modified. */
         apkVersionCode: number;
         /** JSONP */
@@ -3408,7 +3749,7 @@ declare namespace gapi.client {
         /** Identifier of the edit. */
         editId: string;
         /** The file type of the file configuration which is being read or modified. */
-        expansionFileType: string;
+        expansionFileType: 'expansionFileTypeUnspecified' | 'main' | 'patch';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3429,11 +3770,11 @@ declare namespace gapi.client {
       /** Patches the APK's expansion file configuration to reference another APK's expansion file. To add a new expansion file use the Upload method. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The version code of the APK whose expansion file configuration is being read or modified. */
         apkVersionCode: number;
         /** JSONP */
@@ -3441,7 +3782,7 @@ declare namespace gapi.client {
         /** Identifier of the edit. */
         editId: string;
         /** The file type of the expansion file configuration which is being updated. */
-        expansionFileType: string;
+        expansionFileType: 'expansionFileTypeUnspecified' | 'main' | 'patch';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3464,11 +3805,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** The version code of the APK whose expansion file configuration is being read or modified. */
           apkVersionCode: number;
           /** JSONP */
@@ -3476,7 +3817,7 @@ declare namespace gapi.client {
           /** Identifier of the edit. */
           editId: string;
           /** The file type of the expansion file configuration which is being updated. */
-          expansionFileType: string;
+          expansionFileType: 'expansionFileTypeUnspecified' | 'main' | 'patch';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3499,11 +3840,11 @@ declare namespace gapi.client {
       /** Updates the APK's expansion file configuration to reference another APK's expansion file. To add a new expansion file use the Upload method. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The version code of the APK whose expansion file configuration is being read or modified. */
         apkVersionCode: number;
         /** JSONP */
@@ -3511,7 +3852,7 @@ declare namespace gapi.client {
         /** Identifier of the edit. */
         editId: string;
         /** The file type of the file configuration which is being read or modified. */
-        expansionFileType: string;
+        expansionFileType: 'expansionFileTypeUnspecified' | 'main' | 'patch';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3534,11 +3875,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** The version code of the APK whose expansion file configuration is being read or modified. */
           apkVersionCode: number;
           /** JSONP */
@@ -3546,7 +3887,7 @@ declare namespace gapi.client {
           /** Identifier of the edit. */
           editId: string;
           /** The file type of the file configuration which is being read or modified. */
-          expansionFileType: string;
+          expansionFileType: 'expansionFileTypeUnspecified' | 'main' | 'patch';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3569,11 +3910,11 @@ declare namespace gapi.client {
       /** Uploads a new expansion file and attaches to the specified APK. */
       upload(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The version code of the APK whose expansion file configuration is being read or modified. */
         apkVersionCode: number;
         /** JSONP */
@@ -3581,7 +3922,7 @@ declare namespace gapi.client {
         /** Identifier of the edit. */
         editId: string;
         /** The file type of the expansion file configuration which is being updated. */
-        expansionFileType: string;
+        expansionFileType: 'expansionFileTypeUnspecified' | 'main' | 'patch';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3604,11 +3945,11 @@ declare namespace gapi.client {
       /** Deletes the image (specified by id) from the edit. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -3618,7 +3959,16 @@ declare namespace gapi.client {
         /** Unique identifier an image within the set of images attached to this edit. */
         imageId: string;
         /** Type of the Image. */
-        imageType: string;
+        imageType:
+          | 'appImageTypeUnspecified'
+          | 'phoneScreenshots'
+          | 'sevenInchScreenshots'
+          | 'tenInchScreenshots'
+          | 'tvScreenshots'
+          | 'wearScreenshots'
+          | 'icon'
+          | 'featureGraphic'
+          | 'tvBanner';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** Language localization code (a BCP-47 language tag; for example, "de-AT" for Austrian German). */
@@ -3639,11 +3989,11 @@ declare namespace gapi.client {
       /** Deletes all images for the specified language and image type. Returns an empty response if no images are found. */
       deleteall(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -3651,7 +4001,16 @@ declare namespace gapi.client {
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** Type of the Image. Providing an image type that refers to no images is a no-op. */
-        imageType: string;
+        imageType:
+          | 'appImageTypeUnspecified'
+          | 'phoneScreenshots'
+          | 'sevenInchScreenshots'
+          | 'tenInchScreenshots'
+          | 'tvScreenshots'
+          | 'wearScreenshots'
+          | 'icon'
+          | 'featureGraphic'
+          | 'tvBanner';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** Language localization code (a BCP-47 language tag; for example, "de-AT" for Austrian German). Providing a language that is not supported by the App is a no-op. */
@@ -3672,11 +4031,11 @@ declare namespace gapi.client {
       /** Lists all images. The response may be empty. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -3684,7 +4043,16 @@ declare namespace gapi.client {
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** Type of the Image. Providing an image type that refers to no images will return an empty response. */
-        imageType: string;
+        imageType:
+          | 'appImageTypeUnspecified'
+          | 'phoneScreenshots'
+          | 'sevenInchScreenshots'
+          | 'tenInchScreenshots'
+          | 'tvScreenshots'
+          | 'wearScreenshots'
+          | 'icon'
+          | 'featureGraphic'
+          | 'tvBanner';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** Language localization code (a BCP-47 language tag; for example, "de-AT" for Austrian German). There must be a store listing for the specified language. */
@@ -3705,11 +4073,11 @@ declare namespace gapi.client {
       /** Uploads an image of the specified language and image type, and adds to the edit. */
       upload(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -3717,7 +4085,16 @@ declare namespace gapi.client {
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** Type of the Image. */
-        imageType: string;
+        imageType:
+          | 'appImageTypeUnspecified'
+          | 'phoneScreenshots'
+          | 'sevenInchScreenshots'
+          | 'tenInchScreenshots'
+          | 'tvScreenshots'
+          | 'wearScreenshots'
+          | 'icon'
+          | 'featureGraphic'
+          | 'tvBanner';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** Language localization code (a BCP-47 language tag; for example, "de-AT" for Austrian German). Providing a language that is not supported by the App is a no-op. */
@@ -3740,11 +4117,11 @@ declare namespace gapi.client {
       /** Deletes a localized store listing. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -3771,11 +4148,11 @@ declare namespace gapi.client {
       /** Deletes all store listings. */
       deleteall(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -3800,11 +4177,11 @@ declare namespace gapi.client {
       /** Gets a localized store listing. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -3831,11 +4208,11 @@ declare namespace gapi.client {
       /** Lists all localized store listings. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -3860,11 +4237,11 @@ declare namespace gapi.client {
       /** Patches a localized store listing. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -3893,11 +4270,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Identifier of the edit. */
@@ -3926,11 +4303,11 @@ declare namespace gapi.client {
       /** Creates or updates a localized store listing. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -3959,11 +4336,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Identifier of the edit. */
@@ -3994,11 +4371,11 @@ declare namespace gapi.client {
       /** Gets testers. Note: Testers resource does not support email lists. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -4025,11 +4402,11 @@ declare namespace gapi.client {
       /** Patches testers. Note: Testers resource does not support email lists. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -4058,11 +4435,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Identifier of the edit. */
@@ -4091,11 +4468,11 @@ declare namespace gapi.client {
       /** Updates testers. Note: Testers resource does not support email lists. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -4124,11 +4501,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Identifier of the edit. */
@@ -4159,11 +4536,11 @@ declare namespace gapi.client {
       /** Creates a new track. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Identifier of the edit. */
@@ -4190,11 +4567,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. Identifier of the edit. */
@@ -4221,11 +4598,11 @@ declare namespace gapi.client {
       /** Gets a track. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -4252,11 +4629,11 @@ declare namespace gapi.client {
       /** Lists all tracks. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -4281,11 +4658,11 @@ declare namespace gapi.client {
       /** Patches a track. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -4314,11 +4691,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Identifier of the edit. */
@@ -4347,11 +4724,11 @@ declare namespace gapi.client {
       /** Updates a track. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -4380,11 +4757,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Identifier of the edit. */
@@ -4415,15 +4792,18 @@ declare namespace gapi.client {
       /** Commits an app edit. */
       commit(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Specify how the API should behave if there are changes currently in review. If this value is not set, it will default to "CANCEL_IN_REVIEW_AND_SUBMIT", which will cancel the changes in review and then send all the changes for publishing. */
-        changesInReviewBehavior?: string;
+        changesInReviewBehavior?:
+          | 'CHANGES_IN_REVIEW_BEHAVIOR_TYPE_UNSPECIFIED'
+          | 'CANCEL_IN_REVIEW_AND_SUBMIT'
+          | 'ERROR_IF_IN_REVIEW';
         /** When a rejection happens, the parameter will make sure that the changes in this edit won't be reviewed until they are explicitly sent for review from within the Google Play Console UI. These changes will be added to any other changes that are not yet sent for review. */
         changesNotSentForReview?: boolean;
         /** Identifier of the edit. */
@@ -4448,11 +4828,11 @@ declare namespace gapi.client {
       /** Deletes an app edit. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -4477,11 +4857,11 @@ declare namespace gapi.client {
       /** Gets an app edit. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -4506,11 +4886,11 @@ declare namespace gapi.client {
       /** Creates a new edit for an app. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4535,11 +4915,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4564,11 +4944,11 @@ declare namespace gapi.client {
       /** Validates an app edit. */
       validate(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Identifier of the edit. */
@@ -4605,11 +4985,11 @@ declare namespace gapi.client {
       /** Creates a new external transaction. */
       createexternaltransaction(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The id to use for the external transaction. Must be unique across all other transactions for the app. This value should be 1-63 characters and valid characters are /a-zA-Z0-9_-/. Do not use this field to store any Personally Identifiable Information (PII) such as emails. Attempting to store PII in this field may result in requests being blocked. */
@@ -4636,11 +5016,11 @@ declare namespace gapi.client {
       createexternaltransaction(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The id to use for the external transaction. Must be unique across all other transactions for the app. This value should be 1-63 characters and valid characters are /a-zA-Z0-9_-/. Do not use this field to store any Personally Identifiable Information (PII) such as emails. Attempting to store PII in this field may result in requests being blocked. */
@@ -4667,11 +5047,11 @@ declare namespace gapi.client {
       /** Gets an existing external transaction. */
       getexternaltransaction(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4694,11 +5074,11 @@ declare namespace gapi.client {
       /** Refunds or partially refunds an existing external transaction. */
       refundexternaltransaction(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4723,11 +5103,11 @@ declare namespace gapi.client {
       refundexternaltransaction(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4754,11 +5134,11 @@ declare namespace gapi.client {
       /** Downloads a single signed APK generated from an app bundle. */
       download(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Download ID, which uniquely identifies the APK to download. Can be obtained from the response of `generatedapks.list` method. */
@@ -4785,11 +5165,11 @@ declare namespace gapi.client {
       /** Returns download metadata for all APKs that were generated from a given app bundle. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4816,11 +5196,11 @@ declare namespace gapi.client {
       /** Grant access for a user to the given package. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4845,11 +5225,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4874,11 +5254,11 @@ declare namespace gapi.client {
       /** Removes all access for the user to the given package or developer account. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4901,11 +5281,11 @@ declare namespace gapi.client {
       /** Updates access for the user to the given package. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4932,11 +5312,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4965,11 +5345,11 @@ declare namespace gapi.client {
       /** Deletes in-app products (managed products or subscriptions). Set the latencyTolerance field on nested requests to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update throughput. This method should not be used to delete subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information. */
       batchDelete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4994,11 +5374,11 @@ declare namespace gapi.client {
       batchDelete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5023,11 +5403,11 @@ declare namespace gapi.client {
       /** Reads multiple in-app products, which can be managed products or subscriptions. This method should not be used to retrieve subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information. */
       batchGet(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5052,11 +5432,11 @@ declare namespace gapi.client {
       /** Updates or inserts one or more in-app products (managed products or subscriptions). Set the latencyTolerance field on nested requests to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update throughput. This method should no longer be used to update subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information. */
       batchUpdate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5081,11 +5461,11 @@ declare namespace gapi.client {
       batchUpdate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5110,11 +5490,11 @@ declare namespace gapi.client {
       /** Deletes an in-app product (a managed product or a subscription). This method should no longer be used to delete subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5122,7 +5502,10 @@ declare namespace gapi.client {
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** Optional. The latency tolerance for the propagation of this product update. Defaults to latency-sensitive. */
-        latencyTolerance?: string;
+        latencyTolerance?:
+          | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+          | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+          | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Package name of the app. */
@@ -5141,11 +5524,11 @@ declare namespace gapi.client {
       /** Gets an in-app product, which can be a managed product or a subscription. This method should no longer be used to retrieve subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5170,11 +5553,11 @@ declare namespace gapi.client {
       /** Creates an in-app product (a managed product or a subscription). This method should no longer be used to create subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on the default price. Defaults to false. */
         autoConvertMissingPrices?: boolean;
         /** JSONP */
@@ -5201,11 +5584,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on the default price. Defaults to false. */
           autoConvertMissingPrices?: boolean;
           /** JSONP */
@@ -5232,11 +5615,11 @@ declare namespace gapi.client {
       /** Lists all in-app products - both managed products and subscriptions. If an app has a large number of in-app products, the response may be paginated. In this case the response field `tokenPagination.nextPageToken` will be set and the caller should provide its value as a `token` request parameter to retrieve the next page. This method should no longer be used to retrieve subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5265,11 +5648,11 @@ declare namespace gapi.client {
       /** Patches an in-app product (a managed product or a subscription). This method should no longer be used to update subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on the default price. Defaults to false. */
         autoConvertMissingPrices?: boolean;
         /** JSONP */
@@ -5279,7 +5662,10 @@ declare namespace gapi.client {
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** Optional. The latency tolerance for the propagation of this product update. Defaults to latency-sensitive. */
-        latencyTolerance?: string;
+        latencyTolerance?:
+          | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+          | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+          | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Package name of the app. */
@@ -5300,11 +5686,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on the default price. Defaults to false. */
           autoConvertMissingPrices?: boolean;
           /** JSONP */
@@ -5314,7 +5700,10 @@ declare namespace gapi.client {
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
           key?: string;
           /** Optional. The latency tolerance for the propagation of this product update. Defaults to latency-sensitive. */
-          latencyTolerance?: string;
+          latencyTolerance?:
+            | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+            | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+            | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
           /** OAuth 2.0 token for the current user. */
           oauth_token?: string;
           /** Package name of the app. */
@@ -5335,13 +5724,13 @@ declare namespace gapi.client {
       /** Updates an in-app product (a managed product or a subscription). This method should no longer be used to update subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** If set to true, and the in-app product with the given package_name and sku doesn't exist, the in-app product will be created. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on the default price. Defaults to false. */
         autoConvertMissingPrices?: boolean;
         /** JSONP */
@@ -5351,7 +5740,10 @@ declare namespace gapi.client {
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** Optional. The latency tolerance for the propagation of this product update. Defaults to latency-sensitive. */
-        latencyTolerance?: string;
+        latencyTolerance?:
+          | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+          | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+          | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Package name of the app. */
@@ -5372,13 +5764,13 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** If set to true, and the in-app product with the given package_name and sku doesn't exist, the in-app product will be created. */
           allowMissing?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on the default price. Defaults to false. */
           autoConvertMissingPrices?: boolean;
           /** JSONP */
@@ -5388,7 +5780,10 @@ declare namespace gapi.client {
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
           key?: string;
           /** Optional. The latency tolerance for the propagation of this product update. Defaults to latency-sensitive. */
-          latencyTolerance?: string;
+          latencyTolerance?:
+            | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+            | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+            | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
           /** OAuth 2.0 token for the current user. */
           oauth_token?: string;
           /** Package name of the app. */
@@ -5411,11 +5806,11 @@ declare namespace gapi.client {
       /** Uploads an APK to internal app sharing. If you are using the Google API client libraries, please increase the timeout of the http request before calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts and Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java. */
       uploadapk(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5438,11 +5833,11 @@ declare namespace gapi.client {
       /** Uploads an app bundle to internal app sharing. If you are using the Google API client libraries, please increase the timeout of the http request before calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts and Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java. */
       uploadbundle(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5467,11 +5862,11 @@ declare namespace gapi.client {
       /** Activates a one-time product offer. */
       activate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5502,11 +5897,11 @@ declare namespace gapi.client {
       activate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5537,11 +5932,11 @@ declare namespace gapi.client {
       /** Deletes one or more one-time product offers. */
       batchDelete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5570,11 +5965,11 @@ declare namespace gapi.client {
       batchDelete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5603,11 +5998,11 @@ declare namespace gapi.client {
       /** Reads one or more one-time product offers. */
       batchGet(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5636,11 +6031,11 @@ declare namespace gapi.client {
       batchGet(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5669,11 +6064,11 @@ declare namespace gapi.client {
       /** Creates or updates one or more one-time product offers. */
       batchUpdate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5702,11 +6097,11 @@ declare namespace gapi.client {
       batchUpdate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5735,11 +6130,11 @@ declare namespace gapi.client {
       /** Updates a batch of one-time product offer states. */
       batchUpdateStates(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5768,11 +6163,11 @@ declare namespace gapi.client {
       batchUpdateStates(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5801,11 +6196,11 @@ declare namespace gapi.client {
       /** Cancels a one-time product offer. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5836,11 +6231,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5871,11 +6266,11 @@ declare namespace gapi.client {
       /** Deactivates a one-time product offer. */
       deactivate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5906,11 +6301,11 @@ declare namespace gapi.client {
       deactivate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5941,11 +6336,11 @@ declare namespace gapi.client {
       /** Lists all offers under a given app, product, or purchase option. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5978,11 +6373,11 @@ declare namespace gapi.client {
       /** Deletes purchase options across one or multiple one-time products. By default this operation will fail if there are any existing offers under the deleted purchase options. Use the force parameter to override the default behavior. */
       batchDelete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6009,11 +6404,11 @@ declare namespace gapi.client {
       batchDelete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6040,11 +6435,11 @@ declare namespace gapi.client {
       /** Activates or deactivates purchase options across one or multiple one-time products. */
       batchUpdateStates(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6071,11 +6466,11 @@ declare namespace gapi.client {
       batchUpdateStates(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6105,11 +6500,11 @@ declare namespace gapi.client {
       /** Deletes one or more one-time products. */
       batchDelete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6134,11 +6529,11 @@ declare namespace gapi.client {
       batchDelete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6163,11 +6558,11 @@ declare namespace gapi.client {
       /** Reads one or more one-time products. */
       batchGet(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6192,11 +6587,11 @@ declare namespace gapi.client {
       /** Creates or updates one or more one-time products. */
       batchUpdate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6221,11 +6616,11 @@ declare namespace gapi.client {
       batchUpdate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6250,11 +6645,11 @@ declare namespace gapi.client {
       /** Deletes a one-time product. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6262,7 +6657,10 @@ declare namespace gapi.client {
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** Optional. The latency tolerance for the propagation of this product update. Defaults to latency-sensitive. */
-        latencyTolerance?: string;
+        latencyTolerance?:
+          | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+          | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+          | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Required. The parent app (package name) of the one-time product to delete. */
@@ -6281,11 +6679,11 @@ declare namespace gapi.client {
       /** Reads a single one-time product. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6310,11 +6708,11 @@ declare namespace gapi.client {
       /** Lists all one-time products under a given app. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6341,13 +6739,13 @@ declare namespace gapi.client {
       /** Creates or updates a one-time product. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. If set to true, and the one-time product with the given package_name and product_id doesn't exist, the one-time product will be created. If a new one-time product is created, update_mask is ignored. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6355,7 +6753,10 @@ declare namespace gapi.client {
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** Optional. The latency tolerance for the propagation of this product upsert. Defaults to latency-sensitive. */
-        latencyTolerance?: string;
+        latencyTolerance?:
+          | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+          | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+          | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Required. Immutable. Package name of the parent app. */
@@ -6380,13 +6781,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Optional. If set to true, and the one-time product with the given package_name and product_id doesn't exist, the one-time product will be created. If a new one-time product is created, update_mask is ignored. */
           allowMissing?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6394,7 +6795,10 @@ declare namespace gapi.client {
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
           key?: string;
           /** Optional. The latency tolerance for the propagation of this product upsert. Defaults to latency-sensitive. */
-          latencyTolerance?: string;
+          latencyTolerance?:
+            | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+            | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+            | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
           /** OAuth 2.0 token for the current user. */
           oauth_token?: string;
           /** Required. Immutable. Package name of the parent app. */
@@ -6422,11 +6826,11 @@ declare namespace gapi.client {
       /** Activates a subscription offer. Once activated, subscription offers will be available to new subscribers. */
       activate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The parent base plan (ID) of the offer to activate. */
         basePlanId: string;
         /** JSONP */
@@ -6457,11 +6861,11 @@ declare namespace gapi.client {
       activate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. The parent base plan (ID) of the offer to activate. */
           basePlanId: string;
           /** JSONP */
@@ -6492,11 +6896,11 @@ declare namespace gapi.client {
       /** Reads one or more subscription offers. */
       batchGet(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The parent base plan (ID) for which the offers should be read. May be specified as '-' to read offers from multiple base plans. */
         basePlanId: string;
         /** JSONP */
@@ -6525,11 +6929,11 @@ declare namespace gapi.client {
       batchGet(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. The parent base plan (ID) for which the offers should be read. May be specified as '-' to read offers from multiple base plans. */
           basePlanId: string;
           /** JSONP */
@@ -6558,11 +6962,11 @@ declare namespace gapi.client {
       /** Updates a batch of subscription offers. Set the latencyTolerance field on nested requests to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update throughput. */
       batchUpdate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The parent base plan (ID) for which the offers should be updated. May be specified as '-' to update offers from multiple base plans. */
         basePlanId: string;
         /** JSONP */
@@ -6591,11 +6995,11 @@ declare namespace gapi.client {
       batchUpdate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. The parent base plan (ID) for which the offers should be updated. May be specified as '-' to update offers from multiple base plans. */
           basePlanId: string;
           /** JSONP */
@@ -6624,11 +7028,11 @@ declare namespace gapi.client {
       /** Updates a batch of subscription offer states. Set the latencyTolerance field on nested requests to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update throughput. */
       batchUpdateStates(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The parent base plan (ID) for which the offers should be updated. May be specified as '-' to update offers from multiple base plans. */
         basePlanId: string;
         /** JSONP */
@@ -6657,11 +7061,11 @@ declare namespace gapi.client {
       batchUpdateStates(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. The parent base plan (ID) for which the offers should be updated. May be specified as '-' to update offers from multiple base plans. */
           basePlanId: string;
           /** JSONP */
@@ -6690,11 +7094,11 @@ declare namespace gapi.client {
       /** Creates a new subscription offer. Only auto-renewing base plans can have subscription offers. The offer state will be DRAFT until it is activated. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The parent base plan (ID) for which the offer should be created. Must be equal to the base_plan_id field on the SubscriptionOffer resource. */
         basePlanId: string;
         /** JSONP */
@@ -6727,11 +7131,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. The parent base plan (ID) for which the offer should be created. Must be equal to the base_plan_id field on the SubscriptionOffer resource. */
           basePlanId: string;
           /** JSONP */
@@ -6764,11 +7168,11 @@ declare namespace gapi.client {
       /** Deactivates a subscription offer. Once deactivated, existing subscribers will maintain their subscription, but the offer will become unavailable to new subscribers. */
       deactivate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The parent base plan (ID) of the offer to deactivate. */
         basePlanId: string;
         /** JSONP */
@@ -6799,11 +7203,11 @@ declare namespace gapi.client {
       deactivate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. The parent base plan (ID) of the offer to deactivate. */
           basePlanId: string;
           /** JSONP */
@@ -6834,11 +7238,11 @@ declare namespace gapi.client {
       /** Deletes a subscription offer. Can only be done for draft offers. This action is irreversible. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The parent base plan (ID) of the offer to delete. */
         basePlanId: string;
         /** JSONP */
@@ -6867,11 +7271,11 @@ declare namespace gapi.client {
       /** Reads a single offer */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The parent base plan (ID) of the offer to get. */
         basePlanId: string;
         /** JSONP */
@@ -6900,11 +7304,11 @@ declare namespace gapi.client {
       /** Lists all offers under a given subscription. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The parent base plan (ID) for which the offers should be read. May be specified as '-' to read all offers under a subscription or an app. Must be specified as '-' if product_id is specified as '-'. */
         basePlanId: string;
         /** JSONP */
@@ -6935,13 +7339,13 @@ declare namespace gapi.client {
       /** Updates an existing subscription offer. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. If set to true, and the subscription offer with the given package_name, product_id, base_plan_id and offer_id doesn't exist, an offer will be created. If a new offer is created, update_mask is ignored. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. Immutable. The ID of the base plan to which this offer is an extension. */
         basePlanId: string;
         /** JSONP */
@@ -6951,7 +7355,10 @@ declare namespace gapi.client {
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** Optional. The latency tolerance for the propagation of this product update. Defaults to latency-sensitive. */
-        latencyTolerance?: string;
+        latencyTolerance?:
+          | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+          | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+          | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Required. Immutable. Unique ID of this subscription offer. Must be unique within the base plan. */
@@ -6978,13 +7385,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Optional. If set to true, and the subscription offer with the given package_name, product_id, base_plan_id and offer_id doesn't exist, an offer will be created. If a new offer is created, update_mask is ignored. */
           allowMissing?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. Immutable. The ID of the base plan to which this offer is an extension. */
           basePlanId: string;
           /** JSONP */
@@ -6994,7 +7401,10 @@ declare namespace gapi.client {
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
           key?: string;
           /** Optional. The latency tolerance for the propagation of this product update. Defaults to latency-sensitive. */
-          latencyTolerance?: string;
+          latencyTolerance?:
+            | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+            | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+            | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
           /** OAuth 2.0 token for the current user. */
           oauth_token?: string;
           /** Required. Immutable. Unique ID of this subscription offer. Must be unique within the base plan. */
@@ -7023,11 +7433,11 @@ declare namespace gapi.client {
       /** Activates a base plan. Once activated, base plans will be available to new subscribers. */
       activate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The unique base plan ID of the base plan to activate. */
         basePlanId: string;
         /** JSONP */
@@ -7056,11 +7466,11 @@ declare namespace gapi.client {
       activate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. The unique base plan ID of the base plan to activate. */
           basePlanId: string;
           /** JSONP */
@@ -7089,11 +7499,11 @@ declare namespace gapi.client {
       /** Batch variant of the MigrateBasePlanPrices endpoint. Set the latencyTolerance field on nested requests to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update throughput. */
       batchMigratePrices(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7120,11 +7530,11 @@ declare namespace gapi.client {
       batchMigratePrices(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7151,11 +7561,11 @@ declare namespace gapi.client {
       /** Activates or deactivates base plans across one or multiple subscriptions. Set the latencyTolerance field on nested requests to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update throughput. */
       batchUpdateStates(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7182,11 +7592,11 @@ declare namespace gapi.client {
       batchUpdateStates(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7213,11 +7623,11 @@ declare namespace gapi.client {
       /** Deactivates a base plan. Once deactivated, the base plan will become unavailable to new subscribers, but existing subscribers will maintain their subscription */
       deactivate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The unique base plan ID of the base plan to deactivate. */
         basePlanId: string;
         /** JSONP */
@@ -7246,11 +7656,11 @@ declare namespace gapi.client {
       deactivate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. The unique base plan ID of the base plan to deactivate. */
           basePlanId: string;
           /** JSONP */
@@ -7279,11 +7689,11 @@ declare namespace gapi.client {
       /** Deletes a base plan. Can only be done for draft base plans. This action is irreversible. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The unique offer ID of the base plan to delete. */
         basePlanId: string;
         /** JSONP */
@@ -7310,11 +7720,11 @@ declare namespace gapi.client {
       /** Migrates subscribers from one or more legacy price cohorts to the current price. Requests result in Google Play notifying affected subscribers. Only up to 250 simultaneous legacy price cohorts are supported. */
       migratePrices(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The unique base plan ID of the base plan to update prices on. */
         basePlanId: string;
         /** JSONP */
@@ -7343,11 +7753,11 @@ declare namespace gapi.client {
       migratePrices(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. The unique base plan ID of the base plan to update prices on. */
           basePlanId: string;
           /** JSONP */
@@ -7379,11 +7789,11 @@ declare namespace gapi.client {
       /** Deprecated: subscription archiving is not supported. */
       archive(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7410,11 +7820,11 @@ declare namespace gapi.client {
       archive(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7441,11 +7851,11 @@ declare namespace gapi.client {
       /** Reads one or more subscriptions. */
       batchGet(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7470,11 +7880,11 @@ declare namespace gapi.client {
       /** Updates a batch of subscriptions. Set the latencyTolerance field on nested requests to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update throughput. */
       batchUpdate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7499,11 +7909,11 @@ declare namespace gapi.client {
       batchUpdate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7528,11 +7938,11 @@ declare namespace gapi.client {
       /** Creates a new subscription. Newly added base plans will remain in draft state until activated. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7561,11 +7971,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7594,11 +8004,11 @@ declare namespace gapi.client {
       /** Deletes a subscription. A subscription can only be deleted if it has never had a base plan published. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7623,11 +8033,11 @@ declare namespace gapi.client {
       /** Reads a single subscription. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7652,11 +8062,11 @@ declare namespace gapi.client {
       /** Lists all subscriptions under a given app. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7685,13 +8095,13 @@ declare namespace gapi.client {
       /** Updates an existing subscription. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. If set to true, and the subscription with the given package_name and product_id doesn't exist, the subscription will be created. If a new subscription is created, update_mask is ignored. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7699,7 +8109,10 @@ declare namespace gapi.client {
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** Optional. The latency tolerance for the propagation of this product update. Defaults to latency-sensitive. */
-        latencyTolerance?: string;
+        latencyTolerance?:
+          | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+          | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+          | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Immutable. Package name of the parent app. */
@@ -7724,13 +8137,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Optional. If set to true, and the subscription with the given package_name and product_id doesn't exist, the subscription will be created. If a new subscription is created, update_mask is ignored. */
           allowMissing?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7738,7 +8151,10 @@ declare namespace gapi.client {
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
           key?: string;
           /** Optional. The latency tolerance for the propagation of this product update. Defaults to latency-sensitive. */
-          latencyTolerance?: string;
+          latencyTolerance?:
+            | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED'
+            | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE'
+            | 'PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT';
           /** OAuth 2.0 token for the current user. */
           oauth_token?: string;
           /** Immutable. Package name of the parent app. */
@@ -7766,11 +8182,11 @@ declare namespace gapi.client {
       /** Calculates the region prices, using today's exchange rate and country-specific pricing patterns, based on the price in the request for a set of regions. */
       convertRegionPrices(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7795,11 +8211,11 @@ declare namespace gapi.client {
       convertRegionPrices(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7828,11 +8244,11 @@ declare namespace gapi.client {
       /** Get order details for a list of orders. */
       batchget(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7857,11 +8273,11 @@ declare namespace gapi.client {
       /** Get order details for a single order. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7886,11 +8302,11 @@ declare namespace gapi.client {
       /** Refunds a user's subscription or in-app purchase order. Orders older than 3 years cannot be refunded. */
       refund(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7919,11 +8335,11 @@ declare namespace gapi.client {
       /** Acknowledges a purchase of an inapp item. */
       acknowledge(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7952,11 +8368,11 @@ declare namespace gapi.client {
       acknowledge(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7985,11 +8401,11 @@ declare namespace gapi.client {
       /** Consumes a purchase for an inapp item. */
       consume(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8016,11 +8432,11 @@ declare namespace gapi.client {
       /** Checks the purchase and consumption status of an inapp item. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8049,11 +8465,11 @@ declare namespace gapi.client {
       /** Checks the purchase and consumption status of an inapp item. */
       getproductpurchasev2(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8080,11 +8496,11 @@ declare namespace gapi.client {
       /** Acknowledges a subscription purchase. */
       acknowledge(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8113,11 +8529,11 @@ declare namespace gapi.client {
       acknowledge(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8146,11 +8562,11 @@ declare namespace gapi.client {
       /** Cancels a user's subscription purchase. The subscription remains valid until its expiration time. Newer version is available at purchases.subscriptionsv2.cancel for better client library support. */
       cancel(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8177,11 +8593,11 @@ declare namespace gapi.client {
       /** Defers a user's subscription purchase until a specified future expiration time. */
       defer(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8210,11 +8626,11 @@ declare namespace gapi.client {
       defer(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8243,11 +8659,11 @@ declare namespace gapi.client {
       /** Deprecated: Use purchases.subscriptionsv2.get instead. Checks whether a user's subscription purchase is valid and returns its expiry time. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8274,11 +8690,11 @@ declare namespace gapi.client {
       /** Deprecated: Use orders.refund instead. Refunds a user's subscription purchase, but the subscription remains valid until its expiration time and it will continue to recur. */
       refund(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8305,11 +8721,11 @@ declare namespace gapi.client {
       /** Deprecated: Use purchases.subscriptionsv2.revoke instead. Refunds and immediately revokes a user's subscription purchase. Access to the subscription will be terminated immediately and it will stop recurring. */
       revoke(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8338,11 +8754,11 @@ declare namespace gapi.client {
       /** Cancel a subscription purchase for the user. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8369,11 +8785,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8400,11 +8816,11 @@ declare namespace gapi.client {
       /** Defers the renewal of a subscription. */
       defer(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8431,11 +8847,11 @@ declare namespace gapi.client {
       defer(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8462,11 +8878,11 @@ declare namespace gapi.client {
       /** Get metadata about a subscription */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8491,11 +8907,11 @@ declare namespace gapi.client {
       /** Revoke a subscription purchase for the user. */
       revoke(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8522,11 +8938,11 @@ declare namespace gapi.client {
       revoke(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8555,11 +8971,11 @@ declare namespace gapi.client {
       /** Lists the purchases that were canceled, refunded or charged-back. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The time, in milliseconds since the Epoch, of the newest voided purchase that you want to see in the response. The value of this parameter cannot be greater than the current time and is ignored if a pagination token is set. Default value is current time. Note: This filter is applied on the time at which the record is seen as voided by our systems and not the actual voided time returned in the response. */
@@ -8605,11 +9021,11 @@ declare namespace gapi.client {
       /** Gets a single review. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8636,11 +9052,11 @@ declare namespace gapi.client {
       /** Lists all reviews. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8671,11 +9087,11 @@ declare namespace gapi.client {
       /** Replies to a single review, or updates an existing reply. */
       reply(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8702,11 +9118,11 @@ declare namespace gapi.client {
       reply(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8735,11 +9151,11 @@ declare namespace gapi.client {
       /** Creates an APK which is suitable for inclusion in a system image from an already uploaded Android App Bundle. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8766,11 +9182,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8797,11 +9213,11 @@ declare namespace gapi.client {
       /** Downloads a previously created system APK which is suitable for inclusion in a system image. */
       download(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8828,11 +9244,11 @@ declare namespace gapi.client {
       /** Returns a previously created system APK variant. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8859,11 +9275,11 @@ declare namespace gapi.client {
       /** Returns the list of previously created system APK variants. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8893,11 +9309,11 @@ declare namespace gapi.client {
       /** Grant access for a user to the given developer account. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8922,11 +9338,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8951,11 +9367,11 @@ declare namespace gapi.client {
       /** Removes all access for the user to the given developer account. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8978,11 +9394,11 @@ declare namespace gapi.client {
       /** Lists all users with access to a developer account. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9009,11 +9425,11 @@ declare namespace gapi.client {
       /** Updates access for the user to the developer account. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9040,11 +9456,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

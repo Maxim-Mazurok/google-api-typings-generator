@@ -37,7 +37,7 @@ declare namespace gapi.client {
       /** The time that this operation was started by the server (output only). This is in RFC3339 text format. */
       startTime?: string;
       /** Status of the operation (output only). A status of "done" means that the request to update the authoritative servers has been sent, but the servers might not be updated yet. */
-      status?: string;
+      status?: 'pending' | 'done';
     }
     interface ChangesListResponse {
       /** The requested changes. */
@@ -49,7 +49,12 @@ declare namespace gapi.client {
     }
     interface DnsKey {
       /** String mnemonic specifying the DNSSEC algorithm of this key. Immutable after creation time. */
-      algorithm?: string;
+      algorithm?:
+        | 'rsasha1'
+        | 'rsasha256'
+        | 'rsasha512'
+        | 'ecdsap256sha256'
+        | 'ecdsap384sha384';
       /** The time that this resource was created in the control plane. This is in RFC3339 text format. Output only. */
       creationTime?: string;
       /** A mutable string of at most 1024 characters associated with this resource for the user's convenience. Has no effect on the resource's function. */
@@ -68,13 +73,13 @@ declare namespace gapi.client {
       /** Base64 encoded public half of this key. Output only. */
       publicKey?: string;
       /** One of "KEY_SIGNING" or "ZONE_SIGNING". Keys of type KEY_SIGNING have the Secure Entry Point flag set and, when active, are used to sign only resource record sets of type DNSKEY. Otherwise, the Secure Entry Point flag is cleared, and this key is used to sign only resource record sets of other types. Immutable after creation time. */
-      type?: string;
+      type?: 'keySigning' | 'zoneSigning';
     }
     interface DnsKeyDigest {
       /** The base-16 encoded bytes of this digest. Suitable for use in a DS resource record. */
       digest?: string;
       /** Specifies the algorithm used to calculate this digest. */
-      type?: string;
+      type?: 'sha1' | 'sha256' | 'sha384';
     }
     interface DnsKeysListResponse {
       /** The requested resources. */
@@ -86,11 +91,16 @@ declare namespace gapi.client {
     }
     interface DnsKeySpec {
       /** String mnemonic specifying the DNSSEC algorithm of this key. */
-      algorithm?: string;
+      algorithm?:
+        | 'rsasha1'
+        | 'rsasha256'
+        | 'rsasha512'
+        | 'ecdsap256sha256'
+        | 'ecdsap384sha384';
       /** Length of the keys in bits. */
       keyLength?: number;
       /** Specifies whether this is a key signing key (KSK) or a zone signing key (ZSK). Key signing keys have the Secure Entry Point flag set and, when active, are only used to sign resource record sets of type DNSKEY. Zone signing keys do not have the Secure Entry Point flag set and are used to sign all other types of resource record sets. */
-      keyType?: string;
+      keyType?: 'keySigning' | 'zoneSigning';
       kind?: string;
     }
     interface Expr {
@@ -113,7 +123,11 @@ declare namespace gapi.client {
       /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
       exemptedMembers?: string[];
       /** The log type that this config enables. */
-      logType?: string;
+      logType?:
+        | 'LOG_TYPE_UNSPECIFIED'
+        | 'ADMIN_READ'
+        | 'DATA_WRITE'
+        | 'DATA_READ';
     }
     interface GoogleIamV1Binding {
       /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
@@ -187,7 +201,7 @@ declare namespace gapi.client {
       /** This field links to the associated service directory namespace. Do not set this field for public zones or forwarding zones. */
       serviceDirectoryConfig?: ManagedZoneServiceDirectoryConfig;
       /** The zone's visibility: public zones are exposed to the Internet, while private zones are visible only to Virtual Private Cloud resources. */
-      visibility?: string;
+      visibility?: 'public' | 'private';
     }
     interface ManagedZoneCloudLoggingConfig {
       /** If set, enable query logging for this ManagedZone. False by default, making logging opt-in. */
@@ -199,9 +213,9 @@ declare namespace gapi.client {
       defaultKeySpecs?: DnsKeySpec[];
       kind?: string;
       /** Specifies the mechanism for authenticated denial-of-existence responses. Can only be changed while the state is OFF. */
-      nonExistence?: string;
+      nonExistence?: 'nsec' | 'nsec3';
       /** Specifies whether DNSSEC is enabled, and what mode it is in. */
-      state?: string;
+      state?: 'off' | 'on' | 'transfer';
     }
     interface ManagedZoneForwardingConfig {
       kind?: string;
@@ -212,7 +226,7 @@ declare namespace gapi.client {
       /** Fully qualified domain name for the forwarding target. */
       domainName?: string;
       /** Forwarding path for this NameServerTarget. If unset or set to DEFAULT, Cloud DNS makes forwarding decisions based on IP address ranges; that is, RFC1918 addresses go to the VPC network, non-RFC1918 addresses go to the internet. When set to PRIVATE, Cloud DNS always sends queries through the VPC network for this target. */
-      forwardingPath?: string;
+      forwardingPath?: 'default' | 'private';
       /** IPv4 address of a target name server. */
       ipv4Address?: string;
       /** IPv6 address of a target name server. Does not accept both fields (ipv4 & ipv6) being populated. Public preview as of November 2022. */
@@ -288,7 +302,7 @@ declare namespace gapi.client {
       /** The time that this operation was started by the server. This is in RFC3339 text format (output only). */
       startTime?: string;
       /** Status of the operation. Can be one of the following: "PENDING" or "DONE" (output only). A status of "DONE" means that the request to update the authoritative servers has been sent, but the servers might not be updated yet. */
-      status?: string;
+      status?: 'pending' | 'done';
       /** Type of the operation. Operations include insert, update, and delete (output only). */
       type?: string;
       /** User who requested the operation, for example: user@example.com. cloud-dns-system for operations automatically done by the system. (output only) */
@@ -348,7 +362,7 @@ declare namespace gapi.client {
     }
     interface PolicyAlternativeNameServerConfigTargetNameServer {
       /** Forwarding path for this TargetNameServer. If unset or set to DEFAULT, Cloud DNS makes forwarding decisions based on address ranges; that is, RFC1918 addresses go to the VPC network, non-RFC1918 addresses go to the internet. When set to PRIVATE, Cloud DNS always sends queries through the VPC network for this target. */
-      forwardingPath?: string;
+      forwardingPath?: 'default' | 'private';
       /** IPv4 address to forward queries to. */
       ipv4Address?: string;
       /** IPv6 address to forward to. Does not accept both fields (ipv4 & ipv6) being populated. Public preview as of November 2022. */
@@ -494,7 +508,7 @@ declare namespace gapi.client {
     }
     interface ResponsePolicyRule {
       /** Answer this query with a behavior rather than DNS data. */
-      behavior?: string;
+      behavior?: 'behaviorUnspecified' | 'bypassResponsePolicy';
       /** The DNS name (wildcard or exact) to apply this rule to. Must be unique within the Response Policy Rule. */
       dnsName?: string;
       kind?: string;
@@ -554,10 +568,14 @@ declare namespace gapi.client {
       /** The frontend IP address of the load balancer to health check. */
       ipAddress?: string;
       /** The protocol of the load balancer to health check. */
-      ipProtocol?: string;
+      ipProtocol?: 'undefined' | 'tcp' | 'udp';
       kind?: string;
       /** The type of load balancer specified by this target. This value must match the configuration of the load balancer located at the LoadBalancerTarget's IP address, port, and region. Use the following: - *regionalL4ilb*: for a regional internal passthrough Network Load Balancer. - *regionalL7ilb*: for a regional internal Application Load Balancer. - *globalL7ilb*: for a global internal Application Load Balancer. */
-      loadBalancerType?: string;
+      loadBalancerType?:
+        | 'none'
+        | 'globalL7ilb'
+        | 'regionalL4ilb'
+        | 'regionalL7ilb';
       /** The fully qualified URL of the network that the load balancer is attached to. This should be formatted like `https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}`. */
       networkUrl?: string;
       /** The configured port of the load balancer. */
@@ -594,11 +612,11 @@ declare namespace gapi.client {
       /** Atomically updates the ResourceRecordSet collection. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -627,11 +645,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -660,11 +678,11 @@ declare namespace gapi.client {
       /** Fetches the representation of an existing Change. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The identifier of the requested change, from a previous ResourceRecordSetsChangeResponse. */
@@ -693,11 +711,11 @@ declare namespace gapi.client {
       /** Enumerates Changes to a ResourceRecordSet collection. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -719,7 +737,7 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Sorting criterion. The only supported value is change sequence. */
-        sortBy?: string;
+        sortBy?: 'changeSequence';
         /** Sorting order direction: 'ascending' or 'descending'. */
         sortOrder?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -732,11 +750,11 @@ declare namespace gapi.client {
       /** Fetches the representation of an existing DnsKey. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -767,11 +785,11 @@ declare namespace gapi.client {
       /** Enumerates DnsKeys to a ResourceRecordSet collection. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** An optional comma-separated list of digest types to compute and display for key signing keys. If omitted, the recommended digest type is computed and displayed. */
@@ -804,11 +822,11 @@ declare namespace gapi.client {
       /** Fetches the representation of an existing Operation. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -837,11 +855,11 @@ declare namespace gapi.client {
       /** Enumerates Operations for the given ManagedZone. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -863,7 +881,7 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Sorting criterion. The only supported values are START_TIME and ID. */
-        sortBy?: string;
+        sortBy?: 'startTime' | 'id';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -874,11 +892,11 @@ declare namespace gapi.client {
       /** Creates a new ManagedZone. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -905,11 +923,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -936,11 +954,11 @@ declare namespace gapi.client {
       /** Deletes a previously created ManagedZone. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -967,11 +985,11 @@ declare namespace gapi.client {
       /** Fetches the representation of an existing ManagedZone. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -999,11 +1017,11 @@ declare namespace gapi.client {
       getIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1028,11 +1046,11 @@ declare namespace gapi.client {
       /** Enumerates ManagedZones that have been created but not yet deleted. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Restricts the list to return only zones with this domain name. */
@@ -1061,11 +1079,11 @@ declare namespace gapi.client {
       /** Applies a partial update to an existing ManagedZone. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -1094,11 +1112,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -1128,11 +1146,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1158,11 +1176,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1187,11 +1205,11 @@ declare namespace gapi.client {
       /** Updates an existing ManagedZone. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -1220,11 +1238,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -1255,11 +1273,11 @@ declare namespace gapi.client {
       /** Creates a new policy. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -1286,11 +1304,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -1317,11 +1335,11 @@ declare namespace gapi.client {
       /** Deletes a previously created policy. Fails if the policy is still being referenced by a network. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -1348,11 +1366,11 @@ declare namespace gapi.client {
       /** Fetches the representation of an existing policy. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -1379,11 +1397,11 @@ declare namespace gapi.client {
       /** Enumerates all policies associated with a project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1410,11 +1428,11 @@ declare namespace gapi.client {
       /** Applies a partial update to an existing policy. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -1443,11 +1461,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -1476,11 +1494,11 @@ declare namespace gapi.client {
       /** Updates an existing policy. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -1509,11 +1527,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -1544,11 +1562,11 @@ declare namespace gapi.client {
       /** Fetches the representation of an existing Project. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -1575,11 +1593,11 @@ declare namespace gapi.client {
       /** Creates a new ResourceRecordSet. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -1608,11 +1626,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -1641,11 +1659,11 @@ declare namespace gapi.client {
       /** Deletes a previously created ResourceRecordSet. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -1676,11 +1694,11 @@ declare namespace gapi.client {
       /** Fetches the representation of an existing ResourceRecordSet. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -1711,11 +1729,11 @@ declare namespace gapi.client {
       /** Enumerates ResourceRecordSets that you have created but not yet deleted. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1750,11 +1768,11 @@ declare namespace gapi.client {
       /** Applies a partial update to an existing ResourceRecordSet. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -1787,11 +1805,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -1826,11 +1844,11 @@ declare namespace gapi.client {
       /** Creates a new Response Policy */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -1857,11 +1875,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -1888,11 +1906,11 @@ declare namespace gapi.client {
       /** Deletes a previously created Response Policy. Fails if the response policy is non-empty or still being referenced by a network. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -1919,11 +1937,11 @@ declare namespace gapi.client {
       /** Fetches the representation of an existing Response Policy. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -1950,11 +1968,11 @@ declare namespace gapi.client {
       /** Enumerates all Response Policies associated with a project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1981,11 +1999,11 @@ declare namespace gapi.client {
       /** Applies a partial update to an existing Response Policy. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -2014,11 +2032,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -2047,11 +2065,11 @@ declare namespace gapi.client {
       /** Updates an existing Response Policy. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -2080,11 +2098,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -2115,11 +2133,11 @@ declare namespace gapi.client {
       /** Creates a new Response Policy Rule. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -2148,11 +2166,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -2181,11 +2199,11 @@ declare namespace gapi.client {
       /** Deletes a previously created Response Policy Rule. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -2214,11 +2232,11 @@ declare namespace gapi.client {
       /** Fetches the representation of an existing Response Policy Rule. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -2247,11 +2265,11 @@ declare namespace gapi.client {
       /** Enumerates all Response Policy Rules associated with a project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2280,11 +2298,11 @@ declare namespace gapi.client {
       /** Applies a partial update to an existing Response Policy Rule. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -2315,11 +2333,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -2350,11 +2368,11 @@ declare namespace gapi.client {
       /** Updates an existing Response Policy Rule. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
@@ -2385,11 +2403,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */

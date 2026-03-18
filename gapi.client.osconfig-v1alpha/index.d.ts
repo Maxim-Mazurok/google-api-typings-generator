@@ -31,27 +31,54 @@ declare namespace gapi.client {
     interface CancelOperationRequest {}
     interface CVSSv3 {
       /** This metric describes the conditions beyond the attacker's control that must exist in order to exploit the vulnerability. */
-      attackComplexity?: string;
+      attackComplexity?:
+        | 'ATTACK_COMPLEXITY_UNSPECIFIED'
+        | 'ATTACK_COMPLEXITY_LOW'
+        | 'ATTACK_COMPLEXITY_HIGH';
       /** This metric reflects the context by which vulnerability exploitation is possible. */
-      attackVector?: string;
+      attackVector?:
+        | 'ATTACK_VECTOR_UNSPECIFIED'
+        | 'ATTACK_VECTOR_NETWORK'
+        | 'ATTACK_VECTOR_ADJACENT'
+        | 'ATTACK_VECTOR_LOCAL'
+        | 'ATTACK_VECTOR_PHYSICAL';
       /** This metric measures the impact to the availability of the impacted component resulting from a successfully exploited vulnerability. */
-      availabilityImpact?: string;
+      availabilityImpact?:
+        | 'IMPACT_UNSPECIFIED'
+        | 'IMPACT_HIGH'
+        | 'IMPACT_LOW'
+        | 'IMPACT_NONE';
       /** The base score is a function of the base metric scores. https://www.first.org/cvss/specification-document#Base-Metrics */
       baseScore?: number;
       /** This metric measures the impact to the confidentiality of the information resources managed by a software component due to a successfully exploited vulnerability. */
-      confidentialityImpact?: string;
+      confidentialityImpact?:
+        | 'IMPACT_UNSPECIFIED'
+        | 'IMPACT_HIGH'
+        | 'IMPACT_LOW'
+        | 'IMPACT_NONE';
       /** The Exploitability sub-score equation is derived from the Base Exploitability metrics. https://www.first.org/cvss/specification-document#2-1-Exploitability-Metrics */
       exploitabilityScore?: number;
       /** The Impact sub-score equation is derived from the Base Impact metrics. */
       impactScore?: number;
       /** This metric measures the impact to integrity of a successfully exploited vulnerability. */
-      integrityImpact?: string;
+      integrityImpact?:
+        | 'IMPACT_UNSPECIFIED'
+        | 'IMPACT_HIGH'
+        | 'IMPACT_LOW'
+        | 'IMPACT_NONE';
       /** This metric describes the level of privileges an attacker must possess before successfully exploiting the vulnerability. */
-      privilegesRequired?: string;
+      privilegesRequired?:
+        | 'PRIVILEGES_REQUIRED_UNSPECIFIED'
+        | 'PRIVILEGES_REQUIRED_NONE'
+        | 'PRIVILEGES_REQUIRED_LOW'
+        | 'PRIVILEGES_REQUIRED_HIGH';
       /** The Scope metric captures whether a vulnerability in one vulnerable component impacts resources in components beyond its security scope. */
-      scope?: string;
+      scope?: 'SCOPE_UNSPECIFIED' | 'SCOPE_UNCHANGED' | 'SCOPE_CHANGED';
       /** This metric captures the requirement for a human user, other than the attacker, to participate in the successful compromise of the vulnerable component. */
-      userInteraction?: string;
+      userInteraction?:
+        | 'USER_INTERACTION_UNSPECIFIED'
+        | 'USER_INTERACTION_NONE'
+        | 'USER_INTERACTION_REQUIRED';
     }
     interface Date {
       /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
@@ -118,13 +145,18 @@ declare namespace gapi.client {
     }
     interface GoogleCloudOsconfigV1__OSPolicyAssignmentOperationMetadata {
       /** The OS policy assignment API method. */
-      apiMethod?: string;
+      apiMethod?: 'API_METHOD_UNSPECIFIED' | 'CREATE' | 'UPDATE' | 'DELETE';
       /** Reference to the `OSPolicyAssignment` API resource. Format: `projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id@revision_id}` */
       osPolicyAssignment?: string;
       /** Rollout start time */
       rolloutStartTime?: string;
       /** State of the rollout */
-      rolloutState?: string;
+      rolloutState?:
+        | 'ROLLOUT_STATE_UNSPECIFIED'
+        | 'IN_PROGRESS'
+        | 'CANCELLING'
+        | 'CANCELLED'
+        | 'SUCCEEDED';
       /** Rollout update time */
       rolloutUpdateTime?: string;
     }
@@ -176,7 +208,12 @@ declare namespace gapi.client {
       /** Output only. Compliance data for each `OSPolicy` that is applied to the VM. */
       osPolicyCompliances?: InstanceOSPoliciesComplianceOSPolicyCompliance[];
       /** Output only. Compliance state of the VM. */
-      state?: string;
+      state?:
+        | 'OS_POLICY_COMPLIANCE_STATE_UNSPECIFIED'
+        | 'COMPLIANT'
+        | 'NON_COMPLIANT'
+        | 'UNKNOWN'
+        | 'NO_OS_POLICIES_APPLICABLE';
     }
     interface InstanceOSPoliciesComplianceOSPolicyCompliance {
       /** Reference to the `OSPolicyAssignment` API resource that the `OSPolicy` belongs to. Format: `projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id@revision_id}` */
@@ -186,7 +223,12 @@ declare namespace gapi.client {
       /** Compliance data for each `OSPolicyResource` that is applied to the VM. */
       osPolicyResourceCompliances?: OSPolicyResourceCompliance[];
       /** Compliance state of the OS policy. */
-      state?: string;
+      state?:
+        | 'OS_POLICY_COMPLIANCE_STATE_UNSPECIFIED'
+        | 'COMPLIANT'
+        | 'NON_COMPLIANT'
+        | 'UNKNOWN'
+        | 'NO_OS_POLICIES_APPLICABLE';
     }
     interface Inventory {
       /** Output only. Inventory items related to the VM keyed by an opaque unique identifier for each inventory item. The identifier is unique to each distinct and addressable inventory item and will change, when there is a new package version. */
@@ -208,9 +250,9 @@ declare namespace gapi.client {
       /** Software package present on the VM instance. */
       installedPackage?: InventorySoftwarePackage;
       /** The origin of this inventory item. */
-      originType?: string;
+      originType?: 'ORIGIN_TYPE_UNSPECIFIED' | 'INVENTORY_REPORT';
       /** The specific type of inventory, correlating to its specific details. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'INSTALLED_PACKAGE' | 'AVAILABLE_PACKAGE';
       /** When this inventory item was last modified. */
       updateTime?: string;
     }
@@ -383,7 +425,7 @@ declare namespace gapi.client {
       /** Required. The id of the OS policy with the following restrictions: * Must contain only lowercase letters, numbers, and hyphens. * Must start with a letter. * Must be between 1-63 characters. * Must end with a number or a letter. * Must be unique within the assignment. */
       id?: string;
       /** Required. Policy mode */
-      mode?: string;
+      mode?: 'MODE_UNSPECIFIED' | 'VALIDATION' | 'ENFORCEMENT';
       /** Required. List of resource groups for the policy. For a particular VM, resource groups are evaluated in the order specified and the first resource group that is applicable is selected and the rest are ignored. If none of the resource groups are applicable for a VM, the VM is considered to be non-compliant w.r.t this policy. This behavior can be toggled by the flag `allow_no_resource_group_match` */
       resourceGroups?: OSPolicyResourceGroup[];
     }
@@ -411,7 +453,12 @@ declare namespace gapi.client {
       /** Required. Rollout to deploy the OS policy assignment. A rollout is triggered in the following situations: 1) OSPolicyAssignment is created. 2) OSPolicyAssignment is updated and the update contains changes to one of the following fields: - instance_filter - os_policies 3) OSPolicyAssignment is deleted. */
       rollout?: OSPolicyAssignmentRollout;
       /** Output only. OS policy assignment rollout state */
-      rolloutState?: string;
+      rolloutState?:
+        | 'ROLLOUT_STATE_UNSPECIFIED'
+        | 'IN_PROGRESS'
+        | 'CANCELLING'
+        | 'CANCELLED'
+        | 'SUCCEEDED';
       /** Output only. Server generated unique id for the OS policy assignment resource. */
       uid?: string;
     }
@@ -439,13 +486,18 @@ declare namespace gapi.client {
     }
     interface OSPolicyAssignmentOperationMetadata {
       /** The OS policy assignment API method. */
-      apiMethod?: string;
+      apiMethod?: 'API_METHOD_UNSPECIFIED' | 'CREATE' | 'UPDATE' | 'DELETE';
       /** Reference to the `OSPolicyAssignment` API resource. Format: `projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id@revision_id}` */
       osPolicyAssignment?: string;
       /** Rollout start time */
       rolloutStartTime?: string;
       /** State of the rollout */
-      rolloutState?: string;
+      rolloutState?:
+        | 'ROLLOUT_STATE_UNSPECIFIED'
+        | 'IN_PROGRESS'
+        | 'CANCELLING'
+        | 'CANCELLED'
+        | 'SUCCEEDED';
       /** Rollout update time */
       rolloutUpdateTime?: string;
     }
@@ -465,7 +517,7 @@ declare namespace gapi.client {
     }
     interface OSPolicyAssignmentReportOSPolicyCompliance {
       /** The compliance state of the OS policy. */
-      complianceState?: string;
+      complianceState?: 'UNKNOWN' | 'COMPLIANT' | 'NON_COMPLIANT';
       /** The reason for the OS policy to be in an unknown compliance state. This field is always populated when `compliance_state` is `UNKNOWN`. If populated, the field can contain one of the following values: * `vm-not-running`: The VM was not running. * `os-policies-not-supported-by-agent`: The version of the OS Config agent running on the VM does not support running OS policies. * `no-agent-detected`: The OS Config agent is not detected for the VM. * `resource-execution-errors`: The OS Config agent encountered errors while executing one or more resources in the policy. See `os_policy_resource_compliances` for details. * `task-timeout`: The task sent to the agent to apply the policy timed out. * `unexpected-agent-state`: The OS Config agent did not report the final status of the task that attempted to apply the policy. Instead, the agent unexpectedly started working on a different task. This mostly happens when the agent or VM unexpectedly restarts while applying OS policies. * `internal-service-errors`: Internal service errors were encountered while attempting to apply the policy. * `os-policy-execution-pending`: OS policy was assigned to the given VM, but was not executed yet. Typically this is a transient condition that will go away after the next policy execution cycle. */
       complianceStateReason?: string;
       /** The OS policy id */
@@ -475,7 +527,7 @@ declare namespace gapi.client {
     }
     interface OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceCompliance {
       /** The compliance state of the resource. */
-      complianceState?: string;
+      complianceState?: 'UNKNOWN' | 'COMPLIANT' | 'NON_COMPLIANT';
       /** A reason for the resource to be in the given compliance state. This field is always populated when `compliance_state` is `UNKNOWN`. The following values are supported when `compliance_state == UNKNOWN` * `execution-errors`: Errors were encountered by the agent while executing the resource and the compliance state couldn't be determined. * `execution-skipped-by-agent`: Resource execution was skipped by the agent because errors were encountered while executing prior resources in the OS policy. * `os-policy-execution-attempt-failed`: The execution of the OS policy containing this resource failed and the compliance state couldn't be determined. * `os-policy-execution-pending`: OS policy that owns this resource was assigned to the given VM, but was not executed yet. */
       complianceStateReason?: string;
       /** Ordered list of configuration completed by the agent for the OS policy resource. */
@@ -493,7 +545,12 @@ declare namespace gapi.client {
       /** An error message recorded during the execution of this step. Only populated if errors were encountered during this step execution. */
       errorMessage?: string;
       /** Configuration step type. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'VALIDATION'
+        | 'DESIRED_STATE_CHECK'
+        | 'DESIRED_STATE_ENFORCEMENT'
+        | 'DESIRED_STATE_CHECK_POST_ENFORCEMENT';
     }
     interface OSPolicyAssignmentRollout {
       /** Required. The maximum number (or percentage) of VMs per zone to disrupt at any given moment. */
@@ -533,7 +590,12 @@ declare namespace gapi.client {
       /** The id of the OS policy resource. */
       osPolicyResourceId?: string;
       /** Compliance state of the OS policy resource. */
-      state?: string;
+      state?:
+        | 'OS_POLICY_COMPLIANCE_STATE_UNSPECIFIED'
+        | 'COMPLIANT'
+        | 'NON_COMPLIANT'
+        | 'UNKNOWN'
+        | 'NO_OS_POLICIES_APPLICABLE';
     }
     interface OSPolicyResourceComplianceExecResourceOutput {
       /** Output from Enforcement phase output file (if run). Output size is limited to 100K bytes. */
@@ -543,9 +605,14 @@ declare namespace gapi.client {
       /** An error message recorded during the execution of this step. Only populated when outcome is FAILED. */
       errorMessage?: string;
       /** Outcome of the configuration step. */
-      outcome?: string;
+      outcome?: 'OUTCOME_UNSPECIFIED' | 'SUCCEEDED' | 'FAILED';
       /** Configuration step type. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'VALIDATION'
+        | 'DESIRED_STATE_CHECK'
+        | 'DESIRED_STATE_ENFORCEMENT'
+        | 'DESIRED_STATE_CHECK_POST_ENFORCEMENT';
     }
     interface OSPolicyResourceExecResource {
       /** What to run to bring this resource into the desired state. An exit code of 100 indicates "success", any other exit code indicates a failure running enforce. */
@@ -559,7 +626,7 @@ declare namespace gapi.client {
       /** A remote or local file. */
       file?: OSPolicyResourceFile;
       /** Required. The script interpreter to use. */
-      interpreter?: string;
+      interpreter?: 'INTERPRETER_UNSPECIFIED' | 'NONE' | 'SHELL' | 'POWERSHELL';
       /** Only recorded for enforce Exec. Path to an output file (that is created by this Exec) whose content will be recorded in OSPolicyResourceCompliance after a successful run. Absence or failure to read this file will result in this ExecResource being non-compliant. Output file size is limited to 100K bytes. */
       outputFilePath?: string;
       /** An inline script. The size of the script is limited to 32KiB. */
@@ -599,7 +666,11 @@ declare namespace gapi.client {
       /** Consists of three octal digits which represent, in order, the permissions of the owner, group, and other users for the file (similarly to the numeric mode used in the linux chmod utility). Each digit represents a three bit number with the 4 bit corresponding to the read permissions, the 2 bit corresponds to the write bit, and the one bit corresponds to the execute permission. Default behavior is 755. Below are some examples of permissions and their associated values: read, write, and execute: 7 read and execute: 5 read and write: 6 read only: 4 */
       permissions?: string;
       /** Required. Desired state of the file. */
-      state?: string;
+      state?:
+        | 'DESIRED_STATE_UNSPECIFIED'
+        | 'PRESENT'
+        | 'ABSENT'
+        | 'CONTENTS_MATCH';
     }
     interface OSPolicyResourceGroup {
       /** List of inventory filters for the resource group. The resources in this resource group are applied to the target VM if it satisfies at least one of the following inventory filters. For example, to apply this resource group to VMs running either `RHEL` or `CentOS` operating systems, specify 2 items for the list with following values: inventory_filters[0].os_short_name='rhel' and inventory_filters[1].os_short_name='centos' If the list is empty, this resource group will be applied to the target VM unconditionally. */
@@ -615,7 +686,7 @@ declare namespace gapi.client {
       /** A deb package file. */
       deb?: OSPolicyResourcePackageResourceDeb;
       /** Required. The desired state the agent should maintain for this package. */
-      desiredState?: string;
+      desiredState?: 'DESIRED_STATE_UNSPECIFIED' | 'INSTALLED' | 'REMOVED';
       /** A package managed by GooGet. */
       googet?: OSPolicyResourcePackageResourceGooGet;
       /** An MSI package. */
@@ -673,7 +744,7 @@ declare namespace gapi.client {
     }
     interface OSPolicyResourceRepositoryResourceAptRepository {
       /** Required. Type of archive files in this repository. */
-      archiveType?: string;
+      archiveType?: 'ARCHIVE_TYPE_UNSPECIFIED' | 'DEB' | 'DEB_SRC';
       /** Required. List of components for this repository. Must contain at least one item. */
       components?: string[];
       /** Required. Distribution of this repository. */
@@ -731,7 +802,14 @@ declare namespace gapi.client {
     }
     interface VulnerabilityReport {
       /** Output only. Highest level of severity among all the upgradable vulnerabilities with CVEs attached. */
-      highestUpgradableCveSeverity?: string;
+      highestUpgradableCveSeverity?:
+        | 'VULNERABILITY_SEVERITY_LEVEL_UNSPECIFIED'
+        | 'NONE'
+        | 'MINIMAL'
+        | 'LOW'
+        | 'MEDIUM'
+        | 'HIGH'
+        | 'CRITICAL';
       /** Output only. The `vulnerabilityReport` API resource name. Format: `projects/{project_number}/locations/{location}/instances/{instance_id}/vulnerabilityReport` */
       name?: string;
       /** Output only. The timestamp for when the last vulnerability report was generated for the VM. */
@@ -787,11 +865,11 @@ declare namespace gapi.client {
       /** Get OS policies compliance data for the specified Compute Engine VM instance. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -814,11 +892,11 @@ declare namespace gapi.client {
       /** List OS policies compliance data for all Compute Engine VM instances in the specified zone. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -849,11 +927,11 @@ declare namespace gapi.client {
       /** Get inventory data for the specified VM instance. If the VM has no associated inventory, the message `NOT_FOUND` is returned. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -873,16 +951,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Inventory view indicating what information should be included in the inventory resource. If unspecified, the default view is BASIC. */
-        view?: string;
+        view?: 'INVENTORY_VIEW_UNSPECIFIED' | 'BASIC' | 'FULL';
       }): Request<Inventory>;
       /** List inventory data for all VM instances in the specified zone. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -908,18 +986,18 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Inventory view indicating what information should be included in the inventory resource. If unspecified, the default view is BASIC. */
-        view?: string;
+        view?: 'INVENTORY_VIEW_UNSPECIFIED' | 'BASIC' | 'FULL';
       }): Request<ListInventoriesResponse>;
     }
     interface ReportsResource {
       /** Get the OS policy assignment report for the specified Compute Engine VM instance. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -942,11 +1020,11 @@ declare namespace gapi.client {
       /** List OS policy assignment reports for all Compute Engine VM instances in the specified zone. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -980,11 +1058,11 @@ declare namespace gapi.client {
       /** Gets the vulnerability report for the specified VM instance. Only VMs with inventory data have vulnerability reports associated with them. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1007,11 +1085,11 @@ declare namespace gapi.client {
       /** List vulnerability reports for all VM instances in the specified zone. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1047,11 +1125,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1076,11 +1154,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1105,11 +1183,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1132,11 +1210,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1159,11 +1237,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1196,11 +1274,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1225,11 +1303,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1254,11 +1332,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1283,11 +1361,11 @@ declare namespace gapi.client {
       /** Create an OS policy assignment. This method also creates the first revision of the OS policy assignment. This method returns a long running operation (LRO) that contains the rollout details. The rollout can be cancelled by cancelling the LRO. For more information, see [Method: projects.locations.osPolicyAssignments.operations.cancel](https://cloud.google.com/compute/docs/osconfig/rest/v1alpha/projects.locations.osPolicyAssignments.operations/cancel). */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1316,11 +1394,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1349,11 +1427,11 @@ declare namespace gapi.client {
       /** Delete the OS policy assignment. This method creates a new revision of the OS policy assignment. This method returns a long running operation (LRO) that contains the rollout details. The rollout can be cancelled by cancelling the LRO. If the LRO completes and is not cancelled, all revisions associated with the OS policy assignment are deleted. For more information, see [Method: projects.locations.osPolicyAssignments.operations.cancel](https://cloud.google.com/compute/docs/osconfig/rest/v1alpha/projects.locations.osPolicyAssignments.operations/cancel). */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1378,11 +1456,11 @@ declare namespace gapi.client {
       /** Retrieve an existing OS policy assignment. This method always returns the latest revision. In order to retrieve a previous revision of the assignment, also provide the revision ID in the `name` parameter. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1405,11 +1483,11 @@ declare namespace gapi.client {
       /** List the OS policy assignments under the parent resource. For each OS policy assignment, the latest revision is returned. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1436,11 +1514,11 @@ declare namespace gapi.client {
       /** List the OS policy assignment revisions for a given OS policy assignment. */
       listRevisions(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1467,13 +1545,13 @@ declare namespace gapi.client {
       /** Update an existing OS policy assignment. This method creates a new revision of the OS policy assignment. This method returns a long running operation (LRO) that contains the rollout details. The rollout can be cancelled by cancelling the LRO. For more information, see [Method: projects.locations.osPolicyAssignments.operations.cancel](https://cloud.google.com/compute/docs/osconfig/rest/v1alpha/projects.locations.osPolicyAssignments.operations/cancel). */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. If set to true, and the OS policy assignment is not found, a new OS policy assignment will be created. In this situation, `update_mask` is ignored. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1502,13 +1580,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Optional. If set to true, and the OS policy assignment is not found, a new OS policy assignment will be created. In this situation, `update_mask` is ignored. */
           allowMissing?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

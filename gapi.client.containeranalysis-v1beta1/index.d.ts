@@ -30,7 +30,7 @@ declare namespace gapi.client {
   namespace containeranalysis {
     interface AliasContext {
       /** The alias kind. */
-      kind?: string;
+      kind?: 'KIND_UNSPECIFIED' | 'FIXED' | 'MOVABLE' | 'OTHER';
       /** The alias name. */
       name?: string;
     }
@@ -67,7 +67,12 @@ declare namespace gapi.client {
       /** A one sentence description of this Vex. */
       shortDescription?: string;
       /** Provides the state of this Vulnerability assessment. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'AFFECTED'
+        | 'NOT_AFFECTED'
+        | 'FIXED'
+        | 'UNDER_INVESTIGATION';
       /** The vulnerability identifier for this Assessment. Will hold one of common identifiers e.g. CVE, GHSA etc. */
       vulnerabilityId?: string;
     }
@@ -159,7 +164,7 @@ declare namespace gapi.client {
       /** An ID for the key used to sign. This could be either an ID for the key stored in `public_key` (such as the ID or fingerprint for a PGP key, or the CN for a cert), or a reference to an external key (such as a reference to a key in Cloud Key Management Service). */
       keyId?: string;
       /** The type of the key, either stored in `public_key` or referenced in `key_id`. */
-      keyType?: string;
+      keyType?: 'KEY_TYPE_UNSPECIFIED' | 'PGP_ASCII_ARMORED' | 'PKIX_PEM';
       /** Public key of the builder which can be used to verify that the related findings are valid and unchanged. If `key_type` is empty, this defaults to PEM encoded public keys. This field may be empty if `key_id` references an external key. For Cloud Build based signatures, this is a PEM encoded public key. To verify the Cloud Build signature, place the contents of this field into a file (public.pem). The signature field is base64-decoded into its binary representation in signature.bin, and the provenance bytes from `BuildDetails` are base64-decoded into a binary representation in signed.bin. OpenSSL can then verify the signature: `openssl sha256 -verify public.pem -signature signature.bin signed.bin` */
       publicKey?: string;
       /** Required. Signature of the related `BuildProvenance`. In JSON, this is base-64 encoded. */
@@ -196,7 +201,18 @@ declare namespace gapi.client {
       /** A list of environment variables which are encrypted using a Cloud Key Management Service crypto key. These values must be specified in the build's `Secret`. */
       secretEnv?: string[];
       /** Output only. Status of the build step. At this time, build step status is only updated on build completion; step status is not updated in real-time as the build progresses. */
-      status?: string;
+      status?:
+        | 'STATUS_UNKNOWN'
+        | 'PENDING'
+        | 'QUEUING'
+        | 'QUEUED'
+        | 'WORKING'
+        | 'SUCCESS'
+        | 'FAILURE'
+        | 'INTERNAL_ERROR'
+        | 'TIMEOUT'
+        | 'CANCELLED'
+        | 'EXPIRED';
       /** Time limit for executing this build step. If not defined, the step has no time limit and will be allowed to continue to run until either it completes or the build itself times out. */
       timeout?: string;
       /** Output only. Stores timing information for executing this build step. */
@@ -243,7 +259,7 @@ declare namespace gapi.client {
       /** Optional. An optional comment for this manual approval result. */
       comment?: string;
       /** Required. The decision of this manual approval. */
-      decision?: string;
+      decision?: 'DECISION_UNSPECIFIED' | 'APPROVED' | 'REJECTED';
       /** Optional. An optional URL tied to this manual approval result. This field is essentially the same as comment, except that it will be rendered by the UI differently. An example use case is a link to an external job that approved this Build. */
       url?: string;
     }
@@ -367,7 +383,17 @@ declare namespace gapi.client {
       /** Output only. Time at which execution of the build was started. */
       startTime?: string;
       /** Output only. Status of the build. */
-      status?: string;
+      status?:
+        | 'STATUS_UNKNOWN'
+        | 'PENDING'
+        | 'QUEUED'
+        | 'WORKING'
+        | 'SUCCESS'
+        | 'FAILURE'
+        | 'INTERNAL_ERROR'
+        | 'TIMEOUT'
+        | 'CANCELLED'
+        | 'EXPIRED';
       /** Output only. Customer-readable message about the current status. */
       statusDetail?: string;
       /** Required. The operations to be performed on the workspace. */
@@ -391,19 +417,34 @@ declare namespace gapi.client {
       /** Output only. Result of manual approval for this Build. */
       result?: ContaineranalysisGoogleDevtoolsCloudbuildV1ApprovalResult;
       /** Output only. The state of this build's approval. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PENDING'
+        | 'APPROVED'
+        | 'REJECTED'
+        | 'CANCELLED';
     }
     interface ContaineranalysisGoogleDevtoolsCloudbuildV1BuildFailureInfo {
       /** Explains the failure issue in more detail using hard-coded text. */
       detail?: string;
       /** The name of the failure. */
-      type?: string;
+      type?:
+        | 'FAILURE_TYPE_UNSPECIFIED'
+        | 'PUSH_FAILED'
+        | 'PUSH_IMAGE_NOT_FOUND'
+        | 'PUSH_NOT_AUTHORIZED'
+        | 'LOGGING_FAILURE'
+        | 'USER_BUILD_STEP'
+        | 'FETCH_SOURCE_FAILED';
     }
     interface ContaineranalysisGoogleDevtoolsCloudbuildV1BuildOptions {
       /** Option to include built-in and custom substitutions as env variables for all build steps. */
       automapSubstitutions?: boolean;
       /** Optional. Option to specify how default logs buckets are setup. */
-      defaultLogsBucketBehavior?: string;
+      defaultLogsBucketBehavior?:
+        | 'DEFAULT_LOGS_BUCKET_BEHAVIOR_UNSPECIFIED'
+        | 'REGIONAL_USER_OWNED_BUCKET'
+        | 'LEGACY_BUCKET';
       /** Requested disk size for the VM that runs the build. Note that this is *NOT* "disk free"; some of the space will be used by the operating system and build utilities. Also note that this is the minimum disk size that will be allocated for the build -- the build may run with a larger disk than requested. At present, the maximum disk size is 4000GB; builds that request more than the maximum are rejected with an error. */
       diskSizeGb?: string;
       /** Option to specify whether or not to apply bash style string operations to the substitutions. NOTE: this is always enabled for triggered builds and cannot be overridden in the build configuration file. */
@@ -413,23 +454,41 @@ declare namespace gapi.client {
       /** A list of global environment variable definitions that will exist for all build steps in this build. If a variable is defined in both globally and in a build step, the variable will use the build step value. The elements are of the form "KEY=VALUE" for the environment variable "KEY" being given the value "VALUE". */
       env?: string[];
       /** Option to specify the logging mode, which determines if and where build logs are stored. */
-      logging?: string;
+      logging?:
+        | 'LOGGING_UNSPECIFIED'
+        | 'LEGACY'
+        | 'GCS_ONLY'
+        | 'STACKDRIVER_ONLY'
+        | 'CLOUD_LOGGING_ONLY'
+        | 'NONE';
       /** Option to define build log streaming behavior to Cloud Storage. */
-      logStreamingOption?: string;
+      logStreamingOption?: 'STREAM_DEFAULT' | 'STREAM_ON' | 'STREAM_OFF';
       /** Compute Engine machine type on which to run the build. */
-      machineType?: string;
+      machineType?:
+        | 'UNSPECIFIED'
+        | 'N1_HIGHCPU_8'
+        | 'N1_HIGHCPU_32'
+        | 'E2_HIGHCPU_8'
+        | 'E2_HIGHCPU_32'
+        | 'E2_MEDIUM';
       /** Optional. Specification for execution on a `WorkerPool`. See [running builds in a private pool](https://cloud.google.com/build/docs/private-pools/run-builds-in-private-pool) for more information. */
       pool?: ContaineranalysisGoogleDevtoolsCloudbuildV1BuildOptionsPoolOption;
       /** Optional. Option to specify the Pub/Sub topic to receive build status updates. */
       pubsubTopic?: string;
       /** Requested verifiability options. */
-      requestedVerifyOption?: string;
+      requestedVerifyOption?: 'NOT_VERIFIED' | 'VERIFIED';
       /** A list of global environment variables, which are encrypted using a Cloud Key Management Service crypto key. These values must be specified in the build's `Secret`. These variables will be available to all build steps in this build. */
       secretEnv?: string[];
       /** Requested hash for SourceProvenance. */
-      sourceProvenanceHash?: string[];
+      sourceProvenanceHash?:
+        | 'NONE'
+        | 'SHA256'
+        | 'MD5'
+        | 'GO_MODULE_H1'
+        | 'SHA512'
+        | 'DIRSUM_SHA256'[];
       /** Option to specify behavior when there is an error in the substitution checks. NOTE: this is always set to ALLOW_LOOSE for triggered builds and cannot be overridden in the build configuration file. */
-      substitutionOption?: string;
+      substitutionOption?: 'MUST_MATCH' | 'ALLOW_LOOSE';
       /** Global list of volumes to mount for ALL build steps Each volume is created as an empty volume prior to starting the build process. Upon completion of the build, volumes and their contents are discarded. Global volume names and paths cannot conflict with the volumes defined a build step. Using a global volume in a build with only one step is not valid as it is indicative of a build request with an incorrect configuration. */
       volumes?: ContaineranalysisGoogleDevtoolsCloudbuildV1Volume[];
       /** This field deprecated; please use `pool.name` instead. */
@@ -467,7 +526,17 @@ declare namespace gapi.client {
       /** A list of environment variables which are encrypted using a Cloud Key Management Service crypto key. These values must be specified in the build's `Secret`. */
       secretEnv?: string[];
       /** Output only. Status of the build step. At this time, build step status is only updated on build completion; step status is not updated in real-time as the build progresses. */
-      status?: string;
+      status?:
+        | 'STATUS_UNKNOWN'
+        | 'PENDING'
+        | 'QUEUED'
+        | 'WORKING'
+        | 'SUCCESS'
+        | 'FAILURE'
+        | 'INTERNAL_ERROR'
+        | 'TIMEOUT'
+        | 'CANCELLED'
+        | 'EXPIRED';
       /** Time limit for executing this build step. If not defined, the step has no time limit and will be allowed to continue to run until either it completes or the build itself times out. */
       timeout?: string;
       /** Output only. Stores timing information for executing this build step. */
@@ -479,7 +548,7 @@ declare namespace gapi.client {
     }
     interface ContaineranalysisGoogleDevtoolsCloudbuildV1BuildWarning {
       /** The priority for this warning. */
-      priority?: string;
+      priority?: 'PRIORITY_UNSPECIFIED' | 'INFO' | 'WARNING' | 'ALERT';
       /** Explanation of the warning generated. */
       text?: string;
     }
@@ -491,7 +560,10 @@ declare namespace gapi.client {
       /** Name used to push the container image to Google Container Registry, as presented to `docker push`. */
       name?: string;
       /** Output only. The OCI media type of the artifact. Non-OCI images, such as Docker images, will have an unspecified value. */
-      ociMediaType?: string;
+      ociMediaType?:
+        | 'OCI_MEDIA_TYPE_UNSPECIFIED'
+        | 'IMAGE_MANIFEST'
+        | 'IMAGE_INDEX';
       /** Output only. Stores timing information for pushing the specified image. */
       pushTiming?: ContaineranalysisGoogleDevtoolsCloudbuildV1TimeSpan;
     }
@@ -557,7 +629,13 @@ declare namespace gapi.client {
     }
     interface ContaineranalysisGoogleDevtoolsCloudbuildV1Hash {
       /** The type of hash that was performed. */
-      type?: string;
+      type?:
+        | 'NONE'
+        | 'SHA256'
+        | 'MD5'
+        | 'GO_MODULE_H1'
+        | 'SHA512'
+        | 'DIRSUM_SHA256';
       /** The hash value. */
       value?: string;
     }
@@ -663,7 +741,7 @@ declare namespace gapi.client {
       /** Required. Cloud Storage object containing the source. This object must be a zipped (`.zip`) or gzipped archive file (`.tar.gz`) containing source to build. */
       object?: string;
       /** Optional. Option to specify the tool to fetch the source file for the build. */
-      sourceFetcher?: string;
+      sourceFetcher?: 'SOURCE_FETCHER_UNSPECIFIED' | 'GSUTIL' | 'GCS_FETCHER';
     }
     interface ContaineranalysisGoogleDevtoolsCloudbuildV1StorageSourceManifest {
       /** Required. Cloud Storage bucket containing the source manifest (see [Bucket Name Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)). */
@@ -727,42 +805,107 @@ declare namespace gapi.client {
     }
     interface CVSS {
       /** Defined in CVSS v3, CVSS v2 */
-      attackComplexity?: string;
+      attackComplexity?:
+        | 'ATTACK_COMPLEXITY_UNSPECIFIED'
+        | 'ATTACK_COMPLEXITY_LOW'
+        | 'ATTACK_COMPLEXITY_HIGH'
+        | 'ATTACK_COMPLEXITY_MEDIUM';
       /** Base Metrics Represents the intrinsic characteristics of a vulnerability that are constant over time and across user environments. Defined in CVSS v3, CVSS v2 */
-      attackVector?: string;
+      attackVector?:
+        | 'ATTACK_VECTOR_UNSPECIFIED'
+        | 'ATTACK_VECTOR_NETWORK'
+        | 'ATTACK_VECTOR_ADJACENT'
+        | 'ATTACK_VECTOR_LOCAL'
+        | 'ATTACK_VECTOR_PHYSICAL';
       /** Defined in CVSS v2 */
-      authentication?: string;
+      authentication?:
+        | 'AUTHENTICATION_UNSPECIFIED'
+        | 'AUTHENTICATION_MULTIPLE'
+        | 'AUTHENTICATION_SINGLE'
+        | 'AUTHENTICATION_NONE';
       /** Defined in CVSS v3, CVSS v2 */
-      availabilityImpact?: string;
+      availabilityImpact?:
+        | 'IMPACT_UNSPECIFIED'
+        | 'IMPACT_HIGH'
+        | 'IMPACT_LOW'
+        | 'IMPACT_NONE'
+        | 'IMPACT_PARTIAL'
+        | 'IMPACT_COMPLETE';
       /** The base score is a function of the base metric scores. */
       baseScore?: number;
       /** Defined in CVSS v3, CVSS v2 */
-      confidentialityImpact?: string;
+      confidentialityImpact?:
+        | 'IMPACT_UNSPECIFIED'
+        | 'IMPACT_HIGH'
+        | 'IMPACT_LOW'
+        | 'IMPACT_NONE'
+        | 'IMPACT_PARTIAL'
+        | 'IMPACT_COMPLETE';
       exploitabilityScore?: number;
       impactScore?: number;
       /** Defined in CVSS v3, CVSS v2 */
-      integrityImpact?: string;
+      integrityImpact?:
+        | 'IMPACT_UNSPECIFIED'
+        | 'IMPACT_HIGH'
+        | 'IMPACT_LOW'
+        | 'IMPACT_NONE'
+        | 'IMPACT_PARTIAL'
+        | 'IMPACT_COMPLETE';
       /** Defined in CVSS v3 */
-      privilegesRequired?: string;
+      privilegesRequired?:
+        | 'PRIVILEGES_REQUIRED_UNSPECIFIED'
+        | 'PRIVILEGES_REQUIRED_NONE'
+        | 'PRIVILEGES_REQUIRED_LOW'
+        | 'PRIVILEGES_REQUIRED_HIGH';
       /** Defined in CVSS v3 */
-      scope?: string;
+      scope?: 'SCOPE_UNSPECIFIED' | 'SCOPE_UNCHANGED' | 'SCOPE_CHANGED';
       /** Defined in CVSS v3 */
-      userInteraction?: string;
+      userInteraction?:
+        | 'USER_INTERACTION_UNSPECIFIED'
+        | 'USER_INTERACTION_NONE'
+        | 'USER_INTERACTION_REQUIRED';
     }
     interface CVSSv3 {
-      attackComplexity?: string;
+      attackComplexity?:
+        | 'ATTACK_COMPLEXITY_UNSPECIFIED'
+        | 'ATTACK_COMPLEXITY_LOW'
+        | 'ATTACK_COMPLEXITY_HIGH';
       /** Base Metrics Represents the intrinsic characteristics of a vulnerability that are constant over time and across user environments. */
-      attackVector?: string;
-      availabilityImpact?: string;
+      attackVector?:
+        | 'ATTACK_VECTOR_UNSPECIFIED'
+        | 'ATTACK_VECTOR_NETWORK'
+        | 'ATTACK_VECTOR_ADJACENT'
+        | 'ATTACK_VECTOR_LOCAL'
+        | 'ATTACK_VECTOR_PHYSICAL';
+      availabilityImpact?:
+        | 'IMPACT_UNSPECIFIED'
+        | 'IMPACT_HIGH'
+        | 'IMPACT_LOW'
+        | 'IMPACT_NONE';
       /** The base score is a function of the base metric scores. */
       baseScore?: number;
-      confidentialityImpact?: string;
+      confidentialityImpact?:
+        | 'IMPACT_UNSPECIFIED'
+        | 'IMPACT_HIGH'
+        | 'IMPACT_LOW'
+        | 'IMPACT_NONE';
       exploitabilityScore?: number;
       impactScore?: number;
-      integrityImpact?: string;
-      privilegesRequired?: string;
-      scope?: string;
-      userInteraction?: string;
+      integrityImpact?:
+        | 'IMPACT_UNSPECIFIED'
+        | 'IMPACT_HIGH'
+        | 'IMPACT_LOW'
+        | 'IMPACT_NONE';
+      privilegesRequired?:
+        | 'PRIVILEGES_REQUIRED_UNSPECIFIED'
+        | 'PRIVILEGES_REQUIRED_NONE'
+        | 'PRIVILEGES_REQUIRED_LOW'
+        | 'PRIVILEGES_REQUIRED_HIGH';
+      scope?: 'SCOPE_UNSPECIFIED' | 'SCOPE_UNCHANGED' | 'SCOPE_CHANGED';
+      userInteraction?:
+        | 'USER_INTERACTION_UNSPECIFIED'
+        | 'USER_INTERACTION_NONE'
+        | 'USER_INTERACTION_REQUIRED';
     }
     interface Deployable {
       /** Required. Resource URI for the artifact being deployed. */
@@ -776,7 +919,7 @@ declare namespace gapi.client {
       /** Required. Beginning of the lifetime of this deployment. */
       deployTime?: string;
       /** Platform hosting this deployment. */
-      platform?: string;
+      platform?: 'PLATFORM_UNSPECIFIED' | 'GKE' | 'FLEX' | 'CUSTOM';
       /** Output only. Resource URI for the artifact being deployed taken from the deployable field with the same name. */
       resourceUri?: string[];
       /** End of the lifetime of this deployment. */
@@ -835,11 +978,21 @@ declare namespace gapi.client {
       /** Indicates any errors encountered during analysis of a resource. There could be 0 or more of these errors. */
       analysisError?: Status[];
       /** The status of discovery for the resource. */
-      analysisStatus?: string;
+      analysisStatus?:
+        | 'ANALYSIS_STATUS_UNSPECIFIED'
+        | 'PENDING'
+        | 'SCANNING'
+        | 'FINISHED_SUCCESS'
+        | 'COMPLETE'
+        | 'FINISHED_FAILED'
+        | 'FINISHED_UNSUPPORTED';
       /** When an error is encountered this will contain a LocalizedMessage under details to show to the user. The LocalizedMessage is output only and populated by the API. */
       analysisStatusError?: Status;
       /** Whether the resource is continuously analyzed. */
-      continuousAnalysis?: string;
+      continuousAnalysis?:
+        | 'CONTINUOUS_ANALYSIS_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'INACTIVE';
       /** Files that make up the resource described by the occurrence. */
       files?: File[];
       /** The last time continuous analysis was done for this resource. Deprecated, do not use. */
@@ -853,11 +1006,27 @@ declare namespace gapi.client {
     }
     interface Discovery {
       /** Required. Immutable. The kind of analysis that is handled by this discovery. */
-      analysisKind?: string;
+      analysisKind?:
+        | 'NOTE_KIND_UNSPECIFIED'
+        | 'VULNERABILITY'
+        | 'BUILD'
+        | 'IMAGE'
+        | 'PACKAGE'
+        | 'DEPLOYMENT'
+        | 'DISCOVERY'
+        | 'ATTESTATION'
+        | 'INTOTO'
+        | 'SBOM'
+        | 'SPDX_PACKAGE'
+        | 'SPDX_FILE'
+        | 'SPDX_RELATIONSHIP'
+        | 'VULNERABILITY_ASSESSMENT'
+        | 'SBOM_REFERENCE'
+        | 'SECRET';
     }
     interface Distribution {
       /** The CPU architecture for which packages in this distribution channel were built. */
-      architecture?: string;
+      architecture?: 'ARCHITECTURE_UNSPECIFIED' | 'X86' | 'X64';
       /** Required. The cpe_uri in [CPE format](https://cpe.mitre.org/specification/) denoting the package manager version distributing a package. */
       cpeUri?: string;
       /** The distribution channel-specific description of this package. */
@@ -925,7 +1094,12 @@ declare namespace gapi.client {
     }
     interface ExternalRef {
       /** An External Reference allows a Package to reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package */
-      category?: string;
+      category?:
+        | 'CATEGORY_UNSPECIFIED'
+        | 'SECURITY'
+        | 'PACKAGE_MANAGER'
+        | 'PERSISTENT_ID'
+        | 'OTHER';
       /** Human-readable information about the purpose and target of the reference */
       comment?: string;
       /** The unique string with no spaces necessary to access the package-specific information, metadata, or content within the target location */
@@ -949,7 +1123,19 @@ declare namespace gapi.client {
       /** Provide a unique identifier to match analysis information on each specific file in a package */
       checksum?: string[];
       /** This field provides information about the type of file identified */
-      fileType?: string;
+      fileType?:
+        | 'FILE_TYPE_UNSPECIFIED'
+        | 'SOURCE'
+        | 'BINARY'
+        | 'ARCHIVE'
+        | 'APPLICATION'
+        | 'AUDIO'
+        | 'IMAGE'
+        | 'TEXT'
+        | 'VIDEO'
+        | 'DOCUMENTATION'
+        | 'SPDX'
+        | 'OTHER';
       /** Identify the full path and filename that corresponds to the file information in this section */
       title?: string;
     }
@@ -985,14 +1171,20 @@ declare namespace gapi.client {
       /** The affected resource. */
       resource?: Resource;
       /** The severity for this count. SEVERITY_UNSPECIFIED indicates total across all severities. */
-      severity?: string;
+      severity?:
+        | 'SEVERITY_UNSPECIFIED'
+        | 'MINIMAL'
+        | 'LOW'
+        | 'MEDIUM'
+        | 'HIGH'
+        | 'CRITICAL';
       /** The total number of vulnerabilities associated with this resource. */
       totalCount?: string;
     }
     interface GeneratePackagesSummaryRequest {}
     interface GenericSignedAttestation {
       /** Type (for example schema) of the attestation payload that was signed. The verifier must ensure that the provided type is one that the verifier supports, and that the attestation payload is a valid instantiation of that type (for example by validating a JSON schema). */
-      contentType?: string;
+      contentType?: 'CONTENT_TYPE_UNSPECIFIED' | 'SIMPLE_SIGNING_JSON';
       /** The serialized payload that is verified by one or more `signatures`. The encoding and semantic meaning of this payload must match what is set in `content_type`. */
       serializedPayload?: string;
       /** One or more signatures over `serialized_payload`. Verifier implementations should consider this attestation message verified if at least one `signature` verifies `serialized_payload`. See `Signature` in common.proto for more details on signature structure and verification. */
@@ -1071,9 +1263,18 @@ declare namespace gapi.client {
       /** The cvss v3 score for the vulnerability. */
       cvssV3?: CVSS;
       /** Output only. CVSS version used to populate cvss_score and severity. */
-      cvssVersion?: string;
+      cvssVersion?:
+        | 'CVSS_VERSION_UNSPECIFIED'
+        | 'CVSS_VERSION_2'
+        | 'CVSS_VERSION_3';
       /** The distro assigned severity for this vulnerability when it is available, and note provider assigned severity when distro has not yet assigned a severity for this vulnerability. When there are multiple PackageIssues for this vulnerability, they can have different effective severities because some might be provided by the distro while others are provided by the language ecosystem for a language pack. For this reason, it is advised to use the effective severity on the PackageIssue level. In the case where multiple PackageIssues have differing effective severities, this field should be the highest severity for any of the PackageIssues. */
-      effectiveSeverity?: string;
+      effectiveSeverity?:
+        | 'SEVERITY_UNSPECIFIED'
+        | 'MINIMAL'
+        | 'LOW'
+        | 'MEDIUM'
+        | 'HIGH'
+        | 'CRITICAL';
       /** Occurrence-specific extra details about the vulnerability. */
       extraDetails?: string;
       /** Output only. A detailed description of this vulnerability. */
@@ -1083,7 +1284,13 @@ declare namespace gapi.client {
       /** Output only. URLs related to this vulnerability. */
       relatedUrls?: RelatedUrl[];
       /** Output only. The note provider assigned Severity of the vulnerability. */
-      severity?: string;
+      severity?:
+        | 'SEVERITY_UNSPECIFIED'
+        | 'MINIMAL'
+        | 'LOW'
+        | 'MEDIUM'
+        | 'HIGH'
+        | 'CRITICAL';
       /** Output only. A one sentence description of this vulnerability. */
       shortDescription?: string;
       /** The type of package; whether native or non native(ruby gems, node.js packages etc) */
@@ -1092,7 +1299,12 @@ declare namespace gapi.client {
     }
     interface Hash {
       /** Required. The type of hash that was performed. */
-      type?: string;
+      type?:
+        | 'HASH_TYPE_UNSPECIFIED'
+        | 'SHA256'
+        | 'GO_MODULE_H1'
+        | 'SHA512'
+        | 'DIRSUM_SHA256';
       /** Required. The hash value. */
       value?: string;
     }
@@ -1102,7 +1314,7 @@ declare namespace gapi.client {
     }
     interface Installation {
       /** Output only. The CPU architecture for which packages in this distribution channel were built. Architecture will be blank for language packages. */
-      architecture?: string;
+      architecture?: 'ARCHITECTURE_UNSPECIFIED' | 'X86' | 'X64';
       /** Output only. The cpe_uri in [CPE format](https://cpe.mitre.org/specification/) denoting the package manager version distributing a package. The cpe_uri will be blank for language packages. */
       cpeUri?: string;
       /** Licenses that have been declared by the authors of the package. */
@@ -1140,7 +1352,13 @@ declare namespace gapi.client {
       /** Additional details on why this justification was chosen. */
       details?: string;
       /** The justification type for this vulnerability. */
-      justificationType?: string;
+      justificationType?:
+        | 'JUSTIFICATION_TYPE_UNSPECIFIED'
+        | 'COMPONENT_NOT_PRESENT'
+        | 'VULNERABLE_CODE_NOT_PRESENT'
+        | 'VULNERABLE_CODE_NOT_IN_EXECUTE_PATH'
+        | 'VULNERABLE_CODE_CANNOT_BE_CONTROLLED_BY_ADVERSARY'
+        | 'INLINE_MITIGATIONS_ALREADY_EXIST';
     }
     interface KnowledgeBase {
       /** The KB name (generally of the form KB[0-9]+ i.e. KB123456). */
@@ -1152,7 +1370,25 @@ declare namespace gapi.client {
       /** The recovered arguments to the Dockerfile directive. */
       arguments?: string;
       /** Required. The recovered Dockerfile directive used to construct this layer. */
-      directive?: string;
+      directive?:
+        | 'DIRECTIVE_UNSPECIFIED'
+        | 'MAINTAINER'
+        | 'RUN'
+        | 'CMD'
+        | 'LABEL'
+        | 'EXPOSE'
+        | 'ENV'
+        | 'ADD'
+        | 'COPY'
+        | 'ENTRYPOINT'
+        | 'VOLUME'
+        | 'USER'
+        | 'WORKDIR'
+        | 'ARG'
+        | 'ONBUILD'
+        | 'STOPSIGNAL'
+        | 'HEALTHCHECK'
+        | 'SHELL';
     }
     interface License {
       /** Comments */
@@ -1226,7 +1462,23 @@ declare namespace gapi.client {
       /** A note describing an in-toto link. */
       intoto?: InToto;
       /** Output only. The type of analysis. This field can be used as a filter in list requests. */
-      kind?: string;
+      kind?:
+        | 'NOTE_KIND_UNSPECIFIED'
+        | 'VULNERABILITY'
+        | 'BUILD'
+        | 'IMAGE'
+        | 'PACKAGE'
+        | 'DEPLOYMENT'
+        | 'DISCOVERY'
+        | 'ATTESTATION'
+        | 'INTOTO'
+        | 'SBOM'
+        | 'SPDX_PACKAGE'
+        | 'SPDX_FILE'
+        | 'SPDX_RELATIONSHIP'
+        | 'VULNERABILITY_ASSESSMENT'
+        | 'SBOM_REFERENCE'
+        | 'SECRET';
       /** A detailed description of this note. */
       longDescription?: string;
       /** Output only. The name of the note in the form of `projects/[PROVIDER_ID]/notes/[NOTE_ID]`. */
@@ -1278,7 +1530,23 @@ declare namespace gapi.client {
       /** Describes a specific in-toto link. */
       intoto?: GrafeasV1beta1IntotoDetails;
       /** Output only. This explicitly denotes which of the occurrence details are specified. This field can be used as a filter in list requests. */
-      kind?: string;
+      kind?:
+        | 'NOTE_KIND_UNSPECIFIED'
+        | 'VULNERABILITY'
+        | 'BUILD'
+        | 'IMAGE'
+        | 'PACKAGE'
+        | 'DEPLOYMENT'
+        | 'DISCOVERY'
+        | 'ATTESTATION'
+        | 'INTOTO'
+        | 'SBOM'
+        | 'SPDX_PACKAGE'
+        | 'SPDX_FILE'
+        | 'SPDX_RELATIONSHIP'
+        | 'VULNERABILITY_ASSESSMENT'
+        | 'SBOM_REFERENCE'
+        | 'SECRET';
       /** Output only. The name of the occurrence in the form of `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]`. */
       name?: string;
       /** Required. Immutable. The analysis note associated with this occurrence, in the form of `projects/[PROVIDER_ID]/notes/[NOTE_ID]`. This field can be used as a filter in list requests. */
@@ -1306,7 +1574,7 @@ declare namespace gapi.client {
     }
     interface Package {
       /** The CPU architecture for which packages in this distribution channel were built. Architecture will be blank for language packages. */
-      architecture?: string;
+      architecture?: 'ARCHITECTURE_UNSPECIFIED' | 'X86' | 'X64';
       /** The cpe_uri in [CPE format](https://cpe.mitre.org/specification/) denoting the package manager version distributing a package. The cpe_uri will be blank for language packages. */
       cpeUri?: string;
       /** The description of this package. */
@@ -1390,7 +1658,13 @@ declare namespace gapi.client {
       /** Required. The location of the vulnerability. */
       affectedLocation?: VulnerabilityLocation;
       /** Output only. The distro or language system assigned severity for this vulnerability when that is available and note provider assigned severity when it is not available. */
-      effectiveSeverity?: string;
+      effectiveSeverity?:
+        | 'SEVERITY_UNSPECIFIED'
+        | 'MINIMAL'
+        | 'LOW'
+        | 'MEDIUM'
+        | 'HIGH'
+        | 'CRITICAL';
       /** The location of the available fix for vulnerability. */
       fixedLocation?: VulnerabilityLocation;
       /** The type of package (e.g. OS, MAVEN, GO). */
@@ -1406,7 +1680,7 @@ declare namespace gapi.client {
     }
     interface PgpSignedAttestation {
       /** Type (for example schema) of the attestation payload that was signed. The verifier must ensure that the provided type is one that the verifier supports, and that the attestation payload is a valid instantiation of that type (for example by validating a JSON schema). */
-      contentType?: string;
+      contentType?: 'CONTENT_TYPE_UNSPECIFIED' | 'SIMPLE_SIGNING_JSON';
       /** The cryptographic fingerprint of the key used to generate the signature, as output by, e.g. `gpg --list-keys`. This should be the version 4, full 160-bit fingerprint, expressed as a 40 character hexadecimal string. See https://tools.ietf.org/html/rfc4880#section-12.2 for details. Implementations may choose to acknowledge "LONG", "SHORT", or other abbreviated key IDs, but only the full fingerprint is guaranteed to work. In gpg, the full fingerprint can be retrieved from the `fpr` field returned when calling --list-keys with --with-colons. For example: ``` gpg --with-colons --with-fingerprint --force-v4-certs \ --list-keys attester@example.com tru::1:1513631572:0:3:1:5 pub:...... fpr:::::::::24FF6481B76AC91E66A00AC657A93A81EF3AE6FB: ``` Above, the fingerprint is `24FF6481B76AC91E66A00AC657A93A81EF3AE6FB`. */
       pgpKeyId?: string;
       /** Required. The raw content of the signature, as output by GNU Privacy Guard (GPG) or equivalent. Since this message only supports attached signatures, the payload that was signed must be attached. While the signature format supported is dependent on the verification implementation, currently only ASCII-armored (`--armor` to gpg), non-clearsigned (`--sign` rather than `--clearsign` to gpg) are supported. Concretely, `gpg --sign --armor --output=signature.gpg payload.json` will create the signature content expected in this field in `signature.gpg` for the `payload.json` attestation payload. */
@@ -1455,7 +1729,51 @@ declare namespace gapi.client {
     }
     interface RelationshipNote {
       /** The type of relationship between the source and target SPDX elements */
-      type?: string;
+      type?:
+        | 'RELATIONSHIP_TYPE_UNSPECIFIED'
+        | 'DESCRIBES'
+        | 'DESCRIBED_BY'
+        | 'CONTAINS'
+        | 'CONTAINED_BY'
+        | 'DEPENDS_ON'
+        | 'DEPENDENCY_OF'
+        | 'DEPENDENCY_MANIFEST_OF'
+        | 'BUILD_DEPENDENCY_OF'
+        | 'DEV_DEPENDENCY_OF'
+        | 'OPTIONAL_DEPENDENCY_OF'
+        | 'PROVIDED_DEPENDENCY_OF'
+        | 'TEST_DEPENDENCY_OF'
+        | 'RUNTIME_DEPENDENCY_OF'
+        | 'EXAMPLE_OF'
+        | 'GENERATES'
+        | 'GENERATED_FROM'
+        | 'ANCESTOR_OF'
+        | 'DESCENDANT_OF'
+        | 'VARIANT_OF'
+        | 'DISTRIBUTION_ARTIFACT'
+        | 'PATCH_FOR'
+        | 'PATCH_APPLIED'
+        | 'COPY_OF'
+        | 'FILE_ADDED'
+        | 'FILE_DELETED'
+        | 'FILE_MODIFIED'
+        | 'EXPANDED_FROM_ARCHIVE'
+        | 'DYNAMIC_LINK'
+        | 'STATIC_LINK'
+        | 'DATA_FILE_OF'
+        | 'TEST_CASE_OF'
+        | 'BUILD_TOOL_OF'
+        | 'DEV_TOOL_OF'
+        | 'TEST_OF'
+        | 'TEST_TOOL_OF'
+        | 'DOCUMENTATION_OF'
+        | 'OPTIONAL_COMPONENT_OF'
+        | 'METAFILE_OF'
+        | 'PACKAGE_OF'
+        | 'AMENDS'
+        | 'PREREQUISITE_FOR'
+        | 'HAS_PREREQUISITE'
+        | 'OTHER';
     }
     interface RelationshipOccurrence {
       /** A place for the SPDX file creator to record any general comments about the relationship */
@@ -1465,13 +1783,63 @@ declare namespace gapi.client {
       /** Also referred to as SPDXRef-B The target SPDC element (file, package, etc) In cases where there are "known unknowns", the use of the keyword NOASSERTION can be used The keywords NONE can be used to indicate that an SPDX element (package/file/snippet) has no other elements connected by some relationship to it */
       target?: string;
       /** Output only. The type of relationship between the source and target SPDX elements */
-      type?: string;
+      type?:
+        | 'RELATIONSHIP_TYPE_UNSPECIFIED'
+        | 'DESCRIBES'
+        | 'DESCRIBED_BY'
+        | 'CONTAINS'
+        | 'CONTAINED_BY'
+        | 'DEPENDS_ON'
+        | 'DEPENDENCY_OF'
+        | 'DEPENDENCY_MANIFEST_OF'
+        | 'BUILD_DEPENDENCY_OF'
+        | 'DEV_DEPENDENCY_OF'
+        | 'OPTIONAL_DEPENDENCY_OF'
+        | 'PROVIDED_DEPENDENCY_OF'
+        | 'TEST_DEPENDENCY_OF'
+        | 'RUNTIME_DEPENDENCY_OF'
+        | 'EXAMPLE_OF'
+        | 'GENERATES'
+        | 'GENERATED_FROM'
+        | 'ANCESTOR_OF'
+        | 'DESCENDANT_OF'
+        | 'VARIANT_OF'
+        | 'DISTRIBUTION_ARTIFACT'
+        | 'PATCH_FOR'
+        | 'PATCH_APPLIED'
+        | 'COPY_OF'
+        | 'FILE_ADDED'
+        | 'FILE_DELETED'
+        | 'FILE_MODIFIED'
+        | 'EXPANDED_FROM_ARCHIVE'
+        | 'DYNAMIC_LINK'
+        | 'STATIC_LINK'
+        | 'DATA_FILE_OF'
+        | 'TEST_CASE_OF'
+        | 'BUILD_TOOL_OF'
+        | 'DEV_TOOL_OF'
+        | 'TEST_OF'
+        | 'TEST_TOOL_OF'
+        | 'DOCUMENTATION_OF'
+        | 'OPTIONAL_COMPONENT_OF'
+        | 'METAFILE_OF'
+        | 'PACKAGE_OF'
+        | 'AMENDS'
+        | 'PREREQUISITE_FOR'
+        | 'HAS_PREREQUISITE'
+        | 'OTHER';
     }
     interface Remediation {
       /** Contains a comprehensive human-readable discussion of the remediation. */
       details?: string;
       /** The type of remediation that can be applied. */
-      remediationType?: string;
+      remediationType?:
+        | 'REMEDIATION_TYPE_UNSPECIFIED'
+        | 'MITIGATION'
+        | 'NO_FIX_PLANNED'
+        | 'NONE_AVAILABLE'
+        | 'VENDOR_FIX'
+        | 'WORKAROUND';
       /** Contains the URL where to obtain the remediation. */
       remediationUri?: RelatedUrl;
     }
@@ -1541,7 +1909,7 @@ declare namespace gapi.client {
       /** If there was an error generating an SBOM, this will indicate what that error was. */
       error?: string;
       /** The progress of the SBOM generation. */
-      sbomState?: string;
+      sbomState?: 'SBOM_STATE_UNSPECIFIED' | 'PENDING' | 'COMPLETE';
     }
     interface SecretLocation {
       /** The secret is found from a file. */
@@ -1550,7 +1918,30 @@ declare namespace gapi.client {
     interface SecretNote {}
     interface SecretOccurrence {
       /** Required. Type of secret. */
-      kind?: string;
+      kind?:
+        | 'SECRET_KIND_UNSPECIFIED'
+        | 'SECRET_KIND_UNKNOWN'
+        | 'SECRET_KIND_GCP_SERVICE_ACCOUNT_KEY'
+        | 'SECRET_KIND_GCP_API_KEY'
+        | 'SECRET_KIND_GCP_OAUTH2_CLIENT_CREDENTIALS'
+        | 'SECRET_KIND_GCP_OAUTH2_ACCESS_TOKEN'
+        | 'SECRET_KIND_ANTHROPIC_ADMIN_API_KEY'
+        | 'SECRET_KIND_ANTHROPIC_API_KEY'
+        | 'SECRET_KIND_AZURE_ACCESS_TOKEN'
+        | 'SECRET_KIND_AZURE_IDENTITY_TOKEN'
+        | 'SECRET_KIND_DOCKER_HUB_PERSONAL_ACCESS_TOKEN'
+        | 'SECRET_KIND_GITHUB_APP_REFRESH_TOKEN'
+        | 'SECRET_KIND_GITHUB_APP_SERVER_TO_SERVER_TOKEN'
+        | 'SECRET_KIND_GITHUB_APP_USER_TO_SERVER_TOKEN'
+        | 'SECRET_KIND_GITHUB_CLASSIC_PERSONAL_ACCESS_TOKEN'
+        | 'SECRET_KIND_GITHUB_FINE_GRAINED_PERSONAL_ACCESS_TOKEN'
+        | 'SECRET_KIND_GITHUB_OAUTH_TOKEN'
+        | 'SECRET_KIND_HUGGINGFACE_API_KEY'
+        | 'SECRET_KIND_OPENAI_API_KEY'
+        | 'SECRET_KIND_PERPLEXITY_API_KEY'
+        | 'SECRET_KIND_STRIPE_SECRET_KEY'
+        | 'SECRET_KIND_STRIPE_RESTRICTED_KEY'
+        | 'SECRET_KIND_STRIPE_WEBHOOK_SECRET';
       /** Optional. Locations where the secret is detected. */
       locations?: SecretLocation[];
       /** Optional. Status of the secret. */
@@ -1560,7 +1951,7 @@ declare namespace gapi.client {
       /** Optional. Optional message about the status code. */
       message?: string;
       /** Optional. The status of the secret. */
-      status?: string;
+      status?: 'STATUS_UNSPECIFIED' | 'UNKNOWN' | 'VALID' | 'INVALID';
       /** Optional. The time the secret status was last updated. */
       updateTime?: string;
     }
@@ -1647,7 +2038,7 @@ declare namespace gapi.client {
       /** Whether this version is specifying part of an inclusive range. Grafeas does not have the capability to specify version ranges; instead we have fields that specify start version and end versions. At times this is insufficient - we also need to specify whether the version is included in the range or is excluded from the range. This boolean is expected to be set to true when the version is included in a range. */
       inclusive?: boolean;
       /** Required. Distinguishes between sentinel MIN/MAX versions and normal versions. */
-      kind?: string;
+      kind?: 'VERSION_KIND_UNSPECIFIED' | 'NORMAL' | 'MINIMUM' | 'MAXIMUM';
       /** Required only when version kind is NORMAL. The main part of the version name. */
       name?: string;
       /** The iteration of the package build from the above version. */
@@ -1667,7 +2058,12 @@ declare namespace gapi.client {
       /** Specifies details on how to handle (and presumably, fix) a vulnerability. */
       remediations?: Remediation[];
       /** Provides the state of this Vulnerability assessment. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'AFFECTED'
+        | 'NOT_AFFECTED'
+        | 'FIXED'
+        | 'UNDER_INVESTIGATION';
       /** The vulnerability identifier for this Assessment. Will hold one of common identifiers e.g. CVE, GHSA etc. */
       vulnerabilityId?: string;
     }
@@ -1687,13 +2083,22 @@ declare namespace gapi.client {
       /** The full description of the CVSS for version 3. */
       cvssV3?: CVSSv3;
       /** CVSS version used to populate cvss_score and severity. */
-      cvssVersion?: string;
+      cvssVersion?:
+        | 'CVSS_VERSION_UNSPECIFIED'
+        | 'CVSS_VERSION_2'
+        | 'CVSS_VERSION_3';
       /** A list of CWE for this vulnerability. For details, see: https://cwe.mitre.org/index.html */
       cwe?: string[];
       /** All information about the package to specifically identify this vulnerability. One entry per (version range and cpe_uri) the package vulnerability has manifested in. */
       details?: Detail[];
       /** Note provider assigned impact of the vulnerability. */
-      severity?: string;
+      severity?:
+        | 'SEVERITY_UNSPECIFIED'
+        | 'MINIMAL'
+        | 'LOW'
+        | 'MEDIUM'
+        | 'HIGH'
+        | 'CRITICAL';
       /** The time this information was last changed at the source. This is an upstream timestamp from the underlying information source - e.g. Ubuntu security tracker. */
       sourceUpdateTime?: string;
       /** Windows details get their own format because the information format and model don't match a normal detail. Specifically Windows updates are done as patches, thus Windows vulnerabilities really are a missing package, rather than a package being at an incorrect version. */
@@ -1743,11 +2148,11 @@ declare namespace gapi.client {
       /** Lists occurrences referencing the specified note. Provider projects can use this method to get all occurrences across consumer projects referencing the specified note. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1778,11 +2183,11 @@ declare namespace gapi.client {
       /** Creates new notes in batch. */
       batchCreate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1807,11 +2212,11 @@ declare namespace gapi.client {
       batchCreate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1836,11 +2241,11 @@ declare namespace gapi.client {
       /** Creates a new note. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1867,11 +2272,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1898,11 +2303,11 @@ declare namespace gapi.client {
       /** Deletes the specified note. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1925,11 +2330,11 @@ declare namespace gapi.client {
       /** Gets the specified note. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1953,11 +2358,11 @@ declare namespace gapi.client {
       getIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1982,11 +2387,11 @@ declare namespace gapi.client {
       /** Lists notes for the specified project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2017,11 +2422,11 @@ declare namespace gapi.client {
       /** Updates the specified note. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2048,11 +2453,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2080,11 +2485,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2110,11 +2515,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2142,11 +2547,11 @@ declare namespace gapi.client {
       /** Creates new occurrences in batch. */
       batchCreate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2171,11 +2576,11 @@ declare namespace gapi.client {
       batchCreate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2200,11 +2605,11 @@ declare namespace gapi.client {
       /** Creates a new occurrence. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2229,11 +2634,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2258,11 +2663,11 @@ declare namespace gapi.client {
       /** Deletes the specified occurrence. For example, use this method to delete an occurrence when the occurrence is no longer applicable for the given resource. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2285,11 +2690,11 @@ declare namespace gapi.client {
       /** Gets the specified occurrence. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2313,11 +2718,11 @@ declare namespace gapi.client {
       getIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2342,11 +2747,11 @@ declare namespace gapi.client {
       /** Gets the note attached to the specified occurrence. Consumer projects can use this method to get a note that belongs to a provider project. */
       getNotes(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2369,11 +2774,11 @@ declare namespace gapi.client {
       /** Gets a summary of the number and severity of occurrences. */
       getVulnerabilitySummary(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2400,11 +2805,11 @@ declare namespace gapi.client {
       /** Lists occurrences for the specified project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2435,11 +2840,11 @@ declare namespace gapi.client {
       /** Updates the specified occurrence. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2466,11 +2871,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2498,11 +2903,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2528,11 +2933,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2559,11 +2964,11 @@ declare namespace gapi.client {
       /** Generates an SBOM and other dependency information for the given resource. */
       exportSBOM(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2588,11 +2993,11 @@ declare namespace gapi.client {
       exportSBOM(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2617,11 +3022,11 @@ declare namespace gapi.client {
       /** Gets a summary of the packages within a given resource. */
       generatePackagesSummary(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2646,11 +3051,11 @@ declare namespace gapi.client {
       generatePackagesSummary(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2682,11 +3087,11 @@ declare namespace gapi.client {
       /** Lists occurrences referencing the specified note. Provider projects can use this method to get all occurrences across consumer projects referencing the specified note. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2717,11 +3122,11 @@ declare namespace gapi.client {
       /** Creates new notes in batch. */
       batchCreate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2746,11 +3151,11 @@ declare namespace gapi.client {
       batchCreate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2775,11 +3180,11 @@ declare namespace gapi.client {
       /** Creates a new note. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2806,11 +3211,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2837,11 +3242,11 @@ declare namespace gapi.client {
       /** Deletes the specified note. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2864,11 +3269,11 @@ declare namespace gapi.client {
       /** Gets the specified note. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2892,11 +3297,11 @@ declare namespace gapi.client {
       getIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2921,11 +3326,11 @@ declare namespace gapi.client {
       /** Lists notes for the specified project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2956,11 +3361,11 @@ declare namespace gapi.client {
       /** Updates the specified note. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2987,11 +3392,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3019,11 +3424,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3049,11 +3454,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3081,11 +3486,11 @@ declare namespace gapi.client {
       /** Creates new occurrences in batch. */
       batchCreate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3110,11 +3515,11 @@ declare namespace gapi.client {
       batchCreate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3139,11 +3544,11 @@ declare namespace gapi.client {
       /** Creates a new occurrence. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3168,11 +3573,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3197,11 +3602,11 @@ declare namespace gapi.client {
       /** Deletes the specified occurrence. For example, use this method to delete an occurrence when the occurrence is no longer applicable for the given resource. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3224,11 +3629,11 @@ declare namespace gapi.client {
       /** Gets the specified occurrence. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3252,11 +3657,11 @@ declare namespace gapi.client {
       getIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3281,11 +3686,11 @@ declare namespace gapi.client {
       /** Gets the note attached to the specified occurrence. Consumer projects can use this method to get a note that belongs to a provider project. */
       getNotes(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3308,11 +3713,11 @@ declare namespace gapi.client {
       /** Gets a summary of the number and severity of occurrences. */
       getVulnerabilitySummary(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3339,11 +3744,11 @@ declare namespace gapi.client {
       /** Lists occurrences for the specified project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3374,11 +3779,11 @@ declare namespace gapi.client {
       /** Updates the specified occurrence. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3405,11 +3810,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3437,11 +3842,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3467,11 +3872,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3498,11 +3903,11 @@ declare namespace gapi.client {
       /** Generates an SBOM and other dependency information for the given resource. */
       exportSBOM(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3527,11 +3932,11 @@ declare namespace gapi.client {
       exportSBOM(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3556,11 +3961,11 @@ declare namespace gapi.client {
       /** Gets a summary of the packages within a given resource. */
       generatePackagesSummary(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3585,11 +3990,11 @@ declare namespace gapi.client {
       generatePackagesSummary(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

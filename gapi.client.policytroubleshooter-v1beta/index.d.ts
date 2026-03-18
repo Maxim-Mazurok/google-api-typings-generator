@@ -38,7 +38,12 @@ declare namespace gapi.client {
     }
     interface GoogleCloudPolicytroubleshooterV1betaBindingExplanation {
       /** Indicates whether _this binding_ provides the specified permission to the specified member for the specified resource. This field does _not_ indicate whether the member actually has the permission for the resource. There might be another binding that overrides this binding. To determine whether the member actually has the permission, use the `access` field in the TroubleshootIamPolicyResponse. */
-      access?: string;
+      access?:
+        | 'ACCESS_STATE_UNSPECIFIED'
+        | 'GRANTED'
+        | 'NOT_GRANTED'
+        | 'UNKNOWN_CONDITIONAL'
+        | 'UNKNOWN_INFO_DENIED';
       /** A condition expression that prevents access unless the expression evaluates to `true`. To learn about IAM Conditions, see https://cloud.google.com/iam/help/conditions/overview. */
       condition?: GoogleTypeExpr;
       /** Indicates whether each member in the binding includes the member specified in the request, either directly or indirectly. Each key identifies a member in the binding, and each value indicates whether the member in the binding includes the member in the request. For example, suppose that a binding includes the following members: * `user:alice@example.com` * `group:product-eng@example.com` You want to troubleshoot access for `user:bob@example.com`. This user is a member of the group `group:product-eng@example.com`. For the first member in the binding, the key is `user:alice@example.com`, and the `membership` field in the value is set to `MEMBERSHIP_NOT_INCLUDED`. For the second member in the binding, the key is `group:product-eng@example.com`, and the `membership` field in the value is set to `MEMBERSHIP_INCLUDED`. */
@@ -46,23 +51,40 @@ declare namespace gapi.client {
         [P in string]: GoogleCloudPolicytroubleshooterV1betaBindingExplanationAnnotatedMembership;
       };
       /** The relevance of this binding to the overall determination for the entire policy. */
-      relevance?: string;
+      relevance?: 'HEURISTIC_RELEVANCE_UNSPECIFIED' | 'NORMAL' | 'HIGH';
       /** The role that this binding grants. For example, `roles/compute.serviceAgent`. For a complete list of predefined IAM roles, as well as the permissions in each role, see https://cloud.google.com/iam/help/roles/reference. */
       role?: string;
       /** Indicates whether the role granted by this binding contains the specified permission. */
-      rolePermission?: string;
+      rolePermission?:
+        | 'ROLE_PERMISSION_UNSPECIFIED'
+        | 'ROLE_PERMISSION_INCLUDED'
+        | 'ROLE_PERMISSION_NOT_INCLUDED'
+        | 'ROLE_PERMISSION_UNKNOWN_INFO_DENIED';
       /** The relevance of the permission's existence, or nonexistence, in the role to the overall determination for the entire policy. */
-      rolePermissionRelevance?: string;
+      rolePermissionRelevance?:
+        | 'HEURISTIC_RELEVANCE_UNSPECIFIED'
+        | 'NORMAL'
+        | 'HIGH';
     }
     interface GoogleCloudPolicytroubleshooterV1betaBindingExplanationAnnotatedMembership {
       /** Indicates whether the binding includes the member. */
-      membership?: string;
+      membership?:
+        | 'MEMBERSHIP_UNSPECIFIED'
+        | 'MEMBERSHIP_INCLUDED'
+        | 'MEMBERSHIP_NOT_INCLUDED'
+        | 'MEMBERSHIP_UNKNOWN_INFO_DENIED'
+        | 'MEMBERSHIP_UNKNOWN_UNSUPPORTED';
       /** The relevance of the member's status to the overall determination for the binding. */
-      relevance?: string;
+      relevance?: 'HEURISTIC_RELEVANCE_UNSPECIFIED' | 'NORMAL' | 'HIGH';
     }
     interface GoogleCloudPolicytroubleshooterV1betaExplainedPolicy {
       /** Indicates whether _this policy_ provides the specified permission to the specified member for the specified resource. This field does _not_ indicate whether the member actually has the permission for the resource. There might be another policy that overrides this policy. To determine whether the member actually has the permission, use the `access` field in the TroubleshootIamPolicyResponse. */
-      access?: string;
+      access?:
+        | 'ACCESS_STATE_UNSPECIFIED'
+        | 'GRANTED'
+        | 'NOT_GRANTED'
+        | 'UNKNOWN_CONDITIONAL'
+        | 'UNKNOWN_INFO_DENIED';
       /** Details about how each binding in the policy affects the member's ability, or inability, to use the permission for the resource. If the sender of the request does not have access to the policy, this field is omitted. */
       bindingExplanations?: GoogleCloudPolicytroubleshooterV1betaBindingExplanation[];
       /** The full resource name that identifies the resource. For example, `//compute.googleapis.com/projects/my-project/zones/us-central1-a/instances/my-instance`. If the sender of the request does not have access to the policy, this field is omitted. For examples of full resource names for Google Cloud services, see https://cloud.google.com/iam/help/troubleshooter/full-resource-names. */
@@ -70,7 +92,7 @@ declare namespace gapi.client {
       /** The IAM policy attached to the resource. If the sender of the request does not have access to the policy, this field is empty. */
       policy?: GoogleIamV1Policy;
       /** The relevance of this policy to the overall determination in the TroubleshootIamPolicyResponse. If the sender of the request does not have access to the policy, this field is omitted. */
-      relevance?: string;
+      relevance?: 'HEURISTIC_RELEVANCE_UNSPECIFIED' | 'NORMAL' | 'HIGH';
     }
     interface GoogleCloudPolicytroubleshooterV1betaTroubleshootIamPolicyRequest {
       /** The information to use for checking whether a member has a permission for a resource. */
@@ -78,7 +100,12 @@ declare namespace gapi.client {
     }
     interface GoogleCloudPolicytroubleshooterV1betaTroubleshootIamPolicyResponse {
       /** Indicates whether the member has the specified permission for the specified resource, based on evaluating all of the applicable policies. */
-      access?: string;
+      access?:
+        | 'ACCESS_STATE_UNSPECIFIED'
+        | 'GRANTED'
+        | 'NOT_GRANTED'
+        | 'UNKNOWN_CONDITIONAL'
+        | 'UNKNOWN_INFO_DENIED';
       /** List of IAM policies that were evaluated to check the member's permissions, with annotations to indicate how each policy contributed to the final result. The list of policies can include the policy for the resource itself. It can also include policies that are inherited from higher levels of the resource hierarchy, including the organization, the folder, and the project. To learn more about the resource hierarchy, see https://cloud.google.com/iam/help/resource-hierarchy. */
       explainedPolicies?: GoogleCloudPolicytroubleshooterV1betaExplainedPolicy[];
     }
@@ -92,7 +119,11 @@ declare namespace gapi.client {
       /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
       exemptedMembers?: string[];
       /** The log type that this config enables. */
-      logType?: string;
+      logType?:
+        | 'LOG_TYPE_UNSPECIFIED'
+        | 'ADMIN_READ'
+        | 'DATA_WRITE'
+        | 'DATA_READ';
     }
     interface GoogleIamV1Binding {
       /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
@@ -126,11 +157,11 @@ declare namespace gapi.client {
       /** Checks whether a member has a specific permission for a specific resource, and explains why the member does or does not have that permission. */
       troubleshoot(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -153,11 +184,11 @@ declare namespace gapi.client {
       troubleshoot(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

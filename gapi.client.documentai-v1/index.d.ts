@@ -41,7 +41,10 @@ declare namespace gapi.client {
       ruleId?: string;
     }
     interface CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleAlignmentRule {
-      alignmentType?: string;
+      alignmentType?:
+        | 'ALIGNMENT_TYPE_UNSPECIFIED'
+        | 'ALIGNMENT_TYPE_HORIZONTAL'
+        | 'ALIGNMENT_TYPE_VERTICAL';
       /** The tolerance to use when comparing coordinates. */
       tolerance?: number;
     }
@@ -83,7 +86,14 @@ declare namespace gapi.client {
       leftOperand?: CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidationOperation;
       rightOperand?: CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidationOperation;
       /** The relational operator to be applied to the operands. */
-      validationOperator?: string;
+      validationOperator?:
+        | 'OPERATION_TYPE_UNSPECIFIED'
+        | 'OPERATION_TYPE_EQ'
+        | 'OPERATION_TYPE_NE'
+        | 'OPERATION_TYPE_LT'
+        | 'OPERATION_TYPE_LE'
+        | 'OPERATION_TYPE_GT'
+        | 'OPERATION_TYPE_GE';
     }
     interface CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidationOperation {
       /** A list of constants to be used as operands. */
@@ -93,7 +103,17 @@ declare namespace gapi.client {
       /** A list of recursive operations to be used as operands. */
       operations?: CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidationOperation[];
       /** The operation type to be applied to all the operands. */
-      operationType?: string;
+      operationType?:
+        | 'OPERATION_TYPE_UNSPECIFIED'
+        | 'OPERATION_TYPE_SUM'
+        | 'OPERATION_TYPE_SUB'
+        | 'OPERATION_TYPE_MUL'
+        | 'OPERATION_TYPE_DIV'
+        | 'OPERATION_TYPE_MAX'
+        | 'OPERATION_TYPE_MIN'
+        | 'OPERATION_TYPE_ABS'
+        | 'OPERATION_TYPE_UNIQUE'
+        | 'OPERATION_TYPE_COUNT';
     }
     interface GoogleCloudDocumentaiUiv1beta3AutoLabelDocumentsMetadata {
       /** The basic metadata of the long-running operation. */
@@ -131,9 +151,17 @@ declare namespace gapi.client {
       /** The basic metadata of the long-running operation. */
       commonMetadata?: GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
       /** The destination dataset split type. */
-      destDatasetType?: string;
+      destDatasetType?:
+        | 'DATASET_SPLIT_TYPE_UNSPECIFIED'
+        | 'DATASET_SPLIT_TRAIN'
+        | 'DATASET_SPLIT_TEST'
+        | 'DATASET_SPLIT_UNASSIGNED';
       /** The destination dataset split type. */
-      destSplitType?: string;
+      destSplitType?:
+        | 'DATASET_SPLIT_TYPE_UNSPECIFIED'
+        | 'DATASET_SPLIT_TRAIN'
+        | 'DATASET_SPLIT_TEST'
+        | 'DATASET_SPLIT_UNASSIGNED';
       /** The list of response details of each document. */
       individualBatchMoveStatuses?: GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadataIndividualBatchMoveStatus[];
     }
@@ -163,7 +191,13 @@ declare namespace gapi.client {
       /** A related resource to this operation. */
       resource?: string;
       /** The state of the operation. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'RUNNING'
+        | 'CANCELLING'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'CANCELLED';
       /** A message providing more details about the current state of processing. */
       stateMessage?: string;
       /** The last update time of the operation. */
@@ -251,11 +285,16 @@ declare namespace gapi.client {
       /** User defined name for the property. */
       displayName?: string;
       /** Specifies how the entity's value is obtained. */
-      method?: string;
+      method?: 'METHOD_UNSPECIFIED' | 'EXTRACT' | 'DERIVE' | 'RELAXED_EXTRACT';
       /** The name of the property. Follows the same guidelines as the EntityType name. */
       name?: string;
       /** Occurrence type limits the number of instances an entity type appears in the document. */
-      occurrenceType?: string;
+      occurrenceType?:
+        | 'OCCURRENCE_TYPE_UNSPECIFIED'
+        | 'OPTIONAL_ONCE'
+        | 'OPTIONAL_MULTIPLE'
+        | 'REQUIRED_ONCE'
+        | 'REQUIRED_MULTIPLE';
       /** Any additional metadata about the property can be added here. */
       propertyMetadata?: GoogleCloudDocumentaiUiv1beta3PropertyMetadata;
       /** A reference to the value type of the property. This type is subject to the same conventions as the `Entity.base_types` field. */
@@ -350,7 +389,11 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat {
       /** The dataset split type. */
-      splitType?: string;
+      splitType?:
+        | 'DATASET_SPLIT_TYPE_UNSPECIFIED'
+        | 'DATASET_SPLIT_TRAIN'
+        | 'DATASET_SPLIT_TEST'
+        | 'DATASET_SPLIT_UNASSIGNED';
       /** Total number of documents with the given dataset split type to be exported. */
       totalDocumentCount?: number;
     }
@@ -444,7 +487,15 @@ declare namespace gapi.client {
       /** Output only. Reserved for future use. */
       satisfiesPzs?: boolean;
       /** Output only. The state of the processor. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'ENABLED'
+        | 'DISABLED'
+        | 'ENABLING'
+        | 'DISABLING'
+        | 'CREATING'
+        | 'FAILED'
+        | 'DELETING';
       /** The processor type, such as: `OCR_PROCESSOR`, `INVOICE_PROCESSOR`. To get a list of processor types, see FetchProcessorTypes. */
       type?: string;
     }
@@ -470,7 +521,10 @@ declare namespace gapi.client {
       /** Output only. The most recently invoked evaluation for the processor version. */
       latestEvaluation?: GoogleCloudDocumentaiUiv1beta3EvaluationReference;
       /** Output only. The model type of this processor version. */
-      modelType?: string;
+      modelType?:
+        | 'MODEL_TYPE_UNSPECIFIED'
+        | 'MODEL_TYPE_GENERATIVE'
+        | 'MODEL_TYPE_CUSTOM';
       /** Identifier. The resource name of the processor version. Format: `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}` */
       name?: string;
       /** Output only. Reserved for future use. */
@@ -480,7 +534,16 @@ declare namespace gapi.client {
       /** The schema of the processor version. Describes the output. */
       schema?: GoogleCloudDocumentaiUiv1beta3Schema;
       /** Output only. The state of the processor version. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'DEPLOYED'
+        | 'DEPLOYING'
+        | 'UNDEPLOYED'
+        | 'UNDEPLOYING'
+        | 'CREATING'
+        | 'DELETING'
+        | 'FAILED'
+        | 'IMPORTING';
     }
     interface GoogleCloudDocumentaiUiv1beta3ProcessorVersionAlias {
       /** The alias in the form of `processor_version` resource name. */
@@ -504,7 +567,10 @@ declare namespace gapi.client {
       /** The base processor version ID for the custom model. */
       baseProcessorVersionId?: string;
       /** The type of custom model created by the user. */
-      customModelType?: string;
+      customModelType?:
+        | 'CUSTOM_MODEL_TYPE_UNSPECIFIED'
+        | 'VERSIONED_FOUNDATION'
+        | 'FINE_TUNED';
     }
     interface GoogleCloudDocumentaiUiv1beta3ProcessorVersionGenAiModelInfoFoundationGenAiModelInfo {
       /** Whether fine tuning is allowed for this base processor version. */
@@ -538,7 +604,9 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataDatasetResyncStatus {
       /** The type of the inconsistency of the dataset. */
-      datasetInconsistencyType?: string;
+      datasetInconsistencyType?:
+        | 'DATASET_INCONSISTENCY_TYPE_UNSPECIFIED'
+        | 'DATASET_INCONSISTENCY_TYPE_NO_STORAGE_MARKER';
       /** The status of resyncing the dataset with regards to the detected inconsistency. Empty if ResyncDatasetRequest.validate_only is `true`. */
       status?: GoogleRpcStatus;
     }
@@ -546,7 +614,11 @@ declare namespace gapi.client {
       /** The document identifier. */
       documentId?: GoogleCloudDocumentaiUiv1beta3DocumentId;
       /** The type of document inconsistency. */
-      documentInconsistencyType?: string;
+      documentInconsistencyType?:
+        | 'DOCUMENT_INCONSISTENCY_TYPE_UNSPECIFIED'
+        | 'DOCUMENT_INCONSISTENCY_TYPE_INVALID_DOCPROTO'
+        | 'DOCUMENT_INCONSISTENCY_TYPE_MISMATCHED_METADATA'
+        | 'DOCUMENT_INCONSISTENCY_TYPE_NO_PAGE_IMAGE';
       /** The status of resyncing the document with regards to the detected inconsistency. Empty if ResyncDatasetRequest.validate_only is `true`. */
       status?: GoogleRpcStatus;
     }
@@ -555,7 +627,11 @@ declare namespace gapi.client {
       /** Reads the revision generated by the processor version. The format takes the full resource name of processor version. `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}` */
       latestProcessorVersion?: string;
       /** Reads the revision by the predefined case. */
-      revisionCase?: string;
+      revisionCase?:
+        | 'REVISION_CASE_UNSPECIFIED'
+        | 'LATEST_HUMAN_REVIEW'
+        | 'LATEST_TIMESTAMP'
+        | 'BASE_OCR_REVISION';
       /** Reads the revision given by the id. */
       revisionId?: string;
     }
@@ -598,13 +674,18 @@ declare namespace gapi.client {
       /** If the entity type is hidden in the schema. This provides the functionality to temporally "disable" an entity without deleting it. */
       hide?: boolean;
       /** Specifies how the entity's value is obtained. */
-      method?: string;
+      method?: 'METHOD_UNSPECIFIED' | 'EXTRACT' | 'DERIVE' | 'RELAXED_EXTRACT';
       /** Occurrence type limits the number of times an entity type appears in the document. */
-      occurrenceType?: string;
+      occurrenceType?:
+        | 'OCCURRENCE_TYPE_UNSPECIFIED'
+        | 'OPTIONAL_ONCE'
+        | 'OPTIONAL_MULTIPLE'
+        | 'REQUIRED_ONCE'
+        | 'REQUIRED_MULTIPLE';
       /** Describing the nested structure of an entity. An EntityType may consist of several other EntityTypes. For example, in a document there can be an EntityType `ID`, which consists of EntityType `name` and `address`, with corresponding attributes, such as TEXT for both types and ONCE for occurrence types. */
       properties?: GoogleCloudDocumentaiUiv1beta3SchemaEntityType[];
       /** Source of this entity type. */
-      source?: string;
+      source?: 'SOURCE_UNSPECIFIED' | 'PREDEFINED' | 'USER_INPUT';
       /** Name of the type. It must satisfy the following constraints: 1. Must be unique within the set of same level types (with case-insensitive match). 2. Maximum 64 characters. 3. Must start with a letter. 4. Allowed characters: ASCII letters [a-zA-Z], ASCII digits [0-9], or one of the following punctuation characters: * underscore '_' (recommended) * hyphen '-' (allowed, not recommended) * colon ':' (allowed, not recommended) NOTE: Whitespace characters are not allowed. 5. Cannot end with a punctuation character. 6. Cannot contain the following restricted strings: "google", "DocumentAI" (case-insensitive match). 7. A slash character '/' is reserved as a separator in flattened representations of nested entity types (e.g., "line_item/amount") in which case each part (e.g., "line_item", "amount") must comply with the rules defined above. We recommend using the snake case ("snake_case") in entity type names. */
       type?: string;
     }
@@ -619,9 +700,9 @@ declare namespace gapi.client {
     interface GoogleCloudDocumentaiUiv1beta3SetDefaultProcessorVersionResponse {}
     interface GoogleCloudDocumentaiUiv1beta3SummaryOptions {
       /** The format the summary should be in. */
-      format?: string;
+      format?: 'FORMAT_UNSPECIFIED' | 'PARAGRAPH' | 'BULLETS';
       /** How long the summary should be. */
-      length?: string;
+      length?: 'LENGTH_UNSPECIFIED' | 'BRIEF' | 'MODERATE' | 'COMPREHENSIVE';
     }
     interface GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadata {
       /** The basic metadata of the long-running operation. */
@@ -686,7 +767,14 @@ declare namespace gapi.client {
       /** The list of response details of each document. */
       individualProcessStatuses?: GoogleCloudDocumentaiV1BatchProcessMetadataIndividualProcessStatus[];
       /** The state of the current batch processing. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'WAITING'
+        | 'RUNNING'
+        | 'SUCCEEDED'
+        | 'CANCELLING'
+        | 'CANCELLED'
+        | 'FAILED';
       /** A message providing more details about the current state of processing. For example, the error message if the operation is failed. */
       stateMessage?: string;
       /** The last update time of the operation. */
@@ -738,7 +826,14 @@ declare namespace gapi.client {
       /** The list of response details of each document. */
       individualProcessStatuses?: GoogleCloudDocumentaiV1beta3BatchProcessMetadataIndividualProcessStatus[];
       /** The state of the current batch processing. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'WAITING'
+        | 'RUNNING'
+        | 'SUCCEEDED'
+        | 'CANCELLING'
+        | 'CANCELLED'
+        | 'FAILED';
       /** A message providing more details about the current state of processing. For example, the error message if the operation is failed. */
       stateMessage?: string;
       /** The last update time of the operation. */
@@ -763,7 +858,13 @@ declare namespace gapi.client {
       /** A related resource to this operation. */
       resource?: string;
       /** The state of the operation. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'RUNNING'
+        | 'CANCELLING'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'CANCELLED';
       /** A message providing more details about the current state of processing. */
       stateMessage?: string;
       /** The last update time of the operation. */
@@ -781,7 +882,11 @@ declare namespace gapi.client {
       /** Output only. Reserved for future use. */
       satisfiesPzs?: boolean;
       /** Required. State of the dataset. Ignored when updating dataset. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'UNINITIALIZED'
+        | 'INITIALIZING'
+        | 'INITIALIZED';
       /** Optional. Unmanaged dataset configuration. Use this configuration if the dataset documents are managed by the document service internally (not user-managed). */
       unmanagedDatasetConfig?: any;
     }
@@ -870,11 +975,16 @@ declare namespace gapi.client {
       /** User defined name for the property. */
       displayName?: string;
       /** Specifies how the entity's value is obtained. */
-      method?: string;
+      method?: 'METHOD_UNSPECIFIED' | 'EXTRACT' | 'DERIVE' | 'RELAXED_EXTRACT';
       /** The name of the property. Follows the same guidelines as the EntityType name. */
       name?: string;
       /** Occurrence type limits the number of instances an entity type appears in the document. */
-      occurrenceType?: string;
+      occurrenceType?:
+        | 'OCCURRENCE_TYPE_UNSPECIFIED'
+        | 'OPTIONAL_ONCE'
+        | 'OPTIONAL_MULTIPLE'
+        | 'REQUIRED_ONCE'
+        | 'REQUIRED_MULTIPLE';
       /** Any additional metadata about the property can be added here. */
       propertyMetadata?: GoogleCloudDocumentaiV1beta3PropertyMetadata;
       /** A reference to the value type of the property. This type is subject to the same conventions as the `Entity.base_types` field. */
@@ -953,7 +1063,12 @@ declare namespace gapi.client {
       /** The name of the operation triggered by the processed document. This field is populated only when the state is `HUMAN_REVIEW_IN_PROGRESS`. It has the same response type and metadata as the long-running operation returned by ReviewDocument. */
       humanReviewOperation?: string;
       /** The state of human review on the processing request. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'SKIPPED'
+        | 'VALIDATION_PASSED'
+        | 'IN_PROGRESS'
+        | 'ERROR';
       /** A message providing more details about the human review state. */
       stateMessage?: string;
     }
@@ -1012,7 +1127,15 @@ declare namespace gapi.client {
       /** Output only. Reserved for future use. */
       satisfiesPzs?: boolean;
       /** Output only. The state of the processor. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'ENABLED'
+        | 'DISABLED'
+        | 'ENABLING'
+        | 'DISABLING'
+        | 'CREATING'
+        | 'FAILED'
+        | 'DELETING';
       /** The processor type, such as: `OCR_PROCESSOR`, `INVOICE_PROCESSOR`. To get a list of processor types, see FetchProcessorTypes. */
       type?: string;
     }
@@ -1036,7 +1159,10 @@ declare namespace gapi.client {
       /** Output only. The most recently invoked evaluation for the processor version. */
       latestEvaluation?: GoogleCloudDocumentaiV1beta3EvaluationReference;
       /** Output only. The model type of this processor version. */
-      modelType?: string;
+      modelType?:
+        | 'MODEL_TYPE_UNSPECIFIED'
+        | 'MODEL_TYPE_GENERATIVE'
+        | 'MODEL_TYPE_CUSTOM';
       /** Identifier. The resource name of the processor version. Format: `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}` */
       name?: string;
       /** Output only. Reserved for future use. */
@@ -1044,7 +1170,16 @@ declare namespace gapi.client {
       /** Output only. Reserved for future use. */
       satisfiesPzs?: boolean;
       /** Output only. The state of the processor version. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'DEPLOYED'
+        | 'DEPLOYING'
+        | 'UNDEPLOYED'
+        | 'UNDEPLOYING'
+        | 'CREATING'
+        | 'DELETING'
+        | 'FAILED'
+        | 'IMPORTING';
     }
     interface GoogleCloudDocumentaiV1beta3ProcessorVersionAlias {
       /** The alias in the form of `processor_version` resource name. */
@@ -1068,7 +1203,10 @@ declare namespace gapi.client {
       /** The base processor version ID for the custom model. */
       baseProcessorVersionId?: string;
       /** The type of custom model created by the user. */
-      customModelType?: string;
+      customModelType?:
+        | 'CUSTOM_MODEL_TYPE_UNSPECIFIED'
+        | 'VERSIONED_FOUNDATION'
+        | 'FINE_TUNED';
     }
     interface GoogleCloudDocumentaiV1beta3ProcessorVersionGenAiModelInfoFoundationGenAiModelInfo {
       /** Whether fine tuning is allowed for this base processor version. */
@@ -1090,7 +1228,13 @@ declare namespace gapi.client {
       /** The Crowd Compute question ID. */
       questionId?: string;
       /** Used only when Operation.done is false. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'RUNNING'
+        | 'CANCELLING'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'CANCELLED';
       /** A message providing more details about the current state of processing. For example, the error message if the operation is failed. */
       stateMessage?: string;
       /** The last update time of the operation. */
@@ -1102,13 +1246,17 @@ declare namespace gapi.client {
       /** The reason why the review is rejected by reviewer. */
       rejectionReason?: string;
       /** The state of the review operation. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'REJECTED' | 'SUCCEEDED';
     }
     interface GoogleCloudDocumentaiV1beta3RevisionRef {
       /** Reads the revision generated by the processor version. The format takes the full resource name of processor version. `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}` */
       latestProcessorVersion?: string;
       /** Reads the revision by the predefined case. */
-      revisionCase?: string;
+      revisionCase?:
+        | 'REVISION_CASE_UNSPECIFIED'
+        | 'LATEST_HUMAN_REVIEW'
+        | 'LATEST_TIMESTAMP'
+        | 'BASE_OCR_REVISION';
       /** Reads the revision given by the id. */
       revisionId?: string;
     }
@@ -1119,9 +1267,9 @@ declare namespace gapi.client {
     interface GoogleCloudDocumentaiV1beta3SetDefaultProcessorVersionResponse {}
     interface GoogleCloudDocumentaiV1beta3SummaryOptions {
       /** The format the summary should be in. */
-      format?: string;
+      format?: 'FORMAT_UNSPECIFIED' | 'PARAGRAPH' | 'BULLETS';
       /** How long the summary should be. */
-      length?: string;
+      length?: 'LENGTH_UNSPECIFIED' | 'BRIEF' | 'MODERATE' | 'COMPREHENSIVE';
     }
     interface GoogleCloudDocumentaiV1beta3TrainProcessorVersionMetadata {
       /** The basic metadata of the long-running operation. */
@@ -1170,7 +1318,13 @@ declare namespace gapi.client {
       /** A related resource to this operation. */
       resource?: string;
       /** The state of the operation. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'RUNNING'
+        | 'CANCELLING'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'CANCELLED';
       /** A message providing more details about the current state of processing. */
       stateMessage?: string;
       /** The last update time of the operation. */
@@ -1352,7 +1506,7 @@ declare namespace gapi.client {
       /** Optional. Text value of the entity, for example, `1600 Amphitheatre Pkwy`. */
       mentionText?: string;
       /** Optional. Specifies how the entity's value is obtained. */
-      method?: string;
+      method?: 'METHOD_UNSPECIFIED' | 'EXTRACT' | 'DERIVE';
       /** Optional. Normalized entity value. Absent if the extracted value could not be converted or the type (for example, address) is not supported for certain parsers. This field is also only populated for certain supported document types. */
       normalizedValue?: GoogleCloudDocumentaiV1DocumentEntityNormalizedValue;
       /** Optional. Represents the provenance of this entity wrt. the location on the page where it was found. */
@@ -1412,7 +1566,12 @@ declare namespace gapi.client {
       /** The detailed information of the running the validation process using the entity from the document based on the validation rule. */
       validationDetails?: string;
       /** The result of the validation rule. */
-      validationResultType?: string;
+      validationResultType?:
+        | 'VALIDATION_RESULT_TYPE_UNSPECIFIED'
+        | 'VALIDATION_RESULT_TYPE_VALID'
+        | 'VALIDATION_RESULT_TYPE_INVALID'
+        | 'VALIDATION_RESULT_TYPE_SKIPPED'
+        | 'VALIDATION_RESULT_TYPE_NOT_APPLICABLE';
     }
     interface GoogleCloudDocumentaiV1DocumentOutputConfig {
       /** Output config to write the results to Cloud Storage. */
@@ -1480,7 +1639,15 @@ declare namespace gapi.client {
       /** Optional. Deprecated. Use PageRef.bounding_poly instead. */
       layoutId?: string;
       /** Optional. The type of the layout element that is being referenced if any. */
-      layoutType?: string;
+      layoutType?:
+        | 'LAYOUT_TYPE_UNSPECIFIED'
+        | 'BLOCK'
+        | 'PARAGRAPH'
+        | 'LINE'
+        | 'TOKEN'
+        | 'VISUAL_ELEMENT'
+        | 'TABLE'
+        | 'FORM_FIELD';
       /** Required. Index into the Document.pages element, for example using `Document.pages` to locate the related page element. This field is skipped when its value is the default `0`. See https://developers.google.com/protocol-buffers/docs/proto3#json. */
       page?: string;
     }
@@ -1558,7 +1725,12 @@ declare namespace gapi.client {
       /** Confidence of the current Layout within context of the object this layout is for. For example, confidence can be for a single token, a table, a visual element, etc. depending on context. Range `[0, 1]`. */
       confidence?: number;
       /** Detected orientation for the Layout. */
-      orientation?: string;
+      orientation?:
+        | 'ORIENTATION_UNSPECIFIED'
+        | 'PAGE_UP'
+        | 'PAGE_RIGHT'
+        | 'PAGE_DOWN'
+        | 'PAGE_LEFT';
       /** Text anchor indexing into the Document.text. */
       textAnchor?: GoogleCloudDocumentaiV1DocumentTextAnchor;
     }
@@ -1634,7 +1806,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreak {
       /** Detected break type. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'SPACE' | 'WIDE_SPACE' | 'HYPHEN';
     }
     interface GoogleCloudDocumentaiV1DocumentPageTokenStyleInfo {
       /** Color of the background. */
@@ -1684,7 +1856,15 @@ declare namespace gapi.client {
       /** The index of the revision that produced this element. */
       revision?: number;
       /** The type of provenance operation. */
-      type?: string;
+      type?:
+        | 'OPERATION_TYPE_UNSPECIFIED'
+        | 'ADD'
+        | 'REMOVE'
+        | 'UPDATE'
+        | 'REPLACE'
+        | 'EVAL_REQUESTED'
+        | 'EVAL_APPROVED'
+        | 'EVAL_SKIPPED';
     }
     interface GoogleCloudDocumentaiV1DocumentProvenanceParent {
       /** The id of the parent provenance. */
@@ -1752,11 +1932,16 @@ declare namespace gapi.client {
       /** User defined name for the property. */
       displayName?: string;
       /** Specifies how the entity's value is obtained. */
-      method?: string;
+      method?: 'METHOD_UNSPECIFIED' | 'EXTRACT' | 'DERIVE' | 'RELAXED_EXTRACT';
       /** The name of the property. Follows the same guidelines as the EntityType name. */
       name?: string;
       /** Occurrence type limits the number of instances an entity type appears in the document. */
-      occurrenceType?: string;
+      occurrenceType?:
+        | 'OCCURRENCE_TYPE_UNSPECIFIED'
+        | 'OPTIONAL_ONCE'
+        | 'OPTIONAL_MULTIPLE'
+        | 'REQUIRED_ONCE'
+        | 'REQUIRED_MULTIPLE';
       /** A reference to the value type of the property. This type is subject to the same conventions as the `Entity.base_types` field. */
       valueType?: string;
     }
@@ -1928,7 +2113,7 @@ declare namespace gapi.client {
       /** The ECE for the predicted entities with fuzzy matching disabled, i.e., exact matching only. */
       estimatedCalibrationErrorExact?: number;
       /** The metrics type for the label. */
-      metricsType?: string;
+      metricsType?: 'METRICS_TYPE_UNSPECIFIED' | 'AGGREGATE';
     }
     interface GoogleCloudDocumentaiV1EvaluationReference {
       /** An aggregate of the statistics for the evaluation with fuzzy matching on. */
@@ -1986,7 +2171,12 @@ declare namespace gapi.client {
       /** The name of the operation triggered by the processed document. This field is populated only when the state is `HUMAN_REVIEW_IN_PROGRESS`. It has the same response type and metadata as the long-running operation returned by ReviewDocument. */
       humanReviewOperation?: string;
       /** The state of human review on the processing request. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'SKIPPED'
+        | 'VALIDATION_PASSED'
+        | 'IN_PROGRESS'
+        | 'ERROR';
       /** A message providing more details about the human review state. */
       stateMessage?: string;
     }
@@ -2132,7 +2322,15 @@ declare namespace gapi.client {
       /** Output only. Reserved for future use. */
       satisfiesPzs?: boolean;
       /** Output only. The state of the processor. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'ENABLED'
+        | 'DISABLED'
+        | 'ENABLING'
+        | 'DISABLING'
+        | 'CREATING'
+        | 'FAILED'
+        | 'DELETING';
       /** The processor type, such as: `OCR_PROCESSOR`, `INVOICE_PROCESSOR`. To get a list of processor types, see FetchProcessorTypes. */
       type?: string;
     }
@@ -2144,7 +2342,15 @@ declare namespace gapi.client {
       /** The processor category, used by UI to group processor types. */
       category?: string;
       /** Launch stage of the processor type */
-      launchStage?: string;
+      launchStage?:
+        | 'LAUNCH_STAGE_UNSPECIFIED'
+        | 'UNIMPLEMENTED'
+        | 'PRELAUNCH'
+        | 'EARLY_ACCESS'
+        | 'ALPHA'
+        | 'BETA'
+        | 'GA'
+        | 'DEPRECATED';
       /** The resource name of the processor type. Format: `projects/{project}/processorTypes/{processor_type}` */
       name?: string;
       /** A set of Cloud Storage URIs of sample documents for this processor. */
@@ -2176,7 +2382,10 @@ declare namespace gapi.client {
       /** Output only. The most recently invoked evaluation for the processor version. */
       latestEvaluation?: GoogleCloudDocumentaiV1EvaluationReference;
       /** Output only. The model type of this processor version. */
-      modelType?: string;
+      modelType?:
+        | 'MODEL_TYPE_UNSPECIFIED'
+        | 'MODEL_TYPE_GENERATIVE'
+        | 'MODEL_TYPE_CUSTOM';
       /** Identifier. The resource name of the processor version. Format: `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}` */
       name?: string;
       /** Output only. Reserved for future use. */
@@ -2184,7 +2393,16 @@ declare namespace gapi.client {
       /** Output only. Reserved for future use. */
       satisfiesPzs?: boolean;
       /** Output only. The state of the processor version. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'DEPLOYED'
+        | 'DEPLOYING'
+        | 'UNDEPLOYED'
+        | 'UNDEPLOYING'
+        | 'CREATING'
+        | 'DELETING'
+        | 'FAILED'
+        | 'IMPORTING';
     }
     interface GoogleCloudDocumentaiV1ProcessorVersionAlias {
       /** The alias in the form of `processor_version` resource name. */
@@ -2208,7 +2426,10 @@ declare namespace gapi.client {
       /** The base processor version ID for the custom model. */
       baseProcessorVersionId?: string;
       /** The type of custom model created by the user. */
-      customModelType?: string;
+      customModelType?:
+        | 'CUSTOM_MODEL_TYPE_UNSPECIFIED'
+        | 'VERSIONED_FOUNDATION'
+        | 'FINE_TUNED';
     }
     interface GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfoFoundationGenAiModelInfo {
       /** Whether fine tuning is allowed for this base processor version. */
@@ -2266,7 +2487,7 @@ declare namespace gapi.client {
       /** An inline document proto. */
       inlineDocument?: GoogleCloudDocumentaiV1Document;
       /** The priority of the human review task. */
-      priority?: string;
+      priority?: 'DEFAULT' | 'URGENT';
     }
     interface GoogleCloudDocumentaiV1ReviewDocumentResponse {
       /** The Cloud Storage uri for the human reviewed document if the review is succeeded. */
@@ -2274,7 +2495,7 @@ declare namespace gapi.client {
       /** The reason why the review is rejected by reviewer. */
       rejectionReason?: string;
       /** The state of the review operation. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'REJECTED' | 'SUCCEEDED';
     }
     interface GoogleCloudDocumentaiV1SchemaGenerationHistory {
       /** Required. Previous prompt-answers in a chronological order. */
@@ -2343,7 +2564,10 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDocumentaiV1TrainProcessorVersionRequestCustomDocumentExtractionOptions {
       /** Optional. Training method to use for CDE training. */
-      trainingMethod?: string;
+      trainingMethod?:
+        | 'TRAINING_METHOD_UNSPECIFIED'
+        | 'MODEL_BASED'
+        | 'TEMPLATE_BASED';
     }
     interface GoogleCloudDocumentaiV1TrainProcessorVersionRequestFoundationModelTuningOptions {
       /** Optional. The multiplier to apply to the recommended learning rate. Valid values are between 0.1 and 10. If not provided, recommended learning rate will be used. */
@@ -2500,11 +2724,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2529,11 +2753,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2556,11 +2780,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2583,11 +2807,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2620,11 +2844,11 @@ declare namespace gapi.client {
       /** Send a document for Human Review. The input document should be processed by the specified processor. */
       reviewDocument(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2649,11 +2873,11 @@ declare namespace gapi.client {
       reviewDocument(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2680,11 +2904,11 @@ declare namespace gapi.client {
       /** Retrieves a specific evaluation. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2707,11 +2931,11 @@ declare namespace gapi.client {
       /** Retrieves a set of evaluations for a given processor version. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2740,11 +2964,11 @@ declare namespace gapi.client {
       /** LRO endpoint to batch process many documents. The output is written to Cloud Storage as JSON in the [Document] format. */
       batchProcess(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2769,11 +2993,11 @@ declare namespace gapi.client {
       batchProcess(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2798,11 +3022,11 @@ declare namespace gapi.client {
       /** Deletes the processor version, all artifacts under the processor version will be deleted. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2825,11 +3049,11 @@ declare namespace gapi.client {
       /** Deploys the processor version. */
       deploy(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2854,11 +3078,11 @@ declare namespace gapi.client {
       deploy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2883,11 +3107,11 @@ declare namespace gapi.client {
       /** Evaluates a ProcessorVersion against annotated documents, producing an Evaluation. */
       evaluateProcessorVersion(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2912,11 +3136,11 @@ declare namespace gapi.client {
       evaluateProcessorVersion(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2941,11 +3165,11 @@ declare namespace gapi.client {
       /** Gets a processor version detail. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2968,11 +3192,11 @@ declare namespace gapi.client {
       /** Lists all versions of a processor. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2999,11 +3223,11 @@ declare namespace gapi.client {
       /** Processes a single document. */
       process(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3028,11 +3252,11 @@ declare namespace gapi.client {
       process(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3057,11 +3281,11 @@ declare namespace gapi.client {
       /** Trains a new processor version. Operation metadata is returned as TrainProcessorVersionMetadata. */
       train(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3086,11 +3310,11 @@ declare namespace gapi.client {
       train(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3115,11 +3339,11 @@ declare namespace gapi.client {
       /** Undeploys the processor version. */
       undeploy(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3144,11 +3368,11 @@ declare namespace gapi.client {
       undeploy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3176,11 +3400,11 @@ declare namespace gapi.client {
       /** LRO endpoint to batch process many documents. The output is written to Cloud Storage as JSON in the [Document] format. */
       batchProcess(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3205,11 +3429,11 @@ declare namespace gapi.client {
       batchProcess(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3234,11 +3458,11 @@ declare namespace gapi.client {
       /** Creates a processor from the ProcessorType provided. The processor will be at `ENABLED` state by default after its creation. Note that this method requires the `documentai.processors.create` permission on the project, which is highly privileged. A user or service account with this permission can create new processors that can interact with any gcs bucket in your project. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3263,11 +3487,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3292,11 +3516,11 @@ declare namespace gapi.client {
       /** Deletes the processor, unloads all deployed model artifacts if it was enabled and then deletes all artifacts associated with this processor. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3319,11 +3543,11 @@ declare namespace gapi.client {
       /** Disables a processor */
       disable(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3348,11 +3572,11 @@ declare namespace gapi.client {
       disable(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3377,11 +3601,11 @@ declare namespace gapi.client {
       /** Enables a processor */
       enable(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3406,11 +3630,11 @@ declare namespace gapi.client {
       enable(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3435,11 +3659,11 @@ declare namespace gapi.client {
       /** Gets a processor detail. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3462,11 +3686,11 @@ declare namespace gapi.client {
       /** Lists all processors which belong to this project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3493,11 +3717,11 @@ declare namespace gapi.client {
       /** Processes a single document. */
       process(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3522,11 +3746,11 @@ declare namespace gapi.client {
       process(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3551,11 +3775,11 @@ declare namespace gapi.client {
       /** Set the default (active) version of a Processor that will be used in ProcessDocument and BatchProcessDocuments. */
       setDefaultProcessorVersion(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3580,11 +3804,11 @@ declare namespace gapi.client {
       setDefaultProcessorVersion(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3613,11 +3837,11 @@ declare namespace gapi.client {
       /** Gets a processor type detail. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3640,11 +3864,11 @@ declare namespace gapi.client {
       /** Lists the processor types that exist. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3673,11 +3897,11 @@ declare namespace gapi.client {
       /** Creates a schema version. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3702,11 +3926,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3731,11 +3955,11 @@ declare namespace gapi.client {
       /** Deletes a schema version. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3758,11 +3982,11 @@ declare namespace gapi.client {
       /** Generates a schema version. */
       generate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3787,11 +4011,11 @@ declare namespace gapi.client {
       generate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3816,11 +4040,11 @@ declare namespace gapi.client {
       /** Gets a schema version. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3843,11 +4067,11 @@ declare namespace gapi.client {
       /** Lists SchemaVersions. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3874,11 +4098,11 @@ declare namespace gapi.client {
       /** Updates a schema version. Editable fields are: - `display_name` - `labels` */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3905,11 +4129,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3938,11 +4162,11 @@ declare namespace gapi.client {
       /** Creates a schema. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3967,11 +4191,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3996,11 +4220,11 @@ declare namespace gapi.client {
       /** Deletes a schema. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4025,11 +4249,11 @@ declare namespace gapi.client {
       /** Gets a schema. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4052,11 +4276,11 @@ declare namespace gapi.client {
       /** Lists Schemas. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4083,11 +4307,11 @@ declare namespace gapi.client {
       /** Updates a schema. Editable fields are: - `display_name` - `labels` */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4114,11 +4338,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4148,11 +4372,11 @@ declare namespace gapi.client {
       /** Fetches processor types. Note that we don't use ListProcessorTypes here, because it isn't paginated. */
       fetchProcessorTypes(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4175,11 +4399,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4202,11 +4426,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */
@@ -4243,11 +4467,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

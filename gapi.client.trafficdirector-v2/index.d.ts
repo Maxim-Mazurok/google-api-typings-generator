@@ -203,7 +203,7 @@ declare namespace gapi.client {
       listenerConfig?: ListenersConfigDump;
       routeConfig?: RoutesConfigDump;
       scopedRouteConfig?: ScopedRoutesConfigDump;
-      status?: string;
+      status?: 'UNKNOWN' | 'SYNCED' | 'NOT_SENT' | 'STALE' | 'ERROR';
     }
     interface Pipe {
       /** The mode for the Pipe. Not applicable for abstract sockets. */
@@ -242,7 +242,7 @@ declare namespace gapi.client {
       /** This is only valid if :ref:`resolver_name ` is specified below and the named resolver is capable of named port resolution. */
       namedPort?: string;
       portValue?: number;
-      protocol?: string;
+      protocol?: 'TCP' | 'UDP';
       /** The name of the custom resolver. This must have been registered with Envoy. If this is empty, a context dependent default applies. If the address is a concrete IP address, no resolution will occur. If address is a hostname this should be set for resolution other than DNS. Specifying a custom resolver with *STRICT_DNS* or *LOGICAL_DNS* will generate an error at runtime. */
       resolverName?: string;
     }
@@ -309,11 +309,11 @@ declare namespace gapi.client {
     interface DiscoveryResource {
       client_status(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -336,11 +336,11 @@ declare namespace gapi.client {
       client_status(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

@@ -37,7 +37,10 @@ declare namespace gapi.client {
       /** Optional. The additional spec contents. */
       specContents?: GoogleCloudApihubV1SpecContents;
       /** Required. The type of the spec content. */
-      specContentType?: string;
+      specContentType?:
+        | 'SPEC_CONTENT_TYPE_UNSPECIFIED'
+        | 'BOOSTED_SPEC_CONTENT'
+        | 'GATEWAY_OPEN_API_SPEC';
       /** Output only. The time at which the spec content was last updated. */
       updateTime?: string;
     }
@@ -47,7 +50,7 @@ declare namespace gapi.client {
       /** Output only. The time at which the addon was created. */
       createTime?: string;
       /** Required. The data source on which the addon operates. This determines which field in the `config` oneof is used. */
-      dataSource?: string;
+      dataSource?: 'DATA_SOURCE_UNSPECIFIED' | 'PLUGIN_INSTANCE' | 'ALL_DATA';
       /** Optional. The description of the addon. */
       description?: string;
       /** Required. The display name of the addon. */
@@ -55,7 +58,12 @@ declare namespace gapi.client {
       /** Identifier. The name of the addon to enable. Format: `projects/{project}/locations/{location}/addons/{addon}`. */
       name?: string;
       /** Output only. The state of the addon. */
-      state?: string;
+      state?:
+        | 'ADDON_STATE_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'UPDATING'
+        | 'ERROR'
+        | 'INACTIVE';
       /** Output only. The time at which the addon was last updated. */
       updateTime?: string;
     }
@@ -153,7 +161,14 @@ declare namespace gapi.client {
       /** Identifier. Format: `projects/{project}/locations/{location}/apiHubInstances/{apiHubInstance}`. */
       name?: string;
       /** Output only. The current state of the ApiHub instance. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'INACTIVE'
+        | 'CREATING'
+        | 'ACTIVE'
+        | 'UPDATING'
+        | 'DELETING'
+        | 'FAILED';
       /** Output only. Extra information about ApiHub instance state. Currently the message would be populated when state is `FAILED`. */
       stateMessage?: string;
       /** Output only. Last update timestamp. */
@@ -177,7 +192,13 @@ declare namespace gapi.client {
       /** Required. The name of the SecretManager secret version resource storing the API key. Format: `projects/{project}/secrets/{secrete}/versions/{version}`. The `secretmanager.versions.access` permission should be granted to the service account accessing the secret. */
       apiKey?: GoogleCloudApihubV1Secret;
       /** Required. The location of the API key. The default value is QUERY. */
-      httpElementLocation?: string;
+      httpElementLocation?:
+        | 'HTTP_ELEMENT_LOCATION_UNSPECIFIED'
+        | 'QUERY'
+        | 'HEADER'
+        | 'PATH'
+        | 'BODY'
+        | 'COOKIE';
       /** Required. The parameter name of the API key. E.g. If the API request is "https://example.com/act?api_key=", "api_key" would be the parameter name. */
       name?: string;
     }
@@ -233,9 +254,12 @@ declare namespace gapi.client {
       /** Output only. The time at which the attribute was created. */
       createTime?: string;
       /** Required. The type of the data of the attribute. */
-      dataType?: string;
+      dataType?: 'DATA_TYPE_UNSPECIFIED' | 'ENUM' | 'JSON' | 'STRING' | 'URI';
       /** Output only. The definition type of the attribute. */
-      definitionType?: string;
+      definitionType?:
+        | 'DEFINITION_TYPE_UNSPECIFIED'
+        | 'SYSTEM_DEFINED'
+        | 'USER_DEFINED';
       /** Optional. The description of the attribute. */
       description?: string;
       /** Required. The display name of the attribute. */
@@ -245,7 +269,17 @@ declare namespace gapi.client {
       /** Identifier. The name of the attribute in the API Hub. Format: `projects/{project}/locations/{location}/attributes/{attribute}` */
       name?: string;
       /** Required. The scope of the attribute. It represents the resource in the API Hub to which the attribute can be linked. */
-      scope?: string;
+      scope?:
+        | 'SCOPE_UNSPECIFIED'
+        | 'API'
+        | 'VERSION'
+        | 'SPEC'
+        | 'API_OPERATION'
+        | 'DEPLOYMENT'
+        | 'DEPENDENCY'
+        | 'DEFINITION'
+        | 'EXTERNAL_API'
+        | 'PLUGIN';
       /** Output only. The time at which the attribute was last updated. */
       updateTime?: string;
     }
@@ -265,7 +299,13 @@ declare namespace gapi.client {
       /** Api Key Config. */
       apiKeyConfig?: GoogleCloudApihubV1ApiKeyConfig;
       /** Required. The authentication type. */
-      authType?: string;
+      authType?:
+        | 'AUTH_TYPE_UNSPECIFIED'
+        | 'NO_AUTH'
+        | 'GOOGLE_SERVICE_ACCOUNT'
+        | 'USER_PASSWORD'
+        | 'API_KEY'
+        | 'OAUTH2_CLIENT_CREDENTIALS';
       /** Google Service Account. */
       googleServiceAccountConfig?: GoogleCloudApihubV1GoogleServiceAccountConfig;
       /** Oauth2.0 Client Credentials. */
@@ -277,7 +317,13 @@ declare namespace gapi.client {
       /** Optional. The service account of the plugin hosting service. This service account should be granted the required permissions on the Auth Config parameters provided while creating the plugin instances corresponding to this plugin. For example, if the plugin instance auth config requires a secret manager secret, the service account should be granted the secretmanager.versions.access permission on the corresponding secret, if the plugin instance auth config contains a service account, the service account should be granted the iam.serviceAccounts.getAccessToken permission on the corresponding service account. */
       serviceAccount?: GoogleCloudApihubV1GoogleServiceAccountConfig;
       /** Required. The list of authentication types supported by the plugin. */
-      supportedAuthTypes?: string[];
+      supportedAuthTypes?:
+        | 'AUTH_TYPE_UNSPECIFIED'
+        | 'NO_AUTH'
+        | 'GOOGLE_SERVICE_ACCOUNT'
+        | 'USER_PASSWORD'
+        | 'API_KEY'
+        | 'OAUTH2_CLIENT_CREDENTIALS'[];
     }
     interface GoogleCloudApihubV1CollectApiDataRequest {
       /** Required. The action ID to be used for collecting the API data. This should map to one of the action IDs specified in action configs in the plugin. */
@@ -285,7 +331,10 @@ declare namespace gapi.client {
       /** Required. The API data to be collected. */
       apiData?: GoogleCloudApihubV1ApiData;
       /** Required. The type of collection. Applies to all entries in api_data. */
-      collectionType?: string;
+      collectionType?:
+        | 'COLLECTION_TYPE_UNSPECIFIED'
+        | 'COLLECTION_TYPE_UPSERT'
+        | 'COLLECTION_TYPE_DELETE';
       /** Required. The plugin instance collecting the API data. Format: `projects/{project}/locations/{location}/plugins/{plugin}/instances/{instance}`. */
       pluginInstance?: string;
     }
@@ -297,7 +346,7 @@ declare namespace gapi.client {
       /** Optional. If true, the search will be disabled for the instance. The default value is false. */
       disableSearch?: boolean;
       /** Optional. Encryption type for the region. If the encryption type is CMEK, the cmek_key_name must be provided. If no encryption type is provided, GMEK will be used. */
-      encryptionType?: string;
+      encryptionType?: 'ENCRYPTION_TYPE_UNSPECIFIED' | 'GMEK' | 'CMEK';
       /** Optional. The name of the Vertex AI location where the data store is stored. */
       vertexLocation?: string;
     }
@@ -349,7 +398,16 @@ declare namespace gapi.client {
       /** Optional. Regular expression in RE2 syntax used for validating the `value` of a `ConfigVariable`. */
       validationRegex?: string;
       /** Required. Type of the parameter: string, int, bool etc. */
-      valueType?: string;
+      valueType?:
+        | 'VALUE_TYPE_UNSPECIFIED'
+        | 'STRING'
+        | 'INT'
+        | 'BOOL'
+        | 'SECRET'
+        | 'ENUM'
+        | 'MULTI_SELECT'
+        | 'MULTI_STRING'
+        | 'MULTI_INT';
     }
     interface GoogleCloudApihubV1Curation {
       /** Output only. The time at which the curation was created. */
@@ -361,11 +419,17 @@ declare namespace gapi.client {
       /** Required. The endpoint to be triggered for curation. */
       endpoint?: GoogleCloudApihubV1Endpoint;
       /** Output only. The error code of the last execution of the curation. The error code is populated only when the last execution state is failed. */
-      lastExecutionErrorCode?: string;
+      lastExecutionErrorCode?:
+        | 'ERROR_CODE_UNSPECIFIED'
+        | 'INTERNAL_ERROR'
+        | 'UNAUTHORIZED';
       /** Output only. Error message describing the failure, if any, during the last execution of the curation. */
       lastExecutionErrorMessage?: string;
       /** Output only. The last execution state of the curation. */
-      lastExecutionState?: string;
+      lastExecutionState?:
+        | 'LAST_EXECUTION_STATE_UNSPECIFIED'
+        | 'SUCCEEDED'
+        | 'FAILED';
       /** Identifier. The name of the curation. Format: `projects/{project}/locations/{location}/curations/{curation}` */
       name?: string;
       /** Output only. The plugin instances and associated actions that are using the curation. Note: A particular curation could be used by multiple plugin instances or multiple actions in a plugin instance. */
@@ -375,7 +439,10 @@ declare namespace gapi.client {
     }
     interface GoogleCloudApihubV1CurationConfig {
       /** Required. The curation type for this plugin instance. */
-      curationType?: string;
+      curationType?:
+        | 'CURATION_TYPE_UNSPECIFIED'
+        | 'DEFAULT_CURATION_FOR_API_METADATA'
+        | 'CUSTOM_CURATION_FOR_API_METADATA';
       /** Optional. Custom curation information for this plugin instance. */
       customCuration?: GoogleCloudApihubV1CustomCuration;
     }
@@ -395,7 +462,7 @@ declare namespace gapi.client {
       /** Output only. The name of the spec from where the definition was parsed. Format is `projects/{project}/locations/{location}/apis/{api}/versions/{version}/specs/{spec}` */
       spec?: string;
       /** Output only. The type of the definition. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'SCHEMA';
       /** Output only. The time at which the definition was last updated. */
       updateTime?: string;
     }
@@ -409,13 +476,13 @@ declare namespace gapi.client {
       /** Optional. Human readable description corresponding of the dependency. */
       description?: string;
       /** Output only. Discovery mode of the dependency. */
-      discoveryMode?: string;
+      discoveryMode?: 'DISCOVERY_MODE_UNSPECIFIED' | 'MANUAL';
       /** Output only. Error details of a dependency if the system has detected it internally. */
       errorDetail?: GoogleCloudApihubV1DependencyErrorDetail;
       /** Identifier. The name of the dependency in the API Hub. Format: `projects/{project}/locations/{location}/dependencies/{dependency}` */
       name?: string;
       /** Output only. State of the dependency. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'PROPOSED' | 'VALIDATED';
       /** Required. Immutable. The entity acting as the supplier in the dependency. */
       supplier?: GoogleCloudApihubV1DependencyEntityReference;
       /** Output only. The time at which the dependency was last updated. */
@@ -431,7 +498,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudApihubV1DependencyErrorDetail {
       /** Optional. Error in the dependency. */
-      error?: string;
+      error?: 'ERROR_UNSPECIFIED' | 'SUPPLIER_NOT_FOUND' | 'SUPPLIER_RECREATED';
       /** Optional. Timestamp at which the error was found. */
       errorTime?: string;
     }
@@ -510,9 +577,9 @@ declare namespace gapi.client {
       /** Output only. The metadata of the source from which the observation was collected. */
       sourceMetadata?: GoogleCloudApihubV1SourceMetadata;
       /** Optional. The type of the source from which the observation was collected. */
-      sourceTypes?: string[];
+      sourceTypes?: 'SOURCE_TYPE_UNSPECIFIED' | 'GCP_XLB' | 'GCP_ILB'[];
       /** Optional. Style of ApiObservation */
-      style?: string;
+      style?: 'STYLE_UNSPECIFIED' | 'REST' | 'GRPC' | 'GRAPHQL';
       /** Output only. The number of unknown API Operations. */
       unknownOperationsCount?: string;
       /** Output only. Update time stamp of the observation in API Hub. */
@@ -520,7 +587,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudApihubV1DiscoveredApiOperation {
       /** Output only. The classification of the discovered API operation. */
-      classification?: string;
+      classification?: 'CLASSIFICATION_UNSPECIFIED' | 'KNOWN' | 'UNKNOWN';
       /** Optional. The number of occurrences of this API Operation. */
       count?: string;
       /** Output only. Create time stamp of the discovered API operation in API Hub. */
@@ -569,7 +636,10 @@ declare namespace gapi.client {
     }
     interface GoogleCloudApihubV1ExecutionStatus {
       /** Output only. The current state of the execution. */
-      currentExecutionState?: string;
+      currentExecutionState?:
+        | 'CURRENT_EXECUTION_STATE_UNSPECIFIED'
+        | 'RUNNING'
+        | 'NOT_RUNNING';
       /** Output only. The last execution of the plugin instance. */
       lastExecution?: GoogleCloudApihubV1LastExecution;
     }
@@ -637,7 +707,13 @@ declare namespace gapi.client {
       /** The number of occurrences of this Header across transactions. */
       count?: string;
       /** Data type of header */
-      dataType?: string;
+      dataType?:
+        | 'DATA_TYPE_UNSPECIFIED'
+        | 'BOOL'
+        | 'INTEGER'
+        | 'FLOAT'
+        | 'STRING'
+        | 'UUID';
       /** Header name. */
       name?: string;
     }
@@ -655,7 +731,16 @@ declare namespace gapi.client {
     }
     interface GoogleCloudApihubV1HttpOperation {
       /** Optional. Operation method Note: Even though this field is optional, it is required for CreateApiOperation API and we will fail the request if not provided. */
-      method?: string;
+      method?:
+        | 'METHOD_UNSPECIFIED'
+        | 'GET'
+        | 'PUT'
+        | 'POST'
+        | 'DELETE'
+        | 'OPTIONS'
+        | 'HEAD'
+        | 'PATCH'
+        | 'TRACE';
       /** Optional. The path details for the Operation. Note: Even though this field is optional, it is required for CreateApiOperation API and we will fail the request if not provided. */
       path?: GoogleCloudApihubV1Path;
     }
@@ -691,7 +776,12 @@ declare namespace gapi.client {
       /** Required. Object describing where in the file the issue was found. */
       range?: GoogleCloudApihubV1Range;
       /** Required. Severity level of the rule violation. */
-      severity?: string;
+      severity?:
+        | 'SEVERITY_UNSPECIFIED'
+        | 'SEVERITY_ERROR'
+        | 'SEVERITY_WARNING'
+        | 'SEVERITY_INFO'
+        | 'SEVERITY_HINT';
     }
     interface GoogleCloudApihubV1LastExecution {
       /** Output only. The last execution end time of the plugin instance. */
@@ -699,7 +789,7 @@ declare namespace gapi.client {
       /** Output only. Error message describing the failure, if any, during the last execution. */
       errorMessage?: string;
       /** Output only. The result of the last execution of the plugin instance. */
-      result?: string;
+      result?: 'RESULT_UNSPECIFIED' | 'SUCCEEDED' | 'FAILED';
       /** Output only. The result metadata of the last execution of the plugin instance. This will be a string representation of a JSON object and will be available on successful execution. */
       resultMetadata?: string;
       /** Output only. The last execution start time of the plugin instance. */
@@ -711,11 +801,14 @@ declare namespace gapi.client {
       /** Optional. Array of issues found in the analyzed document. */
       issues?: GoogleCloudApihubV1Issue[];
       /** Required. Name of the linter used. */
-      linter?: string;
+      linter?: 'LINTER_UNSPECIFIED' | 'SPECTRAL' | 'OTHER';
       /** Required. Name of the linting application. */
       source?: string;
       /** Required. Lint state represents success or failure for linting. */
-      state?: string;
+      state?:
+        | 'LINT_STATE_UNSPECIFIED'
+        | 'LINT_STATE_SUCCESS'
+        | 'LINT_STATE_ERROR';
       /** Optional. Summary of all issue types and counts for each severity level. */
       summary?: GoogleCloudApihubV1SummaryEntry[];
     }
@@ -830,11 +923,16 @@ declare namespace gapi.client {
     }
     interface GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest {
       /** Required. Action to be performed. */
-      action?: string;
+      action?: 'ACTION_UNSPECIFIED' | 'UPLOAD' | 'DELETE';
       /** Required. Data to be managed. */
       data?: string;
       /** Required. Type of data to be managed. */
-      dataType?: string;
+      dataType?:
+        | 'DATA_TYPE_UNSPECIFIED'
+        | 'PROXY_DEPLOYMENT_MANIFEST'
+        | 'ENVIRONMENT_MANIFEST'
+        | 'PROXY_BUNDLE'
+        | 'SHARED_FLOW_BUNDLE';
       /** Required. Relative path of data being managed for a given plugin instance. */
       relativePath?: string;
     }
@@ -877,7 +975,11 @@ declare namespace gapi.client {
     }
     interface GoogleCloudApihubV1OpenApiSpecDetails {
       /** Output only. The format of the spec. */
-      format?: string;
+      format?:
+        | 'FORMAT_UNSPECIFIED'
+        | 'OPEN_API_SPEC_2_0'
+        | 'OPEN_API_SPEC_3_0'
+        | 'OPEN_API_SPEC_3_1';
       /** Output only. Owner details for the spec. This maps to `info.contact` in OpenAPI spec. */
       owner?: GoogleCloudApihubV1Owner;
       /** Output only. The version in the spec. This maps to `info.version` in OpenAPI spec. */
@@ -929,7 +1031,13 @@ declare namespace gapi.client {
     }
     interface GoogleCloudApihubV1PathParam {
       /** Optional. Data type of path param */
-      dataType?: string;
+      dataType?:
+        | 'DATA_TYPE_UNSPECIFIED'
+        | 'BOOL'
+        | 'INTEGER'
+        | 'FLOAT'
+        | 'STRING'
+        | 'UUID';
       /** Optional. Segment location in the path, 1-indexed */
       position?: number;
     }
@@ -947,17 +1055,31 @@ declare namespace gapi.client {
       /** Optional. The documentation of the plugin, that explains how to set up and use the plugin. */
       documentation?: GoogleCloudApihubV1Documentation;
       /** Optional. The type of the gateway. */
-      gatewayType?: string;
+      gatewayType?:
+        | 'GATEWAY_TYPE_UNSPECIFIED'
+        | 'APIGEE_X_AND_HYBRID'
+        | 'APIGEE_EDGE_PUBLIC_CLOUD'
+        | 'APIGEE_EDGE_PRIVATE_CLOUD'
+        | 'CLOUD_API_GATEWAY'
+        | 'CLOUD_ENDPOINTS'
+        | 'API_DISCOVERY'
+        | 'OTHERS';
       /** Optional. This field is optional. It is used to notify the plugin hosting service for any lifecycle changes of the plugin instance and trigger execution of plugin instance actions in case of API hub managed actions. This field should be provided if the plugin instance lifecycle of the developed plugin needs to be managed from API hub. Also, in this case the plugin hosting service interface needs to be implemented. This field should not be provided if the plugin wants to manage plugin instance lifecycle events outside of hub interface and use plugin framework for only registering of plugin and plugin instances to capture the source of data into hub. Note, in this case the plugin hosting service interface is not required to be implemented. Also, the plugin instance lifecycle actions will be disabled from API hub's UI. */
       hostingService?: GoogleCloudApihubV1HostingService;
       /** Identifier. The name of the plugin. Format: `projects/{project}/locations/{location}/plugins/{plugin}` */
       name?: string;
       /** Output only. The type of the plugin, indicating whether it is 'SYSTEM_OWNED' or 'USER_OWNED'. */
-      ownershipType?: string;
+      ownershipType?:
+        | 'OWNERSHIP_TYPE_UNSPECIFIED'
+        | 'SYSTEM_OWNED'
+        | 'USER_OWNED';
       /** Optional. The category of the plugin, identifying its primary category or purpose. This field is required for all plugins. */
-      pluginCategory?: string;
+      pluginCategory?:
+        | 'PLUGIN_CATEGORY_UNSPECIFIED'
+        | 'API_GATEWAY'
+        | 'API_PRODUCER';
       /** Output only. Represents the state of the plugin. Note this field will not be set for plugins developed via plugin framework as the state will be managed at plugin instance level. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'ENABLED' | 'DISABLED';
       /** Optional. The type of the API. This maps to the following system defined attribute: `projects/{project}/locations/{location}/attributes/system-plugin-type` attribute. The number of allowed values for this attribute will be based on the cardinality of the attribute. The same can be retrieved via GetAttribute API. All values should be from the list of allowed values defined for the attribute. Note this field is not required for plugins developed via plugin framework. */
       type?: GoogleCloudApihubV1AttributeValues;
       /** Output only. Timestamp indicating when the plugin was last updated. */
@@ -971,7 +1093,11 @@ declare namespace gapi.client {
       /** Required. The id of the action. */
       id?: string;
       /** Required. The trigger mode supported by the action. */
-      triggerMode?: string;
+      triggerMode?:
+        | 'TRIGGER_MODE_UNSPECIFIED'
+        | 'API_HUB_ON_DEMAND_TRIGGER'
+        | 'API_HUB_SCHEDULE_TRIGGER'
+        | 'NON_API_HUB_MANAGED';
     }
     interface GoogleCloudApihubV1PluginInstance {
       /** Required. The action status for the plugin instance. */
@@ -995,7 +1121,14 @@ declare namespace gapi.client {
       /** Optional. The source project id of the plugin instance. This will be the id of runtime project in case of Google Cloud based plugins and org id in case of non-Google Cloud based plugins. This field will be a required field for Google provided on-ramp plugins. */
       sourceProjectId?: string;
       /** Output only. The current state of the plugin instance (e.g., enabled, disabled, provisioning). */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'ACTIVE'
+        | 'APPLYING_CONFIG'
+        | 'ERROR'
+        | 'FAILED'
+        | 'DELETING';
       /** Output only. Timestamp indicating when the plugin instance was last updated. */
       updateTime?: string;
     }
@@ -1015,7 +1148,13 @@ declare namespace gapi.client {
       /** Optional. The service account used to publish data. Note, the service account will only be accepted for non-Google Cloud plugins like OPDK. */
       serviceAccount?: string;
       /** Output only. The current state of the plugin action in the plugin instance. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'ENABLED'
+        | 'DISABLED'
+        | 'ENABLING'
+        | 'DISABLING'
+        | 'ERROR';
     }
     interface GoogleCloudApihubV1PluginInstanceActionID {
       /** Output only. The action ID that is using the curation. This should map to one of the action IDs specified in action configs in the plugin. */
@@ -1039,7 +1178,13 @@ declare namespace gapi.client {
       /** Optional. The number of occurrences of this query parameter across transactions. */
       count?: string;
       /** Optional. Data type of path param */
-      dataType?: string;
+      dataType?:
+        | 'DATA_TYPE_UNSPECIFIED'
+        | 'BOOL'
+        | 'INTEGER'
+        | 'FLOAT'
+        | 'STRING'
+        | 'UUID';
       /** Required. Name of query param */
       name?: string;
     }
@@ -1051,7 +1196,10 @@ declare namespace gapi.client {
     }
     interface GoogleCloudApihubV1ResourceConfig {
       /** Output only. The type of the action. */
-      actionType?: string;
+      actionType?:
+        | 'ACTION_TYPE_UNSPECIFIED'
+        | 'SYNC_METADATA'
+        | 'SYNC_RUNTIME_DATA';
       /** Output only. The pubsub topic to publish the data to. Format is projects/{project}/topics/{topic} */
       pubsubTopic?: string;
     }
@@ -1119,7 +1267,7 @@ declare namespace gapi.client {
       /** Output only. The source of the resource is a plugin instance action. */
       pluginInstanceActionSource?: GoogleCloudApihubV1PluginInstanceActionSource;
       /** Output only. The type of the source. */
-      sourceType?: string;
+      sourceType?: 'SOURCE_TYPE_UNSPECIFIED' | 'PLUGIN';
     }
     interface GoogleCloudApihubV1Spec {
       /** Output only. The additional spec contents for the spec. */
@@ -1141,7 +1289,7 @@ declare namespace gapi.client {
       /** Identifier. The name of the spec. Format: `projects/{project}/locations/{location}/apis/{api}/versions/{version}/specs/{spec}` */
       name?: string;
       /** Optional. Input only. Enum specifying the parsing mode for OpenAPI Specification (OAS) parsing. */
-      parsingMode?: string;
+      parsingMode?: 'PARSING_MODE_UNSPECIFIED' | 'RELAXED' | 'STRICT';
       /** Output only. The list of sources and metadata from the sources of the spec. */
       sourceMetadata?: GoogleCloudApihubV1SourceMetadata[];
       /** Optional. The URI of the spec source in case file is uploaded from an external version control system. */
@@ -1181,7 +1329,7 @@ declare namespace gapi.client {
       /** Required. Input only. The contents of the uploaded style guide. */
       contents?: GoogleCloudApihubV1StyleGuideContents;
       /** Required. Target linter for the style guide. */
-      linter?: string;
+      linter?: 'LINTER_UNSPECIFIED' | 'SPECTRAL' | 'OTHER';
       /** Identifier. The name of the style guide. Format: `projects/{project}/locations/{location}/plugins/{plugin}/styleGuide` */
       name?: string;
     }
@@ -1195,7 +1343,12 @@ declare namespace gapi.client {
       /** Required. Count of issues with the given severity. */
       count?: number;
       /** Required. Severity of the issue. */
-      severity?: string;
+      severity?:
+        | 'SEVERITY_UNSPECIFIED'
+        | 'SEVERITY_ERROR'
+        | 'SEVERITY_WARNING'
+        | 'SEVERITY_INFO'
+        | 'SEVERITY_HINT';
     }
     interface GoogleCloudApihubV1ToolAnnotations {
       /** Optional. Additional hints which may help tools and not covered in defaults. */
@@ -1332,11 +1485,11 @@ declare namespace gapi.client {
       /** Get an addon. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1359,11 +1512,11 @@ declare namespace gapi.client {
       /** List addons. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1392,11 +1545,11 @@ declare namespace gapi.client {
       /** Manage addon config. This RPC is used for managing the config of the addon. Calling this RPC moves the addon into an updating state until the long-running operation succeeds. */
       manageConfig(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1421,11 +1574,11 @@ declare namespace gapi.client {
       manageConfig(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1452,11 +1605,11 @@ declare namespace gapi.client {
       /** Provisions instance resources for the API Hub. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Optional. Identifier to assign to the Api Hub instance. Must be unique within scope of the parent resource. If the field is not provided, system generated id will be used. This value should be 4-40 characters, and valid characters are `/a-z[0-9]-_/`. */
         apiHubInstanceId?: string;
         /** JSONP */
@@ -1483,11 +1636,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Optional. Identifier to assign to the Api Hub instance. Must be unique within scope of the parent resource. If the field is not provided, system generated id will be used. This value should be 4-40 characters, and valid characters are `/a-z[0-9]-_/`. */
           apiHubInstanceId?: string;
           /** JSONP */
@@ -1514,11 +1667,11 @@ declare namespace gapi.client {
       /** Deletes the API hub instance. Deleting the API hub instance will also result in the removal of all associated runtime project attachments and the host project registration. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1541,11 +1694,11 @@ declare namespace gapi.client {
       /** Gets details of a single API Hub instance. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1568,11 +1721,11 @@ declare namespace gapi.client {
       /** Looks up an Api Hub instance in a given Google Cloud project. There will always be only one Api Hub instance for a Google Cloud project across all locations. */
       lookup(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1595,11 +1748,11 @@ declare namespace gapi.client {
       /** Update an Api Hub instance. The following fields in the ApiHubInstance can be updated: * disable_search * vertex_location * agent_registry_sync_config The update_mask should be used to specify the fields being updated. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1626,11 +1779,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1659,11 +1812,11 @@ declare namespace gapi.client {
       /** Get details about a definition in an API version. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1688,11 +1841,11 @@ declare namespace gapi.client {
       /** Create an apiOperation in an API version. An apiOperation can be created only if the version has no apiOperations which were created by parsing a spec. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Optional. The ID to use for the operation resource, which will become the final component of the operation's resource name. This field is optional. * If provided, the same will be used. The service will throw an error if the specified id is already used by another operation resource in the API hub. * If not provided, a system generated id will be used. This value should be 4-500 characters, overall resource name which will be of format `projects/{project}/locations/{location}/apis/{api}/versions/{version}/operations/{operation}`, its length is limited to 700 characters, and valid characters are /a-z[0-9]-_/. */
         apiOperationId?: string;
         /** JSONP */
@@ -1719,11 +1872,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Optional. The ID to use for the operation resource, which will become the final component of the operation's resource name. This field is optional. * If provided, the same will be used. The service will throw an error if the specified id is already used by another operation resource in the API hub. * If not provided, a system generated id will be used. This value should be 4-500 characters, overall resource name which will be of format `projects/{project}/locations/{location}/apis/{api}/versions/{version}/operations/{operation}`, its length is limited to 700 characters, and valid characters are /a-z[0-9]-_/. */
           apiOperationId?: string;
           /** JSONP */
@@ -1750,11 +1903,11 @@ declare namespace gapi.client {
       /** Delete an operation in an API version and we can delete only the operations created via create API. If the operation was created by parsing the spec, then it can be deleted by editing or deleting the spec. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1777,11 +1930,11 @@ declare namespace gapi.client {
       /** Get details about a particular operation in API version. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1804,11 +1957,11 @@ declare namespace gapi.client {
       /** List operations in an API version. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1837,11 +1990,11 @@ declare namespace gapi.client {
       /** Update an operation in an API version. The following fields in the ApiOperation resource can be updated: * details.description * details.documentation * details.http_operation.path * details.http_operation.method * details.deprecated * attributes * details.mcp_tool.title * details.mcp_tool.description * details.mcp_tool.input_schema * details.mcp_tool.output_schema * details.input_schema * details.output_schema * details.mcp_tool.annotations.title * details.mcp_tool.annotations.read_only_hint * details.mcp_tool.annotations.destructive_hint * details.mcp_tool.annotations.idempotent_hint * details.mcp_tool.annotations.open_world_hint * details.mcp_tool.annotations.additional_hints The update_mask should be used to specify the fields being updated. An operation can be updated only if the operation was created via CreateApiOperation API. If the operation was created by parsing the spec, then it can be edited by updating the spec. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1868,11 +2021,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1901,11 +2054,11 @@ declare namespace gapi.client {
       /** Add a spec to an API version in the API hub. Multiple specs can be added to an API version. Note, while adding a spec, at least one of `contents` or `source_uri` must be provided. If `contents` is provided, then `spec_type` must also be provided. On adding a spec with contents to the version, the operations present in it will be added to the version.Note that the file contents in the spec should be of the same type as defined in the `projects/{project}/locations/{location}/attributes/system-spec-type` attribute associated with spec resource. Note that specs of various types can be uploaded, however parsing of details is supported for OpenAPI spec currently. In order to access the information parsed from the spec, use the GetSpec method. In order to access the raw contents for a particular spec, use the GetSpecContents method. In order to access the operations parsed from the spec, use the ListAPIOperations method. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1932,11 +2085,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1963,11 +2116,11 @@ declare namespace gapi.client {
       /** Delete a spec. Deleting a spec will also delete the associated operations from the version. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1990,11 +2143,11 @@ declare namespace gapi.client {
       /** Fetch additional spec content. */
       fetchAdditionalSpecContent(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2010,7 +2163,10 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Optional. The type of the spec contents to be retrieved. */
-        specContentType?: string;
+        specContentType?:
+          | 'SPEC_CONTENT_TYPE_UNSPECIFIED'
+          | 'BOOSTED_SPEC_CONTENT'
+          | 'GATEWAY_OPEN_API_SPEC';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -2019,11 +2175,11 @@ declare namespace gapi.client {
       /** Get details about the information parsed from a spec. Note that this method does not return the raw spec contents. Use GetSpecContents method to retrieve the same. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2046,11 +2202,11 @@ declare namespace gapi.client {
       /** Get spec contents. */
       getContents(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2073,11 +2229,11 @@ declare namespace gapi.client {
       /** Lints the requested spec and updates the corresponding API Spec with the lint response. This lint response will be available in all subsequent Get and List Spec calls to Core service. */
       lint(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2102,11 +2258,11 @@ declare namespace gapi.client {
       lint(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2131,11 +2287,11 @@ declare namespace gapi.client {
       /** List specs corresponding to a particular API resource. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2164,11 +2320,11 @@ declare namespace gapi.client {
       /** Update spec. The following fields in the spec can be updated: * display_name * source_uri * lint_response * attributes * contents * spec_type In case of an OAS spec, updating spec contents can lead to: 1. Creation, deletion and update of operations. 2. Creation, deletion and update of definitions. 3. Update of other info parsed out from the new spec. In case of contents or source_uri being present in update mask, spec_type must also be present. Also, spec_type can not be present in update mask if contents or source_uri is not present. The update_mask should be used to specify the fields being updated. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2195,11 +2351,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2228,11 +2384,11 @@ declare namespace gapi.client {
       /** Create an API version for an API resource in the API hub. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2259,11 +2415,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2290,11 +2446,11 @@ declare namespace gapi.client {
       /** Delete an API version. Version can only be deleted if all underlying specs, operations, definitions and linked deployments are deleted. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2319,11 +2475,11 @@ declare namespace gapi.client {
       /** Get details about the API version of an API resource. This will include information about the specs and operations present in the API version as well as the deployments linked to it. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2346,11 +2502,11 @@ declare namespace gapi.client {
       /** List API versions of an API resource in the API hub. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2379,11 +2535,11 @@ declare namespace gapi.client {
       /** Update API version. The following fields in the version can be updated currently: * display_name * description * documentation * deployments * lifecycle * compliance * accreditation * attributes The update_mask should be used to specify the fields being updated. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2410,11 +2566,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2446,11 +2602,11 @@ declare namespace gapi.client {
       /** Create an API resource in the API hub. Once an API resource is created, versions can be added to it. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Optional. The ID to use for the API resource, which will become the final component of the API's resource name. This field is optional. * If provided, the same will be used. The service will throw an error if the specified id is already used by another API resource in the API hub. * If not provided, a system generated id will be used. This value should be 4-500 characters, and valid characters are /a-z[0-9]-_/. */
         apiId?: string;
         /** JSONP */
@@ -2477,11 +2633,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Optional. The ID to use for the API resource, which will become the final component of the API's resource name. This field is optional. * If provided, the same will be used. The service will throw an error if the specified id is already used by another API resource in the API hub. * If not provided, a system generated id will be used. This value should be 4-500 characters, and valid characters are /a-z[0-9]-_/. */
           apiId?: string;
           /** JSONP */
@@ -2508,11 +2664,11 @@ declare namespace gapi.client {
       /** Delete an API resource in the API hub. API can only be deleted if all underlying versions are deleted. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2537,11 +2693,11 @@ declare namespace gapi.client {
       /** Get API resource details including the API versions contained in it. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2564,11 +2720,11 @@ declare namespace gapi.client {
       /** List API resources in the API hub. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2597,11 +2753,11 @@ declare namespace gapi.client {
       /** Update an API resource in the API hub. The following fields in the API can be updated: * display_name * description * owner * documentation * target_user * team * business_unit * maturity_level * api_style * attributes * fingerprint The update_mask should be used to specify the fields being updated. Updating the owner field requires complete owner message and updates both owner and email fields. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2628,11 +2784,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2662,11 +2818,11 @@ declare namespace gapi.client {
       /** Create a user defined attribute. Certain pre defined attributes are already created by the API hub. These attributes will have type as `SYSTEM_DEFINED` and can be listed via ListAttributes method. Allowed values for the same can be updated via UpdateAttribute method. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Optional. The ID to use for the attribute, which will become the final component of the attribute's resource name. This field is optional. * If provided, the same will be used. The service will throw an error if the specified id is already used by another attribute resource in the API hub. * If not provided, a system generated id will be used. This value should be 4-500 characters, and valid characters are /a-z[0-9]-_/. */
         attributeId?: string;
         /** JSONP */
@@ -2693,11 +2849,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Optional. The ID to use for the attribute, which will become the final component of the attribute's resource name. This field is optional. * If provided, the same will be used. The service will throw an error if the specified id is already used by another attribute resource in the API hub. * If not provided, a system generated id will be used. This value should be 4-500 characters, and valid characters are /a-z[0-9]-_/. */
           attributeId?: string;
           /** JSONP */
@@ -2724,11 +2880,11 @@ declare namespace gapi.client {
       /** Delete an attribute. Note: System defined attributes cannot be deleted. All associations of the attribute being deleted with any API hub resource will also get deleted. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2751,11 +2907,11 @@ declare namespace gapi.client {
       /** Get details about the attribute. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2778,11 +2934,11 @@ declare namespace gapi.client {
       /** List all attributes. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2811,11 +2967,11 @@ declare namespace gapi.client {
       /** Update the attribute. The following fields in the Attribute resource can be updated: * display_name The display name can be updated for user defined attributes only. * description The description can be updated for user defined attributes only. * allowed_values To update the list of allowed values, clients need to use the fetched list of allowed values and add or remove values to or from the same list. The mutable allowed values can be updated for both user defined and System defined attributes. The immutable allowed values cannot be updated or deleted. The updated list of allowed values cannot be empty. If an allowed value that is already used by some resource's attribute is deleted, then the association between the resource and the attribute value will also be deleted. * cardinality The cardinality can be updated for user defined attributes only. Cardinality can only be increased during an update. The update_mask should be used to specify the fields being updated. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2842,11 +2998,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2875,11 +3031,11 @@ declare namespace gapi.client {
       /** Create a curation resource in the API hub. Once a curation resource is created, plugin instances can start using it. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. The ID to use for the curation resource, which will become the final component of the curations's resource name. This field is optional. * If provided, the same will be used. The service will throw an error if the specified ID is already used by another curation resource in the API hub. * If not provided, a system generated ID will be used. This value should be 4-500 characters, and valid characters are /a-z[0-9]-_/. */
@@ -2906,11 +3062,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Optional. The ID to use for the curation resource, which will become the final component of the curations's resource name. This field is optional. * If provided, the same will be used. The service will throw an error if the specified ID is already used by another curation resource in the API hub. * If not provided, a system generated ID will be used. This value should be 4-500 characters, and valid characters are /a-z[0-9]-_/. */
@@ -2937,11 +3093,11 @@ declare namespace gapi.client {
       /** Delete a curation resource in the API hub. A curation can only be deleted if it's not being used by any plugin instance. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2964,11 +3120,11 @@ declare namespace gapi.client {
       /** Get curation resource details. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2991,11 +3147,11 @@ declare namespace gapi.client {
       /** List curation resources in the API hub. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3024,11 +3180,11 @@ declare namespace gapi.client {
       /** Update a curation resource in the API hub. The following fields in the curation can be updated: * display_name * description The update_mask should be used to specify the fields being updated. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3055,11 +3211,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3088,11 +3244,11 @@ declare namespace gapi.client {
       /** Create a dependency between two entities in the API hub. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. The ID to use for the dependency resource, which will become the final component of the dependency's resource name. This field is optional. * If provided, the same will be used. The service will throw an error if duplicate id is provided by the client. * If not provided, a system generated id will be used. This value should be 4-500 characters, and valid characters are `a-z[0-9]-_`. */
@@ -3119,11 +3275,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Optional. The ID to use for the dependency resource, which will become the final component of the dependency's resource name. This field is optional. * If provided, the same will be used. The service will throw an error if duplicate id is provided by the client. * If not provided, a system generated id will be used. This value should be 4-500 characters, and valid characters are `a-z[0-9]-_`. */
@@ -3150,11 +3306,11 @@ declare namespace gapi.client {
       /** Delete the dependency resource. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3177,11 +3333,11 @@ declare namespace gapi.client {
       /** Get details about a dependency resource in the API hub. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3204,11 +3360,11 @@ declare namespace gapi.client {
       /** List dependencies based on the provided filter and pagination parameters. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3237,11 +3393,11 @@ declare namespace gapi.client {
       /** Update a dependency based on the update_mask provided in the request. The following fields in the dependency can be updated: * description */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3268,11 +3424,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3301,11 +3457,11 @@ declare namespace gapi.client {
       /** Create a deployment resource in the API hub. Once a deployment resource is created, it can be associated with API versions. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. The ID to use for the deployment resource, which will become the final component of the deployment's resource name. This field is optional. * If provided, the same will be used. The service will throw an error if the specified id is already used by another deployment resource in the API hub. * If not provided, a system generated id will be used. This value should be 4-500 characters, and valid characters are /a-z[0-9]-_/. */
@@ -3332,11 +3488,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Optional. The ID to use for the deployment resource, which will become the final component of the deployment's resource name. This field is optional. * If provided, the same will be used. The service will throw an error if the specified id is already used by another deployment resource in the API hub. * If not provided, a system generated id will be used. This value should be 4-500 characters, and valid characters are /a-z[0-9]-_/. */
@@ -3363,11 +3519,11 @@ declare namespace gapi.client {
       /** Delete a deployment resource in the API hub. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3390,11 +3546,11 @@ declare namespace gapi.client {
       /** Get details about a deployment and the API versions linked to it. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3417,11 +3573,11 @@ declare namespace gapi.client {
       /** List deployment resources in the API hub. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3450,11 +3606,11 @@ declare namespace gapi.client {
       /** Update a deployment resource in the API hub. The following fields in the deployment resource can be updated: * display_name * description * documentation * deployment_type * resource_uri * endpoints * slo * environment * attributes * source_project * source_environment * management_url * source_uri The update_mask should be used to specify the fields being updated. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3481,11 +3637,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3514,11 +3670,11 @@ declare namespace gapi.client {
       /** Gets a DiscoveredAPIOperation in a given project, location, ApiObservation and ApiOperation. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3541,11 +3697,11 @@ declare namespace gapi.client {
       /** Lists all the DiscoveredAPIOperations in a given project, location and ApiObservation. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3574,11 +3730,11 @@ declare namespace gapi.client {
       /** Gets a DiscoveredAPIObservation in a given project, location and ApiObservation. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3601,11 +3757,11 @@ declare namespace gapi.client {
       /** Lists all the DiscoveredAPIObservations in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3635,11 +3791,11 @@ declare namespace gapi.client {
       /** Create an External API resource in the API hub. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. The ID to use for the External API resource, which will become the final component of the External API's resource name. This field is optional. * If provided, the same will be used. The service will throw an error if the specified id is already used by another External API resource in the API hub. * If not provided, a system generated id will be used. This value should be 4-500 characters, and valid characters are /a-z[0-9]-_/. */
@@ -3666,11 +3822,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Optional. The ID to use for the External API resource, which will become the final component of the External API's resource name. This field is optional. * If provided, the same will be used. The service will throw an error if the specified id is already used by another External API resource in the API hub. * If not provided, a system generated id will be used. This value should be 4-500 characters, and valid characters are /a-z[0-9]-_/. */
@@ -3697,11 +3853,11 @@ declare namespace gapi.client {
       /** Delete an External API resource in the API hub. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3724,11 +3880,11 @@ declare namespace gapi.client {
       /** Get details about an External API resource in the API hub. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3751,11 +3907,11 @@ declare namespace gapi.client {
       /** List External API resources in the API hub. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3782,11 +3938,11 @@ declare namespace gapi.client {
       /** Update an External API resource in the API hub. The following fields can be updated: * display_name * description * documentation * endpoints * paths The update_mask should be used to specify the fields being updated. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3813,11 +3969,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3846,11 +4002,11 @@ declare namespace gapi.client {
       /** Create a host project registration. A Google cloud project can be registered as a host project if it is not attached as a runtime project to another host project. A project can be registered as a host project only once. Subsequent register calls for the same project will fail. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3877,11 +4033,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3908,11 +4064,11 @@ declare namespace gapi.client {
       /** Get a host project registration. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3935,11 +4091,11 @@ declare namespace gapi.client {
       /** Lists host project registrations. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3972,11 +4128,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4001,11 +4157,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4030,11 +4186,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4057,11 +4213,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4084,11 +4240,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4121,11 +4277,11 @@ declare namespace gapi.client {
       /** Creates a Plugin instance in the API hub. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4152,11 +4308,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4183,11 +4339,11 @@ declare namespace gapi.client {
       /** Deletes a plugin instance in the API hub. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4210,11 +4366,11 @@ declare namespace gapi.client {
       /** Disables a plugin instance in the API hub. */
       disableAction(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4239,11 +4395,11 @@ declare namespace gapi.client {
       disableAction(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4268,11 +4424,11 @@ declare namespace gapi.client {
       /** Enables a plugin instance in the API hub. */
       enableAction(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4297,11 +4453,11 @@ declare namespace gapi.client {
       enableAction(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4326,11 +4482,11 @@ declare namespace gapi.client {
       /** Executes a plugin instance in the API hub. */
       executeAction(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4355,11 +4511,11 @@ declare namespace gapi.client {
       executeAction(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4384,11 +4540,11 @@ declare namespace gapi.client {
       /** Get an API Hub plugin instance. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4411,11 +4567,11 @@ declare namespace gapi.client {
       /** List all the plugins in a given project and location. `-` can be used as wildcard value for {plugin_id} */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4444,11 +4600,11 @@ declare namespace gapi.client {
       /** Manages data for a given plugin instance. */
       manageSourceData(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4473,11 +4629,11 @@ declare namespace gapi.client {
       manageSourceData(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4502,11 +4658,11 @@ declare namespace gapi.client {
       /** Updates a plugin instance in the API hub. The following fields in the plugin_instance can be updated currently: * display_name * schedule_cron_expression The update_mask should be used to specify the fields being updated. To update the auth_config and additional_config of the plugin instance, use the ApplyPluginInstanceConfig method. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4533,11 +4689,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4566,11 +4722,11 @@ declare namespace gapi.client {
       /** Get the contents of the style guide. */
       getContents(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4595,11 +4751,11 @@ declare namespace gapi.client {
       /** Create an API Hub plugin resource in the API hub. Once a plugin is created, it can be used to create plugin instances. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4626,11 +4782,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4657,11 +4813,11 @@ declare namespace gapi.client {
       /** Delete a Plugin in API hub. Note, only user owned plugins can be deleted via this method. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4684,11 +4840,11 @@ declare namespace gapi.client {
       /** Disables a plugin. The `state` of the plugin after disabling is `DISABLED` */
       disable(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4713,11 +4869,11 @@ declare namespace gapi.client {
       disable(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4742,11 +4898,11 @@ declare namespace gapi.client {
       /** Enables a plugin. The `state` of the plugin after enabling is `ENABLED` */
       enable(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4771,11 +4927,11 @@ declare namespace gapi.client {
       enable(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4800,11 +4956,11 @@ declare namespace gapi.client {
       /** Get an API Hub plugin. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4827,11 +4983,11 @@ declare namespace gapi.client {
       /** Get the style guide being used for linting. */
       getStyleGuide(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4854,11 +5010,11 @@ declare namespace gapi.client {
       /** List all the plugins in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4887,11 +5043,11 @@ declare namespace gapi.client {
       /** Update the styleGuide to be used for liniting in by API hub. */
       updateStyleGuide(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4918,11 +5074,11 @@ declare namespace gapi.client {
       updateStyleGuide(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4953,11 +5109,11 @@ declare namespace gapi.client {
       /** Attaches a runtime project to the host project. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4984,11 +5140,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5015,11 +5171,11 @@ declare namespace gapi.client {
       /** Delete a runtime project attachment in the API Hub. This call will detach the runtime project from the host project. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5042,11 +5198,11 @@ declare namespace gapi.client {
       /** Gets a runtime project attachment. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5069,11 +5225,11 @@ declare namespace gapi.client {
       /** List runtime projects attached to the host project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5106,11 +5262,11 @@ declare namespace gapi.client {
       /** Collect API data from a source and push it to Hub's collect layer. */
       collectApiData(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5135,11 +5291,11 @@ declare namespace gapi.client {
       collectApiData(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5164,11 +5320,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5191,11 +5347,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */
@@ -5226,11 +5382,11 @@ declare namespace gapi.client {
       /** Look up a runtime project attachment. This API can be called in the context of any project. */
       lookupRuntimeProjectAttachment(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5253,11 +5409,11 @@ declare namespace gapi.client {
       /** Retrieve API views. */
       retrieveApiViews(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5283,16 +5439,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Required. The view type to return. */
-        view?: string;
+        view?: 'API_VIEW_TYPE_UNSPECIFIED' | 'MCP_SERVER' | 'MCP_TOOL';
       }): Request<GoogleCloudApihubV1RetrieveApiViewsResponse>;
       /** Search across API-Hub resources. */
       searchResources(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5317,11 +5473,11 @@ declare namespace gapi.client {
       searchResources(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

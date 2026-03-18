@@ -152,7 +152,7 @@ declare namespace gapi.client {
       /** Output only. List of country codes (ISO 3166-1 alpha-2) where the offer is pending approval. */
       pendingCountries?: string[];
       /** The status of the destination. */
-      status?: string;
+      status?: 'UNKNOWN' | 'ACTIVE' | 'PENDING' | 'DISAPPROVED';
     }
     interface Empty {}
     interface FeatureDescription {
@@ -209,9 +209,22 @@ declare namespace gapi.client {
       /** The URL of the image. For crawled images, this is the provided URL. For uploaded images, this is a serving URL from Google if the image has been processed successfully. */
       imageUrl?: string;
       /** The status of the image. @OutputOnly */
-      status?: string;
+      status?:
+        | 'STATUS_UNSPECIFIED'
+        | 'PENDING_PROCESSING'
+        | 'PENDING_CRAWL'
+        | 'OK'
+        | 'ROBOTED'
+        | 'XROBOTED'
+        | 'CRAWL_ERROR'
+        | 'PROCESSING_ERROR'
+        | 'DECODING_ERROR'
+        | 'TOO_BIG'
+        | 'CRAWL_SKIPPED'
+        | 'HOSTLOADED'
+        | 'HTTP_404';
       /** The type of the image, i.e., crawled or uploaded. @OutputOnly */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'CRAWLED' | 'UPLOADED';
     }
     interface Issue {
       /** Output only. List of country codes (ISO 3166-1 alpha-2) where issue applies to the manufacturer product. */
@@ -223,9 +236,12 @@ declare namespace gapi.client {
       /** The destination this issue applies to. */
       destination?: string;
       /** What needs to happen to resolve the issue. */
-      resolution?: string;
+      resolution?:
+        | 'RESOLUTION_UNSPECIFIED'
+        | 'USER_ACTION'
+        | 'PENDING_PROCESSING';
       /** The severity of the issue. */
-      severity?: string;
+      severity?: 'SEVERITY_UNSPECIFIED' | 'ERROR' | 'WARNING' | 'INFO';
       /** The timestamp when this issue appeared. */
       timestamp?: string;
       /** Short title describing the nature of the issue. */
@@ -401,11 +417,11 @@ declare namespace gapi.client {
       /** Deletes a product certification by its name. This method can only be called by certification bodies. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -428,11 +444,11 @@ declare namespace gapi.client {
       /** Gets a product certification by its name. This method can only be called by certification bodies. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -455,11 +471,11 @@ declare namespace gapi.client {
       /** Lists product certifications from a specified certification body. This method can only be called by certification bodies. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -486,11 +502,11 @@ declare namespace gapi.client {
       /** Updates (or creates if allow_missing = true) a product certification which links certifications with products. This method can only be called by certification bodies. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -517,11 +533,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -553,11 +569,11 @@ declare namespace gapi.client {
       /** Deletes the product from a Manufacturer Center account. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -582,17 +598,22 @@ declare namespace gapi.client {
       /** Gets the product from a Manufacturer Center account, including product issues. A recently updated product takes around 15 minutes to process. Changes are only visible after it has been processed. While some issues may be available once the product has been processed, other issues may take days to appear. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** The information to be included in the response. Only sections listed here will be returned. */
-        include?: string | string[];
+        include?:
+          | 'UNKNOWN'
+          | 'ATTRIBUTES'
+          | 'ISSUES'
+          | 'DESTINATION_STATUSES'
+          | ('UNKNOWN' | 'ATTRIBUTES' | 'ISSUES' | 'DESTINATION_STATUSES')[];
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** Name in the format `{target_country}:{content_language}:{product_id}`. `target_country` - The target country of the product as a CLDR territory code (for example, US). `content_language` - The content language of the product as a two-letter ISO 639-1 language code (for example, en). `product_id` - The ID of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#id. */
@@ -613,17 +634,22 @@ declare namespace gapi.client {
       /** Lists all the products in a Manufacturer Center account. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** The information to be included in the response. Only sections listed here will be returned. */
-        include?: string | string[];
+        include?:
+          | 'UNKNOWN'
+          | 'ATTRIBUTES'
+          | 'ISSUES'
+          | 'DESTINATION_STATUSES'
+          | ('UNKNOWN' | 'ATTRIBUTES' | 'ISSUES' | 'DESTINATION_STATUSES')[];
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** OAuth 2.0 token for the current user. */
@@ -646,11 +672,11 @@ declare namespace gapi.client {
       /** Inserts or updates the attributes of the product in a Manufacturer Center account. Creates a product with the provided attributes. If the product already exists, then all attributes are replaced with the new ones. The checks at upload time are minimal. All required attributes need to be present for a product to be valid. Issues may show up later after the API has accepted a new upload for a product and it is possible to overwrite an existing valid product with an invalid product. To detect this, you should retrieve the product and check it for issues once the new version is available. Uploaded attributes first need to be processed before they can be retrieved. Until then, new products will be unavailable, and retrieval of previously uploaded products will return the original state of the product. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -677,11 +703,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

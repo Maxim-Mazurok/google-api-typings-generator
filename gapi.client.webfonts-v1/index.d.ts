@@ -74,15 +74,20 @@ declare namespace gapi.client {
       /** Retrieves the list of fonts currently served by the Google Fonts Developer API. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Controls the font urls in `Webfont.files`, by default, static ttf fonts are sent. */
-        capability?: string | string[];
+        capability?:
+          | 'CAPABILITY_UNSPECIFIED'
+          | 'WOFF2'
+          | 'VF'
+          | 'FAMILY_TAGS'
+          | ('CAPABILITY_UNSPECIFIED' | 'WOFF2' | 'VF' | 'FAMILY_TAGS')[];
         /** Filters by Webfont.category, if category is found in Webfont.categories. If not set, returns all families. */
         category?: string;
         /** Filters by Webfont.family, using literal match. If not set, returns all families */
@@ -98,7 +103,13 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Enables sorting of the list. */
-        sort?: string;
+        sort?:
+          | 'SORT_UNDEFINED'
+          | 'ALPHA'
+          | 'DATE'
+          | 'POPULARITY'
+          | 'STYLE'
+          | 'TRENDING';
         /** Filters by Webfont.subset, if subset is found in Webfont.subsets. If not set, returns all families. */
         subset?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */

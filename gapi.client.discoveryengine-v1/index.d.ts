@@ -214,7 +214,7 @@ declare namespace gapi.client {
       /** protolint:enable REPEATED_FIELD_NAMES_PLURALIZED Any optional metadata to provide along with the message. */
       metadata?: {[P in string]: any};
       /** A role for the message. */
-      role?: string;
+      role?: 'ROLE_UNSPECIFIED' | 'ROLE_USER' | 'ROLE_AGENT';
       /** The task id of the message. This is optional and if set, the message will be associated with the given task. */
       taskId?: string;
     }
@@ -346,7 +346,16 @@ declare namespace gapi.client {
       /** A message associated with the status. */
       message?: A2aV1Message;
       /** The current state of this task */
-      state?: string;
+      state?:
+        | 'TASK_STATE_UNSPECIFIED'
+        | 'TASK_STATE_SUBMITTED'
+        | 'TASK_STATE_WORKING'
+        | 'TASK_STATE_COMPLETED'
+        | 'TASK_STATE_FAILED'
+        | 'TASK_STATE_CANCELLED'
+        | 'TASK_STATE_INPUT_REQUIRED'
+        | 'TASK_STATE_REJECTED'
+        | 'TASK_STATE_AUTH_REQUIRED';
       /** Timestamp when the status was recorded. Example: "2023-10-27T10:00:00Z" */
       timestamp?: string;
     }
@@ -548,7 +557,13 @@ declare namespace gapi.client {
       /** Specifies the autocomplete query model, which only applies to the QUERY SuggestionType. This overrides any model specified in the Configuration > Autocomplete section of the Cloud console. Currently supported values: * `document` - Using suggestions generated from user-imported documents. * `search-history` - Using suggestions generated from the past history of SearchService.Search API calls. Do not use it when there is no traffic for Search API. * `user-event` - Using suggestions generated from user-imported search events. * `document-completable` - Using suggestions taken directly from user-imported document fields marked as completable. Default values: * `document` is the default model for regular dataStores. * `search-history` is the default model for site search dataStores. */
       queryModel?: string;
       /** Optional. Suggestion types to return. If empty or unspecified, query suggestions are returned. Only one suggestion type is supported at the moment. */
-      suggestionTypes?: string[];
+      suggestionTypes?:
+        | 'SUGGESTION_TYPE_UNSPECIFIED'
+        | 'QUERY'
+        | 'PEOPLE'
+        | 'CONTENT'
+        | 'RECENT_SEARCH'
+        | 'GOOGLE_WORKSPACE'[];
       /** Optional. Specification of each suggestion type. */
       suggestionTypeSpecs?: GoogleCloudDiscoveryengineV1AdvancedCompleteQueryRequestSuggestionTypeSpec[];
       /** Optional. Information about the end user. This should be the same identifier information as UserEvent.user_info and SearchRequest.user_info. */
@@ -570,7 +585,13 @@ declare namespace gapi.client {
       /** Optional. Maximum number of suggestions to return for each suggestion type. */
       maxSuggestions?: number;
       /** Optional. Suggestion type. */
-      suggestionType?: string;
+      suggestionType?:
+        | 'SUGGESTION_TYPE_UNSPECIFIED'
+        | 'QUERY'
+        | 'PEOPLE'
+        | 'CONTENT'
+        | 'RECENT_SEARCH'
+        | 'GOOGLE_WORKSPACE';
     }
     interface GoogleCloudDiscoveryengineV1AdvancedCompleteQueryResponse {
       /** Results of the matched content suggestions. The result list is ordered and the first result is the top suggestion. */
@@ -586,7 +607,10 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1AdvancedCompleteQueryResponseContentSuggestion {
       /** The type of the content suggestion. */
-      contentType?: string;
+      contentType?:
+        | 'CONTENT_TYPE_UNSPECIFIED'
+        | 'GOOGLE_WORKSPACE'
+        | 'THIRD_PARTY';
       /** The name of the dataStore that this suggestion belongs to. */
       dataStore?: string;
       /** The destination uri of the content suggestion. */
@@ -610,7 +634,10 @@ declare namespace gapi.client {
       /** The document data snippet in the suggestion. Only a subset of fields is populated. */
       document?: GoogleCloudDiscoveryengineV1Document;
       /** The type of the person. */
-      personType?: string;
+      personType?:
+        | 'PERSON_TYPE_UNSPECIFIED'
+        | 'CLOUD_IDENTITY'
+        | 'THIRD_PARTY_IDENTITY';
       /** The score of each suggestion. The score is in the range of [0, 1]. */
       score?: number;
       /** The suggestion for the query. */
@@ -658,7 +685,7 @@ declare namespace gapi.client {
       /** Immutable. The id of an alert. */
       alertId?: string;
       /** Required. The enrollment status of a customer. */
-      enrollState?: string;
+      enrollState?: 'ENROLL_STATES_UNSPECIFIED' | 'ENROLLED' | 'DECLINED';
     }
     interface GoogleCloudDiscoveryengineV1AlloyDbSource {
       /** Required. The AlloyDB cluster to copy the data from with a length limit of 256 characters. */
@@ -730,7 +757,7 @@ declare namespace gapi.client {
       /** Immutable. The id of an alert. */
       alertId?: string;
       /** Required. The enrollment status of a customer. */
-      enrollState?: string;
+      enrollState?: 'ENROLL_STATES_UNSPECIFIED' | 'ENROLLED' | 'DECLINED';
     }
     interface GoogleCloudDiscoveryengineV1alphaAlertPolicyResourceConfig {
       /** Optional. The enrollment state of each alert. */
@@ -748,13 +775,25 @@ declare namespace gapi.client {
       /** Immutable. The id of an alert. */
       alertId?: string;
       /** Required. The enrollment status of a customer. */
-      enrollState?: string;
+      enrollState?: 'ENROLL_STATE_UNSPECIFIED' | 'ENROLLED' | 'DECLINED';
       /** Optional. Parameters used to instantiate a notification. Used for notifications that are triggered when registered. Not stored. * Gemini Business welcome emails. * Gemini Business user invitation emails. */
       notificationParams?: {[P in string]: string};
     }
     interface GoogleCloudDiscoveryengineV1alphaAnswer {
       /** Additional answer-skipped reasons. This provides the reason for ignored cases. If nothing is skipped, this field is not set. */
-      answerSkippedReasons?: string[];
+      answerSkippedReasons?:
+        | 'ANSWER_SKIPPED_REASON_UNSPECIFIED'
+        | 'ADVERSARIAL_QUERY_IGNORED'
+        | 'NON_ANSWER_SEEKING_QUERY_IGNORED'
+        | 'OUT_OF_DOMAIN_QUERY_IGNORED'
+        | 'POTENTIAL_POLICY_VIOLATION'
+        | 'NO_RELEVANT_CONTENT'
+        | 'JAIL_BREAKING_QUERY_IGNORED'
+        | 'CUSTOMER_POLICY_VIOLATION'
+        | 'NON_ANSWER_SEEKING_QUERY_IGNORED_V2'
+        | 'LOW_GROUNDED_ANSWER'
+        | 'USER_DEFINED_CLASSIFICATION_QUERY_IGNORED'
+        | 'UNHELPFUL_ANSWER'[];
       /** The textual answer. */
       answerText?: string;
       /** List of blob attachments in the answer. */
@@ -780,13 +819,18 @@ declare namespace gapi.client {
       /** Optional. Safety ratings. */
       safetyRatings?: GoogleCloudDiscoveryengineV1alphaSafetyRating[];
       /** The state of the answer generation. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'IN_PROGRESS'
+        | 'FAILED'
+        | 'SUCCEEDED'
+        | 'STREAMING';
       /** Answer generation steps. */
       steps?: GoogleCloudDiscoveryengineV1alphaAnswerStep[];
     }
     interface GoogleCloudDiscoveryengineV1alphaAnswerBlobAttachment {
       /** Output only. The attribution type of the blob. */
-      attributionType?: string;
+      attributionType?: 'ATTRIBUTION_TYPE_UNSPECIFIED' | 'CORPUS' | 'GENERATED';
       /** Output only. The mime type and data of the blob. */
       data?: GoogleCloudDiscoveryengineV1alphaAnswerBlobAttachmentBlob;
     }
@@ -828,7 +872,13 @@ declare namespace gapi.client {
       /** Classification output. */
       positive?: boolean;
       /** Query classification type. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'ADVERSARIAL_QUERY'
+        | 'NON_ANSWER_SEEKING_QUERY'
+        | 'JAIL_BREAKING_QUERY'
+        | 'NON_ANSWER_SEEKING_QUERY_V2'
+        | 'USER_DEFINED_CLASSIFICATION_QUERY';
     }
     interface GoogleCloudDiscoveryengineV1alphaAnswerReference {
       /** Chunk information. */
@@ -900,7 +950,7 @@ declare namespace gapi.client {
       /** The description of the step. */
       description?: string;
       /** The state of the step. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'IN_PROGRESS' | 'FAILED' | 'SUCCEEDED';
       /** The thought of the step. */
       thought?: string;
     }
@@ -948,7 +998,10 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1alphaAssistAnswer {
       /** Reasons for not answering the assist call. */
-      assistSkippedReasons?: string[];
+      assistSkippedReasons?:
+        | 'ASSIST_SKIPPED_REASON_UNSPECIFIED'
+        | 'NON_ASSIST_SEEKING_QUERY_IGNORED'
+        | 'CUSTOMER_POLICY_VIOLATION'[];
       /** Optional. The field contains information about the various policy checks' results like the banned phrases or the Model Armor checks. This field is populated only if the assist call was skipped due to a policy violation. */
       customerPolicyEnforcementResult?: GoogleCloudDiscoveryengineV1alphaAssistAnswerCustomerPolicyEnforcementResult;
       /** Immutable. Identifier. Resource name of the `AssistAnswer`. Format: `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/sessions/{session}/assistAnswers/{assist_answer}` This field must be a UTF-8 encoded string with a length limit of 1024 characters. */
@@ -956,13 +1009,18 @@ declare namespace gapi.client {
       /** Replies of the assistant. */
       replies?: GoogleCloudDiscoveryengineV1alphaAssistAnswerReply[];
       /** State of the answer generation. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'IN_PROGRESS'
+        | 'FAILED'
+        | 'SUCCEEDED'
+        | 'SKIPPED';
     }
     interface GoogleCloudDiscoveryengineV1alphaAssistAnswerCustomerPolicyEnforcementResult {
       /** Customer policy enforcement results. Populated only if the assist call was skipped due to a policy violation. It contains results from those filters that blocked the processing of the query. */
       policyResults?: GoogleCloudDiscoveryengineV1alphaAssistAnswerCustomerPolicyEnforcementResultPolicyEnforcementResult[];
       /** Final verdict of the customer policy enforcement. If only one policy blocked the processing, the verdict is BLOCK. */
-      verdict?: string;
+      verdict?: 'UNSPECIFIED' | 'ALLOW' | 'BLOCK';
     }
     interface GoogleCloudDiscoveryengineV1alphaAssistAnswerCustomerPolicyEnforcementResultBannedPhraseEnforcementResult {
       /** The banned phrases that were found in the query or the answer. */
@@ -1010,7 +1068,11 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1alphaAssistantContentCodeExecutionResult {
       /** Required. Outcome of the code execution. */
-      outcome?: string;
+      outcome?:
+        | 'OUTCOME_UNSPECIFIED'
+        | 'OUTCOME_OK'
+        | 'OUTCOME_FAILED'
+        | 'OUTCOME_DEADLINE_EXCEEDED';
       /** Optional. Contains stdout when code execution is successful, stderr or other description otherwise. */
       output?: string;
     }
@@ -1074,7 +1136,11 @@ declare namespace gapi.client {
       /** Optional. The actions enabled on the associated BAP connection. */
       enabledActions?: string[];
       /** Required. The supported connector modes for the associated BAP connection. */
-      supportedConnectorModes?: string[];
+      supportedConnectorModes?:
+        | 'CONNECTOR_MODE_UNSPECIFIED'
+        | 'DATA_INGESTION'
+        | 'ACTIONS'
+        | 'END_USER_AUTHENTICATION'[];
     }
     interface GoogleCloudDiscoveryengineV1alphaBatchCreateTargetSiteMetadata {
       /** Operation create time. */
@@ -1132,11 +1198,25 @@ declare namespace gapi.client {
       /** Required. The name of the CmekConfig of the form `projects/{project}/locations/{location}/cmekConfig` or `projects/{project}/locations/{location}/cmekConfigs/{cmek_config}`. */
       name?: string;
       /** Output only. Whether the NotebookLM Corpus is ready to be used. */
-      notebooklmState?: string;
+      notebooklmState?:
+        | 'NOTEBOOK_LM_STATE_UNSPECIFIED'
+        | 'NOTEBOOK_LM_NOT_READY'
+        | 'NOTEBOOK_LM_READY'
+        | 'NOTEBOOK_LM_NOT_ENABLED';
       /** Optional. Single-regional CMEKs that are required for some VAIS features. */
       singleRegionKeys?: GoogleCloudDiscoveryengineV1alphaSingleRegionKey[];
       /** Output only. The states of the CmekConfig. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'ACTIVE'
+        | 'KEY_ISSUE'
+        | 'DELETING'
+        | 'DELETE_FAILED'
+        | 'UNUSABLE'
+        | 'ACTIVE_ROTATING'
+        | 'DELETED'
+        | 'EXPIRED';
     }
     interface GoogleCloudDiscoveryengineV1alphaCollection {
       /** Output only. Timestamp the Collection was created at. */
@@ -1182,11 +1262,25 @@ declare namespace gapi.client {
       /** Output only. The time when the connector run started. */
       startTime?: string;
       /** Output only. The state of the sync run. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'RUNNING'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'OVERRUN'
+        | 'CANCELLED'
+        | 'PENDING'
+        | 'WARNING'
+        | 'SKIPPED';
       /** Timestamp at which the connector run sync state was last updated. */
       stateUpdateTime?: string;
       /** Output only. The trigger for this ConnectorRun. */
-      trigger?: string;
+      trigger?:
+        | 'TRIGGER_UNSPECIFIED'
+        | 'SCHEDULER'
+        | 'INITIALIZATION'
+        | 'RESUME'
+        | 'MANUAL';
     }
     interface GoogleCloudDiscoveryengineV1alphaConnectorRunEntityRun {
       /** Optional. The number of documents deleted. */
@@ -1208,13 +1302,27 @@ declare namespace gapi.client {
       /** Optional. The number of requests sent to 3p API. */
       sourceApiRequestCount?: string;
       /** The state of the entity's sync run. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'RUNNING'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'OVERRUN'
+        | 'CANCELLED'
+        | 'PENDING'
+        | 'WARNING'
+        | 'SKIPPED';
       /** Timestamp at which the entity sync state was last updated. */
       stateUpdateTime?: string;
       /** The timestamp for either extracted_documents_count, indexed_documents_count and error_documents_count was last updated. */
       statsUpdateTime?: string;
       /** Sync type of this run. */
-      syncType?: string;
+      syncType?:
+        | 'SYNC_TYPE_UNSPECIFIED'
+        | 'FULL'
+        | 'INCREMENTAL'
+        | 'REALTIME'
+        | 'SCALA_SYNC';
     }
     interface GoogleCloudDiscoveryengineV1alphaConnectorRunEntityRunProgress {
       /** The current progress. */
@@ -1246,11 +1354,20 @@ declare namespace gapi.client {
       /** Defines a redirect-type control. */
       redirectAction?: GoogleCloudDiscoveryengineV1alphaControlRedirectAction;
       /** Required. Immutable. What solution the control belongs to. Must be compatible with vertical of resource. Otherwise an INVALID ARGUMENT error is thrown. */
-      solutionType?: string;
+      solutionType?:
+        | 'SOLUTION_TYPE_UNSPECIFIED'
+        | 'SOLUTION_TYPE_RECOMMENDATION'
+        | 'SOLUTION_TYPE_SEARCH'
+        | 'SOLUTION_TYPE_CHAT'
+        | 'SOLUTION_TYPE_GENERATIVE_CHAT'
+        | 'SOLUTION_TYPE_AI_MODE';
       /** Treats a group of terms as synonyms of one another. */
       synonymsAction?: GoogleCloudDiscoveryengineV1alphaControlSynonymsAction;
       /** Specifies the use case for the control. Affects what condition fields can be set. Only applies to SOLUTION_TYPE_SEARCH. Currently only allow one use case per control. Must be set when solution_type is SolutionType.SOLUTION_TYPE_SEARCH. */
-      useCases?: string[];
+      useCases?:
+        | 'SEARCH_USE_CASE_UNSPECIFIED'
+        | 'SEARCH_USE_CASE_SEARCH'
+        | 'SEARCH_USE_CASE_BROWSE'[];
     }
     interface GoogleCloudDiscoveryengineV1alphaControlBoostAction {
       /** Strength of the boost, which should be in [-1, 1]. Negative boost means demotion. Default is 0.0 (No-op). */
@@ -1266,13 +1383,13 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpec {
       /** Optional. The attribute type to be used to determine the boost amount. The attribute value can be derived from the field value of the specified field_name. In the case of numerical it is straightforward i.e. attribute_value = numerical_field_value. In the case of freshness however, attribute_value = (time.now() - datetime_field_value). */
-      attributeType?: string;
+      attributeType?: 'ATTRIBUTE_TYPE_UNSPECIFIED' | 'NUMERICAL' | 'FRESHNESS';
       /** Optional. The control points used to define the curve. The monotonic function (defined through the interpolation_type above) passes through the control points listed here. */
       controlPoints?: GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpecControlPoint[];
       /** Optional. The name of the field whose value will be used to determine the boost amount. */
       fieldName?: string;
       /** Optional. The interpolation type to be applied to connect the control points listed below. */
-      interpolationType?: string;
+      interpolationType?: 'INTERPOLATION_TYPE_UNSPECIFIED' | 'LINEAR';
     }
     interface GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpecControlPoint {
       /** Optional. Can be one of: 1. The numerical field value. 2. The duration spec for freshness: The value must be formatted as an XSD `dayTimeDuration` value (a restricted subset of an ISO 8601 duration value). The pattern for this is: `nDnM]`. */
@@ -1345,7 +1462,15 @@ declare namespace gapi.client {
       /** Optional. Action configurations to make the connector support actions. */
       actionConfig?: GoogleCloudDiscoveryengineV1alphaActionConfig;
       /** Output only. State of the action connector. This reflects whether the action connector is initializing, active or has encountered errors. */
-      actionState?: string;
+      actionState?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'ACTIVE'
+        | 'FAILED'
+        | 'RUNNING'
+        | 'WARNING'
+        | 'INITIALIZATION_FAILED'
+        | 'UPDATING';
       /** Optional. The connector level alert config. */
       alertPolicyConfigs?: GoogleCloudDiscoveryengineV1alphaAlertPolicyConfig[];
       /** Optional. Indicates whether the connector is disabled for auto run. It can be used to pause periodical and real time sync. Update: with the introduction of incremental_sync_disabled, auto_run_disabled is used to pause/disable only full syncs */
@@ -1353,11 +1478,36 @@ declare namespace gapi.client {
       /** Optional. The configuration for establishing a BAP connection. */
       bapConfig?: GoogleCloudDiscoveryengineV1alphaBAPConfig;
       /** Output only. User actions that must be completed before the connector can start syncing data. */
-      blockingReasons?: string[];
+      blockingReasons?:
+        | 'BLOCKING_REASON_UNSPECIFIED'
+        | 'ALLOWLIST_STATIC_IP'
+        | 'ALLOWLIST_IN_SERVICE_ATTACHMENT'
+        | 'ALLOWLIST_SERVICE_ACCOUNT'[];
       /** Optional. The modes enabled for this connector. Default state is CONNECTOR_MODE_UNSPECIFIED. */
-      connectorModes?: string[];
+      connectorModes?:
+        | 'CONNECTOR_MODE_UNSPECIFIED'
+        | 'DATA_INGESTION'
+        | 'ACTIONS'
+        | 'FEDERATED'
+        | 'EUA'
+        | 'FEDERATED_AND_EUA'[];
       /** Output only. The type of connector. Each source can only map to one type. For example, salesforce, confluence and jira have THIRD_PARTY connector type. It is not mutable once set by system. */
-      connectorType?: string;
+      connectorType?:
+        | 'CONNECTOR_TYPE_UNSPECIFIED'
+        | 'THIRD_PARTY'
+        | 'GCP_FHIR'
+        | 'BIG_QUERY'
+        | 'GCS'
+        | 'GOOGLE_MAIL'
+        | 'GOOGLE_CALENDAR'
+        | 'GOOGLE_DRIVE'
+        | 'NATIVE_CLOUD_IDENTITY'
+        | 'THIRD_PARTY_FEDERATED'
+        | 'THIRD_PARTY_EUA'
+        | 'GCNV'
+        | 'GOOGLE_CHAT'
+        | 'GOOGLE_SITES'
+        | 'REMOTE_MCP';
       /** Optional. Whether the END USER AUTHENTICATION connector is created in SaaS. */
       createEuaSaas?: boolean;
       /** Output only. Timestamp the DataConnector was created at. */
@@ -1407,7 +1557,15 @@ declare namespace gapi.client {
       /** Output only. The tenant project ID associated with private connectivity connectors. This project must be allowlisted by in order for the connector to function. */
       privateConnectivityProjectId?: string;
       /** Output only. real-time sync state */
-      realtimeState?: string;
+      realtimeState?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'ACTIVE'
+        | 'FAILED'
+        | 'RUNNING'
+        | 'WARNING'
+        | 'INITIALIZATION_FAILED'
+        | 'UPDATING';
       /** Optional. The configuration for realtime sync. */
       realtimeSyncConfig?: GoogleCloudDiscoveryengineV1alphaDataConnectorRealtimeSyncConfig;
       /** Required. The refresh interval for data sync. If duration is set to 0, the data will be synced in real time. The streaming feature is not supported yet. The minimum is 30 minutes and maximum is 7 days. When the refresh interval is set to the same value as the incremental refresh interval, incremental sync will be disabled. */
@@ -1415,13 +1573,21 @@ declare namespace gapi.client {
       /** Optional. Specifies keys to be removed from the 'params' field. This is only active when 'params' is included in the 'update_mask' in an UpdateDataConnectorRequest. Deletion takes precedence if a key is both in 'remove_param_keys' and present in the 'params' field of the request. */
       removeParamKeys?: string[];
       /** Output only. State of the connector. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'ACTIVE'
+        | 'FAILED'
+        | 'RUNNING'
+        | 'WARNING'
+        | 'INITIALIZATION_FAILED'
+        | 'UPDATING';
       /** Output only. The static IP addresses used by this connector. */
       staticIpAddresses?: string[];
       /** Optional. Whether customer has enabled static IP addresses for this connector. */
       staticIpEnabled?: boolean;
       /** The data synchronization mode supported by the data connector. */
-      syncMode?: string;
+      syncMode?: 'PERIODIC' | 'STREAMING' | 'UNSPECIFIED';
       /** Output only. Timestamp the DataConnector was last updated. */
       updateTime?: string;
       /** Output only. Whether the connector is created with VPC-SC enabled. This is only used for CuOP evaluation purpose. */
@@ -1457,7 +1623,11 @@ declare namespace gapi.client {
       /** Optional. Error details. */
       error?: GoogleRpcStatus;
       /** Optional. Streaming error. */
-      streamingErrorReason?: string;
+      streamingErrorReason?:
+        | 'STREAMING_ERROR_REASON_UNSPECIFIED'
+        | 'STREAMING_SETUP_ERROR'
+        | 'STREAMING_SYNC_ERROR'
+        | 'INGRESS_ENDPOINT_REQUIRED';
     }
     interface GoogleCloudDiscoveryengineV1alphaDataConnectorSourceEntity {
       /** Output only. The full resource name of the associated data store for the source entity. Format: `projects/*‍/locations/*‍/collections/*‍/dataStores/*`. When the connector is initialized by the DataConnectorService.SetUpDataConnector method, a DataStore is automatically created for each source entity. */
@@ -1493,11 +1663,19 @@ declare namespace gapi.client {
       /** Output only. CMEK-related information for the DataStore. */
       cmekConfig?: GoogleCloudDiscoveryengineV1alphaCmekConfig;
       /** Optional. Configuration for configurable billing approach. See */
-      configurableBillingApproach?: string;
+      configurableBillingApproach?:
+        | 'CONFIGURABLE_BILLING_APPROACH_UNSPECIFIED'
+        | 'CONFIGURABLE_SUBSCRIPTION_INDEXING_CORE'
+        | 'CONFIGURABLE_CONSUMPTION_EMBEDDING';
       /** Output only. The timestamp when configurable_billing_approach was last updated. */
       configurableBillingApproachUpdateTime?: string;
       /** Immutable. The content config of the data store. If this field is unset, the server behavior defaults to ContentConfig.NO_CONTENT. */
-      contentConfig?: string;
+      contentConfig?:
+        | 'CONTENT_CONFIG_UNSPECIFIED'
+        | 'NO_CONTENT'
+        | 'CONTENT_REQUIRED'
+        | 'PUBLIC_WEBSITE'
+        | 'GOOGLE_WORKSPACE';
       /** Output only. Timestamp the DataStore was created at. */
       createTime?: string;
       /** Output only. The id of the default Schema associated to this data store. */
@@ -1515,7 +1693,11 @@ declare namespace gapi.client {
       /** Output only. Data store level identity provider config. */
       idpConfig?: GoogleCloudDiscoveryengineV1alphaIdpConfig;
       /** Immutable. The industry vertical that the data store registers. */
-      industryVertical?: string;
+      industryVertical?:
+        | 'INDUSTRY_VERTICAL_UNSPECIFIED'
+        | 'GENERIC'
+        | 'MEDIA'
+        | 'HEALTHCARE_FHIR';
       /** Optional. If set, this DataStore is an Infobot FAQ DataStore. */
       isInfobotFaqDataStore?: boolean;
       /** Input only. The KMS key to be used to protect this DataStore at creation time. Must be set for requests that need to comply with CMEK Org Policy protections. If this field is set and processed successfully, the DataStore will be protected by the KMS key, as indicated in the cmek_config field. */
@@ -1529,7 +1711,13 @@ declare namespace gapi.client {
       /** Optional. Stores serving config at DataStore level. */
       servingConfigDataStore?: GoogleCloudDiscoveryengineV1alphaDataStoreServingConfigDataStore;
       /** The solutions that the data store enrolls. Available solutions for each industry_vertical: * `MEDIA`: `SOLUTION_TYPE_RECOMMENDATION` and `SOLUTION_TYPE_SEARCH`. * `SITE_SEARCH`: `SOLUTION_TYPE_SEARCH` is automatically enrolled. Other solutions cannot be enrolled. */
-      solutionTypes?: string[];
+      solutionTypes?:
+        | 'SOLUTION_TYPE_UNSPECIFIED'
+        | 'SOLUTION_TYPE_RECOMMENDATION'
+        | 'SOLUTION_TYPE_SEARCH'
+        | 'SOLUTION_TYPE_CHAT'
+        | 'SOLUTION_TYPE_GENERATIVE_CHAT'
+        | 'SOLUTION_TYPE_AI_MODE'[];
       /** The start schema to use for this DataStore when provisioning it. If unset, a default vertical specialized schema will be used. This field is only used by CreateDataStore API, and will be ignored if used in other APIs. This field will be omitted from all API responses including CreateDataStore API. To retrieve a schema of a DataStore, use SchemaService.GetSchema API instead. The provided schema will be validated against certain rules on schema. Learn more from [this doc](https://cloud.google.com/generative-ai-app-builder/docs/provide-schema). */
       startingSchema?: GoogleCloudDiscoveryengineV1alphaSchema;
       /** Config to store data store type configuration for workspace data. This must be set when DataStore.content_config is set as DataStore.ContentConfig.GOOGLE_WORKSPACE. */
@@ -1571,7 +1759,10 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1alphaDataStoreFederatedSearchConfigAlloyDbConfigAlloyDbConnectionConfig {
       /** Optional. Auth mode. */
-      authMode?: string;
+      authMode?:
+        | 'AUTH_MODE_UNSPECIFIED'
+        | 'AUTH_MODE_SERVICE_ACCOUNT'
+        | 'AUTH_MODE_END_USER_ACCOUNT';
       /** Required. The AlloyDB database to connect to. */
       database?: string;
       /** Optional. If true, enable PSVS for AlloyDB. */
@@ -1774,7 +1965,7 @@ declare namespace gapi.client {
       /** Optional. The agent gateway setting for the engine. */
       agentGatewaySetting?: GoogleCloudDiscoveryengineV1alphaAgentGatewaySetting;
       /** Optional. Immutable. This the application type which this engine resource represents. NOTE: this is a new concept independ of existing industry vertical or solution type. */
-      appType?: string;
+      appType?: 'APP_TYPE_UNSPECIFIED' | 'APP_TYPE_INTRANET';
       /** Configurations for the Chat Engine. Only applicable if solution_type is SOLUTION_TYPE_CHAT. */
       chatEngineConfig?: GoogleCloudDiscoveryengineV1alphaEngineChatEngineConfig;
       /** Output only. Additional information of the Chat Engine. Only applicable if solution_type is SOLUTION_TYPE_CHAT. */
@@ -1784,7 +1975,9 @@ declare namespace gapi.client {
       /** Common config spec that specifies the metadata of the engine. */
       commonConfig?: GoogleCloudDiscoveryengineV1alphaEngineCommonConfig;
       /** Optional. Configuration for configurable billing approach. */
-      configurableBillingApproach?: string;
+      configurableBillingApproach?:
+        | 'CONFIGURABLE_BILLING_APPROACH_UNSPECIFIED'
+        | 'CONFIGURABLE_BILLING_APPROACH_ENABLED';
       /** Optional. Maps a connector ID (e.g., "hybrid-github", "shopify") to tenant-specific information required for that connector. The structure of the tenant information string is connector-dependent. */
       connectorTenantInfo?: {[P in string]: string};
       /** Output only. Timestamp the Recommendation Engine was created at. */
@@ -1796,17 +1989,36 @@ declare namespace gapi.client {
       /** Required. The display name of the engine. Should be human readable. UTF-8 encoded string with limit of 1024 characters. */
       displayName?: string;
       /** Optional. Feature config for the engine to opt in or opt out of features. Supported keys: * `*`: all features, if it's present, all other feature state settings are ignored. * `agent-gallery` * `no-code-agent-builder` * `prompt-gallery` * `model-selector` * `notebook-lm` * `people-search` * `people-search-org-chart` * `bi-directional-audio` * `feedback` * `session-sharing` * `personalization-memory` * `personalization-suggested-highlights` * `disable-agent-sharing` * `disable-image-generation` * `disable-video-generation` * `disable-onedrive-upload` * `disable-talk-to-content` * `disable-google-drive-upload` * `disable-welcome-emails` */
-      features?: {[P in string]: string};
+      features?: {
+        [P in string]:
+          | 'FEATURE_STATE_UNSPECIFIED'
+          | 'FEATURE_STATE_ON'
+          | 'FEATURE_STATE_OFF';
+      };
       /** Optional. The industry vertical that the engine registers. The restriction of the Engine industry vertical is based on DataStore: Vertical on Engine has to match vertical of the DataStore linked to the engine. */
-      industryVertical?: string;
+      industryVertical?:
+        | 'INDUSTRY_VERTICAL_UNSPECIFIED'
+        | 'GENERIC'
+        | 'MEDIA'
+        | 'HEALTHCARE_FHIR';
       /** Optional. Configurations for the Knowledge Graph. Only applicable if solution_type is SOLUTION_TYPE_SEARCH. */
       knowledgeGraphConfig?: GoogleCloudDiscoveryengineV1alphaEngineKnowledgeGraphConfig;
       /** Optional. The visibility of marketplace agents in the agent gallery. */
-      marketplaceAgentVisibility?: string;
+      marketplaceAgentVisibility?:
+        | 'MARKETPLACE_AGENT_VISIBILITY_UNSPECIFIED'
+        | 'SHOW_AVAILABLE_AGENTS_ONLY'
+        | 'SHOW_AGENTS_ALREADY_INTEGRATED'
+        | 'SHOW_AGENTS_ALREADY_PURCHASED'
+        | 'SHOW_ALL_AGENTS';
       /** Configurations for the Media Engine. Only applicable on the data stores with solution_type SOLUTION_TYPE_RECOMMENDATION and IndustryVertical.MEDIA vertical. */
       mediaRecommendationEngineConfig?: GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfig;
       /** Optional. Maps a model name to its specific configuration for this engine. This allows admin users to turn on/off individual models. This only stores models whose states are overridden by the admin. When the state is unspecified, or model_configs is empty for this model, the system will decide if this model should be available or not based on the default configuration. For example, a preview model should be disabled by default if the admin has not chosen to enable it. */
-      modelConfigs?: {[P in string]: string};
+      modelConfigs?: {
+        [P in string]:
+          | 'MODEL_STATE_UNSPECIFIED'
+          | 'MODEL_ENABLED'
+          | 'MODEL_DISABLED';
+      };
       /** Immutable. Identifier. The fully qualified resource name of the engine. This field must be a UTF-8 encoded string with a length limit of 1024 characters. Format: `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}` engine should be 1-63 characters, and valid characters are /a-z0-9*‍/. Otherwise, an INVALID_ARGUMENT error is returned. */
       name?: string;
       /** Optional. Observability config for the engine. */
@@ -1820,7 +2032,13 @@ declare namespace gapi.client {
       /** Additional config specs for a `similar-items` engine. */
       similarDocumentsConfig?: any;
       /** Required. The solutions of the engine. */
-      solutionType?: string;
+      solutionType?:
+        | 'SOLUTION_TYPE_UNSPECIFIED'
+        | 'SOLUTION_TYPE_RECOMMENDATION'
+        | 'SOLUTION_TYPE_SEARCH'
+        | 'SOLUTION_TYPE_CHAT'
+        | 'SOLUTION_TYPE_GENERATIVE_CHAT'
+        | 'SOLUTION_TYPE_AI_MODE';
       /** Output only. Timestamp the Recommendation Engine was last updated. */
       updateTime?: string;
     }
@@ -1880,7 +2098,7 @@ declare namespace gapi.client {
       /** Name and value of the custom threshold for cvr optimization_objective. For target_field `watch-time`, target_field_value must be an integer value indicating the media progress time in seconds between (0, 86400] (excludes 0, includes 86400) (e.g., 90). For target_field `watch-percentage`, the target_field_value must be a valid float value between (0, 1.0] (excludes 0, includes 1.0) (e.g., 0.5). */
       optimizationObjectiveConfig?: GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfigOptimizationObjectiveConfig;
       /** The training state that the engine is in (e.g. `TRAINING` or `PAUSED`). Since part of the cost of running the service is frequency of training - this can be used to determine when to train engine in order to control cost. If not specified: the default value for `CreateEngine` method is `TRAINING`. The default value for `UpdateEngine` method is to keep the state the same as before. */
-      trainingState?: string;
+      trainingState?: 'TRAINING_STATE_UNSPECIFIED' | 'PAUSED' | 'TRAINING';
       /** Required. The type of engine. e.g., `recommended-for-you`. This field together with optimization_objective describe engine metadata to use to control engine training and serving. Currently supported values: `recommended-for-you`, `others-you-may-like`, `more-like-this`, `most-popular-items`. */
       type?: string;
     }
@@ -1906,23 +2124,44 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1alphaEngineRecommendationMetadata {
       /** Output only. The state of data requirements for this engine: `DATA_OK` and `DATA_ERROR`. Engine cannot be trained if the data is in `DATA_ERROR` state. Engine can have `DATA_ERROR` state even if serving state is `ACTIVE`: engines were trained successfully before, but cannot be refreshed because the underlying engine no longer has sufficient data for training. */
-      dataState?: string;
+      dataState?: 'DATA_STATE_UNSPECIFIED' | 'DATA_OK' | 'DATA_ERROR';
       /** Output only. The timestamp when the latest successful training finished. Only applicable on Media Recommendation engines. */
       lastTrainTime?: string;
       /** Output only. The timestamp when the latest successful tune finished. Only applicable on Media Recommendation engines. */
       lastTuneTime?: string;
       /** Output only. The serving state of the engine: `ACTIVE`, `NOT_ACTIVE`. */
-      servingState?: string;
+      servingState?:
+        | 'SERVING_STATE_UNSPECIFIED'
+        | 'INACTIVE'
+        | 'ACTIVE'
+        | 'TUNED';
       /** Output only. The latest tune operation id associated with the engine. Only applicable on Media Recommendation engines. If present, this operation id can be used to determine if there is an ongoing tune for this engine. To check the operation status, send the GetOperation request with this operation id in the engine resource format. If no tuning has happened for this engine, the string is empty. */
       tuningOperation?: string;
     }
     interface GoogleCloudDiscoveryengineV1alphaEngineSearchEngineConfig {
       /** Optional. The required subscription tier of this engine. They cannot be modified after engine creation. If the required subscription tier is search, user with higher license tier like assist can still access the standalone app associated with this engine. */
-      requiredSubscriptionTier?: string;
+      requiredSubscriptionTier?:
+        | 'SUBSCRIPTION_TIER_UNSPECIFIED'
+        | 'SUBSCRIPTION_TIER_SEARCH'
+        | 'SUBSCRIPTION_TIER_SEARCH_AND_ASSISTANT'
+        | 'SUBSCRIPTION_TIER_NOTEBOOK_LM'
+        | 'SUBSCRIPTION_TIER_FRONTLINE_WORKER'
+        | 'SUBSCRIPTION_TIER_AGENTSPACE_STARTER'
+        | 'SUBSCRIPTION_TIER_AGENTSPACE_BUSINESS'
+        | 'SUBSCRIPTION_TIER_ENTERPRISE'
+        | 'SUBSCRIPTION_TIER_ENTERPRISE_EMERGING'
+        | 'SUBSCRIPTION_TIER_EDU'
+        | 'SUBSCRIPTION_TIER_EDU_PRO'
+        | 'SUBSCRIPTION_TIER_EDU_EMERGING'
+        | 'SUBSCRIPTION_TIER_EDU_PRO_EMERGING'
+        | 'SUBSCRIPTION_TIER_FRONTLINE_STARTER';
       /** The add-on that this search engine enables. */
-      searchAddOns?: string[];
+      searchAddOns?: 'SEARCH_ADD_ON_UNSPECIFIED' | 'SEARCH_ADD_ON_LLM'[];
       /** The search feature tier of this engine. Different tiers might have different pricing. To learn more, check the pricing documentation. Defaults to SearchTier.SEARCH_TIER_STANDARD if not specified. */
-      searchTier?: string;
+      searchTier?:
+        | 'SEARCH_TIER_UNSPECIFIED'
+        | 'SEARCH_TIER_STANDARD'
+        | 'SEARCH_TIER_ENTERPRISE';
     }
     interface GoogleCloudDiscoveryengineV1alphaEngineSimilarDocumentsEngineConfig {}
     interface GoogleCloudDiscoveryengineV1alphaEstimateDataSizeMetadata {
@@ -1951,7 +2190,12 @@ declare namespace gapi.client {
       /** Output only. The metrics produced by the evaluation, averaged across all SampleQuerys in the SampleQuerySet. Only populated when the evaluation's state is SUCCEEDED. */
       qualityMetrics?: GoogleCloudDiscoveryengineV1alphaQualityMetrics;
       /** Output only. The state of the evaluation. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PENDING'
+        | 'RUNNING'
+        | 'SUCCEEDED'
+        | 'FAILED';
     }
     interface GoogleCloudDiscoveryengineV1alphaEvaluationEvaluationSpec {
       /** Optional. The specification of the query set. */
@@ -1972,31 +2216,68 @@ declare namespace gapi.client {
     interface GoogleCloudDiscoveryengineV1alphaExportMetricsResponse {}
     interface GoogleCloudDiscoveryengineV1alphaFieldConfig {
       /** If this field is set, only the corresponding source will be indexed for this field. Otherwise, the values from different sources are merged. Assuming a page with `` in meta tag, and `` in page map: if this enum is set to METATAGS, we will only index ``; if this enum is not set, we will merge them and index ``. */
-      advancedSiteSearchDataSources?: string[];
+      advancedSiteSearchDataSources?:
+        | 'ADVANCED_SITE_SEARCH_DATA_SOURCE_UNSPECIFIED'
+        | 'METATAGS'
+        | 'PAGEMAP'
+        | 'URI_PATTERN_MAPPING'
+        | 'SCHEMA_ORG'[];
       /** If completable_option is COMPLETABLE_ENABLED, field values are directly used and returned as suggestions for Autocomplete in CompletionService.CompleteQuery. If completable_option is unset, the server behavior defaults to COMPLETABLE_DISABLED for fields that support setting completable options, which are just `string` fields. For those fields that do not support setting completable options, the server will skip completable option setting, and setting completable_option for those fields will throw `INVALID_ARGUMENT` error. */
-      completableOption?: string;
+      completableOption?:
+        | 'COMPLETABLE_OPTION_UNSPECIFIED'
+        | 'COMPLETABLE_ENABLED'
+        | 'COMPLETABLE_DISABLED';
       /** If dynamic_facetable_option is DYNAMIC_FACETABLE_ENABLED, field values are available for dynamic facet. Could only be DYNAMIC_FACETABLE_DISABLED if FieldConfig.indexable_option is INDEXABLE_DISABLED. Otherwise, an `INVALID_ARGUMENT` error will be returned. If dynamic_facetable_option is unset, the server behavior defaults to DYNAMIC_FACETABLE_DISABLED for fields that support setting dynamic facetable options. For those fields that do not support setting dynamic facetable options, such as `object` and `boolean`, the server will skip dynamic facetable option setting, and setting dynamic_facetable_option for those fields will throw `INVALID_ARGUMENT` error. */
-      dynamicFacetableOption?: string;
+      dynamicFacetableOption?:
+        | 'DYNAMIC_FACETABLE_OPTION_UNSPECIFIED'
+        | 'DYNAMIC_FACETABLE_ENABLED'
+        | 'DYNAMIC_FACETABLE_DISABLED';
       /** Required. Field path of the schema field. For example: `title`, `description`, `release_info.release_year`. */
       fieldPath?: string;
       /** Output only. Raw type of the field. */
-      fieldType?: string;
+      fieldType?:
+        | 'FIELD_TYPE_UNSPECIFIED'
+        | 'OBJECT'
+        | 'STRING'
+        | 'NUMBER'
+        | 'INTEGER'
+        | 'BOOLEAN'
+        | 'GEOLOCATION'
+        | 'DATETIME';
       /** If indexable_option is INDEXABLE_ENABLED, field values are indexed so that it can be filtered or faceted in SearchService.Search. If indexable_option is unset, the server behavior defaults to INDEXABLE_DISABLED for fields that support setting indexable options. For those fields that do not support setting indexable options, such as `object` and `boolean` and key properties, the server will skip indexable_option setting, and setting indexable_option for those fields will throw `INVALID_ARGUMENT` error. */
-      indexableOption?: string;
+      indexableOption?:
+        | 'INDEXABLE_OPTION_UNSPECIFIED'
+        | 'INDEXABLE_ENABLED'
+        | 'INDEXABLE_DISABLED';
       /** Output only. Type of the key property that this field is mapped to. Empty string if this is not annotated as mapped to a key property. Example types are `title`, `description`. Full list is defined by `keyPropertyMapping` in the schema field annotation. If the schema field has a `KeyPropertyMapping` annotation, `indexable_option` and `searchable_option` of this field cannot be modified. */
       keyPropertyType?: string;
       /** Optional. The metatag name found in the HTML page. If user defines this field, the value of this metatag name will be used to extract metatag. If the user does not define this field, the FieldConfig.field_path will be used to extract metatag. */
       metatagName?: string;
       /** If recs_filterable_option is FILTERABLE_ENABLED, field values are filterable by filter expression in RecommendationService.Recommend. If FILTERABLE_ENABLED but the field type is numerical, field values are not filterable by text queries in RecommendationService.Recommend. Only textual fields are supported. If recs_filterable_option is unset, the default setting is FILTERABLE_DISABLED for fields that support setting filterable options. When a field set to [FILTERABLE_DISABLED] is filtered, a warning is generated and an empty result is returned. */
-      recsFilterableOption?: string;
+      recsFilterableOption?:
+        | 'FILTERABLE_OPTION_UNSPECIFIED'
+        | 'FILTERABLE_ENABLED'
+        | 'FILTERABLE_DISABLED';
       /** If retrievable_option is RETRIEVABLE_ENABLED, field values are included in the search results. If retrievable_option is unset, the server behavior defaults to RETRIEVABLE_DISABLED for fields that support setting retrievable options. For those fields that do not support setting retrievable options, such as `object` and `boolean`, the server will skip retrievable option setting, and setting retrievable_option for those fields will throw `INVALID_ARGUMENT` error. */
-      retrievableOption?: string;
+      retrievableOption?:
+        | 'RETRIEVABLE_OPTION_UNSPECIFIED'
+        | 'RETRIEVABLE_ENABLED'
+        | 'RETRIEVABLE_DISABLED';
       /** Field paths for indexing custom attribute from schema.org data. More details of schema.org and its defined types can be found at [schema.org](https://schema.org). It is only used on advanced site search schema. Currently only support full path from root. The full path to a field is constructed by concatenating field names, starting from `_root`, with a period `.` as the delimiter. Examples: * Publish date of the root: _root.datePublished * Publish date of the reviews: _root.review.datePublished */
       schemaOrgPaths?: string[];
       /** Optional. Specifies the importance of the field when `searchable_option` is `SEARCHABLE_ENABLED`. If `searchable_option` is `SEARCHABLE_DISABLED`, this field is ignored. If `searchable_option` is `SEARCHABLE_ENABLED` and this is `SEARCHABLE_FIELD_IMPORTANCE_UNSPECIFIED`, it behaves as `DEFAULT_IMPORTANCE`. */
-      searchableFieldImportance?: string;
+      searchableFieldImportance?:
+        | 'SEARCHABLE_FIELD_IMPORTANCE_UNSPECIFIED'
+        | 'VERY_LOW_IMPORTANCE'
+        | 'LOW_IMPORTANCE'
+        | 'DEFAULT_IMPORTANCE'
+        | 'HIGH_IMPORTANCE'
+        | 'VERY_HIGH_IMPORTANCE';
       /** If searchable_option is SEARCHABLE_ENABLED, field values are searchable by text queries in SearchService.Search. If SEARCHABLE_ENABLED but field type is numerical, field values will not be searchable by text queries in SearchService.Search, as there are no text values associated to numerical fields. If searchable_option is unset, the server behavior defaults to SEARCHABLE_DISABLED for fields that support setting searchable options. Only `string` fields that have no key property mapping support setting searchable_option. For those fields that do not support setting searchable options, the server will skip searchable option setting, and setting searchable_option for those fields will throw `INVALID_ARGUMENT` error. */
-      searchableOption?: string;
+      searchableOption?:
+        | 'SEARCHABLE_OPTION_UNSPECIFIED'
+        | 'SEARCHABLE_ENABLED'
+        | 'SEARCHABLE_DISABLED';
     }
     interface GoogleCloudDiscoveryengineV1alphaGetSessionRequest {
       /** Optional. If set to true, the full session including all answer details will be returned. */
@@ -2034,7 +2315,7 @@ declare namespace gapi.client {
       /** External Identity provider config. */
       externalIdpConfig?: GoogleCloudDiscoveryengineV1alphaIdpConfigExternalIdpConfig;
       /** Identity provider type configured. */
-      idpType?: string;
+      idpType?: 'IDP_TYPE_UNSPECIFIED' | 'GSUITE' | 'THIRD_PARTY';
     }
     interface GoogleCloudDiscoveryengineV1alphaIdpConfigExternalIdpConfig {
       /** Workforce pool name. Example: "locations/global/workforcePools/pool_id" */
@@ -2176,11 +2457,36 @@ declare namespace gapi.client {
       /** Required. The start date. */
       startDate?: GoogleTypeDate;
       /** Output only. The state of the license config. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'EXPIRED'
+        | 'NOT_STARTED'
+        | 'WITHDRAWN'
+        | 'DEACTIVATING';
       /** Required. Subscription term. */
-      subscriptionTerm?: string;
+      subscriptionTerm?:
+        | 'SUBSCRIPTION_TERM_UNSPECIFIED'
+        | 'SUBSCRIPTION_TERM_ONE_MONTH'
+        | 'SUBSCRIPTION_TERM_ONE_YEAR'
+        | 'SUBSCRIPTION_TERM_THREE_YEARS'
+        | 'SUBSCRIPTION_TERM_CUSTOM';
       /** Required. Subscription tier information for the license config. */
-      subscriptionTier?: string;
+      subscriptionTier?:
+        | 'SUBSCRIPTION_TIER_UNSPECIFIED'
+        | 'SUBSCRIPTION_TIER_SEARCH'
+        | 'SUBSCRIPTION_TIER_SEARCH_AND_ASSISTANT'
+        | 'SUBSCRIPTION_TIER_NOTEBOOK_LM'
+        | 'SUBSCRIPTION_TIER_FRONTLINE_WORKER'
+        | 'SUBSCRIPTION_TIER_AGENTSPACE_STARTER'
+        | 'SUBSCRIPTION_TIER_AGENTSPACE_BUSINESS'
+        | 'SUBSCRIPTION_TIER_ENTERPRISE'
+        | 'SUBSCRIPTION_TIER_ENTERPRISE_EMERGING'
+        | 'SUBSCRIPTION_TIER_EDU'
+        | 'SUBSCRIPTION_TIER_EDU_PRO'
+        | 'SUBSCRIPTION_TIER_EDU_EMERGING'
+        | 'SUBSCRIPTION_TIER_EDU_PRO_EMERGING'
+        | 'SUBSCRIPTION_TIER_FRONTLINE_STARTER';
     }
     interface GoogleCloudDiscoveryengineV1alphaListSessionsRequest {
       /** A comma-separated list of fields to filter by, in EBNF grammar. The supported fields are: * `user_pseudo_id` * `state` * `display_name` * `starred` * `is_pinned` * `labels` * `create_time` * `update_time` * `collaborative_project` Examples: * `user_pseudo_id = some_id` * `display_name = "some_name"` * `starred = true` * `is_pinned=true AND (NOT labels:hidden)` * `create_time > "1970-01-01T12:00:00Z"` * `collaborative_project = "projects/123/locations/global/collections/default_collection/engines/" "default_engine/collaborative_projects/cp1"` */
@@ -2202,7 +2508,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1alphaNaturalLanguageQueryUnderstandingConfig {
       /** Mode of Natural Language Query Understanding. If this field is unset, the behavior defaults to NaturalLanguageQueryUnderstandingConfig.Mode.DISABLED. */
-      mode?: string;
+      mode?: 'MODE_UNSPECIFIED' | 'DISABLED' | 'ENABLED';
     }
     interface GoogleCloudDiscoveryengineV1alphaObservabilityConfig {
       /** Optional. Enables observability. If `false`, all other flags are ignored. */
@@ -2218,7 +2524,7 @@ declare namespace gapi.client {
       /** The historical organic crawl rate timeseries data, used for monitoring. */
       organicCrawlRateTimeSeries?: GoogleCloudDiscoveryengineV1alphaOrganicCrawlRateTimeSeries;
       /** Output only. The state of the response. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'SUCCEEDED' | 'FAILED';
     }
     interface GoogleCloudDiscoveryengineV1alphaOrganicCrawlRateTimeSeries {
       /** Google's organic crawl rate time series, which is the sum of all googlebots' crawl rate. Please refer to https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers for more details about googlebots. */
@@ -2302,7 +2608,11 @@ declare namespace gapi.client {
       /** The unique identifier of this terms of service. Available terms: * `GA_DATA_USE_TERMS`: [Terms for data use](https://cloud.google.com/retail/data-use-terms). When using this as `id`, the acceptable version to provide is `2022-11-23`. */
       id?: string;
       /** Whether the project has accepted/rejected the service terms or it is still pending. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'TERMS_ACCEPTED'
+        | 'TERMS_PENDING'
+        | 'TERMS_DECLINED';
       /** The version string of the terms of service. For acceptable values, see the comments for id above. */
       version?: string;
     }
@@ -2491,7 +2801,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason {
       /** DESKTOP, MOBILE, or CORPUS_TYPE_UNSPECIFIED. */
-      corpusType?: string;
+      corpusType?: 'CORPUS_TYPE_UNSPECIFIED' | 'DESKTOP' | 'MOBILE';
       /** Reason why the URI was not crawled. */
       errorMessage?: string;
     }
@@ -2505,7 +2815,7 @@ declare namespace gapi.client {
       /** Errors from service when handling the request. */
       error?: GoogleRpcStatus;
       /** Output only. The state of the response. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'SUCCEEDED' | 'FAILED';
     }
     interface GoogleCloudDiscoveryengineV1alphaRemovePatientFilterRequest {
       /** Required. Full resource name of DataStore, such as `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`. If the caller does not have permission to access the DataStore, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. If the requested DataStore does not exist, a NOT_FOUND error is returned. If the requested DataStore does not have a patient filter, a NOT_FOUND error will be returned */
@@ -2523,13 +2833,29 @@ declare namespace gapi.client {
       /** Output only. Indicates whether the content was filtered out because of this rating. */
       blocked?: boolean;
       /** Output only. Harm category. */
-      category?: string;
+      category?:
+        | 'HARM_CATEGORY_UNSPECIFIED'
+        | 'HARM_CATEGORY_HATE_SPEECH'
+        | 'HARM_CATEGORY_DANGEROUS_CONTENT'
+        | 'HARM_CATEGORY_HARASSMENT'
+        | 'HARM_CATEGORY_SEXUALLY_EXPLICIT'
+        | 'HARM_CATEGORY_CIVIC_INTEGRITY';
       /** Output only. Harm probability levels in the content. */
-      probability?: string;
+      probability?:
+        | 'HARM_PROBABILITY_UNSPECIFIED'
+        | 'NEGLIGIBLE'
+        | 'LOW'
+        | 'MEDIUM'
+        | 'HIGH';
       /** Output only. Harm probability score. */
       probabilityScore?: number;
       /** Output only. Harm severity levels in the content. */
-      severity?: string;
+      severity?:
+        | 'HARM_SEVERITY_UNSPECIFIED'
+        | 'HARM_SEVERITY_NEGLIGIBLE'
+        | 'HARM_SEVERITY_LOW'
+        | 'HARM_SEVERITY_MEDIUM'
+        | 'HARM_SEVERITY_HIGH';
       /** Output only. Harm severity score. */
       severityScore?: number;
     }
@@ -2611,7 +2937,12 @@ declare namespace gapi.client {
       /** Optional. The ranking expression controls the customized ranking on retrieval documents. This overrides ServingConfig.ranking_expression. The syntax and supported features depend on the `ranking_expression_backend` value. If `ranking_expression_backend` is not provided, it defaults to `RANK_BY_EMBEDDING`. If ranking_expression_backend is not provided or set to `RANK_BY_EMBEDDING`, it should be a single function or multiple functions that are joined by "+". * ranking_expression = function, { " + ", function }; Supported functions: * double * relevance_score * double * dotProduct(embedding_field_path) Function variables: * `relevance_score`: pre-defined keywords, used for measure relevance between query and document. * `embedding_field_path`: the document embedding field used with query embedding vector. * `dotProduct`: embedding function between `embedding_field_path` and query embedding vector. Example ranking expression: If document has an embedding field doc_embedding, the ranking expression could be `0.5 * relevance_score + 0.3 * dotProduct(doc_embedding)`. If ranking_expression_backend is set to `RANK_BY_FORMULA`, the following expression types (and combinations of those chained using + or * operators) are supported: * `double` * `signal` * `log(signal)` * `exp(signal)` * `rr(signal, double > 0)` -- reciprocal rank transformation with second argument being a denominator constant. * `is_nan(signal)` -- returns 0 if signal is NaN, 1 otherwise. * `fill_nan(signal1, signal2 | double)` -- if signal1 is NaN, returns signal2 | double, else returns signal1. Here are a few examples of ranking formulas that use the supported ranking expression types: - `0.2 * semantic_similarity_score + 0.8 * log(keyword_similarity_score)` -- mostly rank by the logarithm of `keyword_similarity_score` with slight `semantic_smilarity_score` adjustment. - `0.2 * exp(fill_nan(semantic_similarity_score, 0)) + 0.3 * is_nan(keyword_similarity_score)` -- rank by the exponent of `semantic_similarity_score` filling the value with 0 if it's NaN, also add constant 0.3 adjustment to the final score if `semantic_similarity_score` is NaN. - `0.2 * rr(semantic_similarity_score, 16) + 0.8 * rr(keyword_similarity_score, 16)` -- mostly rank by the reciprocal rank of `keyword_similarity_score` with slight adjustment of reciprocal rank of `semantic_smilarity_score`. The following signals are supported: * `semantic_similarity_score`: semantic similarity adjustment that is calculated using the embeddings generated by a proprietary Google model. This score determines how semantically similar a search query is to a document. * `keyword_similarity_score`: keyword match adjustment uses the Best Match 25 (BM25) ranking function. This score is calculated using a probabilistic model to estimate the probability that a document is relevant to a given query. * `relevance_score`: semantic relevance adjustment that uses a proprietary Google model to determine the meaning and intent behind a user's query in context with the content in the documents. * `pctr_rank`: predicted conversion rate adjustment as a rank use predicted Click-through rate (pCTR) to gauge the relevance and attractiveness of a search result from a user's perspective. A higher pCTR suggests that the result is more likely to satisfy the user's query and intent, making it a valuable signal for ranking. * `freshness_rank`: freshness adjustment as a rank * `document_age`: The time in hours elapsed since the document was last updated, a floating-point number (e.g., 0.25 means 15 minutes). * `topicality_rank`: topicality adjustment as a rank. Uses proprietary Google model to determine the keyword-based overlap between the query and the document. * `base_rank`: the default rank of the result */
       rankingExpression?: string;
       /** Optional. The backend to use for the ranking expression evaluation. */
-      rankingExpressionBackend?: string;
+      rankingExpressionBackend?:
+        | 'RANKING_EXPRESSION_BACKEND_UNSPECIFIED'
+        | 'BYOE'
+        | 'CLEARBOX'
+        | 'RANK_BY_EMBEDDING'
+        | 'RANK_BY_FORMULA';
       /** The Unicode country/region code (CLDR) of a location, such as "US" and "419". For more information, see [Standard fields](https://cloud.google.com/apis/design/standard_fields). If set, then results will be boosted based on the region_code provided. */
       regionCode?: string;
       /** Optional. The granular relevance filtering specification. If not specified, the global `relevance_threshold` will be used for all sub-searches. If specified, this overrides the global `relevance_threshold` to use thresholds on a per sub-search basis. This feature is currently supported only for custom and site search. */
@@ -2619,7 +2950,12 @@ declare namespace gapi.client {
       /** Optional. The specification for returning the relevance score. */
       relevanceScoreSpec?: GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceScoreSpec;
       /** The global relevance threshold of the search results. Defaults to Google defined threshold, leveraging a balance of precision and recall to deliver both highly accurate results and comprehensive coverage of relevant information. If more granular relevance filtering is required, use the `relevance_filter_spec` instead. This feature is not supported for healthcare search. */
-      relevanceThreshold?: string;
+      relevanceThreshold?:
+        | 'RELEVANCE_THRESHOLD_UNSPECIFIED'
+        | 'LOWEST'
+        | 'LOW'
+        | 'MEDIUM'
+        | 'HIGH';
       /** Whether to turn on safe search. This is only supported for website search. */
       safeSearch?: boolean;
       /** Optional. SearchAddonSpec is used to disable add-ons for search as per new repricing model. This field is only supported for search requests. */
@@ -2657,13 +2993,13 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1alphaSearchRequestBoostSpecConditionBoostSpecBoostControlSpec {
       /** The attribute type to be used to determine the boost amount. The attribute value can be derived from the field value of the specified field_name. In the case of numerical it is straightforward i.e. attribute_value = numerical_field_value. In the case of freshness however, attribute_value = (time.now() - datetime_field_value). */
-      attributeType?: string;
+      attributeType?: 'ATTRIBUTE_TYPE_UNSPECIFIED' | 'NUMERICAL' | 'FRESHNESS';
       /** The control points used to define the curve. The monotonic function (defined through the interpolation_type above) passes through the control points listed here. */
       controlPoints?: GoogleCloudDiscoveryengineV1alphaSearchRequestBoostSpecConditionBoostSpecBoostControlSpecControlPoint[];
       /** The name of the field whose value will be used to determine the boost amount. */
       fieldName?: string;
       /** The interpolation type to be applied to connect the control points listed below. */
-      interpolationType?: string;
+      interpolationType?: 'INTERPOLATION_TYPE_UNSPECIFIED' | 'LINEAR';
     }
     interface GoogleCloudDiscoveryengineV1alphaSearchRequestBoostSpecConditionBoostSpecBoostControlSpecControlPoint {
       /** Can be one of: 1. The numerical field value. 2. The duration spec for freshness: The value must be formatted as an XSD `dayTimeDuration` value (a restricted subset of an ISO 8601 duration value). The pattern for this is: `nDnM]`. */
@@ -2677,7 +3013,10 @@ declare namespace gapi.client {
       /** If there is no extractive_content_spec provided, there will be no extractive answer in the search response. */
       extractiveContentSpec?: GoogleCloudDiscoveryengineV1alphaSearchRequestContentSearchSpecExtractiveContentSpec;
       /** Specifies the search result mode. If unspecified, the search result mode defaults to `DOCUMENTS`. */
-      searchResultMode?: string;
+      searchResultMode?:
+        | 'SEARCH_RESULT_MODE_UNSPECIFIED'
+        | 'DOCUMENTS'
+        | 'CHUNKS';
       /** If `snippetSpec` is not specified, snippets are not included in the search response. */
       snippetSpec?: GoogleCloudDiscoveryengineV1alphaSearchRequestContentSearchSpecSnippetSpec;
       /** If `summarySpec` is not specified, summaries are not included in the search response. */
@@ -2743,7 +3082,11 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1alphaSearchRequestContentSearchSpecSummarySpecMultiModalSpec {
       /** Optional. Source of image returned in the answer. */
-      imageSource?: string;
+      imageSource?:
+        | 'IMAGE_SOURCE_UNSPECIFIED'
+        | 'ALL_AVAILABLE_SOURCES'
+        | 'CORPUS_IMAGE_ONLY'
+        | 'FIGURE_GENERATION_ONLY';
     }
     interface GoogleCloudDiscoveryengineV1alphaSearchRequestCrowdingSpec {
       /** The field to use for crowding. Documents can be crowded by a field in the Document object. Crowding field is case sensitive. */
@@ -2751,7 +3094,10 @@ declare namespace gapi.client {
       /** The maximum number of documents to keep per value of the field. Once there are at least max_count previous results which contain the same value for the given field (according to the order specified in `order_by`), later results with the same value are "crowded away". If not specified, the default value is 1. */
       maxCount?: number;
       /** Mode to use for documents that are crowded away. */
-      mode?: string;
+      mode?:
+        | 'MODE_UNSPECIFIED'
+        | 'DROP_CROWDED_RESULTS'
+        | 'DEMOTE_CROWDED_RESULTS_TO_END';
     }
     interface GoogleCloudDiscoveryengineV1alphaSearchRequestDataStoreSpec {
       /** Optional. Boost specification to boost certain documents. For more information on boosting, see [Boosting](https://cloud.google.com/generative-ai-app-builder/docs/boost-search-results) */
@@ -2767,7 +3113,10 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1alphaSearchRequestDisplaySpec {
       /** The condition under which match highlighting should occur. */
-      matchHighlightingCondition?: string;
+      matchHighlightingCondition?:
+        | 'MATCH_HIGHLIGHTING_CONDITION_UNSPECIFIED'
+        | 'MATCH_HIGHLIGHTING_DISABLED'
+        | 'MATCH_HIGHLIGHTING_ENABLED';
     }
     interface GoogleCloudDiscoveryengineV1alphaSearchRequestEmbeddingSpec {
       /** The embedding vector used for retrieval. Limit to 1. */
@@ -2813,19 +3162,25 @@ declare namespace gapi.client {
       /** Optional. Allowlist of fields that can be used for natural language filter extraction. By default, if this is unspecified, all indexable fields are eligible for natural language filter extraction (but are not guaranteed to be used). If any fields are specified in allowed_field_names, only the fields that are both marked as indexable in the schema and specified in the allowlist will be eligible for natural language filter extraction. Note: for multi-datastore search, this is not yet supported, and will be ignored. */
       allowedFieldNames?: string[];
       /** Optional. Controls behavior of how extracted filters are applied to the search. The default behavior depends on the request. For single datastore structured search, the default is `HARD_FILTER`. For multi-datastore search, the default behavior is `SOFT_BOOST`. Location-based filters are always applied as hard filters, and the `SOFT_BOOST` setting will not affect them. This field is only used if SearchRequest.NaturalLanguageQueryUnderstandingSpec.FilterExtractionCondition is set to FilterExtractionCondition.ENABLED. */
-      extractedFilterBehavior?: string;
+      extractedFilterBehavior?:
+        | 'EXTRACTED_FILTER_BEHAVIOR_UNSPECIFIED'
+        | 'HARD_FILTER'
+        | 'SOFT_BOOST';
       /** The condition under which filter extraction should occur. Server behavior defaults to `DISABLED`. */
-      filterExtractionCondition?: string;
+      filterExtractionCondition?:
+        | 'CONDITION_UNSPECIFIED'
+        | 'DISABLED'
+        | 'ENABLED';
       /** Field names used for location-based filtering, where geolocation filters are detected in natural language search queries. Only valid when the FilterExtractionCondition is set to `ENABLED`. If this field is set, it overrides the field names set in ServingConfig.geo_search_query_detection_field_names. */
       geoSearchQueryDetectionFieldNames?: string[];
     }
     interface GoogleCloudDiscoveryengineV1alphaSearchRequestPersonalizationSpec {
       /** The personalization mode of the search request. Defaults to Mode.AUTO. */
-      mode?: string;
+      mode?: 'MODE_UNSPECIFIED' | 'AUTO' | 'DISABLED';
     }
     interface GoogleCloudDiscoveryengineV1alphaSearchRequestQueryExpansionSpec {
       /** The condition under which query expansion should occur. Default to Condition.DISABLED. */
-      condition?: string;
+      condition?: 'CONDITION_UNSPECIFIED' | 'DISABLED' | 'AUTO';
       /** Whether to pin unexpanded results. If this field is set to true, unexpanded products are always at the top of the search results, followed by the expanded results. */
       pinUnexpandedResults?: boolean;
     }
@@ -2837,7 +3192,12 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec {
       /** Pre-defined relevance threshold for the sub-search. */
-      relevanceThreshold?: string;
+      relevanceThreshold?:
+        | 'RELEVANCE_THRESHOLD_UNSPECIFIED'
+        | 'LOWEST'
+        | 'LOW'
+        | 'MEDIUM'
+        | 'HIGH';
       /** Custom relevance threshold for the sub-search. The value must be in [0.0, 1.0]. */
       semanticRelevanceThreshold?: number;
     }
@@ -2855,7 +3215,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1alphaSearchRequestSearchAsYouTypeSpec {
       /** The condition under which search as you type should occur. Default to Condition.DISABLED. */
-      condition?: string;
+      condition?: 'CONDITION_UNSPECIFIED' | 'DISABLED' | 'ENABLED' | 'AUTO';
     }
     interface GoogleCloudDiscoveryengineV1alphaSearchRequestSessionSpec {
       /** If set, the search result gets stored to the "turn" specified by this query ID. Example: Let's say the session looks like this: session { name: ".../sessions/xxx" turns { query { text: "What is foo?" query_id: ".../questions/yyy" } answer: "Foo is ..." } turns { query { text: "How about bar then?" query_id: ".../questions/zzz" } } } The user can call /search API with a request like this: session: ".../sessions/xxx" session_spec { query_id: ".../questions/zzz" } Then, the API stores the search result, associated with the last turn. The stored search result can be used by a subsequent /answer API call (with the session ID and the query ID specified). Also, it is possible to call /search and /answer in parallel with the same session ID & query ID. */
@@ -2865,7 +3225,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1alphaSearchRequestSpellCorrectionSpec {
       /** The mode under which spell correction replaces the original search query. Defaults to Mode.AUTO. */
-      mode?: string;
+      mode?: 'MODE_UNSPECIFIED' | 'SUGGESTION_ONLY' | 'AUTO';
     }
     interface GoogleCloudDiscoveryengineV1alphaSession {
       /** Optional. The display name of the session. This field is used to identify the session in the UI. By default, the display name is the first turn query text in the session. */
@@ -2881,7 +3241,7 @@ declare namespace gapi.client {
       /** Output only. The time the session started. */
       startTime?: string;
       /** The state of the session. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'IN_PROGRESS';
       /** Turns. */
       turns?: GoogleCloudDiscoveryengineV1alphaSessionTurn[];
       /** A unique identifier for tracking users. */
@@ -2909,7 +3269,7 @@ declare namespace gapi.client {
       /** Errors from service when handling the request. */
       error?: GoogleRpcStatus;
       /** Output only. The state of the response. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'SUCCEEDED' | 'FAILED';
     }
     interface GoogleCloudDiscoveryengineV1alphaSetUpDataConnectorMetadata {}
     interface GoogleCloudDiscoveryengineV1alphaSetUriPatternDocumentDataMetadata {
@@ -2933,7 +3293,11 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1alphaSiteVerificationInfo {
       /** Site verification state indicating the ownership and validity. */
-      siteVerificationState?: string;
+      siteVerificationState?:
+        | 'SITE_VERIFICATION_STATE_UNSPECIFIED'
+        | 'VERIFIED'
+        | 'UNVERIFIED'
+        | 'EXEMPTED';
       /** Latest site verification time. */
       verifyTime?: string;
     }
@@ -2945,7 +3309,14 @@ declare namespace gapi.client {
       /** Output only. This is system-generated based on the provided_uri_pattern. */
       generatedUriPattern?: string;
       /** Output only. Indexing status. */
-      indexingStatus?: string;
+      indexingStatus?:
+        | 'INDEXING_STATUS_UNSPECIFIED'
+        | 'PENDING'
+        | 'FAILED'
+        | 'SUCCEEDED'
+        | 'DELETING'
+        | 'CANCELLABLE'
+        | 'CANCELLED';
       /** Output only. The fully qualified resource name of the target site. `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/targetSites/{target_site}` The `target_site_id` is system-generated. */
       name?: string;
       /** Required. Input only. The user provided URI pattern from which the `generated_uri_pattern` is generated. */
@@ -2955,7 +3326,7 @@ declare namespace gapi.client {
       /** Output only. Site ownership and validity verification status. */
       siteVerificationInfo?: GoogleCloudDiscoveryengineV1alphaSiteVerificationInfo;
       /** The type of the target site, e.g., whether the site is to be included or excluded. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'INCLUDE' | 'EXCLUDE';
       /** Output only. The target site's last updated time. */
       updateTime?: string;
     }
@@ -3042,7 +3413,13 @@ declare namespace gapi.client {
       /** Output only. User last logged in time. If the user has not logged in yet, this field will be empty. */
       lastLoginTime?: string;
       /** Output only. License assignment state of the user. If the user is assigned with a license config, the user login will be assigned with the license; If the user's license assignment state is unassigned or unspecified, no license config will be associated to the user; */
-      licenseAssignmentState?: string;
+      licenseAssignmentState?:
+        | 'LICENSE_ASSIGNMENT_STATE_UNSPECIFIED'
+        | 'ASSIGNED'
+        | 'UNASSIGNED'
+        | 'NO_LICENSE'
+        | 'NO_LICENSE_ATTEMPTED_LOGIN'
+        | 'BLOCKED';
       /** Optional. The full resource name of the Subscription(LicenseConfig) assigned to the user. */
       licenseConfig?: string;
       /** Output only. User update timestamp. */
@@ -3060,11 +3437,32 @@ declare namespace gapi.client {
       /** Optional. The super admin service account for the workspace that will be used for access token generation. For now we only use it for Native Google Drive connector data ingestion. */
       superAdminServiceAccount?: string;
       /** The Google Workspace data source. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'GOOGLE_DRIVE'
+        | 'GOOGLE_MAIL'
+        | 'GOOGLE_SITES'
+        | 'GOOGLE_CALENDAR'
+        | 'GOOGLE_CHAT'
+        | 'GOOGLE_GROUPS'
+        | 'GOOGLE_KEEP'
+        | 'GOOGLE_PEOPLE';
     }
     interface GoogleCloudDiscoveryengineV1Answer {
       /** Additional answer-skipped reasons. This provides the reason for ignored cases. If nothing is skipped, this field is not set. */
-      answerSkippedReasons?: string[];
+      answerSkippedReasons?:
+        | 'ANSWER_SKIPPED_REASON_UNSPECIFIED'
+        | 'ADVERSARIAL_QUERY_IGNORED'
+        | 'NON_ANSWER_SEEKING_QUERY_IGNORED'
+        | 'OUT_OF_DOMAIN_QUERY_IGNORED'
+        | 'POTENTIAL_POLICY_VIOLATION'
+        | 'NO_RELEVANT_CONTENT'
+        | 'JAIL_BREAKING_QUERY_IGNORED'
+        | 'CUSTOMER_POLICY_VIOLATION'
+        | 'NON_ANSWER_SEEKING_QUERY_IGNORED_V2'
+        | 'LOW_GROUNDED_ANSWER'
+        | 'USER_DEFINED_CLASSIFICATION_QUERY_IGNORED'
+        | 'UNHELPFUL_ANSWER'[];
       /** The textual answer. */
       answerText?: string;
       /** Citations. */
@@ -3088,7 +3486,12 @@ declare namespace gapi.client {
       /** Optional. Safety ratings. */
       safetyRatings?: GoogleCloudDiscoveryengineV1SafetyRating[];
       /** The state of the answer generation. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'IN_PROGRESS'
+        | 'FAILED'
+        | 'SUCCEEDED'
+        | 'STREAMING';
       /** Answer generation steps. */
       steps?: GoogleCloudDiscoveryengineV1AnswerStep[];
     }
@@ -3210,7 +3613,10 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1AnswerQueryRequestGroundingSpec {
       /** Optional. Specifies whether to enable the filtering based on grounding score and at what level. */
-      filteringLevel?: string;
+      filteringLevel?:
+        | 'FILTERING_LEVEL_UNSPECIFIED'
+        | 'FILTERING_LEVEL_LOW'
+        | 'FILTERING_LEVEL_HIGH';
       /** Optional. Specifies whether to include grounding_supports in the answer. The default value is `false`. When this field is set to `true`, returned answer will have `grounding_score` and will contain GroundingSupports for each claim. */
       includeGroundingSupports?: boolean;
     }
@@ -3224,7 +3630,13 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1AnswerQueryRequestQueryUnderstandingSpecQueryClassificationSpec {
       /** Enabled query classification types. */
-      types?: string[];
+      types?:
+        | 'TYPE_UNSPECIFIED'
+        | 'ADVERSARIAL_QUERY'
+        | 'NON_ANSWER_SEEKING_QUERY'
+        | 'JAIL_BREAKING_QUERY'
+        | 'NON_ANSWER_SEEKING_QUERY_V2'
+        | 'USER_DEFINED_CLASSIFICATION_QUERY'[];
     }
     interface GoogleCloudDiscoveryengineV1AnswerQueryRequestQueryUnderstandingSpecQueryRephraserSpec {
       /** Disable query rephraser. */
@@ -3236,7 +3648,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1AnswerQueryRequestQueryUnderstandingSpecQueryRephraserSpecModelSpec {
       /** Optional. Enabled query rephraser model type. If not set, it will use LARGE by default. */
-      modelType?: string;
+      modelType?: 'MODEL_TYPE_UNSPECIFIED' | 'SMALL' | 'LARGE';
     }
     interface GoogleCloudDiscoveryengineV1AnswerQueryRequestRelatedQuestionsSpec {
       /** Enable related questions feature if true. */
@@ -3250,9 +3662,21 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1AnswerQueryRequestSafetySpecSafetySetting {
       /** Required. Harm category. */
-      category?: string;
+      category?:
+        | 'HARM_CATEGORY_UNSPECIFIED'
+        | 'HARM_CATEGORY_HATE_SPEECH'
+        | 'HARM_CATEGORY_DANGEROUS_CONTENT'
+        | 'HARM_CATEGORY_HARASSMENT'
+        | 'HARM_CATEGORY_SEXUALLY_EXPLICIT'
+        | 'HARM_CATEGORY_CIVIC_INTEGRITY';
       /** Required. The harm block threshold. */
-      threshold?: string;
+      threshold?:
+        | 'HARM_BLOCK_THRESHOLD_UNSPECIFIED'
+        | 'BLOCK_LOW_AND_ABOVE'
+        | 'BLOCK_MEDIUM_AND_ABOVE'
+        | 'BLOCK_ONLY_HIGH'
+        | 'BLOCK_NONE'
+        | 'OFF';
     }
     interface GoogleCloudDiscoveryengineV1AnswerQueryRequestSearchSpec {
       /** Search parameters. */
@@ -3272,7 +3696,10 @@ declare namespace gapi.client {
       /** The order in which documents are returned. Documents can be ordered by a field in an Document object. Leave it unset if ordered by relevance. `order_by` expression is case-sensitive. For more information on ordering, see [Ordering](https://cloud.google.com/retail/docs/filter-and-order#order) If this field is unrecognizable, an `INVALID_ARGUMENT` is returned. */
       orderBy?: string;
       /** Specifies the search result mode. If unspecified, the search result mode defaults to `DOCUMENTS`. See [parse and chunk documents](https://cloud.google.com/generative-ai-app-builder/docs/parse-chunk-documents) */
-      searchResultMode?: string;
+      searchResultMode?:
+        | 'SEARCH_RESULT_MODE_UNSPECIFIED'
+        | 'DOCUMENTS'
+        | 'CHUNKS';
     }
     interface GoogleCloudDiscoveryengineV1AnswerQueryRequestSearchSpecSearchResultList {
       /** Search results. */
@@ -3346,7 +3773,13 @@ declare namespace gapi.client {
       /** Classification output. */
       positive?: boolean;
       /** Query classification type. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'ADVERSARIAL_QUERY'
+        | 'NON_ANSWER_SEEKING_QUERY'
+        | 'JAIL_BREAKING_QUERY'
+        | 'NON_ANSWER_SEEKING_QUERY_V2'
+        | 'USER_DEFINED_CLASSIFICATION_QUERY';
     }
     interface GoogleCloudDiscoveryengineV1AnswerReference {
       /** Chunk information. */
@@ -3414,7 +3847,7 @@ declare namespace gapi.client {
       /** The description of the step. */
       description?: string;
       /** The state of the step. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'IN_PROGRESS' | 'FAILED' | 'SUCCEEDED';
       /** The thought of the step. */
       thought?: string;
     }
@@ -3462,7 +3895,10 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1AssistAnswer {
       /** Reasons for not answering the assist call. */
-      assistSkippedReasons?: string[];
+      assistSkippedReasons?:
+        | 'ASSIST_SKIPPED_REASON_UNSPECIFIED'
+        | 'NON_ASSIST_SEEKING_QUERY_IGNORED'
+        | 'CUSTOMER_POLICY_VIOLATION'[];
       /** Optional. The field contains information about the various policy checks' results like the banned phrases or the Model Armor checks. This field is populated only if the assist call was skipped due to a policy violation. */
       customerPolicyEnforcementResult?: GoogleCloudDiscoveryengineV1AssistAnswerCustomerPolicyEnforcementResult;
       /** Immutable. Identifier. Resource name of the `AssistAnswer`. Format: `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/sessions/{session}/assistAnswers/{assist_answer}` This field must be a UTF-8 encoded string with a length limit of 1024 characters. */
@@ -3470,13 +3906,18 @@ declare namespace gapi.client {
       /** Replies of the assistant. */
       replies?: GoogleCloudDiscoveryengineV1AssistAnswerReply[];
       /** State of the answer generation. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'IN_PROGRESS'
+        | 'FAILED'
+        | 'SUCCEEDED'
+        | 'SKIPPED';
     }
     interface GoogleCloudDiscoveryengineV1AssistAnswerCustomerPolicyEnforcementResult {
       /** Customer policy enforcement results. Populated only if the assist call was skipped due to a policy violation. It contains results from those filters that blocked the processing of the query. */
       policyResults?: GoogleCloudDiscoveryengineV1AssistAnswerCustomerPolicyEnforcementResultPolicyEnforcementResult[];
       /** Final verdict of the customer policy enforcement. If only one policy blocked the processing, the verdict is BLOCK. */
-      verdict?: string;
+      verdict?: 'UNSPECIFIED' | 'ALLOW' | 'BLOCK';
     }
     interface GoogleCloudDiscoveryengineV1AssistAnswerCustomerPolicyEnforcementResultBannedPhraseEnforcementResult {
       /** The banned phrases that were found in the query or the answer. */
@@ -3516,7 +3957,11 @@ declare namespace gapi.client {
       /** Immutable. Resource name of the assistant. Format: `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/assistants/{assistant}` It must be a UTF-8 encoded string with a length limit of 1024 characters. */
       name?: string;
       /** Optional. The type of web grounding to use. */
-      webGroundingType?: string;
+      webGroundingType?:
+        | 'WEB_GROUNDING_TYPE_UNSPECIFIED'
+        | 'WEB_GROUNDING_TYPE_DISABLED'
+        | 'WEB_GROUNDING_TYPE_GOOGLE_SEARCH'
+        | 'WEB_GROUNDING_TYPE_ENTERPRISE_WEB_SEARCH';
     }
     interface GoogleCloudDiscoveryengineV1AssistantContent {
       /** Result of executing an ExecutableCode. */
@@ -3542,7 +3987,11 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1AssistantContentCodeExecutionResult {
       /** Required. Outcome of the code execution. */
-      outcome?: string;
+      outcome?:
+        | 'OUTCOME_UNSPECIFIED'
+        | 'OUTCOME_OK'
+        | 'OUTCOME_FAILED'
+        | 'OUTCOME_DEADLINE_EXCEEDED';
       /** Optional. Contains stdout when code execution is successful, stderr or other description otherwise. */
       output?: string;
     }
@@ -3566,13 +4015,16 @@ declare namespace gapi.client {
       /** Optional. If true, diacritical marks (e.g., accents, umlauts) are ignored when matching banned phrases. For example, "cafe" would match "café". */
       ignoreDiacritics?: boolean;
       /** Optional. Match type for the banned phrase. */
-      matchType?: string;
+      matchType?:
+        | 'BANNED_PHRASE_MATCH_TYPE_UNSPECIFIED'
+        | 'SIMPLE_STRING_MATCH'
+        | 'WORD_BOUNDARY_STRING_MATCH';
       /** Required. The raw string content to be banned. */
       phrase?: string;
     }
     interface GoogleCloudDiscoveryengineV1AssistantCustomerPolicyModelArmorConfig {
       /** Optional. Defines the failure mode for Model Armor sanitization. */
-      failureMode?: string;
+      failureMode?: 'FAILURE_MODE_UNSPECIFIED' | 'FAIL_OPEN' | 'FAIL_CLOSED';
       /** Optional. The resource name of the Model Armor template for sanitizing assistant responses. Format: `projects/{project}/locations/{location}/templates/{template_id}` If not specified, no sanitization will be applied to the assistant response. */
       responseTemplate?: string;
       /** Optional. The resource name of the Model Armor template for sanitizing user prompts. Format: `projects/{project}/locations/{location}/templates/{template_id}` If not specified, no sanitization will be applied to the user prompt. */
@@ -3658,7 +4110,11 @@ declare namespace gapi.client {
       /** Optional. The actions enabled on the associated BAP connection. */
       enabledActions?: string[];
       /** Required. The supported connector modes for the associated BAP connection. */
-      supportedConnectorModes?: string[];
+      supportedConnectorModes?:
+        | 'CONNECTOR_MODE_UNSPECIFIED'
+        | 'DATA_INGESTION'
+        | 'ACTIONS'
+        | 'END_USER_AUTHENTICATION'[];
     }
     interface GoogleCloudDiscoveryengineV1BatchCreateTargetSiteMetadata {
       /** Operation create time. */
@@ -3686,7 +4142,11 @@ declare namespace gapi.client {
       /** The value of the matcher that was used to match the Document. */
       matcherValue?: GoogleCloudDiscoveryengineV1BatchGetDocumentsMetadataResponseDocumentMetadataMatcherValue;
       /** The state of the document. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'INDEXED'
+        | 'NOT_IN_TARGET_SITE'
+        | 'NOT_IN_INDEX';
     }
     interface GoogleCloudDiscoveryengineV1BatchGetDocumentsMetadataResponseDocumentMetadataMatcherValue {
       /** Format: projects/{project}/locations/{location}/datasets/{dataset}/fhirStores/{fhir_store}/fhir/{resource_type}/{fhir_resource_id} */
@@ -3781,11 +4241,25 @@ declare namespace gapi.client {
       /** Required. The name of the CmekConfig of the form `projects/{project}/locations/{location}/cmekConfig` or `projects/{project}/locations/{location}/cmekConfigs/{cmek_config}`. */
       name?: string;
       /** Output only. Whether the NotebookLM Corpus is ready to be used. */
-      notebooklmState?: string;
+      notebooklmState?:
+        | 'NOTEBOOK_LM_STATE_UNSPECIFIED'
+        | 'NOTEBOOK_LM_NOT_READY'
+        | 'NOTEBOOK_LM_READY'
+        | 'NOTEBOOK_LM_NOT_ENABLED';
       /** Optional. Single-regional CMEKs that are required for some VAIS features. */
       singleRegionKeys?: GoogleCloudDiscoveryengineV1betaSingleRegionKey[];
       /** Output only. The states of the CmekConfig. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'ACTIVE'
+        | 'KEY_ISSUE'
+        | 'DELETING'
+        | 'DELETE_FAILED'
+        | 'UNUSABLE'
+        | 'ACTIVE_ROTATING'
+        | 'DELETED'
+        | 'EXPIRED';
     }
     interface GoogleCloudDiscoveryengineV1betaCondition {
       /** Range of time(s) specifying when condition is active. Maximum of 10 time ranges. */
@@ -3825,11 +4299,20 @@ declare namespace gapi.client {
       /** Defines a redirect-type control. */
       redirectAction?: GoogleCloudDiscoveryengineV1betaControlRedirectAction;
       /** Required. Immutable. What solution the control belongs to. Must be compatible with vertical of resource. Otherwise an INVALID ARGUMENT error is thrown. */
-      solutionType?: string;
+      solutionType?:
+        | 'SOLUTION_TYPE_UNSPECIFIED'
+        | 'SOLUTION_TYPE_RECOMMENDATION'
+        | 'SOLUTION_TYPE_SEARCH'
+        | 'SOLUTION_TYPE_CHAT'
+        | 'SOLUTION_TYPE_GENERATIVE_CHAT'
+        | 'SOLUTION_TYPE_AI_MODE';
       /** Treats a group of terms as synonyms of one another. */
       synonymsAction?: GoogleCloudDiscoveryengineV1betaControlSynonymsAction;
       /** Specifies the use case for the control. Affects what condition fields can be set. Only applies to SOLUTION_TYPE_SEARCH. Currently only allow one use case per control. Must be set when solution_type is SolutionType.SOLUTION_TYPE_SEARCH. */
-      useCases?: string[];
+      useCases?:
+        | 'SEARCH_USE_CASE_UNSPECIFIED'
+        | 'SEARCH_USE_CASE_SEARCH'
+        | 'SEARCH_USE_CASE_BROWSE'[];
     }
     interface GoogleCloudDiscoveryengineV1betaControlBoostAction {
       /** Strength of the boost, which should be in [-1, 1]. Negative boost means demotion. Default is 0.0 (No-op). */
@@ -3845,13 +4328,13 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpec {
       /** Optional. The attribute type to be used to determine the boost amount. The attribute value can be derived from the field value of the specified field_name. In the case of numerical it is straightforward i.e. attribute_value = numerical_field_value. In the case of freshness however, attribute_value = (time.now() - datetime_field_value). */
-      attributeType?: string;
+      attributeType?: 'ATTRIBUTE_TYPE_UNSPECIFIED' | 'NUMERICAL' | 'FRESHNESS';
       /** Optional. The control points used to define the curve. The monotonic function (defined through the interpolation_type above) passes through the control points listed here. */
       controlPoints?: GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpecControlPoint[];
       /** Optional. The name of the field whose value will be used to determine the boost amount. */
       fieldName?: string;
       /** Optional. The interpolation type to be applied to connect the control points listed below. */
-      interpolationType?: string;
+      interpolationType?: 'INTERPOLATION_TYPE_UNSPECIFIED' | 'LINEAR';
     }
     interface GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpecControlPoint {
       /** Optional. Can be one of: 1. The numerical field value. 2. The duration spec for freshness: The value must be formatted as an XSD `dayTimeDuration` value (a restricted subset of an ISO 8601 duration value). The pattern for this is: `nDnM]`. */
@@ -3924,11 +4407,19 @@ declare namespace gapi.client {
       /** Output only. CMEK-related information for the DataStore. */
       cmekConfig?: GoogleCloudDiscoveryengineV1betaCmekConfig;
       /** Optional. Configuration for configurable billing approach. See */
-      configurableBillingApproach?: string;
+      configurableBillingApproach?:
+        | 'CONFIGURABLE_BILLING_APPROACH_UNSPECIFIED'
+        | 'CONFIGURABLE_SUBSCRIPTION_INDEXING_CORE'
+        | 'CONFIGURABLE_CONSUMPTION_EMBEDDING';
       /** Output only. The timestamp when configurable_billing_approach was last updated. */
       configurableBillingApproachUpdateTime?: string;
       /** Immutable. The content config of the data store. If this field is unset, the server behavior defaults to ContentConfig.NO_CONTENT. */
-      contentConfig?: string;
+      contentConfig?:
+        | 'CONTENT_CONFIG_UNSPECIFIED'
+        | 'NO_CONTENT'
+        | 'CONTENT_REQUIRED'
+        | 'PUBLIC_WEBSITE'
+        | 'GOOGLE_WORKSPACE';
       /** Output only. Timestamp the DataStore was created at. */
       createTime?: string;
       /** Output only. The id of the default Schema associated to this data store. */
@@ -3944,7 +4435,11 @@ declare namespace gapi.client {
       /** Immutable. The fully qualified resource name of the associated IdentityMappingStore. This field can only be set for acl_enabled DataStores with `THIRD_PARTY` or `GSUITE` IdP. Format: `projects/{project}/locations/{location}/identityMappingStores/{identity_mapping_store}`. */
       identityMappingStore?: string;
       /** Immutable. The industry vertical that the data store registers. */
-      industryVertical?: string;
+      industryVertical?:
+        | 'INDUSTRY_VERTICAL_UNSPECIFIED'
+        | 'GENERIC'
+        | 'MEDIA'
+        | 'HEALTHCARE_FHIR';
       /** Optional. If set, this DataStore is an Infobot FAQ DataStore. */
       isInfobotFaqDataStore?: boolean;
       /** Input only. The KMS key to be used to protect this DataStore at creation time. Must be set for requests that need to comply with CMEK Org Policy protections. If this field is set and processed successfully, the DataStore will be protected by the KMS key, as indicated in the cmek_config field. */
@@ -3958,7 +4453,13 @@ declare namespace gapi.client {
       /** Optional. Stores serving config at DataStore level. */
       servingConfigDataStore?: GoogleCloudDiscoveryengineV1betaDataStoreServingConfigDataStore;
       /** The solutions that the data store enrolls. Available solutions for each industry_vertical: * `MEDIA`: `SOLUTION_TYPE_RECOMMENDATION` and `SOLUTION_TYPE_SEARCH`. * `SITE_SEARCH`: `SOLUTION_TYPE_SEARCH` is automatically enrolled. Other solutions cannot be enrolled. */
-      solutionTypes?: string[];
+      solutionTypes?:
+        | 'SOLUTION_TYPE_UNSPECIFIED'
+        | 'SOLUTION_TYPE_RECOMMENDATION'
+        | 'SOLUTION_TYPE_SEARCH'
+        | 'SOLUTION_TYPE_CHAT'
+        | 'SOLUTION_TYPE_GENERATIVE_CHAT'
+        | 'SOLUTION_TYPE_AI_MODE'[];
       /** The start schema to use for this DataStore when provisioning it. If unset, a default vertical specialized schema will be used. This field is only used by CreateDataStore API, and will be ignored if used in other APIs. This field will be omitted from all API responses including CreateDataStore API. To retrieve a schema of a DataStore, use SchemaService.GetSchema API instead. The provided schema will be validated against certain rules on schema. Learn more from [this doc](https://cloud.google.com/generative-ai-app-builder/docs/provide-schema). */
       startingSchema?: GoogleCloudDiscoveryengineV1betaSchema;
       /** Config to store data store type configuration for workspace data. This must be set when DataStore.content_config is set as DataStore.ContentConfig.GOOGLE_WORKSPACE. */
@@ -4000,7 +4501,10 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1betaDataStoreFederatedSearchConfigAlloyDbConfigAlloyDbConnectionConfig {
       /** Optional. Auth mode. */
-      authMode?: string;
+      authMode?:
+        | 'AUTH_MODE_UNSPECIFIED'
+        | 'AUTH_MODE_SERVICE_ACCOUNT'
+        | 'AUTH_MODE_END_USER_ACCOUNT';
       /** Required. The AlloyDB database to connect to. */
       database?: string;
       /** Optional. If true, enable PSVS for AlloyDB. */
@@ -4145,7 +4649,7 @@ declare namespace gapi.client {
       /** Optional. The agent gateway setting for the engine. */
       agentGatewaySetting?: GoogleCloudDiscoveryengineV1betaAgentGatewaySetting;
       /** Optional. Immutable. This the application type which this engine resource represents. NOTE: this is a new concept independ of existing industry vertical or solution type. */
-      appType?: string;
+      appType?: 'APP_TYPE_UNSPECIFIED' | 'APP_TYPE_INTRANET';
       /** Configurations for the Chat Engine. Only applicable if solution_type is SOLUTION_TYPE_CHAT. */
       chatEngineConfig?: GoogleCloudDiscoveryengineV1betaEngineChatEngineConfig;
       /** Output only. Additional information of the Chat Engine. Only applicable if solution_type is SOLUTION_TYPE_CHAT. */
@@ -4155,7 +4659,9 @@ declare namespace gapi.client {
       /** Common config spec that specifies the metadata of the engine. */
       commonConfig?: GoogleCloudDiscoveryengineV1betaEngineCommonConfig;
       /** Optional. Configuration for configurable billing approach. */
-      configurableBillingApproach?: string;
+      configurableBillingApproach?:
+        | 'CONFIGURABLE_BILLING_APPROACH_UNSPECIFIED'
+        | 'CONFIGURABLE_BILLING_APPROACH_ENABLED';
       /** Optional. Maps a connector ID (e.g., "hybrid-github", "shopify") to tenant-specific information required for that connector. The structure of the tenant information string is connector-dependent. */
       connectorTenantInfo?: {[P in string]: string};
       /** Output only. Timestamp the Recommendation Engine was created at. */
@@ -4167,17 +4673,36 @@ declare namespace gapi.client {
       /** Required. The display name of the engine. Should be human readable. UTF-8 encoded string with limit of 1024 characters. */
       displayName?: string;
       /** Optional. Feature config for the engine to opt in or opt out of features. Supported keys: * `*`: all features, if it's present, all other feature state settings are ignored. * `agent-gallery` * `no-code-agent-builder` * `prompt-gallery` * `model-selector` * `notebook-lm` * `people-search` * `people-search-org-chart` * `bi-directional-audio` * `feedback` * `session-sharing` * `personalization-memory` * `personalization-suggested-highlights` * `disable-agent-sharing` * `disable-image-generation` * `disable-video-generation` * `disable-onedrive-upload` * `disable-talk-to-content` * `disable-google-drive-upload` * `disable-welcome-emails` */
-      features?: {[P in string]: string};
+      features?: {
+        [P in string]:
+          | 'FEATURE_STATE_UNSPECIFIED'
+          | 'FEATURE_STATE_ON'
+          | 'FEATURE_STATE_OFF';
+      };
       /** Optional. The industry vertical that the engine registers. The restriction of the Engine industry vertical is based on DataStore: Vertical on Engine has to match vertical of the DataStore linked to the engine. */
-      industryVertical?: string;
+      industryVertical?:
+        | 'INDUSTRY_VERTICAL_UNSPECIFIED'
+        | 'GENERIC'
+        | 'MEDIA'
+        | 'HEALTHCARE_FHIR';
       /** Optional. Configurations for the Knowledge Graph. Only applicable if solution_type is SOLUTION_TYPE_SEARCH. */
       knowledgeGraphConfig?: GoogleCloudDiscoveryengineV1betaEngineKnowledgeGraphConfig;
       /** Optional. The visibility of marketplace agents in the agent gallery. */
-      marketplaceAgentVisibility?: string;
+      marketplaceAgentVisibility?:
+        | 'MARKETPLACE_AGENT_VISIBILITY_UNSPECIFIED'
+        | 'SHOW_AVAILABLE_AGENTS_ONLY'
+        | 'SHOW_AGENTS_ALREADY_INTEGRATED'
+        | 'SHOW_AGENTS_ALREADY_PURCHASED'
+        | 'SHOW_ALL_AGENTS';
       /** Configurations for the Media Engine. Only applicable on the data stores with solution_type SOLUTION_TYPE_RECOMMENDATION and IndustryVertical.MEDIA vertical. */
       mediaRecommendationEngineConfig?: GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfig;
       /** Optional. Maps a model name to its specific configuration for this engine. This allows admin users to turn on/off individual models. This only stores models whose states are overridden by the admin. When the state is unspecified, or model_configs is empty for this model, the system will decide if this model should be available or not based on the default configuration. For example, a preview model should be disabled by default if the admin has not chosen to enable it. */
-      modelConfigs?: {[P in string]: string};
+      modelConfigs?: {
+        [P in string]:
+          | 'MODEL_STATE_UNSPECIFIED'
+          | 'MODEL_ENABLED'
+          | 'MODEL_DISABLED';
+      };
       /** Immutable. Identifier. The fully qualified resource name of the engine. This field must be a UTF-8 encoded string with a length limit of 1024 characters. Format: `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}` engine should be 1-63 characters, and valid characters are /a-z0-9*‍/. Otherwise, an INVALID_ARGUMENT error is returned. */
       name?: string;
       /** Optional. Observability config for the engine. */
@@ -4187,7 +4712,13 @@ declare namespace gapi.client {
       /** Configurations for the Search Engine. Only applicable if solution_type is SOLUTION_TYPE_SEARCH. */
       searchEngineConfig?: GoogleCloudDiscoveryengineV1betaEngineSearchEngineConfig;
       /** Required. The solutions of the engine. */
-      solutionType?: string;
+      solutionType?:
+        | 'SOLUTION_TYPE_UNSPECIFIED'
+        | 'SOLUTION_TYPE_RECOMMENDATION'
+        | 'SOLUTION_TYPE_SEARCH'
+        | 'SOLUTION_TYPE_CHAT'
+        | 'SOLUTION_TYPE_GENERATIVE_CHAT'
+        | 'SOLUTION_TYPE_AI_MODE';
       /** Output only. Timestamp the Recommendation Engine was last updated. */
       updateTime?: string;
     }
@@ -4247,7 +4778,7 @@ declare namespace gapi.client {
       /** Name and value of the custom threshold for cvr optimization_objective. For target_field `watch-time`, target_field_value must be an integer value indicating the media progress time in seconds between (0, 86400] (excludes 0, includes 86400) (e.g., 90). For target_field `watch-percentage`, the target_field_value must be a valid float value between (0, 1.0] (excludes 0, includes 1.0) (e.g., 0.5). */
       optimizationObjectiveConfig?: GoogleCloudDiscoveryengineV1betaEngineMediaRecommendationEngineConfigOptimizationObjectiveConfig;
       /** The training state that the engine is in (e.g. `TRAINING` or `PAUSED`). Since part of the cost of running the service is frequency of training - this can be used to determine when to train engine in order to control cost. If not specified: the default value for `CreateEngine` method is `TRAINING`. The default value for `UpdateEngine` method is to keep the state the same as before. */
-      trainingState?: string;
+      trainingState?: 'TRAINING_STATE_UNSPECIFIED' | 'PAUSED' | 'TRAINING';
       /** Required. The type of engine. e.g., `recommended-for-you`. This field together with optimization_objective describe engine metadata to use to control engine training and serving. Currently supported values: `recommended-for-you`, `others-you-may-like`, `more-like-this`, `most-popular-items`. */
       type?: string;
     }
@@ -4273,11 +4804,28 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1betaEngineSearchEngineConfig {
       /** Optional. The required subscription tier of this engine. They cannot be modified after engine creation. If the required subscription tier is search, user with higher license tier like assist can still access the standalone app associated with this engine. */
-      requiredSubscriptionTier?: string;
+      requiredSubscriptionTier?:
+        | 'SUBSCRIPTION_TIER_UNSPECIFIED'
+        | 'SUBSCRIPTION_TIER_SEARCH'
+        | 'SUBSCRIPTION_TIER_SEARCH_AND_ASSISTANT'
+        | 'SUBSCRIPTION_TIER_NOTEBOOK_LM'
+        | 'SUBSCRIPTION_TIER_FRONTLINE_WORKER'
+        | 'SUBSCRIPTION_TIER_AGENTSPACE_STARTER'
+        | 'SUBSCRIPTION_TIER_AGENTSPACE_BUSINESS'
+        | 'SUBSCRIPTION_TIER_ENTERPRISE'
+        | 'SUBSCRIPTION_TIER_ENTERPRISE_EMERGING'
+        | 'SUBSCRIPTION_TIER_EDU'
+        | 'SUBSCRIPTION_TIER_EDU_PRO'
+        | 'SUBSCRIPTION_TIER_EDU_EMERGING'
+        | 'SUBSCRIPTION_TIER_EDU_PRO_EMERGING'
+        | 'SUBSCRIPTION_TIER_FRONTLINE_STARTER';
       /** The add-on that this search engine enables. */
-      searchAddOns?: string[];
+      searchAddOns?: 'SEARCH_ADD_ON_UNSPECIFIED' | 'SEARCH_ADD_ON_LLM'[];
       /** The search feature tier of this engine. Different tiers might have different pricing. To learn more, check the pricing documentation. Defaults to SearchTier.SEARCH_TIER_STANDARD if not specified. */
-      searchTier?: string;
+      searchTier?:
+        | 'SEARCH_TIER_UNSPECIFIED'
+        | 'SEARCH_TIER_STANDARD'
+        | 'SEARCH_TIER_ENTERPRISE';
     }
     interface GoogleCloudDiscoveryengineV1betaEvaluation {
       /** Output only. Timestamp the Evaluation was created at. */
@@ -4295,7 +4843,12 @@ declare namespace gapi.client {
       /** Output only. The metrics produced by the evaluation, averaged across all SampleQuerys in the SampleQuerySet. Only populated when the evaluation's state is SUCCEEDED. */
       qualityMetrics?: GoogleCloudDiscoveryengineV1betaQualityMetrics;
       /** Output only. The state of the evaluation. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PENDING'
+        | 'RUNNING'
+        | 'SUCCEEDED'
+        | 'FAILED';
     }
     interface GoogleCloudDiscoveryengineV1betaEvaluationEvaluationSpec {
       /** Optional. The specification of the query set. */
@@ -4327,7 +4880,7 @@ declare namespace gapi.client {
       /** External Identity provider config. */
       externalIdpConfig?: GoogleCloudDiscoveryengineV1betaIdpConfigExternalIdpConfig;
       /** Identity provider type configured. */
-      idpType?: string;
+      idpType?: 'IDP_TYPE_UNSPECIFIED' | 'GSUITE' | 'THIRD_PARTY';
     }
     interface GoogleCloudDiscoveryengineV1betaIdpConfigExternalIdpConfig {
       /** Workforce pool name. Example: "locations/global/workforcePools/pool_id" */
@@ -4467,15 +5020,40 @@ declare namespace gapi.client {
       /** Required. The start date. */
       startDate?: GoogleTypeDate;
       /** Output only. The state of the license config. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'EXPIRED'
+        | 'NOT_STARTED'
+        | 'WITHDRAWN'
+        | 'DEACTIVATING';
       /** Required. Subscription term. */
-      subscriptionTerm?: string;
+      subscriptionTerm?:
+        | 'SUBSCRIPTION_TERM_UNSPECIFIED'
+        | 'SUBSCRIPTION_TERM_ONE_MONTH'
+        | 'SUBSCRIPTION_TERM_ONE_YEAR'
+        | 'SUBSCRIPTION_TERM_THREE_YEARS'
+        | 'SUBSCRIPTION_TERM_CUSTOM';
       /** Required. Subscription tier information for the license config. */
-      subscriptionTier?: string;
+      subscriptionTier?:
+        | 'SUBSCRIPTION_TIER_UNSPECIFIED'
+        | 'SUBSCRIPTION_TIER_SEARCH'
+        | 'SUBSCRIPTION_TIER_SEARCH_AND_ASSISTANT'
+        | 'SUBSCRIPTION_TIER_NOTEBOOK_LM'
+        | 'SUBSCRIPTION_TIER_FRONTLINE_WORKER'
+        | 'SUBSCRIPTION_TIER_AGENTSPACE_STARTER'
+        | 'SUBSCRIPTION_TIER_AGENTSPACE_BUSINESS'
+        | 'SUBSCRIPTION_TIER_ENTERPRISE'
+        | 'SUBSCRIPTION_TIER_ENTERPRISE_EMERGING'
+        | 'SUBSCRIPTION_TIER_EDU'
+        | 'SUBSCRIPTION_TIER_EDU_PRO'
+        | 'SUBSCRIPTION_TIER_EDU_EMERGING'
+        | 'SUBSCRIPTION_TIER_EDU_PRO_EMERGING'
+        | 'SUBSCRIPTION_TIER_FRONTLINE_STARTER';
     }
     interface GoogleCloudDiscoveryengineV1betaNaturalLanguageQueryUnderstandingConfig {
       /** Mode of Natural Language Query Understanding. If this field is unset, the behavior defaults to NaturalLanguageQueryUnderstandingConfig.Mode.DISABLED. */
-      mode?: string;
+      mode?: 'MODE_UNSPECIFIED' | 'DISABLED' | 'ENABLED';
     }
     interface GoogleCloudDiscoveryengineV1betaObservabilityConfig {
       /** Optional. Enables observability. If `false`, all other flags are ignored. */
@@ -4491,7 +5069,7 @@ declare namespace gapi.client {
       /** The historical organic crawl rate timeseries data, used for monitoring. */
       organicCrawlRateTimeSeries?: GoogleCloudDiscoveryengineV1betaOrganicCrawlRateTimeSeries;
       /** Output only. The state of the response. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'SUCCEEDED' | 'FAILED';
     }
     interface GoogleCloudDiscoveryengineV1betaOrganicCrawlRateTimeSeries {
       /** Google's organic crawl rate time series, which is the sum of all googlebots' crawl rate. Please refer to https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers for more details about googlebots. */
@@ -4565,7 +5143,11 @@ declare namespace gapi.client {
       /** The unique identifier of this terms of service. Available terms: * `GA_DATA_USE_TERMS`: [Terms for data use](https://cloud.google.com/retail/data-use-terms). When using this as `id`, the acceptable version to provide is `2022-11-23`. */
       id?: string;
       /** Whether the project has accepted/rejected the service terms or it is still pending. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'TERMS_ACCEPTED'
+        | 'TERMS_PENDING'
+        | 'TERMS_DECLINED';
       /** The version string of the terms of service. For acceptable values, see the comments for id above. */
       version?: string;
     }
@@ -4632,7 +5214,7 @@ declare namespace gapi.client {
       /** Errors from service when handling the request. */
       error?: GoogleRpcStatus;
       /** Output only. The state of the response. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'SUCCEEDED' | 'FAILED';
     }
     interface GoogleCloudDiscoveryengineV1betaSchema {
       /** The JSON representation of the schema. */
@@ -4708,7 +5290,12 @@ declare namespace gapi.client {
       /** Optional. The ranking expression controls the customized ranking on retrieval documents. This overrides ServingConfig.ranking_expression. The syntax and supported features depend on the `ranking_expression_backend` value. If `ranking_expression_backend` is not provided, it defaults to `RANK_BY_EMBEDDING`. If ranking_expression_backend is not provided or set to `RANK_BY_EMBEDDING`, it should be a single function or multiple functions that are joined by "+". * ranking_expression = function, { " + ", function }; Supported functions: * double * relevance_score * double * dotProduct(embedding_field_path) Function variables: * `relevance_score`: pre-defined keywords, used for measure relevance between query and document. * `embedding_field_path`: the document embedding field used with query embedding vector. * `dotProduct`: embedding function between `embedding_field_path` and query embedding vector. Example ranking expression: If document has an embedding field doc_embedding, the ranking expression could be `0.5 * relevance_score + 0.3 * dotProduct(doc_embedding)`. If ranking_expression_backend is set to `RANK_BY_FORMULA`, the following expression types (and combinations of those chained using + or * operators) are supported: * `double` * `signal` * `log(signal)` * `exp(signal)` * `rr(signal, double > 0)` -- reciprocal rank transformation with second argument being a denominator constant. * `is_nan(signal)` -- returns 0 if signal is NaN, 1 otherwise. * `fill_nan(signal1, signal2 | double)` -- if signal1 is NaN, returns signal2 | double, else returns signal1. Here are a few examples of ranking formulas that use the supported ranking expression types: - `0.2 * semantic_similarity_score + 0.8 * log(keyword_similarity_score)` -- mostly rank by the logarithm of `keyword_similarity_score` with slight `semantic_smilarity_score` adjustment. - `0.2 * exp(fill_nan(semantic_similarity_score, 0)) + 0.3 * is_nan(keyword_similarity_score)` -- rank by the exponent of `semantic_similarity_score` filling the value with 0 if it's NaN, also add constant 0.3 adjustment to the final score if `semantic_similarity_score` is NaN. - `0.2 * rr(semantic_similarity_score, 16) + 0.8 * rr(keyword_similarity_score, 16)` -- mostly rank by the reciprocal rank of `keyword_similarity_score` with slight adjustment of reciprocal rank of `semantic_smilarity_score`. The following signals are supported: * `semantic_similarity_score`: semantic similarity adjustment that is calculated using the embeddings generated by a proprietary Google model. This score determines how semantically similar a search query is to a document. * `keyword_similarity_score`: keyword match adjustment uses the Best Match 25 (BM25) ranking function. This score is calculated using a probabilistic model to estimate the probability that a document is relevant to a given query. * `relevance_score`: semantic relevance adjustment that uses a proprietary Google model to determine the meaning and intent behind a user's query in context with the content in the documents. * `pctr_rank`: predicted conversion rate adjustment as a rank use predicted Click-through rate (pCTR) to gauge the relevance and attractiveness of a search result from a user's perspective. A higher pCTR suggests that the result is more likely to satisfy the user's query and intent, making it a valuable signal for ranking. * `freshness_rank`: freshness adjustment as a rank * `document_age`: The time in hours elapsed since the document was last updated, a floating-point number (e.g., 0.25 means 15 minutes). * `topicality_rank`: topicality adjustment as a rank. Uses proprietary Google model to determine the keyword-based overlap between the query and the document. * `base_rank`: the default rank of the result */
       rankingExpression?: string;
       /** Optional. The backend to use for the ranking expression evaluation. */
-      rankingExpressionBackend?: string;
+      rankingExpressionBackend?:
+        | 'RANKING_EXPRESSION_BACKEND_UNSPECIFIED'
+        | 'BYOE'
+        | 'CLEARBOX'
+        | 'RANK_BY_EMBEDDING'
+        | 'RANK_BY_FORMULA';
       /** The Unicode country/region code (CLDR) of a location, such as "US" and "419". For more information, see [Standard fields](https://cloud.google.com/apis/design/standard_fields). If set, then results will be boosted based on the region_code provided. */
       regionCode?: string;
       /** Optional. The granular relevance filtering specification. If not specified, the global `relevance_threshold` will be used for all sub-searches. If specified, this overrides the global `relevance_threshold` to use thresholds on a per sub-search basis. This feature is currently supported only for custom and site search. */
@@ -4716,7 +5303,12 @@ declare namespace gapi.client {
       /** Optional. The specification for returning the relevance score. */
       relevanceScoreSpec?: GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceScoreSpec;
       /** The global relevance threshold of the search results. Defaults to Google defined threshold, leveraging a balance of precision and recall to deliver both highly accurate results and comprehensive coverage of relevant information. If more granular relevance filtering is required, use the `relevance_filter_spec` instead. This feature is not supported for healthcare search. */
-      relevanceThreshold?: string;
+      relevanceThreshold?:
+        | 'RELEVANCE_THRESHOLD_UNSPECIFIED'
+        | 'LOWEST'
+        | 'LOW'
+        | 'MEDIUM'
+        | 'HIGH';
       /** Whether to turn on safe search. This is only supported for website search. */
       safeSearch?: boolean;
       /** Optional. SearchAddonSpec is used to disable add-ons for search as per new repricing model. This field is only supported for search requests. */
@@ -4752,13 +5344,13 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1betaSearchRequestBoostSpecConditionBoostSpecBoostControlSpec {
       /** The attribute type to be used to determine the boost amount. The attribute value can be derived from the field value of the specified field_name. In the case of numerical it is straightforward i.e. attribute_value = numerical_field_value. In the case of freshness however, attribute_value = (time.now() - datetime_field_value). */
-      attributeType?: string;
+      attributeType?: 'ATTRIBUTE_TYPE_UNSPECIFIED' | 'NUMERICAL' | 'FRESHNESS';
       /** The control points used to define the curve. The monotonic function (defined through the interpolation_type above) passes through the control points listed here. */
       controlPoints?: GoogleCloudDiscoveryengineV1betaSearchRequestBoostSpecConditionBoostSpecBoostControlSpecControlPoint[];
       /** The name of the field whose value will be used to determine the boost amount. */
       fieldName?: string;
       /** The interpolation type to be applied to connect the control points listed below. */
-      interpolationType?: string;
+      interpolationType?: 'INTERPOLATION_TYPE_UNSPECIFIED' | 'LINEAR';
     }
     interface GoogleCloudDiscoveryengineV1betaSearchRequestBoostSpecConditionBoostSpecBoostControlSpecControlPoint {
       /** Can be one of: 1. The numerical field value. 2. The duration spec for freshness: The value must be formatted as an XSD `dayTimeDuration` value (a restricted subset of an ISO 8601 duration value). The pattern for this is: `nDnM]`. */
@@ -4772,7 +5364,10 @@ declare namespace gapi.client {
       /** If there is no extractive_content_spec provided, there will be no extractive answer in the search response. */
       extractiveContentSpec?: GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecExtractiveContentSpec;
       /** Specifies the search result mode. If unspecified, the search result mode defaults to `DOCUMENTS`. */
-      searchResultMode?: string;
+      searchResultMode?:
+        | 'SEARCH_RESULT_MODE_UNSPECIFIED'
+        | 'DOCUMENTS'
+        | 'CHUNKS';
       /** If `snippetSpec` is not specified, snippets are not included in the search response. */
       snippetSpec?: GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecSnippetSpec;
       /** If `summarySpec` is not specified, summaries are not included in the search response. */
@@ -4838,7 +5433,11 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecSummarySpecMultiModalSpec {
       /** Optional. Source of image returned in the answer. */
-      imageSource?: string;
+      imageSource?:
+        | 'IMAGE_SOURCE_UNSPECIFIED'
+        | 'ALL_AVAILABLE_SOURCES'
+        | 'CORPUS_IMAGE_ONLY'
+        | 'FIGURE_GENERATION_ONLY';
     }
     interface GoogleCloudDiscoveryengineV1betaSearchRequestCrowdingSpec {
       /** The field to use for crowding. Documents can be crowded by a field in the Document object. Crowding field is case sensitive. */
@@ -4846,7 +5445,10 @@ declare namespace gapi.client {
       /** The maximum number of documents to keep per value of the field. Once there are at least max_count previous results which contain the same value for the given field (according to the order specified in `order_by`), later results with the same value are "crowded away". If not specified, the default value is 1. */
       maxCount?: number;
       /** Mode to use for documents that are crowded away. */
-      mode?: string;
+      mode?:
+        | 'MODE_UNSPECIFIED'
+        | 'DROP_CROWDED_RESULTS'
+        | 'DEMOTE_CROWDED_RESULTS_TO_END';
     }
     interface GoogleCloudDiscoveryengineV1betaSearchRequestDataStoreSpec {
       /** Optional. Boost specification to boost certain documents. For more information on boosting, see [Boosting](https://cloud.google.com/generative-ai-app-builder/docs/boost-search-results) */
@@ -4862,7 +5464,10 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1betaSearchRequestDisplaySpec {
       /** The condition under which match highlighting should occur. */
-      matchHighlightingCondition?: string;
+      matchHighlightingCondition?:
+        | 'MATCH_HIGHLIGHTING_CONDITION_UNSPECIFIED'
+        | 'MATCH_HIGHLIGHTING_DISABLED'
+        | 'MATCH_HIGHLIGHTING_ENABLED';
     }
     interface GoogleCloudDiscoveryengineV1betaSearchRequestEmbeddingSpec {
       /** The embedding vector used for retrieval. Limit to 1. */
@@ -4908,19 +5513,25 @@ declare namespace gapi.client {
       /** Optional. Allowlist of fields that can be used for natural language filter extraction. By default, if this is unspecified, all indexable fields are eligible for natural language filter extraction (but are not guaranteed to be used). If any fields are specified in allowed_field_names, only the fields that are both marked as indexable in the schema and specified in the allowlist will be eligible for natural language filter extraction. Note: for multi-datastore search, this is not yet supported, and will be ignored. */
       allowedFieldNames?: string[];
       /** Optional. Controls behavior of how extracted filters are applied to the search. The default behavior depends on the request. For single datastore structured search, the default is `HARD_FILTER`. For multi-datastore search, the default behavior is `SOFT_BOOST`. Location-based filters are always applied as hard filters, and the `SOFT_BOOST` setting will not affect them. This field is only used if SearchRequest.NaturalLanguageQueryUnderstandingSpec.FilterExtractionCondition is set to FilterExtractionCondition.ENABLED. */
-      extractedFilterBehavior?: string;
+      extractedFilterBehavior?:
+        | 'EXTRACTED_FILTER_BEHAVIOR_UNSPECIFIED'
+        | 'HARD_FILTER'
+        | 'SOFT_BOOST';
       /** The condition under which filter extraction should occur. Server behavior defaults to `DISABLED`. */
-      filterExtractionCondition?: string;
+      filterExtractionCondition?:
+        | 'CONDITION_UNSPECIFIED'
+        | 'DISABLED'
+        | 'ENABLED';
       /** Field names used for location-based filtering, where geolocation filters are detected in natural language search queries. Only valid when the FilterExtractionCondition is set to `ENABLED`. If this field is set, it overrides the field names set in ServingConfig.geo_search_query_detection_field_names. */
       geoSearchQueryDetectionFieldNames?: string[];
     }
     interface GoogleCloudDiscoveryengineV1betaSearchRequestPersonalizationSpec {
       /** The personalization mode of the search request. Defaults to Mode.AUTO. */
-      mode?: string;
+      mode?: 'MODE_UNSPECIFIED' | 'AUTO' | 'DISABLED';
     }
     interface GoogleCloudDiscoveryengineV1betaSearchRequestQueryExpansionSpec {
       /** The condition under which query expansion should occur. Default to Condition.DISABLED. */
-      condition?: string;
+      condition?: 'CONDITION_UNSPECIFIED' | 'DISABLED' | 'AUTO';
       /** Whether to pin unexpanded results. If this field is set to true, unexpanded products are always at the top of the search results, followed by the expanded results. */
       pinUnexpandedResults?: boolean;
     }
@@ -4932,7 +5543,12 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec {
       /** Pre-defined relevance threshold for the sub-search. */
-      relevanceThreshold?: string;
+      relevanceThreshold?:
+        | 'RELEVANCE_THRESHOLD_UNSPECIFIED'
+        | 'LOWEST'
+        | 'LOW'
+        | 'MEDIUM'
+        | 'HIGH';
       /** Custom relevance threshold for the sub-search. The value must be in [0.0, 1.0]. */
       semanticRelevanceThreshold?: number;
     }
@@ -4950,7 +5566,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1betaSearchRequestSearchAsYouTypeSpec {
       /** The condition under which search as you type should occur. Default to Condition.DISABLED. */
-      condition?: string;
+      condition?: 'CONDITION_UNSPECIFIED' | 'DISABLED' | 'ENABLED' | 'AUTO';
     }
     interface GoogleCloudDiscoveryengineV1betaSearchRequestSessionSpec {
       /** If set, the search result gets stored to the "turn" specified by this query ID. Example: Let's say the session looks like this: session { name: ".../sessions/xxx" turns { query { text: "What is foo?" query_id: ".../questions/yyy" } answer: "Foo is ..." } turns { query { text: "How about bar then?" query_id: ".../questions/zzz" } } } The user can call /search API with a request like this: session: ".../sessions/xxx" session_spec { query_id: ".../questions/zzz" } Then, the API stores the search result, associated with the last turn. The stored search result can be used by a subsequent /answer API call (with the session ID and the query ID specified). Also, it is possible to call /search and /answer in parallel with the same session ID & query ID. */
@@ -4960,7 +5576,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1betaSearchRequestSpellCorrectionSpec {
       /** The mode under which spell correction replaces the original search query. Defaults to Mode.AUTO. */
-      mode?: string;
+      mode?: 'MODE_UNSPECIFIED' | 'SUGGESTION_ONLY' | 'AUTO';
     }
     interface GoogleCloudDiscoveryengineV1betaSetDedicatedCrawlRateMetadata {
       /** Operation create time. */
@@ -4972,7 +5588,7 @@ declare namespace gapi.client {
       /** Errors from service when handling the request. */
       error?: GoogleRpcStatus;
       /** Output only. The state of the response. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'SUCCEEDED' | 'FAILED';
     }
     interface GoogleCloudDiscoveryengineV1betaSingleRegionKey {
       /** Required. Single-regional kms key resource name which will be used to encrypt resources `projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{keyId}`. */
@@ -4988,7 +5604,11 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1betaSiteVerificationInfo {
       /** Site verification state indicating the ownership and validity. */
-      siteVerificationState?: string;
+      siteVerificationState?:
+        | 'SITE_VERIFICATION_STATE_UNSPECIFIED'
+        | 'VERIFIED'
+        | 'UNVERIFIED'
+        | 'EXEMPTED';
       /** Latest site verification time. */
       verifyTime?: string;
     }
@@ -5000,7 +5620,14 @@ declare namespace gapi.client {
       /** Output only. This is system-generated based on the provided_uri_pattern. */
       generatedUriPattern?: string;
       /** Output only. Indexing status. */
-      indexingStatus?: string;
+      indexingStatus?:
+        | 'INDEXING_STATUS_UNSPECIFIED'
+        | 'PENDING'
+        | 'FAILED'
+        | 'SUCCEEDED'
+        | 'DELETING'
+        | 'CANCELLABLE'
+        | 'CANCELLED';
       /** Output only. The fully qualified resource name of the target site. `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/targetSites/{target_site}` The `target_site_id` is system-generated. */
       name?: string;
       /** Required. Input only. The user provided URI pattern from which the `generated_uri_pattern` is generated. */
@@ -5010,7 +5637,7 @@ declare namespace gapi.client {
       /** Output only. Site ownership and validity verification status. */
       siteVerificationInfo?: GoogleCloudDiscoveryengineV1betaSiteVerificationInfo;
       /** The type of the target site, e.g., whether the site is to be included or excluded. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'INCLUDE' | 'EXCLUDE';
       /** Output only. The target site's last updated time. */
       updateTime?: string;
     }
@@ -5071,7 +5698,13 @@ declare namespace gapi.client {
       /** Output only. User last logged in time. If the user has not logged in yet, this field will be empty. */
       lastLoginTime?: string;
       /** Output only. License assignment state of the user. If the user is assigned with a license config, the user login will be assigned with the license; If the user's license assignment state is unassigned or unspecified, no license config will be associated to the user; */
-      licenseAssignmentState?: string;
+      licenseAssignmentState?:
+        | 'LICENSE_ASSIGNMENT_STATE_UNSPECIFIED'
+        | 'ASSIGNED'
+        | 'UNASSIGNED'
+        | 'NO_LICENSE'
+        | 'NO_LICENSE_ATTEMPTED_LOGIN'
+        | 'BLOCKED';
       /** Optional. The full resource name of the Subscription(LicenseConfig) assigned to the user. */
       licenseConfig?: string;
       /** Output only. User update timestamp. */
@@ -5101,7 +5734,16 @@ declare namespace gapi.client {
       /** Optional. The super admin service account for the workspace that will be used for access token generation. For now we only use it for Native Google Drive connector data ingestion. */
       superAdminServiceAccount?: string;
       /** The Google Workspace data source. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'GOOGLE_DRIVE'
+        | 'GOOGLE_MAIL'
+        | 'GOOGLE_SITES'
+        | 'GOOGLE_CALENDAR'
+        | 'GOOGLE_CHAT'
+        | 'GOOGLE_GROUPS'
+        | 'GOOGLE_KEEP'
+        | 'GOOGLE_PEOPLE';
     }
     interface GoogleCloudDiscoveryengineV1BigQuerySource {
       /** The schema to use when parsing the data from the source. Supported values for user event imports: * `user_event` (default): One UserEvent per row. Supported values for document imports: * `document` (default): One Document format per row. Each document must have a valid Document.id and one of Document.json_data or Document.struct_data. * `custom`: One custom data per row in arbitrary format that conforms to the defined Schema of the data store. This can only be used by the GENERIC Data Store vertical. */
@@ -5127,23 +5769,39 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumn {
       /** The encoding mode of the values when the type is not `STRING`. Acceptable encoding values are: * `TEXT`: indicates values are alphanumeric text strings. * `BINARY`: indicates values are encoded using `HBase Bytes.toBytes` family of functions. This can be overridden for a specific column by listing that column in `columns` and specifying an encoding for it. */
-      encoding?: string;
+      encoding?: 'ENCODING_UNSPECIFIED' | 'TEXT' | 'BINARY';
       /** The field name to use for this column in the document. The name has to match the pattern `a-zA-Z0-9*`. If not set, it is parsed from the qualifier bytes with best effort. However, due to different naming patterns, field name collisions could happen, where parsing behavior is undefined. */
       fieldName?: string;
       /** Required. Qualifier of the column. If it cannot be decoded with utf-8, use a base-64 encoded string instead. */
       qualifier?: string;
       /** The type of values in this column family. The values are expected to be encoded using `HBase Bytes.toBytes` function when the encoding value is set to `BINARY`. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'STRING'
+        | 'NUMBER'
+        | 'INTEGER'
+        | 'VAR_INTEGER'
+        | 'BIG_NUMERIC'
+        | 'BOOLEAN'
+        | 'JSON';
     }
     interface GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumnFamily {
       /** The list of objects that contains column level information for each column. If a column is not present in this list it will be ignored. */
       columns?: GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumn[];
       /** The encoding mode of the values when the type is not STRING. Acceptable encoding values are: * `TEXT`: indicates values are alphanumeric text strings. * `BINARY`: indicates values are encoded using `HBase Bytes.toBytes` family of functions. This can be overridden for a specific column by listing that column in `columns` and specifying an encoding for it. */
-      encoding?: string;
+      encoding?: 'ENCODING_UNSPECIFIED' | 'TEXT' | 'BINARY';
       /** The field name to use for this column family in the document. The name has to match the pattern `a-zA-Z0-9*`. If not set, it is parsed from the family name with best effort. However, due to different naming patterns, field name collisions could happen, where parsing behavior is undefined. */
       fieldName?: string;
       /** The type of values in this column family. The values are expected to be encoded using `HBase Bytes.toBytes` function when the encoding value is set to `BINARY`. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'STRING'
+        | 'NUMBER'
+        | 'INTEGER'
+        | 'VAR_INTEGER'
+        | 'BIG_NUMERIC'
+        | 'BOOLEAN'
+        | 'JSON';
     }
     interface GoogleCloudDiscoveryengineV1BigtableSource {
       /** Required. Bigtable options that contains information needed when parsing data into typed structures. For example, column type annotations. */
@@ -5255,7 +5913,11 @@ declare namespace gapi.client {
       /** Output only. The content of the structured content. */
       content?: string;
       /** Output only. The structure type of the structured content. */
-      structureType?: string;
+      structureType?:
+        | 'STRUCTURE_TYPE_UNSPECIFIED'
+        | 'SHAREHOLDER_STRUCTURE'
+        | 'SIGNATURE_STRUCTURE'
+        | 'CHECKBOX_STRUCTURE';
     }
     interface GoogleCloudDiscoveryengineV1Citation {
       /** Output only. End index into the content. */
@@ -5301,11 +5963,25 @@ declare namespace gapi.client {
       /** Required. The name of the CmekConfig of the form `projects/{project}/locations/{location}/cmekConfig` or `projects/{project}/locations/{location}/cmekConfigs/{cmek_config}`. */
       name?: string;
       /** Output only. Whether the NotebookLM Corpus is ready to be used. */
-      notebooklmState?: string;
+      notebooklmState?:
+        | 'NOTEBOOK_LM_STATE_UNSPECIFIED'
+        | 'NOTEBOOK_LM_NOT_READY'
+        | 'NOTEBOOK_LM_READY'
+        | 'NOTEBOOK_LM_NOT_ENABLED';
       /** Optional. Single-regional CMEKs that are required for some VAIS features. */
       singleRegionKeys?: GoogleCloudDiscoveryengineV1SingleRegionKey[];
       /** Output only. The states of the CmekConfig. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'ACTIVE'
+        | 'KEY_ISSUE'
+        | 'DELETING'
+        | 'DELETE_FAILED'
+        | 'UNUSABLE'
+        | 'ACTIVE_ROTATING'
+        | 'DELETED'
+        | 'EXPIRED';
     }
     interface GoogleCloudDiscoveryengineV1Collection {
       /** Output only. Timestamp the Collection was created at. */
@@ -5387,11 +6063,20 @@ declare namespace gapi.client {
       /** Defines a redirect-type control. */
       redirectAction?: GoogleCloudDiscoveryengineV1ControlRedirectAction;
       /** Required. Immutable. What solution the control belongs to. Must be compatible with vertical of resource. Otherwise an INVALID ARGUMENT error is thrown. */
-      solutionType?: string;
+      solutionType?:
+        | 'SOLUTION_TYPE_UNSPECIFIED'
+        | 'SOLUTION_TYPE_RECOMMENDATION'
+        | 'SOLUTION_TYPE_SEARCH'
+        | 'SOLUTION_TYPE_CHAT'
+        | 'SOLUTION_TYPE_GENERATIVE_CHAT'
+        | 'SOLUTION_TYPE_AI_MODE';
       /** Treats a group of terms as synonyms of one another. */
       synonymsAction?: GoogleCloudDiscoveryengineV1ControlSynonymsAction;
       /** Specifies the use case for the control. Affects what condition fields can be set. Only applies to SOLUTION_TYPE_SEARCH. Currently only allow one use case per control. Must be set when solution_type is SolutionType.SOLUTION_TYPE_SEARCH. */
-      useCases?: string[];
+      useCases?:
+        | 'SEARCH_USE_CASE_UNSPECIFIED'
+        | 'SEARCH_USE_CASE_SEARCH'
+        | 'SEARCH_USE_CASE_BROWSE'[];
     }
     interface GoogleCloudDiscoveryengineV1ControlBoostAction {
       /** Strength of the boost, which should be in [-1, 1]. Negative boost means demotion. Default is 0.0 (No-op). */
@@ -5407,13 +6092,13 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpec {
       /** Optional. The attribute type to be used to determine the boost amount. The attribute value can be derived from the field value of the specified field_name. In the case of numerical it is straightforward i.e. attribute_value = numerical_field_value. In the case of freshness however, attribute_value = (time.now() - datetime_field_value). */
-      attributeType?: string;
+      attributeType?: 'ATTRIBUTE_TYPE_UNSPECIFIED' | 'NUMERICAL' | 'FRESHNESS';
       /** Optional. The control points used to define the curve. The monotonic function (defined through the interpolation_type above) passes through the control points listed here. */
       controlPoints?: GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpecControlPoint[];
       /** Optional. The name of the field whose value will be used to determine the boost amount. */
       fieldName?: string;
       /** Optional. The interpolation type to be applied to connect the control points listed below. */
-      interpolationType?: string;
+      interpolationType?: 'INTERPOLATION_TYPE_UNSPECIFIED' | 'LINEAR';
     }
     interface GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpecControlPoint {
       /** Optional. Can be one of: 1. The numerical field value. 2. The duration spec for freshness: The value must be formatted as an XSD `dayTimeDuration` value (a restricted subset of an ISO 8601 duration value). The pattern for this is: `nDnM]`. */
@@ -5451,7 +6136,7 @@ declare namespace gapi.client {
       /** Output only. The time the conversation started. */
       startTime?: string;
       /** The state of the Conversation. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'IN_PROGRESS' | 'COMPLETED';
       /** A unique identifier for tracking users. */
       userPseudoId?: string;
     }
@@ -5547,7 +6232,15 @@ declare namespace gapi.client {
       /** The metrics of the trained model. */
       metrics?: {[P in string]: number};
       /** The state that the model is in (e.g.`TRAINING` or `TRAINING_FAILED`). */
-      modelState?: string;
+      modelState?:
+        | 'MODEL_STATE_UNSPECIFIED'
+        | 'TRAINING_PAUSED'
+        | 'TRAINING'
+        | 'TRAINING_COMPLETE'
+        | 'READY_FOR_SERVING'
+        | 'TRAINING_FAILED'
+        | 'NO_IMPROVEMENT'
+        | 'INPUT_VALIDATION_FAILED';
       /** The version of the model. */
       modelVersion?: string;
       /** Required. The fully qualified resource name of the model. Format: `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/customTuningModels/{custom_tuning_model}`. Model must be an alpha-numerical string with limit of 40 characters. */
@@ -5561,7 +6254,15 @@ declare namespace gapi.client {
       /** Optional. Action configurations to make the connector support actions. */
       actionConfig?: GoogleCloudDiscoveryengineV1ActionConfig;
       /** Output only. State of the action connector. This reflects whether the action connector is initializing, active or has encountered errors. */
-      actionState?: string;
+      actionState?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'ACTIVE'
+        | 'FAILED'
+        | 'RUNNING'
+        | 'WARNING'
+        | 'INITIALIZATION_FAILED'
+        | 'UPDATING';
       /** Optional. The connector level alert config. */
       alertPolicyConfigs?: GoogleCloudDiscoveryengineV1AlertPolicyConfig[];
       /** Optional. Indicates whether the connector is disabled for auto run. It can be used to pause periodical and real time sync. Update: with the introduction of incremental_sync_disabled, auto_run_disabled is used to pause/disable only full syncs */
@@ -5569,11 +6270,36 @@ declare namespace gapi.client {
       /** Optional. The configuration for establishing a BAP connection. */
       bapConfig?: GoogleCloudDiscoveryengineV1BAPConfig;
       /** Output only. User actions that must be completed before the connector can start syncing data. */
-      blockingReasons?: string[];
+      blockingReasons?:
+        | 'BLOCKING_REASON_UNSPECIFIED'
+        | 'ALLOWLIST_STATIC_IP'
+        | 'ALLOWLIST_IN_SERVICE_ATTACHMENT'
+        | 'ALLOWLIST_SERVICE_ACCOUNT'[];
       /** Optional. The modes enabled for this connector. Default state is CONNECTOR_MODE_UNSPECIFIED. */
-      connectorModes?: string[];
+      connectorModes?:
+        | 'CONNECTOR_MODE_UNSPECIFIED'
+        | 'DATA_INGESTION'
+        | 'ACTIONS'
+        | 'FEDERATED'
+        | 'EUA'
+        | 'FEDERATED_AND_EUA'[];
       /** Output only. The type of connector. Each source can only map to one type. For example, salesforce, confluence and jira have THIRD_PARTY connector type. It is not mutable once set by system. */
-      connectorType?: string;
+      connectorType?:
+        | 'CONNECTOR_TYPE_UNSPECIFIED'
+        | 'THIRD_PARTY'
+        | 'GCP_FHIR'
+        | 'BIG_QUERY'
+        | 'GCS'
+        | 'GOOGLE_MAIL'
+        | 'GOOGLE_CALENDAR'
+        | 'GOOGLE_DRIVE'
+        | 'NATIVE_CLOUD_IDENTITY'
+        | 'THIRD_PARTY_FEDERATED'
+        | 'THIRD_PARTY_EUA'
+        | 'GCNV'
+        | 'GOOGLE_CHAT'
+        | 'GOOGLE_SITES'
+        | 'REMOTE_MCP';
       /** Optional. Whether the END USER AUTHENTICATION connector is created in SaaS. */
       createEuaSaas?: boolean;
       /** Output only. Timestamp the DataConnector was created at. */
@@ -5621,7 +6347,15 @@ declare namespace gapi.client {
       /** Output only. The tenant project ID associated with private connectivity connectors. This project must be allowlisted by in order for the connector to function. */
       privateConnectivityProjectId?: string;
       /** Output only. real-time sync state */
-      realtimeState?: string;
+      realtimeState?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'ACTIVE'
+        | 'FAILED'
+        | 'RUNNING'
+        | 'WARNING'
+        | 'INITIALIZATION_FAILED'
+        | 'UPDATING';
       /** Optional. The configuration for realtime sync. */
       realtimeSyncConfig?: GoogleCloudDiscoveryengineV1DataConnectorRealtimeSyncConfig;
       /** Required. The refresh interval for data sync. If duration is set to 0, the data will be synced in real time. The streaming feature is not supported yet. The minimum is 30 minutes and maximum is 7 days. When the refresh interval is set to the same value as the incremental refresh interval, incremental sync will be disabled. */
@@ -5629,13 +6363,21 @@ declare namespace gapi.client {
       /** Optional. Specifies keys to be removed from the 'params' field. This is only active when 'params' is included in the 'update_mask' in an UpdateDataConnectorRequest. Deletion takes precedence if a key is both in 'remove_param_keys' and present in the 'params' field of the request. */
       removeParamKeys?: string[];
       /** Output only. State of the connector. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'ACTIVE'
+        | 'FAILED'
+        | 'RUNNING'
+        | 'WARNING'
+        | 'INITIALIZATION_FAILED'
+        | 'UPDATING';
       /** Output only. The static IP addresses used by this connector. */
       staticIpAddresses?: string[];
       /** Optional. Whether customer has enabled static IP addresses for this connector. */
       staticIpEnabled?: boolean;
       /** The data synchronization mode supported by the data connector. */
-      syncMode?: string;
+      syncMode?: 'PERIODIC' | 'STREAMING' | 'UNSPECIFIED';
       /** Output only. Timestamp the DataConnector was last updated. */
       updateTime?: string;
       /** Output only. Whether the connector is created with VPC-SC enabled. This is only used for CuOP evaluation purpose. */
@@ -5671,7 +6413,11 @@ declare namespace gapi.client {
       /** Optional. Error details. */
       error?: GoogleRpcStatus;
       /** Optional. Streaming error. */
-      streamingErrorReason?: string;
+      streamingErrorReason?:
+        | 'STREAMING_ERROR_REASON_UNSPECIFIED'
+        | 'STREAMING_SETUP_ERROR'
+        | 'STREAMING_SYNC_ERROR'
+        | 'INGRESS_ENDPOINT_REQUIRED';
     }
     interface GoogleCloudDiscoveryengineV1DataConnectorSourceEntity {
       /** Output only. The full resource name of the associated data store for the source entity. Format: `projects/*‍/locations/*‍/collections/*‍/dataStores/*`. When the connector is initialized by the DataConnectorService.SetUpDataConnector method, a DataStore is automatically created for each source entity. */
@@ -5699,11 +6445,19 @@ declare namespace gapi.client {
       /** Output only. CMEK-related information for the DataStore. */
       cmekConfig?: GoogleCloudDiscoveryengineV1CmekConfig;
       /** Optional. Configuration for configurable billing approach. See */
-      configurableBillingApproach?: string;
+      configurableBillingApproach?:
+        | 'CONFIGURABLE_BILLING_APPROACH_UNSPECIFIED'
+        | 'CONFIGURABLE_SUBSCRIPTION_INDEXING_CORE'
+        | 'CONFIGURABLE_CONSUMPTION_EMBEDDING';
       /** Output only. The timestamp when configurable_billing_approach was last updated. */
       configurableBillingApproachUpdateTime?: string;
       /** Immutable. The content config of the data store. If this field is unset, the server behavior defaults to ContentConfig.NO_CONTENT. */
-      contentConfig?: string;
+      contentConfig?:
+        | 'CONTENT_CONFIG_UNSPECIFIED'
+        | 'NO_CONTENT'
+        | 'CONTENT_REQUIRED'
+        | 'PUBLIC_WEBSITE'
+        | 'GOOGLE_WORKSPACE';
       /** Output only. Timestamp the DataStore was created at. */
       createTime?: string;
       /** Output only. The id of the default Schema associated to this data store. */
@@ -5719,7 +6473,11 @@ declare namespace gapi.client {
       /** Immutable. The fully qualified resource name of the associated IdentityMappingStore. This field can only be set for acl_enabled DataStores with `THIRD_PARTY` or `GSUITE` IdP. Format: `projects/{project}/locations/{location}/identityMappingStores/{identity_mapping_store}`. */
       identityMappingStore?: string;
       /** Immutable. The industry vertical that the data store registers. */
-      industryVertical?: string;
+      industryVertical?:
+        | 'INDUSTRY_VERTICAL_UNSPECIFIED'
+        | 'GENERIC'
+        | 'MEDIA'
+        | 'HEALTHCARE_FHIR';
       /** Optional. If set, this DataStore is an Infobot FAQ DataStore. */
       isInfobotFaqDataStore?: boolean;
       /** Input only. The KMS key to be used to protect this DataStore at creation time. Must be set for requests that need to comply with CMEK Org Policy protections. If this field is set and processed successfully, the DataStore will be protected by the KMS key, as indicated in the cmek_config field. */
@@ -5731,7 +6489,13 @@ declare namespace gapi.client {
       /** Optional. Stores serving config at DataStore level. */
       servingConfigDataStore?: GoogleCloudDiscoveryengineV1DataStoreServingConfigDataStore;
       /** The solutions that the data store enrolls. Available solutions for each industry_vertical: * `MEDIA`: `SOLUTION_TYPE_RECOMMENDATION` and `SOLUTION_TYPE_SEARCH`. * `SITE_SEARCH`: `SOLUTION_TYPE_SEARCH` is automatically enrolled. Other solutions cannot be enrolled. */
-      solutionTypes?: string[];
+      solutionTypes?:
+        | 'SOLUTION_TYPE_UNSPECIFIED'
+        | 'SOLUTION_TYPE_RECOMMENDATION'
+        | 'SOLUTION_TYPE_SEARCH'
+        | 'SOLUTION_TYPE_CHAT'
+        | 'SOLUTION_TYPE_GENERATIVE_CHAT'
+        | 'SOLUTION_TYPE_AI_MODE'[];
       /** The start schema to use for this DataStore when provisioning it. If unset, a default vertical specialized schema will be used. This field is only used by CreateDataStore API, and will be ignored if used in other APIs. This field will be omitted from all API responses including CreateDataStore API. To retrieve a schema of a DataStore, use SchemaService.GetSchema API instead. The provided schema will be validated against certain rules on schema. Learn more from [this doc](https://cloud.google.com/generative-ai-app-builder/docs/provide-schema). */
       startingSchema?: GoogleCloudDiscoveryengineV1Schema;
       /** Config to store data store type configuration for workspace data. This must be set when DataStore.content_config is set as DataStore.ContentConfig.GOOGLE_WORKSPACE. */
@@ -5773,7 +6537,10 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1DataStoreFederatedSearchConfigAlloyDbConfigAlloyDbConnectionConfig {
       /** Optional. Auth mode. */
-      authMode?: string;
+      authMode?:
+        | 'AUTH_MODE_UNSPECIFIED'
+        | 'AUTH_MODE_SERVICE_ACCOUNT'
+        | 'AUTH_MODE_END_USER_ACCOUNT';
       /** Required. The AlloyDB database to connect to. */
       database?: string;
       /** Optional. If true, enable PSVS for AlloyDB. */
@@ -6018,7 +6785,7 @@ declare namespace gapi.client {
       /** Optional. The agent gateway setting for the engine. */
       agentGatewaySetting?: GoogleCloudDiscoveryengineV1AgentGatewaySetting;
       /** Optional. Immutable. This the application type which this engine resource represents. NOTE: this is a new concept independ of existing industry vertical or solution type. */
-      appType?: string;
+      appType?: 'APP_TYPE_UNSPECIFIED' | 'APP_TYPE_INTRANET';
       /** Configurations for the Chat Engine. Only applicable if solution_type is SOLUTION_TYPE_CHAT. */
       chatEngineConfig?: GoogleCloudDiscoveryengineV1EngineChatEngineConfig;
       /** Output only. Additional information of the Chat Engine. Only applicable if solution_type is SOLUTION_TYPE_CHAT. */
@@ -6028,7 +6795,9 @@ declare namespace gapi.client {
       /** Common config spec that specifies the metadata of the engine. */
       commonConfig?: GoogleCloudDiscoveryengineV1EngineCommonConfig;
       /** Optional. Configuration for configurable billing approach. */
-      configurableBillingApproach?: string;
+      configurableBillingApproach?:
+        | 'CONFIGURABLE_BILLING_APPROACH_UNSPECIFIED'
+        | 'CONFIGURABLE_BILLING_APPROACH_ENABLED';
       /** Optional. Maps a connector ID (e.g., "hybrid-github", "shopify") to tenant-specific information required for that connector. The structure of the tenant information string is connector-dependent. */
       connectorTenantInfo?: {[P in string]: string};
       /** Output only. Timestamp the Recommendation Engine was created at. */
@@ -6040,17 +6809,36 @@ declare namespace gapi.client {
       /** Required. The display name of the engine. Should be human readable. UTF-8 encoded string with limit of 1024 characters. */
       displayName?: string;
       /** Optional. Feature config for the engine to opt in or opt out of features. Supported keys: * `*`: all features, if it's present, all other feature state settings are ignored. * `agent-gallery` * `no-code-agent-builder` * `prompt-gallery` * `model-selector` * `notebook-lm` * `people-search` * `people-search-org-chart` * `bi-directional-audio` * `feedback` * `session-sharing` * `personalization-memory` * `personalization-suggested-highlights` * `disable-agent-sharing` * `disable-image-generation` * `disable-video-generation` * `disable-onedrive-upload` * `disable-talk-to-content` * `disable-google-drive-upload` * `disable-welcome-emails` */
-      features?: {[P in string]: string};
+      features?: {
+        [P in string]:
+          | 'FEATURE_STATE_UNSPECIFIED'
+          | 'FEATURE_STATE_ON'
+          | 'FEATURE_STATE_OFF';
+      };
       /** Optional. The industry vertical that the engine registers. The restriction of the Engine industry vertical is based on DataStore: Vertical on Engine has to match vertical of the DataStore linked to the engine. */
-      industryVertical?: string;
+      industryVertical?:
+        | 'INDUSTRY_VERTICAL_UNSPECIFIED'
+        | 'GENERIC'
+        | 'MEDIA'
+        | 'HEALTHCARE_FHIR';
       /** Optional. Configurations for the Knowledge Graph. Only applicable if solution_type is SOLUTION_TYPE_SEARCH. */
       knowledgeGraphConfig?: GoogleCloudDiscoveryengineV1EngineKnowledgeGraphConfig;
       /** Optional. The visibility of marketplace agents in the agent gallery. */
-      marketplaceAgentVisibility?: string;
+      marketplaceAgentVisibility?:
+        | 'MARKETPLACE_AGENT_VISIBILITY_UNSPECIFIED'
+        | 'SHOW_AVAILABLE_AGENTS_ONLY'
+        | 'SHOW_AGENTS_ALREADY_INTEGRATED'
+        | 'SHOW_AGENTS_ALREADY_PURCHASED'
+        | 'SHOW_ALL_AGENTS';
       /** Configurations for the Media Engine. Only applicable on the data stores with solution_type SOLUTION_TYPE_RECOMMENDATION and IndustryVertical.MEDIA vertical. */
       mediaRecommendationEngineConfig?: GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfig;
       /** Optional. Maps a model name to its specific configuration for this engine. This allows admin users to turn on/off individual models. This only stores models whose states are overridden by the admin. When the state is unspecified, or model_configs is empty for this model, the system will decide if this model should be available or not based on the default configuration. For example, a preview model should be disabled by default if the admin has not chosen to enable it. */
-      modelConfigs?: {[P in string]: string};
+      modelConfigs?: {
+        [P in string]:
+          | 'MODEL_STATE_UNSPECIFIED'
+          | 'MODEL_ENABLED'
+          | 'MODEL_DISABLED';
+      };
       /** Immutable. Identifier. The fully qualified resource name of the engine. This field must be a UTF-8 encoded string with a length limit of 1024 characters. Format: `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}` engine should be 1-63 characters, and valid characters are /a-z0-9*‍/. Otherwise, an INVALID_ARGUMENT error is returned. */
       name?: string;
       /** Optional. Observability config for the engine. */
@@ -6060,7 +6848,13 @@ declare namespace gapi.client {
       /** Configurations for the Search Engine. Only applicable if solution_type is SOLUTION_TYPE_SEARCH. */
       searchEngineConfig?: GoogleCloudDiscoveryengineV1EngineSearchEngineConfig;
       /** Required. The solutions of the engine. */
-      solutionType?: string;
+      solutionType?:
+        | 'SOLUTION_TYPE_UNSPECIFIED'
+        | 'SOLUTION_TYPE_RECOMMENDATION'
+        | 'SOLUTION_TYPE_SEARCH'
+        | 'SOLUTION_TYPE_CHAT'
+        | 'SOLUTION_TYPE_GENERATIVE_CHAT'
+        | 'SOLUTION_TYPE_AI_MODE';
       /** Output only. Timestamp the Recommendation Engine was last updated. */
       updateTime?: string;
     }
@@ -6120,7 +6914,7 @@ declare namespace gapi.client {
       /** Name and value of the custom threshold for cvr optimization_objective. For target_field `watch-time`, target_field_value must be an integer value indicating the media progress time in seconds between (0, 86400] (excludes 0, includes 86400) (e.g., 90). For target_field `watch-percentage`, the target_field_value must be a valid float value between (0, 1.0] (excludes 0, includes 1.0) (e.g., 0.5). */
       optimizationObjectiveConfig?: GoogleCloudDiscoveryengineV1EngineMediaRecommendationEngineConfigOptimizationObjectiveConfig;
       /** The training state that the engine is in (e.g. `TRAINING` or `PAUSED`). Since part of the cost of running the service is frequency of training - this can be used to determine when to train engine in order to control cost. If not specified: the default value for `CreateEngine` method is `TRAINING`. The default value for `UpdateEngine` method is to keep the state the same as before. */
-      trainingState?: string;
+      trainingState?: 'TRAINING_STATE_UNSPECIFIED' | 'PAUSED' | 'TRAINING';
       /** Required. The type of engine. e.g., `recommended-for-you`. This field together with optimization_objective describe engine metadata to use to control engine training and serving. Currently supported values: `recommended-for-you`, `others-you-may-like`, `more-like-this`, `most-popular-items`. */
       type?: string;
     }
@@ -6146,11 +6940,28 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1EngineSearchEngineConfig {
       /** Optional. The required subscription tier of this engine. They cannot be modified after engine creation. If the required subscription tier is search, user with higher license tier like assist can still access the standalone app associated with this engine. */
-      requiredSubscriptionTier?: string;
+      requiredSubscriptionTier?:
+        | 'SUBSCRIPTION_TIER_UNSPECIFIED'
+        | 'SUBSCRIPTION_TIER_SEARCH'
+        | 'SUBSCRIPTION_TIER_SEARCH_AND_ASSISTANT'
+        | 'SUBSCRIPTION_TIER_NOTEBOOK_LM'
+        | 'SUBSCRIPTION_TIER_FRONTLINE_WORKER'
+        | 'SUBSCRIPTION_TIER_AGENTSPACE_STARTER'
+        | 'SUBSCRIPTION_TIER_AGENTSPACE_BUSINESS'
+        | 'SUBSCRIPTION_TIER_ENTERPRISE'
+        | 'SUBSCRIPTION_TIER_ENTERPRISE_EMERGING'
+        | 'SUBSCRIPTION_TIER_EDU'
+        | 'SUBSCRIPTION_TIER_EDU_PRO'
+        | 'SUBSCRIPTION_TIER_EDU_EMERGING'
+        | 'SUBSCRIPTION_TIER_EDU_PRO_EMERGING'
+        | 'SUBSCRIPTION_TIER_FRONTLINE_STARTER';
       /** The add-on that this search engine enables. */
-      searchAddOns?: string[];
+      searchAddOns?: 'SEARCH_ADD_ON_UNSPECIFIED' | 'SEARCH_ADD_ON_LLM'[];
       /** The search feature tier of this engine. Different tiers might have different pricing. To learn more, check the pricing documentation. Defaults to SearchTier.SEARCH_TIER_STANDARD if not specified. */
-      searchTier?: string;
+      searchTier?:
+        | 'SEARCH_TIER_UNSPECIFIED'
+        | 'SEARCH_TIER_STANDARD'
+        | 'SEARCH_TIER_ENTERPRISE';
     }
     interface GoogleCloudDiscoveryengineV1FactChunk {
       /** Text content of the fact chunk. Can be at most 10K characters long. */
@@ -6260,7 +7071,7 @@ declare namespace gapi.client {
       /** External Identity provider config. */
       externalIdpConfig?: GoogleCloudDiscoveryengineV1IdpConfigExternalIdpConfig;
       /** Identity provider type configured. */
-      idpType?: string;
+      idpType?: 'IDP_TYPE_UNSPECIFIED' | 'GSUITE' | 'THIRD_PARTY';
     }
     interface GoogleCloudDiscoveryengineV1IdpConfigExternalIdpConfig {
       /** Workforce pool name. Example: "locations/global/workforcePools/pool_id" */
@@ -6334,7 +7145,10 @@ declare namespace gapi.client {
       /** The Inline source for the input content for documents. */
       inlineSource?: GoogleCloudDiscoveryengineV1ImportDocumentsRequestInlineSource;
       /** The mode of reconciliation between existing documents and the documents to be imported. Defaults to ReconciliationMode.INCREMENTAL. */
-      reconciliationMode?: string;
+      reconciliationMode?:
+        | 'RECONCILIATION_MODE_UNSPECIFIED'
+        | 'INCREMENTAL'
+        | 'FULL';
       /** Spanner input source. */
       spannerSource?: GoogleCloudDiscoveryengineV1SpannerSource;
       /** Indicates which fields in the provided imported documents to update. If not set, the default is to update all fields. */
@@ -6454,11 +7268,36 @@ declare namespace gapi.client {
       /** Required. The start date. */
       startDate?: GoogleTypeDate;
       /** Output only. The state of the license config. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'EXPIRED'
+        | 'NOT_STARTED'
+        | 'WITHDRAWN'
+        | 'DEACTIVATING';
       /** Required. Subscription term. */
-      subscriptionTerm?: string;
+      subscriptionTerm?:
+        | 'SUBSCRIPTION_TERM_UNSPECIFIED'
+        | 'SUBSCRIPTION_TERM_ONE_MONTH'
+        | 'SUBSCRIPTION_TERM_ONE_YEAR'
+        | 'SUBSCRIPTION_TERM_THREE_YEARS'
+        | 'SUBSCRIPTION_TERM_CUSTOM';
       /** Required. Subscription tier information for the license config. */
-      subscriptionTier?: string;
+      subscriptionTier?:
+        | 'SUBSCRIPTION_TIER_UNSPECIFIED'
+        | 'SUBSCRIPTION_TIER_SEARCH'
+        | 'SUBSCRIPTION_TIER_SEARCH_AND_ASSISTANT'
+        | 'SUBSCRIPTION_TIER_NOTEBOOK_LM'
+        | 'SUBSCRIPTION_TIER_FRONTLINE_WORKER'
+        | 'SUBSCRIPTION_TIER_AGENTSPACE_STARTER'
+        | 'SUBSCRIPTION_TIER_AGENTSPACE_BUSINESS'
+        | 'SUBSCRIPTION_TIER_ENTERPRISE'
+        | 'SUBSCRIPTION_TIER_ENTERPRISE_EMERGING'
+        | 'SUBSCRIPTION_TIER_EDU'
+        | 'SUBSCRIPTION_TIER_EDU_PRO'
+        | 'SUBSCRIPTION_TIER_EDU_EMERGING'
+        | 'SUBSCRIPTION_TIER_EDU_PRO_EMERGING'
+        | 'SUBSCRIPTION_TIER_FRONTLINE_STARTER';
     }
     interface GoogleCloudDiscoveryengineV1LicenseConfigUsageStats {
       /** Required. The LicenseConfig name. */
@@ -6566,7 +7405,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1NaturalLanguageQueryUnderstandingConfig {
       /** Mode of Natural Language Query Understanding. If this field is unset, the behavior defaults to NaturalLanguageQueryUnderstandingConfig.Mode.DISABLED. */
-      mode?: string;
+      mode?: 'MODE_UNSPECIFIED' | 'DISABLED' | 'ENABLED';
     }
     interface GoogleCloudDiscoveryengineV1ObservabilityConfig {
       /** Optional. Enables observability. If `false`, all other flags are ignored. */
@@ -6670,7 +7509,11 @@ declare namespace gapi.client {
       /** The unique identifier of this terms of service. Available terms: * `GA_DATA_USE_TERMS`: [Terms for data use](https://cloud.google.com/retail/data-use-terms). When using this as `id`, the acceptable version to provide is `2022-11-23`. */
       id?: string;
       /** Whether the project has accepted/rejected the service terms or it is still pending. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'TERMS_ACCEPTED'
+        | 'TERMS_PENDING'
+        | 'TERMS_DECLINED';
       /** The version string of the terms of service. For acceptable values, see the comments for id above. */
       version?: string;
     }
@@ -6851,13 +7694,29 @@ declare namespace gapi.client {
       /** Output only. Indicates whether the content was filtered out because of this rating. */
       blocked?: boolean;
       /** Output only. Harm category. */
-      category?: string;
+      category?:
+        | 'HARM_CATEGORY_UNSPECIFIED'
+        | 'HARM_CATEGORY_HATE_SPEECH'
+        | 'HARM_CATEGORY_DANGEROUS_CONTENT'
+        | 'HARM_CATEGORY_HARASSMENT'
+        | 'HARM_CATEGORY_SEXUALLY_EXPLICIT'
+        | 'HARM_CATEGORY_CIVIC_INTEGRITY';
       /** Output only. Harm probability levels in the content. */
-      probability?: string;
+      probability?:
+        | 'HARM_PROBABILITY_UNSPECIFIED'
+        | 'NEGLIGIBLE'
+        | 'LOW'
+        | 'MEDIUM'
+        | 'HIGH';
       /** Output only. Harm probability score. */
       probabilityScore?: number;
       /** Output only. Harm severity levels in the content. */
-      severity?: string;
+      severity?:
+        | 'HARM_SEVERITY_UNSPECIFIED'
+        | 'HARM_SEVERITY_NEGLIGIBLE'
+        | 'HARM_SEVERITY_LOW'
+        | 'HARM_SEVERITY_MEDIUM'
+        | 'HARM_SEVERITY_HIGH';
       /** Output only. Harm severity score. */
       severityScore?: number;
     }
@@ -6939,11 +7798,21 @@ declare namespace gapi.client {
       /** Optional. The ranking expression controls the customized ranking on retrieval documents. This overrides ServingConfig.ranking_expression. The syntax and supported features depend on the `ranking_expression_backend` value. If `ranking_expression_backend` is not provided, it defaults to `RANK_BY_EMBEDDING`. If ranking_expression_backend is not provided or set to `RANK_BY_EMBEDDING`, it should be a single function or multiple functions that are joined by "+". * ranking_expression = function, { " + ", function }; Supported functions: * double * relevance_score * double * dotProduct(embedding_field_path) Function variables: * `relevance_score`: pre-defined keywords, used for measure relevance between query and document. * `embedding_field_path`: the document embedding field used with query embedding vector. * `dotProduct`: embedding function between `embedding_field_path` and query embedding vector. Example ranking expression: If document has an embedding field doc_embedding, the ranking expression could be `0.5 * relevance_score + 0.3 * dotProduct(doc_embedding)`. If ranking_expression_backend is set to `RANK_BY_FORMULA`, the following expression types (and combinations of those chained using + or * operators) are supported: * `double` * `signal` * `log(signal)` * `exp(signal)` * `rr(signal, double > 0)` -- reciprocal rank transformation with second argument being a denominator constant. * `is_nan(signal)` -- returns 0 if signal is NaN, 1 otherwise. * `fill_nan(signal1, signal2 | double)` -- if signal1 is NaN, returns signal2 | double, else returns signal1. Here are a few examples of ranking formulas that use the supported ranking expression types: - `0.2 * semantic_similarity_score + 0.8 * log(keyword_similarity_score)` -- mostly rank by the logarithm of `keyword_similarity_score` with slight `semantic_smilarity_score` adjustment. - `0.2 * exp(fill_nan(semantic_similarity_score, 0)) + 0.3 * is_nan(keyword_similarity_score)` -- rank by the exponent of `semantic_similarity_score` filling the value with 0 if it's NaN, also add constant 0.3 adjustment to the final score if `semantic_similarity_score` is NaN. - `0.2 * rr(semantic_similarity_score, 16) + 0.8 * rr(keyword_similarity_score, 16)` -- mostly rank by the reciprocal rank of `keyword_similarity_score` with slight adjustment of reciprocal rank of `semantic_smilarity_score`. The following signals are supported: * `semantic_similarity_score`: semantic similarity adjustment that is calculated using the embeddings generated by a proprietary Google model. This score determines how semantically similar a search query is to a document. * `keyword_similarity_score`: keyword match adjustment uses the Best Match 25 (BM25) ranking function. This score is calculated using a probabilistic model to estimate the probability that a document is relevant to a given query. * `relevance_score`: semantic relevance adjustment that uses a proprietary Google model to determine the meaning and intent behind a user's query in context with the content in the documents. * `pctr_rank`: predicted conversion rate adjustment as a rank use predicted Click-through rate (pCTR) to gauge the relevance and attractiveness of a search result from a user's perspective. A higher pCTR suggests that the result is more likely to satisfy the user's query and intent, making it a valuable signal for ranking. * `freshness_rank`: freshness adjustment as a rank * `document_age`: The time in hours elapsed since the document was last updated, a floating-point number (e.g., 0.25 means 15 minutes). * `topicality_rank`: topicality adjustment as a rank. Uses proprietary Google model to determine the keyword-based overlap between the query and the document. * `base_rank`: the default rank of the result */
       rankingExpression?: string;
       /** Optional. The backend to use for the ranking expression evaluation. */
-      rankingExpressionBackend?: string;
+      rankingExpressionBackend?:
+        | 'RANKING_EXPRESSION_BACKEND_UNSPECIFIED'
+        | 'BYOE'
+        | 'CLEARBOX'
+        | 'RANK_BY_EMBEDDING'
+        | 'RANK_BY_FORMULA';
       /** Optional. The specification for returning the relevance score. */
       relevanceScoreSpec?: GoogleCloudDiscoveryengineV1SearchRequestRelevanceScoreSpec;
       /** The global relevance threshold of the search results. Defaults to Google defined threshold, leveraging a balance of precision and recall to deliver both highly accurate results and comprehensive coverage of relevant information. If more granular relevance filtering is required, use the `relevance_filter_spec` instead. This feature is not supported for healthcare search. */
-      relevanceThreshold?: string;
+      relevanceThreshold?:
+        | 'RELEVANCE_THRESHOLD_UNSPECIFIED'
+        | 'LOWEST'
+        | 'LOW'
+        | 'MEDIUM'
+        | 'HIGH';
       /** Whether to turn on safe search. This is only supported for website search. */
       safeSearch?: boolean;
       /** Search as you type configuration. Only supported for the IndustryVertical.MEDIA vertical. */
@@ -6975,13 +7844,13 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1SearchRequestBoostSpecConditionBoostSpecBoostControlSpec {
       /** The attribute type to be used to determine the boost amount. The attribute value can be derived from the field value of the specified field_name. In the case of numerical it is straightforward i.e. attribute_value = numerical_field_value. In the case of freshness however, attribute_value = (time.now() - datetime_field_value). */
-      attributeType?: string;
+      attributeType?: 'ATTRIBUTE_TYPE_UNSPECIFIED' | 'NUMERICAL' | 'FRESHNESS';
       /** The control points used to define the curve. The monotonic function (defined through the interpolation_type above) passes through the control points listed here. */
       controlPoints?: GoogleCloudDiscoveryengineV1SearchRequestBoostSpecConditionBoostSpecBoostControlSpecControlPoint[];
       /** The name of the field whose value will be used to determine the boost amount. */
       fieldName?: string;
       /** The interpolation type to be applied to connect the control points listed below. */
-      interpolationType?: string;
+      interpolationType?: 'INTERPOLATION_TYPE_UNSPECIFIED' | 'LINEAR';
     }
     interface GoogleCloudDiscoveryengineV1SearchRequestBoostSpecConditionBoostSpecBoostControlSpecControlPoint {
       /** Can be one of: 1. The numerical field value. 2. The duration spec for freshness: The value must be formatted as an XSD `dayTimeDuration` value (a restricted subset of an ISO 8601 duration value). The pattern for this is: `nDnM]`. */
@@ -6995,7 +7864,10 @@ declare namespace gapi.client {
       /** If there is no extractive_content_spec provided, there will be no extractive answer in the search response. */
       extractiveContentSpec?: GoogleCloudDiscoveryengineV1SearchRequestContentSearchSpecExtractiveContentSpec;
       /** Specifies the search result mode. If unspecified, the search result mode defaults to `DOCUMENTS`. */
-      searchResultMode?: string;
+      searchResultMode?:
+        | 'SEARCH_RESULT_MODE_UNSPECIFIED'
+        | 'DOCUMENTS'
+        | 'CHUNKS';
       /** If `snippetSpec` is not specified, snippets are not included in the search response. */
       snippetSpec?: GoogleCloudDiscoveryengineV1SearchRequestContentSearchSpecSnippetSpec;
       /** If `summarySpec` is not specified, summaries are not included in the search response. */
@@ -7063,7 +7935,10 @@ declare namespace gapi.client {
       /** The maximum number of documents to keep per value of the field. Once there are at least max_count previous results which contain the same value for the given field (according to the order specified in `order_by`), later results with the same value are "crowded away". If not specified, the default value is 1. */
       maxCount?: number;
       /** Mode to use for documents that are crowded away. */
-      mode?: string;
+      mode?:
+        | 'MODE_UNSPECIFIED'
+        | 'DROP_CROWDED_RESULTS'
+        | 'DEMOTE_CROWDED_RESULTS_TO_END';
     }
     interface GoogleCloudDiscoveryengineV1SearchRequestDataStoreSpec {
       /** Optional. Boost specification to boost certain documents. For more information on boosting, see [Boosting](https://cloud.google.com/generative-ai-app-builder/docs/boost-search-results) */
@@ -7079,7 +7954,10 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1SearchRequestDisplaySpec {
       /** The condition under which match highlighting should occur. */
-      matchHighlightingCondition?: string;
+      matchHighlightingCondition?:
+        | 'MATCH_HIGHLIGHTING_CONDITION_UNSPECIFIED'
+        | 'MATCH_HIGHLIGHTING_DISABLED'
+        | 'MATCH_HIGHLIGHTING_ENABLED';
     }
     interface GoogleCloudDiscoveryengineV1SearchRequestFacetSpec {
       /** Enables dynamic position for this facet. If set to true, the position of this facet among all facets in the response is determined automatically. If dynamic facets are enabled, it is ordered together. If set to false, the position of this facet in the response is the same as in the request, and it is ranked before the facets with dynamic position enable and all dynamic facets. For example, you may always want to have rating facet returned in the response, but it's not necessarily to always display the rating facet at the top. In that case, you can set enable_dynamic_position to true so that the position of rating facet in response is determined automatically. Another example, assuming you have the following facets in the request: * "rating", enable_dynamic_position = true * "price", enable_dynamic_position = false * "brands", enable_dynamic_position = false And also you have a dynamic facets enabled, which generates a facet `gender`. Then the final order of the facets in the response can be ("price", "brands", "rating", "gender") or ("price", "brands", "gender", "rating") depends on how API orders "gender" and "rating" facets. However, notice that "price" and "brands" are always ranked at first and second position because their enable_dynamic_position is false. */
@@ -7115,15 +7993,21 @@ declare namespace gapi.client {
       /** Optional. Allowlist of fields that can be used for natural language filter extraction. By default, if this is unspecified, all indexable fields are eligible for natural language filter extraction (but are not guaranteed to be used). If any fields are specified in allowed_field_names, only the fields that are both marked as indexable in the schema and specified in the allowlist will be eligible for natural language filter extraction. Note: for multi-datastore search, this is not yet supported, and will be ignored. */
       allowedFieldNames?: string[];
       /** Optional. Controls behavior of how extracted filters are applied to the search. The default behavior depends on the request. For single datastore structured search, the default is `HARD_FILTER`. For multi-datastore search, the default behavior is `SOFT_BOOST`. Location-based filters are always applied as hard filters, and the `SOFT_BOOST` setting will not affect them. This field is only used if SearchRequest.NaturalLanguageQueryUnderstandingSpec.FilterExtractionCondition is set to FilterExtractionCondition.ENABLED. */
-      extractedFilterBehavior?: string;
+      extractedFilterBehavior?:
+        | 'EXTRACTED_FILTER_BEHAVIOR_UNSPECIFIED'
+        | 'HARD_FILTER'
+        | 'SOFT_BOOST';
       /** The condition under which filter extraction should occur. Server behavior defaults to `DISABLED`. */
-      filterExtractionCondition?: string;
+      filterExtractionCondition?:
+        | 'CONDITION_UNSPECIFIED'
+        | 'DISABLED'
+        | 'ENABLED';
       /** Field names used for location-based filtering, where geolocation filters are detected in natural language search queries. Only valid when the FilterExtractionCondition is set to `ENABLED`. If this field is set, it overrides the field names set in ServingConfig.geo_search_query_detection_field_names. */
       geoSearchQueryDetectionFieldNames?: string[];
     }
     interface GoogleCloudDiscoveryengineV1SearchRequestQueryExpansionSpec {
       /** The condition under which query expansion should occur. Default to Condition.DISABLED. */
-      condition?: string;
+      condition?: 'CONDITION_UNSPECIFIED' | 'DISABLED' | 'AUTO';
       /** Whether to pin unexpanded results. If this field is set to true, unexpanded products are always at the top of the search results, followed by the expanded results. */
       pinUnexpandedResults?: boolean;
     }
@@ -7133,7 +8017,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1SearchRequestSearchAsYouTypeSpec {
       /** The condition under which search as you type should occur. Default to Condition.DISABLED. */
-      condition?: string;
+      condition?: 'CONDITION_UNSPECIFIED' | 'DISABLED' | 'ENABLED' | 'AUTO';
     }
     interface GoogleCloudDiscoveryengineV1SearchRequestSessionSpec {
       /** If set, the search result gets stored to the "turn" specified by this query ID. Example: Let's say the session looks like this: session { name: ".../sessions/xxx" turns { query { text: "What is foo?" query_id: ".../questions/yyy" } answer: "Foo is ..." } turns { query { text: "How about bar then?" query_id: ".../questions/zzz" } } } The user can call /search API with a request like this: session: ".../sessions/xxx" session_spec { query_id: ".../questions/zzz" } Then, the API stores the search result, associated with the last turn. The stored search result can be used by a subsequent /answer API call (with the session ID and the query ID specified). Also, it is possible to call /search and /answer in parallel with the same session ID & query ID. */
@@ -7143,7 +8027,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1SearchRequestSpellCorrectionSpec {
       /** The mode under which spell correction replaces the original search query. Defaults to Mode.AUTO. */
-      mode?: string;
+      mode?: 'MODE_UNSPECIFIED' | 'SUGGESTION_ONLY' | 'AUTO';
     }
     interface GoogleCloudDiscoveryengineV1SearchResponse {
       /** A unique search token. This should be included in the UserEvent logs resulting from this search, which enables accurate attribution of search model performance. This also helps to identify a request during the customer support scenarios. */
@@ -7165,7 +8049,7 @@ declare namespace gapi.client {
       /** Promotions for site search. */
       searchLinkPromotions?: GoogleCloudDiscoveryengineV1SearchLinkPromotion[];
       /** Output only. Indicates the semantic state of the search response. */
-      semanticState?: string;
+      semanticState?: 'SEMANTIC_STATE_UNSPECIFIED' | 'DISABLED' | 'ENABLED';
       /** Session information. Only set if SearchRequest.session is provided. See its description for more details. */
       sessionInfo?: GoogleCloudDiscoveryengineV1SearchResponseSessionInfo;
       /** A summary as part of the search results. This field is only returned if SearchRequest.ContentSearchSpec.summary_spec is set. */
@@ -7233,7 +8117,13 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1SearchResponseNaturalLanguageQueryUnderstandingInfoStructuredExtractedFilterNumberConstraint {
       /** The comparison operation performed between the field value and the value specified in the constraint. */
-      comparison?: string;
+      comparison?:
+        | 'COMPARISON_UNSPECIFIED'
+        | 'EQUALS'
+        | 'LESS_THAN_EQUALS'
+        | 'LESS_THAN'
+        | 'GREATER_THAN_EQUALS'
+        | 'GREATER_THAN';
       /** Name of the numerical field as defined in the schema. */
       fieldName?: string;
       /** Identifies the keywords within the search query that match a filter. */
@@ -7307,7 +8197,18 @@ declare namespace gapi.client {
       /** A collection of Safety Attribute categories and their associated confidence scores. */
       safetyAttributes?: GoogleCloudDiscoveryengineV1SearchResponseSummarySafetyAttributes;
       /** Additional summary-skipped reasons. This provides the reason for ignored cases. If nothing is skipped, this field is not set. */
-      summarySkippedReasons?: string[];
+      summarySkippedReasons?:
+        | 'SUMMARY_SKIPPED_REASON_UNSPECIFIED'
+        | 'ADVERSARIAL_QUERY_IGNORED'
+        | 'NON_SUMMARY_SEEKING_QUERY_IGNORED'
+        | 'OUT_OF_DOMAIN_QUERY_IGNORED'
+        | 'POTENTIAL_POLICY_VIOLATION'
+        | 'LLM_ADDON_NOT_ENABLED'
+        | 'NO_RELEVANT_CONTENT'
+        | 'JAIL_BREAKING_QUERY_IGNORED'
+        | 'CUSTOMER_POLICY_VIOLATION'
+        | 'NON_SUMMARY_SEEKING_QUERY_IGNORED_V2'
+        | 'TIME_OUT'[];
       /** The summary content. */
       summaryText?: string;
       /** Summary with metadata information. */
@@ -7395,7 +8296,13 @@ declare namespace gapi.client {
       /** Condition replacement specifications. Applied according to the order in the list. A previously replaced term can not be re-replaced. Maximum number of specifications is 100. Can only be set if SolutionType is SOLUTION_TYPE_SEARCH. */
       replacementControlIds?: string[];
       /** Required. Immutable. Specifies the solution type that a serving config can be associated with. */
-      solutionType?: string;
+      solutionType?:
+        | 'SOLUTION_TYPE_UNSPECIFIED'
+        | 'SOLUTION_TYPE_RECOMMENDATION'
+        | 'SOLUTION_TYPE_SEARCH'
+        | 'SOLUTION_TYPE_CHAT'
+        | 'SOLUTION_TYPE_GENERATIVE_CHAT'
+        | 'SOLUTION_TYPE_AI_MODE';
       /** Condition synonyms specifications. If multiple synonyms conditions match, all matching synonyms controls in the list will execute. Maximum number of specifications is 100. Can only be set if SolutionType is SOLUTION_TYPE_SEARCH. */
       synonymsControlIds?: string[];
       /** Output only. ServingConfig updated timestamp. */
@@ -7431,7 +8338,7 @@ declare namespace gapi.client {
       /** Output only. The time the session started. */
       startTime?: string;
       /** The state of the session. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'IN_PROGRESS';
       /** Turns. */
       turns?: GoogleCloudDiscoveryengineV1SessionTurn[];
       /** A unique identifier for tracking users. */
@@ -7476,7 +8383,11 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1SiteVerificationInfo {
       /** Site verification state indicating the ownership and validity. */
-      siteVerificationState?: string;
+      siteVerificationState?:
+        | 'SITE_VERIFICATION_STATE_UNSPECIFIED'
+        | 'VERIFIED'
+        | 'UNVERIFIED'
+        | 'EXEMPTED';
       /** Latest site verification time. */
       verifyTime?: string;
     }
@@ -7545,7 +8456,7 @@ declare namespace gapi.client {
       /** Required. Phrase to block from suggestions served. Can be maximum 125 characters. */
       blockPhrase?: string;
       /** Required. The match operator to apply for this phrase. Whether to block the exact phrase, or block any suggestions containing this phrase. */
-      matchOperator?: string;
+      matchOperator?: 'MATCH_OPERATOR_UNSPECIFIED' | 'EXACT_MATCH' | 'CONTAINS';
     }
     interface GoogleCloudDiscoveryengineV1TargetSite {
       /** Immutable. If set to false, a uri_pattern is generated to include all pages whose address contains the provided_uri_pattern. If set to true, an uri_pattern is generated to try to be an exact match of the provided_uri_pattern or just the specific page if the provided_uri_pattern is a specific one. provided_uri_pattern is always normalized to generate the URI pattern to be used by the search engine. */
@@ -7555,7 +8466,14 @@ declare namespace gapi.client {
       /** Output only. This is system-generated based on the provided_uri_pattern. */
       generatedUriPattern?: string;
       /** Output only. Indexing status. */
-      indexingStatus?: string;
+      indexingStatus?:
+        | 'INDEXING_STATUS_UNSPECIFIED'
+        | 'PENDING'
+        | 'FAILED'
+        | 'SUCCEEDED'
+        | 'DELETING'
+        | 'CANCELLABLE'
+        | 'CANCELLED';
       /** Output only. The fully qualified resource name of the target site. `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/targetSites/{target_site}` The `target_site_id` is system-generated. */
       name?: string;
       /** Required. Input only. The user provided URI pattern from which the `generated_uri_pattern` is generated. */
@@ -7565,7 +8483,7 @@ declare namespace gapi.client {
       /** Output only. Site ownership and validity verification status. */
       siteVerificationInfo?: GoogleCloudDiscoveryengineV1SiteVerificationInfo;
       /** The type of the target site, e.g., whether the site is to be included or excluded. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'INCLUDE' | 'EXCLUDE';
       /** Output only. The target site's last updated time. */
       updateTime?: string;
     }
@@ -7723,7 +8641,13 @@ declare namespace gapi.client {
       /** Output only. User last logged in time. If the user has not logged in yet, this field will be empty. */
       lastLoginTime?: string;
       /** Output only. License assignment state of the user. If the user is assigned with a license config, the user login will be assigned with the license; If the user's license assignment state is unassigned or unspecified, no license config will be associated to the user; */
-      licenseAssignmentState?: string;
+      licenseAssignmentState?:
+        | 'LICENSE_ASSIGNMENT_STATE_UNSPECIFIED'
+        | 'ASSIGNED'
+        | 'UNASSIGNED'
+        | 'NO_LICENSE'
+        | 'NO_LICENSE_ATTEMPTED_LOGIN'
+        | 'BLOCKED';
       /** Optional. The full resource name of the Subscription(LicenseConfig) assigned to the user. */
       licenseConfig?: string;
       /** Output only. User update timestamp. */
@@ -7765,7 +8689,12 @@ declare namespace gapi.client {
       /** Optional. Output only. Describes the customer related configurations, currently only used for government customers. This field cannot be modified after project onboarding. */
       customerProvidedConfig?: GoogleCloudDiscoveryengineV1WidgetConfigCustomerProvidedConfig;
       /** Output only. The type of the parent data store. */
-      dataStoreType?: string;
+      dataStoreType?:
+        | 'DATA_STORE_TYPE_UNSPECIFIED'
+        | 'SITE_SEARCH'
+        | 'STRUCTURED'
+        | 'UNSTRUCTURED'
+        | 'BLENDED';
       /** Configurable UI configurations per data store. */
       dataStoreUiConfigs?: GoogleCloudDiscoveryengineV1WidgetConfigDataStoreUiConfig[];
       /** The default ordering for search results if specified. Used to set SearchRequest#order_by on applicable requests. https://cloud.google.com/generative-ai-app-builder/docs/reference/rest/v1alpha/projects.locations.dataStores.servingConfigs/search#request-body */
@@ -7803,7 +8732,11 @@ declare namespace gapi.client {
       /** Optional. Describes the homepage settings of the widget. */
       homepageSetting?: GoogleCloudDiscoveryengineV1WidgetConfigHomepageSetting;
       /** Output only. The industry vertical that the WidgetConfig registers. The WidgetConfig industry vertical is based on the associated Engine. */
-      industryVertical?: string;
+      industryVertical?:
+        | 'INDUSTRY_VERTICAL_UNSPECIFIED'
+        | 'GENERIC'
+        | 'MEDIA'
+        | 'HEALTHCARE_FHIR';
       /** Output only. Whether LLM is enabled in the corresponding data store. */
       llmEnabled?: boolean;
       /** Output only. Whether the customer accepted data use terms. */
@@ -7813,9 +8746,18 @@ declare namespace gapi.client {
       /** Output only. The nodes associated with the Widget Config. */
       nodes?: GoogleCloudDiscoveryengineV1WidgetConfigNode[];
       /** The type of snippet to display in UCS widget. - RESULT_DISPLAY_TYPE_UNSPECIFIED for existing users. - SNIPPET for new non-enterprise search users. - EXTRACTIVE_ANSWER for new enterprise search users. */
-      resultDisplayType?: string;
+      resultDisplayType?:
+        | 'RESULT_DISPLAY_TYPE_UNSPECIFIED'
+        | 'SNIPPET'
+        | 'EXTRACTIVE_ANSWER';
       /** Required. Immutable. Specifies the solution type that this WidgetConfig can be used for. */
-      solutionType?: string;
+      solutionType?:
+        | 'SOLUTION_TYPE_UNSPECIFIED'
+        | 'SOLUTION_TYPE_RECOMMENDATION'
+        | 'SOLUTION_TYPE_SEARCH'
+        | 'SOLUTION_TYPE_CHAT'
+        | 'SOLUTION_TYPE_GENERATIVE_CHAT'
+        | 'SOLUTION_TYPE_AI_MODE';
       /** Describes search widget UI branding settings, such as the widget title, logo, favicons, and colors. */
       uiBranding?: GoogleCloudDiscoveryengineV1WidgetConfigUiBrandingSettings;
       /** Describes general widget search settings as seen in cloud console widget configuration page. Replaces top deprecated top level properties. */
@@ -7843,7 +8785,11 @@ declare namespace gapi.client {
       /** Whether or not the Google search grounding toggle is shown. Deprecated. Use web_grounding_type instead. */
       googleSearchGroundingEnabled?: boolean;
       /** Optional. The type of web grounding to use. */
-      webGroundingType?: string;
+      webGroundingType?:
+        | 'WEB_GROUNDING_TYPE_UNSPECIFIED'
+        | 'WEB_GROUNDING_TYPE_DISABLED'
+        | 'WEB_GROUNDING_TYPE_GOOGLE_SEARCH'
+        | 'WEB_GROUNDING_TYPE_ENTERPRISE_WEB_SEARCH';
     }
     interface GoogleCloudDiscoveryengineV1WidgetConfigCollectionComponent {
       /** Output only. The icon link of the connector source. */
@@ -7863,11 +8809,15 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1WidgetConfigCustomerProvidedConfig {
       /** Customer type. */
-      customerType?: string;
+      customerType?: 'DEFAULT_CUSTOMER' | 'GOVERNMENT_CUSTOMER';
     }
     interface GoogleCloudDiscoveryengineV1WidgetConfigDataStoreComponent {
       /** Output only. The type of the data store config. */
-      dataStoreConfigType?: string;
+      dataStoreConfigType?:
+        | 'DATA_STORE_CONFIG_TYPE_UNSPECIFIED'
+        | 'ALLOW_DB_CONFIG'
+        | 'THIRD_PARTY_OAUTH_CONFIG'
+        | 'NOTEBOOKLM_CONFIG';
       /** The display name of the data store. */
       displayName?: string;
       /** The name of the entity, retrieved from `Collection.data_connector.entities.entityName`. */
@@ -7923,7 +8873,7 @@ declare namespace gapi.client {
       /** Output only. The parameter schema of the tool. This schema is expected to conform to the OpenAPI Schema standard (see https://spec.openapis.org/oas/v3.0.3.html and AIP-146). It describes the expected structure of the parameters that this node accepts. */
       parameterSchema?: {[P in string]: any};
       /** Output only. The type of the node. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'TRIGGER' | 'FLOW' | 'CONNECTOR';
     }
     interface GoogleCloudDiscoveryengineV1WidgetConfigUiBrandingSettings {
       /** Logo image. */
@@ -7931,7 +8881,10 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDiscoveryengineV1WidgetConfigUIComponentField {
       /** The field visibility on different types of devices. */
-      deviceVisibility?: string[];
+      deviceVisibility?:
+        | 'DEVICE_VISIBILITY_UNSPECIFIED'
+        | 'MOBILE'
+        | 'DESKTOP'[];
       /** The template to customize how the field is displayed. An example value would be a string that looks like: "Price: {value}". */
       displayTemplate?: string;
       /** Required. Registered field name. The format is `field.abc`. */
@@ -7959,15 +8912,32 @@ declare namespace gapi.client {
       /** If set to true, the widget will enable visual content summary on applicable search requests. Only used by healthcare search. */
       enableVisualContentSummary?: boolean;
       /** Output only. Feature config for the engine to opt in or opt out of features. Supported keys: * `agent-gallery` * `no-code-agent-builder` * `prompt-gallery` * `model-selector` * `notebook-lm` * `people-search` * `people-search-org-chart` * `bi-directional-audio` * `feedback` * `session-sharing` * `personalization-memory` * `personalization-suggested-highlights` * `disable-agent-sharing` * `disable-image-generation` * `disable-video-generation` * `disable-onedrive-upload` * `disable-talk-to-content` * `disable-google-drive-upload` * `disable-welcome-emails` */
-      features?: {[P in string]: string};
+      features?: {
+        [P in string]:
+          | 'FEATURE_STATE_UNSPECIFIED'
+          | 'FEATURE_STATE_ON'
+          | 'FEATURE_STATE_OFF';
+      };
       /** Describes generative answer configuration. */
       generativeAnswerConfig?: GoogleCloudDiscoveryengineV1WidgetConfigUiSettingsGenerativeAnswerConfig;
       /** Describes widget (or web app) interaction type */
-      interactionType?: string;
+      interactionType?:
+        | 'INTERACTION_TYPE_UNSPECIFIED'
+        | 'SEARCH_ONLY'
+        | 'SEARCH_WITH_ANSWER'
+        | 'SEARCH_WITH_FOLLOW_UPS';
       /** Output only. Maps a model name to its specific configuration for this engine. This allows admin users to turn on/off individual models. This only stores models whose states are overridden by the admin. When the state is unspecified, or model_configs is empty for this model, the system will decide if this model should be available or not based on the default configuration. For example, a preview model should be disabled by default if the admin has not chosen to enable it. */
-      modelConfigs?: {[P in string]: string};
+      modelConfigs?: {
+        [P in string]:
+          | 'MODEL_STATE_UNSPECIFIED'
+          | 'MODEL_ENABLED'
+          | 'MODEL_DISABLED';
+      };
       /** Controls whether result extract is display and how (snippet or extractive answer). Default to no result if unspecified. */
-      resultDescriptionType?: string;
+      resultDescriptionType?:
+        | 'RESULT_DISPLAY_TYPE_UNSPECIFIED'
+        | 'SNIPPET'
+        | 'EXTRACTIVE_ANSWER';
     }
     interface GoogleCloudDiscoveryengineV1WidgetConfigUiSettingsGenerativeAnswerConfig {
       /** Whether generated answer contains suggested related questions. */
@@ -7979,7 +8949,11 @@ declare namespace gapi.client {
       /** Optional. Specifies whether to filter out queries that are not answer-seeking. The default value is `false`. No answer is returned if the search query is classified as a non-answer seeking query. If this field is set to `true`, we skip generating answers for non-answer seeking queries and return fallback messages instead. */
       ignoreNonAnswerSeekingQuery?: boolean;
       /** Optional. Source of image returned in the answer. */
-      imageSource?: string;
+      imageSource?:
+        | 'IMAGE_SOURCE_UNSPECIFIED'
+        | 'ALL_AVAILABLE_SOURCES'
+        | 'CORPUS_IMAGE_ONLY'
+        | 'FIGURE_GENERATION_ONLY';
       /** Language code for Summary. Use language tags defined by [BCP47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt). Note: This is an experimental feature. */
       languageCode?: string;
       /** Max rephrase steps. The max number is 5 steps. If not set or set to < 1, it will be set to 1 by default. */
@@ -7999,7 +8973,16 @@ declare namespace gapi.client {
       /** Optional. The super admin service account for the workspace that will be used for access token generation. For now we only use it for Native Google Drive connector data ingestion. */
       superAdminServiceAccount?: string;
       /** The Google Workspace data source. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'GOOGLE_DRIVE'
+        | 'GOOGLE_MAIL'
+        | 'GOOGLE_SITES'
+        | 'GOOGLE_CALENDAR'
+        | 'GOOGLE_CHAT'
+        | 'GOOGLE_GROUPS'
+        | 'GOOGLE_KEEP'
+        | 'GOOGLE_PEOPLE';
     }
     interface GoogleIamV1Binding {
       /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
@@ -8062,7 +9045,7 @@ declare namespace gapi.client {
       /** The associated metric. A fully-specified metric used to identify the time series. */
       metric?: GoogleApiMetric;
       /** The metric kind of the time series. When listing time series, this metric kind might be different from the metric kind of the associated metric if this time series is an alignment or reduction of other time series. When creating a time series, this field is optional. If present, it must be the same as the metric kind of the associated metric. If the associated metric's descriptor must be auto-created, then this field specifies the metric kind of the new descriptor and must be either `GAUGE` (the default) or `CUMULATIVE`. */
-      metricKind?: string;
+      metricKind?: 'METRIC_KIND_UNSPECIFIED' | 'GAUGE' | 'DELTA' | 'CUMULATIVE';
       /** The data points of this time series. When listing time series, points are returned in reverse time order. When creating a time series, this field must contain exactly one point and the point's type must be the same as the value type of the associated metric. If the associated metric's descriptor must be auto-created, then the value type of the descriptor is determined by the point's type, which must be `BOOL`, `INT64`, `DOUBLE`, or `DISTRIBUTION`. */
       points?: GoogleMonitoringV3Point[];
       /** The associated monitored resource. Custom metrics can use only certain monitored resource types in their time series data. For more information, see [Monitored resources for custom metrics](https://cloud.google.com/monitoring/custom-metrics/creating-metrics#custom-metric-resources). */
@@ -8070,7 +9053,14 @@ declare namespace gapi.client {
       /** The units in which the metric value is reported. It is only applicable if the `value_type` is `INT64`, `DOUBLE`, or `DISTRIBUTION`. The `unit` defines the representation of the stored metric values. This field can only be changed through CreateTimeSeries when it is empty. */
       unit?: string;
       /** The value type of the time series. When listing time series, this value type might be different from the value type of the associated metric if this time series is an alignment or reduction of other time series. When creating a time series, this field is optional. If present, it must be the same as the type of the data in the `points` field. */
-      valueType?: string;
+      valueType?:
+        | 'VALUE_TYPE_UNSPECIFIED'
+        | 'BOOL'
+        | 'INT64'
+        | 'DOUBLE'
+        | 'STRING'
+        | 'DISTRIBUTION'
+        | 'MONEY';
     }
     interface GoogleMonitoringV3TypedValue {
       /** A Boolean value: `true` or `false`. */
@@ -8141,11 +9131,11 @@ declare namespace gapi.client {
       /** De-provisions a CmekConfig. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8168,11 +9158,11 @@ declare namespace gapi.client {
       /** Gets the CmekConfig. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8195,11 +9185,11 @@ declare namespace gapi.client {
       /** Lists all the CmekConfigs with the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8222,11 +9212,11 @@ declare namespace gapi.client {
       /** Provisions a CMEK key for use in a location of a customer's project. This method will also conduct location validation on the provided cmekConfig to make sure the key is valid and can be used in the selected location. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8253,11 +9243,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8286,11 +9276,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8313,11 +9303,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8353,11 +9343,11 @@ declare namespace gapi.client {
       /** Creates a Document. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID to use for the Document, which becomes the final component of the Document.name. If the caller does not have permission to create the Document, regardless of whether or not it exists, a `PERMISSION_DENIED` error is returned. This field must be unique among all Documents with the same parent. Otherwise, an `ALREADY_EXISTS` error is returned. This field must conform to [RFC-1034](https://tools.ietf.org/html/rfc1034) standard with a length limit of 128 characters. Otherwise, an `INVALID_ARGUMENT` error is returned. */
@@ -8384,11 +9374,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID to use for the Document, which becomes the final component of the Document.name. If the caller does not have permission to create the Document, regardless of whether or not it exists, a `PERMISSION_DENIED` error is returned. This field must be unique among all Documents with the same parent. Otherwise, an `ALREADY_EXISTS` error is returned. This field must conform to [RFC-1034](https://tools.ietf.org/html/rfc1034) standard with a length limit of 128 characters. Otherwise, an `INVALID_ARGUMENT` error is returned. */
@@ -8415,11 +9405,11 @@ declare namespace gapi.client {
       /** Deletes a Document. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8442,11 +9432,11 @@ declare namespace gapi.client {
       /** Gets a Document. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8469,11 +9459,11 @@ declare namespace gapi.client {
       /** Bulk import of multiple Documents. Request processing may be synchronous. Non-existing items are created. Note: It is possible for a subset of the Documents to be successfully updated. */
       import(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8498,11 +9488,11 @@ declare namespace gapi.client {
       import(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8527,11 +9517,11 @@ declare namespace gapi.client {
       /** Gets a list of Documents. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8558,13 +9548,13 @@ declare namespace gapi.client {
       /** Updates a Document. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** If set to `true` and the Document is not found, a new Document is be created. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8591,13 +9581,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** If set to `true` and the Document is not found, a new Document is be created. */
           allowMissing?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8624,11 +9614,11 @@ declare namespace gapi.client {
       /** Permanently deletes all selected Documents in a branch. This process is asynchronous. Depending on the number of Documents to be deleted, this operation can take hours to complete. Before the delete operation completes, some Documents might still be returned by DocumentService.GetDocument or DocumentService.ListDocuments. To get a list of the Documents to be deleted, set PurgeDocumentsRequest.force to false. */
       purge(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8653,11 +9643,11 @@ declare namespace gapi.client {
       purge(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8684,11 +9674,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8713,11 +9703,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8742,11 +9732,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8769,11 +9759,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8806,11 +9796,11 @@ declare namespace gapi.client {
       /** Gets index freshness metadata for Documents. Supported for website search only. */
       batchGetDocumentsMetadata(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8841,11 +9831,11 @@ declare namespace gapi.client {
       /** Completes the user input with advanced keyword suggestions. */
       completeQuery(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The completion_config of the parent dataStore or engine resource name for which the completion is performed, such as `projects/*‍/locations/global/collections/default_collection/dataStores/*‍/completionConfig` `projects/*‍/locations/global/collections/default_collection/engines/*‍/completionConfig`. */
@@ -8870,11 +9860,11 @@ declare namespace gapi.client {
       completeQuery(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The completion_config of the parent dataStore or engine resource name for which the completion is performed, such as `projects/*‍/locations/global/collections/default_collection/dataStores/*‍/completionConfig` `projects/*‍/locations/global/collections/default_collection/engines/*‍/completionConfig`. */
@@ -8901,11 +9891,11 @@ declare namespace gapi.client {
       /** Imports CompletionSuggestions for a DataStore. */
       import(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8930,11 +9920,11 @@ declare namespace gapi.client {
       import(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8959,11 +9949,11 @@ declare namespace gapi.client {
       /** Permanently deletes all CompletionSuggestions for a DataStore. */
       purge(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8988,11 +9978,11 @@ declare namespace gapi.client {
       purge(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9019,11 +10009,11 @@ declare namespace gapi.client {
       /** Creates a Control. By default 1000 controls are allowed for a data store. A request can be submitted to adjust this limit. If the Control to create already exists, an ALREADY_EXISTS error is returned. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID to use for the Control, which will become the final component of the Control's resource name. This value must be within 1-63 characters. Valid characters are /a-z-_/. */
@@ -9050,11 +10040,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID to use for the Control, which will become the final component of the Control's resource name. This value must be within 1-63 characters. Valid characters are /a-z-_/. */
@@ -9081,11 +10071,11 @@ declare namespace gapi.client {
       /** Deletes a Control. If the Control to delete does not exist, a NOT_FOUND error is returned. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9108,11 +10098,11 @@ declare namespace gapi.client {
       /** Gets a Control. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9135,11 +10125,11 @@ declare namespace gapi.client {
       /** Lists all Controls by their parent DataStore. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9168,11 +10158,11 @@ declare namespace gapi.client {
       /** Updates a Control. Control action type cannot be changed. If the Control to update does not exist, a NOT_FOUND error is returned. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9199,11 +10189,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9232,11 +10222,11 @@ declare namespace gapi.client {
       /** Converses a conversation. */
       converse(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9261,11 +10251,11 @@ declare namespace gapi.client {
       converse(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9290,11 +10280,11 @@ declare namespace gapi.client {
       /** Creates a Conversation. If the Conversation to create already exists, an ALREADY_EXISTS error is returned. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9319,11 +10309,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9348,11 +10338,11 @@ declare namespace gapi.client {
       /** Deletes a Conversation. If the Conversation to delete does not exist, a NOT_FOUND error is returned. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9375,11 +10365,11 @@ declare namespace gapi.client {
       /** Gets a Conversation. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9402,11 +10392,11 @@ declare namespace gapi.client {
       /** Lists all Conversations by their parent DataStore. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9437,11 +10427,11 @@ declare namespace gapi.client {
       /** Updates a Conversation. Conversation action type cannot be changed. If the Conversation to update does not exist, a NOT_FOUND error is returned. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9468,11 +10458,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9501,11 +10491,11 @@ declare namespace gapi.client {
       /** Gets a list of all the custom models. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The resource name of the parent Data Store, such as `projects/*‍/locations/global/collections/default_collection/dataStores/default_data_store`. This field is used to identify the data store where to fetch the models from. */
@@ -9530,11 +10520,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9557,11 +10547,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9597,11 +10587,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9624,11 +10614,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9661,11 +10651,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9688,11 +10678,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9725,11 +10715,11 @@ declare namespace gapi.client {
       /** Creates a Schema. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9756,11 +10746,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9787,11 +10777,11 @@ declare namespace gapi.client {
       /** Deletes a Schema. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9814,11 +10804,11 @@ declare namespace gapi.client {
       /** Gets a Schema. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9841,11 +10831,11 @@ declare namespace gapi.client {
       /** Gets a list of Schemas. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9872,13 +10862,13 @@ declare namespace gapi.client {
       /** Updates a Schema. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** If set to true, and the Schema is not found, a new Schema is created. In this situation, `update_mask` is ignored. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9903,13 +10893,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** If set to true, and the Schema is not found, a new Schema is created. In this situation, `update_mask` is ignored. */
           allowMissing?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9937,11 +10927,11 @@ declare namespace gapi.client {
       /** Answer query method. */
       answer(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9966,11 +10956,11 @@ declare namespace gapi.client {
       answer(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9995,11 +10985,11 @@ declare namespace gapi.client {
       /** Creates a ServingConfig. Note: The Google Cloud console works only with the default serving config. Additional ServingConfigs can be created and managed only via the API. A maximum of 100 ServingConfigs are allowed in an Engine, otherwise a RESOURCE_EXHAUSTED error is returned. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10026,11 +11016,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10057,11 +11047,11 @@ declare namespace gapi.client {
       /** Deletes a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does not exist. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10084,11 +11074,11 @@ declare namespace gapi.client {
       /** Gets a ServingConfig. Returns a NotFound error if the ServingConfig does not exist. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10111,11 +11101,11 @@ declare namespace gapi.client {
       /** Lists all ServingConfigs linked to this dataStore. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10142,11 +11132,11 @@ declare namespace gapi.client {
       /** Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does not exist. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10173,11 +11163,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10204,11 +11194,11 @@ declare namespace gapi.client {
       /** Makes a recommendation, which requires a contextual user event. */
       recommend(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10233,11 +11223,11 @@ declare namespace gapi.client {
       recommend(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10262,11 +11252,11 @@ declare namespace gapi.client {
       /** Performs a search. */
       search(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10291,11 +11281,11 @@ declare namespace gapi.client {
       search(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10320,11 +11310,11 @@ declare namespace gapi.client {
       /** Performs a search. Similar to the SearchService.Search method, but a lite version that allows API key for authentication, where OAuth and IAM checks are not required. Only public website search is supported by this method. If data stores and engines not associated with public website search are specified, a `FAILED_PRECONDITION` error is returned. This method can be used for easy onboarding without having to implement an authentication backend. However, it is strongly recommended to use SearchService.Search instead with required OAuth and IAM checks to provide better data security. */
       searchLite(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10349,11 +11339,11 @@ declare namespace gapi.client {
       searchLite(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10378,11 +11368,11 @@ declare namespace gapi.client {
       /** Answer query method (streaming). It takes one AnswerQueryRequest and returns multiple AnswerQueryResponse messages in a stream. */
       streamAnswer(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10407,11 +11397,11 @@ declare namespace gapi.client {
       streamAnswer(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10438,11 +11428,11 @@ declare namespace gapi.client {
       /** Gets a Answer. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10467,11 +11457,11 @@ declare namespace gapi.client {
       /** Creates a Session. If the Session to create already exists, an ALREADY_EXISTS error is returned. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10496,11 +11486,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10525,11 +11515,11 @@ declare namespace gapi.client {
       /** Deletes a Session. If the Session to delete does not exist, a NOT_FOUND error is returned. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10552,11 +11542,11 @@ declare namespace gapi.client {
       /** Gets a Session. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10581,11 +11571,11 @@ declare namespace gapi.client {
       /** Lists all Sessions by their parent DataStore. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10616,11 +11606,11 @@ declare namespace gapi.client {
       /** Updates a Session. Session action type cannot be changed. If the Session to update does not exist, a NOT_FOUND error is returned. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10647,11 +11637,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10681,11 +11671,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10708,11 +11698,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10745,11 +11735,11 @@ declare namespace gapi.client {
       /** Creates a Sitemap. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10774,11 +11764,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10803,11 +11793,11 @@ declare namespace gapi.client {
       /** Deletes a Sitemap. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10830,11 +11820,11 @@ declare namespace gapi.client {
       /** Fetch Sitemaps in a DataStore. */
       fetch(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10861,11 +11851,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10888,11 +11878,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10925,11 +11915,11 @@ declare namespace gapi.client {
       /** Creates TargetSite in a batch. */
       batchCreate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10954,11 +11944,11 @@ declare namespace gapi.client {
       batchCreate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10983,11 +11973,11 @@ declare namespace gapi.client {
       /** Creates a TargetSite. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11012,11 +12002,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11041,11 +12031,11 @@ declare namespace gapi.client {
       /** Deletes a TargetSite. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11068,11 +12058,11 @@ declare namespace gapi.client {
       /** Gets a TargetSite. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11095,11 +12085,11 @@ declare namespace gapi.client {
       /** Gets a list of TargetSites. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11126,11 +12116,11 @@ declare namespace gapi.client {
       /** Updates a TargetSite. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11155,11 +12145,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11187,11 +12177,11 @@ declare namespace gapi.client {
       /** Verify target sites' ownership and validity. This API sends all the target sites under site search engine for verification. */
       batchVerifyTargetSites(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11216,11 +12206,11 @@ declare namespace gapi.client {
       batchVerifyTargetSites(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11245,11 +12235,11 @@ declare namespace gapi.client {
       /** Downgrade from advanced site search to basic site search. */
       disableAdvancedSiteSearch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11274,11 +12264,11 @@ declare namespace gapi.client {
       disableAdvancedSiteSearch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11303,11 +12293,11 @@ declare namespace gapi.client {
       /** Upgrade from basic site search to advanced site search. */
       enableAdvancedSiteSearch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11332,11 +12322,11 @@ declare namespace gapi.client {
       enableAdvancedSiteSearch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11361,11 +12351,11 @@ declare namespace gapi.client {
       /** Returns list of target sites with its domain verification status. This method can only be called under data store with BASIC_SITE_SEARCH state at the moment. */
       fetchDomainVerificationStatus(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11392,11 +12382,11 @@ declare namespace gapi.client {
       /** Request on-demand recrawl for a list of URIs. */
       recrawlUris(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11421,11 +12411,11 @@ declare namespace gapi.client {
       recrawlUris(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11455,11 +12445,11 @@ declare namespace gapi.client {
       /** Imports all SuggestionDenyListEntry for a DataStore. */
       import(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11484,11 +12474,11 @@ declare namespace gapi.client {
       import(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11513,11 +12503,11 @@ declare namespace gapi.client {
       /** Permanently deletes all SuggestionDenyListEntry for a DataStore. */
       purge(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11542,11 +12532,11 @@ declare namespace gapi.client {
       purge(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11573,11 +12563,11 @@ declare namespace gapi.client {
       /** Writes a single user event from the browser. This uses a GET request to due to browser restriction of POST-ing to a third-party domain. This method is used only by the Discovery Engine API JavaScript pixel and Google Tag Manager. Users should not call this method directly. */
       collect(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The event timestamp in milliseconds. This prevents browser caching of otherwise identical get requests. The name is abbreviated to reduce the payload bytes. */
@@ -11606,11 +12596,11 @@ declare namespace gapi.client {
       /** Bulk import of user events. Request processing might be synchronous. Events that already exist are skipped. Use this method for backfilling historical user events. Operation.response is of type ImportResponse. Note that it is possible for a subset of the items to be successfully inserted. Operation.metadata is of type ImportMetadata. */
       import(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11635,11 +12625,11 @@ declare namespace gapi.client {
       import(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11664,11 +12654,11 @@ declare namespace gapi.client {
       /** Deletes permanently all user events specified by the filter provided. Depending on the number of events specified by the filter, this operation could take hours or days to complete. To test a filter, use the list command first. */
       purge(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11693,11 +12683,11 @@ declare namespace gapi.client {
       purge(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11722,11 +12712,11 @@ declare namespace gapi.client {
       /** Writes a single user event. */
       write(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11753,11 +12743,11 @@ declare namespace gapi.client {
       write(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11786,13 +12776,13 @@ declare namespace gapi.client {
       /** Gets a WidgetConfig. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** Optional. Whether it's acceptable to load the widget config from cache. If set to true, recent changes on widget configs may take a few minutes to reflect on the end user's view. It's recommended to set to true for maturely developed widgets, as it improves widget performance. Set to false to see changes reflected in prod right away, if your widget is under development. */
         acceptCache?: boolean;
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11817,11 +12807,11 @@ declare namespace gapi.client {
       /** Update a WidgetConfig. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11848,11 +12838,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11881,11 +12871,11 @@ declare namespace gapi.client {
       /** Completes the specified user input with keyword suggestions. */
       completeQuery(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The parent data store resource name for which the completion is performed, such as `projects/*‍/locations/global/collections/default_collection/dataStores/default_data_store`. */
@@ -11916,11 +12906,11 @@ declare namespace gapi.client {
       /** Creates a DataStore. DataStore is for storing Documents. To serve these documents for Search, or Recommendation use case, an Engine needs to be created separately. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Resource name of the CmekConfig to use for protecting this DataStore. */
@@ -11955,11 +12945,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Resource name of the CmekConfig to use for protecting this DataStore. */
@@ -11994,11 +12984,11 @@ declare namespace gapi.client {
       /** Deletes a DataStore. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12021,11 +13011,11 @@ declare namespace gapi.client {
       /** Gets a DataStore. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12048,11 +13038,11 @@ declare namespace gapi.client {
       /** Gets the SiteSearchEngine. */
       getSiteSearchEngine(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12075,11 +13065,11 @@ declare namespace gapi.client {
       /** Lists all the DataStores associated with the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12108,11 +13098,11 @@ declare namespace gapi.client {
       /** Updates a DataStore */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12139,11 +13129,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -12170,11 +13160,11 @@ declare namespace gapi.client {
       /** Trains a custom model. */
       trainCustomModel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The resource name of the Data Store, such as `projects/*‍/locations/global/collections/default_collection/dataStores/default_data_store`. This field is used to identify the data store where to train the models. */
@@ -12199,11 +13189,11 @@ declare namespace gapi.client {
       trainCustomModel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The resource name of the Data Store, such as `projects/*‍/locations/global/collections/default_collection/dataStores/default_data_store`. This field is used to identify the data store where to train the models. */
@@ -12245,11 +13235,11 @@ declare namespace gapi.client {
       /** Send a message to the agent. This is a blocking call that will return the task once it is completed, or a LRO if requested. */
       send(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12274,11 +13264,11 @@ declare namespace gapi.client {
       send(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -12303,11 +13293,11 @@ declare namespace gapi.client {
       /** SendStreamingMessage is a streaming call that will return a stream of task update events until the Task is in an interrupted or terminal state. */
       stream(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12332,11 +13322,11 @@ declare namespace gapi.client {
       stream(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -12363,11 +13353,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12392,11 +13382,11 @@ declare namespace gapi.client {
       /** Set a push notification config for a task. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID for the new config. */
@@ -12425,11 +13415,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID for the new config. */
@@ -12458,11 +13448,11 @@ declare namespace gapi.client {
       /** Delete a push notification config for a task. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12487,11 +13477,11 @@ declare namespace gapi.client {
       /** Get a push notification config for a task. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12516,11 +13506,11 @@ declare namespace gapi.client {
       /** Get a list of push notifications configured for a task. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12551,11 +13541,11 @@ declare namespace gapi.client {
       /** Cancel a task from the agent. If supported one should expect no more task updates for the task. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12582,11 +13572,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -12613,11 +13603,11 @@ declare namespace gapi.client {
       /** Get the current state of a task from the agent. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12644,11 +13634,11 @@ declare namespace gapi.client {
       /** TaskSubscription is a streaming call that will return a stream of task update events. This attaches the stream to an existing in process task. If the task is complete the stream will return the completed task (like GetTask) and close the stream. */
       subscribe(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12676,11 +13666,11 @@ declare namespace gapi.client {
       /** GetAgentCard returns the agent card for the agent. */
       getCard(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12708,11 +13698,11 @@ declare namespace gapi.client {
       /** Creates an Assistant. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The ID to use for the Assistant, which will become the final component of the Assistant's resource name. This field must conform to [RFC-1034](https://tools.ietf.org/html/rfc1034) with a length limit of 63 characters. */
         assistantId?: string;
         /** JSONP */
@@ -12739,11 +13729,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. The ID to use for the Assistant, which will become the final component of the Assistant's resource name. This field must conform to [RFC-1034](https://tools.ietf.org/html/rfc1034) with a length limit of 63 characters. */
           assistantId?: string;
           /** JSONP */
@@ -12770,11 +13760,11 @@ declare namespace gapi.client {
       /** Deletes an Assistant. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12797,11 +13787,11 @@ declare namespace gapi.client {
       /** Gets an Assistant. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12824,11 +13814,11 @@ declare namespace gapi.client {
       /** Lists all Assistants under an Engine. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12855,11 +13845,11 @@ declare namespace gapi.client {
       /** Updates an Assistant */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12886,11 +13876,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -12917,11 +13907,11 @@ declare namespace gapi.client {
       /** Assists the user with a query in a streaming fashion. */
       streamAssist(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12946,11 +13936,11 @@ declare namespace gapi.client {
       streamAssist(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -12978,11 +13968,11 @@ declare namespace gapi.client {
       /** Completes the user input with advanced keyword suggestions. */
       completeQuery(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The completion_config of the parent dataStore or engine resource name for which the completion is performed, such as `projects/*‍/locations/global/collections/default_collection/dataStores/*‍/completionConfig` `projects/*‍/locations/global/collections/default_collection/engines/*‍/completionConfig`. */
@@ -13007,11 +13997,11 @@ declare namespace gapi.client {
       completeQuery(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The completion_config of the parent dataStore or engine resource name for which the completion is performed, such as `projects/*‍/locations/global/collections/default_collection/dataStores/*‍/completionConfig` `projects/*‍/locations/global/collections/default_collection/engines/*‍/completionConfig`. */
@@ -13038,11 +14028,11 @@ declare namespace gapi.client {
       /** Creates a Control. By default 1000 controls are allowed for a data store. A request can be submitted to adjust this limit. If the Control to create already exists, an ALREADY_EXISTS error is returned. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID to use for the Control, which will become the final component of the Control's resource name. This value must be within 1-63 characters. Valid characters are /a-z-_/. */
@@ -13069,11 +14059,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID to use for the Control, which will become the final component of the Control's resource name. This value must be within 1-63 characters. Valid characters are /a-z-_/. */
@@ -13100,11 +14090,11 @@ declare namespace gapi.client {
       /** Deletes a Control. If the Control to delete does not exist, a NOT_FOUND error is returned. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13127,11 +14117,11 @@ declare namespace gapi.client {
       /** Gets a Control. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13154,11 +14144,11 @@ declare namespace gapi.client {
       /** Lists all Controls by their parent DataStore. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13187,11 +14177,11 @@ declare namespace gapi.client {
       /** Updates a Control. Control action type cannot be changed. If the Control to update does not exist, a NOT_FOUND error is returned. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13218,11 +14208,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13251,11 +14241,11 @@ declare namespace gapi.client {
       /** Converses a conversation. */
       converse(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13280,11 +14270,11 @@ declare namespace gapi.client {
       converse(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13309,11 +14299,11 @@ declare namespace gapi.client {
       /** Creates a Conversation. If the Conversation to create already exists, an ALREADY_EXISTS error is returned. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13338,11 +14328,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13367,11 +14357,11 @@ declare namespace gapi.client {
       /** Deletes a Conversation. If the Conversation to delete does not exist, a NOT_FOUND error is returned. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13394,11 +14384,11 @@ declare namespace gapi.client {
       /** Gets a Conversation. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13421,11 +14411,11 @@ declare namespace gapi.client {
       /** Lists all Conversations by their parent DataStore. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13456,11 +14446,11 @@ declare namespace gapi.client {
       /** Updates a Conversation. Conversation action type cannot be changed. If the Conversation to update does not exist, a NOT_FOUND error is returned. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13487,11 +14477,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13520,11 +14510,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13549,11 +14539,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13578,11 +14568,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13605,11 +14595,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13642,11 +14632,11 @@ declare namespace gapi.client {
       /** Answer query method. */
       answer(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13671,11 +14661,11 @@ declare namespace gapi.client {
       answer(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13700,11 +14690,11 @@ declare namespace gapi.client {
       /** Creates a ServingConfig. Note: The Google Cloud console works only with the default serving config. Additional ServingConfigs can be created and managed only via the API. A maximum of 100 ServingConfigs are allowed in an Engine, otherwise a RESOURCE_EXHAUSTED error is returned. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13731,11 +14721,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13762,11 +14752,11 @@ declare namespace gapi.client {
       /** Deletes a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does not exist. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13789,11 +14779,11 @@ declare namespace gapi.client {
       /** Gets a ServingConfig. Returns a NotFound error if the ServingConfig does not exist. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13816,11 +14806,11 @@ declare namespace gapi.client {
       /** Lists all ServingConfigs linked to this dataStore. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13847,11 +14837,11 @@ declare namespace gapi.client {
       /** Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does not exist. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13878,11 +14868,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13909,11 +14899,11 @@ declare namespace gapi.client {
       /** Makes a recommendation, which requires a contextual user event. */
       recommend(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13938,11 +14928,11 @@ declare namespace gapi.client {
       recommend(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13967,11 +14957,11 @@ declare namespace gapi.client {
       /** Performs a search. */
       search(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13996,11 +14986,11 @@ declare namespace gapi.client {
       search(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -14025,11 +15015,11 @@ declare namespace gapi.client {
       /** Performs a search. Similar to the SearchService.Search method, but a lite version that allows API key for authentication, where OAuth and IAM checks are not required. Only public website search is supported by this method. If data stores and engines not associated with public website search are specified, a `FAILED_PRECONDITION` error is returned. This method can be used for easy onboarding without having to implement an authentication backend. However, it is strongly recommended to use SearchService.Search instead with required OAuth and IAM checks to provide better data security. */
       searchLite(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14054,11 +15044,11 @@ declare namespace gapi.client {
       searchLite(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -14083,11 +15073,11 @@ declare namespace gapi.client {
       /** Answer query method (streaming). It takes one AnswerQueryRequest and returns multiple AnswerQueryResponse messages in a stream. */
       streamAnswer(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14112,11 +15102,11 @@ declare namespace gapi.client {
       streamAnswer(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -14143,11 +15133,11 @@ declare namespace gapi.client {
       /** Gets a Answer. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14172,11 +15162,11 @@ declare namespace gapi.client {
       /** Creates a Session. If the Session to create already exists, an ALREADY_EXISTS error is returned. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14201,11 +15191,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -14230,11 +15220,11 @@ declare namespace gapi.client {
       /** Deletes a Session. If the Session to delete does not exist, a NOT_FOUND error is returned. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14257,11 +15247,11 @@ declare namespace gapi.client {
       /** Gets a Session. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14286,11 +15276,11 @@ declare namespace gapi.client {
       /** Lists all Sessions by their parent DataStore. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14321,11 +15311,11 @@ declare namespace gapi.client {
       /** Updates a Session. Session action type cannot be changed. If the Session to update does not exist, a NOT_FOUND error is returned. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14352,11 +15342,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -14386,13 +15376,13 @@ declare namespace gapi.client {
       /** Gets a WidgetConfig. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** Optional. Whether it's acceptable to load the widget config from cache. If set to true, recent changes on widget configs may take a few minutes to reflect on the end user's view. It's recommended to set to true for maturely developed widgets, as it improves widget performance. Set to false to see changes reflected in prod right away, if your widget is under development. */
         acceptCache?: boolean;
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14417,11 +15407,11 @@ declare namespace gapi.client {
       /** Update a WidgetConfig. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14448,11 +15438,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -14481,11 +15471,11 @@ declare namespace gapi.client {
       /** Creates an Engine. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID to use for the Engine, which will become the final component of the Engine's resource name. This field must conform to [RFC-1034](https://tools.ietf.org/html/rfc1034) standard with a length limit of 63 characters. Otherwise, an INVALID_ARGUMENT error is returned. */
@@ -14512,11 +15502,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID to use for the Engine, which will become the final component of the Engine's resource name. This field must conform to [RFC-1034](https://tools.ietf.org/html/rfc1034) standard with a length limit of 63 characters. Otherwise, an INVALID_ARGUMENT error is returned. */
@@ -14543,11 +15533,11 @@ declare namespace gapi.client {
       /** Deletes an Engine. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14570,11 +15560,11 @@ declare namespace gapi.client {
       /** Gets an Engine. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14597,11 +15587,11 @@ declare namespace gapi.client {
       /** Gets the IAM access control policy for an Engine. A `NOT_FOUND` error is returned if the resource does not exist. An empty policy is returned if the resource exists but does not have a policy set on it. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14626,11 +15616,11 @@ declare namespace gapi.client {
       /** Lists all the Engines associated with the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14659,11 +15649,11 @@ declare namespace gapi.client {
       /** Updates an Engine */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14690,11 +15680,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -14722,11 +15712,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -14761,11 +15751,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14788,11 +15778,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14825,11 +15815,11 @@ declare namespace gapi.client {
       /** Deletes a Collection. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14852,11 +15842,11 @@ declare namespace gapi.client {
       /** Gets the DataConnector. DataConnector is a singleton resource for each Collection. */
       getDataConnector(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14879,11 +15869,11 @@ declare namespace gapi.client {
       /** Updates a DataConnector. */
       updateDataConnector(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14910,11 +15900,11 @@ declare namespace gapi.client {
       updateDataConnector(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -14947,11 +15937,11 @@ declare namespace gapi.client {
       /** Creates a Document. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID to use for the Document, which becomes the final component of the Document.name. If the caller does not have permission to create the Document, regardless of whether or not it exists, a `PERMISSION_DENIED` error is returned. This field must be unique among all Documents with the same parent. Otherwise, an `ALREADY_EXISTS` error is returned. This field must conform to [RFC-1034](https://tools.ietf.org/html/rfc1034) standard with a length limit of 128 characters. Otherwise, an `INVALID_ARGUMENT` error is returned. */
@@ -14978,11 +15968,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID to use for the Document, which becomes the final component of the Document.name. If the caller does not have permission to create the Document, regardless of whether or not it exists, a `PERMISSION_DENIED` error is returned. This field must be unique among all Documents with the same parent. Otherwise, an `ALREADY_EXISTS` error is returned. This field must conform to [RFC-1034](https://tools.ietf.org/html/rfc1034) standard with a length limit of 128 characters. Otherwise, an `INVALID_ARGUMENT` error is returned. */
@@ -15009,11 +15999,11 @@ declare namespace gapi.client {
       /** Deletes a Document. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -15036,11 +16026,11 @@ declare namespace gapi.client {
       /** Gets a Document. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -15063,11 +16053,11 @@ declare namespace gapi.client {
       /** Bulk import of multiple Documents. Request processing may be synchronous. Non-existing items are created. Note: It is possible for a subset of the Documents to be successfully updated. */
       import(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -15092,11 +16082,11 @@ declare namespace gapi.client {
       import(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -15121,11 +16111,11 @@ declare namespace gapi.client {
       /** Gets a list of Documents. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -15152,13 +16142,13 @@ declare namespace gapi.client {
       /** Updates a Document. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** If set to `true` and the Document is not found, a new Document is be created. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -15185,13 +16175,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** If set to `true` and the Document is not found, a new Document is be created. */
           allowMissing?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -15218,11 +16208,11 @@ declare namespace gapi.client {
       /** Permanently deletes all selected Documents in a branch. This process is asynchronous. Depending on the number of Documents to be deleted, this operation can take hours to complete. Before the delete operation completes, some Documents might still be returned by DocumentService.GetDocument or DocumentService.ListDocuments. To get a list of the Documents to be deleted, set PurgeDocumentsRequest.force to false. */
       purge(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -15247,11 +16237,11 @@ declare namespace gapi.client {
       purge(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -15278,11 +16268,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -15307,11 +16297,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -15336,11 +16326,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -15363,11 +16353,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -15400,11 +16390,11 @@ declare namespace gapi.client {
       /** Gets index freshness metadata for Documents. Supported for website search only. */
       batchGetDocumentsMetadata(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -15435,11 +16425,11 @@ declare namespace gapi.client {
       /** Completes the user input with advanced keyword suggestions. */
       completeQuery(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The completion_config of the parent dataStore or engine resource name for which the completion is performed, such as `projects/*‍/locations/global/collections/default_collection/dataStores/*‍/completionConfig` `projects/*‍/locations/global/collections/default_collection/engines/*‍/completionConfig`. */
@@ -15464,11 +16454,11 @@ declare namespace gapi.client {
       completeQuery(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The completion_config of the parent dataStore or engine resource name for which the completion is performed, such as `projects/*‍/locations/global/collections/default_collection/dataStores/*‍/completionConfig` `projects/*‍/locations/global/collections/default_collection/engines/*‍/completionConfig`. */
@@ -15495,11 +16485,11 @@ declare namespace gapi.client {
       /** Imports CompletionSuggestions for a DataStore. */
       import(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -15524,11 +16514,11 @@ declare namespace gapi.client {
       import(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -15553,11 +16543,11 @@ declare namespace gapi.client {
       /** Permanently deletes all CompletionSuggestions for a DataStore. */
       purge(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -15582,11 +16572,11 @@ declare namespace gapi.client {
       purge(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -15613,11 +16603,11 @@ declare namespace gapi.client {
       /** Creates a Control. By default 1000 controls are allowed for a data store. A request can be submitted to adjust this limit. If the Control to create already exists, an ALREADY_EXISTS error is returned. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID to use for the Control, which will become the final component of the Control's resource name. This value must be within 1-63 characters. Valid characters are /a-z-_/. */
@@ -15644,11 +16634,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID to use for the Control, which will become the final component of the Control's resource name. This value must be within 1-63 characters. Valid characters are /a-z-_/. */
@@ -15675,11 +16665,11 @@ declare namespace gapi.client {
       /** Deletes a Control. If the Control to delete does not exist, a NOT_FOUND error is returned. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -15702,11 +16692,11 @@ declare namespace gapi.client {
       /** Gets a Control. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -15729,11 +16719,11 @@ declare namespace gapi.client {
       /** Lists all Controls by their parent DataStore. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -15762,11 +16752,11 @@ declare namespace gapi.client {
       /** Updates a Control. Control action type cannot be changed. If the Control to update does not exist, a NOT_FOUND error is returned. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -15793,11 +16783,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -15826,11 +16816,11 @@ declare namespace gapi.client {
       /** Converses a conversation. */
       converse(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -15855,11 +16845,11 @@ declare namespace gapi.client {
       converse(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -15884,11 +16874,11 @@ declare namespace gapi.client {
       /** Creates a Conversation. If the Conversation to create already exists, an ALREADY_EXISTS error is returned. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -15913,11 +16903,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -15942,11 +16932,11 @@ declare namespace gapi.client {
       /** Deletes a Conversation. If the Conversation to delete does not exist, a NOT_FOUND error is returned. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -15969,11 +16959,11 @@ declare namespace gapi.client {
       /** Gets a Conversation. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -15996,11 +16986,11 @@ declare namespace gapi.client {
       /** Lists all Conversations by their parent DataStore. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -16031,11 +17021,11 @@ declare namespace gapi.client {
       /** Updates a Conversation. Conversation action type cannot be changed. If the Conversation to update does not exist, a NOT_FOUND error is returned. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -16062,11 +17052,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -16095,11 +17085,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -16122,11 +17112,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -16162,11 +17152,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -16189,11 +17179,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -16226,11 +17216,11 @@ declare namespace gapi.client {
       /** Creates a Schema. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -16257,11 +17247,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -16288,11 +17278,11 @@ declare namespace gapi.client {
       /** Deletes a Schema. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -16315,11 +17305,11 @@ declare namespace gapi.client {
       /** Gets a Schema. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -16342,11 +17332,11 @@ declare namespace gapi.client {
       /** Gets a list of Schemas. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -16373,13 +17363,13 @@ declare namespace gapi.client {
       /** Updates a Schema. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** If set to true, and the Schema is not found, a new Schema is created. In this situation, `update_mask` is ignored. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -16404,13 +17394,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** If set to true, and the Schema is not found, a new Schema is created. In this situation, `update_mask` is ignored. */
           allowMissing?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -16437,11 +17427,11 @@ declare namespace gapi.client {
       /** Answer query method. */
       answer(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -16466,11 +17456,11 @@ declare namespace gapi.client {
       answer(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -16495,11 +17485,11 @@ declare namespace gapi.client {
       /** Creates a ServingConfig. Note: The Google Cloud console works only with the default serving config. Additional ServingConfigs can be created and managed only via the API. A maximum of 100 ServingConfigs are allowed in an Engine, otherwise a RESOURCE_EXHAUSTED error is returned. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -16526,11 +17516,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -16557,11 +17547,11 @@ declare namespace gapi.client {
       /** Deletes a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does not exist. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -16584,11 +17574,11 @@ declare namespace gapi.client {
       /** Gets a ServingConfig. Returns a NotFound error if the ServingConfig does not exist. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -16611,11 +17601,11 @@ declare namespace gapi.client {
       /** Lists all ServingConfigs linked to this dataStore. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -16642,11 +17632,11 @@ declare namespace gapi.client {
       /** Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does not exist. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -16673,11 +17663,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -16704,11 +17694,11 @@ declare namespace gapi.client {
       /** Makes a recommendation, which requires a contextual user event. */
       recommend(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -16733,11 +17723,11 @@ declare namespace gapi.client {
       recommend(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -16762,11 +17752,11 @@ declare namespace gapi.client {
       /** Performs a search. */
       search(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -16791,11 +17781,11 @@ declare namespace gapi.client {
       search(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -16820,11 +17810,11 @@ declare namespace gapi.client {
       /** Performs a search. Similar to the SearchService.Search method, but a lite version that allows API key for authentication, where OAuth and IAM checks are not required. Only public website search is supported by this method. If data stores and engines not associated with public website search are specified, a `FAILED_PRECONDITION` error is returned. This method can be used for easy onboarding without having to implement an authentication backend. However, it is strongly recommended to use SearchService.Search instead with required OAuth and IAM checks to provide better data security. */
       searchLite(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -16849,11 +17839,11 @@ declare namespace gapi.client {
       searchLite(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -16878,11 +17868,11 @@ declare namespace gapi.client {
       /** Answer query method (streaming). It takes one AnswerQueryRequest and returns multiple AnswerQueryResponse messages in a stream. */
       streamAnswer(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -16907,11 +17897,11 @@ declare namespace gapi.client {
       streamAnswer(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -16938,11 +17928,11 @@ declare namespace gapi.client {
       /** Gets a Answer. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -16967,11 +17957,11 @@ declare namespace gapi.client {
       /** Creates a Session. If the Session to create already exists, an ALREADY_EXISTS error is returned. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -16996,11 +17986,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -17025,11 +18015,11 @@ declare namespace gapi.client {
       /** Deletes a Session. If the Session to delete does not exist, a NOT_FOUND error is returned. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -17052,11 +18042,11 @@ declare namespace gapi.client {
       /** Gets a Session. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -17081,11 +18071,11 @@ declare namespace gapi.client {
       /** Lists all Sessions by their parent DataStore. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -17116,11 +18106,11 @@ declare namespace gapi.client {
       /** Updates a Session. Session action type cannot be changed. If the Session to update does not exist, a NOT_FOUND error is returned. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -17147,11 +18137,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -17181,11 +18171,11 @@ declare namespace gapi.client {
       /** Creates a Sitemap. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -17210,11 +18200,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -17239,11 +18229,11 @@ declare namespace gapi.client {
       /** Deletes a Sitemap. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -17266,11 +18256,11 @@ declare namespace gapi.client {
       /** Fetch Sitemaps in a DataStore. */
       fetch(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -17297,11 +18287,11 @@ declare namespace gapi.client {
       /** Creates TargetSite in a batch. */
       batchCreate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -17326,11 +18316,11 @@ declare namespace gapi.client {
       batchCreate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -17355,11 +18345,11 @@ declare namespace gapi.client {
       /** Creates a TargetSite. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -17384,11 +18374,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -17413,11 +18403,11 @@ declare namespace gapi.client {
       /** Deletes a TargetSite. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -17440,11 +18430,11 @@ declare namespace gapi.client {
       /** Gets a TargetSite. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -17467,11 +18457,11 @@ declare namespace gapi.client {
       /** Gets a list of TargetSites. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -17498,11 +18488,11 @@ declare namespace gapi.client {
       /** Updates a TargetSite. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -17527,11 +18517,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -17558,11 +18548,11 @@ declare namespace gapi.client {
       /** Downgrade from advanced site search to basic site search. */
       disableAdvancedSiteSearch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -17587,11 +18577,11 @@ declare namespace gapi.client {
       disableAdvancedSiteSearch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -17616,11 +18606,11 @@ declare namespace gapi.client {
       /** Upgrade from basic site search to advanced site search. */
       enableAdvancedSiteSearch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -17645,11 +18635,11 @@ declare namespace gapi.client {
       enableAdvancedSiteSearch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -17674,11 +18664,11 @@ declare namespace gapi.client {
       /** Request on-demand recrawl for a list of URIs. */
       recrawlUris(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -17703,11 +18693,11 @@ declare namespace gapi.client {
       recrawlUris(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -17736,11 +18726,11 @@ declare namespace gapi.client {
       /** Imports all SuggestionDenyListEntry for a DataStore. */
       import(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -17765,11 +18755,11 @@ declare namespace gapi.client {
       import(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -17794,11 +18784,11 @@ declare namespace gapi.client {
       /** Permanently deletes all SuggestionDenyListEntry for a DataStore. */
       purge(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -17823,11 +18813,11 @@ declare namespace gapi.client {
       purge(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -17854,11 +18844,11 @@ declare namespace gapi.client {
       /** Writes a single user event from the browser. This uses a GET request to due to browser restriction of POST-ing to a third-party domain. This method is used only by the Discovery Engine API JavaScript pixel and Google Tag Manager. Users should not call this method directly. */
       collect(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The event timestamp in milliseconds. This prevents browser caching of otherwise identical get requests. The name is abbreviated to reduce the payload bytes. */
@@ -17887,11 +18877,11 @@ declare namespace gapi.client {
       /** Bulk import of user events. Request processing might be synchronous. Events that already exist are skipped. Use this method for backfilling historical user events. Operation.response is of type ImportResponse. Note that it is possible for a subset of the items to be successfully inserted. Operation.metadata is of type ImportMetadata. */
       import(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -17916,11 +18906,11 @@ declare namespace gapi.client {
       import(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -17945,11 +18935,11 @@ declare namespace gapi.client {
       /** Deletes permanently all user events specified by the filter provided. Depending on the number of events specified by the filter, this operation could take hours or days to complete. To test a filter, use the list command first. */
       purge(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -17974,11 +18964,11 @@ declare namespace gapi.client {
       purge(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -18003,11 +18993,11 @@ declare namespace gapi.client {
       /** Writes a single user event. */
       write(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -18034,11 +19024,11 @@ declare namespace gapi.client {
       write(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -18067,13 +19057,13 @@ declare namespace gapi.client {
       /** Gets a WidgetConfig. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** Optional. Whether it's acceptable to load the widget config from cache. If set to true, recent changes on widget configs may take a few minutes to reflect on the end user's view. It's recommended to set to true for maturely developed widgets, as it improves widget performance. Set to false to see changes reflected in prod right away, if your widget is under development. */
         acceptCache?: boolean;
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -18098,11 +19088,11 @@ declare namespace gapi.client {
       /** Update a WidgetConfig. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -18129,11 +19119,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -18162,11 +19152,11 @@ declare namespace gapi.client {
       /** Completes the specified user input with keyword suggestions. */
       completeQuery(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The parent data store resource name for which the completion is performed, such as `projects/*‍/locations/global/collections/default_collection/dataStores/default_data_store`. */
@@ -18197,11 +19187,11 @@ declare namespace gapi.client {
       /** Creates a DataStore. DataStore is for storing Documents. To serve these documents for Search, or Recommendation use case, an Engine needs to be created separately. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Resource name of the CmekConfig to use for protecting this DataStore. */
@@ -18236,11 +19226,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Resource name of the CmekConfig to use for protecting this DataStore. */
@@ -18275,11 +19265,11 @@ declare namespace gapi.client {
       /** Deletes a DataStore. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -18302,11 +19292,11 @@ declare namespace gapi.client {
       /** Gets a DataStore. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -18329,11 +19319,11 @@ declare namespace gapi.client {
       /** Gets the SiteSearchEngine. */
       getSiteSearchEngine(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -18356,11 +19346,11 @@ declare namespace gapi.client {
       /** Lists all the DataStores associated with the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -18389,11 +19379,11 @@ declare namespace gapi.client {
       /** Updates a DataStore */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -18420,11 +19410,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -18467,11 +19457,11 @@ declare namespace gapi.client {
       /** Performs a grounding check. */
       check(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -18496,11 +19486,11 @@ declare namespace gapi.client {
       check(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -18527,11 +19517,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -18554,11 +19544,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -18591,11 +19581,11 @@ declare namespace gapi.client {
       /** Creates a new Identity Mapping Store. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Resource name of the CmekConfig to use for protecting this Identity Mapping Store. */
@@ -18626,11 +19616,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Resource name of the CmekConfig to use for protecting this Identity Mapping Store. */
@@ -18661,11 +19651,11 @@ declare namespace gapi.client {
       /** Deletes the Identity Mapping Store. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -18688,11 +19678,11 @@ declare namespace gapi.client {
       /** Gets the Identity Mapping Store. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -18715,11 +19705,11 @@ declare namespace gapi.client {
       /** Imports a list of Identity Mapping Entries to an Identity Mapping Store. */
       importIdentityMappings(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -18744,11 +19734,11 @@ declare namespace gapi.client {
       importIdentityMappings(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -18773,11 +19763,11 @@ declare namespace gapi.client {
       /** Lists all Identity Mapping Stores. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -18804,11 +19794,11 @@ declare namespace gapi.client {
       /** Lists Identity Mappings in an Identity Mapping Store. */
       listIdentityMappings(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -18835,11 +19825,11 @@ declare namespace gapi.client {
       /** Purges specified or all Identity Mapping Entries from an Identity Mapping Store. */
       purgeIdentityMappings(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -18864,11 +19854,11 @@ declare namespace gapi.client {
       purgeIdentityMappings(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -18896,11 +19886,11 @@ declare namespace gapi.client {
       /** Creates a LicenseConfig This method should only be used for creating NotebookLm licenses or Gemini Enterprise free trial licenses. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -18927,11 +19917,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -18958,11 +19948,11 @@ declare namespace gapi.client {
       /** Gets a LicenseConfig. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -18985,11 +19975,11 @@ declare namespace gapi.client {
       /** Updates the LicenseConfig */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -19016,11 +20006,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -19049,11 +20039,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -19076,11 +20066,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -19113,11 +20103,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -19145,11 +20135,11 @@ declare namespace gapi.client {
       /** Ranks a list of text records based on the given input query. */
       rank(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -19174,11 +20164,11 @@ declare namespace gapi.client {
       rank(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -19205,11 +20195,11 @@ declare namespace gapi.client {
       /** Writes a single user event from the browser. This uses a GET request to due to browser restriction of POST-ing to a third-party domain. This method is used only by the Discovery Engine API JavaScript pixel and Google Tag Manager. Users should not call this method directly. */
       collect(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The event timestamp in milliseconds. This prevents browser caching of otherwise identical get requests. The name is abbreviated to reduce the payload bytes. */
@@ -19238,11 +20228,11 @@ declare namespace gapi.client {
       /** Bulk import of user events. Request processing might be synchronous. Events that already exist are skipped. Use this method for backfilling historical user events. Operation.response is of type ImportResponse. Note that it is possible for a subset of the items to be successfully inserted. Operation.metadata is of type ImportMetadata. */
       import(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -19267,11 +20257,11 @@ declare namespace gapi.client {
       import(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -19296,11 +20286,11 @@ declare namespace gapi.client {
       /** Writes a single user event. */
       write(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -19327,11 +20317,11 @@ declare namespace gapi.client {
       write(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -19360,11 +20350,11 @@ declare namespace gapi.client {
       /** Lists all the LicenseConfigUsageStatss associated with the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -19389,11 +20379,11 @@ declare namespace gapi.client {
       /** Lists the User Licenses. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -19424,11 +20414,11 @@ declare namespace gapi.client {
       /** Updates the User License. This method is used for batch assign/unassign licenses to users. */
       batchUpdateUserLicenses(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -19453,11 +20443,11 @@ declare namespace gapi.client {
       batchUpdateUserLicenses(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -19482,11 +20472,11 @@ declare namespace gapi.client {
       /** Gets the User Store. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -19509,11 +20499,11 @@ declare namespace gapi.client {
       /** Updates the User Store. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -19540,11 +20530,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -19575,11 +20565,11 @@ declare namespace gapi.client {
       /** Gets the AclConfig. */
       getAclConfig(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -19602,11 +20592,11 @@ declare namespace gapi.client {
       /** Gets the CmekConfig. */
       getCmekConfig(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -19629,11 +20619,11 @@ declare namespace gapi.client {
       /** Creates a Collection and sets up the DataConnector for it. To stop a DataConnector after setup, use the CollectionService.DeleteCollection method. */
       setUpDataConnector(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -19658,11 +20648,11 @@ declare namespace gapi.client {
       setUpDataConnector(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -19687,11 +20677,11 @@ declare namespace gapi.client {
       /** Creates a Collection and sets up the DataConnector for it. To stop a DataConnector after setup, use the CollectionService.DeleteCollection method. */
       setUpDataConnectorV2(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The display name of the Collection. Should be human readable, used to display collections in the Console Dashboard. UTF-8 encoded string with limit of 1024 characters. */
@@ -19720,11 +20710,11 @@ declare namespace gapi.client {
       setUpDataConnectorV2(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The display name of the Collection. Should be human readable, used to display collections in the Console Dashboard. UTF-8 encoded string with limit of 1024 characters. */
@@ -19753,11 +20743,11 @@ declare namespace gapi.client {
       /** Default ACL configuration for use in a location of a customer's project. Updates will only reflect to new data stores. Existing data stores will still use the old value. */
       updateAclConfig(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -19782,11 +20772,11 @@ declare namespace gapi.client {
       updateAclConfig(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -19811,11 +20801,11 @@ declare namespace gapi.client {
       /** Provisions a CMEK key for use in a location of a customer's project. This method will also conduct location validation on the provided cmekConfig to make sure the key is valid and can be used in the selected location. */
       updateCmekConfig(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -19842,11 +20832,11 @@ declare namespace gapi.client {
       updateCmekConfig(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -19886,11 +20876,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -19915,11 +20905,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -19944,11 +20934,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -19971,11 +20961,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -20008,11 +20998,11 @@ declare namespace gapi.client {
       /** Provisions the project resource. During the process, related systems will get prepared and initialized. Caller must read the [Terms for data use](https://cloud.google.com/retail/data-use-terms), and optionally specify in request to provide consent to that service terms. */
       provision(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -20037,11 +21027,11 @@ declare namespace gapi.client {
       provision(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

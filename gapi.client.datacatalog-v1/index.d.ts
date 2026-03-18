@@ -55,7 +55,7 @@ declare namespace gapi.client {
       /** Specification for the BigQuery connection to a Cloud SQL instance. */
       cloudSql?: GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec;
       /** The type of the BigQuery connection. */
-      connectionType?: string;
+      connectionType?: 'CONNECTION_TYPE_UNSPECIFIED' | 'CLOUD_SQL';
       /** True if there are credentials attached to the BigQuery connection; false otherwise. */
       hasCredential?: boolean;
     }
@@ -75,7 +75,11 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDatacatalogV1BigQueryTableSpec {
       /** Output only. The table source type. */
-      tableSourceType?: string;
+      tableSourceType?:
+        | 'TABLE_SOURCE_TYPE_UNSPECIFIED'
+        | 'BIGQUERY_VIEW'
+        | 'BIGQUERY_TABLE'
+        | 'BIGQUERY_MATERIALIZED_VIEW';
       /** Specification of a BigQuery table. Populated only if the `table_source_type` is `BIGQUERY_TABLE`. */
       tableSpec?: GoogleCloudDatacatalogV1TableSpec;
       /** Table view specification. Populated only if the `table_source_type` is `BIGQUERY_VIEW`. */
@@ -111,7 +115,7 @@ declare namespace gapi.client {
       /** Cloud SQL instance ID in the format of `project:location:instance`. */
       instanceId?: string;
       /** Type of the Cloud SQL database. */
-      type?: string;
+      type?: 'DATABASE_TYPE_UNSPECIFIED' | 'POSTGRES' | 'MYSQL';
     }
     interface GoogleCloudDatacatalogV1ColumnSchema {
       /** Required. Name of the column. Must be a UTF-8 string without dots (.). The maximum size is 64 bytes. */
@@ -123,7 +127,12 @@ declare namespace gapi.client {
       /** Optional. Garbage collection policy for the column or column family. Applies to systems like Cloud Bigtable. */
       gcRule?: string;
       /** Optional. Most important inclusion of this column. */
-      highestIndexingType?: string;
+      highestIndexingType?:
+        | 'INDEXING_TYPE_UNSPECIFIED'
+        | 'INDEXING_TYPE_NONE'
+        | 'INDEXING_TYPE_NON_UNIQUE'
+        | 'INDEXING_TYPE_UNIQUE'
+        | 'INDEXING_TYPE_PRIMARY_KEY';
       /** Looker specific column info of this column. */
       lookerColumnSpec?: GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec;
       /** Optional. A column's mode indicates whether values in this column are required, nullable, or repeated. Only `NULLABLE`, `REQUIRED`, and `REPEATED` values are supported. Default mode is `NULLABLE`. */
@@ -143,7 +152,13 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec {
       /** Looker specific column type of this column. */
-      type?: string;
+      type?:
+        | 'LOOKER_COLUMN_TYPE_UNSPECIFIED'
+        | 'DIMENSION'
+        | 'DIMENSION_GROUP'
+        | 'FILTER'
+        | 'MEASURE'
+        | 'PARAMETER';
     }
     interface GoogleCloudDatacatalogV1CommonUsageStats {
       /** View count in source system. */
@@ -169,7 +184,7 @@ declare namespace gapi.client {
       /** Output only. Fields specific to a Dataplex Universal Catalog table and present only in the Dataplex Universal Catalog table entries. */
       dataplexTable?: GoogleCloudDatacatalogV1DataplexTableSpec;
       /** Type of this table. */
-      type?: string;
+      type?: 'TABLE_TYPE_UNSPECIFIED' | 'NATIVE' | 'EXTERNAL';
     }
     interface GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpec {
       /** Name of a singular table this view reflects one to one. */
@@ -177,7 +192,10 @@ declare namespace gapi.client {
       /** SQL query used to generate this view. */
       sqlQuery?: string;
       /** Type of this view. */
-      viewType?: string;
+      viewType?:
+        | 'VIEW_TYPE_UNSPECIFIED'
+        | 'STANDARD_VIEW'
+        | 'MATERIALIZED_VIEW';
     }
     interface GoogleCloudDatacatalogV1DataplexExternalTable {
       /** Name of the Data Catalog entry representing the external table. */
@@ -187,7 +205,17 @@ declare namespace gapi.client {
       /** Google Cloud resource name of the external table. */
       googleCloudResource?: string;
       /** Service in which the external table is registered. */
-      system?: string;
+      system?:
+        | 'INTEGRATED_SYSTEM_UNSPECIFIED'
+        | 'BIGQUERY'
+        | 'CLOUD_PUBSUB'
+        | 'DATAPROC_METASTORE'
+        | 'DATAPLEX'
+        | 'CLOUD_SPANNER'
+        | 'CLOUD_BIGTABLE'
+        | 'CLOUD_SQL'
+        | 'LOOKER'
+        | 'VERTEX_AI';
     }
     interface GoogleCloudDatacatalogV1DataplexFilesetSpec {
       /** Common Dataplex Universal Catalog fields. */
@@ -219,7 +247,7 @@ declare namespace gapi.client {
       /** Full name of a resource as defined by the service. For example: `//bigquery.googleapis.com/projects/{PROJECT_ID}/locations/{LOCATION}/datasets/{DATASET_ID}/tables/{TABLE_ID}` */
       resource?: string;
       /** Service that physically stores the data. */
-      service?: string;
+      service?: 'SERVICE_UNSPECIFIED' | 'CLOUD_STORAGE' | 'BIGQUERY';
       /** Output only. Data Catalog entry name, if applicable. */
       sourceEntry?: string;
       /** Detailed properties of the underlying storage. */
@@ -265,7 +293,17 @@ declare namespace gapi.client {
       /** Spec for graph. */
       graphSpec?: GoogleCloudDatacatalogV1GraphSpec;
       /** Output only. Indicates the entry's source system that Data Catalog integrates with, such as BigQuery, Pub/Sub, or Dataproc Metastore. */
-      integratedSystem?: string;
+      integratedSystem?:
+        | 'INTEGRATED_SYSTEM_UNSPECIFIED'
+        | 'BIGQUERY'
+        | 'CLOUD_PUBSUB'
+        | 'DATAPROC_METASTORE'
+        | 'DATAPLEX'
+        | 'CLOUD_SPANNER'
+        | 'CLOUD_BIGTABLE'
+        | 'CLOUD_SQL'
+        | 'LOOKER'
+        | 'VERTEX_AI';
       /** Cloud labels attached to the entry. In Data Catalog, you can create and modify labels attached only to custom entries. Synced entries have unmodifiable labels that come from the source system. */
       labels?: {[P in string]: string};
       /** The resource this metadata entry refers to. For Google Cloud Platform resources, `linked_resource` is the [Full Resource Name] (https://cloud.google.com/apis/design/resource_names#full_resource_name). For example, the `linked_resource` for a table resource from BigQuery is: `//bigquery.googleapis.com/projects/{PROJECT_ID}/datasets/{DATASET_ID}/tables/{TABLE_ID}` Output only when the entry is one of the types in the `EntryType` enum. For entries with a `user_specified_type`, this field is optional and defaults to an empty string. The resource string must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), periods (.), colons (:), slashes (/), dashes (-), and hashes (#). The maximum size is 200 bytes when encoded in UTF-8. */
@@ -291,7 +329,27 @@ declare namespace gapi.client {
       /** Specification that applies to a relational database system. Only settable when `user_specified_system` is equal to `SQL_DATABASE` */
       sqlDatabaseSystemSpec?: GoogleCloudDatacatalogV1SqlDatabaseSystemSpec;
       /** The type of the entry. For details, see [`EntryType`](#entrytype). */
-      type?: string;
+      type?:
+        | 'ENTRY_TYPE_UNSPECIFIED'
+        | 'TABLE'
+        | 'MODEL'
+        | 'DATA_STREAM'
+        | 'FILESET'
+        | 'CLUSTER'
+        | 'DATABASE'
+        | 'DATA_SOURCE_CONNECTION'
+        | 'ROUTINE'
+        | 'LAKE'
+        | 'ZONE'
+        | 'SERVICE'
+        | 'DATABASE_SCHEMA'
+        | 'DASHBOARD'
+        | 'EXPLORE'
+        | 'LOOK'
+        | 'FEATURE_ONLINE_STORE'
+        | 'FEATURE_VIEW'
+        | 'FEATURE_GROUP'
+        | 'GRAPH';
       /** Resource usage statistics. */
       usageSignal?: GoogleCloudDatacatalogV1UsageSignal;
       /** Indicates the entry's source system that Data Catalog doesn't automatically integrate with. The `user_specified_system` string has the following limitations: * Is case insensitive. * Must begin with a letter or underscore. * Can only contain letters, numbers, and underscores. * Must be at least 1 character and at most 64 characters long. */
@@ -321,13 +379,19 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDatacatalogV1FeatureOnlineStoreSpec {
       /** Output only. Type of underlying storage for the FeatureOnlineStore. */
-      storageType?: string;
+      storageType?: 'STORAGE_TYPE_UNSPECIFIED' | 'BIGTABLE' | 'OPTIMIZED';
     }
     interface GoogleCloudDatacatalogV1FieldType {
       /** An enum type. */
       enumType?: GoogleCloudDatacatalogV1FieldTypeEnumType;
       /** Primitive types, such as string, boolean, etc. */
-      primitiveType?: string;
+      primitiveType?:
+        | 'PRIMITIVE_TYPE_UNSPECIFIED'
+        | 'DOUBLE'
+        | 'STRING'
+        | 'BOOL'
+        | 'TIMESTAMP'
+        | 'RICHTEXT';
     }
     interface GoogleCloudDatacatalogV1FieldTypeEnumType {
       /** The set of allowed values for this enum. This set must not be empty and can include up to 100 allowed values. The display names of the values in this set must not be empty and must be case-insensitively unique within this set. The order of items in this set is preserved. This field can be used to create, remove, and reorder enum values. To rename enum values, use the `RenameTagTemplateFieldEnumValue` method. */
@@ -377,9 +441,9 @@ declare namespace gapi.client {
       /** Required. The name of the keys of the elements in the table. */
       elementKeys?: string[];
       /** Required. The input source of the graph element. */
-      inputSource?: string;
+      inputSource?: 'INPUT_SOURCE_UNSPECIFIED' | 'TABLE' | 'VIEW';
       /** Required. The kind of the graph element. */
-      kind?: string;
+      kind?: 'KIND_UNSPECIFIED' | 'NODE' | 'EDGE';
       /** Required. The labels and their properties for the graph element. */
       labelAndProperties?: GoogleCloudDatacatalogV1GraphSpecGraphElementTableLabelAndProperties[];
       /** Optional. The source node reference of the edge. */
@@ -409,7 +473,12 @@ declare namespace gapi.client {
       /** Partial errors that are encountered during the ImportEntries operation. There is no guarantee that all the encountered errors are reported. However, if no errors are reported, it means that no errors were encountered. */
       errors?: Status[];
       /** State of the import operation. */
-      state?: string;
+      state?:
+        | 'IMPORT_STATE_UNSPECIFIED'
+        | 'IMPORT_QUEUED'
+        | 'IMPORT_IN_PROGRESS'
+        | 'IMPORT_DONE'
+        | 'IMPORT_OBSOLETE';
     }
     interface GoogleCloudDatacatalogV1ImportEntriesRequest {
       /** Path to a Cloud Storage bucket that contains a dump ready for ingestion. */
@@ -483,9 +552,15 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDatacatalogV1MigrationConfig {
       /** Opt-in status for the UI switch to Dataplex Universal Catalog. */
-      catalogUiExperience?: string;
+      catalogUiExperience?:
+        | 'CATALOG_UI_EXPERIENCE_UNSPECIFIED'
+        | 'CATALOG_UI_EXPERIENCE_ENABLED'
+        | 'CATALOG_UI_EXPERIENCE_DISABLED';
       /** Opt-in status for the migration of Tag Templates to Dataplex Universal Catalog. */
-      tagTemplateMigration?: string;
+      tagTemplateMigration?:
+        | 'TAG_TEMPLATE_MIGRATION_UNSPECIFIED'
+        | 'TAG_TEMPLATE_MIGRATION_ENABLED'
+        | 'TAG_TEMPLATE_MIGRATION_DISABLED';
       /** The time when the Tag Template migration was enabled. If the Tag Template migration is not enabled, this field is not set. */
       templateMigrationEnabledTime?: string;
     }
@@ -556,7 +631,11 @@ declare namespace gapi.client {
       /** Maps the name of each tagged column (or empty string for a sole entry) to tagging operation status. */
       errors?: {[P in string]: Status};
       /** State of the reconciliation operation. */
-      state?: string;
+      state?:
+        | 'RECONCILIATION_STATE_UNSPECIFIED'
+        | 'RECONCILIATION_QUEUED'
+        | 'RECONCILIATION_IN_PROGRESS'
+        | 'RECONCILIATION_DONE';
     }
     interface GoogleCloudDatacatalogV1ReconcileTagsRequest {
       forceDeleteMissing?: boolean;
@@ -597,11 +676,14 @@ declare namespace gapi.client {
       /** Arguments of the routine. */
       routineArguments?: GoogleCloudDatacatalogV1RoutineSpecArgument[];
       /** The type of the routine. */
-      routineType?: string;
+      routineType?:
+        | 'ROUTINE_TYPE_UNSPECIFIED'
+        | 'SCALAR_FUNCTION'
+        | 'PROCEDURE';
     }
     interface GoogleCloudDatacatalogV1RoutineSpecArgument {
       /** Specifies whether the argument is input or output. */
-      mode?: string;
+      mode?: 'MODE_UNSPECIFIED' | 'IN' | 'OUT' | 'INOUT';
       /** The name of the argument. A return argument of a function might not have a name. */
       name?: string;
       /** Type of the argument. The exact value depends on the source system and the language. */
@@ -657,7 +739,17 @@ declare namespace gapi.client {
       /** Fully qualified name (FQN) of the resource. FQNs take two forms: * For non-regionalized resources: `{SYSTEM}:{PROJECT}.{PATH_TO_RESOURCE_SEPARATED_WITH_DOTS}` * For regionalized resources: `{SYSTEM}:{PROJECT}.{LOCATION_ID}.{PATH_TO_RESOURCE_SEPARATED_WITH_DOTS}` Example for a DPMS table: `dataproc_metastore:PROJECT_ID.LOCATION_ID.INSTANCE_ID.DATABASE_ID.TABLE_ID` */
       fullyQualifiedName?: string;
       /** Output only. The source system that Data Catalog automatically integrates with, such as BigQuery, Cloud Pub/Sub, or Dataproc Metastore. */
-      integratedSystem?: string;
+      integratedSystem?:
+        | 'INTEGRATED_SYSTEM_UNSPECIFIED'
+        | 'BIGQUERY'
+        | 'CLOUD_PUBSUB'
+        | 'DATAPROC_METASTORE'
+        | 'DATAPLEX'
+        | 'CLOUD_SPANNER'
+        | 'CLOUD_BIGTABLE'
+        | 'CLOUD_SQL'
+        | 'LOOKER'
+        | 'VERTEX_AI';
       /** The full name of the Google Cloud resource the entry belongs to. For more information, see [Full Resource Name] (/apis/design/resource_names#full_resource_name). Example: `//bigquery.googleapis.com/projects/PROJECT_ID/datasets/DATASET_ID/tables/TABLE_ID` */
       linkedResource?: string;
       /** The last modification timestamp of the entry in the source system. */
@@ -667,7 +759,11 @@ declare namespace gapi.client {
       /** Sub-type of the search result. A dot-delimited full type of the resource. The same type you specify in the `type` search predicate. Examples: `entry.table`, `entry.dataStream`, `tagTemplate`. */
       searchResultSubtype?: string;
       /** Type of the search result. You can use this field to determine which get method to call to fetch the full resource. */
-      searchResultType?: string;
+      searchResultType?:
+        | 'SEARCH_RESULT_TYPE_UNSPECIFIED'
+        | 'ENTRY'
+        | 'TAG_TEMPLATE'
+        | 'ENTRY_GROUP';
       /** Custom source system that you can manually integrate Data Catalog with. */
       userSpecifiedSystem?: string;
     }
@@ -683,7 +779,9 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDatacatalogV1SerializedTaxonomy {
       /** A list of policy types that are activated per taxonomy. */
-      activatedPolicyTypes?: string[];
+      activatedPolicyTypes?:
+        | 'POLICY_TYPE_UNSPECIFIED'
+        | 'FINE_GRAINED_ACCESS_CONTROL'[];
       /** Description of the serialized taxonomy. At most 2000 bytes when encoded in UTF-8. If not set, defaults to an empty description. */
       description?: string;
       /** Required. Display name of the taxonomy. At most 200 bytes when encoded in UTF-8. */
@@ -697,9 +795,15 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDatacatalogV1SetConfigRequest {
       /** Opt-in status for the UI switch to Dataplex Universal Catalog. */
-      catalogUiExperience?: string;
+      catalogUiExperience?:
+        | 'CATALOG_UI_EXPERIENCE_UNSPECIFIED'
+        | 'CATALOG_UI_EXPERIENCE_ENABLED'
+        | 'CATALOG_UI_EXPERIENCE_DISABLED';
       /** Opt-in status for the migration of Tag Templates to Dataplex Universal Catalog. */
-      tagTemplateMigration?: string;
+      tagTemplateMigration?:
+        | 'TAG_TEMPLATE_MIGRATION_UNSPECIFIED'
+        | 'TAG_TEMPLATE_MIGRATION_ENABLED'
+        | 'TAG_TEMPLATE_MIGRATION_DISABLED';
     }
     interface GoogleCloudDatacatalogV1SpannerTableSpec {
       /** Output only. The foreign keys of the table. */
@@ -757,7 +861,10 @@ declare namespace gapi.client {
       /** Resources like entry can have schemas associated with them. This scope allows you to attach tags to an individual column based on that schema. To attach a tag to a nested column, separate column names with a dot (`.`). Example: `column.nested_column`. */
       column?: string;
       /** Output only. Denotes the transfer status of the Tag Template. */
-      dataplexTransferStatus?: string;
+      dataplexTransferStatus?:
+        | 'DATAPLEX_TRANSFER_STATUS_UNSPECIFIED'
+        | 'MIGRATED'
+        | 'TRANSFERRED';
       /** Required. Maps the ID of a tag field to its value and additional information about that field. Tag template defines valid field IDs. A tag must have at least 1 field and at most 500 fields. */
       fields?: {[P in string]: GoogleCloudDatacatalogV1TagField};
       /** Identifier. The resource name of the tag in URL format where tag ID is a system-generated identifier. Note: The tag itself might not be stored in the location specified in its name. */
@@ -799,7 +906,10 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDatacatalogV1TagTemplate {
       /** Optional. Transfer status of the TagTemplate */
-      dataplexTransferStatus?: string;
+      dataplexTransferStatus?:
+        | 'DATAPLEX_TRANSFER_STATUS_UNSPECIFIED'
+        | 'MIGRATED'
+        | 'TRANSFERRED';
       /** Display name for this template. Defaults to an empty string. The name must contain only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces ( ), and can't start or end with spaces. The maximum length is 200 characters. */
       displayName?: string;
       /** Required. Map of tag template field IDs to the settings for the field. This map is an exhaustive list of the allowed fields. The map must contain at least one field and at most 500 fields. The keys to this map are tag template field IDs. The IDs have the following limitations: * Can contain uppercase and lowercase letters, numbers (0-9) and underscores (_). * Must be at least 1 character and at most 64 characters long. * Must start with a letter or underscore. */
@@ -825,7 +935,9 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDatacatalogV1Taxonomy {
       /** Optional. A list of policy types that are activated for this taxonomy. If not set, defaults to an empty list. */
-      activatedPolicyTypes?: string[];
+      activatedPolicyTypes?:
+        | 'POLICY_TYPE_UNSPECIFIED'
+        | 'FINE_GRAINED_ACCESS_CONTROL'[];
       /** Optional. Description of this taxonomy. If not set, defaults to empty. The description must contain only Unicode characters, tabs, newlines, carriage returns, and page breaks, and be at most 2000 bytes long when encoded in UTF-8. */
       description?: string;
       /** Required. User-defined name of this taxonomy. The name can't start or end with spaces, must contain only Unicode letters, numbers, underscores, dashes, and spaces, and be at most 200 bytes long when encoded in UTF-8. The taxonomy display name must be unique within an organization. */
@@ -843,7 +955,10 @@ declare namespace gapi.client {
       /** The service agent for the service. */
       identity?: string;
       /** The Google Cloud service name. */
-      name?: string;
+      name?:
+        | 'MANAGING_SYSTEM_UNSPECIFIED'
+        | 'MANAGING_SYSTEM_DATAPLEX'
+        | 'MANAGING_SYSTEM_OTHER';
     }
     interface GoogleCloudDatacatalogV1UnstarEntryRequest {}
     interface GoogleCloudDatacatalogV1UnstarEntryResponse {}
@@ -875,13 +990,34 @@ declare namespace gapi.client {
       /** The number of DataItems in this Dataset. Only apply for non-structured Dataset. */
       dataItemCount?: string;
       /** Type of the dataset. */
-      dataType?: string;
+      dataType?:
+        | 'DATA_TYPE_UNSPECIFIED'
+        | 'TABLE'
+        | 'IMAGE'
+        | 'TEXT'
+        | 'VIDEO'
+        | 'CONVERSATION'
+        | 'TIME_SERIES'
+        | 'DOCUMENT'
+        | 'TEXT_TO_SPEECH'
+        | 'TRANSLATION'
+        | 'STORE_VISION'
+        | 'ENTERPRISE_KNOWLEDGE_GRAPH'
+        | 'TEXT_PROMPT';
     }
     interface GoogleCloudDatacatalogV1VertexModelSourceInfo {
       /** If this Model is copy of another Model. If true then source_type pertains to the original. */
       copy?: boolean;
       /** Type of the model source. */
-      sourceType?: string;
+      sourceType?:
+        | 'MODEL_SOURCE_TYPE_UNSPECIFIED'
+        | 'AUTOML'
+        | 'CUSTOM'
+        | 'BQML'
+        | 'MODEL_GARDEN'
+        | 'GENIE'
+        | 'CUSTOM_TEXT_EMBEDDING'
+        | 'MARKETPLACE';
     }
     interface GoogleCloudDatacatalogV1VertexModelSpec {
       /** URI of the Docker image to be used as the custom container for serving predictions. */
@@ -951,11 +1087,11 @@ declare namespace gapi.client {
       /** Searches Data Catalog for multiple resources like entries and tags that match a query. This is a [Custom Method] (https://cloud.google.com/apis/design/custom_methods) that doesn't return all information on a resource, only its ID and high level fields. To get more information, you can subsequently call specific get methods. Note: Data Catalog search queries don't guarantee full recall. Results that match your query might not be returned, even in subsequent result pages. Additionally, returned (and not returned) results can vary if you repeat search queries. For more information, see [Data Catalog search syntax] (https://cloud.google.com/data-catalog/docs/how-to/search-reference). */
       search(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -978,11 +1114,11 @@ declare namespace gapi.client {
       search(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1007,11 +1143,11 @@ declare namespace gapi.client {
       /** Gets an entry by its target resource name. The resource name comes from the source Google Cloud Platform service. */
       lookup(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1044,11 +1180,11 @@ declare namespace gapi.client {
       /** Retrieves the configuration related to the migration from Data Catalog to Dataplex Universal Catalog for a specific organization, including all the projects under it which have a separate configuration set. */
       retrieveConfig(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1071,11 +1207,11 @@ declare namespace gapi.client {
       /** Retrieves the effective configuration related to the migration from Data Catalog to Dataplex Universal Catalog for a specific organization or project. If there is no specific configuration set for the resource, the setting is checked hierarchicahlly through the ancestors of the resource, starting from the resource itself. */
       retrieveEffectiveConfig(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1098,11 +1234,11 @@ declare namespace gapi.client {
       /** Sets the configuration related to the migration to Dataplex Universal Catalog for an organization or project. */
       setConfig(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1127,11 +1263,11 @@ declare namespace gapi.client {
       setConfig(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1161,11 +1297,11 @@ declare namespace gapi.client {
       /** Creates a tag and assigns it to: * An Entry if the method name is `projects.locations.entryGroups.entries.tags.create`. * Or EntryGroupif the method name is `projects.locations.entryGroups.tags.create`. Note: The project identified by the `parent` parameter for the [tag] (https://cloud.google.com/data-catalog/docs/reference/rest/v1/projects.locations.entryGroups.entries.tags/create#path-parameters) and the [tag template] (https://cloud.google.com/data-catalog/docs/reference/rest/v1/projects.locations.tagTemplates/create#path-parameters) used to create the tag must be in the same organization. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1190,11 +1326,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1219,11 +1355,11 @@ declare namespace gapi.client {
       /** Deletes a tag. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1246,11 +1382,11 @@ declare namespace gapi.client {
       /** Lists tags assigned to an Entry. The columns in the response are lowercased. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1277,11 +1413,11 @@ declare namespace gapi.client {
       /** Updates an existing tag. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1308,11 +1444,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1339,11 +1475,11 @@ declare namespace gapi.client {
       /** `ReconcileTags` creates or updates a list of tags on the entry. If the ReconcileTagsRequest.force_delete_missing parameter is set, the operation deletes tags not included in the input tag list. `ReconcileTags` returns a long-running operation resource that can be queried with Operations.GetOperation to return ReconcileTagsMetadata and a ReconcileTagsResponse message. Note: SearchCatalog might return stale search results for up to 24 hours after the `ReconcileTags` operation completes. */
       reconcile(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1368,11 +1504,11 @@ declare namespace gapi.client {
       reconcile(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1399,11 +1535,11 @@ declare namespace gapi.client {
       /** Creates an entry. You can create entries only with 'FILESET', 'CLUSTER', 'DATA_STREAM', or custom types. Data Catalog automatically creates entries with other types during metadata ingestion from integrated systems. You must enable the Data Catalog API in the project identified by the `parent` parameter. For more information, see [Data Catalog resource project](https://cloud.google.com/data-catalog/docs/concepts/resource-project). An entry group can have a maximum of 100,000 entries. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the entry to create. The ID must contain only letters (a-z, A-Z), numbers (0-9), and underscores (_). The maximum size is 64 bytes when encoded in UTF-8. */
@@ -1430,11 +1566,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID of the entry to create. The ID must contain only letters (a-z, A-Z), numbers (0-9), and underscores (_). The maximum size is 64 bytes when encoded in UTF-8. */
@@ -1461,11 +1597,11 @@ declare namespace gapi.client {
       /** Deletes an existing entry. You can delete only the entries created by the CreateEntry method. You must enable the Data Catalog API in the project identified by the `name` parameter. For more information, see [Data Catalog resource project](https://cloud.google.com/data-catalog/docs/concepts/resource-project). */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1488,11 +1624,11 @@ declare namespace gapi.client {
       /** Gets an entry. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1516,11 +1652,11 @@ declare namespace gapi.client {
       getIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1545,11 +1681,11 @@ declare namespace gapi.client {
       /** Imports entries from a source, such as data previously dumped into a Cloud Storage bucket, into Data Catalog. Import of entries is a sync operation that reconciles the state of the third-party system with the Data Catalog. `ImportEntries` accepts source data snapshots of a third-party system. Snapshot should be delivered as a .wire or base65-encoded .txt file containing a sequence of Protocol Buffer messages of DumpItem type. `ImportEntries` returns a long-running operation resource that can be queried with Operations.GetOperation to return ImportEntriesMetadata and an ImportEntriesResponse message. */
       import(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1574,11 +1710,11 @@ declare namespace gapi.client {
       import(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1603,11 +1739,11 @@ declare namespace gapi.client {
       /** Lists entries. Note: Currently, this method can list only custom entries. To get a list of both custom and automatically created entries, use SearchCatalog. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1636,11 +1772,11 @@ declare namespace gapi.client {
       /** Modifies contacts, part of the business context of an Entry. To call this method, you must have the `datacatalog.entries.updateContacts` IAM permission on the corresponding project. */
       modifyEntryContacts(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1665,11 +1801,11 @@ declare namespace gapi.client {
       modifyEntryContacts(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1694,11 +1830,11 @@ declare namespace gapi.client {
       /** Modifies entry overview, part of the business context of an Entry. To call this method, you must have the `datacatalog.entries.updateOverview` IAM permission on the corresponding project. */
       modifyEntryOverview(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1723,11 +1859,11 @@ declare namespace gapi.client {
       modifyEntryOverview(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1752,11 +1888,11 @@ declare namespace gapi.client {
       /** Updates an existing entry. You must enable the Data Catalog API in the project identified by the `entry.name` parameter. For more information, see [Data Catalog resource project](https://cloud.google.com/data-catalog/docs/concepts/resource-project). */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1783,11 +1919,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1814,11 +1950,11 @@ declare namespace gapi.client {
       /** Marks an Entry as starred by the current user. Starring information is private to each user. */
       star(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1843,11 +1979,11 @@ declare namespace gapi.client {
       star(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1873,11 +2009,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1902,11 +2038,11 @@ declare namespace gapi.client {
       /** Marks an Entry as NOT starred by the current user. Starring information is private to each user. */
       unstar(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1931,11 +2067,11 @@ declare namespace gapi.client {
       unstar(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1963,11 +2099,11 @@ declare namespace gapi.client {
       /** Creates a tag and assigns it to: * An Entry if the method name is `projects.locations.entryGroups.entries.tags.create`. * Or EntryGroupif the method name is `projects.locations.entryGroups.tags.create`. Note: The project identified by the `parent` parameter for the [tag] (https://cloud.google.com/data-catalog/docs/reference/rest/v1/projects.locations.entryGroups.entries.tags/create#path-parameters) and the [tag template] (https://cloud.google.com/data-catalog/docs/reference/rest/v1/projects.locations.tagTemplates/create#path-parameters) used to create the tag must be in the same organization. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1992,11 +2128,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2021,11 +2157,11 @@ declare namespace gapi.client {
       /** Deletes a tag. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2048,11 +2184,11 @@ declare namespace gapi.client {
       /** Lists tags assigned to an Entry. The columns in the response are lowercased. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2079,11 +2215,11 @@ declare namespace gapi.client {
       /** Updates an existing tag. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2110,11 +2246,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2143,11 +2279,11 @@ declare namespace gapi.client {
       /** Creates an entry group. An entry group contains logically related entries together with [Cloud Identity and Access Management](/data-catalog/docs/concepts/iam) policies. These policies specify users who can create, edit, and view entries within entry groups. Data Catalog automatically creates entry groups with names that start with the `@` symbol for the following resources: * BigQuery entries (`@bigquery`) * Pub/Sub topics (`@pubsub`) * Dataproc Metastore services (`@dataproc_metastore_{SERVICE_NAME_HASH}`) You can create your own entry groups for Cloud Storage fileset entries and custom entries together with the corresponding IAM policies. User-created entry groups can't contain the `@` symbol, it is reserved for automatically created groups. Entry groups, like entries, can be searched. A maximum of 10,000 entry groups may be created per organization across all locations. You must enable the Data Catalog API in the project identified by the `parent` parameter. For more information, see [Data Catalog resource project](https://cloud.google.com/data-catalog/docs/concepts/resource-project). */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the entry group to create. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and must start with a letter or underscore. The maximum size is 64 bytes when encoded in UTF-8. */
@@ -2174,11 +2310,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID of the entry group to create. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and must start with a letter or underscore. The maximum size is 64 bytes when encoded in UTF-8. */
@@ -2205,11 +2341,11 @@ declare namespace gapi.client {
       /** Deletes an entry group. You must enable the Data Catalog API in the project identified by the `name` parameter. For more information, see [Data Catalog resource project](https://cloud.google.com/data-catalog/docs/concepts/resource-project). */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2234,11 +2370,11 @@ declare namespace gapi.client {
       /** Gets an entry group. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2264,11 +2400,11 @@ declare namespace gapi.client {
       getIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2293,11 +2429,11 @@ declare namespace gapi.client {
       /** Lists entry groups. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2324,11 +2460,11 @@ declare namespace gapi.client {
       /** Updates an entry group. You must enable the Data Catalog API in the project identified by the `entry_group.name` parameter. For more information, see [Data Catalog resource project](https://cloud.google.com/data-catalog/docs/concepts/resource-project). */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2355,11 +2491,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2387,11 +2523,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2417,11 +2553,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2450,11 +2586,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2477,11 +2613,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2504,11 +2640,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2531,11 +2667,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2568,11 +2704,11 @@ declare namespace gapi.client {
       /** Renames an enum value in a tag template. Within a single enum field, enum values must be unique. */
       rename(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2597,11 +2733,11 @@ declare namespace gapi.client {
       rename(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2628,11 +2764,11 @@ declare namespace gapi.client {
       /** Creates a field in a tag template. You must enable the Data Catalog API in the project identified by the `parent` parameter. For more information, see [Data Catalog resource project](https://cloud.google.com/data-catalog/docs/concepts/resource-project). */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2659,11 +2795,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2690,11 +2826,11 @@ declare namespace gapi.client {
       /** Deletes a field in a tag template and all uses of this field from the tags based on this template. You must enable the Data Catalog API in the project identified by the `name` parameter. For more information, see [Data Catalog resource project](https://cloud.google.com/data-catalog/docs/concepts/resource-project). */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2719,11 +2855,11 @@ declare namespace gapi.client {
       /** Updates a field in a tag template. You can't update the field type with this method. You must enable the Data Catalog API in the project identified by the `name` parameter. For more information, see [Data Catalog resource project](https://cloud.google.com/data-catalog/docs/concepts/resource-project). */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2750,11 +2886,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2781,11 +2917,11 @@ declare namespace gapi.client {
       /** Renames a field in a tag template. You must enable the Data Catalog API in the project identified by the `name` parameter. For more information, see [Data Catalog resource project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project). */
       rename(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2810,11 +2946,11 @@ declare namespace gapi.client {
       rename(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2842,11 +2978,11 @@ declare namespace gapi.client {
       /** Creates a tag template. You must enable the Data Catalog API in the project identified by the `parent` parameter. For more information, see [Data Catalog resource project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project). */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2873,11 +3009,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2904,11 +3040,11 @@ declare namespace gapi.client {
       /** Deletes a tag template and all tags that use it. You must enable the Data Catalog API in the project identified by the `name` parameter. For more information, see [Data Catalog resource project](https://cloud.google.com/data-catalog/docs/concepts/resource-project). */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2933,11 +3069,11 @@ declare namespace gapi.client {
       /** Gets a tag template. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2961,11 +3097,11 @@ declare namespace gapi.client {
       getIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2990,11 +3126,11 @@ declare namespace gapi.client {
       /** Updates a tag template. You can't update template fields with this method. These fields are separate resources with their own create, update, and delete methods. You must enable the Data Catalog API in the project identified by the `tag_template.name` parameter. For more information, see [Data Catalog resource project](https://cloud.google.com/data-catalog/docs/concepts/resource-project). */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3021,11 +3157,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3053,11 +3189,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3083,11 +3219,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3115,11 +3251,11 @@ declare namespace gapi.client {
       /** Creates a policy tag in a taxonomy. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3144,11 +3280,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3173,11 +3309,11 @@ declare namespace gapi.client {
       /** Deletes a policy tag together with the following: * All of its descendant policy tags, if any * Policies associated with the policy tag and its descendants * References from BigQuery table schema of the policy tag and its descendants */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3200,11 +3336,11 @@ declare namespace gapi.client {
       /** Gets a policy tag. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3228,11 +3364,11 @@ declare namespace gapi.client {
       getIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3257,11 +3393,11 @@ declare namespace gapi.client {
       /** Lists all policy tags in a taxonomy. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3288,11 +3424,11 @@ declare namespace gapi.client {
       /** Updates a policy tag, including its display name, description, and parent policy tag. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3319,11 +3455,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3351,11 +3487,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3381,11 +3517,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3412,11 +3548,11 @@ declare namespace gapi.client {
       /** Creates a taxonomy in a specified project. The taxonomy is initially empty, that is, it doesn't contain policy tags. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3441,11 +3577,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3470,11 +3606,11 @@ declare namespace gapi.client {
       /** Deletes a taxonomy, including all policy tags in this taxonomy, their associated policies, and the policy tags references from BigQuery columns. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3497,11 +3633,11 @@ declare namespace gapi.client {
       /** Exports taxonomies in the requested type and returns them, including their policy tags. The requested taxonomies must belong to the same project. This method generates `SerializedTaxonomy` protocol buffers with nested policy tags that can be used as input for `ImportTaxonomies` calls. */
       export(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3528,11 +3664,11 @@ declare namespace gapi.client {
       /** Gets a taxonomy. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3556,11 +3692,11 @@ declare namespace gapi.client {
       getIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3585,11 +3721,11 @@ declare namespace gapi.client {
       /** Creates new taxonomies (including their policy tags) in a given project by importing from inlined or cross-regional sources. For a cross-regional source, new taxonomies are created by copying from a source in another region. For an inlined source, taxonomies and policy tags are created in bulk using nested protocol buffer structures. */
       import(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3614,11 +3750,11 @@ declare namespace gapi.client {
       import(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3643,11 +3779,11 @@ declare namespace gapi.client {
       /** Lists all taxonomies in a project in a particular location that you have a permission to view. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3676,11 +3812,11 @@ declare namespace gapi.client {
       /** Updates a taxonomy, including its display name, description, and activated policy types. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3707,11 +3843,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3738,11 +3874,11 @@ declare namespace gapi.client {
       /** Replaces (updates) a taxonomy and all its policy tags. The taxonomy and its entire hierarchy of policy tags must be represented literally by `SerializedTaxonomy` and the nested `SerializedPolicyTag` messages. This operation automatically does the following: - Deletes the existing policy tags that are missing from the `SerializedPolicyTag`. - Creates policy tags that don't have resource names. They are considered new. - Updates policy tags with valid resources names accordingly. */
       replace(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3767,11 +3903,11 @@ declare namespace gapi.client {
       replace(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3797,11 +3933,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3827,11 +3963,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3859,11 +3995,11 @@ declare namespace gapi.client {
       /** Retrieves the effective configuration related to the migration from Data Catalog to Dataplex Universal Catalog for a specific organization or project. If there is no specific configuration set for the resource, the setting is checked hierarchicahlly through the ancestors of the resource, starting from the resource itself. */
       retrieveEffectiveConfig(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3886,11 +4022,11 @@ declare namespace gapi.client {
       /** Sets the configuration related to the migration to Dataplex Universal Catalog for an organization or project. */
       setConfig(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3915,11 +4051,11 @@ declare namespace gapi.client {
       setConfig(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

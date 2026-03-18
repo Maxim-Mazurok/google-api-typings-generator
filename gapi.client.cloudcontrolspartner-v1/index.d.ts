@@ -42,7 +42,14 @@ declare namespace gapi.client {
       /** More detail about certain reason types. See comments for each type above. */
       detail?: string;
       /** Type of access justification. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'CUSTOMER_INITIATED_SUPPORT'
+        | 'GOOGLE_INITIATED_SERVICE'
+        | 'GOOGLE_INITIATED_REVIEW'
+        | 'THIRD_PARTY_DATA_REQUEST'
+        | 'GOOGLE_RESPONSE_TO_PRODUCTION_ALERT'
+        | 'CLOUD_INITIATED_ACCESS';
     }
     interface ConnectionError {
       /** The error domain for the error */
@@ -76,13 +83,18 @@ declare namespace gapi.client {
     }
     interface CustomerOnboardingStep {
       /** Output only. Current state of the step */
-      completionState?: string;
+      completionState?:
+        | 'COMPLETION_STATE_UNSPECIFIED'
+        | 'PENDING'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'NOT_APPLICABLE';
       /** The completion time of the onboarding step */
       completionTime?: string;
       /** The starting time of the onboarding step */
       startTime?: string;
       /** The onboarding step */
-      step?: string;
+      step?: 'STEP_UNSPECIFIED' | 'KAJ_ENROLLMENT' | 'CUSTOMER_ENVIRONMENT';
     }
     interface EkmConnection {
       /** The connection error that occurred if any */
@@ -90,7 +102,12 @@ declare namespace gapi.client {
       /** Resource name of the EKM connection in the format: projects/{project}/locations/{location}/ekmConnections/{ekm_connection} */
       connectionName?: string;
       /** Output only. The connection state */
-      connectionState?: string;
+      connectionState?:
+        | 'CONNECTION_STATE_UNSPECIFIED'
+        | 'AVAILABLE'
+        | 'NOT_AVAILABLE'
+        | 'ERROR'
+        | 'PERMISSION_DENIED';
     }
     interface EkmConnections {
       /** The EKM connections associated with the workload */
@@ -102,7 +119,12 @@ declare namespace gapi.client {
       /** Endpoint for sending requests to the EKM for key provisioning during Assured Workload creation. */
       ekmEndpointUri?: string;
       /** The Cloud EKM partner. */
-      ekmSolution?: string;
+      ekmSolution?:
+        | 'EKM_SOLUTION_UNSPECIFIED'
+        | 'FORTANIX'
+        | 'FUTUREX'
+        | 'THALES'
+        | 'VIRTRU';
     }
     interface Empty {}
     interface Gcloud {
@@ -187,7 +209,13 @@ declare namespace gapi.client {
       /** Identifier. Format: `organizations/{organization}/locations/{location}/customers/{customer}/workloads/{workload}/partnerPermissions` */
       name?: string;
       /** The partner permissions granted for the workload */
-      partnerPermissions?: string[];
+      partnerPermissions?:
+        | 'PERMISSION_UNSPECIFIED'
+        | 'ACCESS_TRANSPARENCY_AND_EMERGENCY_ACCESS_LOGS'
+        | 'ASSURED_WORKLOADS_MONITORING'
+        | 'ACCESS_APPROVAL_REQUESTS'
+        | 'ASSURED_WORKLOADS_EKM_CONNECTION_STATUS'
+        | 'ACCESS_TRANSPARENCY_LOGS_SUPPORT_CASE_VIEWER'[];
     }
     interface Remediation {
       /** Values that can resolve the violation For example: for list org policy violations, this will either be the list of allowed or denied values */
@@ -195,7 +223,13 @@ declare namespace gapi.client {
       /** Required. Remediation instructions to resolve violations */
       instructions?: Instructions;
       /** Output only. Remediation type based on the type of org policy values violated */
-      remediationType?: string;
+      remediationType?:
+        | 'REMEDIATION_TYPE_UNSPECIFIED'
+        | 'REMEDIATION_BOOLEAN_ORG_POLICY_VIOLATION'
+        | 'REMEDIATION_LIST_ALLOWED_VALUES_ORG_POLICY_VIOLATION'
+        | 'REMEDIATION_LIST_DENIED_VALUES_ORG_POLICY_VIOLATION'
+        | 'REMEDIATION_RESTRICT_CMEK_CRYPTO_KEY_PROJECTS_ORG_POLICY_VIOLATION'
+        | 'REMEDIATION_RESOURCE_VIOLATION';
     }
     interface Sku {
       /** Display name of the product identified by the SKU. A partner may want to show partner branded names for their offerings such as local sovereign cloud solutions. */
@@ -221,7 +255,7 @@ declare namespace gapi.client {
       /** Output only. Time of the event which fixed the Violation. If the violation is ACTIVE this will be empty. */
       resolveTime?: string;
       /** Output only. State of the violation */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'RESOLVED' | 'UNRESOLVED' | 'EXCEPTION';
       /** Output only. The last time when the Violation record was updated. */
       updateTime?: string;
     }
@@ -241,7 +275,15 @@ declare namespace gapi.client {
       /** Identifier. Format: `organizations/{organization}/locations/{location}/customers/{customer}/workloads/{workload}` */
       name?: string;
       /** Partner associated with this workload. */
-      partner?: string;
+      partner?:
+        | 'PARTNER_UNSPECIFIED'
+        | 'PARTNER_LOCAL_CONTROLS_BY_S3NS'
+        | 'PARTNER_SOVEREIGN_CONTROLS_BY_T_SYSTEMS'
+        | 'PARTNER_SOVEREIGN_CONTROLS_BY_SIA_MINSAIT'
+        | 'PARTNER_SOVEREIGN_CONTROLS_BY_PSN'
+        | 'PARTNER_SOVEREIGN_CONTROLS_BY_CNTXT'
+        | 'PARTNER_SOVEREIGN_CONTROLS_BY_CNTXT_NO_EKM'
+        | 'PARTNER_SPAIN_DATA_BOUNDARY_BY_TELEFONICA';
       /** Container for workload onboarding steps. */
       workloadOnboardingState?: WorkloadOnboardingState;
     }
@@ -251,23 +293,31 @@ declare namespace gapi.client {
     }
     interface WorkloadOnboardingStep {
       /** Output only. The completion state of the onboarding step. */
-      completionState?: string;
+      completionState?:
+        | 'COMPLETION_STATE_UNSPECIFIED'
+        | 'PENDING'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'NOT_APPLICABLE';
       /** The completion time of the onboarding step. */
       completionTime?: string;
       /** The starting time of the onboarding step. */
       startTime?: string;
       /** The onboarding step. */
-      step?: string;
+      step?:
+        | 'STEP_UNSPECIFIED'
+        | 'EKM_PROVISIONED'
+        | 'SIGNED_ACCESS_APPROVAL_CONFIGURED';
     }
     interface AccessApprovalRequestsResource {
       /** Deprecated: Only returns access approval requests directly associated with an assured workload folder. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -300,11 +350,11 @@ declare namespace gapi.client {
       /** Gets details of a single Violation. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -327,11 +377,11 @@ declare namespace gapi.client {
       /** Lists Violations for a workload Callers may also choose to read across multiple Customers or for a single customer as per [AIP-159](https://google.aip.dev/159) by using '-' (the hyphen or dash character) as a wildcard character instead of {customer} & {workload}. Format: `organizations/{organization}/locations/{location}/customers/{customer}/workloads/{workload}` */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -368,11 +418,11 @@ declare namespace gapi.client {
       /** Gets details of a single workload */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -395,11 +445,11 @@ declare namespace gapi.client {
       /** Gets the EKM connections associated with a workload */
       getEkmConnections(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -422,11 +472,11 @@ declare namespace gapi.client {
       /** Gets the partner permissions granted for a workload */
       getPartnerPermissions(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -449,11 +499,11 @@ declare namespace gapi.client {
       /** Lists customer workloads for a given customer org id */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -488,11 +538,11 @@ declare namespace gapi.client {
       /** Creates a new customer. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The customer id to use for the customer, which will become the final component of the customer's resource name. The specified value must be a valid Google cloud organization id. */
@@ -519,11 +569,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The customer id to use for the customer, which will become the final component of the customer's resource name. The specified value must be a valid Google cloud organization id. */
@@ -550,11 +600,11 @@ declare namespace gapi.client {
       /** Delete details of a single customer */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -577,11 +627,11 @@ declare namespace gapi.client {
       /** Gets details of a single customer */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -604,11 +654,11 @@ declare namespace gapi.client {
       /** Lists customers of a partner identified by its Google Cloud organization ID */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -639,11 +689,11 @@ declare namespace gapi.client {
       /** Update details of a single customer */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -670,11 +720,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -704,11 +754,11 @@ declare namespace gapi.client {
       /** Get details of a Partner. */
       getPartner(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

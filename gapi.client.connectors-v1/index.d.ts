@@ -34,7 +34,11 @@ declare namespace gapi.client {
       /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
       exemptedMembers?: string[];
       /** The log type that this config enables. */
-      logType?: string;
+      logType?:
+        | 'LOG_TYPE_UNSPECIFIED'
+        | 'ADMIN_READ'
+        | 'DATA_WRITE'
+        | 'DATA_READ';
     }
     interface AuthConfig {
       /** Optional. List containing additional auth configs. */
@@ -42,7 +46,15 @@ declare namespace gapi.client {
       /** Optional. Identifier key for auth config */
       authKey?: string;
       /** Optional. The type of authentication configured. */
-      authType?: string;
+      authType?:
+        | 'AUTH_TYPE_UNSPECIFIED'
+        | 'USER_PASSWORD'
+        | 'OAUTH2_JWT_BEARER'
+        | 'OAUTH2_CLIENT_CREDENTIALS'
+        | 'SSH_PUBLIC_KEY'
+        | 'OAUTH2_AUTH_CODE_FLOW'
+        | 'GOOGLE_AUTHENTICATION'
+        | 'OAUTH2_AUTH_CODE_FLOW_GOOGLE_MANAGED';
       /** Oauth2AuthCodeFlow. */
       oauth2AuthCodeFlow?: Oauth2AuthCodeFlow;
       /** Oauth2AuthCodeFlowGoogleManaged. */
@@ -60,7 +72,15 @@ declare namespace gapi.client {
       /** Identifier key for auth config */
       authKey?: string;
       /** The type of authentication configured. */
-      authType?: string;
+      authType?:
+        | 'AUTH_TYPE_UNSPECIFIED'
+        | 'USER_PASSWORD'
+        | 'OAUTH2_JWT_BEARER'
+        | 'OAUTH2_CLIENT_CREDENTIALS'
+        | 'SSH_PUBLIC_KEY'
+        | 'OAUTH2_AUTH_CODE_FLOW'
+        | 'GOOGLE_AUTHENTICATION'
+        | 'OAUTH2_AUTH_CODE_FLOW_GOOGLE_MANAGED';
       /** Config variables to describe an `AuthConfig` for a `Connection`. */
       configVariableTemplates?: ConfigVariableTemplate[];
       /** Connector specific description for an authentication template. */
@@ -120,7 +140,15 @@ declare namespace gapi.client {
       /** Auth key of the schema. */
       authKey?: string;
       /** Auth type of the schema. */
-      authType?: string;
+      authType?:
+        | 'AUTH_TYPE_UNSPECIFIED'
+        | 'USER_PASSWORD'
+        | 'OAUTH2_JWT_BEARER'
+        | 'OAUTH2_CLIENT_CREDENTIALS'
+        | 'SSH_PUBLIC_KEY'
+        | 'OAUTH2_AUTH_CODE_FLOW'
+        | 'GOOGLE_AUTHENTICATION'
+        | 'OAUTH2_AUTH_CODE_FLOW_GOOGLE_MANAGED';
       /** Description of the schema. */
       description?: string;
       /** Display name of the schema. */
@@ -130,7 +158,10 @@ declare namespace gapi.client {
     }
     interface BillingConfig {
       /** Output only. Billing category for the connector. */
-      billingCategory?: string;
+      billingCategory?:
+        | 'BILLING_CATEGORY_UNSPECIFIED'
+        | 'GCP_AND_TECHNICAL_CONNECTOR'
+        | 'NON_GCP_CONNECTOR';
     }
     interface Binding {
       /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
@@ -165,13 +196,18 @@ declare namespace gapi.client {
       /** Optional. Enum options. To be populated if `ValueType` is `ENUM` */
       enumOptions?: EnumOption[];
       /** Optional. enum source denotes the source of api to fill the enum options */
-      enumSource?: string;
+      enumSource?: 'ENUM_SOURCE_UNSPECIFIED' | 'EVENT_TYPES_API';
       /** Optional. Indicates if current template is part of advanced settings */
       isAdvanced?: boolean;
       /** Optional. Key of the config variable. */
       key?: string;
       /** Optional. Location Type denotes where this value should be sent in BYOC connections. */
-      locationType?: string;
+      locationType?:
+        | 'LOCATION_TYPE_UNSPECIFIED'
+        | 'HEADER'
+        | 'PAYLOAD'
+        | 'QUERY_PARAM'
+        | 'PATH_PARAM';
       /** Optional. MultipleSelectConfig represents the multiple options for a config variable. */
       multipleSelectConfig?: MultipleSelectConfig;
       /** Optional. Flag represents that this `ConfigVariable` must be provided for a connection. */
@@ -181,11 +217,20 @@ declare namespace gapi.client {
       /** Optional. Role grant configuration for the config variable. */
       roleGrant?: RoleGrant;
       /** Output only. State of the config variable. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'ACTIVE' | 'DEPRECATED';
       /** Optional. Regular expression in RE2 syntax used for validating the `value` of a `ConfigVariable`. */
       validationRegex?: string;
       /** Optional. Type of the parameter: string, int, bool etc. consider custom type for the benefit for the validation. */
-      valueType?: string;
+      valueType?:
+        | 'VALUE_TYPE_UNSPECIFIED'
+        | 'STRING'
+        | 'INT'
+        | 'BOOL'
+        | 'SECRET'
+        | 'ENUM'
+        | 'AUTHORIZATION_CODE'
+        | 'ENCRYPTION_KEY'
+        | 'MULTIPLE_SELECT';
     }
     interface Connection {
       /** Optional. Async operations enabled for the connection. If Async Operations is enabled, Connection allows the customers to initiate async long running operations using the actions API. */
@@ -205,7 +250,13 @@ declare namespace gapi.client {
       /** Output only. Infra configs supported by Connector Version. */
       connectorVersionInfraConfig?: ConnectorVersionInfraConfig;
       /** Output only. Flag to mark the version indicating the launch stage. */
-      connectorVersionLaunchStage?: string;
+      connectorVersionLaunchStage?:
+        | 'LAUNCH_STAGE_UNSPECIFIED'
+        | 'PREVIEW'
+        | 'GA'
+        | 'DEPRECATED'
+        | 'TEST'
+        | 'PRIVATE_PREVIEW';
       /** Output only. Created time. */
       createTime?: string;
       /** Optional. Description of the resource. */
@@ -219,7 +270,10 @@ declare namespace gapi.client {
       /** Optional. Eventing config of a connection */
       eventingConfig?: EventingConfig;
       /** Optional. Eventing enablement type. Will be nil if eventing is not enabled. */
-      eventingEnablementType?: string;
+      eventingEnablementType?:
+        | 'EVENTING_ENABLEMENT_TYPE_UNSPECIFIED'
+        | 'EVENTING_AND_CONNECTION'
+        | 'ONLY_EVENTING';
       /** Output only. Eventing Runtime Data. */
       eventingRuntimeData?: EventingRuntimeData;
       /** Optional. Fallback on admin credentials for the connection. If this both auth_override_enabled and fallback_on_admin_credentials are set to true, the connection will use the admin credentials if the dynamic auth header is not present during auth override. */
@@ -249,7 +303,7 @@ declare namespace gapi.client {
       /** Output only. Current status of the connection. */
       status?: ConnectionStatus;
       /** Output only. This subscription type enum states the subscription type of the project. */
-      subscriptionType?: string;
+      subscriptionType?: 'SUBSCRIPTION_TYPE_UNSPECIFIED' | 'PAY_G' | 'PAID';
       /** Optional. Suspended indicates if a user has suspended a connection or not. */
       suspended?: boolean;
       /** Output only. The name of the Service Directory service with TLS. */
@@ -271,7 +325,15 @@ declare namespace gapi.client {
       /** Output only. Timestamp when the connection runtime schema refresh was triggered. */
       refreshTime?: string;
       /** Output only. The current state of runtime schema. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'REFRESHING'
+        | 'UPDATED'
+        | 'REFRESHING_SCHEMA_METADATA'
+        | 'UPDATED_SCHEMA_METADATA'
+        | 'REFRESH_SCHEMA_METADATA_FAILED'
+        | 'REFRESHING_FULL_SCHEMA'
+        | 'UPDATED_FULL_SCHEMA';
       /** Output only. Timestamp when the connection runtime schema was updated. */
       updateTime?: string;
     }
@@ -279,7 +341,15 @@ declare namespace gapi.client {
       /** Description. */
       description?: string;
       /** State. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'ACTIVE'
+        | 'INACTIVE'
+        | 'DELETING'
+        | 'UPDATING'
+        | 'ERROR'
+        | 'AUTHORIZATION_REQUIRED';
       /** Status provides detailed information for the state. */
       status?: string;
     }
@@ -287,7 +357,11 @@ declare namespace gapi.client {
       /** Output only. Category of the connector. */
       category?: string;
       /** Output only. The type of the connector. */
-      connectorType?: string;
+      connectorType?:
+        | 'CONNECTOR_TYPE_UNSPECIFIED'
+        | 'CONNECTOR_TYPE_GOOGLE'
+        | 'CONNECTOR_TYPE_TECHNICAL'
+        | 'CONNECTOR_TYPE_THIRD_PARTY';
       /** Output only. Created time. */
       createTime?: string;
       /** Output only. Description of the resource. */
@@ -303,7 +377,13 @@ declare namespace gapi.client {
       /** Output only. Resource labels to represent user-provided metadata. Refer to cloud documentation on labels for more details. https://cloud.google.com/compute/docs/labeling-resources */
       labels?: {[P in string]: string};
       /** Output only. Flag to mark the version indicating the launch stage. */
-      launchStage?: string;
+      launchStage?:
+        | 'LAUNCH_STAGE_UNSPECIFIED'
+        | 'PREVIEW'
+        | 'GA'
+        | 'DEPRECATED'
+        | 'TEST'
+        | 'PRIVATE_PREVIEW';
       /** Output only. Marketplace connector details. Will be null if the connector is not marketplace connector. */
       marketplaceConnectorDetails?: MarketplaceConnectorDetails;
       /** Output only. Resource name of the Connector. Format: projects/{project}/locations/{location}/providers/{provider}/connectors/{connector} Only global location is supported for Connector resource. */
@@ -325,7 +405,10 @@ declare namespace gapi.client {
       /** Indicate whether connector versioning is enabled. */
       connectorVersioningEnabled?: boolean;
       /** Indicate whether connector is deployed on GKE/CloudRun */
-      deploymentModel?: string;
+      deploymentModel?:
+        | 'DEPLOYMENT_MODEL_UNSPECIFIED'
+        | 'GKE_MST'
+        | 'CLOUD_RUN_MST';
       /** HPA autoscaling config. */
       hpaConfig?: HPAConfig;
       /** Max QPS supported for internal requests originating from Connd. */
@@ -357,7 +440,7 @@ declare namespace gapi.client {
       /** Optional. Enabled represents whether logging is enabled or not for a connection. */
       enabled?: boolean;
       /** Optional. Log configuration level. */
-      level?: string;
+      level?: 'LOG_LEVEL_UNSPECIFIED' | 'ERROR' | 'INFO' | 'DEBUG';
     }
     interface ConnectorVersion {
       /** Output only. List of auth configs supported by the Connector Version. */
@@ -385,7 +468,13 @@ declare namespace gapi.client {
       /** Output only. Resource labels to represent user-provided metadata. Refer to cloud documentation on labels for more details. https://cloud.google.com/compute/docs/labeling-resources */
       labels?: {[P in string]: string};
       /** Output only. Flag to mark the version indicating the launch stage. */
-      launchStage?: string;
+      launchStage?:
+        | 'LAUNCH_STAGE_UNSPECIFIED'
+        | 'PREVIEW'
+        | 'GA'
+        | 'DEPRECATED'
+        | 'TEST'
+        | 'PRIVATE_PREVIEW';
       /** Output only. Resource name of the Version. Format: projects/{project}/locations/{location}/providers/{provider}/connectors/{connector}/versions/{version} Only global location is supported for Connector resource. */
       name?: string;
       /** Output only. ReleaseVersion of the connector, for example: "1.0.1-alpha". */
@@ -405,7 +494,11 @@ declare namespace gapi.client {
       /** Output only. Supported standard entities. */
       supportedStandardEntities?: StandardEntity[];
       /** Output only. Unsupported connection types. */
-      unsupportedConnectionTypes?: string[];
+      unsupportedConnectionTypes?:
+        | 'CONNECTION_TYPE_UNSPECIFIED'
+        | 'CONNECTION_WITH_EVENTING'
+        | 'ONLY_CONNECTION'
+        | 'ONLY_EVENTING'[];
       /** Output only. Updated time. */
       updateTime?: string;
       /** Output only. VPCSC config for the connector. */
@@ -415,9 +508,17 @@ declare namespace gapi.client {
       /** Output only. The window used for ratelimiting runtime requests to connections. */
       connectionRatelimitWindowSeconds?: string;
       /** Output only. Indicates whether connector is deployed on GKE/CloudRun */
-      deploymentModel?: string;
+      deploymentModel?:
+        | 'DEPLOYMENT_MODEL_UNSPECIFIED'
+        | 'GKE_MST'
+        | 'CLOUD_RUN_MST';
       /** Output only. Status of the deployment model migration. */
-      deploymentModelMigrationState?: string;
+      deploymentModelMigrationState?:
+        | 'DEPLOYMENT_MODEL_MIGRATION_STATE_UNSPECIFIED'
+        | 'IN_PROGRESS'
+        | 'COMPLETED'
+        | 'ROLLEDBACK'
+        | 'ROLLBACK_IN_PROGRESS';
       /** Output only. HPA autoscaling config. */
       hpaConfig?: HPAConfig;
       /** Output only. Max QPS supported for internal requests originating from Connd. */
@@ -433,7 +534,10 @@ declare namespace gapi.client {
       /** Output only. The name of shared connector deployment. */
       sharedDeployment?: string;
       /** Output only. Status of the TLS migration. */
-      tlsMigrationState?: string;
+      tlsMigrationState?:
+        | 'TLS_MIGRATION_STATE_UNSPECIFIED'
+        | 'TLS_MIGRATION_NOT_STARTED'
+        | 'TLS_MIGRATION_COMPLETED';
     }
     interface CustomConnector {
       /** Output only. Active connector versions. */
@@ -445,7 +549,11 @@ declare namespace gapi.client {
       /** Output only. Created time. */
       createTime?: string;
       /** Required. Type of the custom connector. */
-      customConnectorType?: string;
+      customConnectorType?:
+        | 'CUSTOM_CONNECTOR_TYPE_UNSPECIFIED'
+        | 'OPEN_API'
+        | 'PROTO'
+        | 'SDK';
       /** Optional. Description of the resource. */
       description?: string;
       /** Optional. Display name. */
@@ -493,7 +601,7 @@ declare namespace gapi.client {
       /** Output only. Server URLs parsed from the Open API spec. This is only used for Open API based custom connectors. */
       specServerUrls?: string[];
       /** Output only. State of the custom connector version. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'ACTIVE' | 'DEPRECATED';
       /** Output only. Updated time. */
       updateTime?: string;
     }
@@ -558,13 +666,17 @@ declare namespace gapi.client {
       /** The minimum number of destinations supported for this key. */
       min?: number;
       /** Whether port number should be provided by customers. */
-      portFieldType?: string;
+      portFieldType?:
+        | 'FIELD_TYPE_UNSPECIFIED'
+        | 'REQUIRED'
+        | 'OPTIONAL'
+        | 'NOT_USED';
       /** Regex pattern for host. */
       regexPattern?: string;
     }
     interface EgressControlConfig {
       /** Optional. Access mode for egress control. */
-      accessMode?: string;
+      accessMode?: 'ACCESS_MODE_UNSPECIFIED' | 'RESTRICTED' | 'ALLOW_ALL';
       /** Additional extraction rules to identity the backends from customer provided configuration in Connection resource. These rules are applied in addition to the ones specified in `oneof_backends`. */
       additionalExtractionRules?: ExtractionRules;
       /** Optional. Used when access_mode is RESTRICTED or ACCESS_MODE_UNSPECIFIED. */
@@ -574,12 +686,16 @@ declare namespace gapi.client {
       /** Extractions Rules to extract the backends from customer provided configuration. */
       extractionRules?: ExtractionRules;
       /** Launch environment for egress control. */
-      launchEnvironment?: string;
+      launchEnvironment?:
+        | 'LAUNCH_ENVIRONMENT_UNSPECIFIED'
+        | 'AUTOPUSH'
+        | 'STAGING'
+        | 'PROD';
     }
     interface Empty {}
     interface EncryptionConfig {
       /** Optional. Encryption type for the region. */
-      encryptionType?: string;
+      encryptionType?: 'ENCRYPTION_TYPE_UNSPECIFIED' | 'GMEK' | 'CMEK';
       /** Optional. KMS crypto key. This field accepts identifiers of the form `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/ {crypto_key}` */
       kmsKeyName?: string;
     }
@@ -587,7 +703,7 @@ declare namespace gapi.client {
       /** Optional. The [KMS key name] with which the content of the Operation is encrypted. The expected format: `projects/*‍/locations/*‍/keyRings/*‍/cryptoKeys/*`. Will be empty string if google managed. */
       kmsKeyName?: string;
       /** Type. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'GOOGLE_MANAGED' | 'CUSTOMER_MANAGED';
     }
     interface EndPoint {
       /** Optional. The URI of the Endpoint. */
@@ -611,7 +727,15 @@ declare namespace gapi.client {
       /** Required. The path of the service attachment */
       serviceAttachment?: string;
       /** Output only. The Private Service Connect Connection Endpoint State. This value is only available in the Full view. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PENDING'
+        | 'ACCEPTED'
+        | 'REJECTED'
+        | 'CLOSED'
+        | 'FROZEN'
+        | 'NEEDS_ATTENTION'
+        | 'ACCEPTED_NOT_PROGRAMMED';
       /** Output only. Updated time. */
       updateTime?: string;
     }
@@ -631,7 +755,7 @@ declare namespace gapi.client {
       /** Optional. The destination to hit when we receive an event */
       notifyEndpointDestination?: EndUserAuthenticationNotifyEndpointDestination;
       /** Optional. Roles for the EndUserAuthentication. */
-      roles?: string[];
+      roles?: 'ROLE_UNSPECIFIED' | 'READER' | 'READER_DOMAIN_WIDE_ACCESSIBLE'[];
       /** Optional. Status of the EndUserAuthentication. */
       status?: EndUserAuthenticationEndUserAuthenticationStatus;
       /** Output only. Updated time. */
@@ -645,7 +769,15 @@ declare namespace gapi.client {
       /** Identifier key for auth config */
       authKey?: string;
       /** The type of authentication configured. */
-      authType?: string;
+      authType?:
+        | 'AUTH_TYPE_UNSPECIFIED'
+        | 'USER_PASSWORD'
+        | 'OAUTH2_JWT_BEARER'
+        | 'OAUTH2_CLIENT_CREDENTIALS'
+        | 'SSH_PUBLIC_KEY'
+        | 'OAUTH2_AUTH_CODE_FLOW'
+        | 'GOOGLE_AUTHENTICATION'
+        | 'OAUTH2_AUTH_CODE_FLOW_GOOGLE_MANAGED';
       /** Oauth2AuthCodeFlow. */
       oauth2AuthCodeFlow?: EndUserAuthenticationConfigOauth2AuthCodeFlow;
       /** Oauth2AuthCodeFlowGoogleManaged. */
@@ -741,7 +873,7 @@ declare namespace gapi.client {
       /** Output only. Description of the state. */
       description?: string;
       /** Output only. State of Event Subscription resource. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'ACTIVE' | 'ERROR';
     }
     interface EndUserAuthenticationNotifyEndpointDestination {
       /** Optional. OPTION 1: Hit an endpoint when the refresh token is expired. */
@@ -749,7 +881,7 @@ declare namespace gapi.client {
       /** Required. Service account needed for runtime plane to notify the backend. */
       serviceAccount?: string;
       /** Required. type of the destination */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'ENDPOINT';
     }
     interface EndUserAuthenticationNotifyEndpointDestinationEndPoint {
       /** Required. The URI of the Endpoint. */
@@ -819,7 +951,10 @@ declare namespace gapi.client {
       /** Enrichment Supported. */
       enrichmentSupported?: boolean;
       /** The type of the event listener for a specific connector. */
-      eventListenerType?: string;
+      eventListenerType?:
+        | 'EVENT_LISTENER_TYPE_UNSPECIFIED'
+        | 'WEBHOOK_LISTENER'
+        | 'JMS_LISTENER';
       /** Is Eventing Supported. */
       isEventingSupported?: boolean;
       /** ListenerAuthConfigTemplates represents the auth values for the event listener. */
@@ -843,13 +978,19 @@ declare namespace gapi.client {
       /** Output only. Cloud storage location of the icon. */
       iconLocation?: string;
       /** Output only. Eventing Launch Stage. */
-      launchStage?: string;
+      launchStage?:
+        | 'LAUNCH_STAGE_UNSPECIFIED'
+        | 'PREVIEW'
+        | 'GA'
+        | 'DEPRECATED'
+        | 'TEST'
+        | 'PRIVATE_PREVIEW';
       /** Output only. Name of the Eventing trigger. */
       name?: string;
       /** Output only. Array of search keywords. */
       searchTags?: string[];
       /** Output only. The type of the event listener for a specific connector. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'WEBHOOK' | 'JMS';
     }
     interface EventingRuntimeData {
       /** Output only. Events listener endpoint. The value will populated after provisioning the events listener. */
@@ -867,7 +1008,11 @@ declare namespace gapi.client {
       /** Output only. Description of error if State is set to "ERROR". */
       description?: string;
       /** Output only. State. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'ERROR'
+        | 'INGRESS_ENDPOINT_REQUIRED';
     }
     interface EventSubscription {
       /** Output only. Created time. */
@@ -899,13 +1044,19 @@ declare namespace gapi.client {
       /** Optional. Service account needed for runtime plane to trigger IP workflow. */
       serviceAccount?: string;
       /** Optional. type of the destination */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'ENDPOINT' | 'GCS' | 'PUBSUB';
     }
     interface EventSubscriptionStatus {
       /** Output only. Description of the state. */
       description?: string;
       /** Output only. State of Event Subscription resource. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'UPDATING'
+        | 'ACTIVE'
+        | 'SUSPENDED'
+        | 'ERROR';
     }
     interface EventType {
       /** Output only. Created time. */
@@ -957,7 +1108,52 @@ declare namespace gapi.client {
       /** The following map contains fields that are not explicitly mentioned above,this give connectors the flexibility to add new metadata fields. */
       additionalDetails?: {[P in string]: any};
       /** The data type of the Field. */
-      dataType?: string;
+      dataType?:
+        | 'DATA_TYPE_UNSPECIFIED'
+        | 'DATA_TYPE_INT'
+        | 'DATA_TYPE_SMALLINT'
+        | 'DATA_TYPE_DOUBLE'
+        | 'DATA_TYPE_DATE'
+        | 'DATA_TYPE_DATETIME'
+        | 'DATA_TYPE_TIME'
+        | 'DATA_TYPE_STRING'
+        | 'DATA_TYPE_LONG'
+        | 'DATA_TYPE_BOOLEAN'
+        | 'DATA_TYPE_DECIMAL'
+        | 'DATA_TYPE_UUID'
+        | 'DATA_TYPE_BLOB'
+        | 'DATA_TYPE_BIT'
+        | 'DATA_TYPE_TINYINT'
+        | 'DATA_TYPE_INTEGER'
+        | 'DATA_TYPE_BIGINT'
+        | 'DATA_TYPE_FLOAT'
+        | 'DATA_TYPE_REAL'
+        | 'DATA_TYPE_NUMERIC'
+        | 'DATA_TYPE_CHAR'
+        | 'DATA_TYPE_VARCHAR'
+        | 'DATA_TYPE_LONGVARCHAR'
+        | 'DATA_TYPE_TIMESTAMP'
+        | 'DATA_TYPE_NCHAR'
+        | 'DATA_TYPE_NVARCHAR'
+        | 'DATA_TYPE_LONGNVARCHAR'
+        | 'DATA_TYPE_NULL'
+        | 'DATA_TYPE_OTHER'
+        | 'DATA_TYPE_JAVA_OBJECT'
+        | 'DATA_TYPE_DISTINCT'
+        | 'DATA_TYPE_STRUCT'
+        | 'DATA_TYPE_ARRAY'
+        | 'DATA_TYPE_CLOB'
+        | 'DATA_TYPE_REF'
+        | 'DATA_TYPE_DATALINK'
+        | 'DATA_TYPE_ROWID'
+        | 'DATA_TYPE_BINARY'
+        | 'DATA_TYPE_VARBINARY'
+        | 'DATA_TYPE_LONGVARBINARY'
+        | 'DATA_TYPE_NCLOB'
+        | 'DATA_TYPE_SQLXML'
+        | 'DATA_TYPE_REF_CURSOR'
+        | 'DATA_TYPE_TIME_WITH_TIMEZONE'
+        | 'DATA_TYPE_TIMESTAMP_WITH_TIMEZONE';
       /** The following field specifies the default value of the Field provided by the external system if a value is not provided. */
       defaultValue?: any;
       /** A brief description of the Field. */
@@ -977,7 +1173,7 @@ declare namespace gapi.client {
       /** Boolean value */
       boolValue?: boolean;
       /** Optional. Comparator to use for comparing the field value. */
-      comparator?: string;
+      comparator?: 'COMPARATOR_UNSPECIFIED' | 'EQUALS' | 'NOT_EQUALS';
       /** Integer value */
       intValue?: string;
       /** Optional. Key of the field. */
@@ -1007,7 +1203,52 @@ declare namespace gapi.client {
     }
     interface InputParameter {
       /** The data type of the Parameter. */
-      dataType?: string;
+      dataType?:
+        | 'DATA_TYPE_UNSPECIFIED'
+        | 'DATA_TYPE_INT'
+        | 'DATA_TYPE_SMALLINT'
+        | 'DATA_TYPE_DOUBLE'
+        | 'DATA_TYPE_DATE'
+        | 'DATA_TYPE_DATETIME'
+        | 'DATA_TYPE_TIME'
+        | 'DATA_TYPE_STRING'
+        | 'DATA_TYPE_LONG'
+        | 'DATA_TYPE_BOOLEAN'
+        | 'DATA_TYPE_DECIMAL'
+        | 'DATA_TYPE_UUID'
+        | 'DATA_TYPE_BLOB'
+        | 'DATA_TYPE_BIT'
+        | 'DATA_TYPE_TINYINT'
+        | 'DATA_TYPE_INTEGER'
+        | 'DATA_TYPE_BIGINT'
+        | 'DATA_TYPE_FLOAT'
+        | 'DATA_TYPE_REAL'
+        | 'DATA_TYPE_NUMERIC'
+        | 'DATA_TYPE_CHAR'
+        | 'DATA_TYPE_VARCHAR'
+        | 'DATA_TYPE_LONGVARCHAR'
+        | 'DATA_TYPE_TIMESTAMP'
+        | 'DATA_TYPE_NCHAR'
+        | 'DATA_TYPE_NVARCHAR'
+        | 'DATA_TYPE_LONGNVARCHAR'
+        | 'DATA_TYPE_NULL'
+        | 'DATA_TYPE_OTHER'
+        | 'DATA_TYPE_JAVA_OBJECT'
+        | 'DATA_TYPE_DISTINCT'
+        | 'DATA_TYPE_STRUCT'
+        | 'DATA_TYPE_ARRAY'
+        | 'DATA_TYPE_CLOB'
+        | 'DATA_TYPE_REF'
+        | 'DATA_TYPE_DATALINK'
+        | 'DATA_TYPE_ROWID'
+        | 'DATA_TYPE_BINARY'
+        | 'DATA_TYPE_VARBINARY'
+        | 'DATA_TYPE_LONGVARBINARY'
+        | 'DATA_TYPE_NCLOB'
+        | 'DATA_TYPE_SQLXML'
+        | 'DATA_TYPE_REF_CURSOR'
+        | 'DATA_TYPE_TIME_WITH_TIMEZONE'
+        | 'DATA_TYPE_TIMESTAMP_WITH_TIMEZONE';
       /** The following field specifies the default value of the Parameter provided by the external system if a value is not provided. */
       defaultValue?: any;
       /** A brief description of the Parameter. */
@@ -1051,7 +1292,14 @@ declare namespace gapi.client {
       /** Software versions that are used to deploy this instance. This can be mutated by rollout services. */
       softwareVersions?: {[P in string]: string};
       /** Output only. Current lifecycle state of the resource (e.g. if it's being created or ready to use). */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'READY'
+        | 'UPDATING'
+        | 'REPAIRING'
+        | 'DELETING'
+        | 'ERROR';
       /** Output only. ID of the associated GCP tenant project. See go/get-instance-metadata. */
       tenantProjectId?: string;
       /** Output only. Timestamp when the resource was last modified. */
@@ -1061,7 +1309,7 @@ declare namespace gapi.client {
       /** Optional. Name of the JMS source. i.e. queueName or topicName */
       name?: string;
       /** Optional. Type of the JMS Source. i.e. Queue or Topic */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'QUEUE' | 'TOPIC';
     }
     interface JsonAuthSchema {
       /** JSON schema of the AuthSchemas. */
@@ -1083,7 +1331,52 @@ declare namespace gapi.client {
       /** Schema that applies to array values, applicable only if this is of type `array`. */
       items?: JsonSchema;
       /** JDBC datatype of the field. */
-      jdbcType?: string;
+      jdbcType?:
+        | 'DATA_TYPE_UNSPECIFIED'
+        | 'DATA_TYPE_INT'
+        | 'DATA_TYPE_SMALLINT'
+        | 'DATA_TYPE_DOUBLE'
+        | 'DATA_TYPE_DATE'
+        | 'DATA_TYPE_DATETIME'
+        | 'DATA_TYPE_TIME'
+        | 'DATA_TYPE_STRING'
+        | 'DATA_TYPE_LONG'
+        | 'DATA_TYPE_BOOLEAN'
+        | 'DATA_TYPE_DECIMAL'
+        | 'DATA_TYPE_UUID'
+        | 'DATA_TYPE_BLOB'
+        | 'DATA_TYPE_BIT'
+        | 'DATA_TYPE_TINYINT'
+        | 'DATA_TYPE_INTEGER'
+        | 'DATA_TYPE_BIGINT'
+        | 'DATA_TYPE_FLOAT'
+        | 'DATA_TYPE_REAL'
+        | 'DATA_TYPE_NUMERIC'
+        | 'DATA_TYPE_CHAR'
+        | 'DATA_TYPE_VARCHAR'
+        | 'DATA_TYPE_LONGVARCHAR'
+        | 'DATA_TYPE_TIMESTAMP'
+        | 'DATA_TYPE_NCHAR'
+        | 'DATA_TYPE_NVARCHAR'
+        | 'DATA_TYPE_LONGNVARCHAR'
+        | 'DATA_TYPE_NULL'
+        | 'DATA_TYPE_OTHER'
+        | 'DATA_TYPE_JAVA_OBJECT'
+        | 'DATA_TYPE_DISTINCT'
+        | 'DATA_TYPE_STRUCT'
+        | 'DATA_TYPE_ARRAY'
+        | 'DATA_TYPE_CLOB'
+        | 'DATA_TYPE_REF'
+        | 'DATA_TYPE_DATALINK'
+        | 'DATA_TYPE_ROWID'
+        | 'DATA_TYPE_BINARY'
+        | 'DATA_TYPE_VARBINARY'
+        | 'DATA_TYPE_LONGVARBINARY'
+        | 'DATA_TYPE_NCLOB'
+        | 'DATA_TYPE_SQLXML'
+        | 'DATA_TYPE_REF_CURSOR'
+        | 'DATA_TYPE_TIME_WITH_TIMEZONE'
+        | 'DATA_TYPE_TIMESTAMP_WITH_TIMEZONE';
       /** The child schemas, applicable only if this is of type `object`. The key is the name of the property and the value is the json schema that describes that property */
       properties?: {[P in string]: JsonSchema};
       /** Whether this property is required. */
@@ -1252,7 +1545,7 @@ declare namespace gapi.client {
       /** Optional. A list of nested conditions to be compared. */
       logicalExpressions?: LogicalExpression[];
       /** Optional. The logical operator to use between the fields and conditions. */
-      logicalOperator?: string;
+      logicalOperator?: 'OPERATOR_UNSPECIFIED' | 'AND' | 'OR';
     }
     interface MaintenancePolicy {
       /** Output only. The time when the resource was created. */
@@ -1264,7 +1557,7 @@ declare namespace gapi.client {
       /** Required. MaintenancePolicy name using the form: `projects/{project_id}/locations/{location_id}/maintenancePolicies/{maintenance_policy_id}` where {project_id} refers to a GCP consumer project ID, {location_id} refers to a GCP region/zone, {maintenance_policy_id} must be 1-63 characters long and match the regular expression `[a-z0-9]([-a-z0-9]*[a-z0-9])?`. */
       name?: string;
       /** Optional. The state of the policy. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'READY' | 'DELETING';
       /** Maintenance policy applicable to instance update. */
       updatePolicy?: UpdatePolicy;
       /** Output only. The time when the resource was updated. */
@@ -1354,7 +1647,7 @@ declare namespace gapi.client {
       /** Output only. Egress IPs */
       egressIps?: string[];
       /** Optional. Egress mode for the network. */
-      egressMode?: string;
+      egressMode?: 'NETWORK_EGRESS_MODE_UNSPECIFIED' | 'AUTO_IP' | 'STATIC_IP';
     }
     interface NetworkEgressModeOverride {
       /** boolean should be set to true to make sure only eventing enabled connections are migrated to direct vpc egress. */
@@ -1362,7 +1655,10 @@ declare namespace gapi.client {
       /** boolean should be set to true to make sure only async operations enabled connections are migrated to direct vpc egress. */
       isJobsOverrideEnabled?: boolean;
       /** Determines the VPC Egress mode for the connector. */
-      networkEgressMode?: string;
+      networkEgressMode?:
+        | 'NETWORK_EGRESS_MODE_UNSPECIFIED'
+        | 'SERVERLESS_VPC_ACCESS_CONNECTOR'
+        | 'DIRECT_VPC_EGRESS';
     }
     interface NodeConfig {
       /** Optional. Maximum number of nodes in the runtime nodes. */
@@ -1522,7 +1818,13 @@ declare namespace gapi.client {
       /** Output only. Resource labels to represent user-provided metadata. Refer to cloud documentation on labels for more details. https://cloud.google.com/compute/docs/labeling-resources */
       labels?: {[P in string]: string};
       /** Output only. Flag to mark the version indicating the launch stage. */
-      launchStage?: string;
+      launchStage?:
+        | 'LAUNCH_STAGE_UNSPECIFIED'
+        | 'PREVIEW'
+        | 'GA'
+        | 'DEPRECATED'
+        | 'TEST'
+        | 'PRIVATE_PREVIEW';
       /** Output only. Resource name of the Provider. Format: projects/{project}/locations/{location}/providers/{provider} Only global location is supported for Provider resource. */
       name?: string;
       /** Output only. Updated time. */
@@ -1546,7 +1848,11 @@ declare namespace gapi.client {
       /** Output only. Custom connector name. Will be set on the partner connector. Format: providers/customconnectors/connectors//versions/ */
       publishedSource?: string;
       /** Output only. Publish state of the custom connector. */
-      publishState?: string;
+      publishState?:
+        | 'PUBLISH_STATE_UNSPECIFIED'
+        | 'PUBLISHED'
+        | 'PUBLISH_IN_PROGRESS'
+        | 'UNPUBLISHED';
       /** Output only. Publish time. */
       publishTime?: string;
     }
@@ -1577,7 +1883,12 @@ declare namespace gapi.client {
       /** Optional. Template to uniquely represent a Google Cloud resource in a format IAM expects This is a template that can have references to other values provided in the config variable template. */
       pathTemplate?: string;
       /** Optional. Different types of resource supported. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'GCP_PROJECT'
+        | 'GCP_RESOURCE'
+        | 'GCP_SECRETMANAGER_SECRET'
+        | 'GCP_SECRETMANAGER_SECRET_VERSION';
     }
     interface ResourceLimits {
       /** Output only. CPU limit. */
@@ -1593,7 +1904,52 @@ declare namespace gapi.client {
     }
     interface ResultMetadata {
       /** The data type of the field. */
-      dataType?: string;
+      dataType?:
+        | 'DATA_TYPE_UNSPECIFIED'
+        | 'DATA_TYPE_INT'
+        | 'DATA_TYPE_SMALLINT'
+        | 'DATA_TYPE_DOUBLE'
+        | 'DATA_TYPE_DATE'
+        | 'DATA_TYPE_DATETIME'
+        | 'DATA_TYPE_TIME'
+        | 'DATA_TYPE_STRING'
+        | 'DATA_TYPE_LONG'
+        | 'DATA_TYPE_BOOLEAN'
+        | 'DATA_TYPE_DECIMAL'
+        | 'DATA_TYPE_UUID'
+        | 'DATA_TYPE_BLOB'
+        | 'DATA_TYPE_BIT'
+        | 'DATA_TYPE_TINYINT'
+        | 'DATA_TYPE_INTEGER'
+        | 'DATA_TYPE_BIGINT'
+        | 'DATA_TYPE_FLOAT'
+        | 'DATA_TYPE_REAL'
+        | 'DATA_TYPE_NUMERIC'
+        | 'DATA_TYPE_CHAR'
+        | 'DATA_TYPE_VARCHAR'
+        | 'DATA_TYPE_LONGVARCHAR'
+        | 'DATA_TYPE_TIMESTAMP'
+        | 'DATA_TYPE_NCHAR'
+        | 'DATA_TYPE_NVARCHAR'
+        | 'DATA_TYPE_LONGNVARCHAR'
+        | 'DATA_TYPE_NULL'
+        | 'DATA_TYPE_OTHER'
+        | 'DATA_TYPE_JAVA_OBJECT'
+        | 'DATA_TYPE_DISTINCT'
+        | 'DATA_TYPE_STRUCT'
+        | 'DATA_TYPE_ARRAY'
+        | 'DATA_TYPE_CLOB'
+        | 'DATA_TYPE_REF'
+        | 'DATA_TYPE_DATALINK'
+        | 'DATA_TYPE_ROWID'
+        | 'DATA_TYPE_BINARY'
+        | 'DATA_TYPE_VARBINARY'
+        | 'DATA_TYPE_LONGVARBINARY'
+        | 'DATA_TYPE_NCLOB'
+        | 'DATA_TYPE_SQLXML'
+        | 'DATA_TYPE_REF_CURSOR'
+        | 'DATA_TYPE_TIME_WITH_TIMEZONE'
+        | 'DATA_TYPE_TIMESTAMP_WITH_TIMEZONE';
       /** The following field specifies the default value of the Parameter provided by the external system if a value is not provided. */
       defaultValue?: any;
       /** A brief description of the field. */
@@ -1610,7 +1966,7 @@ declare namespace gapi.client {
       /** Optional. Template that UI can use to provide helper text to customers. */
       helperTextTemplate?: string;
       /** Optional. Principal/Identity for whom the role need to assigned. */
-      principal?: string;
+      principal?: 'PRINCIPAL_UNSPECIFIED' | 'CONNECTOR_SA';
       /** Optional. Resource on which the roles needs to be granted for the principal. */
       resource?: Resource;
       /** Optional. List of roles that need to be granted. */
@@ -1656,7 +2012,14 @@ declare namespace gapi.client {
       /** Output only. The name of the Service Directory service name. */
       serviceDirectory?: string;
       /** Output only. The state of the location. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'INACTIVE'
+        | 'ACTIVATING'
+        | 'ACTIVE'
+        | 'CREATING'
+        | 'DELETING'
+        | 'UPDATING';
     }
     interface RuntimeEntitySchema {
       /** Output only. Name of the entity. */
@@ -1666,11 +2029,25 @@ declare namespace gapi.client {
       /** Output only. JsonSchema representation of this entity's metadata */
       jsonSchema?: JsonSchema;
       /** List of operations supported by this entity */
-      operations?: string[];
+      operations?:
+        | 'OPERATION_UNSPECIFIED'
+        | 'LIST'
+        | 'GET'
+        | 'CREATE'
+        | 'UPDATE'
+        | 'DELETE'[];
     }
     interface Schedule {
       /** Allows to define schedule that runs specified day of the week. */
-      day?: string;
+      day?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY';
       /** Output only. Duration of the time window, set by service producer. */
       duration?: string;
       /** Time within the window to start the operations. */
@@ -1736,7 +2113,10 @@ declare namespace gapi.client {
       /** Field identifier. For example config variable name. */
       fieldId?: string;
       /** Type of the source. */
-      sourceType?: string;
+      sourceType?:
+        | 'SOURCE_TYPE_UNSPECIFIED'
+        | 'CONFIG_VARIABLE'
+        | 'AUTH_CONFIG_VARIABLE';
     }
     interface SshPublicKey {
       /** Optional. Format of SSH Client cert. */
@@ -1754,7 +2134,7 @@ declare namespace gapi.client {
       /** Optional. Client Certificate */
       clientCertificate?: Secret;
       /** Optional. Type of Client Cert (PEM/JKS/.. etc.) */
-      clientCertType?: string;
+      clientCertType?: 'CERT_TYPE_UNSPECIFIED' | 'PEM';
       /** Optional. Client Private Key */
       clientPrivateKey?: Secret;
       /** Optional. Secret containing the passphrase protecting the Client Private Key */
@@ -1762,11 +2142,11 @@ declare namespace gapi.client {
       /** Optional. Private Server Certificate. Needs to be specified if trust model is `PRIVATE`. */
       privateServerCertificate?: Secret;
       /** Optional. Type of Server Cert (PEM/JKS/.. etc.) */
-      serverCertType?: string;
+      serverCertType?: 'CERT_TYPE_UNSPECIFIED' | 'PEM';
       /** Optional. Trust Model of the SSL connection */
-      trustModel?: string;
+      trustModel?: 'PUBLIC' | 'PRIVATE' | 'INSECURE';
       /** Optional. Controls the ssl type for the given connector version. */
-      type?: string;
+      type?: 'SSL_TYPE_UNSPECIFIED' | 'TLS' | 'MTLS';
       /** Optional. Bool for enabling SSL */
       useSsl?: boolean;
     }
@@ -1774,13 +2154,13 @@ declare namespace gapi.client {
       /** Any additional fields that need to be rendered */
       additionalVariables?: ConfigVariableTemplate[];
       /** List of supported Client Cert Types */
-      clientCertType?: string[];
+      clientCertType?: 'CERT_TYPE_UNSPECIFIED' | 'PEM'[];
       /** Boolean for determining if the connector version mandates TLS. */
       isTlsMandatory?: boolean;
       /** List of supported Server Cert Types */
-      serverCertType?: string[];
+      serverCertType?: 'CERT_TYPE_UNSPECIFIED' | 'PEM'[];
       /** Controls the ssl type for the given connector version */
-      sslType?: string;
+      sslType?: 'SSL_TYPE_UNSPECIFIED' | 'TLS' | 'MTLS';
     }
     interface StandardAction {
       /** Name of the standard action. */
@@ -1832,7 +2212,13 @@ declare namespace gapi.client {
       /** Required. Tool name that was generated in the list tools call. */
       name?: string;
       /** Optional. Operation for which the tool was generated. */
-      operation?: string;
+      operation?:
+        | 'OPERATION_UNSPECIFIED'
+        | 'LIST'
+        | 'GET'
+        | 'CREATE'
+        | 'UPDATE'
+        | 'DELETE';
     }
     interface ToolspecOverride {
       /** Output only. Created time. */
@@ -1850,7 +2236,13 @@ declare namespace gapi.client {
     }
     interface UpdatePolicy {
       /** Optional. Relative scheduling channel applied to resource. */
-      channel?: string;
+      channel?:
+        | 'UPDATE_CHANNEL_UNSPECIFIED'
+        | 'EARLIER'
+        | 'LATER'
+        | 'WEEK1'
+        | 'WEEK2'
+        | 'WEEK5';
       /** Deny Maintenance Period that is applied to resource to indicate when maintenance is forbidden. The protocol supports zero-to-many such periods, but the current SLM Rollout implementation only supports zero-to-one. */
       denyMaintenancePeriods?: DenyMaintenancePeriod[];
       /** Optional. Maintenance window that is applied to resources covered by this policy. */
@@ -1868,7 +2260,11 @@ declare namespace gapi.client {
       /** Required. Location of the custom connector spec. The location can be either a public url like `https://public-url.com/spec` Or a Google Cloud Storage location like `gs:///` */
       specLocation?: string;
       /** Required. Spec type of the custom connector spec. */
-      specType?: string;
+      specType?:
+        | 'CUSTOM_CONNECTOR_TYPE_UNSPECIFIED'
+        | 'OPEN_API'
+        | 'PROTO'
+        | 'SDK';
     }
     interface ValidateCustomConnectorSpecResponse {
       /** Error message. The spec is valid if the error message is empty. */
@@ -1907,13 +2303,13 @@ declare namespace gapi.client {
       /** Get action. */
       getAction(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. Id of the action. */
         actionId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1936,11 +2332,11 @@ declare namespace gapi.client {
       /** Get entity type. */
       getEntityType(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Id of the entity type. */
@@ -1965,11 +2361,11 @@ declare namespace gapi.client {
       /** List actions. */
       listActions(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1995,16 +2391,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Specifies which fields are returned in response. Defaults to BASIC view. */
-        view?: string;
+        view?: 'VIEW_UNSPECIFIED' | 'BASIC';
       }): Request<ListActionsResponse>;
       /** List entity types. */
       listEntityTypes(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2030,16 +2426,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Specifies which fields are returned in response. Defaults to BASIC view. */
-        view?: string;
+        view?: 'VIEW_UNSPECIFIED' | 'BASIC';
       }): Request<ListEntityTypesResponse>;
       /** Refresh runtime schema of a connection. */
       refresh(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2064,11 +2460,11 @@ declare namespace gapi.client {
       refresh(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2095,11 +2491,11 @@ declare namespace gapi.client {
       /** Creates a new EndUserAuthentication in a given project,location and connection. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Identifier to assign to the EndUserAuthentication. Must be unique within scope of the parent resource. */
@@ -2126,11 +2522,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. Identifier to assign to the EndUserAuthentication. Must be unique within scope of the parent resource. */
@@ -2157,11 +2553,11 @@ declare namespace gapi.client {
       /** Deletes a single EndUserAuthentication. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2184,11 +2580,11 @@ declare namespace gapi.client {
       /** Gets details of a single EndUserAuthentication. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2208,16 +2604,19 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Optional. View of the EndUserAuthentication to return. */
-        view?: string;
+        view?:
+          | 'END_USER_AUTHENTICATION_VIEW_UNSPECIFIED'
+          | 'BASIC_VIEW'
+          | 'FULL_VIEW';
       }): Request<EndUserAuthentication>;
       /** List EndUserAuthentications in a given project,location and connection. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2248,11 +2647,11 @@ declare namespace gapi.client {
       /** Updates the parameters of a single EndUserAuthentication. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2279,11 +2678,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2312,11 +2711,11 @@ declare namespace gapi.client {
       /** Creates a new EventSubscription in a given project,location and connection. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Identifier to assign to the Event Subscription. Must be unique within scope of the parent resource. */
@@ -2343,11 +2742,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. Identifier to assign to the Event Subscription. Must be unique within scope of the parent resource. */
@@ -2374,11 +2773,11 @@ declare namespace gapi.client {
       /** Deletes a single EventSubscription. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2401,11 +2800,11 @@ declare namespace gapi.client {
       /** Gets details of a single EventSubscription. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2428,11 +2827,11 @@ declare namespace gapi.client {
       /** List EventSubscriptions in a given project,location and connection. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2463,11 +2862,11 @@ declare namespace gapi.client {
       /** Updates the parameters of a single EventSubscription. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2494,11 +2893,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2525,11 +2924,11 @@ declare namespace gapi.client {
       /** RetryEventSubscription retries the registration of Subscription. */
       retry(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2554,11 +2953,11 @@ declare namespace gapi.client {
       retry(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2585,11 +2984,11 @@ declare namespace gapi.client {
       /** List schema of a runtime actions filtered by action name. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2622,11 +3021,11 @@ declare namespace gapi.client {
       /** List schema of a runtime entities filtered by entity name. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2657,11 +3056,11 @@ declare namespace gapi.client {
       /** Creates a new Connection in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Identifier to assign to the Connection. Must be unique within scope of the parent resource. */
@@ -2688,11 +3087,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. Identifier to assign to the Connection. Must be unique within scope of the parent resource. */
@@ -2719,11 +3118,11 @@ declare namespace gapi.client {
       /** Deletes a single Connection. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2748,11 +3147,11 @@ declare namespace gapi.client {
       /** Generates Toolspec Override for a connection for the given list of entityTypes and operations. Returns results from the db if the entityType and operation are already present. */
       generateToolspecOverride(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2777,11 +3176,11 @@ declare namespace gapi.client {
       generateToolspecOverride(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2806,11 +3205,11 @@ declare namespace gapi.client {
       /** Gets details of a single Connection. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2830,16 +3229,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Specifies which fields of the Connection are returned in the response. Defaults to `BASIC` view. */
-        view?: string;
+        view?: 'CONNECTION_VIEW_UNSPECIFIED' | 'BASIC' | 'FULL';
       }): Request<Connection>;
       /** Gets schema metadata of a connection. SchemaMetadata is a singleton resource for each connection. */
       getConnectionSchemaMetadata(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2862,11 +3261,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2891,11 +3290,11 @@ declare namespace gapi.client {
       /** Lists Connections in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2923,16 +3322,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Specifies which fields of the Connection are returned in the response. Defaults to `BASIC` view. */
-        view?: string;
+        view?: 'CONNECTION_VIEW_UNSPECIFIED' | 'BASIC' | 'FULL';
       }): Request<ListConnectionsResponse>;
       /** ListenEvent listens to the event. */
       listenEvent(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2957,11 +3356,11 @@ declare namespace gapi.client {
       listenEvent(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2986,11 +3385,11 @@ declare namespace gapi.client {
       /** Updates Toolspec Override for a connection with the admin provided descriptions. */
       modifyToolspecOverride(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3015,11 +3414,11 @@ declare namespace gapi.client {
       modifyToolspecOverride(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3044,11 +3443,11 @@ declare namespace gapi.client {
       /** Updates the parameters of a single Connection. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3075,11 +3474,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3106,11 +3505,11 @@ declare namespace gapi.client {
       /** Deletes all Toolspec Override for a connection. */
       removeToolspecOverride(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3135,11 +3534,11 @@ declare namespace gapi.client {
       removeToolspecOverride(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3164,11 +3563,11 @@ declare namespace gapi.client {
       /** RepaiEventing tries to repair eventing related event subscriptions. */
       repairEventing(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3193,11 +3592,11 @@ declare namespace gapi.client {
       repairEventing(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3222,11 +3621,11 @@ declare namespace gapi.client {
       /** Returns Top matching Connections for a given query. */
       search(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3256,11 +3655,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3286,11 +3685,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3322,11 +3721,11 @@ declare namespace gapi.client {
       /** Deletes a single CustomConnectorVersion. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3349,11 +3748,11 @@ declare namespace gapi.client {
       /** Deprecates a single CustomConnectorVersion. */
       deprecate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3378,11 +3777,11 @@ declare namespace gapi.client {
       deprecate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3407,11 +3806,11 @@ declare namespace gapi.client {
       /** Publish request for the CustomConnectorVersion. Once approved, the CustomConnectorVersion will be published as PartnerConnector. */
       publish(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3436,11 +3835,11 @@ declare namespace gapi.client {
       publish(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3465,11 +3864,11 @@ declare namespace gapi.client {
       /** Withdraw the publish request for the CustomConnectorVersion. This can only be used before the CustomConnectorVersion is published. */
       withdraw(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3494,11 +3893,11 @@ declare namespace gapi.client {
       withdraw(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3525,11 +3924,11 @@ declare namespace gapi.client {
       /** Validates a Custom Connector Spec. */
       validateCustomConnectorSpec(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3554,11 +3953,11 @@ declare namespace gapi.client {
       validateCustomConnectorSpec(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3586,11 +3985,11 @@ declare namespace gapi.client {
       /** Creates a new EndpointAttachment in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Identifier to assign to the EndpointAttachment. Must be unique within scope of the parent resource. The regex is: `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`. */
@@ -3617,11 +4016,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. Identifier to assign to the EndpointAttachment. Must be unique within scope of the parent resource. The regex is: `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`. */
@@ -3648,11 +4047,11 @@ declare namespace gapi.client {
       /** Deletes a single EndpointAttachment. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3675,11 +4074,11 @@ declare namespace gapi.client {
       /** Gets details of a single EndpointAttachment. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3699,16 +4098,19 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Optional. Specifies which fields of the EndpointAttachment are returned in the response. Defaults to `ENDPOINT_ATTACHMENT_VIEW_BASIC` view. */
-        view?: string;
+        view?:
+          | 'ENDPOINT_ATTACHMENT_VIEW_UNSPECIFIED'
+          | 'ENDPOINT_ATTACHMENT_VIEW_BASIC'
+          | 'ENDPOINT_ATTACHMENT_VIEW_FULL';
       }): Request<EndpointAttachment>;
       /** List EndpointAttachments in a given project */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3736,16 +4138,19 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Optional. Specifies which fields of the EndpointAttachment are returned in the response. Defaults to `ENDPOINT_ATTACHMENT_VIEW_BASIC` view. */
-        view?: string;
+        view?:
+          | 'ENDPOINT_ATTACHMENT_VIEW_UNSPECIFIED'
+          | 'ENDPOINT_ATTACHMENT_VIEW_BASIC'
+          | 'ENDPOINT_ATTACHMENT_VIEW_FULL';
       }): Request<ListEndpointAttachmentsResponse>;
       /** Updates the parameters of a single EndpointAttachment. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3772,11 +4177,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3805,11 +4210,11 @@ declare namespace gapi.client {
       /** Creates a new CustomConnectorVersion in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Identifier to assign to the CreateCustomConnectorVersion. Must be unique within scope of the parent resource. */
@@ -3836,11 +4241,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. Identifier to assign to the CreateCustomConnectorVersion. Must be unique within scope of the parent resource. */
@@ -3867,11 +4272,11 @@ declare namespace gapi.client {
       /** Gets details of a single CustomConnectorVersion. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3894,11 +4299,11 @@ declare namespace gapi.client {
       /** List CustomConnectorVersions in a given project */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3927,11 +4332,11 @@ declare namespace gapi.client {
       /** Creates a new CustomConnector in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Identifier to assign to the CreateCustomConnector. Must be unique within scope of the parent resource. */
@@ -3958,11 +4363,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. Identifier to assign to the CreateCustomConnector. Must be unique within scope of the parent resource. */
@@ -3989,11 +4394,11 @@ declare namespace gapi.client {
       /** Deletes a single CustomConnector. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4018,11 +4423,11 @@ declare namespace gapi.client {
       /** Gets details of a single CustomConnector. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4045,11 +4450,11 @@ declare namespace gapi.client {
       /** List CustomConnectorVersions in a given project */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4078,11 +4483,11 @@ declare namespace gapi.client {
       /** Updates the parameters of a CustomConnector. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4109,11 +4514,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4143,11 +4548,11 @@ declare namespace gapi.client {
       /** Creates a new ManagedZone in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4174,11 +4579,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4205,11 +4610,11 @@ declare namespace gapi.client {
       /** Deletes a single ManagedZone. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4232,11 +4637,11 @@ declare namespace gapi.client {
       /** Gets details of a single ManagedZone. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4259,11 +4664,11 @@ declare namespace gapi.client {
       /** List ManagedZones in a given project */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4296,11 +4701,11 @@ declare namespace gapi.client {
       /** Updates the parameters of a single ManagedZone. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4327,11 +4732,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4360,11 +4765,11 @@ declare namespace gapi.client {
       /** GetGlobalSettings gets settings of a project. GlobalSettings is a singleton resource. */
       getSettings(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4387,11 +4792,11 @@ declare namespace gapi.client {
       /** Update the global settings of a project. */
       updateSettings(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4418,11 +4823,11 @@ declare namespace gapi.client {
       updateSettings(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4453,11 +4858,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4482,11 +4887,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4511,11 +4916,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4538,11 +4943,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4565,11 +4970,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4602,11 +5007,11 @@ declare namespace gapi.client {
       /** Gets details of a single event type. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4629,11 +5034,11 @@ declare namespace gapi.client {
       /** Lists Event Types in a given Connector Version. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4662,11 +5067,11 @@ declare namespace gapi.client {
       /** fetch and return the list of auth config variables required to override the connection backend auth. */
       fetchAuthSchema(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4686,16 +5091,20 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Optional. View of the AuthSchema. The default value is BASIC. */
-        view?: string;
+        view?:
+          | 'AUTH_SCHEMA_VIEW_UNSPECIFIED'
+          | 'BASIC'
+          | 'JSON_SCHEMA'
+          | 'EUA_SCHEMA';
       }): Request<FetchAuthSchemaResponse>;
       /** Gets details of a single connector version. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4715,16 +5124,19 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Specifies which fields of the ConnectorVersion are returned in the response. Defaults to `CUSTOMER` view. */
-        view?: string;
+        view?:
+          | 'CONNECTOR_VERSION_VIEW_UNSPECIFIED'
+          | 'CONNECTOR_VERSION_VIEW_BASIC'
+          | 'CONNECTOR_VERSION_VIEW_FULL';
       }): Request<ConnectorVersion>;
       /** Lists Connector Versions in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4747,7 +5159,10 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Specifies which fields of the ConnectorVersion are returned in the response. Defaults to `BASIC` view. */
-        view?: string;
+        view?:
+          | 'CONNECTOR_VERSION_VIEW_UNSPECIFIED'
+          | 'CONNECTOR_VERSION_VIEW_BASIC'
+          | 'CONNECTOR_VERSION_VIEW_FULL';
       }): Request<ListConnectorVersionsResponse>;
       eventtypes: EventtypesResource;
     }
@@ -4755,11 +5170,11 @@ declare namespace gapi.client {
       /** Gets details of a single Connector. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4782,11 +5197,11 @@ declare namespace gapi.client {
       /** Lists Connectors in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4818,11 +5233,11 @@ declare namespace gapi.client {
       /** Gets details of a provider. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4845,11 +5260,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4874,11 +5289,11 @@ declare namespace gapi.client {
       /** Lists Providers in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4906,11 +5321,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4936,11 +5351,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4968,11 +5383,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4995,11 +5410,11 @@ declare namespace gapi.client {
       /** GetRegionalSettings gets settings of a region. RegionalSettings is a singleton resource. */
       getRegionalSettings(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5022,11 +5437,11 @@ declare namespace gapi.client {
       /** Gets the runtimeConfig of a location. RuntimeConfig is a singleton resource for each location. */
       getRuntimeConfig(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5049,11 +5464,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */
@@ -5084,11 +5499,11 @@ declare namespace gapi.client {
       /** Update the settings of a region. */
       updateRegionalSettings(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5115,11 +5530,11 @@ declare namespace gapi.client {
       updateRegionalSettings(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

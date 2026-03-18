@@ -26,15 +26,36 @@ declare namespace gapi.client {
   namespace searchads360 {
     interface GoogleAdsSearchads360V0Common__AdScheduleInfo {
       /** Day of the week the schedule applies to. This field is required for CREATE operations and is prohibited on UPDATE operations. */
-      dayOfWeek?: string;
+      dayOfWeek?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY';
       /** Ending hour in 24 hour time; 24 signifies end of the day. This field must be between 0 and 24, inclusive. This field is required for CREATE operations and is prohibited on UPDATE operations. */
       endHour?: number;
       /** Minutes after the end hour at which this schedule ends. The schedule is exclusive of the end minute. This field is required for CREATE operations and is prohibited on UPDATE operations. */
-      endMinute?: string;
+      endMinute?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'ZERO'
+        | 'FIFTEEN'
+        | 'THIRTY'
+        | 'FORTY_FIVE';
       /** Starting hour in 24 hour time. This field must be between 0 and 23, inclusive. This field is required for CREATE operations and is prohibited on UPDATE operations. */
       startHour?: number;
       /** Minutes after the start hour at which this schedule starts. This field is required for CREATE operations and is prohibited on UPDATE operations. */
-      startMinute?: string;
+      startMinute?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'ZERO'
+        | 'FIFTEEN'
+        | 'THIRTY'
+        | 'FORTY_FIVE';
     }
     interface GoogleAdsSearchads360V0Common__AdTextAsset {
       /** Asset text. */
@@ -42,7 +63,16 @@ declare namespace gapi.client {
     }
     interface GoogleAdsSearchads360V0Common__AgeRangeInfo {
       /** Type of the age range. */
-      type?: string;
+      type?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'AGE_RANGE_18_24'
+        | 'AGE_RANGE_25_34'
+        | 'AGE_RANGE_35_44'
+        | 'AGE_RANGE_45_54'
+        | 'AGE_RANGE_55_64'
+        | 'AGE_RANGE_65_UP'
+        | 'AGE_RANGE_UNDETERMINED';
     }
     interface GoogleAdsSearchads360V0Common__AssetInteractionTarget {
       /** The asset resource name. */
@@ -54,7 +84,50 @@ declare namespace gapi.client {
       /** Resource name of the asset. */
       asset?: string;
       /** The served field type of the asset. */
-      servedAssetFieldType?: string;
+      servedAssetFieldType?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'HEADLINE_1'
+        | 'HEADLINE_2'
+        | 'HEADLINE_3'
+        | 'DESCRIPTION_1'
+        | 'DESCRIPTION_2'
+        | 'HEADLINE'
+        | 'HEADLINE_IN_PORTRAIT'
+        | 'LONG_HEADLINE'
+        | 'DESCRIPTION'
+        | 'DESCRIPTION_IN_PORTRAIT'
+        | 'BUSINESS_NAME_IN_PORTRAIT'
+        | 'BUSINESS_NAME'
+        | 'MARKETING_IMAGE'
+        | 'MARKETING_IMAGE_IN_PORTRAIT'
+        | 'SQUARE_MARKETING_IMAGE'
+        | 'PORTRAIT_MARKETING_IMAGE'
+        | 'LOGO'
+        | 'LANDSCAPE_LOGO'
+        | 'CALL_TO_ACTION'
+        | 'YOU_TUBE_VIDEO'
+        | 'SITELINK'
+        | 'CALL'
+        | 'MOBILE_APP'
+        | 'CALLOUT'
+        | 'STRUCTURED_SNIPPET'
+        | 'PRICE'
+        | 'PROMOTION'
+        | 'AD_IMAGE'
+        | 'LEAD_FORM'
+        | 'BUSINESS_LOGO'
+        | 'DESCRIPTION_PREFIX'
+        | 'APP_ICON'
+        | 'APP_TITLE'
+        | 'APP_SCREENSHOT'
+        | 'APP_COVER_PHOTO'
+        | 'APP_SHORT_DESCRIPTION'
+        | 'APP_DEVELOPER_NAME'
+        | 'HEADLINE_AS_SITELINK_POSITION_ONE'
+        | 'HEADLINE_AS_SITELINK_POSITION_TWO'
+        | 'DESCRIPTION_LINE_HEADLINE_AS_SITELINK_POSITION_ONE'
+        | 'DESCRIPTION_LINE_HEADLINE_AS_SITELINK_POSITION_TWO';
     }
     interface GoogleAdsSearchads360V0Common__AudienceInfo {
       /** The Audience resource name. */
@@ -70,7 +143,26 @@ declare namespace gapi.client {
     }
     interface GoogleAdsSearchads360V0Common__CallToActionAsset {
       /** Call to action. */
-      callToAction?: string;
+      callToAction?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'LEARN_MORE'
+        | 'GET_QUOTE'
+        | 'APPLY_NOW'
+        | 'SIGN_UP'
+        | 'CONTACT_US'
+        | 'SUBSCRIBE'
+        | 'DOWNLOAD'
+        | 'BOOK_NOW'
+        | 'SHOP_NOW'
+        | 'BUY_NOW'
+        | 'DONATE_NOW'
+        | 'ORDER_NOW'
+        | 'PLAY_NOW'
+        | 'SEE_MORE'
+        | 'START_NOW'
+        | 'VISIT_SITE'
+        | 'WATCH_NOW';
     }
     interface GoogleAdsSearchads360V0Common__CustomParameter {
       /** The key matching the parameter tag name. */
@@ -80,19 +172,26 @@ declare namespace gapi.client {
     }
     interface GoogleAdsSearchads360V0Common__DeviceInfo {
       /** Type of the device. */
-      type?: string;
+      type?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'MOBILE'
+        | 'TABLET'
+        | 'DESKTOP'
+        | 'CONNECTED_TV'
+        | 'OTHER';
     }
     interface GoogleAdsSearchads360V0Common__EnhancedCpc {}
     interface GoogleAdsSearchads360V0Common__FinalAppUrl {
       /** The operating system targeted by this URL. Required. */
-      osType?: string;
+      osType?: 'UNSPECIFIED' | 'UNKNOWN' | 'IOS' | 'ANDROID';
       /** The app deep link URL. Deep links specify a location in an app that corresponds to the content you'd like to show, and should be of the form {scheme}://{host_path} The scheme identifies which app to open. For your app, you can use a custom scheme that starts with the app's name. The host and path specify the unique location in the app where your content exists. Example: "exampleapp://productid_1234". Required. */
       url?: string;
     }
     interface GoogleAdsSearchads360V0Common__FrequencyCapEntry {}
     interface GoogleAdsSearchads360V0Common__GenderInfo {
       /** Type of the gender. */
-      type?: string;
+      type?: 'UNSPECIFIED' | 'UNKNOWN' | 'MALE' | 'FEMALE' | 'UNDETERMINED';
     }
     interface GoogleAdsSearchads360V0Common__ImageAsset {
       /** File size of the image asset in bytes. */
@@ -100,7 +199,21 @@ declare namespace gapi.client {
       /** Metadata for this image at its original size. */
       fullSize?: GoogleAdsSearchads360V0Common__ImageDimension;
       /** MIME type of the image asset. */
-      mimeType?: string;
+      mimeType?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'IMAGE_JPEG'
+        | 'IMAGE_GIF'
+        | 'IMAGE_PNG'
+        | 'FLASH'
+        | 'TEXT_HTML'
+        | 'PDF'
+        | 'MSWORD'
+        | 'MSEXCEL'
+        | 'RTF'
+        | 'AUDIO_WAV'
+        | 'AUDIO_MP3'
+        | 'HTML5_AD_ZIP';
     }
     interface GoogleAdsSearchads360V0Common__ImageDimension {
       /** Height of the image. */
@@ -118,7 +231,7 @@ declare namespace gapi.client {
     }
     interface GoogleAdsSearchads360V0Common__KeywordInfo {
       /** The match type of the keyword. */
-      matchType?: string;
+      matchType?: 'UNSPECIFIED' | 'UNKNOWN' | 'EXACT' | 'PHRASE' | 'BROAD';
       /** The text of the keyword (at most 80 characters and 10 words). */
       text?: string;
     }
@@ -128,7 +241,7 @@ declare namespace gapi.client {
     }
     interface GoogleAdsSearchads360V0Common__ListingGroupInfo {
       /** Type of the listing group. */
-      type?: string;
+      type?: 'UNSPECIFIED' | 'UNKNOWN' | 'SUBDIVISION' | 'UNIT';
     }
     interface GoogleAdsSearchads360V0Common__LocationGroupInfo {
       /** FeedItemSets whose FeedItems are targeted. If multiple IDs are specified, then all items that appear in at least one set are targeted. This field cannot be used with geo_target_constants. This is optional and can only be set in CREATE operations. */
@@ -138,7 +251,12 @@ declare namespace gapi.client {
       /** Distance in units specifying the radius around targeted locations. This is required and must be set in CREATE operations. */
       radius?: string;
       /** Unit of the radius. Miles and meters are supported for geo target constants. Milli miles and meters are supported for feed item sets. This is required and must be set in CREATE operations. */
-      radiusUnits?: string;
+      radiusUnits?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'METERS'
+        | 'MILES'
+        | 'MILLI_MILES';
     }
     interface GoogleAdsSearchads360V0Common__LocationInfo {
       /** The geo target constant resource name. */
@@ -294,17 +412,38 @@ declare namespace gapi.client {
       /** Gross profit is the profit you made from orders attributed to your ads minus the cost of goods sold (COGS). How it works: Gross profit is the revenue you made from sales attributed to your ads minus cost of goods sold. Gross profit calculations only include products that have a cost of goods sold value in Merchant Center. Example: Someone clicked on a Shopping ad for a hat then bought the same hat and a shirt in an order from your website. The hat is priced $10 and the shirt is priced $20. The hat has a cost of goods sold value of $3, but the shirt has no cost of goods sold value. Gross profit for this order will only take into account the hat, so it's $7 = $10 - $3. This metric is only available if you report conversions with cart data. */
       grossProfitMicros?: string;
       /** The creative historical quality score. */
-      historicalCreativeQualityScore?: string;
+      historicalCreativeQualityScore?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'BELOW_AVERAGE'
+        | 'AVERAGE'
+        | 'ABOVE_AVERAGE';
       /** The quality of historical landing page experience. */
-      historicalLandingPageQualityScore?: string;
+      historicalLandingPageQualityScore?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'BELOW_AVERAGE'
+        | 'AVERAGE'
+        | 'ABOVE_AVERAGE';
       /** The historical quality score. */
       historicalQualityScore?: string;
       /** The historical search predicted click through rate (CTR). */
-      historicalSearchPredictedCtr?: string;
+      historicalSearchPredictedCtr?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'BELOW_AVERAGE'
+        | 'AVERAGE'
+        | 'ABOVE_AVERAGE';
       /** Count of how often your ad has appeared on a search results page or website on the Google Network. */
       impressions?: string;
       /** The types of payable and free interactions. */
-      interactionEventTypes?: string[];
+      interactionEventTypes?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'CLICK'
+        | 'ENGAGEMENT'
+        | 'VIDEO_VIEW'
+        | 'NONE'[];
       /** How often people interact with your ad after it is shown to them. This is the number of interactions divided by the number of times your ad is shown. */
       interactionRate?: number;
       /** The number of interactions. An interaction is the main user action associated with an ad format-clicks for text and shopping ads, views for video ads, and so on. */
@@ -372,7 +511,11 @@ declare namespace gapi.client {
       /** Required. A string that uniquely identifies a mobile application. It should just contain the platform native id, like "com.android.ebay" for Android or "12345689" for iOS. */
       appId?: string;
       /** Required. The application store that distributes this specific app. */
-      appStore?: string;
+      appStore?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'APPLE_APP_STORE'
+        | 'GOOGLE_APP_STORE';
     }
     interface GoogleAdsSearchads360V0Common__PercentCpc {
       /** Maximum bid limit that can be set by the bid strategy. This is an optional field entered by the advertiser and specified in local micros. Note: A zero value is interpreted in the same way as having bid_ceiling undefined. */
@@ -439,15 +582,53 @@ declare namespace gapi.client {
     }
     interface GoogleAdsSearchads360V0Common__Segments {
       /** Ad Format type. */
-      adFormatType?: string;
+      adFormatType?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'VERTICAL_ADS_PROMOTION'
+        | 'VERTICAL_ADS_BOOKING_LINK'
+        | 'TEXT';
       /** Ad network type. */
-      adNetworkType?: string;
+      adNetworkType?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'SEARCH'
+        | 'SEARCH_PARTNERS'
+        | 'CONTENT'
+        | 'YOUTUBE_SEARCH'
+        | 'YOUTUBE_WATCH'
+        | 'MIXED';
       /** Only used with CustomerAsset, CampaignAsset and AdGroupAsset metrics. Indicates whether the interaction metrics occurred on the asset itself or a different asset or ad unit. Interactions (for example, clicks) are counted across all the parts of the served ad (for example, Ad itself and other components like Sitelinks) when they are served together. When interaction_on_this_asset is true, it means the interactions are on this specific asset and when interaction_on_this_asset is false, it means the interactions is not on this specific asset but on other parts of the served ad this asset is served with. */
       assetInteractionTarget?: GoogleAdsSearchads360V0Common__AssetInteractionTarget;
       /** Resource name of the conversion action. */
       conversionAction?: string;
       /** Conversion action category. */
-      conversionActionCategory?: string;
+      conversionActionCategory?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'DEFAULT'
+        | 'PAGE_VIEW'
+        | 'PURCHASE'
+        | 'SIGNUP'
+        | 'LEAD'
+        | 'DOWNLOAD'
+        | 'ADD_TO_CART'
+        | 'BEGIN_CHECKOUT'
+        | 'SUBSCRIBE_PAID'
+        | 'PHONE_CALL_LEAD'
+        | 'IMPORTED_LEAD'
+        | 'SUBMIT_LEAD_FORM'
+        | 'BOOK_APPOINTMENT'
+        | 'REQUEST_QUOTE'
+        | 'GET_DIRECTIONS'
+        | 'OUTBOUND_CLICK'
+        | 'CONTACT'
+        | 'ENGAGEMENT'
+        | 'STORE_VISIT'
+        | 'STORE_SALE'
+        | 'QUALIFIED_LEAD'
+        | 'CONVERTED_LEAD'
+        | 'YOUTUBE_FOLLOW_ON_VIEWS';
       /** Conversion action name. */
       conversionActionName?: string;
       /** The conversion custom dimensions. */
@@ -455,9 +636,25 @@ declare namespace gapi.client {
       /** Date to which metrics apply. yyyy-MM-dd format, for example, 2018-04-17. */
       date?: string;
       /** Day of the week, for example, MONDAY. */
-      dayOfWeek?: string;
+      dayOfWeek?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY';
       /** Device to which metrics apply. */
-      device?: string;
+      device?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'MOBILE'
+        | 'TABLET'
+        | 'DESKTOP'
+        | 'CONNECTED_TV'
+        | 'OTHER';
       /** Resource name of the geo target constant that represents a city. */
       geoTargetCity?: string;
       /** Resource name of the geo target constant that represents a country. */
@@ -487,11 +684,21 @@ declare namespace gapi.client {
       /** Brand of the product. */
       productBrand?: string;
       /** Channel of the product. */
-      productChannel?: string;
+      productChannel?: 'UNSPECIFIED' | 'UNKNOWN' | 'ONLINE' | 'LOCAL';
       /** Channel exclusivity of the product. */
-      productChannelExclusivity?: string;
+      productChannelExclusivity?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'SINGLE_CHANNEL'
+        | 'MULTI_CHANNEL';
       /** Condition of the product. */
-      productCondition?: string;
+      productCondition?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'OLD'
+        | 'NEW'
+        | 'REFURBISHED'
+        | 'USED';
       /** Resource name of the geo target constant for the country of sale of the product. */
       productCountry?: string;
       /** Custom attribute 0 of the product. */
@@ -521,7 +728,13 @@ declare namespace gapi.client {
       /** Brand of the product sold. */
       productSoldBrand?: string;
       /** Condition of the product sold. */
-      productSoldCondition?: string;
+      productSoldCondition?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'OLD'
+        | 'NEW'
+        | 'REFURBISHED'
+        | 'USED';
       /** Custom attribute 0 of the product sold. */
       productSoldCustomAttribute0?: string;
       /** Custom attribute 1 of the product sold. */
@@ -581,7 +794,15 @@ declare namespace gapi.client {
       /** A specific partner account within a Partner Center (for example, Hotel Center) that supplies inventory feed data for Vertical Ads. */
       verticalAdsPartnerAccount?: string;
       /** Type of vertical ad, such as Vacation Rentals, Car Rentals, or Events, used to categorize and segment data in the context of Vertical Ads. */
-      verticalAdsVertical?: string;
+      verticalAdsVertical?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'HOTELS'
+        | 'VACATION_RENTALS'
+        | 'RENTAL_CARS'
+        | 'EVENTS'
+        | 'THINGS_TO_DO'
+        | 'FLIGHTS';
       /** Week as defined as Monday through Sunday, and represented by the date of Monday. Formatted as yyyy-MM-dd. */
       week?: string;
       /** Year, formatted as yyyy. */
@@ -600,7 +821,12 @@ declare namespace gapi.client {
       /** The highest CPC bid the automated bidding system is permitted to specify. This is a required field entered by the advertiser that sets the ceiling and specified in local micros. */
       cpcBidCeilingMicros?: string;
       /** The targeted location on the search results page. */
-      location?: string;
+      location?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'ANYWHERE_ON_PAGE'
+        | 'TOP_OF_PAGE'
+        | 'ABSOLUTE_TOP_OF_PAGE';
       /** The chosen fraction of ads to be shown in the targeted location in micros. For example, 1% equals 10,000. */
       locationFractionMicros?: string;
     }
@@ -616,7 +842,17 @@ declare namespace gapi.client {
       /** Indicates whether to restrict your ads to show only for the criteria you have selected for this targeting_dimension, or to target all values for this targeting_dimension and show ads based on your targeting in other TargetingDimensions. A value of `true` means that these criteria will only apply bid modifiers, and not affect targeting. A value of `false` means that these criteria will restrict targeting as well as applying bid modifiers. */
       bidOnly?: boolean;
       /** The targeting dimension that these settings apply to. */
-      targetingDimension?: string;
+      targetingDimension?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'KEYWORD'
+        | 'AUDIENCE'
+        | 'TOPIC'
+        | 'GENDER'
+        | 'AGE_RANGE'
+        | 'PLACEMENT'
+        | 'PARENTAL_STATUS'
+        | 'INCOME_RANGE';
     }
     interface GoogleAdsSearchads360V0Common__TargetRoas {
       /** Maximum bid limit that can be set by the bid strategy. The limit applies to all keywords managed by the strategy. This should only be set for portfolio bid strategies. */
@@ -648,7 +884,12 @@ declare namespace gapi.client {
       /** The conversion action to attribute a call conversion to. If not set, the default conversion action is used. This field only has effect if call_conversion_reporting_state is set to USE_RESOURCE_LEVEL_CALL_CONVERSION_ACTION. */
       callConversionAction?: string;
       /** Output only. Indicates whether this CallAsset should use its own call conversion setting, follow the account level setting, or disable call conversion. */
-      callConversionReportingState?: string;
+      callConversionReportingState?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'DISABLED'
+        | 'USE_ACCOUNT_LEVEL_CALL_CONVERSION_ACTION'
+        | 'USE_RESOURCE_LEVEL_CALL_CONVERSION_ACTION';
       /** Whether the call only shows the phone number without a link to the website. Applies to Microsoft Ads. */
       callOnly?: boolean;
       /** Whether the call should be enabled on call tracking. Applies to Microsoft Ads. */
@@ -680,7 +921,11 @@ declare namespace gapi.client {
       /** The list of business locations for the customer. This will only be returned if the Location Asset is syncing from the Business Profile account. It is possible to have multiple Business Profile listings under the same account that point to the same Place ID. */
       businessProfileLocations?: GoogleAdsSearchads360V0Common__BusinessProfileLocation[];
       /** The type of location ownership. If the type is BUSINESS_OWNER, it will be served as a location extension. If the type is AFFILIATE, it will be served as an affiliate location. */
-      locationOwnershipType?: string;
+      locationOwnershipType?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'BUSINESS_OWNER'
+        | 'AFFILIATE';
       /** Place IDs uniquely identify a place in the Google Places database and on Google Maps. This field is unique for a given customer ID and asset type. See https://developers.google.com/places/web-service/place-id to learn more about Place ID. */
       placeId?: string;
     }
@@ -730,9 +975,16 @@ declare namespace gapi.client {
       /** Argument of webpage targeting condition. */
       argument?: string;
       /** Operand of webpage targeting condition. */
-      operand?: string;
+      operand?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'URL'
+        | 'CATEGORY'
+        | 'PAGE_TITLE'
+        | 'PAGE_CONTENT'
+        | 'CUSTOM_LABEL';
       /** Operator of webpage targeting condition. */
-      operator?: string;
+      operator?: 'UNSPECIFIED' | 'UNKNOWN' | 'EQUALS' | 'CONTAINS';
     }
     interface GoogleAdsSearchads360V0Common__WebpageInfo {
       /** Conditions, or logical expressions, for webpage targeting. The list of webpage targeting conditions are and-ed together when evaluated for targeting. An empty list of conditions indicates all pages of the campaign's website are targeted. This field is required for CREATE operations and is prohibited on UPDATE operations. */
@@ -750,33 +1002,211 @@ declare namespace gapi.client {
     }
     interface GoogleAdsSearchads360V0Errors__ErrorCode {
       /** Indicates failure to properly authenticate user. */
-      authenticationError?: string;
+      authenticationError?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'AUTHENTICATION_ERROR'
+        | 'CLIENT_CUSTOMER_ID_INVALID'
+        | 'CUSTOMER_NOT_FOUND'
+        | 'GOOGLE_ACCOUNT_DELETED'
+        | 'GOOGLE_ACCOUNT_COOKIE_INVALID'
+        | 'GOOGLE_ACCOUNT_AUTHENTICATION_FAILED'
+        | 'GOOGLE_ACCOUNT_USER_AND_ADS_USER_MISMATCH'
+        | 'LOGIN_COOKIE_REQUIRED'
+        | 'NOT_ADS_USER'
+        | 'OAUTH_TOKEN_INVALID'
+        | 'OAUTH_TOKEN_EXPIRED'
+        | 'OAUTH_TOKEN_DISABLED'
+        | 'OAUTH_TOKEN_REVOKED'
+        | 'OAUTH_TOKEN_HEADER_INVALID'
+        | 'LOGIN_COOKIE_INVALID'
+        | 'USER_ID_INVALID'
+        | 'TWO_STEP_VERIFICATION_NOT_ENROLLED'
+        | 'ADVANCED_PROTECTION_NOT_ENROLLED';
       /** An error encountered when trying to authorize a user. */
-      authorizationError?: string;
+      authorizationError?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'USER_PERMISSION_DENIED'
+        | 'PROJECT_DISABLED'
+        | 'AUTHORIZATION_ERROR'
+        | 'ACTION_NOT_PERMITTED'
+        | 'INCOMPLETE_SIGNUP'
+        | 'CUSTOMER_NOT_ENABLED'
+        | 'MISSING_TOS'
+        | 'INVALID_LOGIN_CUSTOMER_ID_SERVING_CUSTOMER_ID_COMBINATION'
+        | 'SERVICE_ACCESS_DENIED'
+        | 'ACCESS_DENIED_FOR_ACCOUNT_TYPE'
+        | 'METRIC_ACCESS_DENIED';
       /** The reasons for the conversion custom variable error */
-      conversionCustomVariableError?: string;
+      conversionCustomVariableError?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'DUPLICATE_NAME'
+        | 'DUPLICATE_TAG'
+        | 'RESERVED_TAG'
+        | 'NOT_FOUND'
+        | 'NOT_AVAILABLE'
+        | 'INCOMPATIBLE_TYPE'
+        | 'INVALID_METRIC'
+        | 'EXCEEDS_CARDINALITY_LIMIT'
+        | 'INVALID_DIMENSION'
+        | 'INCOMPATIBLE_WITH_SELECTED_RESOURCE';
       /** The reasons for the custom column error */
-      customColumnError?: string;
+      customColumnError?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'CUSTOM_COLUMN_NOT_FOUND'
+        | 'CUSTOM_COLUMN_NOT_AVAILABLE';
       /** The reasons for the date error */
-      dateError?: string;
+      dateError?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'INVALID_FIELD_VALUES_IN_DATE'
+        | 'INVALID_FIELD_VALUES_IN_DATE_TIME'
+        | 'INVALID_STRING_DATE'
+        | 'INVALID_STRING_DATE_TIME_MICROS'
+        | 'INVALID_STRING_DATE_TIME_SECONDS'
+        | 'INVALID_STRING_DATE_TIME_SECONDS_WITH_OFFSET'
+        | 'EARLIER_THAN_MINIMUM_DATE'
+        | 'LATER_THAN_MAXIMUM_DATE'
+        | 'DATE_RANGE_MINIMUM_DATE_LATER_THAN_MAXIMUM_DATE'
+        | 'DATE_RANGE_MINIMUM_AND_MAXIMUM_DATES_BOTH_NULL';
       /** The reasons for the date range error */
-      dateRangeError?: string;
+      dateRangeError?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'INVALID_DATE'
+        | 'START_DATE_AFTER_END_DATE'
+        | 'CANNOT_SET_DATE_TO_PAST'
+        | 'AFTER_MAXIMUM_ALLOWABLE_DATE'
+        | 'CANNOT_MODIFY_START_DATE_IF_ALREADY_STARTED';
       /** The reasons for the distinct error */
-      distinctError?: string;
+      distinctError?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'DUPLICATE_ELEMENT'
+        | 'DUPLICATE_TYPE';
       /** The reasons for the header error. */
-      headerError?: string;
+      headerError?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'INVALID_USER_SELECTED_CUSTOMER_ID'
+        | 'INVALID_LOGIN_CUSTOMER_ID';
       /** An unexpected server-side error. */
-      internalError?: string;
+      internalError?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'INTERNAL_ERROR'
+        | 'ERROR_CODE_NOT_PUBLISHED'
+        | 'TRANSIENT_ERROR'
+        | 'DEADLINE_EXCEEDED';
       /** The reasons for invalid parameter errors. */
-      invalidParameterError?: string;
+      invalidParameterError?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'INVALID_CURRENCY_CODE';
       /** An error with the query */
-      queryError?: string;
+      queryError?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'QUERY_ERROR'
+        | 'BAD_ENUM_CONSTANT'
+        | 'BAD_ESCAPE_SEQUENCE'
+        | 'BAD_FIELD_NAME'
+        | 'BAD_LIMIT_VALUE'
+        | 'BAD_NUMBER'
+        | 'BAD_OPERATOR'
+        | 'BAD_PARAMETER_NAME'
+        | 'BAD_PARAMETER_VALUE'
+        | 'BAD_RESOURCE_TYPE_IN_FROM_CLAUSE'
+        | 'BAD_SYMBOL'
+        | 'BAD_VALUE'
+        | 'DATE_RANGE_TOO_WIDE'
+        | 'DATE_RANGE_TOO_NARROW'
+        | 'EXPECTED_AND'
+        | 'EXPECTED_BY'
+        | 'EXPECTED_DIMENSION_FIELD_IN_SELECT_CLAUSE'
+        | 'EXPECTED_FILTERS_ON_DATE_RANGE'
+        | 'EXPECTED_FROM'
+        | 'EXPECTED_LIST'
+        | 'EXPECTED_REFERENCED_FIELD_IN_SELECT_CLAUSE'
+        | 'EXPECTED_SELECT'
+        | 'EXPECTED_SINGLE_VALUE'
+        | 'EXPECTED_VALUE_WITH_BETWEEN_OPERATOR'
+        | 'INVALID_DATE_FORMAT'
+        | 'MISALIGNED_DATE_FOR_FILTER'
+        | 'INVALID_STRING_VALUE'
+        | 'INVALID_VALUE_WITH_BETWEEN_OPERATOR'
+        | 'INVALID_VALUE_WITH_DURING_OPERATOR'
+        | 'INVALID_VALUE_WITH_LIKE_OPERATOR'
+        | 'OPERATOR_FIELD_MISMATCH'
+        | 'PROHIBITED_EMPTY_LIST_IN_CONDITION'
+        | 'PROHIBITED_ENUM_CONSTANT'
+        | 'PROHIBITED_FIELD_COMBINATION_IN_SELECT_CLAUSE'
+        | 'PROHIBITED_FIELD_IN_ORDER_BY_CLAUSE'
+        | 'PROHIBITED_FIELD_IN_SELECT_CLAUSE'
+        | 'PROHIBITED_FIELD_IN_WHERE_CLAUSE'
+        | 'PROHIBITED_RESOURCE_TYPE_IN_FROM_CLAUSE'
+        | 'PROHIBITED_RESOURCE_TYPE_IN_SELECT_CLAUSE'
+        | 'PROHIBITED_RESOURCE_TYPE_IN_WHERE_CLAUSE'
+        | 'PROHIBITED_METRIC_IN_SELECT_OR_WHERE_CLAUSE'
+        | 'PROHIBITED_SEGMENT_IN_SELECT_OR_WHERE_CLAUSE'
+        | 'PROHIBITED_SEGMENT_WITH_METRIC_IN_SELECT_OR_WHERE_CLAUSE'
+        | 'LIMIT_VALUE_TOO_LOW'
+        | 'PROHIBITED_NEWLINE_IN_STRING'
+        | 'PROHIBITED_VALUE_COMBINATION_IN_LIST'
+        | 'PROHIBITED_VALUE_COMBINATION_WITH_BETWEEN_OPERATOR'
+        | 'STRING_NOT_TERMINATED'
+        | 'TOO_MANY_SEGMENTS'
+        | 'UNEXPECTED_END_OF_QUERY'
+        | 'UNEXPECTED_FROM_CLAUSE'
+        | 'UNRECOGNIZED_FIELD'
+        | 'UNEXPECTED_INPUT'
+        | 'REQUESTED_METRICS_FOR_MANAGER'
+        | 'FILTER_HAS_TOO_MANY_VALUES'
+        | 'REQUIRED_SEGMENT_FIELD_MISSING';
       /** An error with the amount of quota remaining. */
-      quotaError?: string;
+      quotaError?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'RESOURCE_EXHAUSTED'
+        | 'RESOURCE_TEMPORARILY_EXHAUSTED';
       /** An error caused by the request */
-      requestError?: string;
+      requestError?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'RESOURCE_NAME_MISSING'
+        | 'RESOURCE_NAME_MALFORMED'
+        | 'BAD_RESOURCE_ID'
+        | 'INVALID_PRODUCT_NAME'
+        | 'INVALID_CUSTOMER_ID'
+        | 'OPERATION_REQUIRED'
+        | 'RESOURCE_NOT_FOUND'
+        | 'INVALID_PAGE_TOKEN'
+        | 'EXPIRED_PAGE_TOKEN'
+        | 'INVALID_PAGE_SIZE'
+        | 'REQUIRED_FIELD_MISSING'
+        | 'IMMUTABLE_FIELD'
+        | 'TOO_MANY_MUTATE_OPERATIONS'
+        | 'CANNOT_BE_EXECUTED_BY_MANAGER_ACCOUNT'
+        | 'CANNOT_MODIFY_FOREIGN_FIELD'
+        | 'INVALID_ENUM_VALUE'
+        | 'LOGIN_CUSTOMER_ID_PARAMETER_MISSING'
+        | 'LOGIN_OR_LINKED_CUSTOMER_ID_PARAMETER_REQUIRED'
+        | 'VALIDATE_ONLY_REQUEST_HAS_PAGE_TOKEN'
+        | 'CANNOT_RETURN_SUMMARY_ROW_FOR_REQUEST_WITHOUT_METRICS'
+        | 'CANNOT_RETURN_SUMMARY_ROW_FOR_VALIDATE_ONLY_REQUESTS'
+        | 'INCONSISTENT_RETURN_SUMMARY_ROW_VALUE'
+        | 'TOTAL_RESULTS_COUNT_NOT_ORIGINALLY_REQUESTED'
+        | 'RPC_DEADLINE_TOO_SHORT'
+        | 'PRODUCT_NOT_SUPPORTED';
       /** The reasons for the size limit error */
-      sizeLimitError?: string;
+      sizeLimitError?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'REQUEST_SIZE_LIMIT_EXCEEDED'
+        | 'RESPONSE_SIZE_LIMIT_EXCEEDED';
     }
     interface GoogleAdsSearchads360V0Errors__ErrorDetails {
       /** Details on the quota error, including the scope (account or developer), the rate bucket name and the retry delay. */
@@ -792,7 +1222,7 @@ declare namespace gapi.client {
       /** The high level description of the quota bucket. Examples are "Get requests for standard access" or "Requests per account". */
       rateName?: string;
       /** The rate scope of the quota limit. */
-      rateScope?: string;
+      rateScope?: 'UNSPECIFIED' | 'UNKNOWN' | 'ACCOUNT' | 'DEVELOPER';
       /** Backoff period that customers should wait before sending next request. */
       retryDelay?: string;
     }
@@ -844,7 +1274,26 @@ declare namespace gapi.client {
       /** Output only. A bid strategy that sets your bids to help get as many clicks as possible within your budget. */
       targetSpend?: GoogleAdsSearchads360V0Resources_AccessibleBiddingStrategy_TargetSpend;
       /** Output only. The type of the bidding strategy. */
-      type?: string;
+      type?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'COMMISSION'
+        | 'ENHANCED_CPC'
+        | 'INVALID'
+        | 'MANUAL_CPA'
+        | 'MANUAL_CPC'
+        | 'MANUAL_CPM'
+        | 'MANUAL_CPV'
+        | 'MAXIMIZE_CONVERSIONS'
+        | 'MAXIMIZE_CONVERSION_VALUE'
+        | 'PAGE_ONE_PROMOTED'
+        | 'PERCENT_CPC'
+        | 'TARGET_CPA'
+        | 'TARGET_CPM'
+        | 'TARGET_IMPRESSION_SHARE'
+        | 'TARGET_OUTRANK_SHARE'
+        | 'TARGET_ROAS'
+        | 'TARGET_SPEND';
     }
     interface GoogleAdsSearchads360V0Resources__Ad {
       /** The URL that appears in the ad description for some ad formats. */
@@ -876,11 +1325,50 @@ declare namespace gapi.client {
       /** The URL template for constructing a tracking URL. */
       trackingUrlTemplate?: string;
       /** Output only. The type of ad. */
-      type?: string;
+      type?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'TEXT_AD'
+        | 'EXPANDED_TEXT_AD'
+        | 'CALL_ONLY_AD'
+        | 'EXPANDED_DYNAMIC_SEARCH_AD'
+        | 'HOTEL_AD'
+        | 'SHOPPING_SMART_AD'
+        | 'SHOPPING_PRODUCT_AD'
+        | 'VIDEO_AD'
+        | 'GMAIL_AD'
+        | 'IMAGE_AD'
+        | 'RESPONSIVE_SEARCH_AD'
+        | 'LEGACY_RESPONSIVE_DISPLAY_AD'
+        | 'APP_AD'
+        | 'LEGACY_APP_INSTALL_AD'
+        | 'RESPONSIVE_DISPLAY_AD'
+        | 'LOCAL_AD'
+        | 'HTML5_UPLOAD_AD'
+        | 'DYNAMIC_HTML5_AD'
+        | 'APP_ENGAGEMENT_AD'
+        | 'SHOPPING_COMPARISON_LISTING_AD'
+        | 'VIDEO_BUMPER_AD'
+        | 'VIDEO_NON_SKIPPABLE_IN_STREAM_AD'
+        | 'VIDEO_OUTSTREAM_AD'
+        | 'VIDEO_TRUEVIEW_DISCOVERY_AD'
+        | 'VIDEO_TRUEVIEW_IN_STREAM_AD'
+        | 'VIDEO_RESPONSIVE_AD'
+        | 'SMART_CAMPAIGN_AD'
+        | 'APP_PRE_REGISTRATION_AD'
+        | 'DISCOVERY_MULTI_ASSET_AD'
+        | 'DISCOVERY_CAROUSEL_AD'
+        | 'TRAVEL_AD'
+        | 'DISCOVERY_VIDEO_RESPONSIVE_AD'
+        | 'MULTIMEDIA_AD';
     }
     interface GoogleAdsSearchads360V0Resources__AdGroup {
       /** The ad rotation mode of the ad group. */
-      adRotationMode?: string;
+      adRotationMode?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'OPTIMIZE'
+        | 'ROTATE_FOREVER';
       /** The maximum CPC (cost-per-click) bid. This field is used when the ad group's effective bidding strategy is Manual CPC. This field is not applicable and will be ignored if the ad group's campaign is using a portfolio bidding strategy. */
       cpcBidMicros?: string;
       /** Output only. The timestamp when this ad_group was created. The timestamp is in the customer's time zone and in "yyyy-MM-dd HH:mm:ss" format. */
@@ -892,7 +1380,18 @@ declare namespace gapi.client {
       /** Output only. ID of the ad group in the external engine account. This field is for non-Google Ads account only, for example, Yahoo Japan, Microsoft, Baidu etc. For Google Ads entity, use "ad_group.id" instead. */
       engineId?: string;
       /** Output only. The Engine Status for ad group. */
-      engineStatus?: string;
+      engineStatus?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'AD_GROUP_ELIGIBLE'
+        | 'AD_GROUP_EXPIRED'
+        | 'AD_GROUP_REMOVED'
+        | 'AD_GROUP_DRAFT'
+        | 'AD_GROUP_PAUSED'
+        | 'AD_GROUP_SERVING'
+        | 'AD_GROUP_SUBMITTED'
+        | 'CAMPAIGN_PAUSED'
+        | 'ACCOUNT_PAUSED';
       /** URL template for appending params to Final URL. */
       finalUrlSuffix?: string;
       /** Output only. The ID of the ad group. */
@@ -910,13 +1409,33 @@ declare namespace gapi.client {
       /** Output only. Date when this ad group starts serving ads. By default, the ad group starts now or the ad group's start date, whichever is later. If this field is set, then the ad group starts at the beginning of the specified date in the customer's time zone. This field is only available for Microsoft Advertising and Facebook gateway accounts. Format: YYYY-MM-DD Example: 2019-03-14 */
       startDate?: string;
       /** The status of the ad group. */
-      status?: string;
+      status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'PAUSED' | 'REMOVED';
       /** Setting for targeting related features. */
       targetingSetting?: GoogleAdsSearchads360V0Common__TargetingSetting;
       /** The URL template for constructing a tracking URL. */
       trackingUrlTemplate?: string;
       /** Immutable. The type of the ad group. */
-      type?: string;
+      type?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'SEARCH_STANDARD'
+        | 'DISPLAY_STANDARD'
+        | 'SHOPPING_PRODUCT_ADS'
+        | 'SHOPPING_SHOWCASE_ADS'
+        | 'HOTEL_ADS'
+        | 'SHOPPING_SMART_ADS'
+        | 'VIDEO_BUMPER'
+        | 'VIDEO_TRUE_VIEW_IN_STREAM'
+        | 'VIDEO_TRUE_VIEW_IN_DISPLAY'
+        | 'VIDEO_NON_SKIPPABLE_IN_STREAM'
+        | 'VIDEO_OUTSTREAM'
+        | 'SEARCH_DYNAMIC_ADS'
+        | 'SHOPPING_COMPARISON_LISTING_ADS'
+        | 'PROMOTED_HOTEL_ADS'
+        | 'VIDEO_RESPONSIVE'
+        | 'VIDEO_EFFICIENT_REACH'
+        | 'SMART_CAMPAIGN_ADS'
+        | 'TRAVEL_ADS';
     }
     interface GoogleAdsSearchads360V0Resources__AdGroupAd {
       /** Immutable. The ad. */
@@ -928,7 +1447,26 @@ declare namespace gapi.client {
       /** Output only. ID of the ad in the external engine account. This field is for Search Ads 360 account only, for example, Yahoo Japan, Microsoft, Baidu etc. For non-Search Ads 360 entity, use "ad_group_ad.ad.id" instead. */
       engineId?: string;
       /** Output only. Additional status of the ad in the external engine account. Possible statuses (depending on the type of external account) include active, eligible, pending review, etc. */
-      engineStatus?: string;
+      engineStatus?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'AD_GROUP_AD_ELIGIBLE'
+        | 'AD_GROUP_AD_INAPPROPRIATE_FOR_CAMPAIGN'
+        | 'AD_GROUP_AD_MOBILE_URL_UNDER_REVIEW'
+        | 'AD_GROUP_AD_PARTIALLY_INVALID'
+        | 'AD_GROUP_AD_TO_BE_ACTIVATED'
+        | 'AD_GROUP_AD_NOT_REVIEWED'
+        | 'AD_GROUP_AD_ON_HOLD'
+        | 'AD_GROUP_AD_PAUSED'
+        | 'AD_GROUP_AD_REMOVED'
+        | 'AD_GROUP_AD_PENDING_REVIEW'
+        | 'AD_GROUP_AD_UNDER_REVIEW'
+        | 'AD_GROUP_AD_APPROVED'
+        | 'AD_GROUP_AD_DISAPPROVED'
+        | 'AD_GROUP_AD_SERVING'
+        | 'AD_GROUP_AD_ACCOUNT_PAUSED'
+        | 'AD_GROUP_AD_CAMPAIGN_PAUSED'
+        | 'AD_GROUP_AD_AD_GROUP_PAUSED';
       /** Output only. The resource names of labels attached to this ad group ad. */
       labels?: string[];
       /** Output only. The datetime when this ad group ad was last modified. The datetime is in the customer's time zone and in "yyyy-MM-dd HH:mm:ss.ssssss" format. */
@@ -936,7 +1474,7 @@ declare namespace gapi.client {
       /** Immutable. The resource name of the ad. Ad group ad resource names have the form: `customers/{customer_id}/adGroupAds/{ad_group_id}~{ad_id}` */
       resourceName?: string;
       /** The status of the ad. */
-      status?: string;
+      status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'PAUSED' | 'REMOVED';
     }
     interface GoogleAdsSearchads360V0Resources__AdGroupAdEffectiveLabel {
       /** Immutable. The ad group ad to which the effective label is attached. */
@@ -966,7 +1504,7 @@ declare namespace gapi.client {
       /** Immutable. The resource name of the ad group asset. AdGroupAsset resource names have the form: `customers/{customer_id}/adGroupAssets/{ad_group_id}~{asset_id}~{field_type}` */
       resourceName?: string;
       /** Status of the ad group asset. */
-      status?: string;
+      status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'REMOVED' | 'PAUSED';
     }
     interface GoogleAdsSearchads360V0Resources__AdGroupAssetSet {
       /** Immutable. The ad group to which this asset set is linked. */
@@ -976,7 +1514,7 @@ declare namespace gapi.client {
       /** Immutable. The resource name of the ad group asset set. Ad group asset set resource names have the form: `customers/{customer_id}/adGroupAssetSets/{ad_group_id}~{asset_set_id}` */
       resourceName?: string;
       /** Output only. The status of the ad group asset set. Read-only. */
-      status?: string;
+      status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'REMOVED';
     }
     interface GoogleAdsSearchads360V0Resources__AdGroupAudienceView {
       /** Output only. The resource name of the ad group audience view. Ad group audience view resource names have the form: `customers/{customer_id}/adGroupAudienceViews/{ad_group_id}~{criterion_id}` */
@@ -1010,7 +1548,28 @@ declare namespace gapi.client {
       /** Output only. ID of the ad group criterion in the external engine account. This field is for non-Google Ads account only, for example, Yahoo Japan, Microsoft, Baidu etc. For Google Ads entity, use "ad_group_criterion.criterion_id" instead. */
       engineId?: string;
       /** Output only. The Engine Status for ad group criterion. */
-      engineStatus?: string;
+      engineStatus?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'AD_GROUP_CRITERION_ELIGIBLE'
+        | 'AD_GROUP_CRITERION_INAPPROPRIATE_FOR_CAMPAIGN'
+        | 'AD_GROUP_CRITERION_INVALID_MOBILE_SEARCH'
+        | 'AD_GROUP_CRITERION_INVALID_PC_SEARCH'
+        | 'AD_GROUP_CRITERION_INVALID_SEARCH'
+        | 'AD_GROUP_CRITERION_LOW_SEARCH_VOLUME'
+        | 'AD_GROUP_CRITERION_MOBILE_URL_UNDER_REVIEW'
+        | 'AD_GROUP_CRITERION_PARTIALLY_INVALID'
+        | 'AD_GROUP_CRITERION_TO_BE_ACTIVATED'
+        | 'AD_GROUP_CRITERION_UNDER_REVIEW'
+        | 'AD_GROUP_CRITERION_NOT_REVIEWED'
+        | 'AD_GROUP_CRITERION_ON_HOLD'
+        | 'AD_GROUP_CRITERION_PENDING_REVIEW'
+        | 'AD_GROUP_CRITERION_PAUSED'
+        | 'AD_GROUP_CRITERION_REMOVED'
+        | 'AD_GROUP_CRITERION_APPROVED'
+        | 'AD_GROUP_CRITERION_DISAPPROVED'
+        | 'AD_GROUP_CRITERION_SERVING'
+        | 'AD_GROUP_CRITERION_ACCOUNT_PAUSED';
       /** The list of possible final mobile URLs after all cross-domain redirects. */
       finalMobileUrls?: string[];
       /** The list of possible final URLs after all cross-domain redirects for the ad. */
@@ -1038,11 +1597,51 @@ declare namespace gapi.client {
       /** Immutable. The resource name of the ad group criterion. Ad group criterion resource names have the form: `customers/{customer_id}/adGroupCriteria/{ad_group_id}~{criterion_id}` */
       resourceName?: string;
       /** The status of the criterion. This is the status of the ad group criterion entity, set by the client. Note: UI reports may incorporate additional information that affects whether a criterion is eligible to run. In some cases a criterion that's REMOVED in the API can still show as enabled in the UI. For example, campaigns by default show to users of all age ranges unless excluded. The UI will show each age range as "enabled", since they're eligible to see the ads; but AdGroupCriterion.status will show "removed", since no positive criterion was added. */
-      status?: string;
+      status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'PAUSED' | 'REMOVED';
       /** The URL template for constructing a tracking URL. */
       trackingUrlTemplate?: string;
       /** Output only. The type of the criterion. */
-      type?: string;
+      type?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'KEYWORD'
+        | 'PLACEMENT'
+        | 'MOBILE_APP_CATEGORY'
+        | 'MOBILE_APPLICATION'
+        | 'DEVICE'
+        | 'LOCATION'
+        | 'LISTING_GROUP'
+        | 'AD_SCHEDULE'
+        | 'AGE_RANGE'
+        | 'GENDER'
+        | 'INCOME_RANGE'
+        | 'PARENTAL_STATUS'
+        | 'YOUTUBE_VIDEO'
+        | 'YOUTUBE_CHANNEL'
+        | 'USER_LIST'
+        | 'PROXIMITY'
+        | 'TOPIC'
+        | 'LISTING_SCOPE'
+        | 'LANGUAGE'
+        | 'IP_BLOCK'
+        | 'CONTENT_LABEL'
+        | 'CARRIER'
+        | 'USER_INTEREST'
+        | 'WEBPAGE'
+        | 'OPERATING_SYSTEM_VERSION'
+        | 'APP_PAYMENT_MODEL'
+        | 'MOBILE_DEVICE'
+        | 'CUSTOM_AFFINITY'
+        | 'CUSTOM_INTENT'
+        | 'LOCATION_GROUP'
+        | 'CUSTOM_AUDIENCE'
+        | 'COMBINED_AUDIENCE'
+        | 'KEYWORD_THEME'
+        | 'AUDIENCE'
+        | 'LOCAL_SERVICE_ID'
+        | 'BRAND'
+        | 'BRAND_LIST'
+        | 'LIFE_EVENT';
       /** The list of mappings used to substitute custom parameter tags in a `tracking_url_template`, `final_urls`, or `mobile_final_urls`. */
       urlCustomParameters?: GoogleAdsSearchads360V0Common__CustomParameter[];
       /** Immutable. User List. */
@@ -1104,7 +1703,14 @@ declare namespace gapi.client {
       /** Output only. The timestamp when this asset was created. The timestamp is in the customer's time zone and in "yyyy-MM-dd HH:mm:ss" format. */
       creationTime?: string;
       /** Output only. The Engine Status for an asset. */
-      engineStatus?: string;
+      engineStatus?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'SERVING'
+        | 'SERVING_LIMITED'
+        | 'DISAPPROVED'
+        | 'DISABLED'
+        | 'REMOVED';
       /** A list of possible final mobile URLs after all cross domain redirects. */
       finalMobileUrls?: string[];
       /** A list of possible final URLs after all cross domain redirects. */
@@ -1130,13 +1736,48 @@ declare namespace gapi.client {
       /** Output only. A unified sitelink asset. */
       sitelinkAsset?: GoogleAdsSearchads360V0Common__UnifiedSitelinkAsset;
       /** Output only. The status of the asset. */
-      status?: string;
+      status?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'ENABLED'
+        | 'REMOVED'
+        | 'ARCHIVED'
+        | 'PENDING_SYSTEM_GENERATED';
       /** Output only. A text asset. */
       textAsset?: GoogleAdsSearchads360V0Common__TextAsset;
       /** URL template for constructing a tracking URL. */
       trackingUrlTemplate?: string;
       /** Output only. Type of the asset. */
-      type?: string;
+      type?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'YOUTUBE_VIDEO'
+        | 'MEDIA_BUNDLE'
+        | 'IMAGE'
+        | 'TEXT'
+        | 'LEAD_FORM'
+        | 'BOOK_ON_GOOGLE'
+        | 'PROMOTION'
+        | 'CALLOUT'
+        | 'STRUCTURED_SNIPPET'
+        | 'SITELINK'
+        | 'PAGE_FEED'
+        | 'DYNAMIC_EDUCATION'
+        | 'MOBILE_APP'
+        | 'HOTEL_CALLOUT'
+        | 'CALL'
+        | 'PRICE'
+        | 'CALL_TO_ACTION'
+        | 'DYNAMIC_REAL_ESTATE'
+        | 'DYNAMIC_CUSTOM'
+        | 'DYNAMIC_HOTELS_AND_RENTALS'
+        | 'DYNAMIC_FLIGHTS'
+        | 'DISCOVERY_CAROUSEL_CARD'
+        | 'DYNAMIC_TRAVEL'
+        | 'DYNAMIC_LOCAL'
+        | 'DYNAMIC_JOBS'
+        | 'LOCATION'
+        | 'HOTEL_PROPERTY';
       /** A list of mappings to be used for substituting URL custom parameter tags in the tracking_url_template, final_urls, and/or final_mobile_urls. */
       urlCustomParameters?: GoogleAdsSearchads360V0Common__CustomParameter[];
       /** Immutable. A YouTube video asset. */
@@ -1144,7 +1785,15 @@ declare namespace gapi.client {
     }
     interface GoogleAdsSearchads360V0Resources__AssetGroup {
       /** Output only. Overall ad strength of this asset group. */
-      adStrength?: string;
+      adStrength?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'PENDING'
+        | 'NO_ADS'
+        | 'POOR'
+        | 'AVERAGE'
+        | 'GOOD'
+        | 'EXCELLENT';
       /** Immutable. The campaign with which this asset group is associated. The asset which is linked to the asset group. */
       campaign?: string;
       /** A list of final mobile URLs after all cross domain redirects. In performance max, by default, the urls are eligible for expansion unless opted out. */
@@ -1162,7 +1811,7 @@ declare namespace gapi.client {
       /** Immutable. The resource name of the asset group. Asset group resource names have the form: `customers/{customer_id}/assetGroups/{asset_group_id}` */
       resourceName?: string;
       /** The status of the asset group. */
-      status?: string;
+      status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'PAUSED' | 'REMOVED';
     }
     interface GoogleAdsSearchads360V0Resources__AssetGroupAsset {
       /** Immutable. The asset which this asset group asset is linking. */
@@ -1170,11 +1819,43 @@ declare namespace gapi.client {
       /** Immutable. The asset group which this asset group asset is linking. */
       assetGroup?: string;
       /** The description of the placement of the asset within the asset group. For example: HEADLINE, YOUTUBE_VIDEO etc */
-      fieldType?: string;
+      fieldType?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'HEADLINE'
+        | 'DESCRIPTION'
+        | 'MANDATORY_AD_TEXT'
+        | 'MARKETING_IMAGE'
+        | 'MEDIA_BUNDLE'
+        | 'YOUTUBE_VIDEO'
+        | 'BOOK_ON_GOOGLE'
+        | 'LEAD_FORM'
+        | 'PROMOTION'
+        | 'CALLOUT'
+        | 'STRUCTURED_SNIPPET'
+        | 'SITELINK'
+        | 'MOBILE_APP'
+        | 'HOTEL_CALLOUT'
+        | 'CALL'
+        | 'PRICE'
+        | 'LONG_HEADLINE'
+        | 'BUSINESS_NAME'
+        | 'SQUARE_MARKETING_IMAGE'
+        | 'PORTRAIT_MARKETING_IMAGE'
+        | 'LOGO'
+        | 'LANDSCAPE_LOGO'
+        | 'VIDEO'
+        | 'CALL_TO_ACTION_SELECTION'
+        | 'AD_IMAGE'
+        | 'BUSINESS_LOGO'
+        | 'HOTEL_PROPERTY'
+        | 'DISCOVERY_CAROUSEL_CARD'
+        | 'LONG_DESCRIPTION'
+        | 'CALL_TO_ACTION';
       /** Immutable. The resource name of the asset group asset. Asset group asset resource name have the form: `customers/{customer_id}/assetGroupAssets/{asset_group_id}~{asset_id}~{field_type}` */
       resourceName?: string;
       /** The status of the link between an asset and asset group. */
-      status?: string;
+      status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'REMOVED' | 'PAUSED';
     }
     interface GoogleAdsSearchads360V0Resources__AssetGroupAssetCombinationData {
       /** Output only. Served assets. */
@@ -1194,9 +1875,14 @@ declare namespace gapi.client {
       /** Immutable. The resource name of the asset group listing group filter. Asset group listing group filter resource name have the form: `customers/{customer_id}/assetGroupListingGroupFilters/{asset_group_id}~{listing_group_filter_id}` */
       resourceName?: string;
       /** Immutable. Type of a listing group filter node. */
-      type?: string;
+      type?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'SUBDIVISION'
+        | 'UNIT_INCLUDED'
+        | 'UNIT_EXCLUDED';
       /** Immutable. The vertical the current node tree represents. All nodes in the same tree must belong to the same vertical. */
-      vertical?: string;
+      vertical?: 'UNSPECIFIED' | 'UNKNOWN' | 'SHOPPING';
     }
     interface GoogleAdsSearchads360V0Resources__AssetGroupSignal {
       /** Immutable. The asset group which this asset group signal belongs to. */
@@ -1226,7 +1912,7 @@ declare namespace gapi.client {
       /** Immutable. The resource name of the asset set asset. Asset set asset resource names have the form: `customers/{customer_id}/assetSetAssets/{asset_set_id}~{asset_id}` */
       resourceName?: string;
       /** Output only. The status of the asset set asset. Read-only. */
-      status?: string;
+      status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'REMOVED';
     }
     interface GoogleAdsSearchads360V0Resources__Audience {
       /** Description of this audience. */
@@ -1260,7 +1946,7 @@ declare namespace gapi.client {
       /** Immutable. The resource name of the bidding strategy. Bidding strategy resource names have the form: `customers/{customer_id}/biddingStrategies/{bidding_strategy_id}` */
       resourceName?: string;
       /** Output only. The status of the bidding strategy. This field is read-only. */
-      status?: string;
+      status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'REMOVED';
       /** A bidding strategy that sets bids to help get as many conversions as possible at the target cost-per-acquisition (CPA) you set. */
       targetCpa?: GoogleAdsSearchads360V0Common__TargetCpa;
       /** A bidding strategy that automatically optimizes towards a chosen percentage of impressions. */
@@ -1272,23 +1958,132 @@ declare namespace gapi.client {
       /** A bid strategy that sets your bids to help get as many clicks as possible within your budget. */
       targetSpend?: GoogleAdsSearchads360V0Common__TargetSpend;
       /** Output only. The type of the bidding strategy. Create a bidding strategy by setting the bidding scheme. This field is read-only. */
-      type?: string;
+      type?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'COMMISSION'
+        | 'ENHANCED_CPC'
+        | 'INVALID'
+        | 'MANUAL_CPA'
+        | 'MANUAL_CPC'
+        | 'MANUAL_CPM'
+        | 'MANUAL_CPV'
+        | 'MAXIMIZE_CONVERSIONS'
+        | 'MAXIMIZE_CONVERSION_VALUE'
+        | 'PAGE_ONE_PROMOTED'
+        | 'PERCENT_CPC'
+        | 'TARGET_CPA'
+        | 'TARGET_CPM'
+        | 'TARGET_IMPRESSION_SHARE'
+        | 'TARGET_OUTRANK_SHARE'
+        | 'TARGET_ROAS'
+        | 'TARGET_SPEND';
     }
     interface GoogleAdsSearchads360V0Resources__Campaign {
       /** Output only. Resource name of AccessibleBiddingStrategy, a read-only view of the unrestricted attributes of the attached portfolio bidding strategy identified by 'bidding_strategy'. Empty, if the campaign does not use a portfolio strategy. Unrestricted strategy attributes are available to all customers with whom the strategy is shared and are read from the AccessibleBiddingStrategy resource. In contrast, restricted attributes are only available to the owner customer of the strategy and their managers. Restricted attributes can only be read from the BiddingStrategy resource. */
       accessibleBiddingStrategy?: string;
       /** The ad serving optimization status of the campaign. */
-      adServingOptimizationStatus?: string;
+      adServingOptimizationStatus?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'OPTIMIZE'
+        | 'CONVERSION_OPTIMIZE'
+        | 'ROTATE'
+        | 'ROTATE_INDEFINITELY'
+        | 'UNAVAILABLE';
       /** Immutable. Optional refinement to `advertising_channel_type`. Must be a valid sub-type of the parent channel type. Can be set only when creating campaigns. After campaign is created, the field can not be changed. */
-      advertisingChannelSubType?: string;
+      advertisingChannelSubType?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'SEARCH_MOBILE_APP'
+        | 'DISPLAY_MOBILE_APP'
+        | 'SEARCH_EXPRESS'
+        | 'DISPLAY_EXPRESS'
+        | 'SHOPPING_SMART_ADS'
+        | 'DISPLAY_GMAIL_AD'
+        | 'DISPLAY_SMART_CAMPAIGN'
+        | 'VIDEO_OUTSTREAM'
+        | 'VIDEO_ACTION'
+        | 'VIDEO_NON_SKIPPABLE'
+        | 'APP_CAMPAIGN'
+        | 'APP_CAMPAIGN_FOR_ENGAGEMENT'
+        | 'LOCAL_CAMPAIGN'
+        | 'SHOPPING_COMPARISON_LISTING_ADS'
+        | 'SMART_CAMPAIGN'
+        | 'VIDEO_SEQUENCE'
+        | 'APP_CAMPAIGN_FOR_PRE_REGISTRATION'
+        | 'VIDEO_REACH_TARGET_FREQUENCY'
+        | 'TRAVEL_ACTIVITIES'
+        | 'SOCIAL_FACEBOOK_TRACKING_ONLY';
       /** Immutable. The primary serving target for ads within the campaign. The targeting options can be refined in `network_settings`. This field is required and should not be empty when creating new campaigns. Can be set only when creating campaigns. After the campaign is created, the field can not be changed. */
-      advertisingChannelType?: string;
+      advertisingChannelType?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'SEARCH'
+        | 'DISPLAY'
+        | 'SHOPPING'
+        | 'HOTEL'
+        | 'VIDEO'
+        | 'MULTI_CHANNEL'
+        | 'LOCAL'
+        | 'SMART'
+        | 'PERFORMANCE_MAX'
+        | 'LOCAL_SERVICES'
+        | 'DISCOVERY'
+        | 'TRAVEL'
+        | 'SOCIAL';
       /** The resource name of the portfolio bidding strategy used by the campaign. */
       biddingStrategy?: string;
       /** Output only. The system status of the campaign's bidding strategy. */
-      biddingStrategySystemStatus?: string;
+      biddingStrategySystemStatus?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'ENABLED'
+        | 'LEARNING_NEW'
+        | 'LEARNING_SETTING_CHANGE'
+        | 'LEARNING_BUDGET_CHANGE'
+        | 'LEARNING_COMPOSITION_CHANGE'
+        | 'LEARNING_CONVERSION_TYPE_CHANGE'
+        | 'LEARNING_CONVERSION_SETTING_CHANGE'
+        | 'LIMITED_BY_CPC_BID_CEILING'
+        | 'LIMITED_BY_CPC_BID_FLOOR'
+        | 'LIMITED_BY_DATA'
+        | 'LIMITED_BY_BUDGET'
+        | 'LIMITED_BY_LOW_PRIORITY_SPEND'
+        | 'LIMITED_BY_LOW_QUALITY'
+        | 'LIMITED_BY_INVENTORY'
+        | 'MISCONFIGURED_ZERO_ELIGIBILITY'
+        | 'MISCONFIGURED_CONVERSION_TYPES'
+        | 'MISCONFIGURED_CONVERSION_SETTINGS'
+        | 'MISCONFIGURED_SHARED_BUDGET'
+        | 'MISCONFIGURED_STRATEGY_TYPE'
+        | 'PAUSED'
+        | 'UNAVAILABLE'
+        | 'MULTIPLE_LEARNING'
+        | 'MULTIPLE_LIMITED'
+        | 'MULTIPLE_MISCONFIGURED'
+        | 'MULTIPLE';
       /** Output only. The type of bidding strategy. A bidding strategy can be created by setting either the bidding scheme to create a standard bidding strategy or the `bidding_strategy` field to create a portfolio bidding strategy. This field is read-only. */
-      biddingStrategyType?: string;
+      biddingStrategyType?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'COMMISSION'
+        | 'ENHANCED_CPC'
+        | 'INVALID'
+        | 'MANUAL_CPA'
+        | 'MANUAL_CPC'
+        | 'MANUAL_CPM'
+        | 'MANUAL_CPV'
+        | 'MAXIMIZE_CONVERSIONS'
+        | 'MAXIMIZE_CONVERSION_VALUE'
+        | 'PAGE_ONE_PROMOTED'
+        | 'PERCENT_CPC'
+        | 'TARGET_CPA'
+        | 'TARGET_CPM'
+        | 'TARGET_IMPRESSION_SHARE'
+        | 'TARGET_OUTRANK_SHARE'
+        | 'TARGET_ROAS'
+        | 'TARGET_SPEND';
       /** The resource name of the campaign budget of the campaign. */
       campaignBudget?: string;
       /** Output only. The timestamp when this campaign was created. The timestamp is in the customer's time zone and in "yyyy-MM-dd HH:mm:ss" format. create_time will be deprecated in v1. Use creation_time instead. */
@@ -1304,9 +2099,59 @@ declare namespace gapi.client {
       /** Output only. ID of the campaign in the external engine account. This field is for non-Google Ads account only, for example, Yahoo Japan, Microsoft, Baidu etc. For Google Ads entity, use "campaign.id" instead. */
       engineId?: string;
       /** The asset field types that should be excluded from this campaign. Asset links with these field types will not be inherited by this campaign from the upper level. */
-      excludedParentAssetFieldTypes?: string[];
+      excludedParentAssetFieldTypes?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'HEADLINE'
+        | 'DESCRIPTION'
+        | 'MANDATORY_AD_TEXT'
+        | 'MARKETING_IMAGE'
+        | 'MEDIA_BUNDLE'
+        | 'YOUTUBE_VIDEO'
+        | 'BOOK_ON_GOOGLE'
+        | 'LEAD_FORM'
+        | 'PROMOTION'
+        | 'CALLOUT'
+        | 'STRUCTURED_SNIPPET'
+        | 'SITELINK'
+        | 'MOBILE_APP'
+        | 'HOTEL_CALLOUT'
+        | 'CALL'
+        | 'PRICE'
+        | 'LONG_HEADLINE'
+        | 'BUSINESS_NAME'
+        | 'SQUARE_MARKETING_IMAGE'
+        | 'PORTRAIT_MARKETING_IMAGE'
+        | 'LOGO'
+        | 'LANDSCAPE_LOGO'
+        | 'VIDEO'
+        | 'CALL_TO_ACTION_SELECTION'
+        | 'AD_IMAGE'
+        | 'BUSINESS_LOGO'
+        | 'HOTEL_PROPERTY'
+        | 'DISCOVERY_CAROUSEL_CARD'
+        | 'LONG_DESCRIPTION'
+        | 'CALL_TO_ACTION'[];
       /** Output only. Types of feeds that are attached directly to this campaign. */
-      feedTypes?: string[];
+      feedTypes?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'PAGE_FEED'
+        | 'DYNAMIC_EDUCATION'
+        | 'MERCHANT_CENTER_FEED'
+        | 'DYNAMIC_REAL_ESTATE'
+        | 'DYNAMIC_CUSTOM'
+        | 'DYNAMIC_HOTELS_AND_RENTALS'
+        | 'DYNAMIC_FLIGHTS'
+        | 'DYNAMIC_TRAVEL'
+        | 'DYNAMIC_LOCAL'
+        | 'DYNAMIC_JOBS'
+        | 'LOCATION_SYNC'
+        | 'BUSINESS_PROFILE_DYNAMIC_LOCATION_GROUP'
+        | 'CHAIN_DYNAMIC_LOCATION_GROUP'
+        | 'STATIC_LOCATION_GROUP'
+        | 'HOTEL_PROPERTY'
+        | 'TRAVEL_FEED'[];
       /** Suffix used to append query parameters to landing pages that are served with parallel tracking. */
       finalUrlSuffix?: string;
       /** A list that limits how often each user will see this campaign's ads. */
@@ -1344,13 +2189,20 @@ declare namespace gapi.client {
       /** Selective optimization setting for this campaign, which includes a set of conversion actions to optimize this campaign towards. This feature only applies to app campaigns that use MULTI_CHANNEL as AdvertisingChannelType and APP_CAMPAIGN or APP_CAMPAIGN_FOR_ENGAGEMENT as AdvertisingChannelSubType. */
       selectiveOptimization?: GoogleAdsSearchads360V0Resources_Campaign_SelectiveOptimization;
       /** Output only. The ad serving status of the campaign. */
-      servingStatus?: string;
+      servingStatus?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'SERVING'
+        | 'NONE'
+        | 'ENDED'
+        | 'PENDING'
+        | 'SUSPENDED';
       /** The setting for controlling Shopping campaigns. */
       shoppingSetting?: GoogleAdsSearchads360V0Resources_Campaign_ShoppingSetting;
       /** The date when campaign started in serving customer's timezone in YYYY-MM-DD format. */
       startDate?: string;
       /** The status of the campaign. When a new campaign is added, the status defaults to ENABLED. */
-      status?: string;
+      status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'PAUSED' | 'REMOVED';
       /** Standard Target CPA bidding strategy that automatically sets bids to help get as many conversions as possible at the target cost-per-acquisition (CPA) you set. */
       targetCpa?: GoogleAdsSearchads360V0Common__TargetCpa;
       /** A bidding strategy that automatically optimizes cost per thousand impressions. */
@@ -1378,7 +2230,7 @@ declare namespace gapi.client {
       /** Immutable. The resource name of the campaign asset. CampaignAsset resource names have the form: `customers/{customer_id}/campaignAssets/{campaign_id}~{asset_id}~{field_type}` */
       resourceName?: string;
       /** Output only. Status of the campaign asset. */
-      status?: string;
+      status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'REMOVED' | 'PAUSED';
     }
     interface GoogleAdsSearchads360V0Resources__CampaignAssetSet {
       /** Immutable. The asset set which is linked to the campaign. */
@@ -1388,7 +2240,7 @@ declare namespace gapi.client {
       /** Immutable. The resource name of the campaign asset set. Asset set asset resource names have the form: `customers/{customer_id}/campaignAssetSets/{campaign_id}~{asset_set_id}` */
       resourceName?: string;
       /** Output only. The status of the campaign asset set asset. Read-only. */
-      status?: string;
+      status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'REMOVED';
     }
     interface GoogleAdsSearchads360V0Resources__CampaignAudienceView {
       /** Output only. The resource name of the campaign audience view. Campaign audience view resource names have the form: `customers/{customer_id}/campaignAudienceViews/{campaign_id}~{criterion_id}` */
@@ -1398,9 +2250,14 @@ declare namespace gapi.client {
       /** The average daily amount to be spent by the campaign. This field is used when the CampaignBudget `period` is set to `DAILY`, which is the default. Amount is specified in micros in the account's local currency. One million micros is equivalent to one currency unit. The effective monthly spend is capped at 30.4 times this daily amount. This field is mutually exclusive with 'total_amount_micros'. Only one of 'amount_micros' or 'total_amount_micros' should be set. */
       amountMicros?: string;
       /** The delivery method that determines the rate at which the campaign budget is spent. Defaults to STANDARD if unspecified in a create operation. */
-      deliveryMethod?: string;
+      deliveryMethod?: 'UNSPECIFIED' | 'UNKNOWN' | 'STANDARD' | 'ACCELERATED';
       /** Immutable. Period over which to spend the budget. Defaults to DAILY if not specified. */
-      period?: string;
+      period?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'DAILY'
+        | 'FIXED_DAILY'
+        | 'CUSTOM_PERIOD';
       /** Immutable. The resource name of the campaign budget. Campaign budget resource names have the form: `customers/{customer_id}/campaignBudgets/{campaign_budget_id}` */
       resourceName?: string;
     }
@@ -1432,9 +2289,49 @@ declare namespace gapi.client {
       /** Immutable. The resource name of the campaign criterion. Campaign criterion resource names have the form: `customers/{customer_id}/campaignCriteria/{campaign_id}~{criterion_id}` */
       resourceName?: string;
       /** The status of the criterion. */
-      status?: string;
+      status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'PAUSED' | 'REMOVED';
       /** Output only. The type of the criterion. */
-      type?: string;
+      type?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'KEYWORD'
+        | 'PLACEMENT'
+        | 'MOBILE_APP_CATEGORY'
+        | 'MOBILE_APPLICATION'
+        | 'DEVICE'
+        | 'LOCATION'
+        | 'LISTING_GROUP'
+        | 'AD_SCHEDULE'
+        | 'AGE_RANGE'
+        | 'GENDER'
+        | 'INCOME_RANGE'
+        | 'PARENTAL_STATUS'
+        | 'YOUTUBE_VIDEO'
+        | 'YOUTUBE_CHANNEL'
+        | 'USER_LIST'
+        | 'PROXIMITY'
+        | 'TOPIC'
+        | 'LISTING_SCOPE'
+        | 'LANGUAGE'
+        | 'IP_BLOCK'
+        | 'CONTENT_LABEL'
+        | 'CARRIER'
+        | 'USER_INTEREST'
+        | 'WEBPAGE'
+        | 'OPERATING_SYSTEM_VERSION'
+        | 'APP_PAYMENT_MODEL'
+        | 'MOBILE_DEVICE'
+        | 'CUSTOM_AFFINITY'
+        | 'CUSTOM_INTENT'
+        | 'LOCATION_GROUP'
+        | 'CUSTOM_AUDIENCE'
+        | 'COMBINED_AUDIENCE'
+        | 'KEYWORD_THEME'
+        | 'AUDIENCE'
+        | 'LOCAL_SERVICE_ID'
+        | 'BRAND'
+        | 'BRAND_LIST'
+        | 'LIFE_EVENT';
       /** Immutable. User List. */
       userList?: GoogleAdsSearchads360V0Common__UserListInfo;
       /** Immutable. Webpage. */
@@ -1470,11 +2367,43 @@ declare namespace gapi.client {
       /** Output only. For offline conversions, this is an ID provided by advertisers. If an advertiser doesn't specify such an ID, Search Ads 360 generates one. For online conversions, this is equal to the id column or the floodlight_order_id column depending on the advertiser's Floodlight instructions. */
       advertiserConversionId?: string;
       /** Output only. Asset field type of the conversion event. */
-      assetFieldType?: string;
+      assetFieldType?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'HEADLINE'
+        | 'DESCRIPTION'
+        | 'MANDATORY_AD_TEXT'
+        | 'MARKETING_IMAGE'
+        | 'MEDIA_BUNDLE'
+        | 'YOUTUBE_VIDEO'
+        | 'BOOK_ON_GOOGLE'
+        | 'LEAD_FORM'
+        | 'PROMOTION'
+        | 'CALLOUT'
+        | 'STRUCTURED_SNIPPET'
+        | 'SITELINK'
+        | 'MOBILE_APP'
+        | 'HOTEL_CALLOUT'
+        | 'CALL'
+        | 'PRICE'
+        | 'LONG_HEADLINE'
+        | 'BUSINESS_NAME'
+        | 'SQUARE_MARKETING_IMAGE'
+        | 'PORTRAIT_MARKETING_IMAGE'
+        | 'LOGO'
+        | 'LANDSCAPE_LOGO'
+        | 'VIDEO'
+        | 'CALL_TO_ACTION_SELECTION'
+        | 'AD_IMAGE'
+        | 'BUSINESS_LOGO'
+        | 'HOTEL_PROPERTY'
+        | 'DISCOVERY_CAROUSEL_CARD'
+        | 'LONG_DESCRIPTION'
+        | 'CALL_TO_ACTION';
       /** Output only. ID of the asset which was interacted with during the conversion event. */
       assetId?: string;
       /** Output only. What the conversion is attributed to: Visit or Keyword+Ad. */
-      attributionType?: string;
+      attributionType?: 'UNSPECIFIED' | 'UNKNOWN' | 'VISIT' | 'CRITERION_AD';
       /** Output only. A unique string, for the visit that the conversion is attributed to, that is passed to the landing page as the click id URL parameter. */
       clickId?: string;
       /** Output only. The timestamp of the conversion event. */
@@ -1498,7 +2427,7 @@ declare namespace gapi.client {
       /** Output only. The Search Ads 360 inventory account ID containing the product that was clicked on. Search Ads 360 generates this ID when you link an inventory account in Search Ads 360. */
       merchantId?: string;
       /** Output only. The sales channel of the product that was clicked on: Online or Local. */
-      productChannel?: string;
+      productChannel?: 'UNSPECIFIED' | 'UNKNOWN' | 'ONLINE' | 'LOCAL';
       /** Output only. The country (ISO-3166-format) registered for the inventory feed that contains the product clicked on. */
       productCountryCode?: string;
       /** Output only. The ID of the product clicked on. */
@@ -1510,7 +2439,7 @@ declare namespace gapi.client {
       /** Output only. The resource name of the conversion. Conversion resource names have the form: `customers/{customer_id}/conversions/{ad_group_id}~{criterion_id}~{ds_conversion_id}` */
       resourceName?: string;
       /** Output only. The status of the conversion, either ENABLED or REMOVED.. */
-      status?: string;
+      status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'REMOVED';
       /** Output only. The Search Ads 360 visit ID that the conversion is attributed to. */
       visitId?: string;
     }
@@ -1520,7 +2449,32 @@ declare namespace gapi.client {
       /** Settings related to this conversion action's attribution model. */
       attributionModelSettings?: GoogleAdsSearchads360V0Resources_ConversionAction_AttributionModelSettings;
       /** The category of conversions reported for this conversion action. */
-      category?: string;
+      category?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'DEFAULT'
+        | 'PAGE_VIEW'
+        | 'PURCHASE'
+        | 'SIGNUP'
+        | 'LEAD'
+        | 'DOWNLOAD'
+        | 'ADD_TO_CART'
+        | 'BEGIN_CHECKOUT'
+        | 'SUBSCRIBE_PAID'
+        | 'PHONE_CALL_LEAD'
+        | 'IMPORTED_LEAD'
+        | 'SUBMIT_LEAD_FORM'
+        | 'BOOK_APPOINTMENT'
+        | 'REQUEST_QUOTE'
+        | 'GET_DIRECTIONS'
+        | 'OUTBOUND_CLICK'
+        | 'CONTACT'
+        | 'ENGAGEMENT'
+        | 'STORE_VISIT'
+        | 'STORE_SALE'
+        | 'QUALIFIED_LEAD'
+        | 'CONVERTED_LEAD'
+        | 'YOUTUBE_FOLLOW_ON_VIEWS';
       /** The maximum number of days that may elapse between an interaction (for example, a click) and a conversion event. */
       clickThroughLookbackWindowDays?: string;
       /** Output only. Timestamp of the Floodlight activity's creation, formatted in ISO 8601. */
@@ -1542,19 +2496,67 @@ declare namespace gapi.client {
       /** Immutable. The resource name of the conversion action. Conversion action resource names have the form: `customers/{customer_id}/conversionActions/{conversion_action_id}` */
       resourceName?: string;
       /** The status of this conversion action for conversion event accrual. */
-      status?: string;
+      status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'REMOVED' | 'HIDDEN';
       /** Immutable. The type of this conversion action. */
-      type?: string;
+      type?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'AD_CALL'
+        | 'CLICK_TO_CALL'
+        | 'GOOGLE_PLAY_DOWNLOAD'
+        | 'GOOGLE_PLAY_IN_APP_PURCHASE'
+        | 'UPLOAD_CALLS'
+        | 'UPLOAD_CLICKS'
+        | 'WEBPAGE'
+        | 'WEBSITE_CALL'
+        | 'STORE_SALES_DIRECT_UPLOAD'
+        | 'STORE_SALES'
+        | 'FIREBASE_ANDROID_FIRST_OPEN'
+        | 'FIREBASE_ANDROID_IN_APP_PURCHASE'
+        | 'FIREBASE_ANDROID_CUSTOM'
+        | 'FIREBASE_IOS_FIRST_OPEN'
+        | 'FIREBASE_IOS_IN_APP_PURCHASE'
+        | 'FIREBASE_IOS_CUSTOM'
+        | 'THIRD_PARTY_APP_ANALYTICS_ANDROID_FIRST_OPEN'
+        | 'THIRD_PARTY_APP_ANALYTICS_ANDROID_IN_APP_PURCHASE'
+        | 'THIRD_PARTY_APP_ANALYTICS_ANDROID_CUSTOM'
+        | 'THIRD_PARTY_APP_ANALYTICS_IOS_FIRST_OPEN'
+        | 'THIRD_PARTY_APP_ANALYTICS_IOS_IN_APP_PURCHASE'
+        | 'THIRD_PARTY_APP_ANALYTICS_IOS_CUSTOM'
+        | 'ANDROID_APP_PRE_REGISTRATION'
+        | 'ANDROID_INSTALLS_ALL_OTHER_APPS'
+        | 'FLOODLIGHT_ACTION'
+        | 'FLOODLIGHT_TRANSACTION'
+        | 'GOOGLE_HOSTED'
+        | 'LEAD_FORM_SUBMIT'
+        | 'SALESFORCE'
+        | 'SEARCH_ADS_360'
+        | 'SMART_CAMPAIGN_AD_CLICKS_TO_CALL'
+        | 'SMART_CAMPAIGN_MAP_CLICKS_TO_CALL'
+        | 'SMART_CAMPAIGN_MAP_DIRECTIONS'
+        | 'SMART_CAMPAIGN_TRACKED_CALLS'
+        | 'STORE_VISITS'
+        | 'WEBPAGE_CODELESS'
+        | 'UNIVERSAL_ANALYTICS_GOAL'
+        | 'UNIVERSAL_ANALYTICS_TRANSACTION'
+        | 'GOOGLE_ANALYTICS_4_CUSTOM'
+        | 'GOOGLE_ANALYTICS_4_PURCHASE';
       /** Settings related to the value for conversion events associated with this conversion action. */
       valueSettings?: GoogleAdsSearchads360V0Resources_ConversionAction_ValueSettings;
     }
     interface GoogleAdsSearchads360V0Resources__ConversionCustomVariable {
       /** Output only. Cardinality of the conversion custom variable. */
-      cardinality?: string;
+      cardinality?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'BELOW_ALL_LIMITS'
+        | 'EXCEEDS_SEGMENTATION_LIMIT_BUT_NOT_STATS_LIMIT'
+        | 'APPROACHES_STATS_LIMIT'
+        | 'EXCEEDS_STATS_LIMIT';
       /** Output only. The IDs of custom columns that use this conversion custom variable. */
       customColumnIds?: string[];
       /** Output only. Family of the conversion custom variable. */
-      family?: string;
+      family?: 'UNSPECIFIED' | 'UNKNOWN' | 'STANDARD' | 'FLOODLIGHT';
       /** Output only. Fields for Search Ads 360 floodlight conversion custom variables. */
       floodlightConversionCustomVariableInfo?: GoogleAdsSearchads360V0Resources_ConversionCustomVariable_FloodlightConversionCustomVariableInfo;
       /** Output only. The ID of the conversion custom variable. */
@@ -1566,7 +2568,12 @@ declare namespace gapi.client {
       /** Immutable. The resource name of the conversion custom variable. Conversion custom variable resource names have the form: `customers/{customer_id}/conversionCustomVariables/{conversion_custom_variable_id}` */
       resourceName?: string;
       /** The status of the conversion custom variable for conversion event accrual. */
-      status?: string;
+      status?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'ACTIVATION_NEEDED'
+        | 'ENABLED'
+        | 'PAUSED';
       /** Required. Immutable. The tag of the conversion custom variable. Tag should be unique and consist of a "u" character directly followed with a number less than ormequal to 100. For example: "u4". */
       tag?: string;
     }
@@ -1576,7 +2583,13 @@ declare namespace gapi.client {
       /** Output only. The conversion tracking id used for this account. This id doesn't indicate whether the customer uses conversion tracking (conversion_tracking_status does). This field is read-only. */
       conversionTrackingId?: string;
       /** Output only. Conversion tracking status. It indicates whether the customer is using conversion tracking, and who is the conversion tracking owner of this customer. If this customer is using cross-account conversion tracking, the value returned will differ based on the `login-customer-id` of the request. */
-      conversionTrackingStatus?: string;
+      conversionTrackingStatus?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'NOT_CONVERSION_TRACKED'
+        | 'CONVERSION_TRACKING_MANAGED_BY_SELF'
+        | 'CONVERSION_TRACKING_MANAGED_BY_THIS_MANAGER'
+        | 'CONVERSION_TRACKING_MANAGED_BY_ANOTHER_MANAGER';
       /** Output only. The conversion tracking id of the customer's manager. This is set when the customer is opted into cross-account conversion tracking, and it overrides conversion_tracking_id. */
       crossAccountConversionTrackingId?: string;
       /** Output only. Whether the customer is opted-in for enhanced conversions for leads. If using cross-account conversion tracking, this value is inherited from the manager. This field is read-only. */
@@ -1602,19 +2615,61 @@ declare namespace gapi.client {
       /** Output only. True when the custom column is referring to one or more metrics. */
       referencesMetrics?: boolean;
       /** Output only. How the result value of the custom column should be interpreted. */
-      renderType?: string;
+      renderType?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'NUMBER'
+        | 'PERCENT'
+        | 'MONEY'
+        | 'STRING'
+        | 'BOOLEAN'
+        | 'DATE';
       /** Immutable. The resource name of the custom column. Custom column resource names have the form: `customers/{customer_id}/customColumns/{custom_column_id}` */
       resourceName?: string;
       /** Output only. The type of the result value of the custom column. */
-      valueType?: string;
+      valueType?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'STRING'
+        | 'INT64'
+        | 'DOUBLE'
+        | 'BOOLEAN'
+        | 'DATE';
     }
     interface GoogleAdsSearchads360V0Resources__Customer {
       /** Output only. The account level of the customer: Manager, Sub-manager, Associate manager, Service account. */
-      accountLevel?: string;
+      accountLevel?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'CLIENT_ACCOUNT_FACEBOOK'
+        | 'CLIENT_ACCOUNT_GOOGLE_ADS'
+        | 'CLIENT_ACCOUNT_MICROSOFT'
+        | 'CLIENT_ACCOUNT_YAHOO_JAPAN'
+        | 'CLIENT_ACCOUNT_ENGINE_TRACK'
+        | 'MANAGER'
+        | 'SUB_MANAGER'
+        | 'ASSOCIATE_MANAGER';
       /** Output only. Account status, for example, Enabled, Paused, Removed, etc. */
-      accountStatus?: string;
+      accountStatus?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'ENABLED'
+        | 'PAUSED'
+        | 'SUSPENDED'
+        | 'REMOVED'
+        | 'DRAFT';
       /** Output only. Engine account type, for example, Google Ads, Microsoft Advertising, Yahoo Japan, Baidu, Facebook, Engine Track, etc. */
-      accountType?: string;
+      accountType?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'BAIDU'
+        | 'ENGINE_TRACK'
+        | 'FACEBOOK'
+        | 'FACEBOOK_GATEWAY'
+        | 'GOOGLE_ADS'
+        | 'MICROSOFT'
+        | 'SEARCH_ADS_360'
+        | 'YAHOO_JAPAN';
       /** Output only. The descriptive name of the associate manager. */
       associateManagerDescriptiveName?: string;
       /** Output only. The customer ID of the associate manager. A 0 value indicates that the customer has no SA360 associate manager. */
@@ -1648,7 +2703,13 @@ declare namespace gapi.client {
       /** Immutable. The resource name of the customer. Customer resource names have the form: `customers/{customer_id}` */
       resourceName?: string;
       /** Output only. The status of the customer. */
-      status?: string;
+      status?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'ENABLED'
+        | 'CANCELED'
+        | 'SUSPENDED'
+        | 'CLOSED';
       /** Output only. The descriptive name of the sub manager. */
       subManagerDescriptiveName?: string;
       /** Output only. The customer ID of the sub manager. A 0 value indicates that the customer has no sub SA360 manager. */
@@ -1664,7 +2725,7 @@ declare namespace gapi.client {
       /** Immutable. The resource name of the customer asset. CustomerAsset resource names have the form: `customers/{customer_id}/customerAssets/{asset_id}~{field_type}` */
       resourceName?: string;
       /** Status of the customer asset. */
-      status?: string;
+      status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'REMOVED' | 'PAUSED';
     }
     interface GoogleAdsSearchads360V0Resources__CustomerAssetSet {
       /** Immutable. The asset set which is linked to the customer. */
@@ -1674,7 +2735,7 @@ declare namespace gapi.client {
       /** Immutable. The resource name of the customer asset set. Asset set asset resource names have the form: `customers/{customer_id}/customerAssetSets/{asset_set_id}` */
       resourceName?: string;
       /** Output only. The status of the customer asset set asset. Read-only. */
-      status?: string;
+      status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'REMOVED';
     }
     interface GoogleAdsSearchads360V0Resources__CustomerClient {
       /** Output only. The resource names of the labels owned by the requesting customer that are applied to the client customer. Label resource names have the form: `customers/{customer_id}/labels/{label_id}` */
@@ -1696,7 +2757,13 @@ declare namespace gapi.client {
       /** Output only. The resource name of the customer client. CustomerClient resource names have the form: `customers/{customer_id}/customerClients/{client_customer_id}` */
       resourceName?: string;
       /** Output only. The status of the client customer. Read only. */
-      status?: string;
+      status?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'ENABLED'
+        | 'CANCELED'
+        | 'SUSPENDED'
+        | 'CLOSED';
       /** Output only. Identifies if the client is a test account. Read only. */
       testAccount?: boolean;
       /** Output only. Common Locale Data Repository (CLDR) string representation of the time zone of the client, for example, America/Los_Angeles. Read only. */
@@ -1712,7 +2779,14 @@ declare namespace gapi.client {
       /** Output only. The timestamp when the CustomerManagerLink was created. The timestamp is in the customer's time zone and in "yyyy-MM-dd HH:mm:ss" format. */
       startTime?: string;
       /** Status of the link between the customer and the manager. */
-      status?: string;
+      status?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'ACTIVE'
+        | 'INACTIVE'
+        | 'PENDING'
+        | 'REFUSED'
+        | 'CANCELED';
     }
     interface GoogleAdsSearchads360V0Resources__DoubleClickCampaignManagerSetting {
       /** Output only. ID of the Campaign Manager advertiser associated with this customer. */
@@ -1746,7 +2820,7 @@ declare namespace gapi.client {
       /** Output only. The resource name of the geo target constant. Geo target constant resource names have the form: `geoTargetConstants/{geo_target_constant_id}` */
       resourceName?: string;
       /** Output only. Geo target constant status. */
-      status?: string;
+      status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'REMOVAL_PLANNED';
       /** Output only. Geo target constant target type. */
       targetType?: string;
     }
@@ -1762,7 +2836,7 @@ declare namespace gapi.client {
       /** Immutable. Name of the resource. Label resource names have the form: `customers/{owner_customer_id}/labels/{label_id}` */
       resourceName?: string;
       /** Output only. Status of the label. Read only. */
-      status?: string;
+      status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'REMOVED';
       /** A type of label displaying text on a colored background. */
       textLabel?: GoogleAdsSearchads360V0Common__TextLabel;
     }
@@ -1810,7 +2884,14 @@ declare namespace gapi.client {
       /** Output only. Language code of the product bidding category. */
       languageCode?: string;
       /** Output only. Level of the product bidding category. */
-      level?: string;
+      level?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'LEVEL1'
+        | 'LEVEL2'
+        | 'LEVEL3'
+        | 'LEVEL4'
+        | 'LEVEL5';
       /** Output only. Display value of the product bidding category localized according to language_code. */
       localizedName?: string;
       /** Output only. Resource name of the parent product bidding category. */
@@ -1818,7 +2899,7 @@ declare namespace gapi.client {
       /** Output only. The resource name of the product bidding category. Product bidding category resource names have the form: `productBiddingCategoryConstants/{country_code}~{level}~{id}` */
       resourceName?: string;
       /** Output only. Status of the product bidding category. */
-      status?: string;
+      status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ACTIVE' | 'OBSOLETE';
     }
     interface GoogleAdsSearchads360V0Resources__ProductGroupView {
       /** Output only. The resource name of the product group view. Product group view resource names have the form: `customers/{customer_id}/productGroupViews/{ad_group_id}~{criterion_id}` */
@@ -1828,9 +2909,28 @@ declare namespace gapi.client {
       /** Output only. The names of all resources that are selectable with the described artifact. Fields from these resources do not segment metrics when included in search queries. This field is only set for artifacts whose category is RESOURCE. */
       attributeResources?: string[];
       /** Output only. The category of the artifact. */
-      category?: string;
+      category?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'RESOURCE'
+        | 'ATTRIBUTE'
+        | 'SEGMENT'
+        | 'METRIC';
       /** Output only. This field determines the operators that can be used with the artifact in WHERE clauses. */
-      dataType?: string;
+      dataType?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'BOOLEAN'
+        | 'DATE'
+        | 'DOUBLE'
+        | 'ENUM'
+        | 'FLOAT'
+        | 'INT32'
+        | 'INT64'
+        | 'MESSAGE'
+        | 'RESOURCE_NAME'
+        | 'STRING'
+        | 'UINT64';
       /** Output only. Values the artifact can assume if it is a field of type ENUM. This field is only set for artifacts of category SEGMENT or ATTRIBUTE. */
       enumValues?: string[];
       /** Output only. Whether the artifact can be used in a WHERE clause in search queries. */
@@ -1866,7 +2966,15 @@ declare namespace gapi.client {
       /** Immutable. The resource name of the user list. User list resource names have the form: `customers/{customer_id}/userLists/{user_list_id}` */
       resourceName?: string;
       /** Output only. Type of this list. This field is read-only. */
-      type?: string;
+      type?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'REMARKETING'
+        | 'LOGICAL'
+        | 'EXTERNAL_REMARKETING'
+        | 'RULE_BASED'
+        | 'SIMILAR'
+        | 'CRM_BASED';
     }
     interface GoogleAdsSearchads360V0Resources__UserLocationView {
       /** Output only. Criterion Id for the country. */
@@ -1880,7 +2988,39 @@ declare namespace gapi.client {
       /** Output only. Ad ID. A value of 0 indicates that the ad is unattributed. */
       adId?: string;
       /** Output only. Asset field type of the visit event. */
-      assetFieldType?: string;
+      assetFieldType?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'HEADLINE'
+        | 'DESCRIPTION'
+        | 'MANDATORY_AD_TEXT'
+        | 'MARKETING_IMAGE'
+        | 'MEDIA_BUNDLE'
+        | 'YOUTUBE_VIDEO'
+        | 'BOOK_ON_GOOGLE'
+        | 'LEAD_FORM'
+        | 'PROMOTION'
+        | 'CALLOUT'
+        | 'STRUCTURED_SNIPPET'
+        | 'SITELINK'
+        | 'MOBILE_APP'
+        | 'HOTEL_CALLOUT'
+        | 'CALL'
+        | 'PRICE'
+        | 'LONG_HEADLINE'
+        | 'BUSINESS_NAME'
+        | 'SQUARE_MARKETING_IMAGE'
+        | 'PORTRAIT_MARKETING_IMAGE'
+        | 'LOGO'
+        | 'LANDSCAPE_LOGO'
+        | 'VIDEO'
+        | 'CALL_TO_ACTION_SELECTION'
+        | 'AD_IMAGE'
+        | 'BUSINESS_LOGO'
+        | 'HOTEL_PROPERTY'
+        | 'DISCOVERY_CAROUSEL_CARD'
+        | 'LONG_DESCRIPTION'
+        | 'CALL_TO_ACTION';
       /** Output only. ID of the asset which was interacted with during the visit event. */
       assetId?: string;
       /** Output only. A unique string for each visit that is passed to the landing page as the click id URL parameter. */
@@ -1892,7 +3032,7 @@ declare namespace gapi.client {
       /** Output only. The Search Ads 360 inventory account ID containing the product that was clicked on. Search Ads 360 generates this ID when you link an inventory account in Search Ads 360. */
       merchantId?: string;
       /** Output only. The sales channel of the product that was clicked on: Online or Local. */
-      productChannel?: string;
+      productChannel?: 'UNSPECIFIED' | 'UNKNOWN' | 'ONLINE' | 'LOCAL';
       /** Output only. The country (ISO-3166 format) registered for the inventory feed that contains the product clicked on. */
       productCountryCode?: string;
       /** Output only. The ID of the product clicked on. */
@@ -1928,7 +3068,12 @@ declare namespace gapi.client {
       /** Output only. The highest CPC bid the automated bidding system is permitted to specify. This is a required field entered by the advertiser that sets the ceiling and specified in local micros. */
       cpcBidCeilingMicros?: string;
       /** Output only. The targeted location on the search results page. */
-      location?: string;
+      location?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'ANYWHERE_ON_PAGE'
+        | 'TOP_OF_PAGE'
+        | 'ABSOLUTE_TOP_OF_PAGE';
       /** The chosen fraction of ads to be shown in the targeted location in micros. For example, 1% equals 10,000. */
       locationFractionMicros?: string;
     }
@@ -1960,9 +3105,18 @@ declare namespace gapi.client {
     }
     interface GoogleAdsSearchads360V0Resources_Campaign_GeoTargetTypeSetting {
       /** The setting used for negative geotargeting in this particular campaign. */
-      negativeGeoTargetType?: string;
+      negativeGeoTargetType?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'PRESENCE_OR_INTEREST'
+        | 'PRESENCE';
       /** The setting used for positive geotargeting in this particular campaign. */
-      positiveGeoTargetType?: string;
+      positiveGeoTargetType?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'PRESENCE_OR_INTEREST'
+        | 'SEARCH_INTEREST'
+        | 'PRESENCE';
     }
     interface GoogleAdsSearchads360V0Resources_Campaign_NetworkSettings {
       /** Whether ads will be served on specified placements in the Google Display Network. Placements are specified using the Placement criterion. */
@@ -1976,7 +3130,12 @@ declare namespace gapi.client {
     }
     interface GoogleAdsSearchads360V0Resources_Campaign_OptimizationGoalSetting {
       /** The list of optimization goal types. */
-      optimizationGoalTypes?: string[];
+      optimizationGoalTypes?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'CALL_CLICKS'
+        | 'DRIVING_DIRECTIONS'
+        | 'APP_PRE_REGISTRATION'[];
     }
     interface GoogleAdsSearchads360V0Resources_Campaign_SelectiveOptimization {
       /** The selected set of resource names for conversion actions for optimizing this campaign. */
@@ -2002,9 +3161,24 @@ declare namespace gapi.client {
     }
     interface GoogleAdsSearchads360V0Resources_ConversionAction_AttributionModelSettings {
       /** The attribution model type of this conversion action. */
-      attributionModel?: string;
+      attributionModel?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'EXTERNAL'
+        | 'GOOGLE_ADS_LAST_CLICK'
+        | 'GOOGLE_SEARCH_ATTRIBUTION_FIRST_CLICK'
+        | 'GOOGLE_SEARCH_ATTRIBUTION_LINEAR'
+        | 'GOOGLE_SEARCH_ATTRIBUTION_TIME_DECAY'
+        | 'GOOGLE_SEARCH_ATTRIBUTION_POSITION_BASED'
+        | 'GOOGLE_SEARCH_ATTRIBUTION_DATA_DRIVEN';
       /** Output only. The status of the data-driven attribution model for the conversion action. */
-      dataDrivenModelStatus?: string;
+      dataDrivenModelStatus?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'AVAILABLE'
+        | 'STALE'
+        | 'EXPIRED'
+        | 'NEVER_GENERATED';
     }
     interface GoogleAdsSearchads360V0Resources_ConversionAction_FloodlightSettings {
       /** Output only. String used to identify a Floodlight activity group when reporting conversions. */
@@ -2024,15 +3198,31 @@ declare namespace gapi.client {
     }
     interface GoogleAdsSearchads360V0Resources_ConversionCustomVariable_FloodlightConversionCustomVariableInfo {
       /** Output only. Floodlight variable data type defined in Search Ads 360. */
-      floodlightVariableDataType?: string;
+      floodlightVariableDataType?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'NUMBER'
+        | 'STRING';
       /** Output only. Floodlight variable type defined in Search Ads 360. */
-      floodlightVariableType?: string;
+      floodlightVariableType?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'DIMENSION'
+        | 'METRIC'
+        | 'UNSET';
     }
     interface GoogleAdsSearchads360V0Resources_ListingGroupFilterDimension_ProductBiddingCategory {
       /** ID of the product bidding category. This ID is equivalent to the google_product_category ID as described in this article: https://support.google.com/merchants/answer/6324436 */
       id?: string;
       /** Indicates the level of the category in the taxonomy. */
-      level?: string;
+      level?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'LEVEL1'
+        | 'LEVEL2'
+        | 'LEVEL3'
+        | 'LEVEL4'
+        | 'LEVEL5';
     }
     interface GoogleAdsSearchads360V0Resources_ListingGroupFilterDimension_ProductBrand {
       /** String value of the product brand. */
@@ -2040,15 +3230,22 @@ declare namespace gapi.client {
     }
     interface GoogleAdsSearchads360V0Resources_ListingGroupFilterDimension_ProductChannel {
       /** Value of the locality. */
-      channel?: string;
+      channel?: 'UNSPECIFIED' | 'UNKNOWN' | 'ONLINE' | 'LOCAL';
     }
     interface GoogleAdsSearchads360V0Resources_ListingGroupFilterDimension_ProductCondition {
       /** Value of the condition. */
-      condition?: string;
+      condition?: 'UNSPECIFIED' | 'UNKNOWN' | 'NEW' | 'REFURBISHED' | 'USED';
     }
     interface GoogleAdsSearchads360V0Resources_ListingGroupFilterDimension_ProductCustomAttribute {
       /** Indicates the index of the custom attribute. */
-      index?: string;
+      index?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'INDEX0'
+        | 'INDEX1'
+        | 'INDEX2'
+        | 'INDEX3'
+        | 'INDEX4';
       /** String value of the product custom attribute. */
       value?: string;
     }
@@ -2058,7 +3255,14 @@ declare namespace gapi.client {
     }
     interface GoogleAdsSearchads360V0Resources_ListingGroupFilterDimension_ProductType {
       /** Level of the type. */
-      level?: string;
+      level?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'LEVEL1'
+        | 'LEVEL2'
+        | 'LEVEL3'
+        | 'LEVEL4'
+        | 'LEVEL5';
       /** Value of the type. */
       value?: string;
     }
@@ -2248,7 +3452,12 @@ declare namespace gapi.client {
       /** If true, the total number of results that match the query ignoring the LIMIT clause will be included in the response. Default is false. */
       returnTotalResultsCount?: boolean;
       /** Determines whether a summary row will be returned. By default, summary row is not returned. If requested, the summary row will be sent in a response by itself after all other query results are returned. */
-      summaryRowSetting?: string;
+      summaryRowSetting?:
+        | 'UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'NO_SUMMARY_ROW'
+        | 'SUMMARY_ROW_WITH_RESULTS'
+        | 'SUMMARY_ROW_ONLY';
       /** If true, the request is validated but not executed. */
       validateOnly?: boolean;
     }
@@ -2278,11 +3487,11 @@ declare namespace gapi.client {
       /** Returns the requested custom column in full detail. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2305,11 +3514,11 @@ declare namespace gapi.client {
       /** Returns all the custom columns associated with the customer in full detail. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the customer to apply the CustomColumn list operation to. */
@@ -2334,11 +3543,11 @@ declare namespace gapi.client {
       /** Returns all rows that match the search query. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QueryError]() [QuotaError]() [RequestError]() */
       search(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the customer being queried. */
@@ -2363,11 +3572,11 @@ declare namespace gapi.client {
       search(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID of the customer being queried. */
@@ -2394,11 +3603,11 @@ declare namespace gapi.client {
       /** Returns resource names of customers directly accessible by the user authenticating the call. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]() */
       listAccessibleCustomers(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2423,11 +3632,11 @@ declare namespace gapi.client {
       /** Returns just the requested field. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]() */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2450,11 +3659,11 @@ declare namespace gapi.client {
       /** Returns all fields that match the search [query](/search-ads/reporting/concepts/field-service#use_a_query_to_get_field_details). List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QueryError]() [QuotaError]() [RequestError]() */
       search(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2477,11 +3686,11 @@ declare namespace gapi.client {
       search(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

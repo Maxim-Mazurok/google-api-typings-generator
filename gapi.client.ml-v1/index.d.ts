@@ -36,7 +36,19 @@ declare namespace gapi.client {
       /** The number of accelerators to attach to each machine running the job. */
       count?: string;
       /** The type of accelerator to use. */
-      type?: string;
+      type?:
+        | 'ACCELERATOR_TYPE_UNSPECIFIED'
+        | 'NVIDIA_TESLA_K80'
+        | 'NVIDIA_TESLA_P100'
+        | 'NVIDIA_TESLA_V100'
+        | 'NVIDIA_TESLA_P4'
+        | 'NVIDIA_TESLA_T4'
+        | 'NVIDIA_TESLA_A100'
+        | 'TPU_V2'
+        | 'TPU_V3'
+        | 'TPU_V2_POD'
+        | 'TPU_V3_POD'
+        | 'TPU_V4_POD';
     }
     interface GoogleCloudMlV1__AddTrialMeasurementRequest {
       /** Required. The measurement to be added to a trial. */
@@ -67,8 +79,24 @@ declare namespace gapi.client {
     interface GoogleCloudMlV1__CancelJobRequest {}
     interface GoogleCloudMlV1__Capability {
       /** Available accelerators for the capability. */
-      availableAccelerators?: string[];
-      type?: string;
+      availableAccelerators?:
+        | 'ACCELERATOR_TYPE_UNSPECIFIED'
+        | 'NVIDIA_TESLA_K80'
+        | 'NVIDIA_TESLA_P100'
+        | 'NVIDIA_TESLA_V100'
+        | 'NVIDIA_TESLA_P4'
+        | 'NVIDIA_TESLA_T4'
+        | 'NVIDIA_TESLA_A100'
+        | 'TPU_V2'
+        | 'TPU_V3'
+        | 'TPU_V2_POD'
+        | 'TPU_V3_POD'
+        | 'TPU_V4_POD'[];
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'TRAINING'
+        | 'BATCH_PREDICTION'
+        | 'ONLINE_PREDICTION';
     }
     interface GoogleCloudMlV1__CheckTrialEarlyStoppingStateMetatdata {
       /** The time at which the operation was submitted. */
@@ -166,7 +194,15 @@ declare namespace gapi.client {
       /** Output only. Start time for the trial. */
       startTime?: string;
       /** Output only. The detailed state of the trial. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'QUEUED'
+        | 'PREPARING'
+        | 'RUNNING'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'CANCELLING'
+        | 'CANCELLED';
       /** The trial id for these results. */
       trialId?: string;
       /** URIs for accessing [interactive shells](https://cloud.google.com/ai-platform/training/docs/monitor-debug-interactive-shell) (one URI for each training node). Only available if this trial is part of a hyperparameter tuning job and the job's training_input.enable_web_access is `true`. The keys are names of each node in the training job; for example, `master-replica-0` for the master node, `worker-replica-0` for the first worker, and `ps-replica-0` for the first parameter server. The values are the URIs for each node's interactive shell. */
@@ -174,11 +210,11 @@ declare namespace gapi.client {
     }
     interface GoogleCloudMlV1__HyperparameterSpec {
       /** Optional. The search algorithm specified for the hyperparameter tuning job. Uses the default AI Platform hyperparameter tuning algorithm if unspecified. */
-      algorithm?: string;
+      algorithm?: 'ALGORITHM_UNSPECIFIED' | 'GRID_SEARCH' | 'RANDOM_SEARCH';
       /** Optional. Indicates if the hyperparameter tuning job enables auto trial early stopping. */
       enableTrialEarlyStopping?: boolean;
       /** Required. The type of goal to use for tuning. Available types are `MAXIMIZE` and `MINIMIZE`. Defaults to `MAXIMIZE`. */
-      goal?: string;
+      goal?: 'GOAL_TYPE_UNSPECIFIED' | 'MAXIMIZE' | 'MINIMIZE';
       /** Optional. The TensorFlow summary tag name to use for optimizing trials. For current versions of TensorFlow, this tag name should exactly match what is shown in TensorBoard, including all scopes. For versions of TensorFlow prior to 0.12, this should be only the tag passed to tf.Summary. By default, "training/hptuning/metric" will be used. */
       hyperparameterMetricTag?: string;
       /** Optional. The number of failed trials that need to be seen before failing the hyperparameter tuning job. You can specify this field to override the default failing criteria for AI Platform hyperparameter tuning jobs. Defaults to zero, which means the service decides when a hyperparameter job should fail. */
@@ -218,7 +254,15 @@ declare namespace gapi.client {
       /** Output only. When the job processing was started. */
       startTime?: string;
       /** Output only. The detailed state of a job. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'QUEUED'
+        | 'PREPARING'
+        | 'RUNNING'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'CANCELLING'
+        | 'CANCELLED';
       /** Input parameters to create a training job. */
       trainingInput?: GoogleCloudMlV1__TrainingInput;
       /** The current training job result. */
@@ -280,7 +324,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudMlV1__MetricSpec {
       /** metric name. */
-      name?: string;
+      name?: 'METRIC_NAME_UNSPECIFIED' | 'CPU_USAGE' | 'GPU_DUTY_CYCLE';
       /** Target specifies the target value for the given metric; once real metric deviates from the threshold by a certain percentage, the node count changes. */
       target?: number;
     }
@@ -314,7 +358,14 @@ declare namespace gapi.client {
       /** Contains the name of the model associated with the operation. */
       modelName?: string;
       /** The operation type. */
-      operationType?: string;
+      operationType?:
+        | 'OPERATION_TYPE_UNSPECIFIED'
+        | 'CREATE_VERSION'
+        | 'DELETE_VERSION'
+        | 'DELETE_MODEL'
+        | 'UPDATE_MODEL'
+        | 'UPDATE_VERSION'
+        | 'UPDATE_CONFIG';
       /** Contains the project number associated with the operation. */
       projectNumber?: string;
       /** The time operation processing started. */
@@ -334,15 +385,30 @@ declare namespace gapi.client {
       /** Required. The parameter name must be unique amongst all ParameterConfigs in a HyperparameterSpec message. E.g., "learning_rate". */
       parameterName?: string;
       /** Optional. How the parameter should be scaled to the hypercube. Leave unset for categorical parameters. Some kind of scaling is strongly recommended for real or integral parameters (e.g., `UNIT_LINEAR_SCALE`). */
-      scaleType?: string;
+      scaleType?:
+        | 'NONE'
+        | 'UNIT_LINEAR_SCALE'
+        | 'UNIT_LOG_SCALE'
+        | 'UNIT_REVERSE_LOG_SCALE';
       /** Required. The type of the parameter. */
-      type?: string;
+      type?:
+        | 'PARAMETER_TYPE_UNSPECIFIED'
+        | 'DOUBLE'
+        | 'INTEGER'
+        | 'CATEGORICAL'
+        | 'DISCRETE';
     }
     interface GoogleCloudMlV1__PredictionInput {
       /** Optional. Number of records per batch, defaults to 64. The service will buffer batch_size number of records in memory before invoking one Tensorflow prediction call internally. So take the record size and memory available into consideration when setting this parameter. */
       batchSize?: string;
       /** Required. The format of the input data files. */
-      dataFormat?: string;
+      dataFormat?:
+        | 'DATA_FORMAT_UNSPECIFIED'
+        | 'JSON'
+        | 'TEXT'
+        | 'TF_RECORD'
+        | 'TF_RECORD_GZIP'
+        | 'CSV';
       /** Required. The Cloud Storage location of the input data files. May contain wildcards. */
       inputPaths?: string[];
       /** Optional. The maximum number of workers to be used for parallel processing. Defaults to 10 if not specified. */
@@ -350,7 +416,13 @@ declare namespace gapi.client {
       /** Use this field if you want to use the default version for the specified model. The string must use the following format: `"projects/YOUR_PROJECT/models/YOUR_MODEL"` */
       modelName?: string;
       /** Optional. Format of the output data files, defaults to JSON. */
-      outputDataFormat?: string;
+      outputDataFormat?:
+        | 'DATA_FORMAT_UNSPECIFIED'
+        | 'JSON'
+        | 'TEXT'
+        | 'TF_RECORD'
+        | 'TF_RECORD_GZIP'
+        | 'CSV';
       /** Required. The output Google Cloud Storage location. */
       outputPath?: string;
       /** Required. The Google Compute Engine region to run the prediction job in. See the available regions for AI Platform services. */
@@ -426,13 +498,17 @@ declare namespace gapi.client {
       /** Output only. The name of a study. */
       name?: string;
       /** Output only. The detailed state of a study. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'ACTIVE' | 'INACTIVE' | 'COMPLETED';
       /** Required. Configuration of the study. */
       studyConfig?: GoogleCloudMlV1__StudyConfig;
     }
     interface GoogleCloudMlV1__StudyConfig {
       /** The search algorithm specified for the study. */
-      algorithm?: string;
+      algorithm?:
+        | 'ALGORITHM_UNSPECIFIED'
+        | 'GAUSSIAN_PROCESS_BANDIT'
+        | 'GRID_SEARCH'
+        | 'RANDOM_SEARCH';
       /** Configuration for automated stopping of unpromising Trials. */
       automatedStoppingConfig?: GoogleCloudMlV1__AutomatedStoppingConfig;
       /** Metric specs for the study. */
@@ -462,7 +538,7 @@ declare namespace gapi.client {
       /** The time at which the operation was started. */
       startTime?: string;
       /** The state of the study. */
-      studyState?: string;
+      studyState?: 'STATE_UNSPECIFIED' | 'ACTIVE' | 'INACTIVE' | 'COMPLETED';
       /** A list of trials. */
       trials?: GoogleCloudMlV1__Trial[];
     }
@@ -506,7 +582,13 @@ declare namespace gapi.client {
       /** Optional. The AI Platform runtime version to use for training. You must either specify this field or specify `masterConfig.imageUri`. For more information, see the [runtime version list](/ai-platform/training/docs/runtime-version-list) and learn [how to manage runtime versions](/ai-platform/training/docs/versioning). */
       runtimeVersion?: string;
       /** Required. Specifies the machine types, the number of replicas for workers and parameter servers. */
-      scaleTier?: string;
+      scaleTier?:
+        | 'BASIC'
+        | 'STANDARD_1'
+        | 'PREMIUM_1'
+        | 'BASIC_GPU'
+        | 'BASIC_TPU'
+        | 'CUSTOM';
       /** Optional. Scheduling options for a training job. */
       scheduling?: GoogleCloudMlV1__Scheduling;
       /** Optional. The email address of a service account to use when running the training appplication. You must have the `iam.serviceAccounts.actAs` permission for the specified service account. In addition, the AI Platform Training Google-managed service account must have the `roles/iam.serviceAccountAdmin` role for the specified service account. [Learn more about configuring a service account.](/ai-platform/training/docs/custom-service-account) If not specified, the AI Platform Training Google-managed service account is used by default. */
@@ -556,7 +638,12 @@ declare namespace gapi.client {
       /** Output only. Time at which the trial was started. */
       startTime?: string;
       /** The detailed state of a trial. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'REQUESTED'
+        | 'ACTIVE'
+        | 'COMPLETED'
+        | 'STOPPING';
       /** Output only. If true, the parameters in this trial are not attempted again. */
       trialInfeasible?: boolean;
     }
@@ -580,7 +667,11 @@ declare namespace gapi.client {
       /** Optional. Configures explainability features on the model's version. Some explanation features require additional metadata to be loaded as part of the model payload. */
       explanationConfig?: GoogleCloudMlV1__ExplanationConfig;
       /** Optional. The machine learning framework AI Platform uses to train this version of the model. Valid values are `TENSORFLOW`, `SCIKIT_LEARN`, `XGBOOST`. If you do not specify a framework, AI Platform will analyze files in the deployment_uri to determine a framework. If you choose `SCIKIT_LEARN` or `XGBOOST`, you must also set the runtime version of the model to 1.4 or greater. Do **not** specify a framework if you're deploying a [custom prediction routine](/ai-platform/prediction/docs/custom-prediction-routines) or if you're using a [custom container](/ai-platform/prediction/docs/use-custom-container). */
-      framework?: string;
+      framework?:
+        | 'FRAMEWORK_UNSPECIFIED'
+        | 'TENSORFLOW'
+        | 'SCIKIT_LEARN'
+        | 'XGBOOST';
       /** Output only. If true, this version will be used to handle prediction requests that do not specify a version. You can change the default version by calling projects.methods.versions.setDefault. */
       isDefault?: boolean;
       /** Optional. One or more labels that you can add, to organize your model versions. Each label is a key-value pair, where both the key and the value are arbitrary strings that you supply. For more information, see the documentation on using labels. Note that this field is not updatable for mls1* models. */
@@ -612,7 +703,13 @@ declare namespace gapi.client {
       /** Optional. Specifies the service account for resource access control. If you specify this field, then you must also specify either the `containerSpec` or the `predictionClass` field. Learn more about [using a custom service account](/ai-platform/prediction/docs/custom-service-account). */
       serviceAccount?: string;
       /** Output only. The state of a version. */
-      state?: string;
+      state?:
+        | 'UNKNOWN'
+        | 'READY'
+        | 'CREATING'
+        | 'FAILED'
+        | 'DELETING'
+        | 'UPDATING';
     }
     interface GoogleCloudMlV1__XraiAttribution {
       /** Number of steps for approximating the path integral. A good value to start is 50 and gradually increase until the sum to diff property is met within the desired error range. */
@@ -640,7 +737,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudMlV1_StudyConfig_MetricSpec {
       /** Required. The optimization goal of the metric. */
-      goal?: string;
+      goal?: 'GOAL_TYPE_UNSPECIFIED' | 'MAXIMIZE' | 'MINIMIZE';
       /** Required. The name of the metric. */
       metric?: string;
     }
@@ -661,9 +758,18 @@ declare namespace gapi.client {
       parentDiscreteValues?: GoogleCloudMlV1_StudyConfigParameterSpec_MatchingParentDiscreteValueSpec;
       parentIntValues?: GoogleCloudMlV1_StudyConfigParameterSpec_MatchingParentIntValueSpec;
       /** How the parameter should be scaled. Leave unset for categorical parameters. */
-      scaleType?: string;
+      scaleType?:
+        | 'SCALE_TYPE_UNSPECIFIED'
+        | 'UNIT_LINEAR_SCALE'
+        | 'UNIT_LOG_SCALE'
+        | 'UNIT_REVERSE_LOG_SCALE';
       /** Required. The type of the parameter. */
-      type?: string;
+      type?:
+        | 'PARAMETER_TYPE_UNSPECIFIED'
+        | 'DOUBLE'
+        | 'INTEGER'
+        | 'CATEGORICAL'
+        | 'DISCRETE';
     }
     interface GoogleCloudMlV1_StudyConfigParameterSpec_CategoricalValueSpec {
       /** Must be specified if type is `CATEGORICAL`. The list of possible categories. */
@@ -717,7 +823,11 @@ declare namespace gapi.client {
       /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
       exemptedMembers?: string[];
       /** The log type that this config enables. */
-      logType?: string;
+      logType?:
+        | 'LOG_TYPE_UNSPECIFIED'
+        | 'ADMIN_READ'
+        | 'DATA_WRITE'
+        | 'DATA_READ';
     }
     interface GoogleIamV1__Binding {
       /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
@@ -794,11 +904,11 @@ declare namespace gapi.client {
       /** Cancels a running job. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -823,11 +933,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -852,11 +962,11 @@ declare namespace gapi.client {
       /** Creates a training or a batch prediction job. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -881,11 +991,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -910,11 +1020,11 @@ declare namespace gapi.client {
       /** Describes a job. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -937,11 +1047,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -966,11 +1076,11 @@ declare namespace gapi.client {
       /** Lists the jobs in the project. If there are no jobs that match the request parameters, the list request returns an empty response body: {}. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -999,11 +1109,11 @@ declare namespace gapi.client {
       /** Updates a specific job resource. Currently the only supported fields to update are `labels`. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1030,11 +1140,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1062,11 +1172,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1092,11 +1202,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1123,11 +1233,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1150,11 +1260,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1179,11 +1289,11 @@ declare namespace gapi.client {
       /** Adds a measurement of the objective metrics to a trial. This measurement is assumed to have been taken before the trial is complete. */
       addMeasurement(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1208,11 +1318,11 @@ declare namespace gapi.client {
       addMeasurement(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1237,11 +1347,11 @@ declare namespace gapi.client {
       /** Checks whether a trial should stop or not. Returns a long-running operation. When the operation is successful, it will contain a CheckTrialEarlyStoppingStateResponse. */
       checkEarlyStoppingState(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1266,11 +1376,11 @@ declare namespace gapi.client {
       checkEarlyStoppingState(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1295,11 +1405,11 @@ declare namespace gapi.client {
       /** Marks a trial as complete. */
       complete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1324,11 +1434,11 @@ declare namespace gapi.client {
       complete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1353,11 +1463,11 @@ declare namespace gapi.client {
       /** Adds a user provided trial to a study. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1382,11 +1492,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1411,11 +1521,11 @@ declare namespace gapi.client {
       /** Deletes a trial. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1438,11 +1548,11 @@ declare namespace gapi.client {
       /** Gets a trial. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1465,11 +1575,11 @@ declare namespace gapi.client {
       /** Lists the trials associated with a study. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1492,11 +1602,11 @@ declare namespace gapi.client {
       /** Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page. https://en.wikipedia.org/wiki/Pareto_efficiency */
       listOptimalTrials(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1521,11 +1631,11 @@ declare namespace gapi.client {
       listOptimalTrials(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1550,11 +1660,11 @@ declare namespace gapi.client {
       /** Stops a trial. */
       stop(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1579,11 +1689,11 @@ declare namespace gapi.client {
       stop(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1608,11 +1718,11 @@ declare namespace gapi.client {
       /** Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When this long-running operation succeeds, it will contain a SuggestTrialsResponse. */
       suggest(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1637,11 +1747,11 @@ declare namespace gapi.client {
       suggest(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1668,11 +1778,11 @@ declare namespace gapi.client {
       /** Creates a study. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1699,11 +1809,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1730,11 +1840,11 @@ declare namespace gapi.client {
       /** Deletes a study. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1757,11 +1867,11 @@ declare namespace gapi.client {
       /** Gets a study. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1784,11 +1894,11 @@ declare namespace gapi.client {
       /** Lists all the studies in a region for an associated project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1814,11 +1924,11 @@ declare namespace gapi.client {
       /** Get the complete list of CMLE capabilities in a location, along with their location-specific properties. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1841,11 +1951,11 @@ declare namespace gapi.client {
       /** List all locations that provides at least one type of CMLE capability. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1876,11 +1986,11 @@ declare namespace gapi.client {
       /** Creates a new version of a model from a trained TensorFlow model. If the version created in the cloud by this call is the first deployed version of the specified model, it will be made the default version of the model. When you add a version to a model that already has one or more versions, the default version does not automatically change. If you want a new version to be the default, you must call projects.models.versions.setDefault. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1905,11 +2015,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1934,11 +2044,11 @@ declare namespace gapi.client {
       /** Deletes a model version. Each model can have multiple versions deployed and in use at any given time. Use this method to remove a single version. Note: You cannot delete the version that is set as the default version of the model unless it is the only remaining version. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1961,11 +2071,11 @@ declare namespace gapi.client {
       /** Gets information about a model version. Models can have multiple versions. You can call projects.models.versions.list to get the same information that this method returns for all of the versions of a model. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1988,11 +2098,11 @@ declare namespace gapi.client {
       /** Gets basic information about all the versions of a model. If you expect that a model has many versions, or if you need to handle only a limited number of results at a time, you can request that the list be retrieved in batches (called pages). If there are no versions that match the request parameters, the list request returns an empty response body: {}. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2021,11 +2131,11 @@ declare namespace gapi.client {
       /** Updates the specified Version resource. Currently the only update-able fields are `description`, `requestLoggingConfig`, `autoScaling.minNodes`, and `manualScaling.nodes`. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2052,11 +2162,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2083,11 +2193,11 @@ declare namespace gapi.client {
       /** Designates a version to be the default for the model. The default version is used for prediction requests made against the model that don't specify a version. The first version to be created for a model is automatically set as the default. You must make any subsequent changes to the default version setting manually using this method. */
       setDefault(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2112,11 +2222,11 @@ declare namespace gapi.client {
       setDefault(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2143,11 +2253,11 @@ declare namespace gapi.client {
       /** Creates a model which will later contain one or more versions. You must add at least one version before you can request predictions from the model. Add versions by calling projects.models.versions.create. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2172,11 +2282,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2201,11 +2311,11 @@ declare namespace gapi.client {
       /** Deletes a model. You can only delete a model if there are no versions in it. You can delete versions by calling projects.models.versions.delete. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2228,11 +2338,11 @@ declare namespace gapi.client {
       /** Gets information about a model, including its name, the description (if set), and the default version (if at least one version of the model has been deployed). */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2255,11 +2365,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2284,11 +2394,11 @@ declare namespace gapi.client {
       /** Lists the models in a project. Each project can contain multiple models, and each model can have multiple versions. If there are no models that match the request parameters, the list request returns an empty response body: {}. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2317,11 +2427,11 @@ declare namespace gapi.client {
       /** Updates a specific model resource. Currently the only supported fields to update are `description` and `default_version.name`. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2348,11 +2458,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2380,11 +2490,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2410,11 +2520,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2442,11 +2552,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2469,11 +2579,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2496,11 +2606,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2533,11 +2643,11 @@ declare namespace gapi.client {
       /** Performs explanation on the data in the request. {% dynamic include "/ai-platform/includes/___explain-request" %} */
       explain(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2562,11 +2672,11 @@ declare namespace gapi.client {
       explain(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2591,11 +2701,11 @@ declare namespace gapi.client {
       /** Get the service account information associated with your project. You need this information in order to grant the service account permissions for the Google Cloud Storage location where you put your model training code for training the model with Google Cloud Machine Learning. */
       getConfig(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2618,11 +2728,11 @@ declare namespace gapi.client {
       /** Performs online prediction on the data in the request. {% dynamic include "/ai-platform/includes/___predict-request" %} */
       predict(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2647,11 +2757,11 @@ declare namespace gapi.client {
       predict(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

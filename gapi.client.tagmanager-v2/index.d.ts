@@ -42,7 +42,11 @@ declare namespace gapi.client {
     }
     interface AccountAccess {
       /** Whether the user has no access, user access, or admin access to an account. */
-      permission?: string;
+      permission?:
+        | 'accountPermissionUnspecified'
+        | 'noAccess'
+        | 'user'
+        | 'admin';
     }
     interface AccountFeatures {
       /** Whether this Account supports multiple Containers. */
@@ -60,7 +64,124 @@ declare namespace gapi.client {
       /** GTM BuiltInVariable's API relative path. */
       path?: string;
       /** Type of built-in variable. */
-      type?: string;
+      type?:
+        | 'builtInVariableTypeUnspecified'
+        | 'pageUrl'
+        | 'pageHostname'
+        | 'pagePath'
+        | 'referrer'
+        | 'event'
+        | 'clickElement'
+        | 'clickClasses'
+        | 'clickId'
+        | 'clickTarget'
+        | 'clickUrl'
+        | 'clickText'
+        | 'firstPartyServingUrl'
+        | 'formElement'
+        | 'formClasses'
+        | 'formId'
+        | 'formTarget'
+        | 'formUrl'
+        | 'formText'
+        | 'errorMessage'
+        | 'errorUrl'
+        | 'errorLine'
+        | 'newHistoryUrl'
+        | 'oldHistoryUrl'
+        | 'newHistoryFragment'
+        | 'oldHistoryFragment'
+        | 'newHistoryState'
+        | 'oldHistoryState'
+        | 'historySource'
+        | 'containerVersion'
+        | 'debugMode'
+        | 'randomNumber'
+        | 'containerId'
+        | 'appId'
+        | 'appName'
+        | 'appVersionCode'
+        | 'appVersionName'
+        | 'language'
+        | 'osVersion'
+        | 'platform'
+        | 'sdkVersion'
+        | 'deviceName'
+        | 'resolution'
+        | 'advertiserId'
+        | 'advertisingTrackingEnabled'
+        | 'htmlId'
+        | 'environmentName'
+        | 'ampBrowserLanguage'
+        | 'ampCanonicalPath'
+        | 'ampCanonicalUrl'
+        | 'ampCanonicalHost'
+        | 'ampReferrer'
+        | 'ampTitle'
+        | 'ampClientId'
+        | 'ampClientTimezone'
+        | 'ampClientTimestamp'
+        | 'ampClientScreenWidth'
+        | 'ampClientScreenHeight'
+        | 'ampClientScrollX'
+        | 'ampClientScrollY'
+        | 'ampClientMaxScrollX'
+        | 'ampClientMaxScrollY'
+        | 'ampTotalEngagedTime'
+        | 'ampPageViewId'
+        | 'ampPageLoadTime'
+        | 'ampPageDownloadTime'
+        | 'ampGtmEvent'
+        | 'eventName'
+        | 'firebaseEventParameterCampaign'
+        | 'firebaseEventParameterCampaignAclid'
+        | 'firebaseEventParameterCampaignAnid'
+        | 'firebaseEventParameterCampaignClickTimestamp'
+        | 'firebaseEventParameterCampaignContent'
+        | 'firebaseEventParameterCampaignCp1'
+        | 'firebaseEventParameterCampaignGclid'
+        | 'firebaseEventParameterCampaignSource'
+        | 'firebaseEventParameterCampaignTerm'
+        | 'firebaseEventParameterCurrency'
+        | 'firebaseEventParameterDynamicLinkAcceptTime'
+        | 'firebaseEventParameterDynamicLinkLinkid'
+        | 'firebaseEventParameterNotificationMessageDeviceTime'
+        | 'firebaseEventParameterNotificationMessageId'
+        | 'firebaseEventParameterNotificationMessageName'
+        | 'firebaseEventParameterNotificationMessageTime'
+        | 'firebaseEventParameterNotificationTopic'
+        | 'firebaseEventParameterPreviousAppVersion'
+        | 'firebaseEventParameterPreviousOsVersion'
+        | 'firebaseEventParameterPrice'
+        | 'firebaseEventParameterProductId'
+        | 'firebaseEventParameterQuantity'
+        | 'firebaseEventParameterValue'
+        | 'videoProvider'
+        | 'videoUrl'
+        | 'videoTitle'
+        | 'videoDuration'
+        | 'videoPercent'
+        | 'videoVisible'
+        | 'videoStatus'
+        | 'videoCurrentTime'
+        | 'scrollDepthThreshold'
+        | 'scrollDepthUnits'
+        | 'scrollDepthDirection'
+        | 'elementVisibilityRatio'
+        | 'elementVisibilityTime'
+        | 'elementVisibilityFirstTime'
+        | 'elementVisibilityRecentTime'
+        | 'requestPath'
+        | 'requestMethod'
+        | 'clientName'
+        | 'queryString'
+        | 'serverPageLocationUrl'
+        | 'serverPageLocationPath'
+        | 'serverPageLocationHostname'
+        | 'visitorRegion'
+        | 'analyticsClientId'
+        | 'analyticsSessionId'
+        | 'analyticsSessionNumber';
       /** GTM Workspace ID. */
       workspaceId?: string;
     }
@@ -100,7 +221,19 @@ declare namespace gapi.client {
       /** A list of named parameters (key/value), depending on the condition's type. Notes: - For binary operators, include parameters named arg0 and arg1 for specifying the left and right operands, respectively. - At this time, the left operand (arg0) must be a reference to a variable. - For case-insensitive Regex matching, include a boolean parameter named ignore_case that is set to true. If not specified or set to any other value, the matching will be case sensitive. - To negate an operator, include a boolean parameter named negate boolean parameter that is set to true. */
       parameter?: Parameter[];
       /** The type of operator for this condition. */
-      type?: string;
+      type?:
+        | 'conditionTypeUnspecified'
+        | 'equals'
+        | 'contains'
+        | 'startsWith'
+        | 'endsWith'
+        | 'matchRegex'
+        | 'greater'
+        | 'greaterOrEquals'
+        | 'less'
+        | 'lessOrEquals'
+        | 'cssSelector'
+        | 'urlMatches';
     }
     interface Container {
       /** GTM Account ID. */
@@ -128,13 +261,27 @@ declare namespace gapi.client {
       /** Auto generated link to the tag manager UI */
       tagManagerUrl?: string;
       /** List of Usage Contexts for the Container. Valid values include: web, android, or ios. */
-      usageContext?: string[];
+      usageContext?:
+        | 'usageContextUnspecified'
+        | 'web'
+        | 'android'
+        | 'ios'
+        | 'androidSdk5'
+        | 'iosSdk5'
+        | 'amp'
+        | 'server'[];
     }
     interface ContainerAccess {
       /** GTM Container ID. */
       containerId?: string;
       /** List of Container permissions. */
-      permission?: string;
+      permission?:
+        | 'containerPermissionUnspecified'
+        | 'noAccess'
+        | 'read'
+        | 'edit'
+        | 'approve'
+        | 'publish';
     }
     interface ContainerFeatures {
       /** Whether this Container supports built-in variables */
@@ -302,7 +449,12 @@ declare namespace gapi.client {
       /** The built in variable being represented by the entity. */
       builtInVariable?: BuiltInVariable;
       /** Represents how the entity has been changed in the workspace. */
-      changeStatus?: string;
+      changeStatus?:
+        | 'changeStatusUnspecified'
+        | 'none'
+        | 'added'
+        | 'deleted'
+        | 'updated';
       /** The client being represented by the entity. */
       client?: Client;
       /** The custom template being represented by the entity. */
@@ -348,7 +500,7 @@ declare namespace gapi.client {
       /** Auto generated link to the tag manager UI */
       tagManagerUrl?: string;
       /** The type of this environment. */
-      type?: string;
+      type?: 'user' | 'live' | 'latest' | 'workspace';
       /** Default preview page url for the environment. */
       url?: string;
       /** Represents a link to a quick preview of a workspace. */
@@ -552,7 +704,15 @@ declare namespace gapi.client {
       /** This map parameter's parameters (must have keys; keys must be unique). */
       map?: Parameter[];
       /** The parameter type. Valid values are: - boolean: The value represents a boolean, represented as 'true' or 'false' - integer: The value represents a 64-bit signed integer value, in base 10 - list: A list of parameters should be specified - map: A map of parameters should be specified - template: The value represents any text; this can include variable references (even variable references that might return non-string types) - trigger_reference: The value represents a trigger, represented as the trigger id - tag_reference: The value represents a tag, represented as the tag name */
-      type?: string;
+      type?:
+        | 'typeUnspecified'
+        | 'template'
+        | 'integer'
+        | 'boolean'
+        | 'list'
+        | 'map'
+        | 'triggerReference'
+        | 'tagReference';
       /** A parameter's value (may contain variable references). as appropriate to the specified type. */
       value?: string;
     }
@@ -668,7 +828,11 @@ declare namespace gapi.client {
       /** The list of setup tags. Currently we only allow one. */
       setupTag?: SetupTag[];
       /** Option to fire this tag. */
-      tagFiringOption?: string;
+      tagFiringOption?:
+        | 'tagFiringOptionUnspecified'
+        | 'unlimited'
+        | 'oncePerEvent'
+        | 'oncePerLoad';
       /** The Tag ID uniquely identifies the GTM Tag. */
       tagId?: string;
       /** Auto generated link to the tag manager UI */
@@ -682,7 +846,7 @@ declare namespace gapi.client {
     }
     interface TagConsentSetting {
       /** The tag's consent status. If set to NEEDED, the runtime will check that the consent types specified by the consent_type field have been granted. */
-      consentStatus?: string;
+      consentStatus?: 'notSet' | 'notNeeded' | 'needed';
       /** The type of consents to check for during tag firing if in the consent NEEDED state. This parameter must be of type LIST where each list item is of type STRING. */
       consentType?: Parameter;
     }
@@ -766,7 +930,42 @@ declare namespace gapi.client {
       /** The Trigger ID uniquely identifies the GTM Trigger. */
       triggerId?: string;
       /** Defines the data layer event that causes this trigger. */
-      type?: string;
+      type?:
+        | 'eventTypeUnspecified'
+        | 'pageview'
+        | 'domReady'
+        | 'windowLoaded'
+        | 'customEvent'
+        | 'triggerGroup'
+        | 'init'
+        | 'consentInit'
+        | 'serverPageview'
+        | 'always'
+        | 'firebaseAppException'
+        | 'firebaseAppUpdate'
+        | 'firebaseCampaign'
+        | 'firebaseFirstOpen'
+        | 'firebaseInAppPurchase'
+        | 'firebaseNotificationDismiss'
+        | 'firebaseNotificationForeground'
+        | 'firebaseNotificationOpen'
+        | 'firebaseNotificationReceive'
+        | 'firebaseOsUpdate'
+        | 'firebaseSessionStart'
+        | 'firebaseUserEngagement'
+        | 'formSubmission'
+        | 'click'
+        | 'linkClick'
+        | 'jsError'
+        | 'historyChange'
+        | 'timer'
+        | 'ampClick'
+        | 'ampTimer'
+        | 'ampScroll'
+        | 'ampVisibility'
+        | 'youTubeVideo'
+        | 'scrollDepth'
+        | 'elementVisibility';
       /** Globally unique id of the trigger that auto-generates this (a Form Submit, Link Click or Timer listener) if any. Used to make incompatible auto-events work together with trigger filtering based on trigger ids. This value is populated during output generation since the tags implied by triggers don't exist until then. Only valid for Form Submit, Link Click and Timer triggers. */
       uniqueTriggerId?: Parameter;
       /** List of integer percentage values for scroll triggers. The trigger will fire when each percentage is reached when the view is scrolled vertically. Only valid for AMP scroll triggers. */
@@ -834,7 +1033,7 @@ declare namespace gapi.client {
     }
     interface VariableFormatValue {
       /** The option to convert a string-type variable value to either lowercase or uppercase. */
-      caseConversionType?: string;
+      caseConversionType?: 'none' | 'lowercase' | 'uppercase';
       /** The value to convert if a variable value is false. */
       convertFalseToValue?: Parameter;
       /** The value to convert if a variable value is null. */
@@ -842,7 +1041,7 @@ declare namespace gapi.client {
       /** The option to convert a variable value to a boolean. */
       convertToBoolean?: boolean;
       /** The option to convert a variable value to a number. */
-      convertToNumber?: string;
+      convertToNumber?: 'decimalSeparatorTypeUnspecified' | 'period' | 'comma';
       /** The value to convert if a variable value is true. */
       convertTrueToValue?: Parameter;
       /** The value to convert if a variable value is undefined. */
@@ -914,11 +1113,11 @@ declare namespace gapi.client {
       /** Gets a Destination. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -941,13 +1140,13 @@ declare namespace gapi.client {
       /** Adds a Destination to this Container and removes it from the Container to which it is currently linked. */
       link(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Must be set to true to allow features.user_permissions to change from false to true. If this operation causes an update but this bit is false, the operation will fail. */
         allowUserPermissionFeatureUpdate?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Destination ID to be linked to the current container. */
@@ -972,11 +1171,11 @@ declare namespace gapi.client {
       /** Lists all Destinations linked to a GTM Container. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1001,11 +1200,11 @@ declare namespace gapi.client {
       /** Creates a GTM Environment. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1030,11 +1229,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1059,11 +1258,11 @@ declare namespace gapi.client {
       /** Deletes a GTM Environment. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1086,11 +1285,11 @@ declare namespace gapi.client {
       /** Gets a GTM Environment. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1113,11 +1312,11 @@ declare namespace gapi.client {
       /** Lists all GTM Environments of a GTM Container. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1142,11 +1341,11 @@ declare namespace gapi.client {
       /** Re-generates the authorization code for a GTM Environment. */
       reauthorize(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1171,11 +1370,11 @@ declare namespace gapi.client {
       reauthorize(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1200,11 +1399,11 @@ declare namespace gapi.client {
       /** Updates a GTM Environment. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1231,11 +1430,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1264,11 +1463,11 @@ declare namespace gapi.client {
       /** Gets the latest container version header */
       latest(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1291,11 +1490,11 @@ declare namespace gapi.client {
       /** Lists all Container Versions of a GTM Container. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1324,11 +1523,11 @@ declare namespace gapi.client {
       /** Deletes a Container Version. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1351,11 +1550,11 @@ declare namespace gapi.client {
       /** Gets a Container Version. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM ContainerVersion ID. Specify published to retrieve the currently published version. */
@@ -1380,11 +1579,11 @@ declare namespace gapi.client {
       /** Gets the live (i.e. published) container version */
       live(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1407,11 +1606,11 @@ declare namespace gapi.client {
       /** Publishes a Container Version. */
       publish(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1436,11 +1635,11 @@ declare namespace gapi.client {
       /** Sets the latest version used for synchronization of workspaces when detecting conflicts and errors. */
       set_latest(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1463,11 +1662,11 @@ declare namespace gapi.client {
       /** Undeletes a Container Version. */
       undelete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1490,11 +1689,11 @@ declare namespace gapi.client {
       /** Updates a Container Version. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1521,11 +1720,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1554,11 +1753,11 @@ declare namespace gapi.client {
       /** Creates one or more GTM Built-In Variables. */
       create(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1574,7 +1773,243 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** The types of built-in variables to enable. */
-        type?: string | string[];
+        type?:
+          | 'builtInVariableTypeUnspecified'
+          | 'pageUrl'
+          | 'pageHostname'
+          | 'pagePath'
+          | 'referrer'
+          | 'event'
+          | 'clickElement'
+          | 'clickClasses'
+          | 'clickId'
+          | 'clickTarget'
+          | 'clickUrl'
+          | 'clickText'
+          | 'firstPartyServingUrl'
+          | 'formElement'
+          | 'formClasses'
+          | 'formId'
+          | 'formTarget'
+          | 'formUrl'
+          | 'formText'
+          | 'errorMessage'
+          | 'errorUrl'
+          | 'errorLine'
+          | 'newHistoryUrl'
+          | 'oldHistoryUrl'
+          | 'newHistoryFragment'
+          | 'oldHistoryFragment'
+          | 'newHistoryState'
+          | 'oldHistoryState'
+          | 'historySource'
+          | 'containerVersion'
+          | 'debugMode'
+          | 'randomNumber'
+          | 'containerId'
+          | 'appId'
+          | 'appName'
+          | 'appVersionCode'
+          | 'appVersionName'
+          | 'language'
+          | 'osVersion'
+          | 'platform'
+          | 'sdkVersion'
+          | 'deviceName'
+          | 'resolution'
+          | 'advertiserId'
+          | 'advertisingTrackingEnabled'
+          | 'htmlId'
+          | 'environmentName'
+          | 'ampBrowserLanguage'
+          | 'ampCanonicalPath'
+          | 'ampCanonicalUrl'
+          | 'ampCanonicalHost'
+          | 'ampReferrer'
+          | 'ampTitle'
+          | 'ampClientId'
+          | 'ampClientTimezone'
+          | 'ampClientTimestamp'
+          | 'ampClientScreenWidth'
+          | 'ampClientScreenHeight'
+          | 'ampClientScrollX'
+          | 'ampClientScrollY'
+          | 'ampClientMaxScrollX'
+          | 'ampClientMaxScrollY'
+          | 'ampTotalEngagedTime'
+          | 'ampPageViewId'
+          | 'ampPageLoadTime'
+          | 'ampPageDownloadTime'
+          | 'ampGtmEvent'
+          | 'eventName'
+          | 'firebaseEventParameterCampaign'
+          | 'firebaseEventParameterCampaignAclid'
+          | 'firebaseEventParameterCampaignAnid'
+          | 'firebaseEventParameterCampaignClickTimestamp'
+          | 'firebaseEventParameterCampaignContent'
+          | 'firebaseEventParameterCampaignCp1'
+          | 'firebaseEventParameterCampaignGclid'
+          | 'firebaseEventParameterCampaignSource'
+          | 'firebaseEventParameterCampaignTerm'
+          | 'firebaseEventParameterCurrency'
+          | 'firebaseEventParameterDynamicLinkAcceptTime'
+          | 'firebaseEventParameterDynamicLinkLinkid'
+          | 'firebaseEventParameterNotificationMessageDeviceTime'
+          | 'firebaseEventParameterNotificationMessageId'
+          | 'firebaseEventParameterNotificationMessageName'
+          | 'firebaseEventParameterNotificationMessageTime'
+          | 'firebaseEventParameterNotificationTopic'
+          | 'firebaseEventParameterPreviousAppVersion'
+          | 'firebaseEventParameterPreviousOsVersion'
+          | 'firebaseEventParameterPrice'
+          | 'firebaseEventParameterProductId'
+          | 'firebaseEventParameterQuantity'
+          | 'firebaseEventParameterValue'
+          | 'videoProvider'
+          | 'videoUrl'
+          | 'videoTitle'
+          | 'videoDuration'
+          | 'videoPercent'
+          | 'videoVisible'
+          | 'videoStatus'
+          | 'videoCurrentTime'
+          | 'scrollDepthThreshold'
+          | 'scrollDepthUnits'
+          | 'scrollDepthDirection'
+          | 'elementVisibilityRatio'
+          | 'elementVisibilityTime'
+          | 'elementVisibilityFirstTime'
+          | 'elementVisibilityRecentTime'
+          | 'requestPath'
+          | 'requestMethod'
+          | 'clientName'
+          | 'queryString'
+          | 'serverPageLocationUrl'
+          | 'serverPageLocationPath'
+          | 'serverPageLocationHostname'
+          | 'visitorRegion'
+          | 'analyticsClientId'
+          | 'analyticsSessionId'
+          | 'analyticsSessionNumber'
+          | (
+              | 'builtInVariableTypeUnspecified'
+              | 'pageUrl'
+              | 'pageHostname'
+              | 'pagePath'
+              | 'referrer'
+              | 'event'
+              | 'clickElement'
+              | 'clickClasses'
+              | 'clickId'
+              | 'clickTarget'
+              | 'clickUrl'
+              | 'clickText'
+              | 'firstPartyServingUrl'
+              | 'formElement'
+              | 'formClasses'
+              | 'formId'
+              | 'formTarget'
+              | 'formUrl'
+              | 'formText'
+              | 'errorMessage'
+              | 'errorUrl'
+              | 'errorLine'
+              | 'newHistoryUrl'
+              | 'oldHistoryUrl'
+              | 'newHistoryFragment'
+              | 'oldHistoryFragment'
+              | 'newHistoryState'
+              | 'oldHistoryState'
+              | 'historySource'
+              | 'containerVersion'
+              | 'debugMode'
+              | 'randomNumber'
+              | 'containerId'
+              | 'appId'
+              | 'appName'
+              | 'appVersionCode'
+              | 'appVersionName'
+              | 'language'
+              | 'osVersion'
+              | 'platform'
+              | 'sdkVersion'
+              | 'deviceName'
+              | 'resolution'
+              | 'advertiserId'
+              | 'advertisingTrackingEnabled'
+              | 'htmlId'
+              | 'environmentName'
+              | 'ampBrowserLanguage'
+              | 'ampCanonicalPath'
+              | 'ampCanonicalUrl'
+              | 'ampCanonicalHost'
+              | 'ampReferrer'
+              | 'ampTitle'
+              | 'ampClientId'
+              | 'ampClientTimezone'
+              | 'ampClientTimestamp'
+              | 'ampClientScreenWidth'
+              | 'ampClientScreenHeight'
+              | 'ampClientScrollX'
+              | 'ampClientScrollY'
+              | 'ampClientMaxScrollX'
+              | 'ampClientMaxScrollY'
+              | 'ampTotalEngagedTime'
+              | 'ampPageViewId'
+              | 'ampPageLoadTime'
+              | 'ampPageDownloadTime'
+              | 'ampGtmEvent'
+              | 'eventName'
+              | 'firebaseEventParameterCampaign'
+              | 'firebaseEventParameterCampaignAclid'
+              | 'firebaseEventParameterCampaignAnid'
+              | 'firebaseEventParameterCampaignClickTimestamp'
+              | 'firebaseEventParameterCampaignContent'
+              | 'firebaseEventParameterCampaignCp1'
+              | 'firebaseEventParameterCampaignGclid'
+              | 'firebaseEventParameterCampaignSource'
+              | 'firebaseEventParameterCampaignTerm'
+              | 'firebaseEventParameterCurrency'
+              | 'firebaseEventParameterDynamicLinkAcceptTime'
+              | 'firebaseEventParameterDynamicLinkLinkid'
+              | 'firebaseEventParameterNotificationMessageDeviceTime'
+              | 'firebaseEventParameterNotificationMessageId'
+              | 'firebaseEventParameterNotificationMessageName'
+              | 'firebaseEventParameterNotificationMessageTime'
+              | 'firebaseEventParameterNotificationTopic'
+              | 'firebaseEventParameterPreviousAppVersion'
+              | 'firebaseEventParameterPreviousOsVersion'
+              | 'firebaseEventParameterPrice'
+              | 'firebaseEventParameterProductId'
+              | 'firebaseEventParameterQuantity'
+              | 'firebaseEventParameterValue'
+              | 'videoProvider'
+              | 'videoUrl'
+              | 'videoTitle'
+              | 'videoDuration'
+              | 'videoPercent'
+              | 'videoVisible'
+              | 'videoStatus'
+              | 'videoCurrentTime'
+              | 'scrollDepthThreshold'
+              | 'scrollDepthUnits'
+              | 'scrollDepthDirection'
+              | 'elementVisibilityRatio'
+              | 'elementVisibilityTime'
+              | 'elementVisibilityFirstTime'
+              | 'elementVisibilityRecentTime'
+              | 'requestPath'
+              | 'requestMethod'
+              | 'clientName'
+              | 'queryString'
+              | 'serverPageLocationUrl'
+              | 'serverPageLocationPath'
+              | 'serverPageLocationHostname'
+              | 'visitorRegion'
+              | 'analyticsClientId'
+              | 'analyticsSessionId'
+              | 'analyticsSessionNumber'
+            )[];
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1583,11 +2018,11 @@ declare namespace gapi.client {
       /** Deletes one or more GTM Built-In Variables. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1603,7 +2038,243 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** The types of built-in variables to delete. */
-        type?: string | string[];
+        type?:
+          | 'builtInVariableTypeUnspecified'
+          | 'pageUrl'
+          | 'pageHostname'
+          | 'pagePath'
+          | 'referrer'
+          | 'event'
+          | 'clickElement'
+          | 'clickClasses'
+          | 'clickId'
+          | 'clickTarget'
+          | 'clickUrl'
+          | 'clickText'
+          | 'firstPartyServingUrl'
+          | 'formElement'
+          | 'formClasses'
+          | 'formId'
+          | 'formTarget'
+          | 'formUrl'
+          | 'formText'
+          | 'errorMessage'
+          | 'errorUrl'
+          | 'errorLine'
+          | 'newHistoryUrl'
+          | 'oldHistoryUrl'
+          | 'newHistoryFragment'
+          | 'oldHistoryFragment'
+          | 'newHistoryState'
+          | 'oldHistoryState'
+          | 'historySource'
+          | 'containerVersion'
+          | 'debugMode'
+          | 'randomNumber'
+          | 'containerId'
+          | 'appId'
+          | 'appName'
+          | 'appVersionCode'
+          | 'appVersionName'
+          | 'language'
+          | 'osVersion'
+          | 'platform'
+          | 'sdkVersion'
+          | 'deviceName'
+          | 'resolution'
+          | 'advertiserId'
+          | 'advertisingTrackingEnabled'
+          | 'htmlId'
+          | 'environmentName'
+          | 'ampBrowserLanguage'
+          | 'ampCanonicalPath'
+          | 'ampCanonicalUrl'
+          | 'ampCanonicalHost'
+          | 'ampReferrer'
+          | 'ampTitle'
+          | 'ampClientId'
+          | 'ampClientTimezone'
+          | 'ampClientTimestamp'
+          | 'ampClientScreenWidth'
+          | 'ampClientScreenHeight'
+          | 'ampClientScrollX'
+          | 'ampClientScrollY'
+          | 'ampClientMaxScrollX'
+          | 'ampClientMaxScrollY'
+          | 'ampTotalEngagedTime'
+          | 'ampPageViewId'
+          | 'ampPageLoadTime'
+          | 'ampPageDownloadTime'
+          | 'ampGtmEvent'
+          | 'eventName'
+          | 'firebaseEventParameterCampaign'
+          | 'firebaseEventParameterCampaignAclid'
+          | 'firebaseEventParameterCampaignAnid'
+          | 'firebaseEventParameterCampaignClickTimestamp'
+          | 'firebaseEventParameterCampaignContent'
+          | 'firebaseEventParameterCampaignCp1'
+          | 'firebaseEventParameterCampaignGclid'
+          | 'firebaseEventParameterCampaignSource'
+          | 'firebaseEventParameterCampaignTerm'
+          | 'firebaseEventParameterCurrency'
+          | 'firebaseEventParameterDynamicLinkAcceptTime'
+          | 'firebaseEventParameterDynamicLinkLinkid'
+          | 'firebaseEventParameterNotificationMessageDeviceTime'
+          | 'firebaseEventParameterNotificationMessageId'
+          | 'firebaseEventParameterNotificationMessageName'
+          | 'firebaseEventParameterNotificationMessageTime'
+          | 'firebaseEventParameterNotificationTopic'
+          | 'firebaseEventParameterPreviousAppVersion'
+          | 'firebaseEventParameterPreviousOsVersion'
+          | 'firebaseEventParameterPrice'
+          | 'firebaseEventParameterProductId'
+          | 'firebaseEventParameterQuantity'
+          | 'firebaseEventParameterValue'
+          | 'videoProvider'
+          | 'videoUrl'
+          | 'videoTitle'
+          | 'videoDuration'
+          | 'videoPercent'
+          | 'videoVisible'
+          | 'videoStatus'
+          | 'videoCurrentTime'
+          | 'scrollDepthThreshold'
+          | 'scrollDepthUnits'
+          | 'scrollDepthDirection'
+          | 'elementVisibilityRatio'
+          | 'elementVisibilityTime'
+          | 'elementVisibilityFirstTime'
+          | 'elementVisibilityRecentTime'
+          | 'requestPath'
+          | 'requestMethod'
+          | 'clientName'
+          | 'queryString'
+          | 'serverPageLocationUrl'
+          | 'serverPageLocationPath'
+          | 'serverPageLocationHostname'
+          | 'visitorRegion'
+          | 'analyticsClientId'
+          | 'analyticsSessionId'
+          | 'analyticsSessionNumber'
+          | (
+              | 'builtInVariableTypeUnspecified'
+              | 'pageUrl'
+              | 'pageHostname'
+              | 'pagePath'
+              | 'referrer'
+              | 'event'
+              | 'clickElement'
+              | 'clickClasses'
+              | 'clickId'
+              | 'clickTarget'
+              | 'clickUrl'
+              | 'clickText'
+              | 'firstPartyServingUrl'
+              | 'formElement'
+              | 'formClasses'
+              | 'formId'
+              | 'formTarget'
+              | 'formUrl'
+              | 'formText'
+              | 'errorMessage'
+              | 'errorUrl'
+              | 'errorLine'
+              | 'newHistoryUrl'
+              | 'oldHistoryUrl'
+              | 'newHistoryFragment'
+              | 'oldHistoryFragment'
+              | 'newHistoryState'
+              | 'oldHistoryState'
+              | 'historySource'
+              | 'containerVersion'
+              | 'debugMode'
+              | 'randomNumber'
+              | 'containerId'
+              | 'appId'
+              | 'appName'
+              | 'appVersionCode'
+              | 'appVersionName'
+              | 'language'
+              | 'osVersion'
+              | 'platform'
+              | 'sdkVersion'
+              | 'deviceName'
+              | 'resolution'
+              | 'advertiserId'
+              | 'advertisingTrackingEnabled'
+              | 'htmlId'
+              | 'environmentName'
+              | 'ampBrowserLanguage'
+              | 'ampCanonicalPath'
+              | 'ampCanonicalUrl'
+              | 'ampCanonicalHost'
+              | 'ampReferrer'
+              | 'ampTitle'
+              | 'ampClientId'
+              | 'ampClientTimezone'
+              | 'ampClientTimestamp'
+              | 'ampClientScreenWidth'
+              | 'ampClientScreenHeight'
+              | 'ampClientScrollX'
+              | 'ampClientScrollY'
+              | 'ampClientMaxScrollX'
+              | 'ampClientMaxScrollY'
+              | 'ampTotalEngagedTime'
+              | 'ampPageViewId'
+              | 'ampPageLoadTime'
+              | 'ampPageDownloadTime'
+              | 'ampGtmEvent'
+              | 'eventName'
+              | 'firebaseEventParameterCampaign'
+              | 'firebaseEventParameterCampaignAclid'
+              | 'firebaseEventParameterCampaignAnid'
+              | 'firebaseEventParameterCampaignClickTimestamp'
+              | 'firebaseEventParameterCampaignContent'
+              | 'firebaseEventParameterCampaignCp1'
+              | 'firebaseEventParameterCampaignGclid'
+              | 'firebaseEventParameterCampaignSource'
+              | 'firebaseEventParameterCampaignTerm'
+              | 'firebaseEventParameterCurrency'
+              | 'firebaseEventParameterDynamicLinkAcceptTime'
+              | 'firebaseEventParameterDynamicLinkLinkid'
+              | 'firebaseEventParameterNotificationMessageDeviceTime'
+              | 'firebaseEventParameterNotificationMessageId'
+              | 'firebaseEventParameterNotificationMessageName'
+              | 'firebaseEventParameterNotificationMessageTime'
+              | 'firebaseEventParameterNotificationTopic'
+              | 'firebaseEventParameterPreviousAppVersion'
+              | 'firebaseEventParameterPreviousOsVersion'
+              | 'firebaseEventParameterPrice'
+              | 'firebaseEventParameterProductId'
+              | 'firebaseEventParameterQuantity'
+              | 'firebaseEventParameterValue'
+              | 'videoProvider'
+              | 'videoUrl'
+              | 'videoTitle'
+              | 'videoDuration'
+              | 'videoPercent'
+              | 'videoVisible'
+              | 'videoStatus'
+              | 'videoCurrentTime'
+              | 'scrollDepthThreshold'
+              | 'scrollDepthUnits'
+              | 'scrollDepthDirection'
+              | 'elementVisibilityRatio'
+              | 'elementVisibilityTime'
+              | 'elementVisibilityFirstTime'
+              | 'elementVisibilityRecentTime'
+              | 'requestPath'
+              | 'requestMethod'
+              | 'clientName'
+              | 'queryString'
+              | 'serverPageLocationUrl'
+              | 'serverPageLocationPath'
+              | 'serverPageLocationHostname'
+              | 'visitorRegion'
+              | 'analyticsClientId'
+              | 'analyticsSessionId'
+              | 'analyticsSessionNumber'
+            )[];
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1612,11 +2283,11 @@ declare namespace gapi.client {
       /** Lists all the enabled Built-In Variables of a GTM Container. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1641,11 +2312,11 @@ declare namespace gapi.client {
       /** Reverts changes to a GTM Built-In Variables in a GTM Workspace. */
       revert(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1661,7 +2332,124 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** The type of built-in variable to revert. */
-        type?: string;
+        type?:
+          | 'builtInVariableTypeUnspecified'
+          | 'pageUrl'
+          | 'pageHostname'
+          | 'pagePath'
+          | 'referrer'
+          | 'event'
+          | 'clickElement'
+          | 'clickClasses'
+          | 'clickId'
+          | 'clickTarget'
+          | 'clickUrl'
+          | 'clickText'
+          | 'firstPartyServingUrl'
+          | 'formElement'
+          | 'formClasses'
+          | 'formId'
+          | 'formTarget'
+          | 'formUrl'
+          | 'formText'
+          | 'errorMessage'
+          | 'errorUrl'
+          | 'errorLine'
+          | 'newHistoryUrl'
+          | 'oldHistoryUrl'
+          | 'newHistoryFragment'
+          | 'oldHistoryFragment'
+          | 'newHistoryState'
+          | 'oldHistoryState'
+          | 'historySource'
+          | 'containerVersion'
+          | 'debugMode'
+          | 'randomNumber'
+          | 'containerId'
+          | 'appId'
+          | 'appName'
+          | 'appVersionCode'
+          | 'appVersionName'
+          | 'language'
+          | 'osVersion'
+          | 'platform'
+          | 'sdkVersion'
+          | 'deviceName'
+          | 'resolution'
+          | 'advertiserId'
+          | 'advertisingTrackingEnabled'
+          | 'htmlId'
+          | 'environmentName'
+          | 'ampBrowserLanguage'
+          | 'ampCanonicalPath'
+          | 'ampCanonicalUrl'
+          | 'ampCanonicalHost'
+          | 'ampReferrer'
+          | 'ampTitle'
+          | 'ampClientId'
+          | 'ampClientTimezone'
+          | 'ampClientTimestamp'
+          | 'ampClientScreenWidth'
+          | 'ampClientScreenHeight'
+          | 'ampClientScrollX'
+          | 'ampClientScrollY'
+          | 'ampClientMaxScrollX'
+          | 'ampClientMaxScrollY'
+          | 'ampTotalEngagedTime'
+          | 'ampPageViewId'
+          | 'ampPageLoadTime'
+          | 'ampPageDownloadTime'
+          | 'ampGtmEvent'
+          | 'eventName'
+          | 'firebaseEventParameterCampaign'
+          | 'firebaseEventParameterCampaignAclid'
+          | 'firebaseEventParameterCampaignAnid'
+          | 'firebaseEventParameterCampaignClickTimestamp'
+          | 'firebaseEventParameterCampaignContent'
+          | 'firebaseEventParameterCampaignCp1'
+          | 'firebaseEventParameterCampaignGclid'
+          | 'firebaseEventParameterCampaignSource'
+          | 'firebaseEventParameterCampaignTerm'
+          | 'firebaseEventParameterCurrency'
+          | 'firebaseEventParameterDynamicLinkAcceptTime'
+          | 'firebaseEventParameterDynamicLinkLinkid'
+          | 'firebaseEventParameterNotificationMessageDeviceTime'
+          | 'firebaseEventParameterNotificationMessageId'
+          | 'firebaseEventParameterNotificationMessageName'
+          | 'firebaseEventParameterNotificationMessageTime'
+          | 'firebaseEventParameterNotificationTopic'
+          | 'firebaseEventParameterPreviousAppVersion'
+          | 'firebaseEventParameterPreviousOsVersion'
+          | 'firebaseEventParameterPrice'
+          | 'firebaseEventParameterProductId'
+          | 'firebaseEventParameterQuantity'
+          | 'firebaseEventParameterValue'
+          | 'videoProvider'
+          | 'videoUrl'
+          | 'videoTitle'
+          | 'videoDuration'
+          | 'videoPercent'
+          | 'videoVisible'
+          | 'videoStatus'
+          | 'videoCurrentTime'
+          | 'scrollDepthThreshold'
+          | 'scrollDepthUnits'
+          | 'scrollDepthDirection'
+          | 'elementVisibilityRatio'
+          | 'elementVisibilityTime'
+          | 'elementVisibilityFirstTime'
+          | 'elementVisibilityRecentTime'
+          | 'requestPath'
+          | 'requestMethod'
+          | 'clientName'
+          | 'queryString'
+          | 'serverPageLocationUrl'
+          | 'serverPageLocationPath'
+          | 'serverPageLocationHostname'
+          | 'visitorRegion'
+          | 'analyticsClientId'
+          | 'analyticsSessionId'
+          | 'analyticsSessionNumber';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1672,11 +2460,11 @@ declare namespace gapi.client {
       /** Creates a GTM Client. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1701,11 +2489,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1730,11 +2518,11 @@ declare namespace gapi.client {
       /** Deletes a GTM Client. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1757,11 +2545,11 @@ declare namespace gapi.client {
       /** Gets a GTM Client. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1784,11 +2572,11 @@ declare namespace gapi.client {
       /** Lists all GTM Clients of a GTM container workspace. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1813,11 +2601,11 @@ declare namespace gapi.client {
       /** Reverts changes to a GTM Client in a GTM Workspace. */
       revert(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1842,11 +2630,11 @@ declare namespace gapi.client {
       /** Updates a GTM Client. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1873,11 +2661,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1906,11 +2694,11 @@ declare namespace gapi.client {
       /** Creates a GTM Folder. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1935,11 +2723,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1964,11 +2752,11 @@ declare namespace gapi.client {
       /** Deletes a GTM Folder. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1991,11 +2779,11 @@ declare namespace gapi.client {
       /** List all entities in a GTM Folder. */
       entities(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2020,11 +2808,11 @@ declare namespace gapi.client {
       /** Gets a GTM Folder. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2047,11 +2835,11 @@ declare namespace gapi.client {
       /** Lists all GTM Folders of a Container. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2076,11 +2864,11 @@ declare namespace gapi.client {
       /** Moves entities to a GTM Folder. If {folder_id} in the request path equals 0, this will instead move entities out of the folder they currently belong to. */
       move_entities_to_folder(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2111,11 +2899,11 @@ declare namespace gapi.client {
       move_entities_to_folder(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2146,11 +2934,11 @@ declare namespace gapi.client {
       /** Reverts changes to a GTM Folder in a GTM Workspace. */
       revert(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2175,11 +2963,11 @@ declare namespace gapi.client {
       /** Updates a GTM Folder. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2206,11 +2994,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2239,11 +3027,11 @@ declare namespace gapi.client {
       /** Creates a Google tag config. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2268,11 +3056,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2297,11 +3085,11 @@ declare namespace gapi.client {
       /** Deletes a Google tag config. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2324,11 +3112,11 @@ declare namespace gapi.client {
       /** Gets a Google tag config. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2351,11 +3139,11 @@ declare namespace gapi.client {
       /** Lists all Google tag configs in a Container. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2380,11 +3168,11 @@ declare namespace gapi.client {
       /** Updates a Google tag config. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2411,11 +3199,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2444,11 +3232,11 @@ declare namespace gapi.client {
       /** Creates a GTM Tag. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2473,11 +3261,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2502,11 +3290,11 @@ declare namespace gapi.client {
       /** Deletes a GTM Tag. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2529,11 +3317,11 @@ declare namespace gapi.client {
       /** Gets a GTM Tag. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2556,11 +3344,11 @@ declare namespace gapi.client {
       /** Lists all GTM Tags of a Container. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2585,11 +3373,11 @@ declare namespace gapi.client {
       /** Reverts changes to a GTM Tag in a GTM Workspace. */
       revert(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2614,11 +3402,11 @@ declare namespace gapi.client {
       /** Updates a GTM Tag. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2645,11 +3433,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2678,11 +3466,11 @@ declare namespace gapi.client {
       /** Creates a GTM Custom Template. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2707,11 +3495,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2736,11 +3524,11 @@ declare namespace gapi.client {
       /** Deletes a GTM Template. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2763,11 +3551,11 @@ declare namespace gapi.client {
       /** Gets a GTM Template. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2790,13 +3578,13 @@ declare namespace gapi.client {
       /** Imports a GTM Custom Template from Gallery. */
       import_from_gallery(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Must be set to true to allow Gallery template to be imported into the workspace. If this bit is false, the import operation will fail. */
         acknowledgePermissions?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2825,11 +3613,11 @@ declare namespace gapi.client {
       /** Lists all GTM Templates of a GTM container workspace. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2854,11 +3642,11 @@ declare namespace gapi.client {
       /** Reverts changes to a GTM Template in a GTM Workspace. */
       revert(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2883,11 +3671,11 @@ declare namespace gapi.client {
       /** Updates a GTM Template. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2914,11 +3702,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2947,11 +3735,11 @@ declare namespace gapi.client {
       /** Creates a GTM Transformation. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2976,11 +3764,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3005,11 +3793,11 @@ declare namespace gapi.client {
       /** Deletes a GTM Transformation. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3032,11 +3820,11 @@ declare namespace gapi.client {
       /** Gets a GTM Transformation. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3059,11 +3847,11 @@ declare namespace gapi.client {
       /** Lists all GTM Transformations of a GTM container workspace. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3088,11 +3876,11 @@ declare namespace gapi.client {
       /** Reverts changes to a GTM Transformation in a GTM Workspace. */
       revert(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3117,11 +3905,11 @@ declare namespace gapi.client {
       /** Updates a GTM Transformation. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3148,11 +3936,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3181,11 +3969,11 @@ declare namespace gapi.client {
       /** Creates a GTM Trigger. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3210,11 +3998,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3239,11 +4027,11 @@ declare namespace gapi.client {
       /** Deletes a GTM Trigger. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3266,11 +4054,11 @@ declare namespace gapi.client {
       /** Gets a GTM Trigger. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3293,11 +4081,11 @@ declare namespace gapi.client {
       /** Lists all GTM Triggers of a Container. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3322,11 +4110,11 @@ declare namespace gapi.client {
       /** Reverts changes to a GTM Trigger in a GTM Workspace. */
       revert(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3351,11 +4139,11 @@ declare namespace gapi.client {
       /** Updates a GTM Trigger. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3382,11 +4170,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3415,11 +4203,11 @@ declare namespace gapi.client {
       /** Creates a GTM Variable. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3444,11 +4232,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3473,11 +4261,11 @@ declare namespace gapi.client {
       /** Deletes a GTM Variable. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3500,11 +4288,11 @@ declare namespace gapi.client {
       /** Gets a GTM Variable. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3527,11 +4315,11 @@ declare namespace gapi.client {
       /** Lists all GTM Variables of a Container. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3556,11 +4344,11 @@ declare namespace gapi.client {
       /** Reverts changes to a GTM Variable in a GTM Workspace. */
       revert(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3585,11 +4373,11 @@ declare namespace gapi.client {
       /** Updates a GTM Variable. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3616,11 +4404,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3649,11 +4437,11 @@ declare namespace gapi.client {
       /** Creates a GTM Zone. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3678,11 +4466,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3707,11 +4495,11 @@ declare namespace gapi.client {
       /** Deletes a GTM Zone. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3734,11 +4522,11 @@ declare namespace gapi.client {
       /** Gets a GTM Zone. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3761,11 +4549,11 @@ declare namespace gapi.client {
       /** Lists all GTM Zones of a GTM container workspace. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3790,11 +4578,11 @@ declare namespace gapi.client {
       /** Reverts changes to a GTM Zone in a GTM Workspace. */
       revert(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3819,11 +4607,11 @@ declare namespace gapi.client {
       /** Updates a GTM Zone. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3850,11 +4638,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3883,11 +4671,11 @@ declare namespace gapi.client {
       /** Applies multiple entity changes to a workspace in one call. When creating new entities, their entity IDs must be unique and in correct format. That is, they must start with "new_" and followed by number, e.g. "new_1", "new_2". Example body snippet to create myNewTag under myNewFolder is: ``` "changes": [ { "folder": { "folderId": "new_1", "name": "myNewFolder", ... }, "changeStatus": "added" }, { "tag": { "tagId": "new_2", "name": "myNewTag", "parentFolderId": "new_1", ... }, "changeStatus": "added" } ] ``` */
       bulk_update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3912,11 +4700,11 @@ declare namespace gapi.client {
       bulk_update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3941,11 +4729,11 @@ declare namespace gapi.client {
       /** Creates a Workspace. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3970,11 +4758,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3999,11 +4787,11 @@ declare namespace gapi.client {
       /** Creates a Container Version from the entities present in the workspace, deletes the workspace, and sets the base container version to the newly created version. */
       create_version(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4028,11 +4816,11 @@ declare namespace gapi.client {
       create_version(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4057,11 +4845,11 @@ declare namespace gapi.client {
       /** Deletes a Workspace. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4084,11 +4872,11 @@ declare namespace gapi.client {
       /** Gets a Workspace. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4111,11 +4899,11 @@ declare namespace gapi.client {
       /** Finds conflicting and modified entities in the workspace. */
       getStatus(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4138,11 +4926,11 @@ declare namespace gapi.client {
       /** Lists all Workspaces that belong to a GTM Container. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4167,11 +4955,11 @@ declare namespace gapi.client {
       /** Quick previews a workspace by creating a fake container version from all entities in the provided workspace. */
       quick_preview(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4194,11 +4982,11 @@ declare namespace gapi.client {
       /** Resolves a merge conflict for a workspace entity by updating it to the resolved entity passed in the request. */
       resolve_conflict(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4225,11 +5013,11 @@ declare namespace gapi.client {
       resolve_conflict(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4256,11 +5044,11 @@ declare namespace gapi.client {
       /** Syncs a workspace to the latest container version by updating all unmodified workspace entities and displaying conflicts for modified entities. */
       sync(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4283,11 +5071,11 @@ declare namespace gapi.client {
       /** Updates a Workspace. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4314,11 +5102,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4357,13 +5145,13 @@ declare namespace gapi.client {
       /** Combines Containers. */
       combine(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Must be set to true to allow features.user_permissions to change from false to true. If this operation causes an update but this bit is false, the operation will fail. */
         allowUserPermissionFeatureUpdate?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** ID of container that will be merged into the current container. */
@@ -4381,7 +5169,7 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Specify the source of config setting after combine */
-        settingSource?: string;
+        settingSource?: 'settingSourceUnspecified' | 'current' | 'other';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -4390,11 +5178,11 @@ declare namespace gapi.client {
       /** Creates a Container. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4419,11 +5207,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4448,11 +5236,11 @@ declare namespace gapi.client {
       /** Deletes a Container. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4475,11 +5263,11 @@ declare namespace gapi.client {
       /** Gets a Container. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4502,11 +5290,11 @@ declare namespace gapi.client {
       /** Lists all Containers that belongs to a GTM Account. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4531,11 +5319,11 @@ declare namespace gapi.client {
       /** Looks up a Container by destination ID or tag ID. */
       lookup(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Destination ID linked to a GTM Container, e.g. AW-123456789. Only one of destination_id or tag_id should be set. */
@@ -4560,13 +5348,13 @@ declare namespace gapi.client {
       /** Move Tag ID out of a Container. */
       move_tag_id(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Must be set to true to allow features.user_permissions to change from false to true. If this operation causes an update but this bit is false, the operation will fail. */
         allowUserPermissionFeatureUpdate?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Whether or not to copy tag settings from this tag to the new tag. */
@@ -4599,11 +5387,11 @@ declare namespace gapi.client {
       /** Gets the tagging snippet for a Container. */
       snippet(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4626,11 +5414,11 @@ declare namespace gapi.client {
       /** Updates a Container. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4657,11 +5445,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4695,11 +5483,11 @@ declare namespace gapi.client {
       /** Creates a user's Account & Container access. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4724,11 +5512,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4753,11 +5541,11 @@ declare namespace gapi.client {
       /** Removes a user from the account, revoking access to it and all of its containers. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4780,11 +5568,11 @@ declare namespace gapi.client {
       /** Gets a user's Account & Container access. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4807,11 +5595,11 @@ declare namespace gapi.client {
       /** List all users that have access to the account along with Account and Container user access granted to each of them. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4836,11 +5624,11 @@ declare namespace gapi.client {
       /** Updates a user's Account & Container access. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4865,11 +5653,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4896,11 +5684,11 @@ declare namespace gapi.client {
       /** Gets a GTM Account. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4923,11 +5711,11 @@ declare namespace gapi.client {
       /** Lists all GTM Accounts that a user has access to. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4952,11 +5740,11 @@ declare namespace gapi.client {
       /** Updates a GTM Account. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4983,11 +5771,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

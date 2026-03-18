@@ -53,15 +53,32 @@ declare namespace gapi.client {
       /** A list of image-supported infoTypes—excluding [document infoTypes](https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference#documents)—to be used as context for the adjustment rule. Sensitive Data Protection adjusts the likelihood of an image finding if its bounding box has the specified spatial relationship (defined by `image_containment_type`) with a finding of an infoType in this list. For example, you can create a rule to adjust the likelihood of a `US_PASSPORT` finding if it is enclosed by a finding of `OBJECT_TYPE/PERSON/PASSPORT`. To configure this, set `US_PASSPORT` in `InspectionRuleSet.info_types`. Add an `adjustment_rule` with an `adjust_by_image_findings.info_types` that contains `OBJECT_TYPE/PERSON/PASSPORT` and `image_containment_type` set to `encloses`. In this case, the likelihood of the `US_PASSPORT` finding is adjusted, but the likelihood of the `OBJECT_TYPE/PERSON/PASSPORT` finding is not. */
       infoTypes?: GooglePrivacyDlpV2InfoType[];
       /** Required. Minimum likelihood of the `adjust_by_image_findings.info_types` finding. If the likelihood is lower than this value, Sensitive Data Protection doesn't adjust the likelihood of the `InspectionRuleSet.info_types` finding. */
-      minLikelihood?: string;
+      minLikelihood?:
+        | 'LIKELIHOOD_UNSPECIFIED'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
     }
     interface GooglePrivacyDlpV2AdjustByMatchingInfoTypes {
       /** Sensitive Data Protection adjusts the likelihood of a finding if that finding also matches one of these infoTypes. For example, you can create a rule to adjust the likelihood of a `PHONE_NUMBER` finding if the string is found within a document that is classified as `DOCUMENT_TYPE/HR/RESUME`. To configure this, set `PHONE_NUMBER` in `InspectionRuleSet.info_types`. Add an `adjustment_rule` with an `adjust_by_matching_info_types.info_types` that contains `DOCUMENT_TYPE/HR/RESUME`. In this case, the likelihood of the `PHONE_NUMBER` finding is adjusted, but the likelihood of the `DOCUMENT_TYPE/HR/RESUME` finding is not. */
       infoTypes?: GooglePrivacyDlpV2InfoType[];
       /** How the adjustment rule is applied. Only `MATCHING_TYPE_PARTIAL_MATCH` is supported: - Partial match: adjusts the findings of infoTypes specified in the inspection rule when they have a nonempty intersection with a finding of an infoType specified in this adjustment rule. */
-      matchingType?: string;
+      matchingType?:
+        | 'MATCHING_TYPE_UNSPECIFIED'
+        | 'MATCHING_TYPE_FULL_MATCH'
+        | 'MATCHING_TYPE_PARTIAL_MATCH'
+        | 'MATCHING_TYPE_INVERSE_MATCH'
+        | 'MATCHING_TYPE_RULE_SPECIFIC';
       /** Required. Minimum likelihood of the `adjust_by_matching_info_types.info_types` finding. If the likelihood is lower than this value, Sensitive Data Protection doesn't adjust the likelihood of the `InspectionRuleSet.info_types` finding. */
-      minLikelihood?: string;
+      minLikelihood?:
+        | 'LIKELIHOOD_UNSPECIFIED'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
     }
     interface GooglePrivacyDlpV2AdjustmentRule {
       /** AdjustmentRule condition for image findings. */
@@ -84,9 +101,18 @@ declare namespace gapi.client {
     }
     interface GooglePrivacyDlpV2AmazonS3BucketConditions {
       /** Optional. Bucket types that should be profiled. Optional. Defaults to TYPE_ALL_SUPPORTED if unspecified. */
-      bucketTypes?: string[];
+      bucketTypes?:
+        | 'TYPE_UNSPECIFIED'
+        | 'TYPE_ALL_SUPPORTED'
+        | 'TYPE_GENERAL_PURPOSE'[];
       /** Optional. Object classes that should be profiled. Optional. Defaults to ALL_SUPPORTED_CLASSES if unspecified. */
-      objectStorageClasses?: string[];
+      objectStorageClasses?:
+        | 'UNSPECIFIED'
+        | 'ALL_SUPPORTED_CLASSES'
+        | 'STANDARD'
+        | 'STANDARD_INFREQUENT_ACCESS'
+        | 'GLACIER_INSTANT_RETRIEVAL'
+        | 'INTELLIGENT_TIERING'[];
     }
     interface GooglePrivacyDlpV2AmazonS3BucketRegex {
       /** The AWS account regex. */
@@ -170,7 +196,7 @@ declare namespace gapi.client {
       /** Max percentage of rows to scan. The rest are omitted. The number of rows scanned is rounded down. Must be between 0 and 100, inclusively. Both 0 and 100 means no limit. Defaults to 0. Only one of rows_limit and rows_limit_percent can be specified. Cannot be used in conjunction with TimespanConfig. Caution: A [known issue](https://cloud.google.com/sensitive-data-protection/docs/known-issues#bq-sampling) is causing the `rowsLimitPercent` field to behave unexpectedly. We recommend using `rowsLimit` instead. */
       rowsLimitPercent?: number;
       /** How to sample the data. */
-      sampleMethod?: string;
+      sampleMethod?: 'SAMPLE_METHOD_UNSPECIFIED' | 'TOP' | 'RANDOM_START';
       /** Complete BigQuery table reference. */
       tableReference?: GooglePrivacyDlpV2BigQueryTable;
     }
@@ -200,7 +226,11 @@ declare namespace gapi.client {
     }
     interface GooglePrivacyDlpV2BigQueryTableTypes {
       /** A set of BigQuery table types. */
-      types?: string[];
+      types?:
+        | 'BIG_QUERY_TABLE_TYPE_UNSPECIFIED'
+        | 'BIG_QUERY_TABLE_TYPE_TABLE'
+        | 'BIG_QUERY_TABLE_TYPE_EXTERNAL_BIG_LAKE'
+        | 'BIG_QUERY_TABLE_TYPE_SNAPSHOT'[];
     }
     interface GooglePrivacyDlpV2BoundingBox {
       /** Height of the bounding box in pixels. */
@@ -228,7 +258,25 @@ declare namespace gapi.client {
       /** Content data to inspect or redact. */
       data?: string;
       /** The type of data stored in the bytes string. Default will be TEXT_UTF8. */
-      type?: string;
+      type?:
+        | 'BYTES_TYPE_UNSPECIFIED'
+        | 'IMAGE'
+        | 'IMAGE_JPEG'
+        | 'IMAGE_BMP'
+        | 'IMAGE_PNG'
+        | 'IMAGE_SVG'
+        | 'TEXT_UTF8'
+        | 'WORD_DOCUMENT'
+        | 'PDF'
+        | 'POWERPOINT_DOCUMENT'
+        | 'EXCEL_DOCUMENT'
+        | 'AVRO'
+        | 'CSV'
+        | 'TSV'
+        | 'AUDIO'
+        | 'VIDEO'
+        | 'EXECUTABLE'
+        | 'AI_MODEL';
     }
     interface GooglePrivacyDlpV2CancelDlpJobRequest {}
     interface GooglePrivacyDlpV2CategoricalStatsConfig {
@@ -265,7 +313,13 @@ declare namespace gapi.client {
       /** Characters to not transform when masking. */
       charactersToSkip?: string;
       /** Common characters to not transform when masking. Useful to avoid removing punctuation. */
-      commonCharactersToIgnore?: string;
+      commonCharactersToIgnore?:
+        | 'COMMON_CHARS_TO_IGNORE_UNSPECIFIED'
+        | 'NUMERIC'
+        | 'ALPHA_UPPER_CASE'
+        | 'ALPHA_LOWER_CASE'
+        | 'PUNCTUATION'
+        | 'WHITESPACE';
     }
     interface GooglePrivacyDlpV2CloudSqlDiscoveryTarget {
       /** In addition to matching the filter, these conditions must be true before a profile is generated. */
@@ -284,7 +338,10 @@ declare namespace gapi.client {
       /** Optional. Immutable. The Cloud SQL instance for which the connection is defined. Only one connection per instance is allowed. This can only be set at creation time, and cannot be updated. It is an error to use a connection_name from different project or region than the one that holds the connection. For example, a Connection resource for Cloud SQL connection_name `project-id:us-central1:sql-instance` must be created under the parent `projects/project-id/locations/us-central1` */
       connectionName?: string;
       /** Required. The database engine used by the Cloud SQL instance that this connection configures. */
-      databaseEngine?: string;
+      databaseEngine?:
+        | 'DATABASE_ENGINE_UNKNOWN'
+        | 'DATABASE_ENGINE_MYSQL'
+        | 'DATABASE_ENGINE_POSTGRES';
       /** Required. The DLP API will limit its connections to max_connections. Must be 2 or greater. */
       maxConnections?: number;
       /** A username and password stored in Secret Manager. */
@@ -314,9 +371,20 @@ declare namespace gapi.client {
       /** Limits the number of files to scan to this percentage of the input FileSet. Number of files scanned is rounded down. Must be between 0 and 100, inclusively. Both 0 and 100 means no limit. Defaults to 0. */
       filesLimitPercent?: number;
       /** List of file type groups to include in the scan. If empty, all files are scanned and available data format processors are applied. In addition, the binary content of the selected files is always scanned as well. Images are scanned only as binary if the specified region does not support image inspection and no file_types were specified. Image inspection is restricted to 'global', 'us', 'asia', and 'europe'. */
-      fileTypes?: string[];
+      fileTypes?:
+        | 'FILE_TYPE_UNSPECIFIED'
+        | 'BINARY_FILE'
+        | 'TEXT_FILE'
+        | 'IMAGE'
+        | 'WORD'
+        | 'PDF'
+        | 'AVRO'
+        | 'CSV'
+        | 'TSV'
+        | 'POWERPOINT'
+        | 'EXCEL'[];
       /** How to sample the data. */
-      sampleMethod?: string;
+      sampleMethod?: 'SAMPLE_METHOD_UNSPECIFIED' | 'TOP' | 'RANDOM_START';
     }
     interface GooglePrivacyDlpV2CloudStoragePath {
       /** A URL representing a file or path (no wildcards) in Cloud Storage. Example: `gs://[BUCKET_NAME]/dictionary.txt` */
@@ -356,7 +424,26 @@ declare namespace gapi.client {
       /** If it's been determined this column can be identified as a single type, this will be set. Otherwise the column either has unidentifiable content or mixed types. */
       columnInfoType?: GooglePrivacyDlpV2InfoTypeSummary;
       /** The data type of a given column. */
-      columnType?: string;
+      columnType?:
+        | 'COLUMN_DATA_TYPE_UNSPECIFIED'
+        | 'TYPE_INT64'
+        | 'TYPE_BOOL'
+        | 'TYPE_FLOAT64'
+        | 'TYPE_STRING'
+        | 'TYPE_BYTES'
+        | 'TYPE_TIMESTAMP'
+        | 'TYPE_DATE'
+        | 'TYPE_TIME'
+        | 'TYPE_DATETIME'
+        | 'TYPE_GEOGRAPHY'
+        | 'TYPE_NUMERIC'
+        | 'TYPE_RECORD'
+        | 'TYPE_BIGNUMERIC'
+        | 'TYPE_JSON'
+        | 'TYPE_INTERVAL'
+        | 'TYPE_RANGE_DATE'
+        | 'TYPE_RANGE_DATETIME'
+        | 'TYPE_RANGE_TIMESTAMP';
       /** The data risk level for this column. */
       dataRiskLevel?: GooglePrivacyDlpV2DataRiskLevel;
       /** The BigQuery dataset ID, if the resource profiled is a BigQuery table. */
@@ -366,9 +453,18 @@ declare namespace gapi.client {
       /** The Google Cloud project ID that owns the profiled resource. */
       datasetProjectId?: string;
       /** Approximate percentage of entries being null in the column. */
-      estimatedNullPercentage?: string;
+      estimatedNullPercentage?:
+        | 'NULL_PERCENTAGE_LEVEL_UNSPECIFIED'
+        | 'NULL_PERCENTAGE_VERY_LOW'
+        | 'NULL_PERCENTAGE_LOW'
+        | 'NULL_PERCENTAGE_MEDIUM'
+        | 'NULL_PERCENTAGE_HIGH';
       /** Approximate uniqueness of the column. */
-      estimatedUniquenessScore?: string;
+      estimatedUniquenessScore?:
+        | 'UNIQUENESS_SCORE_LEVEL_UNSPECIFIED'
+        | 'UNIQUENESS_SCORE_LOW'
+        | 'UNIQUENESS_SCORE_MEDIUM'
+        | 'UNIQUENESS_SCORE_HIGH';
       /** The likelihood that this column contains free-form text. A value close to 1 may indicate the column is likely to contain free-form or natural language text. Range in 0-1. */
       freeTextScore?: number;
       /** The name of the profile. */
@@ -376,7 +472,7 @@ declare namespace gapi.client {
       /** Other types found within this column. List will be unordered. */
       otherMatches?: GooglePrivacyDlpV2OtherInfoTypeSummary[];
       /** Indicates if a policy tag has been applied to the column. */
-      policyState?: string;
+      policyState?: 'COLUMN_POLICY_STATE_UNSPECIFIED' | 'COLUMN_POLICY_TAGGED';
       /** The last time the profile was generated. */
       profileLastGenerated?: string;
       /** Success or error status from the most recent profile generation attempt. May be empty if the profile is still being generated. */
@@ -384,7 +480,7 @@ declare namespace gapi.client {
       /** The sensitivity of this column. */
       sensitivityScore?: GooglePrivacyDlpV2SensitivityScore;
       /** State of a profile. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'RUNNING' | 'DONE';
       /** The resource name of the table data profile. */
       tableDataProfile?: string;
       /** The resource name of the resource this column is within. */
@@ -396,7 +492,15 @@ declare namespace gapi.client {
       /** Required. Field within the record this condition is evaluated against. */
       field?: GooglePrivacyDlpV2FieldId;
       /** Required. Operator used to compare the field or infoType to the value. */
-      operator?: string;
+      operator?:
+        | 'RELATIONAL_OPERATOR_UNSPECIFIED'
+        | 'EQUAL_TO'
+        | 'NOT_EQUAL_TO'
+        | 'GREATER_THAN'
+        | 'LESS_THAN'
+        | 'GREATER_THAN_OR_EQUALS'
+        | 'LESS_THAN_OR_EQUALS'
+        | 'EXISTS';
       /** Value to compare against. [Mandatory, except for `EXISTS` tests.] */
       value?: GooglePrivacyDlpV2Value;
     }
@@ -412,7 +516,11 @@ declare namespace gapi.client {
       /** Output only. Name of the connection: `projects/{project}/locations/{location}/connections/{name}`. */
       name?: string;
       /** Required. The connection's state in its lifecycle. */
-      state?: string;
+      state?:
+        | 'CONNECTION_STATE_UNSPECIFIED'
+        | 'MISSING_CREDENTIALS'
+        | 'AVAILABLE'
+        | 'ERROR';
     }
     interface GooglePrivacyDlpV2Container {
       /** A string representation of the full container name. Examples: - BigQuery: 'Project:DataSetId.TableId' - Cloud Storage: 'gs://Bucket/folders/filename.txt' */
@@ -528,7 +636,12 @@ declare namespace gapi.client {
     }
     interface GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig {
       /** Common alphabets. */
-      commonAlphabet?: string;
+      commonAlphabet?:
+        | 'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED'
+        | 'NUMERIC'
+        | 'HEXADECIMAL'
+        | 'UPPER_CASE_ALPHA_NUMERIC'
+        | 'ALPHA_NUMERIC';
       /** The 'tweak', a context may be used for higher security since the same identifier in two different contexts won't be given the same surrogate. If the context is not set, a default tweak will be used. If the context is set but: 1. there is no record present when transforming a given value or 1. the field is not present when transforming a given value, a default tweak will be used. Note that case (1) is expected when an `InfoTypeTransformation` is applied to both structured and unstructured `ContentItem`s. Currently, the referenced field may be of value type integer or string. The tweak is constructed as a sequence of bytes in big endian byte order such that: - a 64 bit integer is encoded followed by a single byte of value 1 - a string is encoded in UTF-8 format followed by a single byte of value 2 */
       context?: GooglePrivacyDlpV2FieldId;
       /** Required. The key used by the encryption algorithm. */
@@ -546,11 +659,17 @@ declare namespace gapi.client {
       /** A list of phrases to detect as a CustomInfoType. */
       dictionary?: GooglePrivacyDlpV2Dictionary;
       /** If set to EXCLUSION_TYPE_EXCLUDE this infoType will not cause a finding to be returned. It still can be used for rules matching. Only supported for the `dictionary`, `regex`, and `stored_type` CustomInfoTypes. */
-      exclusionType?: string;
+      exclusionType?: 'EXCLUSION_TYPE_UNSPECIFIED' | 'EXCLUSION_TYPE_EXCLUDE';
       /** CustomInfoType can either be a new infoType, or an extension of built-in infoType, when the name matches one of existing infoTypes and that infoType is specified in `InspectContent.info_types` field. Specifying the latter adds findings to the one detected by the system. If built-in info type is not specified in `InspectContent.info_types` list then the name is treated as a custom info type. */
       infoType?: GooglePrivacyDlpV2InfoType;
       /** Likelihood to return for this CustomInfoType. This base value can be altered by a detection rule if the finding meets the criteria specified by the rule. Defaults to `VERY_LIKELY` if not specified. */
-      likelihood?: string;
+      likelihood?:
+        | 'LIKELIHOOD_UNSPECIFIED'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Key-value pair to detect in the metadata. */
       metadataKeyValueExpression?: GooglePrivacyDlpV2MetadataKeyValueExpression;
       /** Regular expression based CustomInfoType. */
@@ -642,7 +761,11 @@ declare namespace gapi.client {
       /** Contains data parsed from quotes. Currently supported infoTypes: DATE, DATE_OF_BIRTH, and TIME. */
       quoteInfo?: GooglePrivacyDlpV2QuoteInfo;
       /** How broadly a resource has been shared. */
-      resourceVisibility?: string;
+      resourceVisibility?:
+        | 'RESOURCE_VISIBILITY_UNSPECIFIED'
+        | 'RESOURCE_VISIBILITY_PUBLIC'
+        | 'RESOURCE_VISIBILITY_INCONCLUSIVE'
+        | 'RESOURCE_VISIBILITY_RESTRICTED';
       /** Timestamp when the finding was detected. */
       timestamp?: string;
     }
@@ -680,7 +803,12 @@ declare namespace gapi.client {
     }
     interface GooglePrivacyDlpV2DataProfilePubSubMessage {
       /** The event that caused the Pub/Sub message to be sent. */
-      event?: string;
+      event?:
+        | 'EVENT_TYPE_UNSPECIFIED'
+        | 'NEW_PROFILE'
+        | 'CHANGED_PROFILE'
+        | 'SCORE_INCREASED'
+        | 'ERROR_CHANGED';
       /** If `DetailLevel` is `FILE_STORE_PROFILE` this will be fully populated. Otherwise, if `DetailLevel` is `RESOURCE_NAME`, then only `name` and `file_store_path` will be populated. */
       fileStoreProfile?: GooglePrivacyDlpV2FileStoreDataProfile;
       /** If `DetailLevel` is `TABLE_PROFILE` this will be fully populated. Otherwise, if `DetailLevel` is `RESOURCE_NAME`, then only `name` and `full_resource` will be populated. */
@@ -688,7 +816,12 @@ declare namespace gapi.client {
     }
     interface GooglePrivacyDlpV2DataRiskLevel {
       /** The score applied to the resource. */
-      score?: string;
+      score?:
+        | 'RISK_SCORE_UNSPECIFIED'
+        | 'RISK_LOW'
+        | 'RISK_UNKNOWN'
+        | 'RISK_MODERATE'
+        | 'RISK_HIGH';
     }
     interface GooglePrivacyDlpV2DataSourceType {
       /** A string that identifies the type of resource being profiled. Current values: * google/bigquery/table * google/project * google/sql/table * google/gcs/bucket */
@@ -718,7 +851,15 @@ declare namespace gapi.client {
       /** One or more of the following must be set. Must be a valid date or time value. */
       date?: GoogleTypeDate;
       /** Day of week */
-      dayOfWeek?: string;
+      dayOfWeek?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY';
       /** Time of day */
       time?: GoogleTypeTimeOfDay;
       /** Time zone */
@@ -728,7 +869,18 @@ declare namespace gapi.client {
       /** Required. User settable Cloud Storage bucket and folders to store de-identified files. This field must be set for Cloud Storage deidentification. The output Cloud Storage bucket must be different from the input bucket. De-identified files will overwrite files in the output path. Form of: gs://bucket/folder/ or gs://bucket */
       cloudStorageOutput?: string;
       /** List of user-specified file type groups to transform. If specified, only the files with these file types are transformed. If empty, all supported files are transformed. Supported types may be automatically added over time. Any unsupported file types that are set in this field are excluded from de-identification. An error is recorded for each unsupported file in the TransformationDetails output table. Currently the only file types supported are: IMAGES, TEXT_FILES, CSV, TSV. */
-      fileTypesToTransform?: string[];
+      fileTypesToTransform?:
+        | 'FILE_TYPE_UNSPECIFIED'
+        | 'BINARY_FILE'
+        | 'TEXT_FILE'
+        | 'IMAGE'
+        | 'WORD'
+        | 'PDF'
+        | 'AVRO'
+        | 'CSV'
+        | 'TSV'
+        | 'POWERPOINT'
+        | 'EXCEL'[];
       /** User specified deidentify templates and configs for structured, unstructured, and image files. */
       transformationConfig?: GooglePrivacyDlpV2TransformationConfig;
       /** Config for storing transformation details. This field specifies the configuration for storing detailed metadata about each transformation performed during a de-identification process. The metadata is stored separately from the de-identified content itself and provides a granular record of both successful transformations and any failures that occurred. Enabling this configuration is essential for users who need to access comprehensive information about the status, outcome, and specifics of each transformation. The details are captured in the TransformationDetails message for each operation. Key use cases: * **Auditing and compliance** * Provides a verifiable audit trail of de-identification activities, which is crucial for meeting regulatory requirements and internal data governance policies. * Logs what data was transformed, what transformations were applied, when they occurred, and their success status. This helps demonstrate accountability and due diligence in protecting sensitive data. * **Troubleshooting and debugging** * Offers detailed error messages and context if a transformation fails. This information is useful for diagnosing and resolving issues in the de-identification pipeline. * Helps pinpoint the exact location and nature of failures, speeding up the debugging process. * **Process verification and quality assurance** * Allows users to confirm that de-identification rules and transformations were applied correctly and consistently across the dataset as intended. * Helps in verifying the effectiveness of the chosen de-identification strategies. * **Data lineage and impact analysis** * Creates a record of how data elements were modified, contributing to data lineage. This is useful for understanding the provenance of de-identified data. * Aids in assessing the potential impact of de-identification choices on downstream analytical processes or data usability. * **Reporting and operational insights** * You can analyze the metadata stored in a queryable BigQuery table to generate reports on transformation success rates, common error types, processing volumes (e.g., transformedBytes), and the types of transformations applied. * These insights can inform optimization of de-identification configurations and resource planning. To take advantage of these benefits, set this configuration. The stored details include a description of the transformation, success or error codes, error messages, the number of bytes transformed, the location of the transformed content, and identifiers for the job and source data. */
@@ -839,7 +991,10 @@ declare namespace gapi.client {
       /** At least one of the conditions must be true for a table to be scanned. */
       orConditions?: GooglePrivacyDlpV2OrConditions;
       /** Restrict discovery to categories of table types. */
-      typeCollection?: string;
+      typeCollection?:
+        | 'BIG_QUERY_COLLECTION_UNSPECIFIED'
+        | 'BIG_QUERY_COLLECTION_ALL_TYPES'
+        | 'BIG_QUERY_COLLECTION_ONLY_SUPPORTED_TYPES';
       /** Restrict discovery to specific table types. */
       types?: GooglePrivacyDlpV2BigQueryTableTypes;
     }
@@ -853,9 +1008,16 @@ declare namespace gapi.client {
     }
     interface GooglePrivacyDlpV2DiscoveryCloudSqlConditions {
       /** Optional. Database engines that should be profiled. Optional. Defaults to ALL_SUPPORTED_DATABASE_ENGINES if unspecified. */
-      databaseEngines?: string[];
+      databaseEngines?:
+        | 'DATABASE_ENGINE_UNSPECIFIED'
+        | 'ALL_SUPPORTED_DATABASE_ENGINES'
+        | 'MYSQL'
+        | 'POSTGRES'[];
       /** Data profiles will only be generated for the database resource types specified in this field. If not specified, defaults to [DATABASE_RESOURCE_TYPE_ALL_SUPPORTED_TYPES]. */
-      types?: string[];
+      types?:
+        | 'DATABASE_RESOURCE_TYPE_UNSPECIFIED'
+        | 'DATABASE_RESOURCE_TYPE_ALL_SUPPORTED_TYPES'
+        | 'DATABASE_RESOURCE_TYPE_TABLE'[];
     }
     interface GooglePrivacyDlpV2DiscoveryCloudSqlFilter {
       /** A specific set of database resources for this filter to apply to. */
@@ -869,15 +1031,32 @@ declare namespace gapi.client {
       /** Governs when to update data profiles when the inspection rules defined by the `InspectTemplate` change. If not set, changing the template will not cause a data profile to update. */
       inspectTemplateModifiedCadence?: GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence;
       /** Data changes (non-schema changes) in Cloud SQL tables can't trigger reprofiling. If you set this field, profiles are refreshed at this frequency regardless of whether the underlying tables have changed. Defaults to never. */
-      refreshFrequency?: string;
+      refreshFrequency?:
+        | 'UPDATE_FREQUENCY_UNSPECIFIED'
+        | 'UPDATE_FREQUENCY_NEVER'
+        | 'UPDATE_FREQUENCY_DAILY'
+        | 'UPDATE_FREQUENCY_MONTHLY';
       /** When to reprofile if the schema has changed. */
       schemaModifiedCadence?: GooglePrivacyDlpV2SchemaModifiedCadence;
     }
     interface GooglePrivacyDlpV2DiscoveryCloudStorageConditions {
       /** Required. Only objects with the specified attributes will be scanned. Defaults to [ALL_SUPPORTED_BUCKETS] if unset. */
-      includedBucketAttributes?: string[];
+      includedBucketAttributes?:
+        | 'CLOUD_STORAGE_BUCKET_ATTRIBUTE_UNSPECIFIED'
+        | 'ALL_SUPPORTED_BUCKETS'
+        | 'AUTOCLASS_DISABLED'
+        | 'AUTOCLASS_ENABLED'[];
       /** Required. Only objects with the specified attributes will be scanned. If an object has one of the specified attributes but is inside an excluded bucket, it will not be scanned. Defaults to [ALL_SUPPORTED_OBJECTS]. A profile will be created even if no objects match the included_object_attributes. */
-      includedObjectAttributes?: string[];
+      includedObjectAttributes?:
+        | 'CLOUD_STORAGE_OBJECT_ATTRIBUTE_UNSPECIFIED'
+        | 'ALL_SUPPORTED_OBJECTS'
+        | 'STANDARD'
+        | 'NEARLINE'
+        | 'COLDLINE'
+        | 'ARCHIVE'
+        | 'REGIONAL'
+        | 'MULTI_REGIONAL'
+        | 'DURABLE_REDUCED_AVAILABILITY'[];
     }
     interface GooglePrivacyDlpV2DiscoveryCloudStorageFilter {
       /** Optional. The bucket to scan. Targets including this can only include one target (the target with this bucket). This enables profiling the contents of a single bucket, while the other options allow for easy profiling of many bucets within a project or an organization. */
@@ -891,7 +1070,11 @@ declare namespace gapi.client {
       /** Optional. Governs when to update data profiles when the inspection rules defined by the `InspectTemplate` change. If not set, changing the template will not cause a data profile to update. */
       inspectTemplateModifiedCadence?: GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence;
       /** Optional. Data changes in Cloud Storage can't trigger reprofiling. If you set this field, profiles are refreshed at this frequency regardless of whether the underlying buckets have changed. Defaults to never. */
-      refreshFrequency?: string;
+      refreshFrequency?:
+        | 'UPDATE_FREQUENCY_UNSPECIFIED'
+        | 'UPDATE_FREQUENCY_NEVER'
+        | 'UPDATE_FREQUENCY_DAILY'
+        | 'UPDATE_FREQUENCY_MONTHLY';
     }
     interface GooglePrivacyDlpV2DiscoveryConfig {
       /** Actions to execute at the completion of scanning. */
@@ -915,7 +1098,7 @@ declare namespace gapi.client {
       /** Optional. Processing location configuration. Vertex AI dataset scanning will set processing_location.image_fallback_type to MultiRegionProcessing by default. */
       processingLocation?: GooglePrivacyDlpV2ProcessingLocation;
       /** Required. A status for this configuration. */
-      status?: string;
+      status?: 'STATUS_UNSPECIFIED' | 'RUNNING' | 'PAUSED';
       /** Target to match against for determining what to scan and how frequently. */
       targets?: GooglePrivacyDlpV2DiscoveryTarget[];
       /** Output only. The last update timestamp of a DiscoveryConfig. */
@@ -933,7 +1116,11 @@ declare namespace gapi.client {
       /** Governs when to update data profiles when the inspection rules defined by the `InspectTemplate` change. If not set, changing the template will not cause a data profile to update. */
       inspectTemplateModifiedCadence?: GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence;
       /** Frequency at which profiles should be updated, regardless of whether the underlying resource has changed. Defaults to never. */
-      refreshFrequency?: string;
+      refreshFrequency?:
+        | 'UPDATE_FREQUENCY_UNSPECIFIED'
+        | 'UPDATE_FREQUENCY_NEVER'
+        | 'UPDATE_FREQUENCY_DAILY'
+        | 'UPDATE_FREQUENCY_MONTHLY';
       /** Governs when to update data profiles when a schema is modified. */
       schemaModifiedCadence?: GooglePrivacyDlpV2DiscoverySchemaModifiedCadence;
       /** Governs when to update data profiles when a table is modified. */
@@ -941,7 +1128,11 @@ declare namespace gapi.client {
     }
     interface GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence {
       /** How frequently data profiles can be updated when the template is modified. Defaults to never. */
-      frequency?: string;
+      frequency?:
+        | 'UPDATE_FREQUENCY_UNSPECIFIED'
+        | 'UPDATE_FREQUENCY_NEVER'
+        | 'UPDATE_FREQUENCY_DAILY'
+        | 'UPDATE_FREQUENCY_MONTHLY';
     }
     interface GooglePrivacyDlpV2DiscoveryOtherCloudConditions {
       /** Amazon S3 bucket conditions. */
@@ -961,13 +1152,24 @@ declare namespace gapi.client {
       /** Optional. Governs when to update data profiles when the inspection rules defined by the `InspectTemplate` change. If not set, changing the template will not cause a data profile to update. */
       inspectTemplateModifiedCadence?: GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence;
       /** Optional. Frequency to update profiles regardless of whether the underlying resource has changes. Defaults to never. */
-      refreshFrequency?: string;
+      refreshFrequency?:
+        | 'UPDATE_FREQUENCY_UNSPECIFIED'
+        | 'UPDATE_FREQUENCY_NEVER'
+        | 'UPDATE_FREQUENCY_DAILY'
+        | 'UPDATE_FREQUENCY_MONTHLY';
     }
     interface GooglePrivacyDlpV2DiscoverySchemaModifiedCadence {
       /** How frequently profiles may be updated when schemas are modified. Defaults to monthly. */
-      frequency?: string;
+      frequency?:
+        | 'UPDATE_FREQUENCY_UNSPECIFIED'
+        | 'UPDATE_FREQUENCY_NEVER'
+        | 'UPDATE_FREQUENCY_DAILY'
+        | 'UPDATE_FREQUENCY_MONTHLY';
       /** The type of events to consider when deciding if the table's schema has been modified and should have the profile updated. Defaults to NEW_COLUMNS. */
-      types?: string[];
+      types?:
+        | 'SCHEMA_MODIFICATION_UNSPECIFIED'
+        | 'SCHEMA_NEW_COLUMNS'
+        | 'SCHEMA_REMOVED_COLUMNS'[];
     }
     interface GooglePrivacyDlpV2DiscoveryStartingLocation {
       /** The ID of the folder within an organization to be scanned. */
@@ -977,9 +1179,13 @@ declare namespace gapi.client {
     }
     interface GooglePrivacyDlpV2DiscoveryTableModifiedCadence {
       /** How frequently data profiles can be updated when tables are modified. Defaults to never. */
-      frequency?: string;
+      frequency?:
+        | 'UPDATE_FREQUENCY_UNSPECIFIED'
+        | 'UPDATE_FREQUENCY_NEVER'
+        | 'UPDATE_FREQUENCY_DAILY'
+        | 'UPDATE_FREQUENCY_MONTHLY';
       /** The type of events to consider when deciding if the table has been modified and should have the profile updated. Defaults to MODIFIED_TIMESTAMP. */
-      types?: string[];
+      types?: 'TABLE_MODIFICATION_UNSPECIFIED' | 'TABLE_MODIFIED_TIMESTAMP'[];
     }
     interface GooglePrivacyDlpV2DiscoveryTarget {
       /** BigQuery target for Discovery. The first target to match a table will be the one applied. */
@@ -1013,7 +1219,11 @@ declare namespace gapi.client {
       /** Governs when to update data profiles when the inspection rules defined by the `InspectTemplate` change. If not set, changing the template will not cause a data profile to be updated. */
       inspectTemplateModifiedCadence?: GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence;
       /** If you set this field, profiles are refreshed at this frequency regardless of whether the underlying datasets have changed. Defaults to never. */
-      refreshFrequency?: string;
+      refreshFrequency?:
+        | 'UPDATE_FREQUENCY_UNSPECIFIED'
+        | 'UPDATE_FREQUENCY_NEVER'
+        | 'UPDATE_FREQUENCY_DAILY'
+        | 'UPDATE_FREQUENCY_MONTHLY';
     }
     interface GooglePrivacyDlpV2DlpJob {
       /** Events that should occur after the job has completed. */
@@ -1037,9 +1247,16 @@ declare namespace gapi.client {
       /** Time when the job started. */
       startTime?: string;
       /** State of a job. */
-      state?: string;
+      state?:
+        | 'JOB_STATE_UNSPECIFIED'
+        | 'PENDING'
+        | 'RUNNING'
+        | 'DONE'
+        | 'CANCELED'
+        | 'FAILED'
+        | 'ACTIVE';
       /** The type of job. */
-      type?: string;
+      type?: 'DLP_JOB_TYPE_UNSPECIFIED' | 'INSPECT_JOB' | 'RISK_ANALYSIS_JOB';
     }
     interface GooglePrivacyDlpV2DocumentFallbackLocation {
       /** Processing occurs in the global region. */
@@ -1053,9 +1270,17 @@ declare namespace gapi.client {
     }
     interface GooglePrivacyDlpV2Domain {
       /** A domain category that this profile is related to. */
-      category?: string;
+      category?: 'CATEGORY_UNSPECIFIED' | 'AI' | 'CODE';
       /** The collection of signals that influenced selection of the category. */
-      signals?: string[];
+      signals?:
+        | 'SIGNAL_UNSPECIFIED'
+        | 'MODEL'
+        | 'TEXT_EMBEDDING'
+        | 'EMBEDDING'
+        | 'VERTEX_PLUGIN'
+        | 'VECTOR_PLUGIN'
+        | 'SOURCE_CODE'
+        | 'SERVICE'[];
     }
     interface GooglePrivacyDlpV2Encloses {}
     interface GooglePrivacyDlpV2EntityId {
@@ -1066,7 +1291,10 @@ declare namespace gapi.client {
       /** Detailed error codes and messages. */
       details?: GoogleRpcStatus;
       /** Additional information about the error. */
-      extraInfo?: string;
+      extraInfo?:
+        | 'ERROR_INFO_UNSPECIFIED'
+        | 'IMAGE_SCAN_UNAVAILABLE_IN_REGION'
+        | 'FILE_STORE_CLUSTER_UNSUPPORTED';
       /** The times the error occurred. List includes the oldest timestamp and the last 9 timestamps. */
       timestamps?: string[];
     }
@@ -1096,7 +1324,12 @@ declare namespace gapi.client {
       /** Set of infoTypes for which findings would affect this rule. */
       excludeInfoTypes?: GooglePrivacyDlpV2ExcludeInfoTypes;
       /** How the rule is applied, see MatchingType documentation for details. */
-      matchingType?: string;
+      matchingType?:
+        | 'MATCHING_TYPE_UNSPECIFIED'
+        | 'MATCHING_TYPE_FULL_MATCH'
+        | 'MATCHING_TYPE_PARTIAL_MATCH'
+        | 'MATCHING_TYPE_INVERSE_MATCH'
+        | 'MATCHING_TYPE_RULE_SPECIFIC';
       /** Regular expression which defines the rule. */
       regex?: GooglePrivacyDlpV2Regex;
     }
@@ -1110,7 +1343,7 @@ declare namespace gapi.client {
       /** Conditions to apply to the expression. */
       conditions?: GooglePrivacyDlpV2Conditions;
       /** The operator to apply to the result of conditions. Default and currently only supported value is `AND`. */
-      logicalOperator?: string;
+      logicalOperator?: 'LOGICAL_OPERATOR_UNSPECIFIED' | 'AND';
     }
     interface GooglePrivacyDlpV2FieldId {
       /** Name describing the field. */
@@ -1146,7 +1379,18 @@ declare namespace gapi.client {
     }
     interface GooglePrivacyDlpV2FileClusterType {
       /** Cluster type. */
-      cluster?: string;
+      cluster?:
+        | 'CLUSTER_UNSPECIFIED'
+        | 'CLUSTER_UNKNOWN'
+        | 'CLUSTER_TEXT'
+        | 'CLUSTER_STRUCTURED_DATA'
+        | 'CLUSTER_SOURCE_CODE'
+        | 'CLUSTER_RICH_DOCUMENT'
+        | 'CLUSTER_IMAGE'
+        | 'CLUSTER_ARCHIVE'
+        | 'CLUSTER_MULTIMEDIA'
+        | 'CLUSTER_EXECUTABLE'
+        | 'CLUSTER_AI_MODEL';
     }
     interface GooglePrivacyDlpV2FileExtensionInfo {
       /** The file extension if set. (aka .pdf, .jpg, .txt) */
@@ -1210,13 +1454,17 @@ declare namespace gapi.client {
       /** The labels applied to the resource at the time the profile was generated. */
       resourceLabels?: {[P in string]: string};
       /** How broadly a resource has been shared. */
-      resourceVisibility?: string;
+      resourceVisibility?:
+        | 'RESOURCE_VISIBILITY_UNSPECIFIED'
+        | 'RESOURCE_VISIBILITY_PUBLIC'
+        | 'RESOURCE_VISIBILITY_INCONCLUSIVE'
+        | 'RESOURCE_VISIBILITY_RESTRICTED';
       /** The BigQuery table to which the sample findings are written. */
       sampleFindingsTable?: GooglePrivacyDlpV2BigQueryTable;
       /** The sensitivity score of this resource. */
       sensitivityScore?: GooglePrivacyDlpV2SensitivityScore;
       /** State of a profile. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'RUNNING' | 'DONE';
       /** The tags attached to the resource, including any tags attached during profiling. */
       tags?: GooglePrivacyDlpV2Tag[];
     }
@@ -1246,7 +1494,13 @@ declare namespace gapi.client {
       /** The labels associated with this `Finding`. Label keys must be between 1 and 63 characters long and must conform to the following regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?`. Label values must be between 0 and 63 characters long and must conform to the regular expression `([a-z]([-a-z0-9]*[a-z0-9])?)?`. No more than 10 labels can be associated with a given finding. Examples: * `"environment" : "production"` * `"pipeline" : "etl"` */
       labels?: {[P in string]: string};
       /** Confidence of how likely it is that the `info_type` is correct. */
-      likelihood?: string;
+      likelihood?:
+        | 'LIKELIHOOD_UNSPECIFIED'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Where the content was found. */
       location?: GooglePrivacyDlpV2Location;
       /** Resource name in format projects/{project}/locations/{location}/findings/{finding} Populated only when viewing persisted findings. */
@@ -1382,11 +1636,77 @@ declare namespace gapi.client {
     }
     interface GooglePrivacyDlpV2InfoTypeCategory {
       /** The group of relevant businesses where this infoType is commonly used */
-      industryCategory?: string;
+      industryCategory?:
+        | 'INDUSTRY_UNSPECIFIED'
+        | 'FINANCE'
+        | 'HEALTH'
+        | 'TELECOMMUNICATIONS';
       /** The region or country that issued the ID or document represented by the infoType. */
-      locationCategory?: string;
+      locationCategory?:
+        | 'LOCATION_UNSPECIFIED'
+        | 'GLOBAL'
+        | 'ARGENTINA'
+        | 'ARMENIA'
+        | 'AUSTRALIA'
+        | 'AUSTRIA'
+        | 'AZERBAIJAN'
+        | 'BELARUS'
+        | 'BELGIUM'
+        | 'BRAZIL'
+        | 'CANADA'
+        | 'CHILE'
+        | 'CHINA'
+        | 'COLOMBIA'
+        | 'CROATIA'
+        | 'CZECHIA'
+        | 'DENMARK'
+        | 'FRANCE'
+        | 'FINLAND'
+        | 'GERMANY'
+        | 'HONG_KONG'
+        | 'INDIA'
+        | 'INDONESIA'
+        | 'IRELAND'
+        | 'ISRAEL'
+        | 'ITALY'
+        | 'JAPAN'
+        | 'KAZAKHSTAN'
+        | 'KOREA'
+        | 'MEXICO'
+        | 'THE_NETHERLANDS'
+        | 'NEW_ZEALAND'
+        | 'NORWAY'
+        | 'PARAGUAY'
+        | 'PERU'
+        | 'POLAND'
+        | 'PORTUGAL'
+        | 'RUSSIA'
+        | 'SINGAPORE'
+        | 'SOUTH_AFRICA'
+        | 'SPAIN'
+        | 'SWEDEN'
+        | 'SWITZERLAND'
+        | 'TAIWAN'
+        | 'THAILAND'
+        | 'TURKEY'
+        | 'UKRAINE'
+        | 'UNITED_KINGDOM'
+        | 'UNITED_STATES'
+        | 'URUGUAY'
+        | 'UZBEKISTAN'
+        | 'VENEZUELA'
+        | 'INTERNAL';
       /** The class of identifiers where this infoType belongs */
-      typeCategory?: string;
+      typeCategory?:
+        | 'TYPE_UNSPECIFIED'
+        | 'PII'
+        | 'SPII'
+        | 'DEMOGRAPHIC'
+        | 'CREDENTIAL'
+        | 'GOVERNMENT_ID'
+        | 'DOCUMENT'
+        | 'CONTEXTUAL_INFORMATION'
+        | 'CUSTOM';
     }
     interface GooglePrivacyDlpV2InfoTypeDescription {
       /** The category of the infoType. */
@@ -1398,7 +1718,11 @@ declare namespace gapi.client {
       /** A sample that is a true positive for this infoType. */
       example?: string;
       /** The launch status of the infoType. */
-      launchStatus?: string;
+      launchStatus?:
+        | 'INFO_TYPE_LAUNCH_STATUS_UNSPECIFIED'
+        | 'GENERAL_AVAILABILITY'
+        | 'PUBLIC_PREVIEW'
+        | 'PRIVATE_PREVIEW';
       /** Locations at which this feature can be used. May change over time. */
       locationSupport?: GooglePrivacyDlpV2LocationSupport;
       /** Internal name of the infoType. */
@@ -1408,7 +1732,7 @@ declare namespace gapi.client {
       /** If this field is set, this infoType is a general infoType and these specific infoTypes are contained within it. General infoTypes are infoTypes that encompass multiple specific infoTypes. For example, the "GEOGRAPHIC_DATA" general infoType would have set for this field "LOCATION", "LOCATION_COORDINATES", and "STREET_ADDRESS". */
       specificInfoTypes?: string[];
       /** Which parts of the API supports this InfoType. */
-      supportedBy?: string[];
+      supportedBy?: 'ENUM_TYPE_UNSPECIFIED' | 'INSPECT' | 'RISK_ANALYSIS'[];
       /** A list of available versions for the infotype. */
       versions?: GooglePrivacyDlpV2VersionDescription[];
     }
@@ -1416,7 +1740,13 @@ declare namespace gapi.client {
       /** Type of information the likelihood threshold applies to. Only one likelihood per info_type should be provided. If InfoTypeLikelihood does not have an info_type, the configuration fails. */
       infoType?: GooglePrivacyDlpV2InfoType;
       /** Only returns findings equal to or above this threshold. This field is required or else the configuration fails. */
-      minLikelihood?: string;
+      minLikelihood?:
+        | 'LIKELIHOOD_UNSPECIFIED'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
     }
     interface GooglePrivacyDlpV2InfoTypeLimit {
       /** Type of information the findings limit applies to. Only one limit per info_type should be provided. If InfoTypeLimit does not have an info_type, the DLP API applies the limit against all info_types that are found but not specified in another InfoTypeLimit. */
@@ -1448,7 +1778,10 @@ declare namespace gapi.client {
     }
     interface GooglePrivacyDlpV2InspectConfig {
       /** Deprecated and unused. */
-      contentOptions?: string[];
+      contentOptions?:
+        | 'CONTENT_UNSPECIFIED'
+        | 'CONTENT_TEXT'
+        | 'CONTENT_IMAGE'[];
       /** CustomInfoTypes provided by the user. See https://cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes to learn more. */
       customInfoTypes?: GooglePrivacyDlpV2CustomInfoType[];
       /** When true, excludes type information of the findings. This is not used for data profiling. */
@@ -1460,7 +1793,13 @@ declare namespace gapi.client {
       /** Configuration to control the number of findings returned. This is not used for data profiling. When redacting sensitive data from images, finding limits don't apply. They can cause unexpected or inconsistent results, where only some data is redacted. Don't include finding limits in RedactImage requests. Otherwise, Cloud DLP returns an error. When set within an InspectJobConfig, the specified maximum values aren't hard limits. If an inspection job reaches these limits, the job ends gradually, not abruptly. Therefore, the actual number of findings that Cloud DLP returns can be multiple times higher than these maximum values. */
       limits?: GooglePrivacyDlpV2FindingLimits;
       /** Only returns findings equal to or above this threshold. The default is POSSIBLE. In general, the highest likelihood setting yields the fewest findings in results and the lowest chance of a false positive. For more information, see [Match likelihood](https://cloud.google.com/sensitive-data-protection/docs/likelihood). */
-      minLikelihood?: string;
+      minLikelihood?:
+        | 'LIKELIHOOD_UNSPECIFIED'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Minimum likelihood per infotype. For each infotype, a user can specify a minimum likelihood. The system only returns a finding if its likelihood is above this threshold. If this field is not set, the system uses the InspectConfig min_likelihood. */
       minLikelihoodPerInfoType?: GooglePrivacyDlpV2InfoTypeLikelihood[];
       /** Set of rules to apply to the findings for this InspectConfig. Exclusion rules, contained in the set are executed in the end, other rules are executed in the order they are specified for each info type. Not supported for the `metadata_key_value_expression` CustomInfoType. */
@@ -1547,7 +1886,7 @@ declare namespace gapi.client {
       /** Unique resource name for the triggeredJob, assigned by the service when the triggeredJob is created, for example `projects/dlp-test-project/jobTriggers/53234423`. */
       name?: string;
       /** Required. A status for this trigger. */
-      status?: string;
+      status?: 'STATUS_UNSPECIFIED' | 'HEALTHY' | 'PAUSED' | 'CANCELLED';
       /** A list of triggers which will be OR'ed together. Only one in the list needs to trigger for a job to be started. The list may contain only a single Schedule trigger and must have at least one object. */
       triggers?: GooglePrivacyDlpV2Trigger[];
       /** Output only. The last update timestamp of a triggeredJob. */
@@ -1678,7 +2017,13 @@ declare namespace gapi.client {
     interface GooglePrivacyDlpV2LeaveUntransformed {}
     interface GooglePrivacyDlpV2LikelihoodAdjustment {
       /** Set the likelihood of a finding to a fixed value. */
-      fixedLikelihood?: string;
+      fixedLikelihood?:
+        | 'LIKELIHOOD_UNSPECIFIED'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Increase or decrease the likelihood by the specified number of levels. For example, if a finding would be `POSSIBLE` without the detection rule and `relative_likelihood` is 1, then it is upgraded to `LIKELY`, while a value of -1 would downgrade it to `UNLIKELY`. Likelihood may never drop below `VERY_UNLIKELY` or exceed `VERY_LIKELY`, so applying an adjustment of 1 followed by an adjustment of -1 when base likelihood is `VERY_LIKELY` will result in a final likelihood of `LIKELY`. */
       relativeLikelihood?: number;
     }
@@ -1766,7 +2111,10 @@ declare namespace gapi.client {
       /** Specific locations where the feature may be used. Examples: us-central1, us, asia, global If scope is ANY_LOCATION, no regions will be listed. */
       locations?: string[];
       /** The current scope for location on this feature. This may expand over time. */
-      regionalizationScope?: string;
+      regionalizationScope?:
+        | 'REGIONALIZATION_SCOPE_UNSPECIFIED'
+        | 'REGIONAL'
+        | 'ANY_LOCATION';
     }
     interface GooglePrivacyDlpV2Manual {}
     interface GooglePrivacyDlpV2MetadataKeyValueExpression {
@@ -1781,7 +2129,10 @@ declare namespace gapi.client {
       /** Storage metadata. */
       storageLabel?: GooglePrivacyDlpV2StorageMetadataLabel;
       /** Type of metadata containing the finding. */
-      type?: string;
+      type?:
+        | 'METADATATYPE_UNSPECIFIED'
+        | 'STORAGE_METADATA'
+        | 'CONTENT_METADATA';
     }
     interface GooglePrivacyDlpV2MultiRegionProcessing {}
     interface GooglePrivacyDlpV2NumericalStatsConfig {
@@ -1850,7 +2201,13 @@ declare namespace gapi.client {
     }
     interface GooglePrivacyDlpV2OutputStorageConfig {
       /** Schema used for writing the findings for Inspect jobs. This field is only used for Inspect and must be unspecified for Risk jobs. Columns are derived from the `Finding` object. If appending to an existing table, any columns from the predefined schema that are missing will be added. No columns in the existing table will be deleted. If unspecified, then all available columns will be used for a new table or an (existing) table with no schema, and no changes will be made to an existing table that has a schema. Only for use with external storage. */
-      outputSchema?: string;
+      outputSchema?:
+        | 'OUTPUT_SCHEMA_UNSPECIFIED'
+        | 'BASIC_COLUMNS'
+        | 'GCS_COLUMNS'
+        | 'DATASTORE_COLUMNS'
+        | 'BIG_QUERY_COLUMNS'
+        | 'ALL_COLUMNS';
       /** Store findings in an existing Cloud Storage bucket. Files will be generated with the job ID and file part number as the filename and will contain findings in textproto format as SaveToGcsFindingsOutput. The filename will follow the naming convention `-`. Example: `my-job-id-2`. Supported for Inspect jobs. The bucket must not be the same as the bucket being inspected. If storing findings to Cloud Storage, the output schema field should not be set. If set, it will be ignored. */
       storagePath?: GooglePrivacyDlpV2CloudStoragePath;
       /** Store findings in an existing table or a new table in an existing dataset. If table_id is not set a new one will be generated for you with the following format: dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific time zone will be used for generating the date details. For Inspect, each column in an existing output table must have the same name, type, and mode of a field in the `Finding` object. For Risk, an existing output table should be the output of a previous Risk analysis job run on the same source table, with the same privacy metric and quasi-identifiers. Risk jobs that analyze the same table but compute a different privacy metric, or use different sets of quasi-identifiers, cannot store their results in the same table. */
@@ -1963,21 +2320,36 @@ declare namespace gapi.client {
     interface GooglePrivacyDlpV2PublishToStackdriver {}
     interface GooglePrivacyDlpV2PubSubCondition {
       /** The minimum data risk score that triggers the condition. */
-      minimumRiskScore?: string;
+      minimumRiskScore?:
+        | 'PROFILE_SCORE_BUCKET_UNSPECIFIED'
+        | 'HIGH'
+        | 'MEDIUM_OR_HIGH';
       /** The minimum sensitivity level that triggers the condition. */
-      minimumSensitivityScore?: string;
+      minimumSensitivityScore?:
+        | 'PROFILE_SCORE_BUCKET_UNSPECIFIED'
+        | 'HIGH'
+        | 'MEDIUM_OR_HIGH';
     }
     interface GooglePrivacyDlpV2PubSubExpressions {
       /** Conditions to apply to the expression. */
       conditions?: GooglePrivacyDlpV2PubSubCondition[];
       /** The operator to apply to the collection of conditions. */
-      logicalOperator?: string;
+      logicalOperator?: 'LOGICAL_OPERATOR_UNSPECIFIED' | 'OR' | 'AND';
     }
     interface GooglePrivacyDlpV2PubSubNotification {
       /** How much data to include in the Pub/Sub message. If the user wishes to limit the size of the message, they can use resource_name and fetch the profile fields they wish to. Per table profile (not per column). */
-      detailOfMessage?: string;
+      detailOfMessage?:
+        | 'DETAIL_LEVEL_UNSPECIFIED'
+        | 'TABLE_PROFILE'
+        | 'RESOURCE_NAME'
+        | 'FILE_STORE_PROFILE';
       /** The type of event that triggers a Pub/Sub. At most one `PubSubNotification` per EventType is permitted. */
-      event?: string;
+      event?:
+        | 'EVENT_TYPE_UNSPECIFIED'
+        | 'NEW_PROFILE'
+        | 'CHANGED_PROFILE'
+        | 'SCORE_INCREASED'
+        | 'ERROR_CHANGED';
       /** Conditions (e.g., data risk or sensitivity level) for triggering a Pub/Sub. */
       pubsubCondition?: GooglePrivacyDlpV2DataProfilePubSubCondition;
       /** Cloud Pub/Sub topic to send notifications to. Format is projects/{project}/topics/{topic}. */
@@ -2173,9 +2545,16 @@ declare namespace gapi.client {
     }
     interface GooglePrivacyDlpV2SchemaModifiedCadence {
       /** Frequency to regenerate data profiles when the schema is modified. Defaults to monthly. */
-      frequency?: string;
+      frequency?:
+        | 'UPDATE_FREQUENCY_UNSPECIFIED'
+        | 'UPDATE_FREQUENCY_NEVER'
+        | 'UPDATE_FREQUENCY_DAILY'
+        | 'UPDATE_FREQUENCY_MONTHLY';
       /** The types of schema modifications to consider. Defaults to NEW_COLUMNS. */
-      types?: string[];
+      types?:
+        | 'SQL_SCHEMA_MODIFICATION_UNSPECIFIED'
+        | 'NEW_COLUMNS'
+        | 'REMOVED_COLUMNS'[];
     }
     interface GooglePrivacyDlpV2SearchConnectionsResponse {
       /** List of connections that match the search query. Note that only a subset of the fields will be populated, and only "name" is guaranteed to be set. For full details of a Connection, call GetConnection with the name. */
@@ -2196,7 +2575,12 @@ declare namespace gapi.client {
     }
     interface GooglePrivacyDlpV2SensitivityScore {
       /** The sensitivity score applied to the resource. */
-      score?: string;
+      score?:
+        | 'SENSITIVITY_SCORE_UNSPECIFIED'
+        | 'SENSITIVITY_LOW'
+        | 'SENSITIVITY_UNKNOWN'
+        | 'SENSITIVITY_MODERATE'
+        | 'SENSITIVITY_HIGH';
     }
     interface GooglePrivacyDlpV2StatisticalTable {
       /** Required. Quasi-identifier columns. */
@@ -2254,7 +2638,12 @@ declare namespace gapi.client {
       /** Errors that occurred when creating this storedInfoType version, or anomalies detected in the storedInfoType data that render it unusable. Only the five most recent errors will be displayed, with the most recent error appearing first. For example, some of the data for stored custom dictionaries is put in the user's Cloud Storage bucket, and if this data is modified or deleted by the user or another system, the dictionary becomes invalid. If any errors occur, fix the problem indicated by the error message and use the UpdateStoredInfoType API method to create another version of the storedInfoType to continue using it, reusing the same `config` if it was not the source of the error. */
       errors?: GooglePrivacyDlpV2Error[];
       /** Stored info type version state. Read-only, updated by the system during dictionary creation. */
-      state?: string;
+      state?:
+        | 'STORED_INFO_TYPE_STATE_UNSPECIFIED'
+        | 'PENDING'
+        | 'READY'
+        | 'FAILED'
+        | 'INVALID';
       /** Statistics about this storedInfoType version. */
       stats?: GooglePrivacyDlpV2StoredInfoTypeStats;
     }
@@ -2266,7 +2655,7 @@ declare namespace gapi.client {
     }
     interface GooglePrivacyDlpV2SummaryResult {
       /** Outcome of the transformation. */
-      code?: string;
+      code?: 'TRANSFORMATION_RESULT_CODE_UNSPECIFIED' | 'SUCCESS' | 'ERROR';
       /** Number of transformations counted by this result. */
       count?: string;
       /** A place for warnings or errors to show up if a transformation didn't work as expected. */
@@ -2297,7 +2686,10 @@ declare namespace gapi.client {
       /** Domains associated with the profile. */
       domains?: GooglePrivacyDlpV2Domain[];
       /** How the table is encrypted. */
-      encryptionStatus?: string;
+      encryptionStatus?:
+        | 'ENCRYPTION_STATUS_UNSPECIFIED'
+        | 'ENCRYPTION_GOOGLE_MANAGED'
+        | 'ENCRYPTION_CUSTOMER_MANAGED';
       /** Optional. The time when this table expires. */
       expirationTime?: string;
       /** The number of columns skipped in the table because of an error. */
@@ -2323,7 +2715,11 @@ declare namespace gapi.client {
       /** The labels applied to the resource at the time the profile was generated. */
       resourceLabels?: {[P in string]: string};
       /** How broadly a resource has been shared. */
-      resourceVisibility?: string;
+      resourceVisibility?:
+        | 'RESOURCE_VISIBILITY_UNSPECIFIED'
+        | 'RESOURCE_VISIBILITY_PUBLIC'
+        | 'RESOURCE_VISIBILITY_INCONCLUSIVE'
+        | 'RESOURCE_VISIBILITY_RESTRICTED';
       /** Number of rows in the table when the profile was generated. This will not be populated for BigLake tables. */
       rowCount?: string;
       /** The BigQuery table to which the sample findings are written. */
@@ -2333,7 +2729,7 @@ declare namespace gapi.client {
       /** The sensitivity score of this table. */
       sensitivityScore?: GooglePrivacyDlpV2SensitivityScore;
       /** State of a profile. This will always be set to DONE when the table data profile is written to another service like BigQuery or Pub/Sub. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'RUNNING' | 'DONE';
       /** The table ID. */
       tableId?: string;
       /** The size of the table when the profile was generated. */
@@ -2395,7 +2791,10 @@ declare namespace gapi.client {
       /** Whether applying a tag to a resource should lower the risk of the profile for that resource. For example, in conjunction with an [IAM deny policy](https://cloud.google.com/iam/docs/deny-overview), you can deny all principals a permission if a tag value is present, mitigating the risk of the resource. This also lowers the data risk of resources at the lower levels of the resource hierarchy. For example, reducing the data risk of a table data profile also reduces the data risk of the constituent column data profiles. */
       lowerDataRiskToLow?: boolean;
       /** The profile generations for which the tag should be attached to resources. If you attach a tag to only new profiles, then if the sensitivity score of a profile subsequently changes, its tag doesn't change. By default, this field includes only new profiles. To include both new and updated profiles for tagging, this field should explicitly include both `PROFILE_GENERATION_NEW` and `PROFILE_GENERATION_UPDATE`. */
-      profileGenerationsToTag?: string[];
+      profileGenerationsToTag?:
+        | 'PROFILE_GENERATION_UNSPECIFIED'
+        | 'PROFILE_GENERATION_NEW'
+        | 'PROFILE_GENERATION_UPDATE'[];
       /** The tags to associate with different conditions. */
       tagConditions?: GooglePrivacyDlpV2TagCondition[];
     }
@@ -2406,7 +2805,14 @@ declare namespace gapi.client {
     interface GooglePrivacyDlpV2ThrowError {}
     interface GooglePrivacyDlpV2TimePartConfig {
       /** The part of the time to keep. */
-      partToExtract?: string;
+      partToExtract?:
+        | 'TIME_PART_UNSPECIFIED'
+        | 'YEAR'
+        | 'MONTH'
+        | 'DAY_OF_MONTH'
+        | 'DAY_OF_WEEK'
+        | 'WEEK_OF_YEAR'
+        | 'HOUR_OF_DAY';
     }
     interface GooglePrivacyDlpV2TimespanConfig {
       /** When the job is started by a JobTrigger we will automatically figure out a valid start_time to avoid scanning files that have not been modified since the last time the JobTrigger executed. This will be based on the time of the execution of the last run of the JobTrigger or the timespan end_time used in the last run of the JobTrigger. **For BigQuery** Inspect jobs triggered by automatic population will scan data that is at least three hours old when the job starts. This is because streaming buffer rows are not read during inspection and reading up to the current timestamp will result in skipped rows. See the [known issue](https://cloud.google.com/sensitive-data-protection/docs/known-issues#recently-streamed-data) related to this operation. */
@@ -2438,7 +2844,22 @@ declare namespace gapi.client {
       /** Set if the transformation was limited to a specific `InfoType`. */
       infoType?: GooglePrivacyDlpV2InfoType;
       /** The transformation type. */
-      type?: string;
+      type?:
+        | 'TRANSFORMATION_TYPE_UNSPECIFIED'
+        | 'RECORD_SUPPRESSION'
+        | 'REPLACE_VALUE'
+        | 'REPLACE_DICTIONARY'
+        | 'REDACT'
+        | 'CHARACTER_MASK'
+        | 'CRYPTO_REPLACE_FFX_FPE'
+        | 'FIXED_SIZE_BUCKETING'
+        | 'BUCKETING'
+        | 'REPLACE_WITH_INFO_TYPE'
+        | 'TIME_PART'
+        | 'CRYPTO_HASH'
+        | 'DATE_SHIFT'
+        | 'CRYPTO_DETERMINISTIC_CONFIG'
+        | 'REDACT_IMAGE';
     }
     interface GooglePrivacyDlpV2TransformationDetails {
       /** The top level name of the container where the transformation is located (this will be the source file name or table name). */
@@ -2466,7 +2887,11 @@ declare namespace gapi.client {
     }
     interface GooglePrivacyDlpV2TransformationLocation {
       /** Information about the functionality of the container where this finding occurred, if available. */
-      containerType?: string;
+      containerType?:
+        | 'TRANSFORM_UNKNOWN_CONTAINER'
+        | 'TRANSFORM_BODY'
+        | 'TRANSFORM_METADATA'
+        | 'TRANSFORM_TABLE';
       /** For infotype transformations, link to the corresponding findings ID so that location information does not need to be duplicated. Each findings ID correlates to an entry in the findings output table, this table only gets created when users specify to save findings (add the save findings action to the request). */
       findingId?: string;
       /** For record transformations, provide a field and container information. */
@@ -2482,7 +2907,12 @@ declare namespace gapi.client {
       /** Detailed error codes and messages */
       details?: GoogleRpcStatus;
       /** Transformation result status type, this will be either SUCCESS, or it will be the reason for why the transformation was not completely successful. */
-      resultStatusType?: string;
+      resultStatusType?:
+        | 'STATE_TYPE_UNSPECIFIED'
+        | 'INVALID_TRANSFORM'
+        | 'BIGQUERY_MAX_ROW_SIZE_EXCEEDED'
+        | 'METADATA_UNRETRIEVABLE'
+        | 'SUCCESS';
     }
     interface GooglePrivacyDlpV2TransformationSummary {
       /** Set if the transformation was limited to a specific FieldId. */
@@ -2556,7 +2986,15 @@ declare namespace gapi.client {
       /** date */
       dateValue?: GoogleTypeDate;
       /** day of week */
-      dayOfWeekValue?: string;
+      dayOfWeekValue?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY';
       /** float */
       floatValue?: number;
       /** integer */
@@ -2654,11 +3092,11 @@ declare namespace gapi.client {
       /** Returns a list of the sensitive information types that the DLP API supports. See https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference to learn more. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2689,11 +3127,11 @@ declare namespace gapi.client {
       /** Returns a list of the sensitive information types that the DLP API supports. See https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference to learn more. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2727,11 +3165,11 @@ declare namespace gapi.client {
       /** Creates a DeidentifyTemplate for reusing frequently used configuration for de-identifying content, images, and storage. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2756,11 +3194,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2785,11 +3223,11 @@ declare namespace gapi.client {
       /** Deletes a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2812,11 +3250,11 @@ declare namespace gapi.client {
       /** Gets a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2839,11 +3277,11 @@ declare namespace gapi.client {
       /** Lists DeidentifyTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2874,11 +3312,11 @@ declare namespace gapi.client {
       /** Updates the DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2903,11 +3341,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2934,11 +3372,11 @@ declare namespace gapi.client {
       /** Creates an InspectTemplate for reusing frequently used configuration for inspecting content, images, and storage. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2963,11 +3401,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2992,11 +3430,11 @@ declare namespace gapi.client {
       /** Deletes an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3019,11 +3457,11 @@ declare namespace gapi.client {
       /** Gets an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3046,11 +3484,11 @@ declare namespace gapi.client {
       /** Lists InspectTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3081,11 +3519,11 @@ declare namespace gapi.client {
       /** Updates the InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3110,11 +3548,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3141,11 +3579,11 @@ declare namespace gapi.client {
       /** Gets a column data profile. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3168,11 +3606,11 @@ declare namespace gapi.client {
       /** Lists column data profiles for an organization. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3205,11 +3643,11 @@ declare namespace gapi.client {
       /** Create a Connection to an external data source. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3234,11 +3672,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3263,11 +3701,11 @@ declare namespace gapi.client {
       /** Delete a Connection. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3290,11 +3728,11 @@ declare namespace gapi.client {
       /** Get a Connection by name. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3317,11 +3755,11 @@ declare namespace gapi.client {
       /** Lists Connections in a parent. Use SearchConnections to see all connections within an organization. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3350,11 +3788,11 @@ declare namespace gapi.client {
       /** Update a Connection. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3379,11 +3817,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3408,11 +3846,11 @@ declare namespace gapi.client {
       /** Searches for Connections in a parent. */
       search(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3443,11 +3881,11 @@ declare namespace gapi.client {
       /** Creates a DeidentifyTemplate for reusing frequently used configuration for de-identifying content, images, and storage. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3472,11 +3910,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3501,11 +3939,11 @@ declare namespace gapi.client {
       /** Deletes a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3528,11 +3966,11 @@ declare namespace gapi.client {
       /** Gets a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3555,11 +3993,11 @@ declare namespace gapi.client {
       /** Lists DeidentifyTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3590,11 +4028,11 @@ declare namespace gapi.client {
       /** Updates the DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3619,11 +4057,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3650,11 +4088,11 @@ declare namespace gapi.client {
       /** Creates a config for discovery to scan and profile storage. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3679,11 +4117,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3708,11 +4146,11 @@ declare namespace gapi.client {
       /** Deletes a discovery configuration. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3735,11 +4173,11 @@ declare namespace gapi.client {
       /** Gets a discovery configuration. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3762,11 +4200,11 @@ declare namespace gapi.client {
       /** Lists discovery configurations. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3795,11 +4233,11 @@ declare namespace gapi.client {
       /** Updates a discovery configuration. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3824,11 +4262,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3855,11 +4293,11 @@ declare namespace gapi.client {
       /** Lists DlpJobs that match the specified filter in the request. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3885,7 +4323,7 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** The type of job. Defaults to `DlpJobType.INSPECT` */
-        type?: string;
+        type?: 'DLP_JOB_TYPE_UNSPECIFIED' | 'INSPECT_JOB' | 'RISK_ANALYSIS_JOB';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -3896,11 +4334,11 @@ declare namespace gapi.client {
       /** Delete a FileStoreDataProfile. Will not prevent the profile from being regenerated if the resource is still included in a discovery configuration. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3923,11 +4361,11 @@ declare namespace gapi.client {
       /** Gets a file store data profile. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3950,11 +4388,11 @@ declare namespace gapi.client {
       /** Lists file store data profiles for an organization. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3987,11 +4425,11 @@ declare namespace gapi.client {
       /** Returns a list of the sensitive information types that the DLP API supports. See https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference to learn more. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4022,11 +4460,11 @@ declare namespace gapi.client {
       /** Creates an InspectTemplate for reusing frequently used configuration for inspecting content, images, and storage. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4051,11 +4489,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4080,11 +4518,11 @@ declare namespace gapi.client {
       /** Deletes an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4107,11 +4545,11 @@ declare namespace gapi.client {
       /** Gets an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4134,11 +4572,11 @@ declare namespace gapi.client {
       /** Lists InspectTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4169,11 +4607,11 @@ declare namespace gapi.client {
       /** Updates the InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4198,11 +4636,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4229,11 +4667,11 @@ declare namespace gapi.client {
       /** Creates a job trigger to run DLP actions such as scanning storage for sensitive information on a set schedule. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4258,11 +4696,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4287,11 +4725,11 @@ declare namespace gapi.client {
       /** Deletes a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4314,11 +4752,11 @@ declare namespace gapi.client {
       /** Gets a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4341,11 +4779,11 @@ declare namespace gapi.client {
       /** Lists job triggers. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4371,7 +4809,7 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** The type of jobs. Will use `DlpJobType.INSPECT` if not set. */
-        type?: string;
+        type?: 'DLP_JOB_TYPE_UNSPECIFIED' | 'INSPECT_JOB' | 'RISK_ANALYSIS_JOB';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -4380,11 +4818,11 @@ declare namespace gapi.client {
       /** Updates a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4409,11 +4847,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4440,11 +4878,11 @@ declare namespace gapi.client {
       /** Gets a project data profile. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4467,11 +4905,11 @@ declare namespace gapi.client {
       /** Lists project data profiles for an organization. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4504,11 +4942,11 @@ declare namespace gapi.client {
       /** Creates a pre-built stored infoType to be used for inspection. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4533,11 +4971,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4562,11 +5000,11 @@ declare namespace gapi.client {
       /** Deletes a stored infoType. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4589,11 +5027,11 @@ declare namespace gapi.client {
       /** Gets a stored infoType. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4616,11 +5054,11 @@ declare namespace gapi.client {
       /** Lists stored infoTypes. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4651,11 +5089,11 @@ declare namespace gapi.client {
       /** Updates the stored infoType by creating a new version. The existing version will continue to be used until the new version is ready. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4680,11 +5118,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4711,11 +5149,11 @@ declare namespace gapi.client {
       /** Delete a TableDataProfile. Will not prevent the profile from being regenerated if the table is still included in a discovery configuration. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4738,11 +5176,11 @@ declare namespace gapi.client {
       /** Gets a table data profile. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4765,11 +5203,11 @@ declare namespace gapi.client {
       /** Lists table data profiles for an organization. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4816,11 +5254,11 @@ declare namespace gapi.client {
       /** Creates a pre-built stored infoType to be used for inspection. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4845,11 +5283,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4874,11 +5312,11 @@ declare namespace gapi.client {
       /** Deletes a stored infoType. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4901,11 +5339,11 @@ declare namespace gapi.client {
       /** Gets a stored infoType. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4928,11 +5366,11 @@ declare namespace gapi.client {
       /** Lists stored infoTypes. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4963,11 +5401,11 @@ declare namespace gapi.client {
       /** Updates the stored infoType by creating a new version. The existing version will continue to be used until the new version is ready. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4992,11 +5430,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5029,11 +5467,11 @@ declare namespace gapi.client {
       /** De-identifies potentially sensitive info from a ContentItem. This method has limits on input size and output size. See https://cloud.google.com/sensitive-data-protection/docs/deidentify-sensitive-data to learn more. When no InfoTypes or CustomInfoTypes are specified in this request, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated. */
       deidentify(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5058,11 +5496,11 @@ declare namespace gapi.client {
       deidentify(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5087,11 +5525,11 @@ declare namespace gapi.client {
       /** Finds potentially sensitive info in content. This method has limits on input size, processing time, and output size. When no InfoTypes or CustomInfoTypes are specified in this request, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated. For how to guides, see https://cloud.google.com/sensitive-data-protection/docs/inspecting-images and https://cloud.google.com/sensitive-data-protection/docs/inspecting-text, */
       inspect(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5116,11 +5554,11 @@ declare namespace gapi.client {
       inspect(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5145,11 +5583,11 @@ declare namespace gapi.client {
       /** Re-identifies content that has been de-identified. See https://cloud.google.com/sensitive-data-protection/docs/pseudonymization#re-identification_in_free_text_code_example to learn more. */
       reidentify(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5174,11 +5612,11 @@ declare namespace gapi.client {
       reidentify(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5205,11 +5643,11 @@ declare namespace gapi.client {
       /** Creates a DeidentifyTemplate for reusing frequently used configuration for de-identifying content, images, and storage. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5234,11 +5672,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5263,11 +5701,11 @@ declare namespace gapi.client {
       /** Deletes a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5290,11 +5728,11 @@ declare namespace gapi.client {
       /** Gets a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5317,11 +5755,11 @@ declare namespace gapi.client {
       /** Lists DeidentifyTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5352,11 +5790,11 @@ declare namespace gapi.client {
       /** Updates the DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5381,11 +5819,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5412,11 +5850,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running DlpJob. The server makes a best effort to cancel the DlpJob, but success is not guaranteed. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5441,11 +5879,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5470,11 +5908,11 @@ declare namespace gapi.client {
       /** Creates a new job to inspect storage or calculate risk metrics. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. When no InfoTypes or CustomInfoTypes are specified in inspect jobs, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5499,11 +5937,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5528,11 +5966,11 @@ declare namespace gapi.client {
       /** Deletes a long-running DlpJob. This method indicates that the client is no longer interested in the DlpJob result. The job will be canceled if possible. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5555,11 +5993,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running DlpJob. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5582,11 +6020,11 @@ declare namespace gapi.client {
       /** Lists DlpJobs that match the specified filter in the request. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5612,7 +6050,7 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** The type of job. Defaults to `DlpJobType.INSPECT` */
-        type?: string;
+        type?: 'DLP_JOB_TYPE_UNSPECIFIED' | 'INSPECT_JOB' | 'RISK_ANALYSIS_JOB';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -5623,11 +6061,11 @@ declare namespace gapi.client {
       /** Redacts potentially sensitive info from an image. This method has limits on input size, processing time, and output size. See https://cloud.google.com/sensitive-data-protection/docs/redacting-sensitive-data-images to learn more. When no InfoTypes or CustomInfoTypes are specified in this request, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated. Only the first frame of each multiframe image is redacted. Metadata and other frames are omitted in the response. */
       redact(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5652,11 +6090,11 @@ declare namespace gapi.client {
       redact(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5683,11 +6121,11 @@ declare namespace gapi.client {
       /** Creates an InspectTemplate for reusing frequently used configuration for inspecting content, images, and storage. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5712,11 +6150,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5741,11 +6179,11 @@ declare namespace gapi.client {
       /** Deletes an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5768,11 +6206,11 @@ declare namespace gapi.client {
       /** Gets an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5795,11 +6233,11 @@ declare namespace gapi.client {
       /** Lists InspectTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5830,11 +6268,11 @@ declare namespace gapi.client {
       /** Updates the InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5859,11 +6297,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5890,11 +6328,11 @@ declare namespace gapi.client {
       /** Activate a job trigger. Causes the immediate execute of a trigger instead of waiting on the trigger event to occur. */
       activate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5919,11 +6357,11 @@ declare namespace gapi.client {
       activate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5948,11 +6386,11 @@ declare namespace gapi.client {
       /** Creates a job trigger to run DLP actions such as scanning storage for sensitive information on a set schedule. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5977,11 +6415,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6006,11 +6444,11 @@ declare namespace gapi.client {
       /** Deletes a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6033,11 +6471,11 @@ declare namespace gapi.client {
       /** Gets a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6060,11 +6498,11 @@ declare namespace gapi.client {
       /** Lists job triggers. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6090,7 +6528,7 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** The type of jobs. Will use `DlpJobType.INSPECT` if not set. */
-        type?: string;
+        type?: 'DLP_JOB_TYPE_UNSPECIFIED' | 'INSPECT_JOB' | 'RISK_ANALYSIS_JOB';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -6099,11 +6537,11 @@ declare namespace gapi.client {
       /** Updates a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6128,11 +6566,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6159,11 +6597,11 @@ declare namespace gapi.client {
       /** Gets a column data profile. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6186,11 +6624,11 @@ declare namespace gapi.client {
       /** Lists column data profiles for an organization. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6223,11 +6661,11 @@ declare namespace gapi.client {
       /** Create a Connection to an external data source. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6252,11 +6690,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6281,11 +6719,11 @@ declare namespace gapi.client {
       /** Delete a Connection. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6308,11 +6746,11 @@ declare namespace gapi.client {
       /** Get a Connection by name. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6335,11 +6773,11 @@ declare namespace gapi.client {
       /** Lists Connections in a parent. Use SearchConnections to see all connections within an organization. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6368,11 +6806,11 @@ declare namespace gapi.client {
       /** Update a Connection. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6397,11 +6835,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6426,11 +6864,11 @@ declare namespace gapi.client {
       /** Searches for Connections in a parent. */
       search(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6461,11 +6899,11 @@ declare namespace gapi.client {
       /** De-identifies potentially sensitive info from a ContentItem. This method has limits on input size and output size. See https://cloud.google.com/sensitive-data-protection/docs/deidentify-sensitive-data to learn more. When no InfoTypes or CustomInfoTypes are specified in this request, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated. */
       deidentify(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6490,11 +6928,11 @@ declare namespace gapi.client {
       deidentify(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6519,11 +6957,11 @@ declare namespace gapi.client {
       /** Finds potentially sensitive info in content. This method has limits on input size, processing time, and output size. When no InfoTypes or CustomInfoTypes are specified in this request, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated. For how to guides, see https://cloud.google.com/sensitive-data-protection/docs/inspecting-images and https://cloud.google.com/sensitive-data-protection/docs/inspecting-text, */
       inspect(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6548,11 +6986,11 @@ declare namespace gapi.client {
       inspect(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6577,11 +7015,11 @@ declare namespace gapi.client {
       /** Re-identifies content that has been de-identified. See https://cloud.google.com/sensitive-data-protection/docs/pseudonymization#re-identification_in_free_text_code_example to learn more. */
       reidentify(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6606,11 +7044,11 @@ declare namespace gapi.client {
       reidentify(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6637,11 +7075,11 @@ declare namespace gapi.client {
       /** Creates a DeidentifyTemplate for reusing frequently used configuration for de-identifying content, images, and storage. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6666,11 +7104,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6695,11 +7133,11 @@ declare namespace gapi.client {
       /** Deletes a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6722,11 +7160,11 @@ declare namespace gapi.client {
       /** Gets a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6749,11 +7187,11 @@ declare namespace gapi.client {
       /** Lists DeidentifyTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6784,11 +7222,11 @@ declare namespace gapi.client {
       /** Updates the DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6813,11 +7251,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6844,11 +7282,11 @@ declare namespace gapi.client {
       /** Creates a config for discovery to scan and profile storage. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6873,11 +7311,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6902,11 +7340,11 @@ declare namespace gapi.client {
       /** Deletes a discovery configuration. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6929,11 +7367,11 @@ declare namespace gapi.client {
       /** Gets a discovery configuration. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6956,11 +7394,11 @@ declare namespace gapi.client {
       /** Lists discovery configurations. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6989,11 +7427,11 @@ declare namespace gapi.client {
       /** Updates a discovery configuration. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7018,11 +7456,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7049,11 +7487,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running DlpJob. The server makes a best effort to cancel the DlpJob, but success is not guaranteed. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7078,11 +7516,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7107,11 +7545,11 @@ declare namespace gapi.client {
       /** Creates a new job to inspect storage or calculate risk metrics. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. When no InfoTypes or CustomInfoTypes are specified in inspect jobs, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7136,11 +7574,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7165,11 +7603,11 @@ declare namespace gapi.client {
       /** Deletes a long-running DlpJob. This method indicates that the client is no longer interested in the DlpJob result. The job will be canceled if possible. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7192,11 +7630,11 @@ declare namespace gapi.client {
       /** Finish a running hybrid DlpJob. Triggers the finalization steps and running of any enabled actions that have not yet run. */
       finish(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7221,11 +7659,11 @@ declare namespace gapi.client {
       finish(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7250,11 +7688,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running DlpJob. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7277,11 +7715,11 @@ declare namespace gapi.client {
       /** Inspect hybrid content and store findings to a job. To review the findings, inspect the job. Inspection will occur asynchronously. */
       hybridInspect(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7306,11 +7744,11 @@ declare namespace gapi.client {
       hybridInspect(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7335,11 +7773,11 @@ declare namespace gapi.client {
       /** Lists DlpJobs that match the specified filter in the request. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7365,7 +7803,7 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** The type of job. Defaults to `DlpJobType.INSPECT` */
-        type?: string;
+        type?: 'DLP_JOB_TYPE_UNSPECIFIED' | 'INSPECT_JOB' | 'RISK_ANALYSIS_JOB';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -7376,11 +7814,11 @@ declare namespace gapi.client {
       /** Delete a FileStoreDataProfile. Will not prevent the profile from being regenerated if the resource is still included in a discovery configuration. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7403,11 +7841,11 @@ declare namespace gapi.client {
       /** Gets a file store data profile. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7430,11 +7868,11 @@ declare namespace gapi.client {
       /** Lists file store data profiles for an organization. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7467,11 +7905,11 @@ declare namespace gapi.client {
       /** Redacts potentially sensitive info from an image. This method has limits on input size, processing time, and output size. See https://cloud.google.com/sensitive-data-protection/docs/redacting-sensitive-data-images to learn more. When no InfoTypes or CustomInfoTypes are specified in this request, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated. Only the first frame of each multiframe image is redacted. Metadata and other frames are omitted in the response. */
       redact(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7496,11 +7934,11 @@ declare namespace gapi.client {
       redact(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7527,11 +7965,11 @@ declare namespace gapi.client {
       /** Returns a list of the sensitive information types that the DLP API supports. See https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference to learn more. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7562,11 +8000,11 @@ declare namespace gapi.client {
       /** Creates an InspectTemplate for reusing frequently used configuration for inspecting content, images, and storage. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7591,11 +8029,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7620,11 +8058,11 @@ declare namespace gapi.client {
       /** Deletes an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7647,11 +8085,11 @@ declare namespace gapi.client {
       /** Gets an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7674,11 +8112,11 @@ declare namespace gapi.client {
       /** Lists InspectTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7709,11 +8147,11 @@ declare namespace gapi.client {
       /** Updates the InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7738,11 +8176,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7769,11 +8207,11 @@ declare namespace gapi.client {
       /** Activate a job trigger. Causes the immediate execute of a trigger instead of waiting on the trigger event to occur. */
       activate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7798,11 +8236,11 @@ declare namespace gapi.client {
       activate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7827,11 +8265,11 @@ declare namespace gapi.client {
       /** Creates a job trigger to run DLP actions such as scanning storage for sensitive information on a set schedule. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7856,11 +8294,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7885,11 +8323,11 @@ declare namespace gapi.client {
       /** Deletes a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7912,11 +8350,11 @@ declare namespace gapi.client {
       /** Gets a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7939,11 +8377,11 @@ declare namespace gapi.client {
       /** Inspect hybrid content and store findings to a trigger. The inspection will be processed asynchronously. To review the findings monitor the jobs within the trigger. */
       hybridInspect(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7968,11 +8406,11 @@ declare namespace gapi.client {
       hybridInspect(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7997,11 +8435,11 @@ declare namespace gapi.client {
       /** Lists job triggers. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8027,7 +8465,7 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** The type of jobs. Will use `DlpJobType.INSPECT` if not set. */
-        type?: string;
+        type?: 'DLP_JOB_TYPE_UNSPECIFIED' | 'INSPECT_JOB' | 'RISK_ANALYSIS_JOB';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -8036,11 +8474,11 @@ declare namespace gapi.client {
       /** Updates a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8065,11 +8503,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8096,11 +8534,11 @@ declare namespace gapi.client {
       /** Gets a project data profile. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8123,11 +8561,11 @@ declare namespace gapi.client {
       /** Lists project data profiles for an organization. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8160,11 +8598,11 @@ declare namespace gapi.client {
       /** Creates a pre-built stored infoType to be used for inspection. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8189,11 +8627,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8218,11 +8656,11 @@ declare namespace gapi.client {
       /** Deletes a stored infoType. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8245,11 +8683,11 @@ declare namespace gapi.client {
       /** Gets a stored infoType. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8272,11 +8710,11 @@ declare namespace gapi.client {
       /** Lists stored infoTypes. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8307,11 +8745,11 @@ declare namespace gapi.client {
       /** Updates the stored infoType by creating a new version. The existing version will continue to be used until the new version is ready. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8336,11 +8774,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8367,11 +8805,11 @@ declare namespace gapi.client {
       /** Delete a TableDataProfile. Will not prevent the profile from being regenerated if the table is still included in a discovery configuration. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8394,11 +8832,11 @@ declare namespace gapi.client {
       /** Gets a table data profile. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8421,11 +8859,11 @@ declare namespace gapi.client {
       /** Lists table data profiles for an organization. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8474,11 +8912,11 @@ declare namespace gapi.client {
       /** Creates a pre-built stored infoType to be used for inspection. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8503,11 +8941,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8532,11 +8970,11 @@ declare namespace gapi.client {
       /** Deletes a stored infoType. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8559,11 +8997,11 @@ declare namespace gapi.client {
       /** Gets a stored infoType. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8586,11 +9024,11 @@ declare namespace gapi.client {
       /** Lists stored infoTypes. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8621,11 +9059,11 @@ declare namespace gapi.client {
       /** Updates the stored infoType by creating a new version. The existing version will continue to be used until the new version is ready. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8650,11 +9088,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

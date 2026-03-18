@@ -34,7 +34,7 @@ declare namespace gapi.client {
       /** Output only. The time that the download URI link expires. If the link has expired, the REST call must be repeated. */
       expireTime?: string;
       /** Output only. The format of the model being downloaded. */
-      modelFormat?: string;
+      modelFormat?: 'MODEL_FORMAT_UNSPECIFIED' | 'TFLITE';
       /** Output only. The size of the file(s), if this information is available. */
       sizeBytes?: string;
     }
@@ -68,7 +68,10 @@ declare namespace gapi.client {
       updateTime?: string;
     }
     interface ModelOperationMetadata {
-      basicOperationStatus?: string;
+      basicOperationStatus?:
+        | 'BASIC_OPERATION_STATUS_UNSPECIFIED'
+        | 'BASIC_OPERATION_STATUS_UPLOADING'
+        | 'BASIC_OPERATION_STATUS_VERIFYING';
       /** The name of the model we are creating/updating The name must have the form `projects/{project_id}/models/{model_id}` */
       name?: string;
     }
@@ -110,11 +113,11 @@ declare namespace gapi.client {
       /** Creates a model in Firebase ML. The longrunning operation will eventually return a Model */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -139,11 +142,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -168,11 +171,11 @@ declare namespace gapi.client {
       /** Deletes a model */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -195,11 +198,11 @@ declare namespace gapi.client {
       /** Gets Download information for a model. This is meant for downloading model resources onto devices. It gives very limited information about the model. */
       download(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -222,11 +225,11 @@ declare namespace gapi.client {
       /** Gets a model resource. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -249,11 +252,11 @@ declare namespace gapi.client {
       /** Lists the models */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -282,11 +285,11 @@ declare namespace gapi.client {
       /** Updates a model. The longrunning operation will eventually return a Model. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -313,11 +316,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -346,11 +349,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

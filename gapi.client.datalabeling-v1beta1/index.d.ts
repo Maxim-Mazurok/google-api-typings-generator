@@ -202,9 +202,23 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDatalabelingV1beta1AnnotatedDataset {
       /** Output only. Source of the annotation. */
-      annotationSource?: string;
+      annotationSource?: 'ANNOTATION_SOURCE_UNSPECIFIED' | 'OPERATOR';
       /** Output only. Type of the annotation. It is specified when starting labeling task. */
-      annotationType?: string;
+      annotationType?:
+        | 'ANNOTATION_TYPE_UNSPECIFIED'
+        | 'IMAGE_CLASSIFICATION_ANNOTATION'
+        | 'IMAGE_BOUNDING_BOX_ANNOTATION'
+        | 'IMAGE_ORIENTED_BOUNDING_BOX_ANNOTATION'
+        | 'IMAGE_BOUNDING_POLY_ANNOTATION'
+        | 'IMAGE_POLYLINE_ANNOTATION'
+        | 'IMAGE_SEGMENTATION_ANNOTATION'
+        | 'VIDEO_SHOTS_CLASSIFICATION_ANNOTATION'
+        | 'VIDEO_OBJECT_TRACKING_ANNOTATION'
+        | 'VIDEO_OBJECT_DETECTION_ANNOTATION'
+        | 'VIDEO_EVENT_ANNOTATION'
+        | 'TEXT_CLASSIFICATION_ANNOTATION'
+        | 'TEXT_ENTITY_EXTRACTION_ANNOTATION'
+        | 'GENERAL_CLASSIFICATION_ANNOTATION';
       /** Output only. The names of any related resources that are blocking changes to the annotated dataset. */
       blockingResources?: string[];
       /** Output only. Number of examples that have annotation in the annotated dataset. */
@@ -252,9 +266,12 @@ declare namespace gapi.client {
       /** Output only. Annotation metadata, including information like votes for labels. */
       annotationMetadata?: GoogleCloudDatalabelingV1beta1AnnotationMetadata;
       /** Output only. Sentiment for this annotation. */
-      annotationSentiment?: string;
+      annotationSentiment?:
+        | 'ANNOTATION_SENTIMENT_UNSPECIFIED'
+        | 'NEGATIVE'
+        | 'POSITIVE';
       /** Output only. The source of the annotation. */
-      annotationSource?: string;
+      annotationSource?: 'ANNOTATION_SOURCE_UNSPECIFIED' | 'OPERATOR';
       /** Output only. This is the actual annotation value, e.g classification, bounding box values are stored here. */
       annotationValue?: GoogleCloudDatalabelingV1beta1AnnotationValue;
       /** Output only. Unique name of this annotation, format is: projects/{project_id}/datasets/{dataset_id}/annotatedDatasets/{annotated_dataset}/examples/{example_id}/annotations/{annotation_id} */
@@ -432,7 +449,21 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDatalabelingV1beta1Evaluation {
       /** Output only. Type of task that the model version being evaluated performs, as defined in the evaluationJobConfig.inputConfig.annotationType field of the evaluation job that created this evaluation. */
-      annotationType?: string;
+      annotationType?:
+        | 'ANNOTATION_TYPE_UNSPECIFIED'
+        | 'IMAGE_CLASSIFICATION_ANNOTATION'
+        | 'IMAGE_BOUNDING_BOX_ANNOTATION'
+        | 'IMAGE_ORIENTED_BOUNDING_BOX_ANNOTATION'
+        | 'IMAGE_BOUNDING_POLY_ANNOTATION'
+        | 'IMAGE_POLYLINE_ANNOTATION'
+        | 'IMAGE_SEGMENTATION_ANNOTATION'
+        | 'VIDEO_SHOTS_CLASSIFICATION_ANNOTATION'
+        | 'VIDEO_OBJECT_TRACKING_ANNOTATION'
+        | 'VIDEO_OBJECT_DETECTION_ANNOTATION'
+        | 'VIDEO_EVENT_ANNOTATION'
+        | 'TEXT_CLASSIFICATION_ANNOTATION'
+        | 'TEXT_ENTITY_EXTRACTION_ANNOTATION'
+        | 'GENERAL_CLASSIFICATION_ANNOTATION';
       /** Output only. Options used in the evaluation job that created this evaluation. */
       config?: GoogleCloudDatalabelingV1beta1EvaluationConfig;
       /** Output only. Timestamp for when this evaluation was created. */
@@ -470,7 +501,12 @@ declare namespace gapi.client {
       /** Required. Describes the interval at which the job runs. This interval must be at least 1 day, and it is rounded to the nearest day. For example, if you specify a 50-hour interval, the job runs every 2 days. You can provide the schedule in [crontab format](/scheduler/docs/configuring/cron-job-schedules) or in an [English-like format](/appengine/docs/standard/python/config/cronref#schedule_format). Regardless of what you specify, the job will run at 10:00 AM UTC. Only the interval from this schedule is used, not the specific time of day. */
       schedule?: string;
       /** Output only. Describes the current state of the job. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'SCHEDULED'
+        | 'RUNNING'
+        | 'PAUSED'
+        | 'STOPPED';
     }
     interface GoogleCloudDatalabelingV1beta1EvaluationJobAlertConfig {
       /** Required. An email address to send alerts to. */
@@ -587,7 +623,7 @@ declare namespace gapi.client {
       createTime?: string;
       /** When the thread is last updated. */
       lastUpdateTime?: string;
-      status?: string;
+      status?: 'FEEDBACK_THREAD_STATUS_UNSPECIFIED' | 'NEW' | 'REPLIED';
       /** An image thumbnail of this thread. */
       thumbnail?: string;
     }
@@ -643,7 +679,11 @@ declare namespace gapi.client {
       /** Required. Annotation spec set resource name. */
       annotationSpecSet?: string;
       /** Optional. The type of how to aggregate answers. */
-      answerAggregationType?: string;
+      answerAggregationType?:
+        | 'STRING_AGGREGATION_TYPE_UNSPECIFIED'
+        | 'MAJORITY_VOTE'
+        | 'UNANIMOUS_VOTE'
+        | 'NO_AGGREGATION';
     }
     interface GoogleCloudDatalabelingV1beta1ImagePayload {
       /** A byte string of a thumbnail image. */
@@ -695,13 +735,32 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDatalabelingV1beta1InputConfig {
       /** Optional. The type of annotation to be performed on this data. You must specify this field if you are using this InputConfig in an EvaluationJob. */
-      annotationType?: string;
+      annotationType?:
+        | 'ANNOTATION_TYPE_UNSPECIFIED'
+        | 'IMAGE_CLASSIFICATION_ANNOTATION'
+        | 'IMAGE_BOUNDING_BOX_ANNOTATION'
+        | 'IMAGE_ORIENTED_BOUNDING_BOX_ANNOTATION'
+        | 'IMAGE_BOUNDING_POLY_ANNOTATION'
+        | 'IMAGE_POLYLINE_ANNOTATION'
+        | 'IMAGE_SEGMENTATION_ANNOTATION'
+        | 'VIDEO_SHOTS_CLASSIFICATION_ANNOTATION'
+        | 'VIDEO_OBJECT_TRACKING_ANNOTATION'
+        | 'VIDEO_OBJECT_DETECTION_ANNOTATION'
+        | 'VIDEO_EVENT_ANNOTATION'
+        | 'TEXT_CLASSIFICATION_ANNOTATION'
+        | 'TEXT_ENTITY_EXTRACTION_ANNOTATION'
+        | 'GENERAL_CLASSIFICATION_ANNOTATION';
       /** Source located in BigQuery. You must specify this field if you are using this InputConfig in an EvaluationJob. */
       bigquerySource?: GoogleCloudDatalabelingV1beta1BigQuerySource;
       /** Optional. Metadata about annotations for the input. You must specify this field if you are using this InputConfig in an EvaluationJob for a model version that performs classification. */
       classificationMetadata?: GoogleCloudDatalabelingV1beta1ClassificationMetadata;
       /** Required. Data type must be specifed when user tries to import data. */
-      dataType?: string;
+      dataType?:
+        | 'DATA_TYPE_UNSPECIFIED'
+        | 'IMAGE'
+        | 'VIDEO'
+        | 'TEXT'
+        | 'GENERAL_DATA';
       /** Source located in Cloud Storage. */
       gcsSource?: GoogleCloudDatalabelingV1beta1GcsSource;
       /** Required for text import, as language code must be specified. */
@@ -715,7 +774,12 @@ declare namespace gapi.client {
       /** Deprecated: this instruction format is not supported any more. Instruction from a CSV file, such as for classification task. The CSV file should have exact two columns, in the following format: * The first column is labeled data, such as an image reference, text. * The second column is comma separated labels associated with data. */
       csvInstruction?: GoogleCloudDatalabelingV1beta1CsvInstruction;
       /** Required. The data type of this instruction. */
-      dataType?: string;
+      dataType?:
+        | 'DATA_TYPE_UNSPECIFIED'
+        | 'IMAGE'
+        | 'VIDEO'
+        | 'TEXT'
+        | 'GENERAL_DATA';
       /** Optional. User-provided description of the instruction. The description can be up to 10000 characters long. */
       description?: string;
       /** Required. The display name of the instruction. Maximum of 64 characters. */
@@ -753,7 +817,14 @@ declare namespace gapi.client {
       /** Configuration for bounding box and bounding poly task. One of image_classification_config, bounding_poly_config, polyline_config and segmentation_config are required. */
       boundingPolyConfig?: GoogleCloudDatalabelingV1beta1BoundingPolyConfig;
       /** Required. The type of image labeling task. */
-      feature?: string;
+      feature?:
+        | 'FEATURE_UNSPECIFIED'
+        | 'CLASSIFICATION'
+        | 'BOUNDING_BOX'
+        | 'ORIENTED_BOUNDING_BOX'
+        | 'BOUNDING_POLY'
+        | 'POLYLINE'
+        | 'SEGMENTATION';
       /** Configuration for image classification task. One of image_classification_config, bounding_poly_config, polyline_config and segmentation_config are required. */
       imageClassificationConfig?: GoogleCloudDatalabelingV1beta1ImageClassificationConfig;
       /** Configuration for polyline task. One of image_classification_config, bounding_poly_config, polyline_config and segmentation_config are required. */
@@ -817,7 +888,10 @@ declare namespace gapi.client {
       /** Required. Basic human annotation config. */
       basicConfig?: GoogleCloudDatalabelingV1beta1HumanAnnotationConfig;
       /** Required. The type of text labeling task. */
-      feature?: string;
+      feature?:
+        | 'FEATURE_UNSPECIFIED'
+        | 'TEXT_CLASSIFICATION'
+        | 'TEXT_ENTITY_EXTRACTION';
       /** Configuration for text classification task. One of text_classification_config and text_entity_extraction_config is required. */
       textClassificationConfig?: GoogleCloudDatalabelingV1beta1TextClassificationConfig;
       /** Configuration for entity extraction task. One of text_classification_config and text_entity_extraction_config is required. */
@@ -845,7 +919,12 @@ declare namespace gapi.client {
       /** Configuration for video event task. One of video_classification_config, object_detection_config, object_tracking_config and event_config is required. */
       eventConfig?: GoogleCloudDatalabelingV1beta1EventConfig;
       /** Required. The type of video labeling task. */
-      feature?: string;
+      feature?:
+        | 'FEATURE_UNSPECIFIED'
+        | 'CLASSIFICATION'
+        | 'OBJECT_DETECTION'
+        | 'OBJECT_TRACKING'
+        | 'EVENT';
       /** Configuration for video object detection task. One of video_classification_config, object_detection_config, object_tracking_config and event_config is required. */
       objectDetectionConfig?: GoogleCloudDatalabelingV1beta1ObjectDetectionConfig;
       /** Configuration for video object tracking task. One of video_classification_config, object_detection_config, object_tracking_config and event_config is required. */
@@ -1496,11 +1575,11 @@ declare namespace gapi.client {
       /** Creates an annotation spec set by providing a set of labels. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1525,11 +1604,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1554,11 +1633,11 @@ declare namespace gapi.client {
       /** Deletes an annotation spec set by resource name. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1581,11 +1660,11 @@ declare namespace gapi.client {
       /** Gets an annotation spec set by resource name. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1608,11 +1687,11 @@ declare namespace gapi.client {
       /** Lists annotation spec sets for a project. Pagination is supported. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1643,11 +1722,11 @@ declare namespace gapi.client {
       /** Gets a data item in a dataset by resource name. This API can be called after data are imported into dataset. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1670,11 +1749,11 @@ declare namespace gapi.client {
       /** Lists data items in a dataset. This API can be called after data are imported into dataset. Pagination is supported. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1705,11 +1784,11 @@ declare namespace gapi.client {
       /** Gets an example by resource name, including both data and annotation. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1734,11 +1813,11 @@ declare namespace gapi.client {
       /** Lists examples in an annotated dataset. Pagination is supported. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1769,11 +1848,11 @@ declare namespace gapi.client {
       /** Create a FeedbackMessage object. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1798,11 +1877,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1827,11 +1906,11 @@ declare namespace gapi.client {
       /** Delete a FeedbackMessage. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1854,11 +1933,11 @@ declare namespace gapi.client {
       /** Get a FeedbackMessage object. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1881,11 +1960,11 @@ declare namespace gapi.client {
       /** List FeedbackMessages with pagination. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1914,11 +1993,11 @@ declare namespace gapi.client {
       /** Delete a FeedbackThread. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1941,11 +2020,11 @@ declare namespace gapi.client {
       /** Get a FeedbackThread object. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1968,11 +2047,11 @@ declare namespace gapi.client {
       /** List FeedbackThreads with pagination. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2002,11 +2081,11 @@ declare namespace gapi.client {
       /** Deletes an annotated dataset by resource name. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2029,11 +2108,11 @@ declare namespace gapi.client {
       /** Gets an annotated dataset by resource name. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2056,11 +2135,11 @@ declare namespace gapi.client {
       /** Lists annotated datasets for a dataset. Pagination is supported. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2094,11 +2173,11 @@ declare namespace gapi.client {
       /** Gets a data item in a dataset by resource name. This API can be called after data are imported into dataset. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2121,11 +2200,11 @@ declare namespace gapi.client {
       /** Lists data items in a dataset. This API can be called after data are imported into dataset. Pagination is supported. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2156,11 +2235,11 @@ declare namespace gapi.client {
       /** Searches example comparisons from an evaluation. The return format is a list of example comparisons that show ground truth and prediction(s) for a single input. Search by providing an evaluation ID. */
       search(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2185,11 +2264,11 @@ declare namespace gapi.client {
       search(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2216,11 +2295,11 @@ declare namespace gapi.client {
       /** Gets an evaluation by resource name (to search, use projects.evaluations.search). */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2246,11 +2325,11 @@ declare namespace gapi.client {
       /** Starts a labeling task for image. The type of image labeling task is configured by feature in the request. */
       label(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2275,11 +2354,11 @@ declare namespace gapi.client {
       label(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2306,11 +2385,11 @@ declare namespace gapi.client {
       /** Starts a labeling task for text. The type of text labeling task is configured by feature in the request. */
       label(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2335,11 +2414,11 @@ declare namespace gapi.client {
       label(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2366,11 +2445,11 @@ declare namespace gapi.client {
       /** Starts a labeling task for video. The type of video labeling task is configured by feature in the request. */
       label(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2395,11 +2474,11 @@ declare namespace gapi.client {
       label(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2426,11 +2505,11 @@ declare namespace gapi.client {
       /** Creates dataset. If success return a Dataset resource. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2455,11 +2534,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2484,11 +2563,11 @@ declare namespace gapi.client {
       /** Deletes a dataset by resource name. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2511,11 +2590,11 @@ declare namespace gapi.client {
       /** Exports data and annotations from dataset. */
       exportData(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2540,11 +2619,11 @@ declare namespace gapi.client {
       exportData(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2569,11 +2648,11 @@ declare namespace gapi.client {
       /** Gets dataset by resource name. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2596,11 +2675,11 @@ declare namespace gapi.client {
       /** Imports data into dataset based on source locations defined in request. It can be called multiple times for the same dataset. Each dataset can only have one long running operation running on it. For example, no labeling task (also long running operation) can be started while importing is still ongoing. Vice versa. */
       importData(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2625,11 +2704,11 @@ declare namespace gapi.client {
       importData(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2654,11 +2733,11 @@ declare namespace gapi.client {
       /** Lists datasets under a project. Pagination is supported. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2695,11 +2774,11 @@ declare namespace gapi.client {
       /** Creates an evaluation job. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2724,11 +2803,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2753,11 +2832,11 @@ declare namespace gapi.client {
       /** Stops and deletes an evaluation job. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2780,11 +2859,11 @@ declare namespace gapi.client {
       /** Gets an evaluation job by resource name. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2807,11 +2886,11 @@ declare namespace gapi.client {
       /** Lists all evaluation jobs within a project with possible filters. Pagination is supported. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2840,11 +2919,11 @@ declare namespace gapi.client {
       /** Updates an evaluation job. You can only update certain fields of the job's EvaluationJobConfig: `humanAnnotationConfig.instruction`, `exampleCount`, and `exampleSamplePercentage`. If you want to change any other aspect of the evaluation job, you must delete the job and create a new one. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2871,11 +2950,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2902,11 +2981,11 @@ declare namespace gapi.client {
       /** Pauses an evaluation job. Pausing an evaluation job that is already in a `PAUSED` state is a no-op. */
       pause(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2931,11 +3010,11 @@ declare namespace gapi.client {
       pause(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2960,11 +3039,11 @@ declare namespace gapi.client {
       /** Resumes a paused evaluation job. A deleted evaluation job can't be resumed. Resuming a running or scheduled evaluation job is a no-op. */
       resume(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2989,11 +3068,11 @@ declare namespace gapi.client {
       resume(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3020,11 +3099,11 @@ declare namespace gapi.client {
       /** Searches evaluations within a project. */
       search(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3055,11 +3134,11 @@ declare namespace gapi.client {
       /** Creates an instruction for how data should be labeled. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3084,11 +3163,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3113,11 +3192,11 @@ declare namespace gapi.client {
       /** Deletes an instruction object by resource name. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3140,11 +3219,11 @@ declare namespace gapi.client {
       /** Gets an instruction by resource name. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3167,11 +3246,11 @@ declare namespace gapi.client {
       /** Lists instructions for a project. Pagination is supported. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3202,11 +3281,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3229,11 +3308,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3256,11 +3335,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3283,11 +3362,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

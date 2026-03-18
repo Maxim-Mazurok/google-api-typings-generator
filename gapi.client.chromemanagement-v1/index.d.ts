@@ -74,7 +74,7 @@ declare namespace gapi.client {
       /** Output only. Information about a partial service error if applicable. */
       serviceError?: GoogleRpcStatus;
       /** Output only. App type. */
-      type?: string;
+      type?: 'APP_ITEM_TYPE_UNSPECIFIED' | 'CHROME' | 'ANDROID' | 'WEB';
     }
     interface GoogleChromeManagementV1AppReport {
       /** Timestamp when the report was collected. */
@@ -88,7 +88,23 @@ declare namespace gapi.client {
       /** Application instance id. This will be unique per window/instance. */
       appInstanceId?: string;
       /** Type of app. */
-      appType?: string;
+      appType?:
+        | 'TELEMETRY_APPLICATION_TYPE_UNSPECIFIED'
+        | 'APPLICATION_TYPE_ARC'
+        | 'APPLICATION_TYPE_BUILT_IN'
+        | 'APPLICATION_TYPE_CROSTINI'
+        | 'APPLICATION_TYPE_CHROME_APP'
+        | 'APPLICATION_TYPE_WEB'
+        | 'APPLICATION_TYPE_MAC_OS'
+        | 'APPLICATION_TYPE_PLUGIN_VM'
+        | 'APPLICATION_TYPE_STANDALONE_BROWSER'
+        | 'APPLICATION_TYPE_REMOTE'
+        | 'APPLICATION_TYPE_BOREALIS'
+        | 'APPLICATION_TYPE_SYSTEM_WEB'
+        | 'APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP'
+        | 'APPLICATION_TYPE_EXTENSION'
+        | 'APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION'
+        | 'APPLICATION_TYPE_BRUSCHETTA';
       /** App foreground running time. */
       runningDuration?: string;
     }
@@ -142,7 +158,11 @@ declare namespace gapi.client {
     }
     interface GoogleChromeManagementV1BatteryStatusReport {
       /** Output only. Battery health. */
-      batteryHealth?: string;
+      batteryHealth?:
+        | 'BATTERY_HEALTH_UNSPECIFIED'
+        | 'BATTERY_HEALTH_NORMAL'
+        | 'BATTERY_REPLACE_SOON'
+        | 'BATTERY_REPLACE_NOW';
       /** Output only. Cycle count. */
       cycleCount?: number;
       /** Output only. Full charge capacity (mAmpere-hours). */
@@ -164,19 +184,37 @@ declare namespace gapi.client {
       /** Total time since shutdown start to power off. */
       shutdownDuration?: string;
       /** The shutdown reason. */
-      shutdownReason?: string;
+      shutdownReason?:
+        | 'SHUTDOWN_REASON_UNSPECIFIED'
+        | 'USER_REQUEST'
+        | 'SYSTEM_UPDATE'
+        | 'LOW_BATTERY'
+        | 'OTHER';
       /** The timestamp when shutdown. */
       shutdownTime?: string;
     }
     interface GoogleChromeManagementV1BrowserVersion {
       /** Output only. The release channel of the installed browser. */
-      channel?: string;
+      channel?:
+        | 'RELEASE_CHANNEL_UNSPECIFIED'
+        | 'CANARY'
+        | 'DEV'
+        | 'BETA'
+        | 'STABLE';
       /** Output only. Count grouped by device_system and major version */
       count?: string;
       /** Output only. Version of the system-specified operating system. */
       deviceOsVersion?: string;
       /** Output only. The device operating system. */
-      system?: string;
+      system?:
+        | 'DEVICE_SYSTEM_UNSPECIFIED'
+        | 'SYSTEM_OTHER'
+        | 'SYSTEM_ANDROID'
+        | 'SYSTEM_IOS'
+        | 'SYSTEM_CROS'
+        | 'SYSTEM_WINDOWS'
+        | 'SYSTEM_MAC'
+        | 'SYSTEM_LINUX';
       /** Output only. The full version of the installed browser. */
       version?: string;
     }
@@ -204,7 +242,7 @@ declare namespace gapi.client {
       /** Output only. The app developer has enabled support for their app. Version-specific field that will only be set when the requested app version is found. */
       supportEnabled?: boolean;
       /** Output only. Types of an item in the Chrome Web Store */
-      type?: string;
+      type?: 'ITEM_TYPE_UNSPECIFIED' | 'EXTENSION' | 'OTHERS';
     }
     interface GoogleChromeManagementV1ChromeAppPermission {
       /** Output only. If available, whether this permissions grants the app/extension access to user data. */
@@ -354,7 +392,7 @@ declare namespace gapi.client {
     }
     interface GoogleChromeManagementV1CpuInfo {
       /** Output only. Architecture type for the CPU. * This field provides device information, which is static and will not change over time. * Data for this field is controlled via policy: [ReportDeviceCpuInfo](https://chromeenterprise.google/policies/#ReportDeviceCpuInfo) * Data Collection Frequency: Only at Upload * Default Data Reporting Frequency: 3 hours - Policy Controlled: Yes * Cache: If the device is offline, the collected data is stored locally, and will be reported when the device is next online: No * Reported for affiliated users only: N/A */
-      architecture?: string;
+      architecture?: 'ARCHITECTURE_UNSPECIFIED' | 'X64';
       /** Output only. Whether keylocker is configured.`TRUE` = Enabled; `FALSE` = disabled. Only reported if keylockerSupported = `TRUE`. */
       keylockerConfigured?: boolean;
       /** Output only. Whether keylocker is supported. */
@@ -388,13 +426,30 @@ declare namespace gapi.client {
     }
     interface GoogleChromeManagementV1DeviceActivityReport {
       /** Output only. Device activity state. */
-      deviceActivityState?: string;
+      deviceActivityState?:
+        | 'DEVICE_ACTIVITY_STATE_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'IDLE'
+        | 'LOCKED';
       /** Output only. Timestamp of when the report was collected. */
       reportTime?: string;
     }
     interface GoogleChromeManagementV1DeviceAueCountReport {
       /** Enum value of month corresponding to the auto update expiration date in UTC time zone. If the device is already expired, this field is empty. */
-      aueMonth?: string;
+      aueMonth?:
+        | 'MONTH_UNSPECIFIED'
+        | 'JANUARY'
+        | 'FEBRUARY'
+        | 'MARCH'
+        | 'APRIL'
+        | 'MAY'
+        | 'JUNE'
+        | 'JULY'
+        | 'AUGUST'
+        | 'SEPTEMBER'
+        | 'OCTOBER'
+        | 'NOVEMBER'
+        | 'DECEMBER';
       /** Int value of year corresponding to the Auto Update Expiration date in UTC time zone. If the device is already expired, this field is empty. */
       aueYear?: string;
       /** Count of devices of this model. */
@@ -542,23 +597,46 @@ declare namespace gapi.client {
       /** Timestamp of when status changed was detected */
       reportTime?: string;
       /** State the device changed to */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'ONLINE'
+        | 'OFFLINE'
+        | 'DEVICE_OUTDATED';
     }
     interface GoogleChromeManagementV1HttpsLatencyRoutineData {
       /** Output only. HTTPS latency if routine succeeded or failed because of HIGH_LATENCY or VERY_HIGH_LATENCY. */
       latency?: string;
       /** Output only. HTTPS latency routine problem if a problem occurred. */
-      problem?: string;
+      problem?:
+        | 'HTTPS_LATENCY_PROBLEM_UNSPECIFIED'
+        | 'FAILED_DNS_RESOLUTIONS'
+        | 'FAILED_HTTPS_REQUESTS'
+        | 'HIGH_LATENCY'
+        | 'VERY_HIGH_LATENCY';
     }
     interface GoogleChromeManagementV1InstalledApp {
       /** Output only. Unique identifier of the app. For Chrome apps and extensions, the 32-character id (e.g. ehoadneljpdggcbbknedodolkkjodefl). For Android apps, the package name (e.g. com.evernote). */
       appId?: string;
       /** Output only. How the app was installed. */
-      appInstallType?: string;
+      appInstallType?:
+        | 'APP_INSTALL_TYPE_UNSPECIFIED'
+        | 'MULTIPLE'
+        | 'NORMAL'
+        | 'ADMIN'
+        | 'DEVELOPMENT'
+        | 'SIDELOAD'
+        | 'OTHER';
       /** Output only. Source of the installed app. */
-      appSource?: string;
+      appSource?: 'APP_SOURCE_UNSPECIFIED' | 'CHROME_WEBSTORE' | 'PLAY_STORE';
       /** Output only. Type of the app. */
-      appType?: string;
+      appType?:
+        | 'APP_TYPE_UNSPECIFIED'
+        | 'EXTENSION'
+        | 'APP'
+        | 'THEME'
+        | 'HOSTED_APP'
+        | 'ANDROID_APP';
       /** Output only. Count of browser devices with this app installed. */
       browserDeviceCount?: string;
       /** Output only. Description of the installed app. */
@@ -644,7 +722,11 @@ declare namespace gapi.client {
       /** Output only. MEID (if applicable) of the corresponding network device. */
       meid?: string;
       /** Output only. Network device type. */
-      type?: string;
+      type?:
+        | 'NETWORK_DEVICE_TYPE_UNSPECIFIED'
+        | 'CELLULAR_DEVICE'
+        | 'ETHERNET_DEVICE'
+        | 'WIFI_DEVICE';
     }
     interface GoogleChromeManagementV1NetworkDiagnosticsReport {
       /** Output only. HTTPS latency test data. */
@@ -658,9 +740,21 @@ declare namespace gapi.client {
     }
     interface GoogleChromeManagementV1NetworkStatusReport {
       /** Output only. Current connection state of the network. */
-      connectionState?: string;
+      connectionState?:
+        | 'NETWORK_CONNECTION_STATE_UNSPECIFIED'
+        | 'ONLINE'
+        | 'CONNECTED'
+        | 'PORTAL'
+        | 'CONNECTING'
+        | 'NOT_CONNECTED';
       /** Output only. Network connection type. */
-      connectionType?: string;
+      connectionType?:
+        | 'NETWORK_TYPE_UNSPECIFIED'
+        | 'CELLULAR'
+        | 'ETHERNET'
+        | 'TETHER'
+        | 'VPN'
+        | 'WIFI';
       /** Output only. Whether the wifi encryption key is turned off. */
       encryptionOn?: boolean;
       /** Output only. Gateway IP address. */
@@ -706,7 +800,11 @@ declare namespace gapi.client {
       /** Output only. New requested platform version from the pending updated kiosk app. */
       newRequestedPlatformVersion?: string;
       /** Output only. Current state of the os update. */
-      updateState?: string;
+      updateState?:
+        | 'UPDATE_STATE_UNSPECIFIED'
+        | 'OS_IMAGE_DOWNLOAD_NOT_STARTED'
+        | 'OS_IMAGE_DOWNLOAD_IN_PROGRESS'
+        | 'OS_UPDATE_NEED_REBOOT';
     }
     interface GoogleChromeManagementV1PeripheralsReport {
       /** Output only. Timestamp of when the report was collected. */
@@ -730,7 +828,7 @@ declare namespace gapi.client {
     }
     interface GoogleChromeManagementV1PrintJob {
       /** Color mode. */
-      colorMode?: string;
+      colorMode?: 'COLOR_MODE_UNSPECIFIED' | 'BLACK_AND_WHITE' | 'COLOR';
       /** Print job completion timestamp. */
       completeTime?: string;
       /** Number of copies. */
@@ -740,7 +838,11 @@ declare namespace gapi.client {
       /** Number of pages in the document. */
       documentPageCount?: number;
       /** Duplex mode. */
-      duplexMode?: string;
+      duplexMode?:
+        | 'DUPLEX_MODE_UNSPECIFIED'
+        | 'ONE_SIDED'
+        | 'TWO_SIDED_LONG_EDGE'
+        | 'TWO_SIDED_SHORT_EDGE';
       /** Unique ID of the print job. */
       id?: string;
       /** Name of the printer used for printing. */
@@ -748,7 +850,7 @@ declare namespace gapi.client {
       /** API ID of the printer used for printing. */
       printerId?: string;
       /** The final state of the job. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'PRINTED' | 'CANCELLED' | 'FAILED';
       /** The title of the document. */
       title?: string;
       /** The primary e-mail address of the user who submitted the print job. */
@@ -768,15 +870,28 @@ declare namespace gapi.client {
       /** Individual risk assessments. */
       entries?: GoogleChromeManagementV1RiskAssessmentEntry[];
       /** Overall assessed risk level across all entries. This will be the highest risk level from all entries. */
-      overallRiskLevel?: string;
+      overallRiskLevel?:
+        | 'RISK_LEVEL_UNSPECIFIED'
+        | 'RISK_LEVEL_LOW'
+        | 'RISK_LEVEL_MEDIUM'
+        | 'RISK_LEVEL_HIGH';
     }
     interface GoogleChromeManagementV1RiskAssessmentEntry {
       /** Output only. The risk assessment provider from which this entry comes from. */
-      provider?: string;
+      provider?:
+        | 'RISK_ASSESSMENT_PROVIDER_UNSPECIFIED'
+        | 'RISK_ASSESSMENT_PROVIDER_CRXCAVATOR'
+        | 'RISK_ASSESSMENT_PROVIDER_SPIN_AI'
+        | 'RISK_ASSESSMENT_PROVIDER_LAYERX'
+        | 'RISK_ASSESSMENT_PROVIDER_SPIN_AI_V2';
       /** Output only. The details of the provider's risk assessment. */
       riskAssessment?: GoogleChromeManagementV1RiskAssessment;
       /** Output only. The bucketed risk level for the risk assessment. */
-      riskLevel?: string;
+      riskLevel?:
+        | 'RISK_LEVEL_UNSPECIFIED'
+        | 'RISK_LEVEL_LOW'
+        | 'RISK_LEVEL_MEDIUM'
+        | 'RISK_LEVEL_HIGH';
     }
     interface GoogleChromeManagementV1RuntimeCountersReport {
       /** Number of times that the device has entered into the hibernation state. Currently obtained via the PSR, count from S0->S4. */
@@ -816,29 +931,145 @@ declare namespace gapi.client {
       /** App id. For PWAs this is the start URL, and for extensions this is the extension id. */
       appId?: string;
       /** App installation reason. */
-      appInstallReason?: string;
+      appInstallReason?:
+        | 'APPLICATION_INSTALL_REASON_UNSPECIFIED'
+        | 'APPLICATION_INSTALL_REASON_SYSTEM'
+        | 'APPLICATION_INSTALL_REASON_POLICY'
+        | 'APPLICATION_INSTALL_REASON_OEM'
+        | 'APPLICATION_INSTALL_REASON_DEFAULT'
+        | 'APPLICATION_INSTALL_REASON_SYNC'
+        | 'APPLICATION_INSTALL_REASON_USER'
+        | 'APPLICATION_INSTALL_REASON_SUB_APP'
+        | 'APPLICATION_INSTALL_REASON_KIOSK'
+        | 'APPLICATION_INSTALL_REASON_COMMAND_LINE';
       /** App installation source. */
-      appInstallSource?: string;
+      appInstallSource?:
+        | 'APPLICATION_INSTALL_SOURCE_UNSPECIFIED'
+        | 'APPLICATION_INSTALL_SOURCE_SYSTEM'
+        | 'APPLICATION_INSTALL_SOURCE_SYNC'
+        | 'APPLICATION_INSTALL_SOURCE_PLAY_STORE'
+        | 'APPLICATION_INSTALL_SOURCE_CHROME_WEB_STORE'
+        | 'APPLICATION_INSTALL_SOURCE_BROWSER';
       /** App installation time depending on the app lifecycle. */
-      appInstallTime?: string;
+      appInstallTime?:
+        | 'APPLICATION_INSTALL_TIME_UNSPECIFIED'
+        | 'APPLICATION_INSTALL_TIME_INIT'
+        | 'APPLICATION_INSTALL_TIME_RUNNING';
       /** Type of app. */
-      appType?: string;
+      appType?:
+        | 'TELEMETRY_APPLICATION_TYPE_UNSPECIFIED'
+        | 'APPLICATION_TYPE_ARC'
+        | 'APPLICATION_TYPE_BUILT_IN'
+        | 'APPLICATION_TYPE_CROSTINI'
+        | 'APPLICATION_TYPE_CHROME_APP'
+        | 'APPLICATION_TYPE_WEB'
+        | 'APPLICATION_TYPE_MAC_OS'
+        | 'APPLICATION_TYPE_PLUGIN_VM'
+        | 'APPLICATION_TYPE_STANDALONE_BROWSER'
+        | 'APPLICATION_TYPE_REMOTE'
+        | 'APPLICATION_TYPE_BOREALIS'
+        | 'APPLICATION_TYPE_SYSTEM_WEB'
+        | 'APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP'
+        | 'APPLICATION_TYPE_EXTENSION'
+        | 'APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION'
+        | 'APPLICATION_TYPE_BRUSCHETTA';
     }
     interface GoogleChromeManagementV1TelemetryAppLaunchEvent {
       /** App id. For PWAs this is the start URL, and for extensions this is the extension id. */
       appId?: string;
       /** App launch source. */
-      appLaunchSource?: string;
+      appLaunchSource?:
+        | 'APPLICATION_LAUNCH_SOURCE_UNSPECIFIED'
+        | 'APPLICATION_LAUNCH_SOURCE_APP_LIST_GRID'
+        | 'APPLICATION_LAUNCH_SOURCE_APP_LIST_GRID_CONTEXT_MENU'
+        | 'APPLICATION_LAUNCH_SOURCE_APP_LIST_QUERY'
+        | 'APPLICATION_LAUNCH_SOURCE_APP_LIST_QUERY_CONTEXT_MENU'
+        | 'APPLICATION_LAUNCH_SOURCE_APP_LIST_RECOMMENDATION'
+        | 'APPLICATION_LAUNCH_SOURCE_PARENTAL_CONTROLS'
+        | 'APPLICATION_LAUNCH_SOURCE_SHELF'
+        | 'APPLICATION_LAUNCH_SOURCE_FILE_MANAGER'
+        | 'APPLICATION_LAUNCH_SOURCE_LINK'
+        | 'APPLICATION_LAUNCH_SOURCE_OMNIBOX'
+        | 'APPLICATION_LAUNCH_SOURCE_CHROME_INTERNAL'
+        | 'APPLICATION_LAUNCH_SOURCE_KEYBOARD'
+        | 'APPLICATION_LAUNCH_SOURCE_OTHER_APP'
+        | 'APPLICATION_LAUNCH_SOURCE_MENU'
+        | 'APPLICATION_LAUNCH_SOURCE_INSTALLED_NOTIFICATION'
+        | 'APPLICATION_LAUNCH_SOURCE_TEST'
+        | 'APPLICATION_LAUNCH_SOURCE_ARC'
+        | 'APPLICATION_LAUNCH_SOURCE_SHARESHEET'
+        | 'APPLICATION_LAUNCH_SOURCE_RELEASE_NOTES_NOTIFICATION'
+        | 'APPLICATION_LAUNCH_SOURCE_FULL_RESTORE'
+        | 'APPLICATION_LAUNCH_SOURCE_SMART_TEXT_CONTEXT_MENU'
+        | 'APPLICATION_LAUNCH_SOURCE_DISCOVER_TAB_NOTIFICATION'
+        | 'APPLICATION_LAUNCH_SOURCE_MANAGEMENT_API'
+        | 'APPLICATION_LAUNCH_SOURCE_KIOSK'
+        | 'APPLICATION_LAUNCH_SOURCE_COMMAND_LINE'
+        | 'APPLICATION_LAUNCH_SOURCE_BACKGROUND_MODE'
+        | 'APPLICATION_LAUNCH_SOURCE_NEW_TAB_PAGE'
+        | 'APPLICATION_LAUNCH_SOURCE_INTENT_URL'
+        | 'APPLICATION_LAUNCH_SOURCE_OS_LOGIN'
+        | 'APPLICATION_LAUNCH_SOURCE_PROTOCOL_HANDLER'
+        | 'APPLICATION_LAUNCH_SOURCE_URL_HANDLER'
+        | 'APPLICATION_LAUNCH_SOURCE_LOCK_SCREEN'
+        | 'APPLICATION_LAUNCH_SOURCE_APP_HOME_PAGE'
+        | 'APPLICATION_LAUNCH_SOURCE_REPARENTING'
+        | 'APPLICATION_LAUNCH_SOURCE_PROFILE_MENU'
+        | 'APPLICATION_LAUNCH_SOURCE_SYSTEM_TRAY_CALENDAR'
+        | 'APPLICATION_LAUNCH_SOURCE_INSTALLER'
+        | 'APPLICATION_LAUNCH_SOURCE_FIRST_RUN'
+        | 'APPLICATION_LAUNCH_SOURCE_WELCOME_TOUR'
+        | 'APPLICATION_LAUNCH_SOURCE_FOCUS_MODE'
+        | 'APPLICATION_LAUNCH_SOURCE_SPARKY'
+        | 'APPLICATION_LAUNCH_SOURCE_NAVIGATION_CAPTURING'
+        | 'APPLICATION_LAUNCH_SOURCE_WEB_INSTALL_API';
       /** Type of app. */
-      appType?: string;
+      appType?:
+        | 'TELEMETRY_APPLICATION_TYPE_UNSPECIFIED'
+        | 'APPLICATION_TYPE_ARC'
+        | 'APPLICATION_TYPE_BUILT_IN'
+        | 'APPLICATION_TYPE_CROSTINI'
+        | 'APPLICATION_TYPE_CHROME_APP'
+        | 'APPLICATION_TYPE_WEB'
+        | 'APPLICATION_TYPE_MAC_OS'
+        | 'APPLICATION_TYPE_PLUGIN_VM'
+        | 'APPLICATION_TYPE_STANDALONE_BROWSER'
+        | 'APPLICATION_TYPE_REMOTE'
+        | 'APPLICATION_TYPE_BOREALIS'
+        | 'APPLICATION_TYPE_SYSTEM_WEB'
+        | 'APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP'
+        | 'APPLICATION_TYPE_EXTENSION'
+        | 'APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION'
+        | 'APPLICATION_TYPE_BRUSCHETTA';
     }
     interface GoogleChromeManagementV1TelemetryAppUninstallEvent {
       /** App id. For PWAs this is the start URL, and for extensions this is the extension id. */
       appId?: string;
       /** Type of app. */
-      appType?: string;
+      appType?:
+        | 'TELEMETRY_APPLICATION_TYPE_UNSPECIFIED'
+        | 'APPLICATION_TYPE_ARC'
+        | 'APPLICATION_TYPE_BUILT_IN'
+        | 'APPLICATION_TYPE_CROSTINI'
+        | 'APPLICATION_TYPE_CHROME_APP'
+        | 'APPLICATION_TYPE_WEB'
+        | 'APPLICATION_TYPE_MAC_OS'
+        | 'APPLICATION_TYPE_PLUGIN_VM'
+        | 'APPLICATION_TYPE_STANDALONE_BROWSER'
+        | 'APPLICATION_TYPE_REMOTE'
+        | 'APPLICATION_TYPE_BOREALIS'
+        | 'APPLICATION_TYPE_SYSTEM_WEB'
+        | 'APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP'
+        | 'APPLICATION_TYPE_EXTENSION'
+        | 'APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION'
+        | 'APPLICATION_TYPE_BRUSCHETTA';
       /** App uninstall source. */
-      appUninstallSource?: string;
+      appUninstallSource?:
+        | 'APPLICATION_UNINSTALL_SOURCE_UNSPECIFIED'
+        | 'APPLICATION_UNINSTALL_SOURCE_APP_LIST'
+        | 'APPLICATION_UNINSTALL_SOURCE_APP_MANAGEMENT'
+        | 'APPLICATION_UNINSTALL_SOURCE_SHELF'
+        | 'APPLICATION_UNINSTALL_SOURCE_MIGRATION';
     }
     interface GoogleChromeManagementV1TelemetryAudioSevereUnderrunEvent {}
     interface GoogleChromeManagementV1TelemetryDevice {
@@ -917,7 +1148,22 @@ declare namespace gapi.client {
       /** Output only. Information about the device associated with the event. */
       device?: GoogleChromeManagementV1TelemetryDeviceInfo;
       /** The event type of the current event. */
-      eventType?: string;
+      eventType?:
+        | 'EVENT_TYPE_UNSPECIFIED'
+        | 'AUDIO_SEVERE_UNDERRUN'
+        | 'NETWORK_STATE_CHANGE'
+        | 'USB_ADDED'
+        | 'USB_REMOVED'
+        | 'NETWORK_HTTPS_LATENCY_CHANGE'
+        | 'WIFI_SIGNAL_STRENGTH_LOW'
+        | 'WIFI_SIGNAL_STRENGTH_RECOVERED'
+        | 'VPN_CONNECTION_STATE_CHANGE'
+        | 'APP_INSTALLED'
+        | 'APP_UNINSTALLED'
+        | 'APP_LAUNCHED'
+        | 'OS_CRASH'
+        | 'EXTERNAL_DISPLAY_CONNECTED'
+        | 'EXTERNAL_DISPLAY_DISCONNECTED';
       /** Output only. Payload for external display connected/disconnected event. Present only when `event_type` is `EXTERNAL_DISPLAY_CONNECTED` or `EXTERNAL_DISPLAY_DISCONNECTED`. */
       externalDisplaysEvent?: GoogleChromeManagementV1TelemetryExternalDisplayEvent;
       /** Output only. Payload for HTTPS latency change event. Present only when `event_type` is `NETWORK_HTTPS_LATENCY_CHANGE`. */
@@ -941,7 +1187,22 @@ declare namespace gapi.client {
     }
     interface GoogleChromeManagementV1TelemetryEventNotificationFilter {
       /** Only sends the notifications for events of these types. Must not be empty. */
-      eventTypes?: string[];
+      eventTypes?:
+        | 'EVENT_TYPE_UNSPECIFIED'
+        | 'AUDIO_SEVERE_UNDERRUN'
+        | 'NETWORK_STATE_CHANGE'
+        | 'USB_ADDED'
+        | 'USB_REMOVED'
+        | 'NETWORK_HTTPS_LATENCY_CHANGE'
+        | 'WIFI_SIGNAL_STRENGTH_LOW'
+        | 'WIFI_SIGNAL_STRENGTH_RECOVERED'
+        | 'VPN_CONNECTION_STATE_CHANGE'
+        | 'APP_INSTALLED'
+        | 'APP_UNINSTALLED'
+        | 'APP_LAUNCHED'
+        | 'OS_CRASH'
+        | 'EXTERNAL_DISPLAY_CONNECTED'
+        | 'EXTERNAL_DISPLAY_DISCONNECTED'[];
     }
     interface GoogleChromeManagementV1TelemetryExternalDisplayData {
       /** The display name. */
@@ -965,11 +1226,20 @@ declare namespace gapi.client {
       /** HTTPS latency routine data that triggered the event. */
       httpsLatencyRoutineData?: GoogleChromeManagementV1HttpsLatencyRoutineData;
       /** Current HTTPS latency state. */
-      httpsLatencyState?: string;
+      httpsLatencyState?:
+        | 'HTTPS_LATENCY_STATE_UNSPECIFIED'
+        | 'RECOVERY'
+        | 'PROBLEM';
     }
     interface GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent {
       /** Current connection state of the network. */
-      connectionState?: string;
+      connectionState?:
+        | 'NETWORK_CONNECTION_STATE_UNSPECIFIED'
+        | 'ONLINE'
+        | 'CONNECTED'
+        | 'PORTAL'
+        | 'CONNECTING'
+        | 'NOT_CONNECTED';
       /** Unique identifier of the network. */
       guid?: string;
     }
@@ -1005,9 +1275,17 @@ declare namespace gapi.client {
       /** Crash id. */
       crashId?: string;
       /** Crash type. */
-      crashType?: string;
+      crashType?:
+        | 'CRASH_TYPE_UNSPECIFIED'
+        | 'CRASH_TYPE_KERNEL'
+        | 'CRASH_TYPE_EMBEDDED_CONTROLLER';
       /** Session type. */
-      sessionType?: string;
+      sessionType?:
+        | 'SESSION_TYPE_UNSPECIFIED'
+        | 'SESSION_TYPE_SIGNED_IN_USER'
+        | 'SESSION_TYPE_KIOSK'
+        | 'SESSION_TYPE_MANAGED_GUEST'
+        | 'SESSION_TYPE_ACTIVE_DIRECTORY';
     }
     interface GoogleChromeManagementV1TelemetryUsbPeripheralsEvent {
       /** List of usb devices that were either added or removed. */
@@ -1049,13 +1327,29 @@ declare namespace gapi.client {
     }
     interface GoogleChromeManagementV1ThunderboltInfo {
       /** Security level of the Thunderbolt bus. */
-      securityLevel?: string;
+      securityLevel?:
+        | 'THUNDERBOLT_SECURITY_LEVEL_UNSPECIFIED'
+        | 'THUNDERBOLT_SECURITY_NONE_LEVEL'
+        | 'THUNDERBOLT_SECURITY_USER_LEVEL'
+        | 'THUNDERBOLT_SECURITY_SECURE_LEVEL'
+        | 'THUNDERBOLT_SECURITY_DP_ONLY_LEVEL'
+        | 'THUNDERBOLT_SECURITY_USB_ONLY_LEVEL'
+        | 'THUNDERBOLT_SECURITY_NO_PCIE_LEVEL';
     }
     interface GoogleChromeManagementV1TotalMemoryEncryptionInfo {
       /** Memory encryption algorithm. */
-      encryptionAlgorithm?: string;
+      encryptionAlgorithm?:
+        | 'MEMORY_ENCRYPTION_ALGORITHM_UNSPECIFIED'
+        | 'MEMORY_ENCRYPTION_ALGORITHM_UNKNOWN'
+        | 'MEMORY_ENCRYPTION_ALGORITHM_AES_XTS_128'
+        | 'MEMORY_ENCRYPTION_ALGORITHM_AES_XTS_256';
       /** The state of memory encryption on the device. */
-      encryptionState?: string;
+      encryptionState?:
+        | 'MEMORY_ENCRYPTION_STATE_UNSPECIFIED'
+        | 'MEMORY_ENCRYPTION_STATE_UNKNOWN'
+        | 'MEMORY_ENCRYPTION_STATE_DISABLED'
+        | 'MEMORY_ENCRYPTION_STATE_TME'
+        | 'MEMORY_ENCRYPTION_STATE_MKTME';
       /** The length of the encryption keys. */
       keyLength?: string;
       /** The maximum number of keys that can be used for encryption. */
@@ -1115,9 +1409,12 @@ declare namespace gapi.client {
       /** Output only. Latest rotation timestamp of the public key rotation. */
       keyRotationTime?: string;
       /** Output only. Trust level of the public key. */
-      keyTrustLevel?: string;
+      keyTrustLevel?:
+        | 'KEY_TRUST_LEVEL_UNSPECIFIED'
+        | 'CHROME_BROWSER_HW_KEY'
+        | 'CHROME_BROWSER_OS_KEY';
       /** Output only. Type of the public key. */
-      keyType?: string;
+      keyType?: 'KEY_TYPE_UNSPECIFIED' | 'RSA_KEY' | 'EC_KEY';
       /** Output only. Value of the public key. */
       publicKey?: string;
     }
@@ -1145,7 +1442,10 @@ declare namespace gapi.client {
       /** Output only. The signature of `signature_algorithm`, generated using the client's private key using `signature_algorithm`. This field is only present after the `SignData` operation has finished. */
       signature?: string;
       /** Output only. The signature algorithm that the client and backend components use when processing `sign_data`. If the `profile_type` is a `GenericProfile`, this field will only be present after the `SignData` operation was initiated. If the `profile_type` is a `ScepProfile`, the field will always be present. */
-      signatureAlgorithm?: string;
+      signatureAlgorithm?:
+        | 'SIGNATURE_ALGORITHM_UNSPECIFIED'
+        | 'SIGNATURE_ALGORITHM_RSA_PKCS1_V1_5_SHA256'
+        | 'SIGNATURE_ALGORITHM_ECDSA_SHA256';
       /** Output only. The data that the client was asked to sign. This field is only present after the `SignData` operation has been initiated. */
       signData?: string;
       /** Output only. Server-generated timestamp of when the certificate provisioning process has been created. */
@@ -1155,7 +1455,13 @@ declare namespace gapi.client {
     }
     interface GoogleChromeManagementVersionsV1ChromeBrowserProfile {
       /** Output only. The specific affiliation state of the profile. */
-      affiliationState?: string;
+      affiliationState?:
+        | 'AFFILIATION_STATE_UNSPECIFIED'
+        | 'UNAFFILIATED_GENERIC'
+        | 'PROFILE_ONLY'
+        | 'UNAFFILIATED_LOCAL_MACHINE'
+        | 'UNAFFILIATED_CLOUD_MACHINE'
+        | 'AFFILIATED_CLOUD_MANAGED';
       /** Optional. Location of the profile annotated by the admin. */
       annotatedLocation?: string;
       /** Optional. User of the profile annotated by the admin. */
@@ -1177,7 +1483,10 @@ declare namespace gapi.client {
       /** Output only. Timestamp of the first enrollment of the profile. */
       firstEnrollmentTime?: string;
       /** Output only. Identify provider of the profile. */
-      identityProvider?: string;
+      identityProvider?:
+        | 'IDENTITY_PROVIDER_UNSPECIFIED'
+        | 'GOOGLE_IDENTITY_PROVIDER'
+        | 'EXTERNAL_IDENTITY_PROVIDER';
       /** Output only. Timestamp of the latest activity by the profile. */
       lastActivityTime?: string;
       /** Output only. Timestamp of the latest policy fetch by the profile. */
@@ -1213,7 +1522,11 @@ declare namespace gapi.client {
       /** Output only. Result of the remote command. */
       commandResult?: GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult;
       /** Output only. State of the remote command. */
-      commandState?: string;
+      commandState?:
+        | 'COMMAND_STATE_UNSPECIFIED'
+        | 'PENDING'
+        | 'EXPIRED'
+        | 'EXECUTED_BY_CLIENT';
       /** Required. Type of the remote command. The only supported command_type is "clearBrowsingData". */
       commandType?: string;
       /** Output only. Timestamp of the issurance of the remote command. */
@@ -1231,7 +1544,11 @@ declare namespace gapi.client {
       /** Output only. Result code that indicates the type of error or success of the command. */
       resultCode?: string;
       /** Output only. Result type of the remote command. */
-      resultType?: string;
+      resultType?:
+        | 'COMMAND_RESULT_TYPE_UNSPECIFIED'
+        | 'IGNORED'
+        | 'FAILURE'
+        | 'SUCCESS';
     }
     interface GoogleChromeManagementVersionsV1ChromeOsDevice {
       /** Output only. The unique Directory API ID of the device. This value is the same as the Admin Console's Directory API ID in the ChromeOS Devices tab. */
@@ -1256,7 +1573,7 @@ declare namespace gapi.client {
       /** Output only. Device ID that identifies the affiliated device on which the profile exists. If the device type is CHROME_BROWSER, then this represents a unique Directory API ID of the device that can be used in Admin SDK Browsers API. */
       affiliatedDeviceId?: string;
       /** Output only. Type of the device on which the profile exists. */
-      deviceType?: string;
+      deviceType?: 'DEVICE_TYPE_UNSPECIFIED' | 'CHROME_BROWSER';
       /** Output only. Hostname of the device on which the profile exists. */
       hostname?: string;
       /** Output only. Machine name of the device on which the profile exists. On platforms which do not report the machine name (currently iOS and Android) this is instead set to the browser's device_id - but note that this is a different device_id than the |affiliated_device_id|. */
@@ -1310,7 +1627,13 @@ declare namespace gapi.client {
     }
     interface GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData {
       /** Output only. Source of the policy. */
-      source?: string;
+      source?:
+        | 'POLICY_SOURCE_UNSPECIFIED'
+        | 'MACHINE_PLATFORM'
+        | 'USER_PLATFORM'
+        | 'MACHINE_LEVEL_USER_CLOUD'
+        | 'USER_CLOUD'
+        | 'MACHINE_MERGED';
     }
     interface GoogleChromeManagementVersionsV1ReportingDataExtensionData {
       /** Output only. Description of the extension. */
@@ -1318,11 +1641,23 @@ declare namespace gapi.client {
       /** Output only. ID of the extension. */
       extensionId?: string;
       /** Output only. Type of the extension. */
-      extensionType?: string;
+      extensionType?:
+        | 'EXTENSION_TYPE_UNSPECIFIED'
+        | 'EXTENSION'
+        | 'APP'
+        | 'THEME'
+        | 'HOSTED_APP';
       /** Output only. The URL of the homepage of the extension. */
       homepageUri?: string;
       /** Output only. Installation type of the extension. */
-      installationType?: string;
+      installationType?:
+        | 'INSTALLATION_TYPE_UNSPECIFIED'
+        | 'MULTIPLE'
+        | 'NORMAL'
+        | 'ADMIN'
+        | 'DEVELOPMENT'
+        | 'SIDELOAD'
+        | 'OTHER';
       /** Output only. Represents whether the user disabled the extension. */
       isDisabled?: boolean;
       /** Output only. Represents whether the extension is from the webstore. */
@@ -1352,7 +1687,13 @@ declare namespace gapi.client {
       /** Output only. Name of the policy. */
       name?: string;
       /** Output only. Source of the policy. */
-      source?: string;
+      source?:
+        | 'POLICY_SOURCE_UNSPECIFIED'
+        | 'MACHINE_PLATFORM'
+        | 'USER_PLATFORM'
+        | 'MACHINE_LEVEL_USER_CLOUD'
+        | 'USER_CLOUD'
+        | 'MACHINE_MERGED';
       /** Output only. Value of the policy. */
       value?: string;
     }
@@ -1366,7 +1707,10 @@ declare namespace gapi.client {
       /** Output only. The country of the subject. */
       country?: string;
       /** Output only. The allowed key usages for certificate's key. */
-      keyUsages?: string[];
+      keyUsages?:
+        | 'KEY_USAGE_UNSPECIFIED'
+        | 'KEY_USAGE_SIGNING'
+        | 'KEY_USAGE_KEY_ENCIPHERMENT'[];
       /** Output only. The locality of the subject. */
       locality?: string;
       /** Output only. The name of the organization the subject belongs to. */
@@ -1391,7 +1735,10 @@ declare namespace gapi.client {
     }
     interface GoogleChromeManagementVersionsV1SignDataRequest {
       /** Required. The signature algorithm that the adapter expects the client and backend components to use when processing `sign_data`. */
-      signatureAlgorithm?: string;
+      signatureAlgorithm?:
+        | 'SIGNATURE_ALGORITHM_UNSPECIFIED'
+        | 'SIGNATURE_ALGORITHM_RSA_PKCS1_V1_5_SHA256'
+        | 'SIGNATURE_ALGORITHM_ECDSA_SHA256';
       /** Required. The data that the client was asked to sign. */
       signData?: string;
     }
@@ -1401,7 +1748,12 @@ declare namespace gapi.client {
     }
     interface GoogleChromeManagementVersionsV1SubjectAltName {
       /** Output only. The type of the SubjectAltName extension. */
-      type?: string;
+      type?:
+        | 'SUBJECT_ALT_NAME_TYPE_UNSPECIFIED'
+        | 'RFC822_NAME'
+        | 'DNS_NAME'
+        | 'OTHER_NAME_USER_PRINCIPAL_NAME'
+        | 'UNIFORM_RESOURCE_IDENTIFIER';
       /** Output only. The value of the subject alternative name with respect to the `type`. */
       value?: string;
     }
@@ -1458,11 +1810,11 @@ declare namespace gapi.client {
       /** Get a specific app for a customer by its resource name. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1487,11 +1839,11 @@ declare namespace gapi.client {
       /** Get a specific app for a customer by its resource name. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1516,11 +1868,11 @@ declare namespace gapi.client {
       /** Get a specific app for a customer by its resource name. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1545,11 +1897,11 @@ declare namespace gapi.client {
       /** Generate summary of app installation requests. */
       countChromeAppRequests(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Customer id or "my_customer" to use the customer associated to the account making the request. */
@@ -1580,11 +1932,11 @@ declare namespace gapi.client {
       /** Get a list of devices that have requested to install an extension. */
       fetchDevicesRequestingExtension(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The customer ID or "my_customer" prefixed with "customers/". */
@@ -1615,11 +1967,11 @@ declare namespace gapi.client {
       /** Get a list of users that have requested to install an extension. */
       fetchUsersRequestingExtension(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The customer ID or "my_customer" prefixed with "customers/". */
@@ -1655,11 +2007,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1684,11 +2036,11 @@ declare namespace gapi.client {
       /** Claims a certificate provisioning process. For each certificate provisioning process, this operation can succeed only for one `caller_instance_id`. */
       claim(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1713,11 +2065,11 @@ declare namespace gapi.client {
       claim(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1742,11 +2094,11 @@ declare namespace gapi.client {
       /** Retrieves a certificate provisioning process. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1769,11 +2121,11 @@ declare namespace gapi.client {
       /** Marks a certificate provisioning process as failed. */
       setFailure(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1798,11 +2150,11 @@ declare namespace gapi.client {
       setFailure(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1827,11 +2179,11 @@ declare namespace gapi.client {
       /** Requests the client that initiated a certificate provisioning process to sign data. This should only be called after `ClaimCertificateProvisioningProcess` has been successfully executed. */
       signData(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1856,11 +2208,11 @@ declare namespace gapi.client {
       signData(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1885,11 +2237,11 @@ declare namespace gapi.client {
       /** Uploads a successfully issued certificate for a certificate provisioning process. */
       uploadCertificate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1914,11 +2266,11 @@ declare namespace gapi.client {
       uploadCertificate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1946,11 +2298,11 @@ declare namespace gapi.client {
       /** Creates a Chrome browser profile remote command. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1975,11 +2327,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2004,11 +2356,11 @@ declare namespace gapi.client {
       /** Gets a Chrome browser profile remote command. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2031,11 +2383,11 @@ declare namespace gapi.client {
       /** Lists remote commands of a Chrome browser profile. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2064,11 +2416,11 @@ declare namespace gapi.client {
       /** Deletes the data collected from a Chrome browser profile. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2091,11 +2443,11 @@ declare namespace gapi.client {
       /** Gets a Chrome browser profile with customer ID and profile permanent ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2118,11 +2470,11 @@ declare namespace gapi.client {
       /** Lists Chrome browser profiles of a customer based on the given search and sorting criteria. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2156,11 +2508,11 @@ declare namespace gapi.client {
       /** Get a count of active devices per set time frames. */
       countActiveDevices(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Obfuscated customer ID prefixed with "customers/C" or "customers/my_customer". */
@@ -2189,11 +2541,11 @@ declare namespace gapi.client {
       /** Count of Chrome Browsers that have been recently enrolled, have new policy to be synced, or have no recent activity. */
       countChromeBrowsersNeedingAttention(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The customer ID or "my_customer" prefixed with "customers/". */
@@ -2218,11 +2570,11 @@ declare namespace gapi.client {
       /** Get a count of Chrome crash events. */
       countChromeCrashEvents(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Customer ID. */
@@ -2251,11 +2603,11 @@ declare namespace gapi.client {
       /** Generate report of the number of devices expiring in each month of the selected time frame. Devices are grouped by auto update expiration date and model. Further information can be found [here](https://support.google.com/chrome/a/answer/10564947). */
       countChromeDevicesReachingAutoExpirationDate(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The customer ID or "my_customer" prefixed with "customers/". */
@@ -2284,11 +2636,11 @@ declare namespace gapi.client {
       /** Counts of ChromeOS devices that have not synced policies or have lacked user activity in the past 28 days, are out of date, or are not complaint. Further information can be found here https://support.google.com/chrome/a/answer/10564947 */
       countChromeDevicesThatNeedAttention(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The customer ID or "my_customer" prefixed with "customers/". */
@@ -2315,11 +2667,11 @@ declare namespace gapi.client {
       /** Counts of devices with a specific hardware specification from the requested hardware type (for example model name, processor type). Further information can be found here https://support.google.com/chrome/a/answer/10564947 */
       countChromeHardwareFleetDevices(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The customer ID or "my_customer". */
@@ -2346,11 +2698,11 @@ declare namespace gapi.client {
       /** Generate report of installed Chrome versions. */
       countChromeVersions(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Customer id or "my_customer" to use the customer associated to the account making the request. */
@@ -2381,11 +2733,11 @@ declare namespace gapi.client {
       /** Get a count of devices per boot type. */
       countDevicesPerBootType(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Obfuscated customer ID prefixed with "customers/C" or "customers/my_customer". */
@@ -2414,11 +2766,11 @@ declare namespace gapi.client {
       /** Get a count of devices per channel. */
       countDevicesPerReleaseChannel(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Obfuscated customer ID prefixed with "customers/C" or "customers/my_customer". */
@@ -2447,11 +2799,11 @@ declare namespace gapi.client {
       /** Generate report of app installations. */
       countInstalledApps(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Customer id or "my_customer" to use the customer associated to the account making the request. */
@@ -2484,11 +2836,11 @@ declare namespace gapi.client {
       /** Get a summary of printing done by each printer. */
       countPrintJobsByPrinter(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Customer ID prefixed with "customers/" or "customers/my_customer" to use the customer associated to the account making the request. */
@@ -2521,11 +2873,11 @@ declare namespace gapi.client {
       /** Get a summary of printing done by each user. */
       countPrintJobsByUser(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Customer ID prefixed with "customers/" or "customers/my_customer" to use the customer associated to the account making the request. */
@@ -2558,11 +2910,11 @@ declare namespace gapi.client {
       /** Get a list of print jobs. */
       enumeratePrintJobs(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Customer ID prefixed with "customers/" or "customers/my_customer" to use the customer associated to the account making the request. */
@@ -2595,15 +2947,21 @@ declare namespace gapi.client {
       /** Generate report of managed Chrome browser devices that have a specified app installed. */
       findInstalledAppDevices(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Unique identifier of the app. For Chrome apps and extensions, the 32-character id (e.g. ehoadneljpdggcbbknedodolkkjodefl). For Android apps, the package name (e.g. com.evernote). */
         appId?: string;
         /** Type of the app. Optional. If not provided, an app type will be inferred from the format of the app ID. */
-        appType?: string;
+        appType?:
+          | 'APP_TYPE_UNSPECIFIED'
+          | 'EXTENSION'
+          | 'APP'
+          | 'THEME'
+          | 'HOSTED_APP'
+          | 'ANDROID_APP';
         /** JSONP */
         callback?: string;
         /** Required. Customer id or "my_customer" to use the customer associated to the account making the request. */
@@ -2638,11 +2996,11 @@ declare namespace gapi.client {
       /** Get telemetry device. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2667,11 +3025,11 @@ declare namespace gapi.client {
       /** List all telemetry devices. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2704,11 +3062,11 @@ declare namespace gapi.client {
       /** List telemetry events. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2741,11 +3099,11 @@ declare namespace gapi.client {
       /** Create a telemetry notification config. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2770,11 +3128,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2799,11 +3157,11 @@ declare namespace gapi.client {
       /** Delete a telemetry notification config. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2826,11 +3184,11 @@ declare namespace gapi.client {
       /** List all telemetry notification configs. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2859,11 +3217,11 @@ declare namespace gapi.client {
       /** Get telemetry user. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2888,11 +3246,11 @@ declare namespace gapi.client {
       /** List all telemetry users. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2931,11 +3289,11 @@ declare namespace gapi.client {
       /** Moves a third party chrome profile user to a destination OU. All profiles associated to that user will be moved to the destination OU. */
       move(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2960,11 +3318,11 @@ declare namespace gapi.client {
       move(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2999,11 +3357,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3028,11 +3386,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3057,11 +3415,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3084,11 +3442,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

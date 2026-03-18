@@ -71,7 +71,13 @@ declare namespace gapi.client {
       /** Output only. Details for a goal step. */
       goalDetails?: GoogleFirebaseAppdistroV1alphaGoalDetails;
       /** Output only. The current state of the step */
-      state?: string;
+      state?:
+        | 'STEP_STATE_UNSPECIFIED'
+        | 'IN_PROGRESS'
+        | 'PASSED'
+        | 'FAILED'
+        | 'TIMED_OUT'
+        | 'GOAL_ACTION_LIMIT_REACHED';
       /** Required. The step performed by the AI */
       step?: GoogleFirebaseAppdistroV1alphaAiStep;
     }
@@ -79,7 +85,14 @@ declare namespace gapi.client {
       /** App bundle test certificate generated for the app. */
       aabCertificate?: GoogleFirebaseAppdistroV1alphaAabCertificate;
       /** App bundle state. Only valid for android apps. The app_view field in the request must be set to FULL in order for this to be populated. */
-      aabState?: string;
+      aabState?:
+        | 'AAB_STATE_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'PLAY_ACCOUNT_NOT_LINKED'
+        | 'NO_APP_WITH_GIVEN_BUNDLE_ID_IN_PLAY_ACCOUNT'
+        | 'APP_NOT_PUBLISHED'
+        | 'AAB_STATE_UNAVAILABLE'
+        | 'PLAY_IAS_TERMS_NOT_ACCEPTED';
       /** Firebase gmp app id */
       appId?: string;
       /** Bundle identifier */
@@ -144,13 +157,35 @@ declare namespace gapi.client {
       /** Required. The device that the test was run on. */
       device?: GoogleFirebaseAppdistroV1alphaTestDevice;
       /** Output only. The type of execution for the test. */
-      executionType?: string;
+      executionType?:
+        | 'EXECUTION_TYPE_UNSPECIFIED'
+        | 'AI'
+        | 'ACTION_BASED_REPLAY'
+        | 'AI_REPLAY'
+        | 'RANDOM_CRAWL';
       /** Output only. The reason why the test failed. */
-      failedReason?: string;
+      failedReason?:
+        | 'FAILED_REASON_UNSPECIFIED'
+        | 'CRASHED'
+        | 'NOT_INSTALLED'
+        | 'UNABLE_TO_CRAWL'
+        | 'DEVICE_OUT_OF_MEMORY'
+        | 'FAILED_AI_STEP'
+        | 'TIMED_OUT';
       /** Output only. Indicates that the test replayed saved actions and concluded without a final AI assertion. */
       finalAiAssertionMissing?: boolean;
       /** Output only. The reason why the test was inconclusive. */
-      inconclusiveReason?: string;
+      inconclusiveReason?:
+        | 'INCONCLUSIVE_REASON_UNSPECIFIED'
+        | 'QUOTA_EXCEEDED'
+        | 'INFRASTRUCTURE_FAILURE'
+        | 'SERVICE_NOT_ACTIVATED'
+        | 'NO_SIGNATURE'
+        | 'NO_LAUNCHER_ACTIVITY'
+        | 'FORBIDDEN_PERMISSIONS'
+        | 'DEVICE_ADMIN_RECEIVER'
+        | 'NO_CODE_APK'
+        | 'INVALID_APK_PREVIEW_SDK';
       /** Identifier. The name of the device execution resource. Format: `projects/{project_number}/apps/{app}/releases/{release}/tests/{test}/deviceExecutions/{device_execution}` */
       name?: string;
       /** Output only. The device execution from which cached steps were used during this execution. Note: This field is only populated for ACTION_BASED_REPLAY executions. If the original device execution no longer exists, this field will be empty. Format: `projects/{project_number}/apps/{app}/releases/{release}/tests/{test}/deviceExecutions/{device_execution}` */
@@ -162,7 +197,12 @@ declare namespace gapi.client {
       /** Output only. A list of screenshot image URIs taken from the Robo crawl. The file names are numbered by the order in which they were taken. */
       screenshotUris?: string[];
       /** Output only. The state of the test. */
-      state?: string;
+      state?:
+        | 'TEST_STATE_UNSPECIFIED'
+        | 'IN_PROGRESS'
+        | 'PASSED'
+        | 'FAILED'
+        | 'INCONCLUSIVE';
       /** Output only. The time at which the video started recording. */
       videoStartTime?: string;
       /** Output only. A URI to a video of the test run. */
@@ -234,17 +274,49 @@ declare namespace gapi.client {
     }
     interface GoogleFirebaseAppdistroV1alphaGetUploadStatusResponse {
       /** The error code associated with (only set on "FAILURE") */
-      errorCode?: string;
+      errorCode?:
+        | 'ERROR_UNSPECIFIED'
+        | 'INVALID_ZIP'
+        | 'MISSING_PLIST'
+        | 'MISSING_PROFILE'
+        | 'VERSION_TOO_LONG'
+        | 'MISSING_UUIDS'
+        | 'MISSING_RESOURCES'
+        | 'MISSING_MANIFEST'
+        | 'IOS_METADATA_ERROR'
+        | 'ANDROID_METADATA_ERROR'
+        | 'UNSUPPORTED_PLATFORM_TYPE'
+        | 'BUNDLE_ID_MISMATCH'
+        | 'APK_NOT_ZIP_ALIGNED'
+        | 'INVALID_CERTIFICATE'
+        | 'APK_TOO_LARGE'
+        | 'AAB_NOT_PUBLISHED'
+        | 'INVALID_PLIST_DEVICE_FAMILIES'
+        | 'AAB_TOS_NOT_ACCEPTED'
+        | 'APP_NAME_TOO_LONG'
+        | 'AAB_DEVELOPER_ACCOUNT_NOT_LINKED'
+        | 'AAB_NO_APP_WITH_GIVEN_PACKAGE_NAME_IN_ACCOUNT'
+        | 'AAB_UPLOAD_ERROR'
+        | 'APP_NOT_FOUND';
       /** Any additional context for the given upload status (e.g. error message) Meant to be displayed to the client */
       message?: string;
       /** The release that was created from the upload (only set on "SUCCESS") */
       release?: GoogleFirebaseAppdistroV1alphaRelease;
       /** The status of the upload */
-      status?: string;
+      status?:
+        | 'STATUS_UNSPECIFIED'
+        | 'IN_PROGRESS'
+        | 'ALREADY_UPLOADED'
+        | 'SUCCESS'
+        | 'ERROR';
     }
     interface GoogleFirebaseAppdistroV1alphaGoalAction {
       /** Output only. The type of caching used to determine the action. */
-      cachingType?: string;
+      cachingType?:
+        | 'CACHING_TYPE_UNSPECIFIED'
+        | 'NO_CACHING'
+        | 'CACHE_AND_MODEL'
+        | 'CACHE_ONLY';
       /** Output only. Debug information explaining why the agent to the specific action. */
       debugInfo?: GoogleFirebaseAppdistroV1alphaGoalActionDebugInfo;
       /** Output only. A high level action taken by the AI on the device. */
@@ -342,7 +414,12 @@ declare namespace gapi.client {
       /** Optional. The test case that was used to generate this release test. Note: The test case may have changed or been deleted since the release test was created. Format: `projects/{project_number}/apps/{app}/testCases/{test_case}` */
       testCase?: string;
       /** Output only. The state of the release test. */
-      testState?: string;
+      testState?:
+        | 'TEST_STATE_UNSPECIFIED'
+        | 'IN_PROGRESS'
+        | 'PASSED'
+        | 'FAILED'
+        | 'INCONCLUSIVE';
     }
     interface GoogleFirebaseAppdistroV1alphaRoboCrawler {
       /** Optional. Instructions for AI driven test */
@@ -370,7 +447,7 @@ declare namespace gapi.client {
     }
     interface GoogleFirebaseAppdistroV1alphaTerminalAction {
       /** Output only. The reason why this goal was ended. */
-      reason?: string;
+      reason?: 'REASON_UNSPECIFIED' | 'GOAL_IMPOSSIBLE' | 'GOAL_COMPLETE';
       /** Output only. The screenshot used in the context of this terminal action. */
       screenshot?: GoogleFirebaseAppdistroV1alphaScreenshot;
     }
@@ -461,18 +538,22 @@ declare namespace gapi.client {
       /** Release associated with the uploaded binary. */
       release?: GoogleFirebaseAppdistroV1Release;
       /** Result of upload release. */
-      result?: string;
+      result?:
+        | 'UPLOAD_RELEASE_RESULT_UNSPECIFIED'
+        | 'RELEASE_CREATED'
+        | 'RELEASE_UPDATED'
+        | 'RELEASE_UNMODIFIED';
     }
     interface GoogleProtobufEmpty {}
     interface Release_by_hashResource {
       /** GET Release by binary upload hash */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -499,11 +580,11 @@ declare namespace gapi.client {
       /** Create release notes on a release. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -530,11 +611,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -563,11 +644,11 @@ declare namespace gapi.client {
       /** Enable access on a release for testers. */
       enable_access(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -594,11 +675,11 @@ declare namespace gapi.client {
       enable_access(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -628,11 +709,11 @@ declare namespace gapi.client {
       /** Get UDIDs of tester iOS devices in a project */
       getTesterUdids(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -659,11 +740,11 @@ declare namespace gapi.client {
       /** GET Binary upload status by token */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -690,13 +771,13 @@ declare namespace gapi.client {
       /** Get the app, if it exists */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** App view. When unset or set to BASIC, returns an App with everything set except for aab_state. When set to FULL, returns an App with aab_state set. */
-        appView?: string;
+        appView?: 'APP_VIEW_UNSPECIFIED' | 'BASIC' | 'FULL';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -719,11 +800,11 @@ declare namespace gapi.client {
       /** Get a JWT token */
       getJwt(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -752,11 +833,11 @@ declare namespace gapi.client {
       /** Abort automated test run on release. */
       cancel(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -779,11 +860,11 @@ declare namespace gapi.client {
       /** Run automated test(s) on release. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -810,11 +891,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -841,11 +922,11 @@ declare namespace gapi.client {
       /** Get results for automated test run on release. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -868,11 +949,11 @@ declare namespace gapi.client {
       /** List results for automated tests run on release. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -896,7 +977,10 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Optional. The requested view on the returned ReleaseTests. Defaults to the basic view. */
-        view?: string;
+        view?:
+          | 'RELEASE_TEST_VIEW_UNSPECIFIED'
+          | 'RELEASE_TEST_VIEW_BASIC'
+          | 'RELEASE_TEST_VIEW_FULL';
       }): Request<GoogleFirebaseAppdistroV1alphaListReleaseTestsResponse>;
     }
     interface ReleasesResource {
@@ -906,11 +990,11 @@ declare namespace gapi.client {
       /** Deletes multiple test cases. */
       batchDelete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -935,11 +1019,11 @@ declare namespace gapi.client {
       batchDelete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -964,11 +1048,11 @@ declare namespace gapi.client {
       /** Updates multiple test cases. */
       batchUpdate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -993,11 +1077,11 @@ declare namespace gapi.client {
       batchUpdate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1022,11 +1106,11 @@ declare namespace gapi.client {
       /** Clears cached test runs for a specific test case and device(s). */
       clearTestCaseCache(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1051,11 +1135,11 @@ declare namespace gapi.client {
       clearTestCaseCache(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1080,11 +1164,11 @@ declare namespace gapi.client {
       /** Create a new test case. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1111,11 +1195,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1142,11 +1226,11 @@ declare namespace gapi.client {
       /** Delete a test case. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1169,11 +1253,11 @@ declare namespace gapi.client {
       /** Get a test case. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1196,11 +1280,11 @@ declare namespace gapi.client {
       /** List test cases. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1227,13 +1311,13 @@ declare namespace gapi.client {
       /** Update a test case. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. If set to true, and the test case is not found, a new test case will be created. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1258,13 +1342,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Optional. If set to true, and the test case is not found, a new test case will be created. */
           allowMissing?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1291,11 +1375,11 @@ declare namespace gapi.client {
       /** Gets configuration for automated tests. */
       getTestConfig(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1318,11 +1402,11 @@ declare namespace gapi.client {
       /** Updates automated test configuration. */
       updateTestConfig(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1349,11 +1433,11 @@ declare namespace gapi.client {
       updateTestConfig(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1384,11 +1468,11 @@ declare namespace gapi.client {
       /** Get UDIDs of tester iOS devices in a project */
       getUdids(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1415,11 +1499,11 @@ declare namespace gapi.client {
       /** Get information about the quota for `ReleaseTests`. */
       getTestQuota(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

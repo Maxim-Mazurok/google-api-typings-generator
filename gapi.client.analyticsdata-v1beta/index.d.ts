@@ -32,7 +32,10 @@ declare namespace gapi.client {
       /** The name of the restricted metric. */
       metricName?: string;
       /** The reason for this metric's restriction. */
-      restrictedMetricTypes?: string[];
+      restrictedMetricTypes?:
+        | 'RESTRICTED_METRIC_TYPE_UNSPECIFIED'
+        | 'COST_DATA'
+        | 'REVENUE_DATA'[];
     }
     interface AudienceExport {
       /** Required. The audience resource name. This resource name identifies the audience being listed and is shared between the Analytics Data & Admin APIs. Format: `properties/{property}/audiences/{audience}` */
@@ -54,7 +57,7 @@ declare namespace gapi.client {
       /** Output only. The total number of rows in the AudienceExport result. */
       rowCount?: number;
       /** Output only. The current state for this AudienceExport. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'CREATING' | 'ACTIVE' | 'FAILED';
     }
     interface AudienceListMetadata {}
     interface BatchRunPivotReportsRequest {
@@ -89,7 +92,10 @@ declare namespace gapi.client {
     }
     interface CheckCompatibilityRequest {
       /** Filters the dimensions and metrics in the response to just this compatibility. Commonly used as `”compatibilityFilter”: “COMPATIBLE”` to only return compatible dimensions & metrics. */
-      compatibilityFilter?: string;
+      compatibilityFilter?:
+        | 'COMPATIBILITY_UNSPECIFIED'
+        | 'COMPATIBLE'
+        | 'INCOMPATIBLE';
       /** The filter clause of dimensions. `dimensionFilter` should be the same value as in your `runReport` request. */
       dimensionFilter?: FilterExpression;
       /** The dimensions in this report. `dimensions` should be the same value as in your `runReport` request. */
@@ -129,7 +135,7 @@ declare namespace gapi.client {
       /** Required. `endOffset` specifies the end date of the extended reporting date range for a cohort report. `endOffset` can be any positive integer but is commonly set to 5 to 10 so that reports contain data on the cohort for the next several granularity time periods. If `granularity` is `DAILY`, the `endDate` of the extended reporting date range is `endDate` of the cohort plus `endOffset` days. If `granularity` is `WEEKLY`, the `endDate` of the extended reporting date range is `endDate` of the cohort plus `endOffset * 7` days. If `granularity` is `MONTHLY`, the `endDate` of the extended reporting date range is `endDate` of the cohort plus `endOffset * 30` days. */
       endOffset?: number;
       /** Required. The granularity used to interpret the `startOffset` and `endOffset` for the extended reporting date range for a cohort report. */
-      granularity?: string;
+      granularity?: 'GRANULARITY_UNSPECIFIED' | 'DAILY' | 'WEEKLY' | 'MONTHLY';
       /** `startOffset` specifies the start date of the extended reporting date range for a cohort report. `startOffset` is commonly set to 0 so that reports contain data from the acquisition of the cohort forward. If `granularity` is `DAILY`, the `startDate` of the extended reporting date range is `startDate` of the cohort plus `startOffset` days. If `granularity` is `WEEKLY`, the `startDate` of the extended reporting date range is `startDate` of the cohort plus `startOffset * 7` days. If `granularity` is `MONTHLY`, the `startDate` of the extended reporting date range is `startDate` of the cohort plus `startOffset * 30` days. */
       startOffset?: number;
     }
@@ -171,7 +177,10 @@ declare namespace gapi.client {
     }
     interface DimensionCompatibility {
       /** The compatibility of this dimension. If the compatibility is COMPATIBLE, this dimension can be successfully added to the report. */
-      compatibility?: string;
+      compatibility?:
+        | 'COMPATIBILITY_UNSPECIFIED'
+        | 'COMPATIBLE'
+        | 'INCOMPATIBLE';
       /** The dimension metadata contains the API name for this compatibility information. The dimension metadata also contains other helpful information like the UI name and description. */
       dimensionMetadata?: DimensionMetadata;
     }
@@ -205,7 +214,11 @@ declare namespace gapi.client {
       /** A dimension name in the request to order by. */
       dimensionName?: string;
       /** Controls the rule for dimension value ordering. */
-      orderType?: string;
+      orderType?:
+        | 'ORDER_TYPE_UNSPECIFIED'
+        | 'ALPHANUMERIC'
+        | 'CASE_INSENSITIVE_ALPHANUMERIC'
+        | 'NUMERIC';
     }
     interface DimensionValue {
       /** Value as a string if the dimension type is a string. */
@@ -272,7 +285,10 @@ declare namespace gapi.client {
     }
     interface MetricCompatibility {
       /** The compatibility of this metric. If the compatibility is COMPATIBLE, this metric can be successfully added to the report. */
-      compatibility?: string;
+      compatibility?:
+        | 'COMPATIBILITY_UNSPECIFIED'
+        | 'COMPATIBLE'
+        | 'INCOMPATIBLE';
       /** The metric metadata contains the API name for this compatibility information. The metric metadata also contains other helpful information like the UI name and description. */
       metricMetadata?: MetricMetadata;
     }
@@ -280,13 +296,29 @@ declare namespace gapi.client {
       /** The metric's name. */
       name?: string;
       /** The metric's data type. */
-      type?: string;
+      type?:
+        | 'METRIC_TYPE_UNSPECIFIED'
+        | 'TYPE_INTEGER'
+        | 'TYPE_FLOAT'
+        | 'TYPE_SECONDS'
+        | 'TYPE_MILLISECONDS'
+        | 'TYPE_MINUTES'
+        | 'TYPE_HOURS'
+        | 'TYPE_STANDARD'
+        | 'TYPE_CURRENCY'
+        | 'TYPE_FEET'
+        | 'TYPE_MILES'
+        | 'TYPE_METERS'
+        | 'TYPE_KILOMETERS';
     }
     interface MetricMetadata {
       /** A metric name. Useable in [Metric](#Metric)'s `name`. For example, `eventCount`. */
       apiName?: string;
       /** If reasons are specified, your access is blocked to this metric for this property. API requests from you to this property for this metric will succeed; however, the report will contain only zeros for this metric. API requests with metric filters on blocked metrics will fail. If reasons are empty, you have access to this metric. To learn more, see [Access and data-restriction management](https://support.google.com/analytics/answer/10851388). */
-      blockedReasons?: string[];
+      blockedReasons?:
+        | 'BLOCKED_REASON_UNSPECIFIED'
+        | 'NO_REVENUE_METRICS'
+        | 'NO_COST_METRICS'[];
       /** The display name of the category that this metrics belongs to. Similar dimensions and metrics are categorized together. */
       category?: string;
       /** True if the metric is a custom metric for this property. */
@@ -298,7 +330,20 @@ declare namespace gapi.client {
       /** The mathematical expression for this derived metric. Can be used in [Metric](#Metric)'s `expression` field for equivalent reports. Most metrics are not expressions, and for non-expressions, this field is empty. */
       expression?: string;
       /** The type of this metric. */
-      type?: string;
+      type?:
+        | 'METRIC_TYPE_UNSPECIFIED'
+        | 'TYPE_INTEGER'
+        | 'TYPE_FLOAT'
+        | 'TYPE_SECONDS'
+        | 'TYPE_MILLISECONDS'
+        | 'TYPE_MINUTES'
+        | 'TYPE_HOURS'
+        | 'TYPE_STANDARD'
+        | 'TYPE_CURRENCY'
+        | 'TYPE_FEET'
+        | 'TYPE_MILES'
+        | 'TYPE_METERS'
+        | 'TYPE_KILOMETERS';
       /** This metric's name within the Google Analytics user interface. For example, `Event count`. */
       uiName?: string;
     }
@@ -320,7 +365,13 @@ declare namespace gapi.client {
     }
     interface NumericFilter {
       /** The operation type for this filter. */
-      operation?: string;
+      operation?:
+        | 'OPERATION_UNSPECIFIED'
+        | 'EQUAL'
+        | 'LESS_THAN'
+        | 'LESS_THAN_OR_EQUAL'
+        | 'GREATER_THAN'
+        | 'GREATER_THAN_OR_EQUAL';
       /** A numeric value or a date value. */
       value?: NumericValue;
     }
@@ -358,7 +409,12 @@ declare namespace gapi.client {
       /** The number of unique combinations of dimension values to return in this pivot. The `limit` parameter is required. A `limit` of 10,000 is common for single pivot requests. The product of the `limit` for each `pivot` in a `RunPivotReportRequest` must not exceed 250,000. For example, a two pivot request with `limit: 1000` in each pivot will fail because the product is `1,000,000`. */
       limit?: string;
       /** Aggregate the metrics by dimensions in this pivot using the specified metric_aggregations. */
-      metricAggregations?: string[];
+      metricAggregations?:
+        | 'METRIC_AGGREGATION_UNSPECIFIED'
+        | 'TOTAL'
+        | 'MINIMUM'
+        | 'MAXIMUM'
+        | 'COUNT'[];
       /** The row count of the start row. The first row is counted as row 0. */
       offset?: string;
       /** Specifies how dimensions are ordered in the pivot. In the first Pivot, the OrderBys determine Row and PivotDimensionHeader ordering; in subsequent Pivots, the OrderBys determine only PivotDimensionHeader ordering. Dimensions specified in these OrderBys must be a subset of Pivot.field_names. */
@@ -494,7 +550,12 @@ declare namespace gapi.client {
       /** The number of rows to return. If unspecified, 10,000 rows are returned. The API returns a maximum of 250,000 rows per request, no matter how many you ask for. `limit` must be positive. The API can also return fewer rows than the requested `limit`, if there aren't as many dimension values as the `limit`. For instance, there are fewer than 300 possible values for the dimension `country`, so when reporting on only `country`, you can't get more than 300 rows, even if you set `limit` to a higher value. */
       limit?: string;
       /** Aggregation of metrics. Aggregated metric values will be shown in rows where the dimension_values are set to "RESERVED_(MetricAggregation)". */
-      metricAggregations?: string[];
+      metricAggregations?:
+        | 'METRIC_AGGREGATION_UNSPECIFIED'
+        | 'TOTAL'
+        | 'MINIMUM'
+        | 'MAXIMUM'
+        | 'COUNT'[];
       /** The filter clause of metrics. Applied at post aggregation phase, similar to SQL having-clause. Dimensions cannot be used in this filter. */
       metricFilter?: FilterExpression;
       /** The metrics requested and displayed. */
@@ -544,7 +605,12 @@ declare namespace gapi.client {
       /** The number of rows to return. If unspecified, 10,000 rows are returned. The API returns a maximum of 250,000 rows per request, no matter how many you ask for. `limit` must be positive. The API can also return fewer rows than the requested `limit`, if there aren't as many dimension values as the `limit`. For instance, there are fewer than 300 possible values for the dimension `country`, so when reporting on only `country`, you can't get more than 300 rows, even if you set `limit` to a higher value. To learn more about this pagination parameter, see [Pagination](https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination). */
       limit?: string;
       /** Aggregation of metrics. Aggregated metric values will be shown in rows where the dimension_values are set to "RESERVED_(MetricAggregation)". Aggregates including both comparisons and multiple date ranges will be aggregated based on the date ranges. */
-      metricAggregations?: string[];
+      metricAggregations?:
+        | 'METRIC_AGGREGATION_UNSPECIFIED'
+        | 'TOTAL'
+        | 'MINIMUM'
+        | 'MAXIMUM'
+        | 'COUNT'[];
       /** The filter clause of metrics. Applied after aggregating the report's rows, similar to SQL having-clause. Dimensions cannot be used in this filter. */
       metricFilter?: FilterExpression;
       /** The metrics requested and displayed. */
@@ -602,7 +668,14 @@ declare namespace gapi.client {
       /** If true, the string value is case sensitive. */
       caseSensitive?: boolean;
       /** The match type for this filter. */
-      matchType?: string;
+      matchType?:
+        | 'MATCH_TYPE_UNSPECIFIED'
+        | 'EXACT'
+        | 'BEGINS_WITH'
+        | 'ENDS_WITH'
+        | 'CONTAINS'
+        | 'FULL_REGEXP'
+        | 'PARTIAL_REGEXP';
       /** The string value used for the matching. */
       value?: string;
     }
@@ -622,11 +695,11 @@ declare namespace gapi.client {
       /** Creates an audience export for later retrieval. This method quickly returns the audience export's resource name and initiates a long running asynchronous request to form an audience export. To export the users in an audience export, first create the audience export through this method and then send the audience resource name to the `QueryAudienceExport` method. See [Creating an Audience Export](https://developers.google.com/analytics/devguides/reporting/data/v1/audience-list-basics) for an introduction to Audience Exports with examples. An audience export is a snapshot of the users currently in the audience at the time of audience export creation. Creating audience exports for one audience on different days will return different results as users enter and exit the audience. Audiences in Google Analytics 4 allow you to segment your users in the ways that are important to your business. To learn more, see https://support.google.com/analytics/answer/9267572. Audience exports contain the users in each audience. Audience Export APIs have some methods at alpha and other methods at beta stability. The intention is to advance methods to beta stability after some feedback and adoption. To give your feedback on this API, complete the [Google Analytics Audience Export API Feedback](https://forms.gle/EeA5u5LW6PEggtCEA) form. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -651,11 +724,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -680,11 +753,11 @@ declare namespace gapi.client {
       /** Gets configuration metadata about a specific audience export. This method can be used to understand an audience export after it has been created. See [Creating an Audience Export](https://developers.google.com/analytics/devguides/reporting/data/v1/audience-list-basics) for an introduction to Audience Exports with examples. Audience Export APIs have some methods at alpha and other methods at beta stability. The intention is to advance methods to beta stability after some feedback and adoption. To give your feedback on this API, complete the [Google Analytics Audience Export API Feedback](https://forms.gle/EeA5u5LW6PEggtCEA) form. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -707,11 +780,11 @@ declare namespace gapi.client {
       /** Lists all audience exports for a property. This method can be used for you to find and reuse existing audience exports rather than creating unnecessary new audience exports. The same audience can have multiple audience exports that represent the export of users that were in an audience on different days. See [Creating an Audience Export](https://developers.google.com/analytics/devguides/reporting/data/v1/audience-list-basics) for an introduction to Audience Exports with examples. Audience Export APIs have some methods at alpha and other methods at beta stability. The intention is to advance methods to beta stability after some feedback and adoption. To give your feedback on this API, complete the [Google Analytics Audience Export API Feedback](https://forms.gle/EeA5u5LW6PEggtCEA) form. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -738,11 +811,11 @@ declare namespace gapi.client {
       /** Retrieves an audience export of users. After creating an audience, the users are not immediately available for exporting. First, a request to `CreateAudienceExport` is necessary to create an audience export of users, and then second, this method is used to retrieve the users in the audience export. See [Creating an Audience Export](https://developers.google.com/analytics/devguides/reporting/data/v1/audience-list-basics) for an introduction to Audience Exports with examples. Audiences in Google Analytics 4 allow you to segment your users in the ways that are important to your business. To learn more, see https://support.google.com/analytics/answer/9267572. Audience Export APIs have some methods at alpha and other methods at beta stability. The intention is to advance methods to beta stability after some feedback and adoption. To give your feedback on this API, complete the [Google Analytics Audience Export API Feedback](https://forms.gle/EeA5u5LW6PEggtCEA) form. */
       query(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -767,11 +840,11 @@ declare namespace gapi.client {
       query(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -798,11 +871,11 @@ declare namespace gapi.client {
       /** Returns multiple pivot reports in a batch. All reports must be for the same Google Analytics property. */
       batchRunPivotReports(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -827,11 +900,11 @@ declare namespace gapi.client {
       batchRunPivotReports(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -856,11 +929,11 @@ declare namespace gapi.client {
       /** Returns multiple reports in a batch. All reports must be for the same Google Analytics property. */
       batchRunReports(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -885,11 +958,11 @@ declare namespace gapi.client {
       batchRunReports(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -914,11 +987,11 @@ declare namespace gapi.client {
       /** This compatibility method lists dimensions and metrics that can be added to a report request and maintain compatibility. This method fails if the request's dimensions and metrics are incompatible. In Google Analytics, reports fail if they request incompatible dimensions and/or metrics; in that case, you will need to remove dimensions and/or metrics from the incompatible report until the report is compatible. The Realtime and Core reports have different compatibility rules. This method checks compatibility for Core reports. */
       checkCompatibility(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -943,11 +1016,11 @@ declare namespace gapi.client {
       checkCompatibility(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -972,11 +1045,11 @@ declare namespace gapi.client {
       /** Returns metadata for dimensions and metrics available in reporting methods. Used to explore the dimensions and metrics. In this method, a Google Analytics property identifier is specified in the request, and the metadata response includes Custom dimensions and metrics as well as Universal metadata. For example if a custom metric with parameter name `levels_unlocked` is registered to a property, the Metadata response will contain `customEvent:levels_unlocked`. Universal metadata are dimensions and metrics applicable to any property such as `country` and `totalUsers`. */
       getMetadata(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -999,11 +1072,11 @@ declare namespace gapi.client {
       /** Returns a customized pivot report of your Google Analytics event data. Pivot reports are more advanced and expressive formats than regular reports. In a pivot report, dimensions are only visible if they are included in a pivot. Multiple pivots can be specified to further dissect your data. */
       runPivotReport(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1028,11 +1101,11 @@ declare namespace gapi.client {
       runPivotReport(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1057,11 +1130,11 @@ declare namespace gapi.client {
       /** Returns a customized report of realtime event data for your property. Events appear in realtime reports seconds after they have been sent to the Google Analytics. Realtime reports show events and usage data for the periods of time ranging from the present moment to 30 minutes ago (up to 60 minutes for Google Analytics 360 properties). For a guide to constructing realtime requests & understanding responses, see [Creating a Realtime Report](https://developers.google.com/analytics/devguides/reporting/data/v1/realtime-basics). */
       runRealtimeReport(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1086,11 +1159,11 @@ declare namespace gapi.client {
       runRealtimeReport(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1115,11 +1188,11 @@ declare namespace gapi.client {
       /** Returns a customized report of your Google Analytics event data. Reports contain statistics derived from data collected by the Google Analytics tracking code. The data returned from the API is as a table with columns for the requested dimensions and metrics. Metrics are individual measurements of user activity on your property, such as active users or event count. Dimensions break down metrics across some common criteria, such as country or event name. For a guide to constructing requests & understanding responses, see [Creating a Report](https://developers.google.com/analytics/devguides/reporting/data/v1/basics). */
       runReport(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1144,11 +1217,11 @@ declare namespace gapi.client {
       runReport(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

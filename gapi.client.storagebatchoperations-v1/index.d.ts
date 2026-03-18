@@ -68,7 +68,13 @@ declare namespace gapi.client {
       /** Output only. The time that the BucketOperation was started. */
       startTime?: string;
       /** Output only. State of the BucketOperation. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'QUEUED'
+        | 'RUNNING'
+        | 'SUCCEEDED'
+        | 'CANCELED'
+        | 'FAILED';
       /** Update object custom context. */
       updateObjectCustomContext?: UpdateObjectCustomContext;
     }
@@ -107,7 +113,24 @@ declare namespace gapi.client {
     }
     interface ErrorSummary {
       /** Required. The canonical error code. */
-      errorCode?: string;
+      errorCode?:
+        | 'OK'
+        | 'CANCELLED'
+        | 'UNKNOWN'
+        | 'INVALID_ARGUMENT'
+        | 'DEADLINE_EXCEEDED'
+        | 'NOT_FOUND'
+        | 'ALREADY_EXISTS'
+        | 'PERMISSION_DENIED'
+        | 'UNAUTHENTICATED'
+        | 'RESOURCE_EXHAUSTED'
+        | 'FAILED_PRECONDITION'
+        | 'ABORTED'
+        | 'OUT_OF_RANGE'
+        | 'UNIMPLEMENTED'
+        | 'INTERNAL'
+        | 'UNAVAILABLE'
+        | 'DATA_LOSS';
       /** Required. Number of errors encountered per `error_code`. */
       errorCount?: string;
       /** Required. Sample error logs. */
@@ -145,7 +168,13 @@ declare namespace gapi.client {
       /** Output only. The time that the job was scheduled. */
       scheduleTime?: string;
       /** Output only. State of the job. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'RUNNING'
+        | 'SUCCEEDED'
+        | 'CANCELED'
+        | 'FAILED'
+        | 'QUEUED';
       /** Update object custom context. */
       updateObjectCustomContext?: UpdateObjectCustomContext;
     }
@@ -193,9 +222,12 @@ declare namespace gapi.client {
     }
     interface LoggingConfig {
       /** Required. Specifies the actions to be logged. */
-      logActions?: string[];
+      logActions?: 'LOGGABLE_ACTION_UNSPECIFIED' | 'TRANSFORM'[];
       /** Required. States in which Action are logged.If empty, no logs are generated. */
-      logActionStates?: string[];
+      logActionStates?:
+        | 'LOGGABLE_ACTION_STATE_UNSPECIFIED'
+        | 'SUCCEEDED'
+        | 'FAILED'[];
     }
     interface Manifest {
       /** Required. `manifest_location` must contain the manifest source file that is a CSV file in a Google Cloud Storage bucket. Each row in the file must include the object details i.e. BucketId and Name. Generation may optionally be specified. When it is not specified the live object is acted upon. `manifest_location` should either be 1) An absolute path to the object in the format of `gs://bucket_name/path/file_name.csv`. 2) An absolute path with a single wildcard character in the file name, for example `gs://bucket_name/path/file_name*.csv`. If manifest location is specified with a wildcard, objects in all manifest files matching the pattern will be acted upon. */
@@ -209,7 +241,7 @@ declare namespace gapi.client {
       /** Required. The time when the object will be retained until. UNSET will clear the retention. Must be specified in RFC 3339 format e.g. YYYY-MM-DD'T'HH:MM:SS.SS'Z' or YYYY-MM-DD'T'HH:MM:SS'Z'. */
       retainUntilTime?: string;
       /** Required. The retention mode of the object. */
-      retentionMode?: string;
+      retentionMode?: 'RETENTION_MODE_UNSPECIFIED' | 'LOCKED' | 'UNLOCKED';
     }
     interface Operation {
       /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
@@ -261,9 +293,9 @@ declare namespace gapi.client {
     }
     interface PutObjectHold {
       /** Required. Updates object event based holds state. When object event based hold is set, object cannot be deleted or replaced. Resets object's time in the bucket for the purposes of the retention period. */
-      eventBasedHold?: string;
+      eventBasedHold?: 'HOLD_STATUS_UNSPECIFIED' | 'SET' | 'UNSET';
       /** Required. Updates object temporary holds state. When object temporary hold is set, object cannot be deleted or replaced. */
-      temporaryHold?: string;
+      temporaryHold?: 'HOLD_STATUS_UNSPECIFIED' | 'SET' | 'UNSET';
     }
     interface RewriteObject {
       /** Required. Resource name of the Cloud KMS key that will be used to encrypt the object. The Cloud KMS key must be located in same location as the object. Refer to https://cloud.google.com/storage/docs/encryption/using-customer-managed-keys#add-object-key for additional documentation. Format: projects/{project}/locations/{location}/keyRings/{keyring}/cryptoKeys/{key} For example: "projects/123456/locations/us-central1/keyRings/my-keyring/cryptoKeys/my-key". The object will be rewritten and set with the specified KMS key. */
@@ -287,11 +319,11 @@ declare namespace gapi.client {
       /** Gets a BucketOperation. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -314,11 +346,11 @@ declare namespace gapi.client {
       /** Lists BucketOperations in a given project and job. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -351,11 +383,11 @@ declare namespace gapi.client {
       /** Cancels a batch job. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -380,11 +412,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -409,11 +441,11 @@ declare namespace gapi.client {
       /** Creates a batch job. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -442,11 +474,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -475,11 +507,11 @@ declare namespace gapi.client {
       /** Deletes a batch job. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -506,11 +538,11 @@ declare namespace gapi.client {
       /** Gets a batch job. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -533,11 +565,11 @@ declare namespace gapi.client {
       /** Lists Jobs in a given project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -571,11 +603,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -600,11 +632,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -629,11 +661,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -656,11 +688,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -683,11 +715,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -720,11 +752,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -747,11 +779,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */

@@ -30,27 +30,51 @@ declare namespace gapi.client {
   namespace searchconsole {
     interface AmpInspectionResult {
       /** Index status of the AMP URL. */
-      ampIndexStatusVerdict?: string;
+      ampIndexStatusVerdict?:
+        | 'VERDICT_UNSPECIFIED'
+        | 'PASS'
+        | 'PARTIAL'
+        | 'FAIL'
+        | 'NEUTRAL';
       /** URL of the AMP that was inspected. If the submitted URL is a desktop page that refers to an AMP version, the AMP version will be inspected. */
       ampUrl?: string;
       /** Whether or not the page blocks indexing through a noindex rule. */
-      indexingState?: string;
+      indexingState?:
+        | 'AMP_INDEXING_STATE_UNSPECIFIED'
+        | 'AMP_INDEXING_ALLOWED'
+        | 'BLOCKED_DUE_TO_NOINDEX'
+        | 'BLOCKED_DUE_TO_EXPIRED_UNAVAILABLE_AFTER';
       /** A list of zero or more AMP issues found for the inspected URL. */
       issues?: AmpIssue[];
       /** Last time this AMP version was crawled by Google. Absent if the URL was never crawled successfully. */
       lastCrawlTime?: string;
       /** Whether or not Google could fetch the AMP. */
-      pageFetchState?: string;
+      pageFetchState?:
+        | 'PAGE_FETCH_STATE_UNSPECIFIED'
+        | 'SUCCESSFUL'
+        | 'SOFT_404'
+        | 'BLOCKED_ROBOTS_TXT'
+        | 'NOT_FOUND'
+        | 'ACCESS_DENIED'
+        | 'SERVER_ERROR'
+        | 'REDIRECT_ERROR'
+        | 'ACCESS_FORBIDDEN'
+        | 'BLOCKED_4XX'
+        | 'INTERNAL_CRAWL_ERROR'
+        | 'INVALID_URL';
       /** Whether or not the page is blocked to Google by a robots.txt rule. */
-      robotsTxtState?: string;
+      robotsTxtState?:
+        | 'ROBOTS_TXT_STATE_UNSPECIFIED'
+        | 'ALLOWED'
+        | 'DISALLOWED';
       /** The status of the most severe error on the page. If a page has both warnings and errors, the page status is error. Error status means the page cannot be shown in Search results. */
-      verdict?: string;
+      verdict?: 'VERDICT_UNSPECIFIED' | 'PASS' | 'PARTIAL' | 'FAIL' | 'NEUTRAL';
     }
     interface AmpIssue {
       /** Brief description of this issue. */
       issueMessage?: string;
       /** Severity of this issue: WARNING or ERROR. */
-      severity?: string;
+      severity?: 'SEVERITY_UNSPECIFIED' | 'WARNING' | 'ERROR';
     }
     interface ApiDataRow {
       clicks?: number;
@@ -60,13 +84,19 @@ declare namespace gapi.client {
       position?: number;
     }
     interface ApiDimensionFilter {
-      dimension?: string;
+      dimension?: 'QUERY' | 'PAGE' | 'COUNTRY' | 'DEVICE' | 'SEARCH_APPEARANCE';
       expression?: string;
-      operator?: string;
+      operator?:
+        | 'EQUALS'
+        | 'NOT_EQUALS'
+        | 'CONTAINS'
+        | 'NOT_CONTAINS'
+        | 'INCLUDING_REGEX'
+        | 'EXCLUDING_REGEX';
     }
     interface ApiDimensionFilterGroup {
       filters?: ApiDimensionFilter[];
-      groupType?: string;
+      groupType?: 'AND';
     }
     interface BlockedResource {
       /** URL of the blocked resource. */
@@ -88,25 +118,45 @@ declare namespace gapi.client {
       /** Could Google find and index the page. More details about page indexing appear in 'indexing_state'. */
       coverageState?: string;
       /** Primary crawler that was used by Google to crawl your site. */
-      crawledAs?: string;
+      crawledAs?: 'CRAWLING_USER_AGENT_UNSPECIFIED' | 'DESKTOP' | 'MOBILE';
       /** The URL of the page that Google selected as canonical. If the page was not indexed, this field is absent. */
       googleCanonical?: string;
       /** Whether or not the page blocks indexing through a noindex rule. */
-      indexingState?: string;
+      indexingState?:
+        | 'INDEXING_STATE_UNSPECIFIED'
+        | 'INDEXING_ALLOWED'
+        | 'BLOCKED_BY_META_TAG'
+        | 'BLOCKED_BY_HTTP_HEADER'
+        | 'BLOCKED_BY_ROBOTS_TXT';
       /** Last time this URL was crawled by Google using the [primary crawler](https://support.google.com/webmasters/answer/7440203#primary_crawler). Absent if the URL was never crawled successfully. */
       lastCrawlTime?: string;
       /** Whether or not Google could retrieve the page from your server. Equivalent to ["page fetch"](https://support.google.com/webmasters/answer/9012289#index_coverage) in the URL inspection report. */
-      pageFetchState?: string;
+      pageFetchState?:
+        | 'PAGE_FETCH_STATE_UNSPECIFIED'
+        | 'SUCCESSFUL'
+        | 'SOFT_404'
+        | 'BLOCKED_ROBOTS_TXT'
+        | 'NOT_FOUND'
+        | 'ACCESS_DENIED'
+        | 'SERVER_ERROR'
+        | 'REDIRECT_ERROR'
+        | 'ACCESS_FORBIDDEN'
+        | 'BLOCKED_4XX'
+        | 'INTERNAL_CRAWL_ERROR'
+        | 'INVALID_URL';
       /** URLs that link to the inspected URL, directly and indirectly. */
       referringUrls?: string[];
       /** Whether or not the page is blocked to Google by a robots.txt rule. */
-      robotsTxtState?: string;
+      robotsTxtState?:
+        | 'ROBOTS_TXT_STATE_UNSPECIFIED'
+        | 'ALLOWED'
+        | 'DISALLOWED';
       /** Any sitemaps that this URL was listed in, as known by Google. Not guaranteed to be an exhaustive list, especially if Google did not discover this URL through a sitemap. Absent if no sitemaps were found. */
       sitemap?: string[];
       /** The URL that your page or site [declares as canonical](https://developers.google.com/search/docs/advanced/crawling/consolidate-duplicate-urls?#define-canonical). If you did not declare a canonical URL, this field is absent. */
       userCanonical?: string;
       /** High level verdict about whether the URL *is* indexed (indexed status), or *can be* indexed (live inspection). */
-      verdict?: string;
+      verdict?: 'VERDICT_UNSPECIFIED' | 'PASS' | 'PARTIAL' | 'FAIL' | 'NEUTRAL';
     }
     interface InspectUrlIndexRequest {
       /** Required. URL to inspect. Must be under the property specified in "site_url". */
@@ -134,21 +184,35 @@ declare namespace gapi.client {
     }
     interface MobileFriendlyIssue {
       /** Rule violated. */
-      rule?: string;
+      rule?:
+        | 'MOBILE_FRIENDLY_RULE_UNSPECIFIED'
+        | 'USES_INCOMPATIBLE_PLUGINS'
+        | 'CONFIGURE_VIEWPORT'
+        | 'FIXED_WIDTH_VIEWPORT'
+        | 'SIZE_CONTENT_TO_VIEWPORT'
+        | 'USE_LEGIBLE_FONT_SIZES'
+        | 'TAP_TARGETS_TOO_CLOSE';
     }
     interface MobileUsabilityInspectionResult {
       /** A list of zero or more mobile-usability issues detected for this URL. */
       issues?: MobileUsabilityIssue[];
       /** High-level mobile-usability inspection result for this URL. */
-      verdict?: string;
+      verdict?: 'VERDICT_UNSPECIFIED' | 'PASS' | 'PARTIAL' | 'FAIL' | 'NEUTRAL';
     }
     interface MobileUsabilityIssue {
       /** Mobile-usability issue type. */
-      issueType?: string;
+      issueType?:
+        | 'MOBILE_USABILITY_ISSUE_TYPE_UNSPECIFIED'
+        | 'USES_INCOMPATIBLE_PLUGINS'
+        | 'CONFIGURE_VIEWPORT'
+        | 'FIXED_WIDTH_VIEWPORT'
+        | 'SIZE_CONTENT_TO_VIEWPORT'
+        | 'USE_LEGIBLE_FONT_SIZES'
+        | 'TAP_TARGETS_TOO_CLOSE';
       /** Additional information regarding the issue. */
       message?: string;
       /** Not returned; reserved for future use. */
-      severity?: string;
+      severity?: 'SEVERITY_UNSPECIFIED' | 'WARNING' | 'ERROR';
     }
     interface ResourceIssue {
       /** Describes a blocked resource issue. */
@@ -158,13 +222,13 @@ declare namespace gapi.client {
       /** A list of zero or more rich results detected on this page. Rich results that cannot even be parsed due to syntactic issues will not be listed here. */
       detectedItems?: DetectedItems[];
       /** High-level rich results inspection result for this URL. */
-      verdict?: string;
+      verdict?: 'VERDICT_UNSPECIFIED' | 'PASS' | 'PARTIAL' | 'FAIL' | 'NEUTRAL';
     }
     interface RichResultsIssue {
       /** Rich Results issue type. */
       issueMessage?: string;
       /** Severity of this issue: WARNING, or ERROR. Items with an issue of status ERROR cannot appear with rich result features in Google Search results. */
-      severity?: string;
+      severity?: 'SEVERITY_UNSPECIFIED' | 'WARNING' | 'ERROR';
     }
     interface RunMobileFriendlyTestRequest {
       /** Whether or not screenshot is requested. Default is false. */
@@ -174,7 +238,10 @@ declare namespace gapi.client {
     }
     interface RunMobileFriendlyTestResponse {
       /** Test verdict, whether the page is mobile friendly or not. */
-      mobileFriendliness?: string;
+      mobileFriendliness?:
+        | 'MOBILE_FRIENDLY_TEST_RESULT_UNSPECIFIED'
+        | 'MOBILE_FRIENDLY'
+        | 'NOT_MOBILE_FRIENDLY';
       /** List of mobile-usability issues. */
       mobileFriendlyIssues?: MobileFriendlyIssue[];
       /** Information about embedded resources issues. */
@@ -186,31 +253,52 @@ declare namespace gapi.client {
     }
     interface SearchAnalyticsQueryRequest {
       /** [Optional; Default is \"auto\"] How data is aggregated. If aggregated by property, all data for the same property is aggregated; if aggregated by page, all data is aggregated by canonical URI. If you filter or group by page, choose AUTO; otherwise you can aggregate either by property or by page, depending on how you want your data calculated; see the help documentation to learn how data is calculated differently by site versus by page. **Note:** If you group or filter by page, you cannot aggregate by property. If you specify any value other than AUTO, the aggregation type in the result will match the requested type, or if you request an invalid type, you will get an error. The API will never change your aggregation type if the requested type is invalid. */
-      aggregationType?: string;
+      aggregationType?:
+        | 'AUTO'
+        | 'BY_PROPERTY'
+        | 'BY_PAGE'
+        | 'BY_NEWS_SHOWCASE_PANEL';
       /** The data state to be fetched, can be full or all, the latter including full and partial data. */
-      dataState?: string;
+      dataState?: 'DATA_STATE_UNSPECIFIED' | 'FINAL' | 'ALL' | 'HOURLY_ALL';
       /** [Optional] Zero or more filters to apply to the dimension grouping values; for example, 'query contains \"buy\"' to see only data where the query string contains the substring \"buy\" (not case-sensitive). You can filter by a dimension without grouping by it. */
       dimensionFilterGroups?: ApiDimensionFilterGroup[];
       /** [Optional] Zero or more dimensions to group results by. Dimensions are the group-by values in the Search Analytics page. Dimensions are combined to create a unique row key for each row. Results are grouped in the order that you supply these dimensions. */
-      dimensions?: string[];
+      dimensions?:
+        | 'DATE'
+        | 'QUERY'
+        | 'PAGE'
+        | 'COUNTRY'
+        | 'DEVICE'
+        | 'SEARCH_APPEARANCE'
+        | 'HOUR'[];
       /** [Required] End date of the requested date range, in YYYY-MM-DD format, in PST (UTC - 8:00). Must be greater than or equal to the start date. This value is included in the range. */
       endDate?: string;
       /** [Optional; Default is 1000] The maximum number of rows to return. Must be a number from 1 to 25,000 (inclusive). */
       rowLimit?: number;
       /** [Optional; Default is \"web\"] The search type to filter for. */
-      searchType?: string;
+      searchType?:
+        | 'WEB'
+        | 'IMAGE'
+        | 'VIDEO'
+        | 'NEWS'
+        | 'DISCOVER'
+        | 'GOOGLE_NEWS';
       /** [Required] Start date of the requested date range, in YYYY-MM-DD format, in PST time (UTC - 8:00). Must be less than or equal to the end date. This value is included in the range. */
       startDate?: string;
       /** [Optional; Default is 0] Zero-based index of the first row in the response. Must be a non-negative number. */
       startRow?: number;
       /** Optional. [Optional; Default is \"web\"] Type of report: search type, or either Discover or Gnews. */
-      type?: string;
+      type?: 'WEB' | 'IMAGE' | 'VIDEO' | 'NEWS' | 'DISCOVER' | 'GOOGLE_NEWS';
     }
     interface SearchAnalyticsQueryResponse {
       /** An object that may be returned with your query results, providing context about the state of the data. See details in Metadata object documentation. */
       metadata?: Metadata;
       /** How the results were aggregated. */
-      responseAggregationType?: string;
+      responseAggregationType?:
+        | 'AUTO'
+        | 'BY_PROPERTY'
+        | 'BY_PAGE'
+        | 'BY_NEWS_SHOWCASE_PANEL';
       /** A list of rows grouped by the key values in the order given in the query. */
       rows?: ApiDataRow[];
     }
@@ -226,7 +314,11 @@ declare namespace gapi.client {
       /** Error details if applicable. */
       details?: string;
       /** Status of the test. */
-      status?: string;
+      status?:
+        | 'TEST_STATUS_UNSPECIFIED'
+        | 'COMPLETE'
+        | 'INTERNAL_ERROR'
+        | 'PAGE_UNREACHABLE';
     }
     interface UrlInspectionResult {
       /** Result of the AMP analysis. Absent if the page is not an AMP page. */
@@ -242,7 +334,12 @@ declare namespace gapi.client {
     }
     interface WmxSite {
       /** The user's permission level for the site. */
-      permissionLevel?: string;
+      permissionLevel?:
+        | 'SITE_PERMISSION_LEVEL_UNSPECIFIED'
+        | 'SITE_OWNER'
+        | 'SITE_FULL_USER'
+        | 'SITE_RESTRICTED_USER'
+        | 'SITE_UNVERIFIED_USER';
       /** The URL of the site. */
       siteUrl?: string;
     }
@@ -262,7 +359,14 @@ declare namespace gapi.client {
       /** The url of the sitemap. */
       path?: string;
       /** The type of the sitemap. For example: `rssFeed`. */
-      type?: string;
+      type?:
+        | 'NOT_SITEMAP'
+        | 'URL_LIST'
+        | 'SITEMAP'
+        | 'RSS_FEED'
+        | 'ATOM_FEED'
+        | 'PATTERN_SITEMAP'
+        | 'OCEANFRONT';
       /** Number of warnings for the sitemap. These are generally non-critical issues with URLs in the sitemaps. */
       warnings?: string;
     }
@@ -272,17 +376,26 @@ declare namespace gapi.client {
       /** The number of URLs in the sitemap (of the content type). */
       submitted?: string;
       /** The specific type of content in this sitemap. For example: `web`. */
-      type?: string;
+      type?:
+        | 'WEB'
+        | 'IMAGE'
+        | 'VIDEO'
+        | 'NEWS'
+        | 'MOBILE'
+        | 'ANDROID_APP'
+        | 'PATTERN'
+        | 'IOS_APP'
+        | 'DATA_FEED_ELEMENT';
     }
     interface IndexResource {
       /** Index inspection. */
       inspect(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -305,11 +418,11 @@ declare namespace gapi.client {
       inspect(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -337,11 +450,11 @@ declare namespace gapi.client {
       /** Runs Mobile-Friendly Test for a given URL. */
       run(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -364,11 +477,11 @@ declare namespace gapi.client {
       run(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -400,27 +513,51 @@ declare namespace gapi.client {
   namespace webmasters {
     interface AmpInspectionResult {
       /** Index status of the AMP URL. */
-      ampIndexStatusVerdict?: string;
+      ampIndexStatusVerdict?:
+        | 'VERDICT_UNSPECIFIED'
+        | 'PASS'
+        | 'PARTIAL'
+        | 'FAIL'
+        | 'NEUTRAL';
       /** URL of the AMP that was inspected. If the submitted URL is a desktop page that refers to an AMP version, the AMP version will be inspected. */
       ampUrl?: string;
       /** Whether or not the page blocks indexing through a noindex rule. */
-      indexingState?: string;
+      indexingState?:
+        | 'AMP_INDEXING_STATE_UNSPECIFIED'
+        | 'AMP_INDEXING_ALLOWED'
+        | 'BLOCKED_DUE_TO_NOINDEX'
+        | 'BLOCKED_DUE_TO_EXPIRED_UNAVAILABLE_AFTER';
       /** A list of zero or more AMP issues found for the inspected URL. */
       issues?: AmpIssue[];
       /** Last time this AMP version was crawled by Google. Absent if the URL was never crawled successfully. */
       lastCrawlTime?: string;
       /** Whether or not Google could fetch the AMP. */
-      pageFetchState?: string;
+      pageFetchState?:
+        | 'PAGE_FETCH_STATE_UNSPECIFIED'
+        | 'SUCCESSFUL'
+        | 'SOFT_404'
+        | 'BLOCKED_ROBOTS_TXT'
+        | 'NOT_FOUND'
+        | 'ACCESS_DENIED'
+        | 'SERVER_ERROR'
+        | 'REDIRECT_ERROR'
+        | 'ACCESS_FORBIDDEN'
+        | 'BLOCKED_4XX'
+        | 'INTERNAL_CRAWL_ERROR'
+        | 'INVALID_URL';
       /** Whether or not the page is blocked to Google by a robots.txt rule. */
-      robotsTxtState?: string;
+      robotsTxtState?:
+        | 'ROBOTS_TXT_STATE_UNSPECIFIED'
+        | 'ALLOWED'
+        | 'DISALLOWED';
       /** The status of the most severe error on the page. If a page has both warnings and errors, the page status is error. Error status means the page cannot be shown in Search results. */
-      verdict?: string;
+      verdict?: 'VERDICT_UNSPECIFIED' | 'PASS' | 'PARTIAL' | 'FAIL' | 'NEUTRAL';
     }
     interface AmpIssue {
       /** Brief description of this issue. */
       issueMessage?: string;
       /** Severity of this issue: WARNING or ERROR. */
-      severity?: string;
+      severity?: 'SEVERITY_UNSPECIFIED' | 'WARNING' | 'ERROR';
     }
     interface ApiDataRow {
       clicks?: number;
@@ -430,13 +567,19 @@ declare namespace gapi.client {
       position?: number;
     }
     interface ApiDimensionFilter {
-      dimension?: string;
+      dimension?: 'QUERY' | 'PAGE' | 'COUNTRY' | 'DEVICE' | 'SEARCH_APPEARANCE';
       expression?: string;
-      operator?: string;
+      operator?:
+        | 'EQUALS'
+        | 'NOT_EQUALS'
+        | 'CONTAINS'
+        | 'NOT_CONTAINS'
+        | 'INCLUDING_REGEX'
+        | 'EXCLUDING_REGEX';
     }
     interface ApiDimensionFilterGroup {
       filters?: ApiDimensionFilter[];
-      groupType?: string;
+      groupType?: 'AND';
     }
     interface BlockedResource {
       /** URL of the blocked resource. */
@@ -458,25 +601,45 @@ declare namespace gapi.client {
       /** Could Google find and index the page. More details about page indexing appear in 'indexing_state'. */
       coverageState?: string;
       /** Primary crawler that was used by Google to crawl your site. */
-      crawledAs?: string;
+      crawledAs?: 'CRAWLING_USER_AGENT_UNSPECIFIED' | 'DESKTOP' | 'MOBILE';
       /** The URL of the page that Google selected as canonical. If the page was not indexed, this field is absent. */
       googleCanonical?: string;
       /** Whether or not the page blocks indexing through a noindex rule. */
-      indexingState?: string;
+      indexingState?:
+        | 'INDEXING_STATE_UNSPECIFIED'
+        | 'INDEXING_ALLOWED'
+        | 'BLOCKED_BY_META_TAG'
+        | 'BLOCKED_BY_HTTP_HEADER'
+        | 'BLOCKED_BY_ROBOTS_TXT';
       /** Last time this URL was crawled by Google using the [primary crawler](https://support.google.com/webmasters/answer/7440203#primary_crawler). Absent if the URL was never crawled successfully. */
       lastCrawlTime?: string;
       /** Whether or not Google could retrieve the page from your server. Equivalent to ["page fetch"](https://support.google.com/webmasters/answer/9012289#index_coverage) in the URL inspection report. */
-      pageFetchState?: string;
+      pageFetchState?:
+        | 'PAGE_FETCH_STATE_UNSPECIFIED'
+        | 'SUCCESSFUL'
+        | 'SOFT_404'
+        | 'BLOCKED_ROBOTS_TXT'
+        | 'NOT_FOUND'
+        | 'ACCESS_DENIED'
+        | 'SERVER_ERROR'
+        | 'REDIRECT_ERROR'
+        | 'ACCESS_FORBIDDEN'
+        | 'BLOCKED_4XX'
+        | 'INTERNAL_CRAWL_ERROR'
+        | 'INVALID_URL';
       /** URLs that link to the inspected URL, directly and indirectly. */
       referringUrls?: string[];
       /** Whether or not the page is blocked to Google by a robots.txt rule. */
-      robotsTxtState?: string;
+      robotsTxtState?:
+        | 'ROBOTS_TXT_STATE_UNSPECIFIED'
+        | 'ALLOWED'
+        | 'DISALLOWED';
       /** Any sitemaps that this URL was listed in, as known by Google. Not guaranteed to be an exhaustive list, especially if Google did not discover this URL through a sitemap. Absent if no sitemaps were found. */
       sitemap?: string[];
       /** The URL that your page or site [declares as canonical](https://developers.google.com/search/docs/advanced/crawling/consolidate-duplicate-urls?#define-canonical). If you did not declare a canonical URL, this field is absent. */
       userCanonical?: string;
       /** High level verdict about whether the URL *is* indexed (indexed status), or *can be* indexed (live inspection). */
-      verdict?: string;
+      verdict?: 'VERDICT_UNSPECIFIED' | 'PASS' | 'PARTIAL' | 'FAIL' | 'NEUTRAL';
     }
     interface InspectUrlIndexRequest {
       /** Required. URL to inspect. Must be under the property specified in "site_url". */
@@ -504,21 +667,35 @@ declare namespace gapi.client {
     }
     interface MobileFriendlyIssue {
       /** Rule violated. */
-      rule?: string;
+      rule?:
+        | 'MOBILE_FRIENDLY_RULE_UNSPECIFIED'
+        | 'USES_INCOMPATIBLE_PLUGINS'
+        | 'CONFIGURE_VIEWPORT'
+        | 'FIXED_WIDTH_VIEWPORT'
+        | 'SIZE_CONTENT_TO_VIEWPORT'
+        | 'USE_LEGIBLE_FONT_SIZES'
+        | 'TAP_TARGETS_TOO_CLOSE';
     }
     interface MobileUsabilityInspectionResult {
       /** A list of zero or more mobile-usability issues detected for this URL. */
       issues?: MobileUsabilityIssue[];
       /** High-level mobile-usability inspection result for this URL. */
-      verdict?: string;
+      verdict?: 'VERDICT_UNSPECIFIED' | 'PASS' | 'PARTIAL' | 'FAIL' | 'NEUTRAL';
     }
     interface MobileUsabilityIssue {
       /** Mobile-usability issue type. */
-      issueType?: string;
+      issueType?:
+        | 'MOBILE_USABILITY_ISSUE_TYPE_UNSPECIFIED'
+        | 'USES_INCOMPATIBLE_PLUGINS'
+        | 'CONFIGURE_VIEWPORT'
+        | 'FIXED_WIDTH_VIEWPORT'
+        | 'SIZE_CONTENT_TO_VIEWPORT'
+        | 'USE_LEGIBLE_FONT_SIZES'
+        | 'TAP_TARGETS_TOO_CLOSE';
       /** Additional information regarding the issue. */
       message?: string;
       /** Not returned; reserved for future use. */
-      severity?: string;
+      severity?: 'SEVERITY_UNSPECIFIED' | 'WARNING' | 'ERROR';
     }
     interface ResourceIssue {
       /** Describes a blocked resource issue. */
@@ -528,13 +705,13 @@ declare namespace gapi.client {
       /** A list of zero or more rich results detected on this page. Rich results that cannot even be parsed due to syntactic issues will not be listed here. */
       detectedItems?: DetectedItems[];
       /** High-level rich results inspection result for this URL. */
-      verdict?: string;
+      verdict?: 'VERDICT_UNSPECIFIED' | 'PASS' | 'PARTIAL' | 'FAIL' | 'NEUTRAL';
     }
     interface RichResultsIssue {
       /** Rich Results issue type. */
       issueMessage?: string;
       /** Severity of this issue: WARNING, or ERROR. Items with an issue of status ERROR cannot appear with rich result features in Google Search results. */
-      severity?: string;
+      severity?: 'SEVERITY_UNSPECIFIED' | 'WARNING' | 'ERROR';
     }
     interface RunMobileFriendlyTestRequest {
       /** Whether or not screenshot is requested. Default is false. */
@@ -544,7 +721,10 @@ declare namespace gapi.client {
     }
     interface RunMobileFriendlyTestResponse {
       /** Test verdict, whether the page is mobile friendly or not. */
-      mobileFriendliness?: string;
+      mobileFriendliness?:
+        | 'MOBILE_FRIENDLY_TEST_RESULT_UNSPECIFIED'
+        | 'MOBILE_FRIENDLY'
+        | 'NOT_MOBILE_FRIENDLY';
       /** List of mobile-usability issues. */
       mobileFriendlyIssues?: MobileFriendlyIssue[];
       /** Information about embedded resources issues. */
@@ -556,31 +736,52 @@ declare namespace gapi.client {
     }
     interface SearchAnalyticsQueryRequest {
       /** [Optional; Default is \"auto\"] How data is aggregated. If aggregated by property, all data for the same property is aggregated; if aggregated by page, all data is aggregated by canonical URI. If you filter or group by page, choose AUTO; otherwise you can aggregate either by property or by page, depending on how you want your data calculated; see the help documentation to learn how data is calculated differently by site versus by page. **Note:** If you group or filter by page, you cannot aggregate by property. If you specify any value other than AUTO, the aggregation type in the result will match the requested type, or if you request an invalid type, you will get an error. The API will never change your aggregation type if the requested type is invalid. */
-      aggregationType?: string;
+      aggregationType?:
+        | 'AUTO'
+        | 'BY_PROPERTY'
+        | 'BY_PAGE'
+        | 'BY_NEWS_SHOWCASE_PANEL';
       /** The data state to be fetched, can be full or all, the latter including full and partial data. */
-      dataState?: string;
+      dataState?: 'DATA_STATE_UNSPECIFIED' | 'FINAL' | 'ALL' | 'HOURLY_ALL';
       /** [Optional] Zero or more filters to apply to the dimension grouping values; for example, 'query contains \"buy\"' to see only data where the query string contains the substring \"buy\" (not case-sensitive). You can filter by a dimension without grouping by it. */
       dimensionFilterGroups?: ApiDimensionFilterGroup[];
       /** [Optional] Zero or more dimensions to group results by. Dimensions are the group-by values in the Search Analytics page. Dimensions are combined to create a unique row key for each row. Results are grouped in the order that you supply these dimensions. */
-      dimensions?: string[];
+      dimensions?:
+        | 'DATE'
+        | 'QUERY'
+        | 'PAGE'
+        | 'COUNTRY'
+        | 'DEVICE'
+        | 'SEARCH_APPEARANCE'
+        | 'HOUR'[];
       /** [Required] End date of the requested date range, in YYYY-MM-DD format, in PST (UTC - 8:00). Must be greater than or equal to the start date. This value is included in the range. */
       endDate?: string;
       /** [Optional; Default is 1000] The maximum number of rows to return. Must be a number from 1 to 25,000 (inclusive). */
       rowLimit?: number;
       /** [Optional; Default is \"web\"] The search type to filter for. */
-      searchType?: string;
+      searchType?:
+        | 'WEB'
+        | 'IMAGE'
+        | 'VIDEO'
+        | 'NEWS'
+        | 'DISCOVER'
+        | 'GOOGLE_NEWS';
       /** [Required] Start date of the requested date range, in YYYY-MM-DD format, in PST time (UTC - 8:00). Must be less than or equal to the end date. This value is included in the range. */
       startDate?: string;
       /** [Optional; Default is 0] Zero-based index of the first row in the response. Must be a non-negative number. */
       startRow?: number;
       /** Optional. [Optional; Default is \"web\"] Type of report: search type, or either Discover or Gnews. */
-      type?: string;
+      type?: 'WEB' | 'IMAGE' | 'VIDEO' | 'NEWS' | 'DISCOVER' | 'GOOGLE_NEWS';
     }
     interface SearchAnalyticsQueryResponse {
       /** An object that may be returned with your query results, providing context about the state of the data. See details in Metadata object documentation. */
       metadata?: Metadata;
       /** How the results were aggregated. */
-      responseAggregationType?: string;
+      responseAggregationType?:
+        | 'AUTO'
+        | 'BY_PROPERTY'
+        | 'BY_PAGE'
+        | 'BY_NEWS_SHOWCASE_PANEL';
       /** A list of rows grouped by the key values in the order given in the query. */
       rows?: ApiDataRow[];
     }
@@ -596,7 +797,11 @@ declare namespace gapi.client {
       /** Error details if applicable. */
       details?: string;
       /** Status of the test. */
-      status?: string;
+      status?:
+        | 'TEST_STATUS_UNSPECIFIED'
+        | 'COMPLETE'
+        | 'INTERNAL_ERROR'
+        | 'PAGE_UNREACHABLE';
     }
     interface UrlInspectionResult {
       /** Result of the AMP analysis. Absent if the page is not an AMP page. */
@@ -612,7 +817,12 @@ declare namespace gapi.client {
     }
     interface WmxSite {
       /** The user's permission level for the site. */
-      permissionLevel?: string;
+      permissionLevel?:
+        | 'SITE_PERMISSION_LEVEL_UNSPECIFIED'
+        | 'SITE_OWNER'
+        | 'SITE_FULL_USER'
+        | 'SITE_RESTRICTED_USER'
+        | 'SITE_UNVERIFIED_USER';
       /** The URL of the site. */
       siteUrl?: string;
     }
@@ -632,7 +842,14 @@ declare namespace gapi.client {
       /** The url of the sitemap. */
       path?: string;
       /** The type of the sitemap. For example: `rssFeed`. */
-      type?: string;
+      type?:
+        | 'NOT_SITEMAP'
+        | 'URL_LIST'
+        | 'SITEMAP'
+        | 'RSS_FEED'
+        | 'ATOM_FEED'
+        | 'PATTERN_SITEMAP'
+        | 'OCEANFRONT';
       /** Number of warnings for the sitemap. These are generally non-critical issues with URLs in the sitemaps. */
       warnings?: string;
     }
@@ -642,17 +859,26 @@ declare namespace gapi.client {
       /** The number of URLs in the sitemap (of the content type). */
       submitted?: string;
       /** The specific type of content in this sitemap. For example: `web`. */
-      type?: string;
+      type?:
+        | 'WEB'
+        | 'IMAGE'
+        | 'VIDEO'
+        | 'NEWS'
+        | 'MOBILE'
+        | 'ANDROID_APP'
+        | 'PATTERN'
+        | 'IOS_APP'
+        | 'DATA_FEED_ELEMENT';
     }
     interface SearchanalyticsResource {
       /** Query your data with filters and parameters that you define. Returns zero or more rows grouped by the row keys that you define. You must define a date range of one or more days. When date is one of the group by values, any days without data are omitted from the result list. If you need to know which days have data, issue a broad date range query grouped by date for any metric, and see which day rows are returned. */
       query(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -677,11 +903,11 @@ declare namespace gapi.client {
       query(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -708,11 +934,11 @@ declare namespace gapi.client {
       /** Deletes a sitemap from the Sitemaps report. Does not stop Google from crawling this sitemap or the URLs that were previously crawled in the deleted sitemap. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The URL of the actual sitemap. For example: `http://www.example.com/sitemap.xml`. */
@@ -737,11 +963,11 @@ declare namespace gapi.client {
       /** Retrieves information about a specific sitemap. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The URL of the actual sitemap. For example: `http://www.example.com/sitemap.xml`. */
@@ -766,11 +992,11 @@ declare namespace gapi.client {
       /** Lists the [sitemaps-entries](/webmaster-tools/v3/sitemaps) submitted for this site, or included in the sitemap index file (if `sitemapIndex` is specified in the request). */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -795,11 +1021,11 @@ declare namespace gapi.client {
       /** Submits a sitemap for a site. */
       submit(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The URL of the actual sitemap. For example: `http://www.example.com/sitemap.xml`. */
@@ -826,11 +1052,11 @@ declare namespace gapi.client {
       /** Adds a site to the set of the user's sites in Search Console. */
       add(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -853,11 +1079,11 @@ declare namespace gapi.client {
       /** Removes a site from the set of the user's Search Console sites. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -880,11 +1106,11 @@ declare namespace gapi.client {
       /** Retrieves information about specific site. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -907,11 +1133,11 @@ declare namespace gapi.client {
       /** Lists the user's Search Console sites. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

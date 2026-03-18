@@ -464,7 +464,7 @@ declare namespace gapi.client {
       /** Gets one resource by id. */
       get(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'atom' | 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** The group's email address. */
@@ -483,7 +483,7 @@ declare namespace gapi.client {
       /** Updates an existing resource. This method supports patch semantics. */
       patch(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'atom' | 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** The group's email address. */
@@ -504,7 +504,7 @@ declare namespace gapi.client {
       patch(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'atom' | 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** The group's email address. */
@@ -525,7 +525,7 @@ declare namespace gapi.client {
       /** Updates an existing resource. */
       update(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'atom' | 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** The group's email address. */
@@ -546,7 +546,7 @@ declare namespace gapi.client {
       update(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'atom' | 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** The group's email address. */

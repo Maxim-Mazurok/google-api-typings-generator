@@ -62,7 +62,11 @@ declare namespace gapi.client {
       /** Set the default access approval request expiration time. This value is able to be set directly by the customer at the time of approval, overriding this suggested value. We recommend setting this value to 30 days. */
       preferredRequestExpirationDays?: number;
       /** Optional. A setting that indicates the maximum scope of an Access Approval request: either organization, folder, or project. Google administrators will be asked to send requests no broader than the configured scope. */
-      requestScopeMaxWidthPreference?: string;
+      requestScopeMaxWidthPreference?:
+        | 'REQUEST_SCOPE_MAX_WIDTH_PREFERENCE_UNSPECIFIED'
+        | 'ORGANIZATION'
+        | 'FOLDER'
+        | 'PROJECT';
       /** Optional. When enabled, Google will only be able to send approval requests for access reasons with a customer accessible case ID in the reason detail. Also known as "Require customer initiated support case justification" */
       requireCustomerVisibleJustification?: boolean;
     }
@@ -76,7 +80,14 @@ declare namespace gapi.client {
       /** More detail about certain reason types. See comments for each type above. */
       detail?: string;
       /** Type of access reason. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'CUSTOMER_INITIATED_SUPPORT'
+        | 'GOOGLE_INITIATED_SERVICE'
+        | 'GOOGLE_INITIATED_REVIEW'
+        | 'THIRD_PARTY_DATA_REQUEST'
+        | 'GOOGLE_RESPONSE_TO_PRODUCTION_ALERT'
+        | 'CLOUD_INITIATED_ACCESS';
     }
     interface ApprovalRequest {
       /** Access was approved. */
@@ -126,7 +137,12 @@ declare namespace gapi.client {
     }
     interface CustomerApprovalApprovalPolicy {
       /** Optional. Policy for approval based on the justification given. */
-      justificationBasedApprovalPolicy?: string;
+      justificationBasedApprovalPolicy?:
+        | 'JUSTIFICATION_BASED_APPROVAL_POLICY_UNSPECIFIED'
+        | 'JUSTIFICATION_BASED_APPROVAL_ENABLED_ALL'
+        | 'JUSTIFICATION_BASED_APPROVAL_ENABLED_EXTERNAL_JUSTIFICATIONS'
+        | 'JUSTIFICATION_BASED_APPROVAL_NOT_ENABLED'
+        | 'JUSTIFICATION_BASED_APPROVAL_INHERITED';
     }
     interface DismissApprovalRequestMessage {}
     interface DismissDecision {
@@ -140,7 +156,7 @@ declare namespace gapi.client {
       /** The product for which Access Approval will be enrolled. Allowed values are listed below (case-sensitive): * all * GA * Access Context Manager * Anthos Identity Service * AlloyDB for PostgreSQL * Apigee * Application Integration * App Hub * Artifact Registry * Anthos Service Mesh * Access Transparency * BigQuery * Certificate Authority Service * Cloud Bigtable * CCAI Assist and Knowledge * Cloud Dataflow * Cloud Dataproc * CEP Security Gateway * Compliance Evaluation Service * Cloud Firestore * Cloud Healthcare API * Chronicle * Cloud AI Companion Gateway - Titan * Google Cloud Armor * Cloud Asset Inventory * Cloud Asset Search * Cloud Deploy * Cloud DNS * Cloud Latency * Cloud Memorystore for Redis * CloudNet Control * Cloud Riptide * Cloud Tasks * Cloud Trace * Cloud Data Transfer * Cloud Composer * Integration Connectors * Contact Center AI Insights * Cloud Pub/Sub * Cloud Run * Resource Manager * Cloud Spanner * Database Center * Cloud Dataform * Cloud Data Fusion * Dataplex * Dialogflow Customer Experience Edition * Cloud DLP * Document AI * Edge Container * Edge Network * Cloud EKM * Eventarc * Firebase Data Connect * Firebase Rules * App Engine * Cloud Build * Compute Engine * Cloud Functions (2nd Gen) * Cloud Filestore * Cloud Interconnect * Cloud NetApp Volumes * Cloud Storage * Generative AI App Builder * Google Kubernetes Engine * Backup for GKE API * GKE Connect * GKE Hub * Hoverboard * Cloud HSM * Cloud Identity and Access Management * Cloud Identity-Aware Proxy * Infrastructure Manager * Identity Storage Service * Key Access Justifications * Cloud Key Management Service * Cloud Logging * Looker (Google Cloud core) * Looker Studio * Management Hub * Model Armor * Cloud Monitoring * Cloud NAT * Connectivity Hub * External passthrough Network Load Balancer * OIDC One * Organization Policy Service * Org Lifecycle * Persistent Disk * Parameter Manager * Private Services Access * Regional Internal Application Load Balancer * Storage Batch Operations * Cloud Security Command Center * Secure Source Manager * Seeker * Service Provisioning * Speaker ID * Secret Manager * Cloud SQL * Cloud Speech-to-Text * Traffic Director * Cloud Text-to-Speech * USPS Andromeda * Vertex AI * Virtual Private Cloud (VPC) * VPC Access * VPC Service Controls Troubleshooter * VPC virtnet * Cloud Workstations * Web Risk Note: These values are supported as input for legacy purposes, but will not be returned from the API. * all * ga-only * appengine.googleapis.com * artifactregistry.googleapis.com * bigquery.googleapis.com * bigtable.googleapis.com * container.googleapis.com * cloudkms.googleapis.com * cloudresourcemanager.googleapis.com * cloudsql.googleapis.com * compute.googleapis.com * dataflow.googleapis.com * dataproc.googleapis.com * dlp.googleapis.com * iam.googleapis.com * logging.googleapis.com * orgpolicy.googleapis.com * pubsub.googleapis.com * spanner.googleapis.com * secretmanager.googleapis.com * speakerid.googleapis.com * storage.googleapis.com Calls to UpdateAccessApprovalSettings using 'all' or any of the XXX.googleapis.com will be translated to the associated product name ('all', 'App Engine', etc.). Note: 'all' will enroll the resource in all products supported at both 'GA' and 'Preview' levels. More information about levels of support is available at https://cloud.google.com/access-approval/docs/supported-services */
       cloudProduct?: string;
       /** The enrollment level of the service. */
-      enrollmentLevel?: string;
+      enrollmentLevel?: 'ENROLLMENT_LEVEL_UNSPECIFIED' | 'BLOCK_ALL';
     }
     interface InvalidateApprovalRequestMessage {}
     interface ListApprovalRequestsResponse {
@@ -157,7 +173,54 @@ declare namespace gapi.client {
       /** The resource name of the customer CryptoKeyVersion used for signing. */
       customerKmsKeyVersion?: string;
       /** The hashing algorithm used for signature verification. It will only be present in the case of Google managed keys. */
-      googleKeyAlgorithm?: string;
+      googleKeyAlgorithm?:
+        | 'CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED'
+        | 'GOOGLE_SYMMETRIC_ENCRYPTION'
+        | 'AES_128_GCM'
+        | 'AES_256_GCM'
+        | 'AES_128_CBC'
+        | 'AES_256_CBC'
+        | 'AES_128_CTR'
+        | 'AES_256_CTR'
+        | 'RSA_SIGN_PSS_2048_SHA256'
+        | 'RSA_SIGN_PSS_3072_SHA256'
+        | 'RSA_SIGN_PSS_4096_SHA256'
+        | 'RSA_SIGN_PSS_4096_SHA512'
+        | 'RSA_SIGN_PKCS1_2048_SHA256'
+        | 'RSA_SIGN_PKCS1_3072_SHA256'
+        | 'RSA_SIGN_PKCS1_4096_SHA256'
+        | 'RSA_SIGN_PKCS1_4096_SHA512'
+        | 'RSA_SIGN_RAW_PKCS1_2048'
+        | 'RSA_SIGN_RAW_PKCS1_3072'
+        | 'RSA_SIGN_RAW_PKCS1_4096'
+        | 'RSA_DECRYPT_OAEP_2048_SHA256'
+        | 'RSA_DECRYPT_OAEP_3072_SHA256'
+        | 'RSA_DECRYPT_OAEP_4096_SHA256'
+        | 'RSA_DECRYPT_OAEP_4096_SHA512'
+        | 'RSA_DECRYPT_OAEP_2048_SHA1'
+        | 'RSA_DECRYPT_OAEP_3072_SHA1'
+        | 'RSA_DECRYPT_OAEP_4096_SHA1'
+        | 'EC_SIGN_P256_SHA256'
+        | 'EC_SIGN_P384_SHA384'
+        | 'EC_SIGN_SECP256K1_SHA256'
+        | 'EC_SIGN_ED25519'
+        | 'HMAC_SHA256'
+        | 'HMAC_SHA1'
+        | 'HMAC_SHA384'
+        | 'HMAC_SHA512'
+        | 'HMAC_SHA224'
+        | 'EXTERNAL_SYMMETRIC_ENCRYPTION'
+        | 'ML_KEM_768'
+        | 'ML_KEM_1024'
+        | 'KEM_XWING'
+        | 'PQ_SIGN_ML_DSA_44'
+        | 'PQ_SIGN_ML_DSA_65'
+        | 'PQ_SIGN_ML_DSA_87'
+        | 'PQ_SIGN_SLH_DSA_SHA2_128S'
+        | 'PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256'
+        | 'PQ_SIGN_ML_DSA_44_EXTERNAL_MU'
+        | 'PQ_SIGN_ML_DSA_65_EXTERNAL_MU'
+        | 'PQ_SIGN_ML_DSA_87_EXTERNAL_MU';
       /** The public key for the Google default signing, encoded in PEM format. The signature was created using a private key which may be verified using this public key. */
       googlePublicKeyPem?: string;
       /** The ApprovalRequest that is serialized without the SignatureInfo message field. This data is used with the hashing algorithm to generate the digital signature, and it can be used for signature verification. */
@@ -169,11 +232,11 @@ declare namespace gapi.client {
       /** Approves a request and returns the updated ApprovalRequest. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request exists but is not in a pending state. */
       approve(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -198,11 +261,11 @@ declare namespace gapi.client {
       approve(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -227,11 +290,11 @@ declare namespace gapi.client {
       /** Dismisses a request. Returns the updated ApprovalRequest. NOTE: When a request is dismissed, it is considered ignored. Dismissing a request does not prevent access granted by other Access Approval requests. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request exists but is not in a pending state. */
       dismiss(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -256,11 +319,11 @@ declare namespace gapi.client {
       dismiss(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -285,11 +348,11 @@ declare namespace gapi.client {
       /** Gets an approval request. Returns NOT_FOUND if the request does not exist. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -312,11 +375,11 @@ declare namespace gapi.client {
       /** Invalidates an existing ApprovalRequest. Returns the updated ApprovalRequest. NOTE: This action revokes Google access based on this approval request. If the resource has other active approvals, access will remain granted. Returns FAILED_PRECONDITION if the request exists but is not in an approved state. */
       invalidate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -341,11 +404,11 @@ declare namespace gapi.client {
       invalidate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -370,11 +433,11 @@ declare namespace gapi.client {
       /** Lists approval requests associated with a project, folder, or organization. Approval requests can be filtered by state (pending, active, dismissed). The order is reverse chronological. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -405,11 +468,11 @@ declare namespace gapi.client {
       /** Deletes the settings associated with a project, folder, or organization. This will have the effect of disabling Access Approval for the resource. Access Approval may remain active based on parent resource settings. To confirm the effective settings, call GetAccessApprovalSettings and verify effective setting is disabled. */
       deleteAccessApprovalSettings(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -432,11 +495,11 @@ declare namespace gapi.client {
       /** Gets the Access Approval settings associated with a project, folder, or organization. */
       getAccessApprovalSettings(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -459,11 +522,11 @@ declare namespace gapi.client {
       /** Retrieves the service account that is used by Access Approval to access KMS keys for signing approved approval requests. */
       getServiceAccount(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -486,11 +549,11 @@ declare namespace gapi.client {
       /** Updates the settings associated with a project, folder, or organization. Settings to update are determined by the value of field_mask. */
       updateAccessApprovalSettings(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -517,11 +580,11 @@ declare namespace gapi.client {
       updateAccessApprovalSettings(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -551,11 +614,11 @@ declare namespace gapi.client {
       /** Approves a request and returns the updated ApprovalRequest. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request exists but is not in a pending state. */
       approve(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -580,11 +643,11 @@ declare namespace gapi.client {
       approve(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -609,11 +672,11 @@ declare namespace gapi.client {
       /** Dismisses a request. Returns the updated ApprovalRequest. NOTE: When a request is dismissed, it is considered ignored. Dismissing a request does not prevent access granted by other Access Approval requests. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request exists but is not in a pending state. */
       dismiss(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -638,11 +701,11 @@ declare namespace gapi.client {
       dismiss(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -667,11 +730,11 @@ declare namespace gapi.client {
       /** Gets an approval request. Returns NOT_FOUND if the request does not exist. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -694,11 +757,11 @@ declare namespace gapi.client {
       /** Invalidates an existing ApprovalRequest. Returns the updated ApprovalRequest. NOTE: This action revokes Google access based on this approval request. If the resource has other active approvals, access will remain granted. Returns FAILED_PRECONDITION if the request exists but is not in an approved state. */
       invalidate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -723,11 +786,11 @@ declare namespace gapi.client {
       invalidate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -752,11 +815,11 @@ declare namespace gapi.client {
       /** Lists approval requests associated with a project, folder, or organization. Approval requests can be filtered by state (pending, active, dismissed). The order is reverse chronological. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -787,11 +850,11 @@ declare namespace gapi.client {
       /** Deletes the settings associated with a project, folder, or organization. This will have the effect of disabling Access Approval for the resource. Access Approval may remain active based on parent resource settings. To confirm the effective settings, call GetAccessApprovalSettings and verify effective setting is disabled. */
       deleteAccessApprovalSettings(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -814,11 +877,11 @@ declare namespace gapi.client {
       /** Gets the Access Approval settings associated with a project, folder, or organization. */
       getAccessApprovalSettings(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -841,11 +904,11 @@ declare namespace gapi.client {
       /** Retrieves the service account that is used by Access Approval to access KMS keys for signing approved approval requests. */
       getServiceAccount(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -868,11 +931,11 @@ declare namespace gapi.client {
       /** Updates the settings associated with a project, folder, or organization. Settings to update are determined by the value of field_mask. */
       updateAccessApprovalSettings(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -899,11 +962,11 @@ declare namespace gapi.client {
       updateAccessApprovalSettings(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -933,11 +996,11 @@ declare namespace gapi.client {
       /** Approves a request and returns the updated ApprovalRequest. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request exists but is not in a pending state. */
       approve(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -962,11 +1025,11 @@ declare namespace gapi.client {
       approve(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -991,11 +1054,11 @@ declare namespace gapi.client {
       /** Dismisses a request. Returns the updated ApprovalRequest. NOTE: When a request is dismissed, it is considered ignored. Dismissing a request does not prevent access granted by other Access Approval requests. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request exists but is not in a pending state. */
       dismiss(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1020,11 +1083,11 @@ declare namespace gapi.client {
       dismiss(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1049,11 +1112,11 @@ declare namespace gapi.client {
       /** Gets an approval request. Returns NOT_FOUND if the request does not exist. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1076,11 +1139,11 @@ declare namespace gapi.client {
       /** Invalidates an existing ApprovalRequest. Returns the updated ApprovalRequest. NOTE: This action revokes Google access based on this approval request. If the resource has other active approvals, access will remain granted. Returns FAILED_PRECONDITION if the request exists but is not in an approved state. */
       invalidate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1105,11 +1168,11 @@ declare namespace gapi.client {
       invalidate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1134,11 +1197,11 @@ declare namespace gapi.client {
       /** Lists approval requests associated with a project, folder, or organization. Approval requests can be filtered by state (pending, active, dismissed). The order is reverse chronological. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1169,11 +1232,11 @@ declare namespace gapi.client {
       /** Deletes the settings associated with a project, folder, or organization. This will have the effect of disabling Access Approval for the resource. Access Approval may remain active based on parent resource settings. To confirm the effective settings, call GetAccessApprovalSettings and verify effective setting is disabled. */
       deleteAccessApprovalSettings(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1196,11 +1259,11 @@ declare namespace gapi.client {
       /** Gets the Access Approval settings associated with a project, folder, or organization. */
       getAccessApprovalSettings(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1223,11 +1286,11 @@ declare namespace gapi.client {
       /** Retrieves the service account that is used by Access Approval to access KMS keys for signing approved approval requests. */
       getServiceAccount(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1250,11 +1313,11 @@ declare namespace gapi.client {
       /** Updates the settings associated with a project, folder, or organization. Settings to update are determined by the value of field_mask. */
       updateAccessApprovalSettings(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1281,11 +1344,11 @@ declare namespace gapi.client {
       updateAccessApprovalSettings(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

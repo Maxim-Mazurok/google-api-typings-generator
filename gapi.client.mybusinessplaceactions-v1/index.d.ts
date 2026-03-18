@@ -51,9 +51,18 @@ declare namespace gapi.client {
       /** Optional. The resource name, in the format `locations/{location_id}/placeActionLinks/{place_action_link_id}`. The name field will only be considered in UpdatePlaceActionLink and DeletePlaceActionLink requests for updating and deleting links respectively. However, it will be ignored in CreatePlaceActionLink request, where `place_action_link_id` will be assigned by the server on successful creation of a new link and returned as part of the response. */
       name?: string;
       /** Required. The type of place action that can be performed using this link. */
-      placeActionType?: string;
+      placeActionType?:
+        | 'PLACE_ACTION_TYPE_UNSPECIFIED'
+        | 'APPOINTMENT'
+        | 'ONLINE_APPOINTMENT'
+        | 'DINING_RESERVATION'
+        | 'FOOD_ORDERING'
+        | 'FOOD_DELIVERY'
+        | 'FOOD_TAKEOUT'
+        | 'SHOP_ONLINE'
+        | 'SOLOPRENEUR_APPOINTMENT';
       /** Output only. Specifies the provider type. */
-      providerType?: string;
+      providerType?: 'PROVIDER_TYPE_UNSPECIFIED' | 'MERCHANT' | 'AGGREGATOR_3P';
       /** Output only. The time when the place action link was last modified. */
       updateTime?: string;
       /** Required. The link uri. The same uri can be reused for different action types across different locations. However, only one place action link is allowed for each unique combination of (uri, place action type, location). */
@@ -63,17 +72,26 @@ declare namespace gapi.client {
       /** The localized display name for the attribute, if available; otherwise, the English display name. */
       displayName?: string;
       /** The place action type. */
-      placeActionType?: string;
+      placeActionType?:
+        | 'PLACE_ACTION_TYPE_UNSPECIFIED'
+        | 'APPOINTMENT'
+        | 'ONLINE_APPOINTMENT'
+        | 'DINING_RESERVATION'
+        | 'FOOD_ORDERING'
+        | 'FOOD_DELIVERY'
+        | 'FOOD_TAKEOUT'
+        | 'SHOP_ONLINE'
+        | 'SOLOPRENEUR_APPOINTMENT';
     }
     interface PlaceActionLinksResource {
       /** Creates a place action link associated with the specified location, and returns it. The request is considered duplicate if the `parent`, `place_action_link.uri` and `place_action_link.place_action_type` are the same as a previous request. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -98,11 +116,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -127,11 +145,11 @@ declare namespace gapi.client {
       /** Deletes a place action link from the specified location. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -154,11 +172,11 @@ declare namespace gapi.client {
       /** Gets the specified place action link. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -181,11 +199,11 @@ declare namespace gapi.client {
       /** Lists the place action links for the specified location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -214,11 +232,11 @@ declare namespace gapi.client {
       /** Updates the specified place action link and returns it. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -245,11 +263,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -281,11 +299,11 @@ declare namespace gapi.client {
       /** Returns the list of available place action types for a location or country. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

@@ -30,7 +30,17 @@ declare namespace gapi.client {
   namespace versionhistory {
     interface Channel {
       /** Type of channel. */
-      channelType?: string;
+      channelType?:
+        | 'CHANNEL_TYPE_UNSPECIFIED'
+        | 'STABLE'
+        | 'BETA'
+        | 'DEV'
+        | 'CANARY'
+        | 'CANARY_ASAN'
+        | 'ALL'
+        | 'EXTENDED'
+        | 'LTS'
+        | 'LTC';
       /** Channel name. Format is "{product}/platforms/{platform}/channels/{channel}" */
       name?: string;
     }
@@ -68,7 +78,23 @@ declare namespace gapi.client {
       /** Platform name. Format is "{product}/platforms/{platform}" */
       name?: string;
       /** Type of platform. */
-      platformType?: string;
+      platformType?:
+        | 'PLATFORM_TYPE_UNSPECIFIED'
+        | 'WIN'
+        | 'WIN64'
+        | 'MAC'
+        | 'LINUX'
+        | 'ANDROID'
+        | 'WEBVIEW'
+        | 'IOS'
+        | 'ALL'
+        | 'MAC_ARM64'
+        | 'LACROS'
+        | 'LACROS_ARM32'
+        | 'CHROMEOS'
+        | 'LACROS_ARM64'
+        | 'FUCHSIA'
+        | 'WIN_ARM64';
     }
     interface Release {
       /** Rollout fraction. This fraction indicates the fraction of people that should receive this version in this release. If the fraction is not specified in ReleaseManager, the API will assume fraction is 1. */
@@ -102,11 +128,11 @@ declare namespace gapi.client {
       /** Returns list of releases of the given version. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -139,11 +165,11 @@ declare namespace gapi.client {
       /** Returns list of version for the given platform/channel. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -177,11 +203,11 @@ declare namespace gapi.client {
       /** Returns list of channels that are available for a given platform. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -211,11 +237,11 @@ declare namespace gapi.client {
       /** Returns list of platforms that are available for a given product. The resource "product" has no resource name in its name. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

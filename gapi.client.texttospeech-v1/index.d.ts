@@ -34,7 +34,15 @@ declare namespace gapi.client {
     }
     interface AudioConfig {
       /** Required. The format of the audio byte stream. */
-      audioEncoding?: string;
+      audioEncoding?:
+        | 'AUDIO_ENCODING_UNSPECIFIED'
+        | 'LINEAR16'
+        | 'MP3'
+        | 'OGG_OPUS'
+        | 'MULAW'
+        | 'ALAW'
+        | 'PCM'
+        | 'M4A';
       /** Optional. Input only. An identifier which selects 'audio effects' profiles that are applied on (post synthesized) text to speech. Effects are applied on top of each other in the order they are given. See [audio profiles](https://cloud.google.com/text-to-speech/docs/audio-profiles) for current supported profile ids. */
       effectsProfileId?: string[];
       /** Optional. Input only. Speaking pitch, in the range [-20.0, 20.0]. 20 means increase 20 semitones from the original pitch. -20 means decrease 20 semitones from the original pitch. */
@@ -49,7 +57,12 @@ declare namespace gapi.client {
     interface CancelOperationRequest {}
     interface CustomPronunciationParams {
       /** The phonetic encoding of the phrase. */
-      phoneticEncoding?: string;
+      phoneticEncoding?:
+        | 'PHONETIC_ENCODING_UNSPECIFIED'
+        | 'PHONETIC_ENCODING_IPA'
+        | 'PHONETIC_ENCODING_X_SAMPA'
+        | 'PHONETIC_ENCODING_JAPANESE_YOMIGANA'
+        | 'PHONETIC_ENCODING_PINYIN';
       /** The phrase to which the customization is applied. The phrase can be multiple words, such as proper nouns, but shouldn't span the length of the sentence. */
       phrase?: string;
       /** The pronunciation of the phrase. This must be in the phonetic encoding specified above. */
@@ -63,7 +76,7 @@ declare namespace gapi.client {
       /** Required. The name of the AutoML model that synthesizes the custom voice. */
       model?: string;
       /** Optional. Deprecated. The usage of the synthesized audio to be reported. */
-      reportedUsage?: string;
+      reportedUsage?: 'REPORTED_USAGE_UNSPECIFIED' | 'REALTIME' | 'OFFLINE';
     }
     interface Empty {}
     interface GoogleCloudTexttospeechV1SynthesizeLongAudioMetadata {
@@ -180,7 +193,11 @@ declare namespace gapi.client {
       /** The natural sample rate (in hertz) for this voice. */
       naturalSampleRateHertz?: number;
       /** The gender of this voice. */
-      ssmlGender?: string;
+      ssmlGender?:
+        | 'SSML_VOICE_GENDER_UNSPECIFIED'
+        | 'MALE'
+        | 'FEMALE'
+        | 'NEUTRAL';
     }
     interface VoiceCloneParams {
       /** Required. Created by GenerateVoiceCloningKey. */
@@ -198,7 +215,11 @@ declare namespace gapi.client {
       /** The name of the voice. If both the name and the gender are not set, the service will choose a voice based on the other parameters such as language_code. */
       name?: string;
       /** The preferred gender of the voice. If not set, the service will choose a voice based on the other parameters such as language_code and name. Note that this is only a preference, not requirement; if a voice of the appropriate gender is not available, the synthesizer should substitute a voice with a different gender rather than failing the request. */
-      ssmlGender?: string;
+      ssmlGender?:
+        | 'SSML_VOICE_GENDER_UNSPECIFIED'
+        | 'MALE'
+        | 'FEMALE'
+        | 'NEUTRAL';
       /** Optional. The configuration for a voice clone. If [VoiceCloneParams.voice_clone_key] is set, the service chooses the voice clone matching the specified configuration. */
       voiceClone?: VoiceCloneParams;
     }
@@ -206,11 +227,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -235,11 +256,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -264,11 +285,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -293,11 +314,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -320,11 +341,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -357,11 +378,11 @@ declare namespace gapi.client {
       /** Synthesizes long form text asynchronously. */
       synthesizeLongAudio(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -386,11 +407,11 @@ declare namespace gapi.client {
       synthesizeLongAudio(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -421,11 +442,11 @@ declare namespace gapi.client {
       /** Synthesizes speech synchronously: receive results after all text input has been processed. */
       synthesize(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -448,11 +469,11 @@ declare namespace gapi.client {
       synthesize(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -477,11 +498,11 @@ declare namespace gapi.client {
       /** Returns a list of Voice supported for synthesis. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

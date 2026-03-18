@@ -114,7 +114,7 @@ declare namespace gapi.client {
       /** Configures which regions are enabled for SMS verification code sending. */
       smsRegionConfig?: GoogleCloudIdentitytoolkitAdminV2SmsRegionConfig;
       /** Output only. The subtype of this config. */
-      subtype?: string;
+      subtype?: 'SUBTYPE_UNSPECIFIED' | 'IDENTITY_PLATFORM' | 'FIREBASE_AUTH';
     }
     interface GoogleCloudIdentitytoolkitAdminV2CustomStrengthOptions {
       /** The password must contain a lower case character. */
@@ -152,7 +152,12 @@ declare namespace gapi.client {
       /** Output only. The applied verified custom domain. */
       customDomain?: string;
       /** Output only. The current verification state of the custom domain. The custom domain will only be used once the domain verification is successful. */
-      customDomainState?: string;
+      customDomainState?:
+        | 'VERIFICATION_STATE_UNSPECIFIED'
+        | 'NOT_STARTED'
+        | 'IN_PROGRESS'
+        | 'FAILED'
+        | 'SUCCEEDED';
       /** Output only. The timestamp of initial request for the current domain verification. */
       domainVerificationRequestTime?: string;
       /** Output only. The custom domain that's to be verified. */
@@ -174,7 +179,7 @@ declare namespace gapi.client {
       /** Email body */
       body?: string;
       /** Email body format */
-      bodyFormat?: string;
+      bodyFormat?: 'BODY_FORMAT_UNSPECIFIED' | 'PLAIN_TEXT' | 'HTML';
       /** Output only. Whether the body or subject of the email is customized. */
       customized?: boolean;
       /** Reply-to address */
@@ -196,7 +201,21 @@ declare namespace gapi.client {
     }
     interface GoogleCloudIdentitytoolkitAdminV2HashConfig {
       /** Output only. Different password hash algorithms used in Identity Toolkit. */
-      algorithm?: string;
+      algorithm?:
+        | 'HASH_ALGORITHM_UNSPECIFIED'
+        | 'HMAC_SHA256'
+        | 'HMAC_SHA1'
+        | 'HMAC_MD5'
+        | 'SCRYPT'
+        | 'PBKDF_SHA1'
+        | 'MD5'
+        | 'HMAC_SHA512'
+        | 'SHA1'
+        | 'BCRYPT'
+        | 'PBKDF2_SHA256'
+        | 'SHA256'
+        | 'SHA512'
+        | 'STANDARD_SCRYPT';
       /** Output only. Memory cost for hash calculation. Used by scrypt and other similar password derivation algorithms. See https://tools.ietf.org/html/rfc7914 for explanation of field. */
       memoryCost?: number;
       /** Output only. How many rounds for hash calculation. Used by scrypt and other similar password derivation algorithms. */
@@ -270,7 +289,10 @@ declare namespace gapi.client {
     }
     interface GoogleCloudIdentitytoolkitAdminV2MobileLinksConfig {
       /** Open code in app domain to use for app links and universal links. */
-      domain?: string;
+      domain?:
+        | 'DOMAIN_UNSPECIFIED'
+        | 'FIREBASE_DYNAMIC_LINK_DOMAIN'
+        | 'HOSTING_DOMAIN';
     }
     interface GoogleCloudIdentitytoolkitAdminV2MonitoringConfig {
       /** Configuration for logging requests made to this project to Stackdriver Logging */
@@ -278,11 +300,11 @@ declare namespace gapi.client {
     }
     interface GoogleCloudIdentitytoolkitAdminV2MultiFactorAuthConfig {
       /** A list of usable second factors for this project. */
-      enabledProviders?: string[];
+      enabledProviders?: 'PROVIDER_UNSPECIFIED' | 'PHONE_SMS'[];
       /** A list of usable second factors for this project along with their configurations. This field does not support phone based MFA, for that use the 'enabled_providers' field. */
       providerConfigs?: GoogleCloudIdentitytoolkitAdminV2ProviderConfig[];
       /** Whether MultiFactor Authentication has been enabled for this project. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'DISABLED' | 'ENABLED' | 'MANDATORY';
     }
     interface GoogleCloudIdentitytoolkitAdminV2MultiTenantConfig {
       /** Whether this project can have tenants or not. */
@@ -328,7 +350,10 @@ declare namespace gapi.client {
       /** Output only. The last time the password policy on the project was updated. */
       lastUpdateTime?: string;
       /** Which enforcement mode to use for the password policy. */
-      passwordPolicyEnforcementState?: string;
+      passwordPolicyEnforcementState?:
+        | 'PASSWORD_POLICY_ENFORCEMENT_STATE_UNSPECIFIED'
+        | 'OFF'
+        | 'ENFORCE';
       /** Must be of length 1. Contains the strength attributes for the password policy. */
       passwordPolicyVersions?: GoogleCloudIdentitytoolkitAdminV2PasswordPolicyVersion[];
     }
@@ -352,7 +377,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudIdentitytoolkitAdminV2ProviderConfig {
       /** Describes the state of the MultiFactor Authentication type. */
-      state?: string;
+      state?: 'MFA_STATE_UNSPECIFIED' | 'DISABLED' | 'ENABLED' | 'MANDATORY';
       /** TOTP MFA provider config for this project. */
       totpProviderConfig?: GoogleCloudIdentitytoolkitAdminV2TotpMfaProviderConfig;
     }
@@ -362,11 +387,19 @@ declare namespace gapi.client {
     }
     interface GoogleCloudIdentitytoolkitAdminV2RecaptchaConfig {
       /** The reCAPTCHA config for email/password provider, containing the enforcement status. The email/password provider contains all email related user flows protected by reCAPTCHA. */
-      emailPasswordEnforcementState?: string;
+      emailPasswordEnforcementState?:
+        | 'RECAPTCHA_PROVIDER_ENFORCEMENT_STATE_UNSPECIFIED'
+        | 'OFF'
+        | 'AUDIT'
+        | 'ENFORCE';
       /** The managed rules for authentication action based on reCAPTCHA scores. The rules are shared across providers for a given tenant project. */
       managedRules?: GoogleCloudIdentitytoolkitAdminV2RecaptchaManagedRule[];
       /** The reCAPTCHA config for phone provider, containing the enforcement status. The phone provider contains all SMS related user flows protected by reCAPTCHA. */
-      phoneEnforcementState?: string;
+      phoneEnforcementState?:
+        | 'RECAPTCHA_PROVIDER_ENFORCEMENT_STATE_UNSPECIFIED'
+        | 'OFF'
+        | 'AUDIT'
+        | 'ENFORCE';
       /** The reCAPTCHA keys. */
       recaptchaKeys?: GoogleCloudIdentitytoolkitAdminV2RecaptchaKey[];
       /** The managed rules for the authentication action based on reCAPTCHA toll fraud risk scores. Toll fraud managed rules will only take effect when the phone_enforcement_state is AUDIT or ENFORCE and use_sms_toll_fraud_protection is true. */
@@ -382,17 +415,17 @@ declare namespace gapi.client {
       /** The reCAPTCHA Enterprise key resource name, e.g. "projects/{project}/keys/{key}" */
       key?: string;
       /** The client's platform type. */
-      type?: string;
+      type?: 'CLIENT_TYPE_UNSPECIFIED' | 'WEB' | 'IOS' | 'ANDROID';
     }
     interface GoogleCloudIdentitytoolkitAdminV2RecaptchaManagedRule {
       /** The action taken if the reCAPTCHA score of a request is within the interval [start_score, end_score]. */
-      action?: string;
+      action?: 'RECAPTCHA_ACTION_UNSPECIFIED' | 'BLOCK';
       /** The end score (inclusive) of the score range for an action. Must be a value between 0.0 and 1.0, at 11 discrete values; e.g. 0, 0.1, 0.2, 0.3, ... 0.9, 1.0. A score of 0.0 indicates the riskiest request (likely a bot), whereas 1.0 indicates the safest request (likely a human). See https://cloud.google.com/recaptcha-enterprise/docs/interpret-assessment. */
       endScore?: number;
     }
     interface GoogleCloudIdentitytoolkitAdminV2RecaptchaTollFraudManagedRule {
       /** The action taken if the reCAPTCHA score of a request is within the interval [start_score, end_score]. */
-      action?: string;
+      action?: 'RECAPTCHA_ACTION_UNSPECIFIED' | 'BLOCK';
       /** The start score (inclusive) for an action. Must be a value between 0.0 and 1.0, at 11 discrete values; e.g. 0, 0.1, 0.2, 0.3, ... 0.9, 1.0. A score of 0.0 indicates the safest request (likely legitimate), whereas 1.0 indicates the riskiest request (likely toll fraud). See https://cloud.google.com/recaptcha-enterprise/docs/sms-fraud-detection#create-assessment-sms. */
       startScore?: number;
     }
@@ -410,7 +443,7 @@ declare namespace gapi.client {
       /** Reset password email template for legacy Firebase V1 app. */
       legacyResetPasswordTemplate?: GoogleCloudIdentitytoolkitAdminV2EmailTemplate;
       /** The method used for sending an email. */
-      method?: string;
+      method?: 'METHOD_UNSPECIFIED' | 'DEFAULT' | 'CUSTOM_SMTP';
       /** Email template for reset password */
       resetPasswordTemplate?: GoogleCloudIdentitytoolkitAdminV2EmailTemplate;
       /** Email template for reverting second factor addition emails */
@@ -456,7 +489,7 @@ declare namespace gapi.client {
       /** SMTP relay port */
       port?: number;
       /** SMTP security mode. */
-      securityMode?: string;
+      securityMode?: 'SECURITY_MODE_UNSPECIFIED' | 'SSL' | 'START_TLS';
       /** Sender email for the SMTP relay */
       senderEmail?: string;
       /** SMTP relay username */
@@ -627,7 +660,7 @@ declare namespace gapi.client {
       /** The custom strength options enforced by the password policy. */
       customStrengthOptions?: GoogleCloudIdentitytoolkitV2CustomStrengthOptions;
       /** Output only. Which enforcement mode to use for the password policy. */
-      enforcementState?: string;
+      enforcementState?: 'ENFORCEMENT_STATE_UNSPECIFIED' | 'OFF' | 'ENFORCE';
       /** Users must have a password compliant with the password policy to sign-in. */
       forceUpgradeOnSignin?: boolean;
       /** Output only. schema version number for the password policy */
@@ -645,9 +678,16 @@ declare namespace gapi.client {
     }
     interface GoogleCloudIdentitytoolkitV2RecaptchaEnforcementState {
       /** The reCAPTCHA enforcement state for the provider. */
-      enforcementState?: string;
+      enforcementState?:
+        | 'ENFORCEMENT_STATE_UNSPECIFIED'
+        | 'OFF'
+        | 'AUDIT'
+        | 'ENFORCE';
       /** The provider that has reCAPTCHA protection. */
-      provider?: string;
+      provider?:
+        | 'RECAPTCHA_PROVIDER_UNSPECIFIED'
+        | 'EMAIL_PASSWORD_PROVIDER'
+        | 'PHONE_PROVIDER';
     }
     interface GoogleCloudIdentitytoolkitV2RevokeTokenRequest {
       /** Required. A valid Identity Platform ID token to link the account. If there was a successful token revocation request on the account and no tokens are generated after the revocation, the duplicate requests will be ignored and returned immediately. */
@@ -661,7 +701,11 @@ declare namespace gapi.client {
       /** Required. The token to be revoked. If an authorization_code is passed in, the API will first exchange the code for access token and then revoke the token exchanged. */
       token?: string;
       /** Required. The type of the token to be revoked. */
-      tokenType?: string;
+      tokenType?:
+        | 'TOKEN_TYPE_UNSPECIFIED'
+        | 'REFRESH_TOKEN'
+        | 'ACCESS_TOKEN'
+        | 'CODE';
     }
     interface GoogleCloudIdentitytoolkitV2RevokeTokenResponse {}
     interface GoogleCloudIdentitytoolkitV2StartMfaEnrollmentRequest {
@@ -686,7 +730,11 @@ declare namespace gapi.client {
       /** The reCAPTCHA Enterprise token provided by the reCAPTCHA client-side integration. Required when reCAPTCHA enterprise is enabled. */
       captchaResponse?: string;
       /** The client type, web, android or ios. Required when reCAPTCHA Enterprise is enabled. */
-      clientType?: string;
+      clientType?:
+        | 'CLIENT_TYPE_UNSPECIFIED'
+        | 'CLIENT_TYPE_WEB'
+        | 'CLIENT_TYPE_ANDROID'
+        | 'CLIENT_TYPE_IOS';
       /** iOS only. Receipt of successful app token validation with APNS. */
       iosReceipt?: string;
       /** iOS only. Secret delivered to iOS app via APNS. */
@@ -698,7 +746,9 @@ declare namespace gapi.client {
       /** Web only. Recaptcha solution. */
       recaptchaToken?: string;
       /** The reCAPTCHA version of the reCAPTCHA token in the captcha_response. Required when reCAPTCHA Enterprise is enabled. */
-      recaptchaVersion?: string;
+      recaptchaVersion?:
+        | 'RECAPTCHA_VERSION_UNSPECIFIED'
+        | 'RECAPTCHA_ENTERPRISE';
       /** Android only. Used to assert application identity in place of a recaptcha token. A SafetyNet Token can be generated via the [SafetyNet Android Attestation API](https://developer.android.com/training/safetynet/attestation.html), with the Base64 encoding of the `phone_number` field as the nonce. */
       safetyNetToken?: string;
     }
@@ -759,7 +809,11 @@ declare namespace gapi.client {
       /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
       exemptedMembers?: string[];
       /** The log type that this config enables. */
-      logType?: string;
+      logType?:
+        | 'LOG_TYPE_UNSPECIFIED'
+        | 'ADMIN_READ'
+        | 'DATA_WRITE'
+        | 'DATA_READ';
     }
     interface GoogleIamV1Binding {
       /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
@@ -816,11 +870,11 @@ declare namespace gapi.client {
       /** Finishes enrolling a second factor for the user. */
       finalize(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -843,11 +897,11 @@ declare namespace gapi.client {
       finalize(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -870,11 +924,11 @@ declare namespace gapi.client {
       /** Step one of the MFA enrollment process. In SMS case, this sends an SMS verification code to the user. */
       start(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -897,11 +951,11 @@ declare namespace gapi.client {
       start(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -924,11 +978,11 @@ declare namespace gapi.client {
       /** Revokes one second factor from the enrolled second factors for an account. */
       withdraw(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -951,11 +1005,11 @@ declare namespace gapi.client {
       withdraw(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -980,11 +1034,11 @@ declare namespace gapi.client {
       /** Verifies the MFA challenge and performs sign-in */
       finalize(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1007,11 +1061,11 @@ declare namespace gapi.client {
       finalize(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1034,11 +1088,11 @@ declare namespace gapi.client {
       /** Sends the MFA challenge */
       start(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1061,11 +1115,11 @@ declare namespace gapi.client {
       start(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1090,11 +1144,11 @@ declare namespace gapi.client {
       /** Revokes a user's token from an Identity Provider (IdP). This is done by manually providing an IdP credential, and the token types for revocation. An [API key](https://cloud.google.com/docs/authentication/api-keys) is required in the request in order to identify the Google Cloud project. */
       revokeToken(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1117,11 +1171,11 @@ declare namespace gapi.client {
       revokeToken(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1148,11 +1202,11 @@ declare namespace gapi.client {
       /** List all default supported Idps. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1179,11 +1233,11 @@ declare namespace gapi.client {
       /** Create a default supported Idp configuration for an Identity Toolkit project. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1210,11 +1264,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1241,11 +1295,11 @@ declare namespace gapi.client {
       /** Delete a default supported Idp configuration for an Identity Toolkit project. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1268,11 +1322,11 @@ declare namespace gapi.client {
       /** Retrieve a default supported Idp configuration for an Identity Toolkit project. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1295,11 +1349,11 @@ declare namespace gapi.client {
       /** List all default supported Idp configurations for an Identity Toolkit project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1326,11 +1380,11 @@ declare namespace gapi.client {
       /** Update a default supported Idp configuration for an Identity Toolkit project. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1357,11 +1411,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1390,11 +1444,11 @@ declare namespace gapi.client {
       /** Initialize Identity Platform for a Cloud project. Identity Platform is an end-to-end authentication system for third-party users to access your apps and services. These could include mobile/web apps, games, APIs and beyond. This is the publicly available variant of EnableIdentityPlatform that is only available to billing-enabled projects. */
       initializeAuth(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1419,11 +1473,11 @@ declare namespace gapi.client {
       initializeAuth(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1450,11 +1504,11 @@ declare namespace gapi.client {
       /** Create an inbound SAML configuration for an Identity Toolkit project. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1481,11 +1535,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1512,11 +1566,11 @@ declare namespace gapi.client {
       /** Delete an inbound SAML configuration for an Identity Toolkit project. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1539,11 +1593,11 @@ declare namespace gapi.client {
       /** Retrieve an inbound SAML configuration for an Identity Toolkit project. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1566,11 +1620,11 @@ declare namespace gapi.client {
       /** List all inbound SAML configurations for an Identity Toolkit project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1597,11 +1651,11 @@ declare namespace gapi.client {
       /** Update an inbound SAML configuration for an Identity Toolkit project. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1628,11 +1682,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1661,11 +1715,11 @@ declare namespace gapi.client {
       /** Create an Oidc Idp configuration for an Identity Toolkit project. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1692,11 +1746,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1723,11 +1777,11 @@ declare namespace gapi.client {
       /** Delete an Oidc Idp configuration for an Identity Toolkit project. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1750,11 +1804,11 @@ declare namespace gapi.client {
       /** Retrieve an Oidc Idp configuration for an Identity Toolkit project. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1777,11 +1831,11 @@ declare namespace gapi.client {
       /** List all Oidc Idp configurations for an Identity Toolkit project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1808,11 +1862,11 @@ declare namespace gapi.client {
       /** Update an Oidc Idp configuration for an Identity Toolkit project. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1839,11 +1893,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1872,11 +1926,11 @@ declare namespace gapi.client {
       /** Create a default supported Idp configuration for an Identity Toolkit project. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1903,11 +1957,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1934,11 +1988,11 @@ declare namespace gapi.client {
       /** Delete a default supported Idp configuration for an Identity Toolkit project. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1961,11 +2015,11 @@ declare namespace gapi.client {
       /** Retrieve a default supported Idp configuration for an Identity Toolkit project. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1988,11 +2042,11 @@ declare namespace gapi.client {
       /** List all default supported Idp configurations for an Identity Toolkit project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2019,11 +2073,11 @@ declare namespace gapi.client {
       /** Update a default supported Idp configuration for an Identity Toolkit project. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2050,11 +2104,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2083,11 +2137,11 @@ declare namespace gapi.client {
       /** Create an inbound SAML configuration for an Identity Toolkit project. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2114,11 +2168,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2145,11 +2199,11 @@ declare namespace gapi.client {
       /** Delete an inbound SAML configuration for an Identity Toolkit project. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2172,11 +2226,11 @@ declare namespace gapi.client {
       /** Retrieve an inbound SAML configuration for an Identity Toolkit project. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2199,11 +2253,11 @@ declare namespace gapi.client {
       /** List all inbound SAML configurations for an Identity Toolkit project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2230,11 +2284,11 @@ declare namespace gapi.client {
       /** Update an inbound SAML configuration for an Identity Toolkit project. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2261,11 +2315,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2294,11 +2348,11 @@ declare namespace gapi.client {
       /** Create an Oidc Idp configuration for an Identity Toolkit project. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2325,11 +2379,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2356,11 +2410,11 @@ declare namespace gapi.client {
       /** Delete an Oidc Idp configuration for an Identity Toolkit project. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2383,11 +2437,11 @@ declare namespace gapi.client {
       /** Retrieve an Oidc Idp configuration for an Identity Toolkit project. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2410,11 +2464,11 @@ declare namespace gapi.client {
       /** List all Oidc Idp configurations for an Identity Toolkit project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2441,11 +2495,11 @@ declare namespace gapi.client {
       /** Update an Oidc Idp configuration for an Identity Toolkit project. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2472,11 +2526,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2505,11 +2559,11 @@ declare namespace gapi.client {
       /** Create a tenant. Requires write permission on the Agent project. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2534,11 +2588,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2563,11 +2617,11 @@ declare namespace gapi.client {
       /** Delete a tenant. Requires write permission on the Agent project. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2590,11 +2644,11 @@ declare namespace gapi.client {
       /** Get a tenant. Requires read permission on the Tenant resource. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2618,11 +2672,11 @@ declare namespace gapi.client {
       getIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2647,11 +2701,11 @@ declare namespace gapi.client {
       /** List tenants under the given agent project. Requires read permission on the Agent project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2678,11 +2732,11 @@ declare namespace gapi.client {
       /** Update a tenant. Requires write permission on the Tenant resource. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2709,11 +2763,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2741,11 +2795,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2771,11 +2825,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2805,11 +2859,11 @@ declare namespace gapi.client {
       /** Retrieve an Identity Toolkit project configuration. */
       getConfig(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2832,11 +2886,11 @@ declare namespace gapi.client {
       /** Update an Identity Toolkit project configuration. */
       updateConfig(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2863,11 +2917,11 @@ declare namespace gapi.client {
       updateConfig(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2901,11 +2955,11 @@ declare namespace gapi.client {
       /** Gets password policy config set on the project or tenant. */
       getPasswordPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2928,15 +2982,19 @@ declare namespace gapi.client {
       /** Gets parameters needed for reCAPTCHA analysis. */
       getRecaptchaConfig(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** reCAPTCHA Enterprise uses separate site keys for different client types. Specify the client type to get the corresponding key. */
-        clientType?: string;
+        clientType?:
+          | 'CLIENT_TYPE_UNSPECIFIED'
+          | 'CLIENT_TYPE_WEB'
+          | 'CLIENT_TYPE_ANDROID'
+          | 'CLIENT_TYPE_IOS';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2954,7 +3012,7 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** The reCAPTCHA version. */
-        version?: string;
+        version?: 'RECAPTCHA_VERSION_UNSPECIFIED' | 'RECAPTCHA_ENTERPRISE';
       }): Request<GoogleCloudIdentitytoolkitV2RecaptchaConfig>;
     }
 

@@ -42,7 +42,12 @@ declare namespace gapi.client {
     }
     interface GoogleCloudPolicytroubleshooterIamV3betaAllowBindingExplanation {
       /** Required. Indicates whether _this role binding_ gives the specified permission to the specified principal on the specified resource. This field does _not_ indicate whether the principal actually has the permission on the resource. There might be another role binding that overrides this role binding. To determine whether the principal actually has the permission, use the `overall_access_state` field in the TroubleshootIamPolicyResponse. */
-      allowAccessState?: string;
+      allowAccessState?:
+        | 'ALLOW_ACCESS_STATE_UNSPECIFIED'
+        | 'ALLOW_ACCESS_STATE_GRANTED'
+        | 'ALLOW_ACCESS_STATE_NOT_GRANTED'
+        | 'ALLOW_ACCESS_STATE_UNKNOWN_CONDITIONAL'
+        | 'ALLOW_ACCESS_STATE_UNKNOWN_INFO';
       /** The combined result of all memberships. Indicates if the principal is included in any role binding, either directly or indirectly. */
       combinedMembership?: GoogleCloudPolicytroubleshooterIamV3betaAllowBindingExplanationAnnotatedAllowMembership;
       /** A condition expression that specifies when the role binding grants access. To learn about IAM Conditions, see https://cloud.google.com/iam/help/conditions/overview. */
@@ -54,27 +59,53 @@ declare namespace gapi.client {
         [P in string]: GoogleCloudPolicytroubleshooterIamV3betaAllowBindingExplanationAnnotatedAllowMembership;
       };
       /** The relevance of this role binding to the overall determination for the entire policy. */
-      relevance?: string;
+      relevance?:
+        | 'HEURISTIC_RELEVANCE_UNSPECIFIED'
+        | 'HEURISTIC_RELEVANCE_NORMAL'
+        | 'HEURISTIC_RELEVANCE_HIGH';
       /** The role that this role binding grants. For example, `roles/compute.admin`. For a complete list of predefined IAM roles, as well as the permissions in each role, see https://cloud.google.com/iam/help/roles/reference. */
       role?: string;
       /** Indicates whether the role granted by this role binding contains the specified permission. */
-      rolePermission?: string;
+      rolePermission?:
+        | 'ROLE_PERMISSION_INCLUSION_STATE_UNSPECIFIED'
+        | 'ROLE_PERMISSION_INCLUDED'
+        | 'ROLE_PERMISSION_NOT_INCLUDED'
+        | 'ROLE_PERMISSION_UNKNOWN_INFO';
       /** The relevance of the permission's existence, or nonexistence, in the role to the overall determination for the entire policy. */
-      rolePermissionRelevance?: string;
+      rolePermissionRelevance?:
+        | 'HEURISTIC_RELEVANCE_UNSPECIFIED'
+        | 'HEURISTIC_RELEVANCE_NORMAL'
+        | 'HEURISTIC_RELEVANCE_HIGH';
     }
     interface GoogleCloudPolicytroubleshooterIamV3betaAllowBindingExplanationAnnotatedAllowMembership {
       /** Indicates whether the role binding includes the principal. */
-      membership?: string;
+      membership?:
+        | 'MEMBERSHIP_MATCHING_STATE_UNSPECIFIED'
+        | 'MEMBERSHIP_MATCHED'
+        | 'MEMBERSHIP_NOT_MATCHED'
+        | 'MEMBERSHIP_UNKNOWN_INFO'
+        | 'MEMBERSHIP_UNKNOWN_UNSUPPORTED';
       /** The relevance of the principal's status to the overall determination for the role binding. */
-      relevance?: string;
+      relevance?:
+        | 'HEURISTIC_RELEVANCE_UNSPECIFIED'
+        | 'HEURISTIC_RELEVANCE_NORMAL'
+        | 'HEURISTIC_RELEVANCE_HIGH';
     }
     interface GoogleCloudPolicytroubleshooterIamV3betaAllowPolicyExplanation {
       /** Indicates whether the principal has the specified permission for the specified resource, based on evaluating all applicable IAM allow policies. */
-      allowAccessState?: string;
+      allowAccessState?:
+        | 'ALLOW_ACCESS_STATE_UNSPECIFIED'
+        | 'ALLOW_ACCESS_STATE_GRANTED'
+        | 'ALLOW_ACCESS_STATE_NOT_GRANTED'
+        | 'ALLOW_ACCESS_STATE_UNKNOWN_CONDITIONAL'
+        | 'ALLOW_ACCESS_STATE_UNKNOWN_INFO';
       /** List of IAM allow policies that were evaluated to check the principal's permissions, with annotations to indicate how each policy contributed to the final result. The list of policies includes the policy for the resource itself, as well as allow policies that are inherited from higher levels of the resource hierarchy, including the organization, the folder, and the project. To learn more about the resource hierarchy, see https://cloud.google.com/iam/help/resource-hierarchy. */
       explainedPolicies?: GoogleCloudPolicytroubleshooterIamV3betaExplainedAllowPolicy[];
       /** The relevance of the allow policy type to the overall access state. */
-      relevance?: string;
+      relevance?:
+        | 'HEURISTIC_RELEVANCE_UNSPECIFIED'
+        | 'HEURISTIC_RELEVANCE_NORMAL'
+        | 'HEURISTIC_RELEVANCE_HIGH';
     }
     interface GoogleCloudPolicytroubleshooterIamV3betaConditionContext {
       /** The destination of a network activity, such as accepting a TCP connection. In a multi-hop network activity, the destination represents the receiver of the last hop. */
@@ -138,13 +169,21 @@ declare namespace gapi.client {
     }
     interface GoogleCloudPolicytroubleshooterIamV3betaDenyPolicyExplanation {
       /** Indicates whether the principal is denied the specified permission for the specified resource, based on evaluating all applicable IAM deny policies. */
-      denyAccessState?: string;
+      denyAccessState?:
+        | 'DENY_ACCESS_STATE_UNSPECIFIED'
+        | 'DENY_ACCESS_STATE_DENIED'
+        | 'DENY_ACCESS_STATE_NOT_DENIED'
+        | 'DENY_ACCESS_STATE_UNKNOWN_CONDITIONAL'
+        | 'DENY_ACCESS_STATE_UNKNOWN_INFO';
       /** List of resources with IAM deny policies that were evaluated to check the principal's denied permissions, with annotations to indicate how each policy contributed to the final result. The list of resources includes the policy for the resource itself, as well as policies that are inherited from higher levels of the resource hierarchy, including the organization, the folder, and the project. The order of the resources starts from the resource and climbs up the resource hierarchy. To learn more about the resource hierarchy, see https://cloud.google.com/iam/help/resource-hierarchy. */
       explainedResources?: GoogleCloudPolicytroubleshooterIamV3betaExplainedDenyResource[];
       /** Indicates whether the permission to troubleshoot is supported in deny policies. */
       permissionDeniable?: boolean;
       /** The relevance of the deny policy result to the overall access state. */
-      relevance?: string;
+      relevance?:
+        | 'HEURISTIC_RELEVANCE_UNSPECIFIED'
+        | 'HEURISTIC_RELEVANCE_NORMAL'
+        | 'HEURISTIC_RELEVANCE_HIGH';
     }
     interface GoogleCloudPolicytroubleshooterIamV3betaDenyRuleExplanation {
       /** Indicates whether the permission in the request is listed as a denied permission in the deny rule. */
@@ -168,7 +207,12 @@ declare namespace gapi.client {
         [P in string]: GoogleCloudPolicytroubleshooterIamV3betaDenyRuleExplanationAnnotatedDenyPrincipalMatching;
       };
       /** Required. Indicates whether _this rule_ denies the specified permission to the specified principal for the specified resource. This field does _not_ indicate whether the principal is actually denied on the permission for the resource. There might be another rule that overrides this rule. To determine whether the principal actually has the permission, use the `overall_access_state` field in the TroubleshootIamPolicyResponse. */
-      denyAccessState?: string;
+      denyAccessState?:
+        | 'DENY_ACCESS_STATE_UNSPECIFIED'
+        | 'DENY_ACCESS_STATE_DENIED'
+        | 'DENY_ACCESS_STATE_NOT_DENIED'
+        | 'DENY_ACCESS_STATE_UNKNOWN_CONDITIONAL'
+        | 'DENY_ACCESS_STATE_UNKNOWN_INFO';
       /** Lists all exception permissions in the deny rule and indicates whether each permission matches the permission in the request. Each key identifies a exception permission in the rule, and each value indicates whether the exception permission matches the permission in the request. */
       exceptionPermissions?: {
         [P in string]: GoogleCloudPolicytroubleshooterIamV3betaDenyRuleExplanationAnnotatedPermissionMatching;
@@ -178,23 +222,45 @@ declare namespace gapi.client {
         [P in string]: GoogleCloudPolicytroubleshooterIamV3betaDenyRuleExplanationAnnotatedDenyPrincipalMatching;
       };
       /** The relevance of this role binding to the overall determination for the entire policy. */
-      relevance?: string;
+      relevance?:
+        | 'HEURISTIC_RELEVANCE_UNSPECIFIED'
+        | 'HEURISTIC_RELEVANCE_NORMAL'
+        | 'HEURISTIC_RELEVANCE_HIGH';
     }
     interface GoogleCloudPolicytroubleshooterIamV3betaDenyRuleExplanationAnnotatedDenyPrincipalMatching {
       /** Indicates whether the principal is listed as a denied principal in the deny rule, either directly or through membership in a principal set. */
-      membership?: string;
+      membership?:
+        | 'MEMBERSHIP_MATCHING_STATE_UNSPECIFIED'
+        | 'MEMBERSHIP_MATCHED'
+        | 'MEMBERSHIP_NOT_MATCHED'
+        | 'MEMBERSHIP_UNKNOWN_INFO'
+        | 'MEMBERSHIP_UNKNOWN_UNSUPPORTED';
       /** The relevance of the principal's status to the overall determination for the role binding. */
-      relevance?: string;
+      relevance?:
+        | 'HEURISTIC_RELEVANCE_UNSPECIFIED'
+        | 'HEURISTIC_RELEVANCE_NORMAL'
+        | 'HEURISTIC_RELEVANCE_HIGH';
     }
     interface GoogleCloudPolicytroubleshooterIamV3betaDenyRuleExplanationAnnotatedPermissionMatching {
       /** Indicates whether the permission in the request is denied by the deny rule. */
-      permissionMatchingState?: string;
+      permissionMatchingState?:
+        | 'PERMISSION_PATTERN_MATCHING_STATE_UNSPECIFIED'
+        | 'PERMISSION_PATTERN_MATCHED'
+        | 'PERMISSION_PATTERN_NOT_MATCHED';
       /** The relevance of the permission status to the overall determination for the rule. */
-      relevance?: string;
+      relevance?:
+        | 'HEURISTIC_RELEVANCE_UNSPECIFIED'
+        | 'HEURISTIC_RELEVANCE_NORMAL'
+        | 'HEURISTIC_RELEVANCE_HIGH';
     }
     interface GoogleCloudPolicytroubleshooterIamV3betaExplainedAllowPolicy {
       /** Required. Indicates whether _this policy_ provides the specified permission to the specified principal for the specified resource. This field does _not_ indicate whether the principal actually has the permission for the resource. There might be another policy that overrides this policy. To determine whether the principal actually has the permission, use the `overall_access_state` field in the TroubleshootIamPolicyResponse. */
-      allowAccessState?: string;
+      allowAccessState?:
+        | 'ALLOW_ACCESS_STATE_UNSPECIFIED'
+        | 'ALLOW_ACCESS_STATE_GRANTED'
+        | 'ALLOW_ACCESS_STATE_NOT_GRANTED'
+        | 'ALLOW_ACCESS_STATE_UNKNOWN_CONDITIONAL'
+        | 'ALLOW_ACCESS_STATE_UNKNOWN_INFO';
       /** Details about how each role binding in the policy affects the principal's ability, or inability, to use the permission for the resource. The order of the role bindings matches the role binding order in the policy. If the sender of the request does not have access to the policy, this field is omitted. */
       bindingExplanations?: GoogleCloudPolicytroubleshooterIamV3betaAllowBindingExplanation[];
       /** The full resource name that identifies the resource. For example, `//compute.googleapis.com/projects/my-project/zones/us-central1-a/instances/my-instance`. If the sender of the request does not have access to the policy, this field is omitted. For examples of full resource names for Google Cloud services, see https://cloud.google.com/iam/help/troubleshooter/full-resource-names. */
@@ -202,37 +268,64 @@ declare namespace gapi.client {
       /** The IAM allow policy attached to the resource. If the sender of the request does not have access to the policy, this field is empty. */
       policy?: GoogleIamV1Policy;
       /** The relevance of this policy to the overall access state in the TroubleshootIamPolicyResponse. If the sender of the request does not have access to the policy, this field is omitted. */
-      relevance?: string;
+      relevance?:
+        | 'HEURISTIC_RELEVANCE_UNSPECIFIED'
+        | 'HEURISTIC_RELEVANCE_NORMAL'
+        | 'HEURISTIC_RELEVANCE_HIGH';
     }
     interface GoogleCloudPolicytroubleshooterIamV3betaExplainedDenyPolicy {
       /** Required. Indicates whether _this policy_ denies the specified permission to the specified principal for the specified resource. This field does _not_ indicate whether the principal actually has the permission for the resource. There might be another policy that overrides this policy. To determine whether the principal actually has the permission, use the `overall_access_state` field in the TroubleshootIamPolicyResponse. */
-      denyAccessState?: string;
+      denyAccessState?:
+        | 'DENY_ACCESS_STATE_UNSPECIFIED'
+        | 'DENY_ACCESS_STATE_DENIED'
+        | 'DENY_ACCESS_STATE_NOT_DENIED'
+        | 'DENY_ACCESS_STATE_UNKNOWN_CONDITIONAL'
+        | 'DENY_ACCESS_STATE_UNKNOWN_INFO';
       /** The IAM deny policy attached to the resource. If the sender of the request does not have access to the policy, this field is omitted. */
       policy?: GoogleIamV2Policy;
       /** The relevance of this policy to the overall access state in the TroubleshootIamPolicyResponse. If the sender of the request does not have access to the policy, this field is omitted. */
-      relevance?: string;
+      relevance?:
+        | 'HEURISTIC_RELEVANCE_UNSPECIFIED'
+        | 'HEURISTIC_RELEVANCE_NORMAL'
+        | 'HEURISTIC_RELEVANCE_HIGH';
       /** Details about how each rule in the policy affects the principal's inability to use the permission for the resource. The order of the deny rule matches the order of the rules in the deny policy. If the sender of the request does not have access to the policy, this field is omitted. */
       ruleExplanations?: GoogleCloudPolicytroubleshooterIamV3betaDenyRuleExplanation[];
     }
     interface GoogleCloudPolicytroubleshooterIamV3betaExplainedDenyResource {
       /** Required. Indicates whether any policies attached to _this resource_ deny the specific permission to the specified principal for the specified resource. This field does _not_ indicate whether the principal actually has the permission for the resource. There might be another policy that overrides this policy. To determine whether the principal actually has the permission, use the `overall_access_state` field in the TroubleshootIamPolicyResponse. */
-      denyAccessState?: string;
+      denyAccessState?:
+        | 'DENY_ACCESS_STATE_UNSPECIFIED'
+        | 'DENY_ACCESS_STATE_DENIED'
+        | 'DENY_ACCESS_STATE_NOT_DENIED'
+        | 'DENY_ACCESS_STATE_UNKNOWN_CONDITIONAL'
+        | 'DENY_ACCESS_STATE_UNKNOWN_INFO';
       /** List of IAM deny policies that were evaluated to check the principal's denied permissions, with annotations to indicate how each policy contributed to the final result. */
       explainedPolicies?: GoogleCloudPolicytroubleshooterIamV3betaExplainedDenyPolicy[];
       /** The full resource name that identifies the resource. For example, `//compute.googleapis.com/projects/my-project/zones/us-central1-a/instances/my-instance`. If the sender of the request does not have access to the policy, this field is omitted. For examples of full resource names for Google Cloud services, see https://cloud.google.com/iam/help/troubleshooter/full-resource-names. */
       fullResourceName?: string;
       /** The relevance of this policy to the overall access state in the TroubleshootIamPolicyResponse. If the sender of the request does not have access to the policy, this field is omitted. */
-      relevance?: string;
+      relevance?:
+        | 'HEURISTIC_RELEVANCE_UNSPECIFIED'
+        | 'HEURISTIC_RELEVANCE_NORMAL'
+        | 'HEURISTIC_RELEVANCE_HIGH';
     }
     interface GoogleCloudPolicytroubleshooterIamV3betaExplainedPABBindingAndPolicy {
       /** Output only. Indicates whether the principal is allowed to access the specified resource based on evaluating the binding and policy. */
-      bindingAndPolicyAccessState?: string;
+      bindingAndPolicyAccessState?:
+        | 'PAB_ACCESS_STATE_UNSPECIFIED'
+        | 'PAB_ACCESS_STATE_ALLOWED'
+        | 'PAB_ACCESS_STATE_NOT_ALLOWED'
+        | 'PAB_ACCESS_STATE_NOT_ENFORCED'
+        | 'PAB_ACCESS_STATE_UNKNOWN_INFO';
       /** Optional. Details about how this policy contributes to the principal access boundary explanation, with annotations to indicate how the policy contributes to the overall access state. If the caller doesn't have permission to view the policy in the binding, this field is omitted. */
       explainedPolicy?: GoogleCloudPolicytroubleshooterIamV3betaExplainedPABPolicy;
       /** Details about how this binding contributes to the principal access boundary explanation, with annotations to indicate how the binding contributes to the overall access state. */
       explainedPolicyBinding?: GoogleCloudPolicytroubleshooterIamV3betaExplainedPolicyBinding;
       /** The relevance of this principal access boundary binding and policy to the overall access state. */
-      relevance?: string;
+      relevance?:
+        | 'HEURISTIC_RELEVANCE_UNSPECIFIED'
+        | 'HEURISTIC_RELEVANCE_NORMAL'
+        | 'HEURISTIC_RELEVANCE_HIGH';
     }
     interface GoogleCloudPolicytroubleshooterIamV3betaExplainedPABPolicy {
       /** List of principal access boundary rules that were explained to check the principal's access to specified resource, with annotations to indicate how each rule contributes to the overall access state. */
@@ -240,37 +333,69 @@ declare namespace gapi.client {
       /** The policy that is explained. */
       policy?: GoogleIamV3PrincipalAccessBoundaryPolicy;
       /** Output only. Indicates whether the policy allows access to the specified resource. */
-      policyAccessState?: string;
+      policyAccessState?:
+        | 'PAB_ACCESS_STATE_UNSPECIFIED'
+        | 'PAB_ACCESS_STATE_ALLOWED'
+        | 'PAB_ACCESS_STATE_NOT_ALLOWED'
+        | 'PAB_ACCESS_STATE_NOT_ENFORCED'
+        | 'PAB_ACCESS_STATE_UNKNOWN_INFO';
       /** Output only. Explanation of the principal access boundary policy's version. */
       policyVersion?: GoogleCloudPolicytroubleshooterIamV3betaExplainedPABPolicyVersion;
       /** The relevance of this policy to the overall access state. */
-      relevance?: string;
+      relevance?:
+        | 'HEURISTIC_RELEVANCE_UNSPECIFIED'
+        | 'HEURISTIC_RELEVANCE_NORMAL'
+        | 'HEURISTIC_RELEVANCE_HIGH';
     }
     interface GoogleCloudPolicytroubleshooterIamV3betaExplainedPABPolicyVersion {
       /** Output only. Indicates whether the policy is enforced based on its version. */
-      enforcementState?: string;
+      enforcementState?:
+        | 'PAB_POLICY_ENFORCEMENT_STATE_UNSPECIFIED'
+        | 'PAB_POLICY_ENFORCEMENT_STATE_ENFORCED'
+        | 'PAB_POLICY_ENFORCEMENT_STATE_NOT_ENFORCED';
       /** Output only. The actual version of the policy. - If the policy uses static version, this field is the chosen static version. - If the policy uses dynamic version, this field is the effective latest version. */
       version?: number;
     }
     interface GoogleCloudPolicytroubleshooterIamV3betaExplainedPABRule {
       /** Output only. Indicates whether any resource of the rule is the specified resource or includes the specified resource. */
-      combinedResourceInclusionState?: string;
+      combinedResourceInclusionState?:
+        | 'RESOURCE_INCLUSION_STATE_UNSPECIFIED'
+        | 'RESOURCE_INCLUSION_STATE_INCLUDED'
+        | 'RESOURCE_INCLUSION_STATE_NOT_INCLUDED'
+        | 'RESOURCE_INCLUSION_STATE_UNKNOWN_INFO'
+        | 'RESOURCE_INCLUSION_STATE_UNKNOWN_UNSUPPORTED';
       /** Required. The effect of the rule which describes the access relationship. */
-      effect?: string;
+      effect?: 'EFFECT_UNSPECIFIED' | 'ALLOW';
       /** List of resources that were explained to check the principal's access to specified resource, with annotations to indicate how each resource contributes to the overall access state. */
       explainedResources?: GoogleCloudPolicytroubleshooterIamV3betaExplainedPABRuleExplainedResource[];
       /** The relevance of this rule to the overall access state. */
-      relevance?: string;
+      relevance?:
+        | 'HEURISTIC_RELEVANCE_UNSPECIFIED'
+        | 'HEURISTIC_RELEVANCE_NORMAL'
+        | 'HEURISTIC_RELEVANCE_HIGH';
       /** Output only. Indicates whether the rule allows access to the specified resource. */
-      ruleAccessState?: string;
+      ruleAccessState?:
+        | 'PAB_ACCESS_STATE_UNSPECIFIED'
+        | 'PAB_ACCESS_STATE_ALLOWED'
+        | 'PAB_ACCESS_STATE_NOT_ALLOWED'
+        | 'PAB_ACCESS_STATE_NOT_ENFORCED'
+        | 'PAB_ACCESS_STATE_UNKNOWN_INFO';
     }
     interface GoogleCloudPolicytroubleshooterIamV3betaExplainedPABRuleExplainedResource {
       /** The relevance of this resource to the overall access state. */
-      relevance?: string;
+      relevance?:
+        | 'HEURISTIC_RELEVANCE_UNSPECIFIED'
+        | 'HEURISTIC_RELEVANCE_NORMAL'
+        | 'HEURISTIC_RELEVANCE_HIGH';
       /** The [full resource name](https://cloud.google.com/iam/docs/full-resource-names) that identifies the resource that is explained. This can only be a project, a folder, or an organization which is what a PAB rule accepts. */
       resource?: string;
       /** Output only. Indicates whether the resource is the specified resource or includes the specified resource. */
-      resourceInclusionState?: string;
+      resourceInclusionState?:
+        | 'RESOURCE_INCLUSION_STATE_UNSPECIFIED'
+        | 'RESOURCE_INCLUSION_STATE_INCLUDED'
+        | 'RESOURCE_INCLUSION_STATE_NOT_INCLUDED'
+        | 'RESOURCE_INCLUSION_STATE_UNKNOWN_INFO'
+        | 'RESOURCE_INCLUSION_STATE_UNKNOWN_UNSUPPORTED';
     }
     interface GoogleCloudPolicytroubleshooterIamV3betaExplainedPolicyBinding {
       /** Optional. Explanation of the condition in the policy binding. If the policy binding doesn't have a condition, this field is omitted. */
@@ -278,17 +403,31 @@ declare namespace gapi.client {
       /** The policy binding that is explained. */
       policyBinding?: GoogleIamV3PolicyBinding;
       /** Output only. Indicates whether the policy binding takes effect. */
-      policyBindingState?: string;
+      policyBindingState?:
+        | 'POLICY_BINDING_STATE_UNSPECIFIED'
+        | 'POLICY_BINDING_STATE_ENFORCED'
+        | 'POLICY_BINDING_STATE_NOT_ENFORCED';
       /** The relevance of this policy binding to the overall access state. */
-      relevance?: string;
+      relevance?:
+        | 'HEURISTIC_RELEVANCE_UNSPECIFIED'
+        | 'HEURISTIC_RELEVANCE_NORMAL'
+        | 'HEURISTIC_RELEVANCE_HIGH';
     }
     interface GoogleCloudPolicytroubleshooterIamV3betaPABPolicyExplanation {
       /** List of principal access boundary policies and bindings that are applicable to the principal's access state, with annotations to indicate how each binding and policy contributes to the overall access state. */
       explainedBindingsAndPolicies?: GoogleCloudPolicytroubleshooterIamV3betaExplainedPABBindingAndPolicy[];
       /** Output only. Indicates whether the principal is allowed to access specified resource, based on evaluating all applicable principal access boundary bindings and policies. */
-      principalAccessBoundaryAccessState?: string;
+      principalAccessBoundaryAccessState?:
+        | 'PAB_ACCESS_STATE_UNSPECIFIED'
+        | 'PAB_ACCESS_STATE_ALLOWED'
+        | 'PAB_ACCESS_STATE_NOT_ALLOWED'
+        | 'PAB_ACCESS_STATE_NOT_ENFORCED'
+        | 'PAB_ACCESS_STATE_UNKNOWN_INFO';
       /** The relevance of the principal access boundary access state to the overall access state. */
-      relevance?: string;
+      relevance?:
+        | 'HEURISTIC_RELEVANCE_UNSPECIFIED'
+        | 'HEURISTIC_RELEVANCE_NORMAL'
+        | 'HEURISTIC_RELEVANCE_HIGH';
     }
     interface GoogleCloudPolicytroubleshooterIamV3betaTroubleshootIamPolicyRequest {
       /** The information to use for checking whether a principal has a permission for a resource. */
@@ -302,7 +441,12 @@ declare namespace gapi.client {
       /** An explanation of how the applicable IAM deny policies affect the final access state. */
       denyPolicyExplanation?: GoogleCloudPolicytroubleshooterIamV3betaDenyPolicyExplanation;
       /** Indicates whether the principal has the specified permission for the specified resource, based on evaluating all types of the applicable IAM policies. */
-      overallAccessState?: string;
+      overallAccessState?:
+        | 'OVERALL_ACCESS_STATE_UNSPECIFIED'
+        | 'CAN_ACCESS'
+        | 'CANNOT_ACCESS'
+        | 'UNKNOWN_INFO'
+        | 'UNKNOWN_CONDITIONAL';
       /** An explanation of how the applicable principal access boundary policies affect the final access state. */
       pabPolicyExplanation?: GoogleCloudPolicytroubleshooterIamV3betaPABPolicyExplanation;
     }
@@ -316,7 +460,11 @@ declare namespace gapi.client {
       /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
       exemptedMembers?: string[];
       /** The log type that this config enables. */
-      logType?: string;
+      logType?:
+        | 'LOG_TYPE_UNSPECIFIED'
+        | 'ADMIN_READ'
+        | 'DATA_WRITE'
+        | 'DATA_READ';
     }
     interface GoogleIamV1Binding {
       /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
@@ -392,7 +540,10 @@ declare namespace gapi.client {
       /** Required. Immutable. The resource name of the policy to be bound. The binding parent and policy must belong to the same organization. */
       policy?: string;
       /** Immutable. The kind of the policy to attach in this binding. This field must be one of the following: - Left empty (will be automatically set to the policy kind) - The input policy kind */
-      policyKind?: string;
+      policyKind?:
+        | 'POLICY_KIND_UNSPECIFIED'
+        | 'PRINCIPAL_ACCESS_BOUNDARY'
+        | 'ACCESS';
       /** Output only. The globally unique ID of the policy to be bound. */
       policyUid?: string;
       /** Required. Immutable. The full resource name of the resource to which the policy will be bound. Immutable once set. */
@@ -436,7 +587,7 @@ declare namespace gapi.client {
       /** Optional. The description of the principal access boundary policy rule. Must be less than or equal to 256 characters. */
       description?: string;
       /** Required. The access relationship of principals to the resources in this rule. */
-      effect?: string;
+      effect?: 'EFFECT_UNSPECIFIED' | 'ALLOW';
       /** Required. A list of Resource Manager resources. If a resource is listed in the rule, then the rule applies for that resource and its descendants. The number of resources in a policy is limited to 500 across all rules in the policy. The following resource types are supported: * Organizations, such as `//cloudresourcemanager.googleapis.com/organizations/123`. * Folders, such as `//cloudresourcemanager.googleapis.com/folders/123`. * Projects, such as `//cloudresourcemanager.googleapis.com/projects/123` or `//cloudresourcemanager.googleapis.com/projects/my-project-id`. */
       resources?: string[];
     }
@@ -462,11 +613,11 @@ declare namespace gapi.client {
       /** Checks whether a principal has a specific permission for a specific resource, and explains why the principal does or doesn't have that permission. */
       troubleshoot(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -489,11 +640,11 @@ declare namespace gapi.client {
       troubleshoot(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

@@ -67,7 +67,7 @@ declare namespace gapi.client {
     interface MeResource {
       get(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -88,7 +88,7 @@ declare namespace gapi.client {
     interface UserinfoResource {
       get(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */

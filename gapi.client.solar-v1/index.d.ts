@@ -36,7 +36,12 @@ declare namespace gapi.client {
       /** When processing was completed on this imagery. */
       imageryProcessedDate?: Date;
       /** The quality of the imagery used to compute the data for this building. */
-      imageryQuality?: string;
+      imageryQuality?:
+        | 'IMAGERY_QUALITY_UNSPECIFIED'
+        | 'HIGH'
+        | 'MEDIUM'
+        | 'LOW'
+        | 'BASE';
       /** The resource name for the building, of the format `buildings/{place_id}`. */
       name?: string;
       /** Postal code (e.g., US zip code) this building is contained by. */
@@ -72,7 +77,12 @@ declare namespace gapi.client {
       /** When processing was completed on this imagery. */
       imageryProcessedDate?: Date;
       /** The quality of the result's imagery. */
-      imageryQuality?: string;
+      imageryQuality?:
+        | 'IMAGERY_QUALITY_UNSPECIFIED'
+        | 'HIGH'
+        | 'MEDIUM'
+        | 'LOW'
+        | 'BASE';
       /** The URL for the building mask image: one bit per pixel saying whether that pixel is considered to be part of a rooftop or not. */
       maskUrl?: string;
       /** The URL for the monthly flux map (sunlight on roofs, broken down by month) of the region. Values are kWh/kW/year. The GeoTIFF pointed to by this URL will contain twelve bands, corresponding to January...December, in order. */
@@ -228,7 +238,10 @@ declare namespace gapi.client {
       /** The centre of the panel. */
       center?: LatLng;
       /** The orientation of the panel. */
-      orientation?: string;
+      orientation?:
+        | 'SOLAR_PANEL_ORIENTATION_UNSPECIFIED'
+        | 'LANDSCAPE'
+        | 'PORTRAIT';
       /** Index in roof_segment_stats of the `RoofSegmentSizeAndSunshineStats` which corresponds to the roof segment that this panel is placed on. */
       segmentIndex?: number;
       /** How much sunlight energy this layout captures over the course of a year, in DC kWh. */
@@ -276,17 +289,20 @@ declare namespace gapi.client {
       /** Locates the building whose centroid is closest to a query point. Returns an error with code `NOT_FOUND` if there are no buildings within approximately 50m of the query point. */
       findClosest(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Whether to require exact quality of the imagery. If set to false, the `required_quality` field is interpreted as the minimum required quality, such that HIGH quality imagery may be returned when `required_quality` is set to MEDIUM. If set to true, `required_quality` is interpreted as the exact required quality and only `MEDIUM` quality imagery is returned if `required_quality` is set to `MEDIUM`. */
         exactQualityRequired?: boolean;
         /** Optional. Specifies the pre-GA experiments to enable. Requests using this field are classified as a pre-GA offering under the [Google Maps Platform Service Specific Terms](https://cloud.google.com/maps-platform/terms/maps-service-terms). See [launch stage descriptions](https://cloud.google.com/maps-platform/terms/launch-stages) for more details. */
-        experiments?: string | string[];
+        experiments?:
+          | 'EXPERIMENT_UNSPECIFIED'
+          | 'EXPANDED_COVERAGE'
+          | ('EXPERIMENT_UNSPECIFIED' | 'EXPANDED_COVERAGE')[];
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -302,7 +318,12 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Optional. The minimum quality level allowed in the results. No result with lower quality than this will be returned. Not specifying this is equivalent to restricting to HIGH quality only. */
-        requiredQuality?: string;
+        requiredQuality?:
+          | 'IMAGERY_QUALITY_UNSPECIFIED'
+          | 'HIGH'
+          | 'MEDIUM'
+          | 'LOW'
+          | 'BASE';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -313,17 +334,20 @@ declare namespace gapi.client {
       /** Gets solar information for a region surrounding a location. Returns an error with code `NOT_FOUND` if the location is outside the coverage area. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Whether to require exact quality of the imagery. If set to false, the `required_quality` field is interpreted as the minimum required quality, such that HIGH quality imagery may be returned when `required_quality` is set to MEDIUM. If set to true, `required_quality` is interpreted as the exact required quality and only `MEDIUM` quality imagery is returned if `required_quality` is set to `MEDIUM`. */
         exactQualityRequired?: boolean;
         /** Optional. Specifies the pre-GA experiments to enable. Requests using this field are classified as a pre-GA offering under the [Google Maps Platform Service Specific Terms](https://cloud.google.com/maps-platform/terms/maps-service-terms). See [launch stage descriptions]( https://cloud.google.com/maps-platform/terms/launch-stages) for more details. */
-        experiments?: string | string[];
+        experiments?:
+          | 'EXPERIMENT_UNSPECIFIED'
+          | 'EXPANDED_COVERAGE'
+          | ('EXPERIMENT_UNSPECIFIED' | 'EXPANDED_COVERAGE')[];
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -343,24 +367,35 @@ declare namespace gapi.client {
         /** Required. The radius, in meters, defining the region surrounding that centre point for which data should be returned. The limitations on this value are: * Any value up to 100m can always be specified. * Values over 100m can be specified, as long as `radius_meters` <= `pixel_size_meters * 1000`. * However, for values over 175m, the `DataLayerView` in the request must not include monthly flux or hourly shade. */
         radiusMeters?: number;
         /** Optional. The minimum quality level allowed in the results. No result with lower quality than this will be returned. Not specifying this is equivalent to restricting to HIGH quality only. */
-        requiredQuality?: string;
+        requiredQuality?:
+          | 'IMAGERY_QUALITY_UNSPECIFIED'
+          | 'HIGH'
+          | 'MEDIUM'
+          | 'LOW'
+          | 'BASE';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Optional. The desired subset of the data to return. */
-        view?: string;
+        view?:
+          | 'DATA_LAYER_VIEW_UNSPECIFIED'
+          | 'DSM_LAYER'
+          | 'IMAGERY_LAYERS'
+          | 'IMAGERY_AND_ANNUAL_FLUX_LAYERS'
+          | 'IMAGERY_AND_ALL_FLUX_LAYERS'
+          | 'FULL_LAYERS';
       }): Request<DataLayers>;
     }
     interface GeoTiffResource {
       /** Returns an image by its ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

@@ -74,7 +74,10 @@ declare namespace gapi.client {
       /** Required. The name of the service account used for Cloud Build and Cloud Run. Should have the role roles/firebaseapphosting.computeRunner or equivalent permissions. */
       serviceAccount?: string;
       /** Required. Immutable. Specifies how App Hosting will serve the content for this backend. It will either be contained to a single region (REGIONAL_STRICT) or allowed to use App Hosting's global-replicated serving infrastructure (GLOBAL_ACCESS). */
-      servingLocality?: string;
+      servingLocality?:
+        | 'SERVING_LOCALITY_UNSPECIFIED'
+        | 'REGIONAL_STRICT'
+        | 'GLOBAL_ACCESS';
       /** Output only. System-assigned, unique identifier. */
       uid?: string;
       /** Output only. Time at which the backend was last updated. */
@@ -102,7 +105,7 @@ declare namespace gapi.client {
       /** Output only. A list of all errors that occurred during an App Hosting build. */
       errors?: Error[];
       /** Output only. Deprecated: Use `errors` instead. The source of the error for the build, if in a `FAILED` state. */
-      errorSource?: string;
+      errorSource?: 'ERROR_SOURCE_UNSPECIFIED' | 'CLOUD_BUILD' | 'CLOUD_RUN';
       /** Output only. Server-computed checksum based on other values; may be sent on update or delete to ensure operation is done on expected resource. */
       etag?: string;
       /** Output only. The Artifact Registry [container image](https://cloud.google.com/artifact-registry/docs/reference/rest/v1/projects.locations.repositories.dockerImages) URI, used by the Cloud Run [`revision`](https://cloud.google.com/run/docs/reference/rest/v2/projects.locations.services.revisions) for this build. */
@@ -116,7 +119,14 @@ declare namespace gapi.client {
       /** Required. Immutable. The source for the build. */
       source?: BuildSource;
       /** Output only. The state of the build. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'BUILDING'
+        | 'BUILT'
+        | 'DEPLOYING'
+        | 'READY'
+        | 'FAILED'
+        | 'SKIPPED';
       /** Output only. System-assigned, unique identifier. */
       uid?: string;
       /** Output only. Time at which the build was last updated. */
@@ -170,27 +180,69 @@ declare namespace gapi.client {
     }
     interface CustomDomainOperationMetadata {
       /** Output only. The custom domain's `CertState`, which must be `CERT_ACTIVE` for the create operations to complete. */
-      certState?: string;
+      certState?:
+        | 'CERT_STATE_UNSPECIFIED'
+        | 'CERT_PREPARING'
+        | 'CERT_VALIDATING'
+        | 'CERT_PROPAGATING'
+        | 'CERT_ACTIVE'
+        | 'CERT_EXPIRING_SOON'
+        | 'CERT_EXPIRED';
       /** Output only. The custom domain's `HostState`, which must be `HOST_ACTIVE` for Create operations of the domain name this `CustomDomain` refers toto complete. */
-      hostState?: string;
+      hostState?:
+        | 'HOST_STATE_UNSPECIFIED'
+        | 'HOST_UNHOSTED'
+        | 'HOST_UNREACHABLE'
+        | 'HOST_NON_FAH'
+        | 'HOST_CONFLICT'
+        | 'HOST_WRONG_SHARD'
+        | 'HOST_ACTIVE';
       /** Output only. A list of issues that are currently preventing the operation from completing. These are generally DNS-related issues encountered when querying a domain's records or attempting to mint an SSL certificate. */
       issues?: Status[];
       /** Output only. A list of steps that the user must complete to migrate their domain to App Hosting without downtime. */
       liveMigrationSteps?: LiveMigrationStep[];
       /** Output only. The custom domain's `OwnershipState`, which must be `OWNERSHIP_ACTIVE` for the create operations to complete. */
-      ownershipState?: string;
+      ownershipState?:
+        | 'OWNERSHIP_STATE_UNSPECIFIED'
+        | 'OWNERSHIP_MISSING'
+        | 'OWNERSHIP_UNREACHABLE'
+        | 'OWNERSHIP_MISMATCH'
+        | 'OWNERSHIP_CONFLICT'
+        | 'OWNERSHIP_PENDING'
+        | 'OWNERSHIP_ACTIVE';
       /** Output only. A set of DNS record updates to perform, to allow App Hosting to serve secure content on the domain. */
       quickSetupUpdates?: DnsUpdates[];
     }
     interface CustomDomainStatus {
       /** Output only. Tracks SSL certificate status for the domain. */
-      certState?: string;
+      certState?:
+        | 'CERT_STATE_UNSPECIFIED'
+        | 'CERT_PREPARING'
+        | 'CERT_VALIDATING'
+        | 'CERT_PROPAGATING'
+        | 'CERT_ACTIVE'
+        | 'CERT_EXPIRING_SOON'
+        | 'CERT_EXPIRED';
       /** Output only. Tracks whether a custom domain is detected as appropriately directing traffic to App Hosting. */
-      hostState?: string;
+      hostState?:
+        | 'HOST_STATE_UNSPECIFIED'
+        | 'HOST_UNHOSTED'
+        | 'HOST_UNREACHABLE'
+        | 'HOST_NON_FAH'
+        | 'HOST_CONFLICT'
+        | 'HOST_WRONG_SHARD'
+        | 'HOST_ACTIVE';
       /** Output only. A list of issues with domain configuration. Allows users to self-correct problems with DNS records. */
       issues?: Status[];
       /** Output only. Tracks whether the backend is permitted to serve content on the domain, based off the domain's DNS records. */
-      ownershipState?: string;
+      ownershipState?:
+        | 'OWNERSHIP_STATE_UNSPECIFIED'
+        | 'OWNERSHIP_MISSING'
+        | 'OWNERSHIP_UNREACHABLE'
+        | 'OWNERSHIP_MISMATCH'
+        | 'OWNERSHIP_CONFLICT'
+        | 'OWNERSHIP_PENDING'
+        | 'OWNERSHIP_ACTIVE';
       /** Output only. Lists the records that must added or removed to a custom domain's DNS in order to finish setup and start serving content. Field is present during onboarding. Also present after onboarding if one or more of the above states is not *_ACTIVE, indicating the domain's DNS records are in a bad state. */
       requiredDnsUpdates?: DnsUpdates[];
     }
@@ -200,11 +252,15 @@ declare namespace gapi.client {
       /** Output only. The data of the record. The meaning of the value depends on record type: - A and AAAA: IP addresses for the domain. - CNAME: Another domain to check for records. - TXT: Arbitrary text strings associated with the domain. App Hosting uses TXT records to determine which Firebase projects have permission to act on the domain's behalf. - CAA: The record's flags, tag, and value, e.g. `0 issue "pki.goog"`. */
       rdata?: string;
       /** Output only. An enum that indicates which state(s) this DNS record applies to. Populated for all records with an `ADD` or `REMOVE` required action. */
-      relevantState?: string[];
+      relevantState?:
+        | 'CUSTOM_DOMAIN_STATE_UNSPECIFIED'
+        | 'HOST_STATE'
+        | 'OWNERSHIP_STATE'
+        | 'CERT_STATE'[];
       /** Output only. An enum that indicates the a required action for this record. Populated when the record is part of a required change in a `DnsUpdates` `discovered` or `desired` record set. */
-      requiredAction?: string;
+      requiredAction?: 'NONE' | 'ADD' | 'REMOVE';
       /** Output only. The record's type, which determines what data the record contains. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'A' | 'CNAME' | 'TXT' | 'AAAA' | 'CAA';
     }
     interface DnsRecordSet {
       /** Output only. An error App Hosting services encountered when querying your domain's DNS records. Note: App Hosting ignores `NXDOMAIN` errors, as those generally just mean that a domain name hasn't been set up yet. */
@@ -250,7 +306,7 @@ declare namespace gapi.client {
       /** Optional. The serving behavior of the domain. If specified, the domain will serve content other than its backend's live content. */
       serve?: ServingBehavior;
       /** Output only. The type of the domain. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'DEFAULT' | 'CUSTOM';
       /** Output only. System-assigned, unique identifier. */
       uid?: string;
       /** Output only. Time at which the domain was last updated. */
@@ -277,9 +333,14 @@ declare namespace gapi.client {
     interface Empty {}
     interface EnvironmentVariable {
       /** Optional. Where this variable should be made available. If left unspecified, will be available in both BUILD and BACKEND. */
-      availability?: string[];
+      availability?: 'AVAILABILITY_UNSPECIFIED' | 'BUILD' | 'RUNTIME'[];
       /** Output only. The high-level origin category of the environment variable. */
-      origin?: string;
+      origin?:
+        | 'ORIGIN_UNSPECIFIED'
+        | 'BACKEND_OVERRIDES'
+        | 'BUILD_CONFIG'
+        | 'APPHOSTING_YAML'
+        | 'FIREBASE_SYSTEM';
       /** Output only. Specific detail about the source. For APPHOSTING_YAML origins, this will contain the exact filename, such as "apphosting.yaml" or "apphosting.staging.yaml". */
       originFileName?: string;
       /** A fully qualified secret version. The value of the secret will be accessed once while building the application and once per cold start of the container at runtime. The service account used by Cloud Build and by Cloud Run must each have the `secretmanager.versions.access` permission on the secret. */
@@ -295,7 +356,7 @@ declare namespace gapi.client {
       /** Output only. A status and (human readable) error message for the build, if in a `FAILED` state. */
       error?: Status;
       /** Output only. The source of the error for the build, if in a `FAILED` state. */
-      errorSource?: string;
+      errorSource?: 'ERROR_SOURCE_UNSPECIFIED' | 'CLOUD_BUILD' | 'CLOUD_RUN';
     }
     interface ListBackendsResponse {
       /** The list of backends */
@@ -349,9 +410,19 @@ declare namespace gapi.client {
       /** Output only. Issues that prevent the current step from completing. */
       issues?: Status[];
       /** Output only. One or more states from the `CustomDomainStatus` of the migrating domain that this step is attempting to make ACTIVE. For example, if the step is attempting to mint an SSL certificate, this field will include `CERT_STATE`. */
-      relevantDomainStates?: string[];
+      relevantDomainStates?:
+        | 'CUSTOM_DOMAIN_STATE_UNSPECIFIED'
+        | 'HOST_STATE'
+        | 'OWNERSHIP_STATE'
+        | 'CERT_STATE'[];
       /** Output only. The state of the live migration step, indicates whether you should work to complete the step now, in the future, or have already completed it. */
-      stepState?: string;
+      stepState?:
+        | 'STEP_STATE_UNSPECIFIED'
+        | 'PREPARING'
+        | 'PENDING'
+        | 'INCOMPLETE'
+        | 'PROCESSING'
+        | 'COMPLETE';
     }
     interface Location {
       /** The friendly name for this location, typically a nearby city name. For example, "Tokyo". */
@@ -401,7 +472,7 @@ declare namespace gapi.client {
       /** Optional. The pattern to match against. */
       pattern?: string;
       /** Optional. The type of pattern to match against. */
-      type?: string;
+      type?: 'PATTERN_TYPE_UNSPECIFIED' | 'RE2' | 'GLOB' | 'PREFIX';
     }
     interface Redirect {
       /** Optional. The status code to use in a redirect response. Must be a valid HTTP 3XX status code. Defaults to 302 if not present. */
@@ -431,7 +502,16 @@ declare namespace gapi.client {
       /** Output only. A field that, if true, indicates that the Rollout currently has an LRO. */
       reconciling?: boolean;
       /** Output only. The state of the rollout. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'QUEUED'
+        | 'PENDING_BUILD'
+        | 'PROGRESSING'
+        | 'PAUSED'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'CANCELLED'
+        | 'SKIPPED';
       /** Output only. System-assigned, unique identifier. */
       uid?: string;
       /** Output only. Time at which the rollout was last updated. */
@@ -531,11 +611,11 @@ declare namespace gapi.client {
       /** Creates a new build for a backend. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. Desired ID of the build being created. */
         buildId?: string;
         /** JSONP */
@@ -566,11 +646,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. Desired ID of the build being created. */
           buildId?: string;
           /** JSONP */
@@ -601,11 +681,11 @@ declare namespace gapi.client {
       /** Deletes a single build. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. If the client provided etag is out of date, delete will be returned FAILED_PRECONDITION error. */
@@ -634,11 +714,11 @@ declare namespace gapi.client {
       /** Gets information about a build. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -661,11 +741,11 @@ declare namespace gapi.client {
       /** Lists builds in a given project, location, and backend. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -700,11 +780,11 @@ declare namespace gapi.client {
       /** Links a new domain to a backend. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Id of the domain to create. Must be a valid domain name. */
@@ -735,11 +815,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. Id of the domain to create. Must be a valid domain name. */
@@ -770,11 +850,11 @@ declare namespace gapi.client {
       /** Deletes a single domain. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. If the client provided etag is out of date, delete will be returned FAILED_PRECONDITION error. */
@@ -803,11 +883,11 @@ declare namespace gapi.client {
       /** Gets information about a domain. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -830,11 +910,11 @@ declare namespace gapi.client {
       /** Lists domains of a backend. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -867,13 +947,13 @@ declare namespace gapi.client {
       /** Updates the information for a single domain. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. If set to true, and the domain is not found, a new domain will be created. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -904,13 +984,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Optional. If set to true, and the domain is not found, a new domain will be created. */
           allowMissing?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -943,11 +1023,11 @@ declare namespace gapi.client {
       /** Creates a new rollout for a backend. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -978,11 +1058,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1013,11 +1093,11 @@ declare namespace gapi.client {
       /** Gets information about a rollout. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1040,11 +1120,11 @@ declare namespace gapi.client {
       /** Lists rollouts for a backend. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1079,11 +1159,11 @@ declare namespace gapi.client {
       /** Gets information about a backend's traffic. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1106,11 +1186,11 @@ declare namespace gapi.client {
       /** Updates a backend's traffic. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1141,11 +1221,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1178,11 +1258,11 @@ declare namespace gapi.client {
       /** Creates a new backend in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. Id of the backend. Also used as the service ID for Cloud Run, and as part of the default domain name. */
         backendId?: string;
         /** JSONP */
@@ -1213,11 +1293,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. Id of the backend. Also used as the service ID for Cloud Run, and as part of the default domain name. */
           backendId?: string;
           /** JSONP */
@@ -1248,11 +1328,11 @@ declare namespace gapi.client {
       /** Deletes a single backend. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. If the client provided etag is out of date, delete will be returned FAILED_PRECONDITION error. */
@@ -1283,11 +1363,11 @@ declare namespace gapi.client {
       /** Gets information about a backend. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1310,11 +1390,11 @@ declare namespace gapi.client {
       /** Lists backends in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1347,13 +1427,13 @@ declare namespace gapi.client {
       /** Updates the information for a single backend. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. If set to true, and the backend is not found, a new backend will be created. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1384,13 +1464,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Optional. If set to true, and the backend is not found, a new backend will be created. */
           allowMissing?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1427,11 +1507,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1454,11 +1534,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1481,11 +1561,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1508,11 +1588,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1545,11 +1625,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1572,11 +1652,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */

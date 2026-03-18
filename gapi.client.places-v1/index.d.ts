@@ -38,7 +38,7 @@ declare namespace gapi.client {
     }
     interface GoogleMapsPlacesV1AddressDescriptorArea {
       /** Defines the spatial relationship between the target location and the area. */
-      containment?: string;
+      containment?: 'CONTAINMENT_UNSPECIFIED' | 'WITHIN' | 'OUTSKIRTS' | 'NEAR';
       /** The area's display name. */
       displayName?: GoogleTypeLocalizedText;
       /** The area's resource name. */
@@ -54,7 +54,14 @@ declare namespace gapi.client {
       /** The landmark's place id. */
       placeId?: string;
       /** Defines the spatial relationship between the target location and the landmark. */
-      spatialRelationship?: string;
+      spatialRelationship?:
+        | 'NEAR'
+        | 'WITHIN'
+        | 'BESIDE'
+        | 'ACROSS_THE_ROAD'
+        | 'DOWN_THE_ROAD'
+        | 'AROUND_THE_CORNER'
+        | 'BEHIND';
       /** The straight line distance, in meters, between the center point of the target and the center point of the landmark. In some situations, this value can be longer than `travel_distance_meters`. */
       straightLineDistanceMeters?: number;
       /** The travel distance, in meters, along the road network from the target to the landmark, if known. This value does not take into account the mode of transportation, such as walking, driving, or biking. */
@@ -222,7 +229,18 @@ declare namespace gapi.client {
       /** Number of connectors in this aggregation that are currently out of service. */
       outOfServiceCount?: number;
       /** The connector type of this aggregation. */
-      type?: string;
+      type?:
+        | 'EV_CONNECTOR_TYPE_UNSPECIFIED'
+        | 'EV_CONNECTOR_TYPE_OTHER'
+        | 'EV_CONNECTOR_TYPE_J1772'
+        | 'EV_CONNECTOR_TYPE_TYPE_2'
+        | 'EV_CONNECTOR_TYPE_CHADEMO'
+        | 'EV_CONNECTOR_TYPE_CCS_COMBO_1'
+        | 'EV_CONNECTOR_TYPE_CCS_COMBO_2'
+        | 'EV_CONNECTOR_TYPE_TESLA'
+        | 'EV_CONNECTOR_TYPE_UNSPECIFIED_GB_T'
+        | 'EV_CONNECTOR_TYPE_UNSPECIFIED_WALL_OUTLET'
+        | 'EV_CONNECTOR_TYPE_NACS';
     }
     interface GoogleMapsPlacesV1FuelOptions {
       /** The last known fuel price for each type of fuel this station has. There is one entry per fuel type this station has. Order is not important. */
@@ -232,7 +250,28 @@ declare namespace gapi.client {
       /** The price of the fuel. */
       price?: GoogleTypeMoney;
       /** The type of fuel. */
-      type?: string;
+      type?:
+        | 'FUEL_TYPE_UNSPECIFIED'
+        | 'DIESEL'
+        | 'DIESEL_PLUS'
+        | 'REGULAR_UNLEADED'
+        | 'MIDGRADE'
+        | 'PREMIUM'
+        | 'SP91'
+        | 'SP91_E10'
+        | 'SP92'
+        | 'SP95'
+        | 'SP95_E10'
+        | 'SP98'
+        | 'SP99'
+        | 'SP100'
+        | 'LPG'
+        | 'E80'
+        | 'E85'
+        | 'E100'
+        | 'METHANE'
+        | 'BIO_DIESEL'
+        | 'TRUCK_DIESEL';
       /** The time the fuel price was last updated. */
       updateTime?: string;
     }
@@ -270,7 +309,11 @@ declare namespace gapi.client {
       /** A set of data provider that must be shown with this result. */
       attributions?: GoogleMapsPlacesV1PlaceAttribution[];
       /** The business status for the place. */
-      businessStatus?: string;
+      businessStatus?:
+        | 'BUSINESS_STATUS_UNSPECIFIED'
+        | 'OPERATIONAL'
+        | 'CLOSED_TEMPORARILY'
+        | 'CLOSED_PERMANENTLY';
       /** The consumer alert message for the place when we detect suspicious review activity on a business or a business violates our policies. */
       consumerAlert?: GoogleMapsPlacesV1PlaceConsumerAlert;
       /** List of places in which the current place is located. */
@@ -348,7 +391,13 @@ declare namespace gapi.client {
       /** The address in postal address format. */
       postalAddress?: GoogleTypePostalAddress;
       /** Price level of the place. */
-      priceLevel?: string;
+      priceLevel?:
+        | 'PRICE_LEVEL_UNSPECIFIED'
+        | 'PRICE_LEVEL_FREE'
+        | 'PRICE_LEVEL_INEXPENSIVE'
+        | 'PRICE_LEVEL_MODERATE'
+        | 'PRICE_LEVEL_EXPENSIVE'
+        | 'PRICE_LEVEL_VERY_EXPENSIVE';
       /** The price range associated with a Place. */
       priceRange?: GoogleMapsPlacesV1PriceRange;
       /** The primary type of the given result. This type must be one of the Places API supported types. For example, "restaurant", "cafe", "airport", etc. A place can only have a single primary type. For the complete list of possible values, see Table A and Table B at https://developers.google.com/maps/documentation/places/web-service/place-types. The primary type may be missing if the place's primary type is not a supported type. When a primary type is present, it is always one of the types in the `types` field. */
@@ -518,7 +567,21 @@ declare namespace gapi.client {
       /** The periods that this place is open during the week. The periods are in chronological order, in the place-local timezone. An empty (but not absent) value indicates a place that is never open, e.g. because it is closed temporarily for renovations. The starting day of `periods` is NOT fixed and should not be assumed to be Sunday. The API determines the start day based on a variety of factors. For example, for a 24/7 business, the first period may begin on the day of the request. For other businesses, it might be the first day of the week that they are open. NOTE: The ordering of the `periods` array is independent of the ordering of the `weekday_descriptions` array. Do not assume they will begin on the same day. */
       periods?: GoogleMapsPlacesV1PlaceOpeningHoursPeriod[];
       /** A type string used to identify the type of secondary hours. */
-      secondaryHoursType?: string;
+      secondaryHoursType?:
+        | 'SECONDARY_HOURS_TYPE_UNSPECIFIED'
+        | 'DRIVE_THROUGH'
+        | 'HAPPY_HOUR'
+        | 'DELIVERY'
+        | 'TAKEOUT'
+        | 'KITCHEN'
+        | 'BREAKFAST'
+        | 'LUNCH'
+        | 'DINNER'
+        | 'BRUNCH'
+        | 'PICKUP'
+        | 'ACCESS'
+        | 'SENIOR_HOURS'
+        | 'ONLINE_SERVICE_HOURS';
       /** Structured information for special days that fall within the period that the returned opening hours cover. Special days are days that could impact the business hours of a place, e.g. Christmas day. Set for current_opening_hours and current_secondary_opening_hours if there are exceptional hours. */
       specialDays?: GoogleMapsPlacesV1PlaceOpeningHoursSpecialDay[];
       /** Localized strings describing the opening hours of this place, one string for each day of the week. NOTE: The order of the days and the start of the week is determined by the locale (language and region). The ordering of the `periods` array is independent of the ordering of the `weekday_descriptions` array. Do not assume they will begin on the same day. Will be empty if the hours are unknown or could not be converted to localized text. Example: "Sun: 18:00–06:00" */
@@ -642,9 +705,18 @@ declare namespace gapi.client {
       /** Optional. The route modifiers. */
       routeModifiers?: GoogleMapsPlacesV1RouteModifiers;
       /** Optional. Specifies how to compute the routing summaries. The server attempts to use the selected routing preference to compute the route. The traffic aware routing preference is only available for the `DRIVE` or `TWO_WHEELER` `travelMode`. */
-      routingPreference?: string;
+      routingPreference?:
+        | 'ROUTING_PREFERENCE_UNSPECIFIED'
+        | 'TRAFFIC_UNAWARE'
+        | 'TRAFFIC_AWARE'
+        | 'TRAFFIC_AWARE_OPTIMAL';
       /** Optional. The travel mode. */
-      travelMode?: string;
+      travelMode?:
+        | 'TRAVEL_MODE_UNSPECIFIED'
+        | 'DRIVE'
+        | 'BICYCLE'
+        | 'WALK'
+        | 'TWO_WHEELER';
     }
     interface GoogleMapsPlacesV1RoutingSummary {
       /** A link to show directions on Google Maps using the waypoints from the given routing summary. The route generated by this link is not guaranteed to be the same as the route used to generate the routing summary. The link uses information provided in the request, from fields including `routingParameters` and `searchAlongRouteParameters` when applicable, to generate the directions link. */
@@ -674,7 +746,10 @@ declare namespace gapi.client {
       /** Maximum number of results to return. It must be between 1 and 20 (default), inclusively. If the number is unset, it falls back to the upper limit. If the number is set to negative or exceeds the upper limit, an INVALID_ARGUMENT error is returned. */
       maxResultCount?: number;
       /** How results will be ranked in the response. */
-      rankPreference?: string;
+      rankPreference?:
+        | 'RANK_PREFERENCE_UNSPECIFIED'
+        | 'DISTANCE'
+        | 'POPULARITY';
       /** The Unicode country/region code (CLDR) of the location where the request is coming from. This parameter is used to display the place details, like region-specific place name, if available. The parameter can affect results based on applicable law. For more information, see https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html. Note that 3-digit region codes are not currently supported. */
       regionCode?: string;
       /** Optional. Parameters that affect the routing to the search results. */
@@ -714,9 +789,15 @@ declare namespace gapi.client {
       /** Optional. A page token, received from a previous TextSearch call. Provide this to retrieve the subsequent page. When paginating, all parameters other than `page_token`, `page_size`, and `max_result_count` provided to TextSearch must match the initial call that provided the page token. Otherwise an INVALID_ARGUMENT error is returned. */
       pageToken?: string;
       /** Used to restrict the search to places that are marked as certain price levels. Users can choose any combinations of price levels. Default to select all price levels. */
-      priceLevels?: string[];
+      priceLevels?:
+        | 'PRICE_LEVEL_UNSPECIFIED'
+        | 'PRICE_LEVEL_FREE'
+        | 'PRICE_LEVEL_INEXPENSIVE'
+        | 'PRICE_LEVEL_MODERATE'
+        | 'PRICE_LEVEL_EXPENSIVE'
+        | 'PRICE_LEVEL_VERY_EXPENSIVE'[];
       /** How results will be ranked in the response. */
-      rankPreference?: string;
+      rankPreference?: 'RANK_PREFERENCE_UNSPECIFIED' | 'DISTANCE' | 'RELEVANCE';
       /** The Unicode country/region code (CLDR) of the location where the request is coming from. This parameter is used to display the place details, like region-specific place name, if available. The parameter can affect results based on applicable law. For more information, see https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html. Note that 3-digit region codes are not currently supported. */
       regionCode?: string;
       /** Optional. Additional parameters for routing to results. */
@@ -730,7 +811,18 @@ declare namespace gapi.client {
     }
     interface GoogleMapsPlacesV1SearchTextRequestEVOptions {
       /** Optional. The list of preferred EV connector types. A place that does not support any of the listed connector types is filtered out. */
-      connectorTypes?: string[];
+      connectorTypes?:
+        | 'EV_CONNECTOR_TYPE_UNSPECIFIED'
+        | 'EV_CONNECTOR_TYPE_OTHER'
+        | 'EV_CONNECTOR_TYPE_J1772'
+        | 'EV_CONNECTOR_TYPE_TYPE_2'
+        | 'EV_CONNECTOR_TYPE_CHADEMO'
+        | 'EV_CONNECTOR_TYPE_CCS_COMBO_1'
+        | 'EV_CONNECTOR_TYPE_CCS_COMBO_2'
+        | 'EV_CONNECTOR_TYPE_TESLA'
+        | 'EV_CONNECTOR_TYPE_UNSPECIFIED_GB_T'
+        | 'EV_CONNECTOR_TYPE_UNSPECIFIED_WALL_OUTLET'
+        | 'EV_CONNECTOR_TYPE_NACS'[];
       /** Optional. Minimum required charging rate in kilowatts. A place with a charging rate less than the specified rate is filtered out. */
       minimumChargingRateKw?: number;
     }
@@ -822,11 +914,11 @@ declare namespace gapi.client {
       /** Get a photo media with a photo reference string. */
       getMedia(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -857,11 +949,11 @@ declare namespace gapi.client {
       /** Returns predictions for the given input. */
       autocomplete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -884,11 +976,11 @@ declare namespace gapi.client {
       autocomplete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -911,11 +1003,11 @@ declare namespace gapi.client {
       /** Get the details of a place based on its resource name, which is a string in the `places/{place_id}` format. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -944,11 +1036,11 @@ declare namespace gapi.client {
       /** Search for places near locations. */
       searchNearby(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -971,11 +1063,11 @@ declare namespace gapi.client {
       searchNearby(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -998,11 +1090,11 @@ declare namespace gapi.client {
       /** Text query based place search. */
       searchText(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1025,11 +1117,11 @@ declare namespace gapi.client {
       searchText(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

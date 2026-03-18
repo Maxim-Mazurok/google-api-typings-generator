@@ -64,7 +64,15 @@ declare namespace gapi.client {
       /** The Active Directory site the service will limit Domain Controller discovery too. */
       site?: string;
       /** Output only. The state of the AD. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'READY'
+        | 'UPDATING'
+        | 'IN_USE'
+        | 'DELETING'
+        | 'ERROR'
+        | 'DIAGNOSING';
       /** Output only. The state details of the Active Directory. */
       stateDetails?: string;
       /** Required. Username of the Active Directory domain administrator. */
@@ -74,7 +82,7 @@ declare namespace gapi.client {
       /** Output only. Region in which backup is stored. Format: `projects/{project_id}/locations/{location}` */
       backupRegion?: string;
       /** Output only. Type of backup, manually created or created by a backup policy. */
-      backupType?: string;
+      backupType?: 'TYPE_UNSPECIFIED' | 'MANUAL' | 'SCHEDULED';
       /** Output only. Total size of all backups in a chain in bytes = baseline backup size + sum(incremental backup size) */
       chainStorageBytes?: string;
       /** Output only. The time when the backup was created. */
@@ -96,7 +104,14 @@ declare namespace gapi.client {
       /** Volume full name of this backup belongs to. Format: `projects/{projects_id}/locations/{location}/volumes/{volume_id}` */
       sourceVolume?: string;
       /** Output only. The backup state. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'UPLOADING'
+        | 'READY'
+        | 'DELETING'
+        | 'ERROR'
+        | 'UPDATING';
       /** Output only. Region of the volume from which the backup was created. Format: `projects/{project_id}/locations/{location}` */
       volumeRegion?: string;
       /** Output only. Size of the file system when the backup was created. When creating a new volume from the backup, the volume capacity will have to be at least as big. */
@@ -130,7 +145,13 @@ declare namespace gapi.client {
       /** Identifier. The resource name of the backup policy. Format: `projects/{project_id}/locations/{location}/backupPolicies/{backup_policy_id}`. */
       name?: string;
       /** Output only. The backup policy state. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'READY'
+        | 'DELETING'
+        | 'ERROR'
+        | 'UPDATING';
       /** Number of weekly backups to keep. Note that the sum of daily, weekly and monthly backups should be greater than 1. */
       weeklyBackupLimit?: number;
     }
@@ -154,7 +175,10 @@ declare namespace gapi.client {
       /** Output only. The crypto key version used to encrypt the backup vault. Format: `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}/cryptoKeyVersions/{crypto_key_version}` */
       backupsCryptoKeyVersion?: string;
       /** Optional. Type of backup vault to be created. Default is IN_REGION. */
-      backupVaultType?: string;
+      backupVaultType?:
+        | 'BACKUP_VAULT_TYPE_UNSPECIFIED'
+        | 'IN_REGION'
+        | 'CROSS_REGION';
       /** Output only. Create time of the backup vault. */
       createTime?: string;
       /** Description of the backup vault. */
@@ -162,7 +186,12 @@ declare namespace gapi.client {
       /** Output only. Name of the Backup vault created in backup region. Format: `projects/{project_id}/locations/{location}/backupVaults/{backup_vault_id}` */
       destinationBackupVault?: string;
       /** Output only. Field indicating encryption state of CMEK backups. */
-      encryptionState?: string;
+      encryptionState?:
+        | 'ENCRYPTION_STATE_UNSPECIFIED'
+        | 'ENCRYPTION_STATE_PENDING'
+        | 'ENCRYPTION_STATE_COMPLETED'
+        | 'ENCRYPTION_STATE_IN_PROGRESS'
+        | 'ENCRYPTION_STATE_FAILED';
       /** Optional. Specifies the Key Management System (KMS) configuration to be used for backup encryption. Format: `projects/{project}/locations/{location}/kmsConfigs/{kms_config}` */
       kmsConfig?: string;
       /** Resource labels to represent user provided metadata. */
@@ -174,7 +203,13 @@ declare namespace gapi.client {
       /** Output only. Region in which the backup vault is created. Format: `projects/{project_id}/locations/{location}` */
       sourceRegion?: string;
       /** Output only. The backup vault state. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'READY'
+        | 'DELETING'
+        | 'ERROR'
+        | 'UPDATING';
     }
     interface BlockDevice {
       /** Optional. A list of host groups that identify hosts that can mount the block volume. Format: `projects/{project_id}/locations/{location}/hostGroups/{host_group_id}` This field can be updated after the block device is created. */
@@ -184,7 +219,7 @@ declare namespace gapi.client {
       /** Optional. User-defined name for the block device, unique within the volume. In case no user input is provided, name will be auto-generated in the backend. The name must meet the following requirements: * Be between 1 and 255 characters long. * Contain only uppercase or lowercase letters (A-Z, a-z), numbers (0-9), and the following special characters: "-", "_", "}", "{", ".". * Spaces are not allowed. */
       name?: string;
       /** Required. Immutable. The OS type of the volume. This field can't be changed after the block device is created. */
-      osType?: string;
+      osType?: 'OS_TYPE_UNSPECIFIED' | 'LINUX' | 'WINDOWS' | 'ESXI';
       /** Optional. The size of the block device in GiB. Any value provided for the `size_gib` field during volume creation is ignored. The block device's size is system-managed and will be set to match the parent Volume's `capacity_gib`. */
       sizeGib?: string;
     }
@@ -192,7 +227,12 @@ declare namespace gapi.client {
       /** Optional. Pre-populate cache volume with data from the origin volume. */
       cachePrePopulate?: CachePrePopulate;
       /** Output only. State of the prepopulation job indicating how the prepopulation is progressing. */
-      cachePrePopulateState?: string;
+      cachePrePopulateState?:
+        | 'CACHE_PRE_POPULATE_STATE_UNSPECIFIED'
+        | 'NOT_NEEDED'
+        | 'IN_PROGRESS'
+        | 'COMPLETE'
+        | 'ERROR';
       /** Optional. Flag indicating whether a CIFS change notification is enabled for the FlexCache volume. */
       cifsChangeNotifyEnabled?: boolean;
       /** Optional. Flag indicating whether writeback is enabled for the FlexCache volume. */
@@ -202,7 +242,12 @@ declare namespace gapi.client {
       /** Optional. Configuration of the cache volume. */
       cacheConfig?: CacheConfig;
       /** Output only. State of the cache volume indicating the peering status. */
-      cacheState?: string;
+      cacheState?:
+        | 'CACHE_STATE_UNSPECIFIED'
+        | 'PENDING_CLUSTER_PEERING'
+        | 'PENDING_SVM_PEERING'
+        | 'PEERED'
+        | 'ERROR';
       /** Output only. Copy-paste-able commands to be used on user's ONTAP to accept peering requests. */
       command?: string;
       /** Optional. Indicates whether the cache volume has global file lock enabled. */
@@ -297,11 +342,17 @@ declare namespace gapi.client {
       /** Identifier. The resource name of the host group. Format: `projects/{project_number}/locations/{location_id}/hostGroups/{host_group_id}`. */
       name?: string;
       /** Required. The OS type of the host group. It indicates the type of operating system used by all of the hosts in the HostGroup. All hosts in a HostGroup must be of the same OS type. This can be set only when creating a HostGroup. */
-      osType?: string;
+      osType?: 'OS_TYPE_UNSPECIFIED' | 'LINUX' | 'WINDOWS' | 'ESXI';
       /** Output only. State of the host group. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'READY'
+        | 'UPDATING'
+        | 'DELETING'
+        | 'DISABLED';
       /** Required. Type of the host group. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'ISCSI_INITIATOR';
     }
     interface HourlySchedule {
       /** Set the minute of the hour to start the snapshot (0-59), defaults to the top of the hour (0). */
@@ -331,7 +382,12 @@ declare namespace gapi.client {
       /** Optional. Description of the replication. */
       description?: string;
       /** Optional. Type of the hybrid replication. */
-      hybridReplicationType?: string;
+      hybridReplicationType?:
+        | 'VOLUME_HYBRID_REPLICATION_TYPE_UNSPECIFIED'
+        | 'MIGRATION'
+        | 'CONTINUOUS_REPLICATION'
+        | 'ONPREM_REPLICATION'
+        | 'REVERSE_ONPREM_REPLICATION';
       /** Optional. Labels to be added to the replication as the key value pairs. */
       labels?: {[P in string]: string};
       /** Optional. Constituent volume count for large volume. */
@@ -347,7 +403,11 @@ declare namespace gapi.client {
       /** Required. Desired name for the replication of this volume. */
       replication?: string;
       /** Optional. Replication Schedule for the replication created. */
-      replicationSchedule?: string;
+      replicationSchedule?:
+        | 'HYBRID_REPLICATION_SCHEDULE_UNSPECIFIED'
+        | 'EVERY_10_MINUTES'
+        | 'HOURLY'
+        | 'DAILY';
     }
     interface KmsConfig {
       /** Output only. Create time of the KmsConfig. */
@@ -365,7 +425,19 @@ declare namespace gapi.client {
       /** Output only. The Service account which will have access to the customer provided encryption key. */
       serviceAccount?: string;
       /** Output only. State of the KmsConfig. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'READY'
+        | 'CREATING'
+        | 'DELETING'
+        | 'UPDATING'
+        | 'IN_USE'
+        | 'ERROR'
+        | 'KEY_CHECK_PENDING'
+        | 'KEY_NOT_REACHABLE'
+        | 'DISABLING'
+        | 'DISABLED'
+        | 'MIGRATING';
       /** Output only. State details of the KmsConfig. */
       stateDetails?: string;
     }
@@ -489,9 +561,17 @@ declare namespace gapi.client {
       /** Output only. Indicates if the location has VCP support. */
       hasVcp?: boolean;
       /** Output only. Supported flex performance in a location. */
-      supportedFlexPerformance?: string[];
+      supportedFlexPerformance?:
+        | 'FLEX_PERFORMANCE_UNSPECIFIED'
+        | 'FLEX_PERFORMANCE_DEFAULT'
+        | 'FLEX_PERFORMANCE_CUSTOM'[];
       /** Output only. Supported service levels in a location. */
-      supportedServiceLevels?: string[];
+      supportedServiceLevels?:
+        | 'SERVICE_LEVEL_UNSPECIFIED'
+        | 'PREMIUM'
+        | 'EXTREME'
+        | 'STANDARD'
+        | 'FLEX'[];
     }
     interface MonthlySchedule {
       /** Set the day or days of the month to make a snapshot (1-31). Accepts a comma separated number of days. Defaults to '1'. */
@@ -513,7 +593,7 @@ declare namespace gapi.client {
       /** Output only. IP Address. */
       ipAddress?: string;
       /** Protocol to mount with. */
-      protocol?: string;
+      protocol?: 'PROTOCOLS_UNSPECIFIED' | 'NFSV3' | 'NFSV4' | 'SMB' | 'ISCSI';
     }
     interface Operation {
       /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
@@ -555,13 +635,24 @@ declare namespace gapi.client {
       /** Identifier. The resource name of the quota rule. Format: `projects/{project_number}/locations/{location_id}/volumes/volumes/{volume_id}/quotaRules/{quota_rule_id}`. */
       name?: string;
       /** Output only. State of the quota rule */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'UPDATING'
+        | 'DELETING'
+        | 'READY'
+        | 'ERROR';
       /** Output only. State details of the quota rule */
       stateDetails?: string;
       /** Optional. The quota rule applies to the specified user or group, identified by a Unix UID/GID, Windows SID, or null for default. */
       target?: string;
       /** Required. The type of quota rule. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'INDIVIDUAL_USER_QUOTA'
+        | 'INDIVIDUAL_GROUP_QUOTA'
+        | 'DEFAULT_USER_QUOTA'
+        | 'DEFAULT_GROUP_QUOTA';
     }
     interface Replication {
       /** Optional. Location of the user cluster. */
@@ -579,23 +670,51 @@ declare namespace gapi.client {
       /** Output only. Hybrid peering details. */
       hybridPeeringDetails?: HybridPeeringDetails;
       /** Output only. Type of the hybrid replication. */
-      hybridReplicationType?: string;
+      hybridReplicationType?:
+        | 'HYBRID_REPLICATION_TYPE_UNSPECIFIED'
+        | 'MIGRATION'
+        | 'CONTINUOUS_REPLICATION'
+        | 'ONPREM_REPLICATION'
+        | 'REVERSE_ONPREM_REPLICATION';
       /** Output only. Copy pastable snapmirror commands to be executed on onprem cluster by the customer. */
       hybridReplicationUserCommands?: UserCommands;
       /** Resource labels to represent user provided metadata. */
       labels?: {[P in string]: string};
       /** Output only. Indicates the state of mirroring. */
-      mirrorState?: string;
+      mirrorState?:
+        | 'MIRROR_STATE_UNSPECIFIED'
+        | 'PREPARING'
+        | 'MIRRORED'
+        | 'STOPPED'
+        | 'TRANSFERRING'
+        | 'BASELINE_TRANSFERRING'
+        | 'ABORTED'
+        | 'EXTERNALLY_MANAGED'
+        | 'PENDING_PEERING';
       /** Identifier. The resource name of the Replication. Format: `projects/{project_id}/locations/{location}/volumes/{volume_id}/replications/{replication_id}`. */
       name?: string;
       /** Required. Indicates the schedule for replication. */
-      replicationSchedule?: string;
+      replicationSchedule?:
+        | 'REPLICATION_SCHEDULE_UNSPECIFIED'
+        | 'EVERY_10_MINUTES'
+        | 'HOURLY'
+        | 'DAILY';
       /** Output only. Indicates whether this points to source or destination. */
-      role?: string;
+      role?: 'REPLICATION_ROLE_UNSPECIFIED' | 'SOURCE' | 'DESTINATION';
       /** Output only. Full name of source volume resource. Example : "projects/{project}/locations/{location}/volumes/{volume_id}" */
       sourceVolume?: string;
       /** Output only. State of the replication. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'READY'
+        | 'UPDATING'
+        | 'DELETING'
+        | 'ERROR'
+        | 'PENDING_CLUSTER_PEERING'
+        | 'PENDING_SVM_PEERING'
+        | 'PENDING_REMOTE_RESYNC'
+        | 'EXTERNALLY_MANAGED_REPLICATION';
       /** Output only. State details of the replication. */
       stateDetails?: string;
       /** Output only. Replication transfer statistics. */
@@ -623,7 +742,11 @@ declare namespace gapi.client {
     }
     interface SimpleExportPolicyRule {
       /** Access type (ReadWrite, ReadOnly, None) */
-      accessType?: string;
+      accessType?:
+        | 'ACCESS_TYPE_UNSPECIFIED'
+        | 'READ_ONLY'
+        | 'READ_WRITE'
+        | 'READ_NONE';
       /** Comma separated list of allowed clients IP addresses */
       allowedClients?: string;
       /** Optional. An integer representing the anonymous user ID. Range is 0 to `4294967295`. Required when `squash_mode` is `ROOT_SQUASH` or `ALL_SQUASH`. */
@@ -647,7 +770,11 @@ declare namespace gapi.client {
       /** NFS V4 protocol. */
       nfsv4?: boolean;
       /** Optional. Defines how user identity squashing is applied for this export rule. This field is the preferred way to configure squashing behavior and takes precedence over `has_root_access` if both are provided. */
-      squashMode?: string;
+      squashMode?:
+        | 'SQUASH_MODE_UNSPECIFIED'
+        | 'NO_ROOT_SQUASH'
+        | 'ROOT_SQUASH'
+        | 'ALL_SQUASH';
     }
     interface Snapshot {
       /** Output only. The time when the snapshot was created. */
@@ -659,7 +786,14 @@ declare namespace gapi.client {
       /** Identifier. The resource name of the snapshot. Format: `projects/{project_id}/locations/{location}/volumes/{volume_id}/snapshots/{snapshot_id}`. */
       name?: string;
       /** Output only. The snapshot state. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'READY'
+        | 'CREATING'
+        | 'DELETING'
+        | 'UPDATING'
+        | 'DISABLED'
+        | 'ERROR';
       /** Output only. State details of the storage pool */
       stateDetails?: string;
       /** Output only. Current storage usage for the snapshot in bytes. */
@@ -709,7 +843,10 @@ declare namespace gapi.client {
       /** Optional. Flag indicating that the hot-tier threshold will be auto-increased by 10% of the hot-tier when it hits 100%. Default is true. The increment will kick in only if the new size after increment is still less than or equal to storage pool size. */
       enableHotTierAutoResize?: boolean;
       /** Output only. Specifies the current pool encryption key source. */
-      encryptionType?: string;
+      encryptionType?:
+        | 'ENCRYPTION_TYPE_UNSPECIFIED'
+        | 'SERVICE_MANAGED'
+        | 'CLOUD_KMS';
       /** Deprecated. Used to allow SO pool to access AD or DNS server from other regions. */
       globalAccessAllowed?: boolean;
       /** Optional. Total hot tier capacity for the Storage Pool. It is applicable only to Flex service level. It should be less than the minimum storage pool size and cannot be more than the current storage pool size. It cannot be decreased once set. */
@@ -729,7 +866,7 @@ declare namespace gapi.client {
       /** Optional. This field is not implemented. The values provided in this field are ignored. */
       psaRange?: string;
       /** Optional. QoS (Quality of Service) Type of the storage pool */
-      qosType?: string;
+      qosType?: 'QOS_TYPE_UNSPECIFIED' | 'AUTO' | 'MANUAL';
       /** Optional. Specifies the replica zone for regional storagePool. */
       replicaZone?: string;
       /** Output only. Reserved for future use */
@@ -737,9 +874,22 @@ declare namespace gapi.client {
       /** Output only. Reserved for future use */
       satisfiesPzs?: boolean;
       /** Required. Service level of the storage pool */
-      serviceLevel?: string;
+      serviceLevel?:
+        | 'SERVICE_LEVEL_UNSPECIFIED'
+        | 'PREMIUM'
+        | 'EXTREME'
+        | 'STANDARD'
+        | 'FLEX';
       /** Output only. State of the storage pool */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'READY'
+        | 'CREATING'
+        | 'DELETING'
+        | 'UPDATING'
+        | 'RESTORING'
+        | 'DISABLED'
+        | 'ERROR';
       /** Output only. State details of the storage pool */
       stateDetails?: string;
       /** Optional. Custom Performance Total IOPS of the pool if not provided, it will be calculated based on the total_throughput_mibps */
@@ -747,7 +897,11 @@ declare namespace gapi.client {
       /** Optional. Custom Performance Total Throughput of the pool (in MiBps) */
       totalThroughputMibps?: string;
       /** Optional. Type of the storage pool. This field is used to control whether the pool supports `FILE` based volumes only or `UNIFIED` (both `FILE` and `BLOCK`) volumes or `UNIFIED_LARGE_CAPACITY` (both `FILE` and `BLOCK`) volumes with large capacity. If not specified during creation, it defaults to `FILE`. */
-      type?: string;
+      type?:
+        | 'STORAGE_POOL_TYPE_UNSPECIFIED'
+        | 'FILE'
+        | 'UNIFIED'
+        | 'UNIFIED_LARGE_CAPACITY';
       /** Output only. Allocated size of all volumes in GIB in the storage pool */
       volumeCapacityGib?: string;
       /** Output only. Volume count of the storage pool */
@@ -763,7 +917,7 @@ declare namespace gapi.client {
       /** Optional. Flag indicating that the hot tier bypass mode is enabled. Default is false. This is only applicable to Flex service level. */
       hotTierBypassModeEnabled?: boolean;
       /** Optional. Flag indicating if the volume has tiering policy enable/pause. Default is PAUSED. */
-      tierAction?: string;
+      tierAction?: 'TIER_ACTION_UNSPECIFIED' | 'ENABLED' | 'PAUSED';
     }
     interface TransferStats {
       /** Lag duration indicates the duration by which Destination region volume content lags behind the primary region volume content. */
@@ -789,7 +943,9 @@ declare namespace gapi.client {
     }
     interface ValidateDirectoryServiceRequest {
       /** Type of directory service policy attached to the storage pool. */
-      directoryServiceType?: string;
+      directoryServiceType?:
+        | 'DIRECTORY_SERVICE_TYPE_UNSPECIFIED'
+        | 'ACTIVE_DIRECTORY';
     }
     interface VerifyKmsConfigRequest {}
     interface VerifyKmsConfigResponse {
@@ -820,7 +976,10 @@ declare namespace gapi.client {
       /** Optional. Description of the volume */
       description?: string;
       /** Output only. Specified the current volume encryption key source. */
-      encryptionType?: string;
+      encryptionType?:
+        | 'ENCRYPTION_TYPE_UNSPECIFIED'
+        | 'SERVICE_MANAGED'
+        | 'CLOUD_KMS';
       /** Optional. Export policy of the volume */
       exportPolicy?: ExportPolicy;
       /** Output only. Indicates whether the volume is part of a replication relationship. */
@@ -848,7 +1007,12 @@ declare namespace gapi.client {
       /** Output only. VPC Network name. Format: projects/{project}/global/networks/{network} */
       network?: string;
       /** Required. Protocols required for the volume */
-      protocols?: string[];
+      protocols?:
+        | 'PROTOCOLS_UNSPECIFIED'
+        | 'NFSV3'
+        | 'NFSV4'
+        | 'SMB'
+        | 'ISCSI'[];
       /** Output only. This field is not implemented. The values provided in this field are ignored. */
       psaRange?: string;
       /** Output only. Specifies the replica zone for regional volume. */
@@ -856,15 +1020,30 @@ declare namespace gapi.client {
       /** Optional. Specifies the source of the volume to be created from. */
       restoreParameters?: RestoreParameters;
       /** Optional. List of actions that are restricted on this volume. */
-      restrictedActions?: string[];
+      restrictedActions?: 'RESTRICTED_ACTION_UNSPECIFIED' | 'DELETE'[];
       /** Optional. Security Style of the Volume */
-      securityStyle?: string;
+      securityStyle?: 'SECURITY_STYLE_UNSPECIFIED' | 'NTFS' | 'UNIX';
       /** Output only. Service level of the volume */
-      serviceLevel?: string;
+      serviceLevel?:
+        | 'SERVICE_LEVEL_UNSPECIFIED'
+        | 'PREMIUM'
+        | 'EXTREME'
+        | 'STANDARD'
+        | 'FLEX';
       /** Required. Share name of the volume */
       shareName?: string;
       /** Optional. SMB share settings for the volume. */
-      smbSettings?: string[];
+      smbSettings?:
+        | 'SMB_SETTINGS_UNSPECIFIED'
+        | 'ENCRYPT_DATA'
+        | 'BROWSABLE'
+        | 'CHANGE_NOTIFY'
+        | 'NON_BROWSABLE'
+        | 'OPLOCKS'
+        | 'SHOW_SNAPSHOT'
+        | 'SHOW_PREVIOUS_VERSIONS'
+        | 'ACCESS_BASED_ENUMERATION'
+        | 'CONTINUOUSLY_AVAILABLE'[];
       /** Optional. Snap_reserve specifies percentage of volume storage reserved for snapshot storage. Default is 0 percent. */
       snapReserve?: number;
       /** Optional. Snapshot_directory if enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots. */
@@ -872,7 +1051,17 @@ declare namespace gapi.client {
       /** Optional. SnapshotPolicy for a volume. */
       snapshotPolicy?: SnapshotPolicy;
       /** Output only. State of the volume */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'READY'
+        | 'CREATING'
+        | 'DELETING'
+        | 'UPDATING'
+        | 'RESTORING'
+        | 'DISABLED'
+        | 'ERROR'
+        | 'PREPARING'
+        | 'READ_ONLY';
       /** Output only. State details of the volume */
       stateDetails?: string;
       /** Required. StoragePool name of the volume */
@@ -902,13 +1091,13 @@ declare namespace gapi.client {
       /** CreateActiveDirectory Creates the active directory specified in the request. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. ID of the active directory to create. Must be unique within the parent resource. Must contain only letters, numbers and hyphen, with the first character a letter , the last a letter or a number, and a 63 character maximum. */
         activeDirectoryId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -933,13 +1122,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. ID of the active directory to create. Must be unique within the parent resource. Must contain only letters, numbers and hyphen, with the first character a letter , the last a letter or a number, and a 63 character maximum. */
           activeDirectoryId?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -964,11 +1153,11 @@ declare namespace gapi.client {
       /** Delete the active directory specified in the request. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -991,11 +1180,11 @@ declare namespace gapi.client {
       /** Describes a specified active directory. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1018,11 +1207,11 @@ declare namespace gapi.client {
       /** Lists active directories. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1053,11 +1242,11 @@ declare namespace gapi.client {
       /** Update the parameters of an active directories. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1084,11 +1273,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1117,11 +1306,11 @@ declare namespace gapi.client {
       /** Creates new backup policy */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The ID to use for the backup policy. The ID must be unique within the specified location. Must contain only letters, numbers and hyphen, with the first character a letter, the last a letter or a number, and a 63 character maximum. */
         backupPolicyId?: string;
         /** JSONP */
@@ -1148,11 +1337,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. The ID to use for the backup policy. The ID must be unique within the specified location. Must contain only letters, numbers and hyphen, with the first character a letter, the last a letter or a number, and a 63 character maximum. */
           backupPolicyId?: string;
           /** JSONP */
@@ -1179,11 +1368,11 @@ declare namespace gapi.client {
       /** Warning! This operation will permanently delete the backup policy. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1206,11 +1395,11 @@ declare namespace gapi.client {
       /** Returns the description of the specified backup policy by backup_policy_id. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1233,11 +1422,11 @@ declare namespace gapi.client {
       /** Returns list of all available backup policies. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1268,11 +1457,11 @@ declare namespace gapi.client {
       /** Updates settings of a specific backup policy. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1299,11 +1488,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1332,11 +1521,11 @@ declare namespace gapi.client {
       /** Creates a backup from the volume specified in the request The backup can be created from the given snapshot if specified in the request. If no snapshot specified, there'll be a new snapshot taken to initiate the backup creation. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The ID to use for the backup. The ID must be unique within the specified backupVault. Must contain only letters, numbers and hyphen, with the first character a letter, the last a letter or a number, and a 63 character maximum. */
         backupId?: string;
         /** JSONP */
@@ -1363,11 +1552,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. The ID to use for the backup. The ID must be unique within the specified backupVault. Must contain only letters, numbers and hyphen, with the first character a letter, the last a letter or a number, and a 63 character maximum. */
           backupId?: string;
           /** JSONP */
@@ -1394,11 +1583,11 @@ declare namespace gapi.client {
       /** Warning! This operation will permanently delete the backup. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1421,11 +1610,11 @@ declare namespace gapi.client {
       /** Returns the description of the specified backup */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1448,11 +1637,11 @@ declare namespace gapi.client {
       /** Returns descriptions of all backups for a backupVault. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1483,11 +1672,11 @@ declare namespace gapi.client {
       /** Update backup with full spec. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1514,11 +1703,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1547,11 +1736,11 @@ declare namespace gapi.client {
       /** Creates new backup vault */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The ID to use for the backupVault. The ID must be unique within the specified location. Must contain only letters, numbers and hyphen, with the first character a letter, the last a letter or a number, and a 63 character maximum. */
         backupVaultId?: string;
         /** JSONP */
@@ -1578,11 +1767,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. The ID to use for the backupVault. The ID must be unique within the specified location. Must contain only letters, numbers and hyphen, with the first character a letter, the last a letter or a number, and a 63 character maximum. */
           backupVaultId?: string;
           /** JSONP */
@@ -1609,11 +1798,11 @@ declare namespace gapi.client {
       /** Warning! This operation will permanently delete the backup vault. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1636,11 +1825,11 @@ declare namespace gapi.client {
       /** Returns the description of the specified backup vault */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1663,11 +1852,11 @@ declare namespace gapi.client {
       /** Returns list of all available backup vaults. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1698,11 +1887,11 @@ declare namespace gapi.client {
       /** Updates the settings of a specific backup vault. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1729,11 +1918,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1763,11 +1952,11 @@ declare namespace gapi.client {
       /** Creates a new host group. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1794,11 +1983,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1825,11 +2014,11 @@ declare namespace gapi.client {
       /** Deletes a host group. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1852,11 +2041,11 @@ declare namespace gapi.client {
       /** Returns details of the specified host group. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1879,11 +2068,11 @@ declare namespace gapi.client {
       /** Returns a list of host groups in a `location`. Use `-` as location to list host groups across all locations. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1914,11 +2103,11 @@ declare namespace gapi.client {
       /** Updates an existing host group. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1945,11 +2134,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1978,11 +2167,11 @@ declare namespace gapi.client {
       /** Creates a new KMS config. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2009,11 +2198,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2040,11 +2229,11 @@ declare namespace gapi.client {
       /** Warning! This operation will permanently delete the Kms config. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2067,11 +2256,11 @@ declare namespace gapi.client {
       /** Encrypt the existing volumes without CMEK encryption with the desired the KMS config for the whole region. */
       encrypt(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2096,11 +2285,11 @@ declare namespace gapi.client {
       encrypt(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2125,11 +2314,11 @@ declare namespace gapi.client {
       /** Returns the description of the specified KMS config by kms_config_id. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2152,11 +2341,11 @@ declare namespace gapi.client {
       /** Returns descriptions of all KMS configs owned by the caller. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2187,11 +2376,11 @@ declare namespace gapi.client {
       /** Updates the Kms config properties with the full spec */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2218,11 +2407,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2249,11 +2438,11 @@ declare namespace gapi.client {
       /** Verifies KMS config reachability. */
       verify(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2278,11 +2467,11 @@ declare namespace gapi.client {
       verify(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2309,11 +2498,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2338,11 +2527,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2367,11 +2556,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2394,11 +2583,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2421,11 +2610,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2458,11 +2647,11 @@ declare namespace gapi.client {
       /** Creates a new storage pool. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2489,11 +2678,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2520,11 +2709,11 @@ declare namespace gapi.client {
       /** Warning! This operation will permanently delete the storage pool. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2547,11 +2736,11 @@ declare namespace gapi.client {
       /** Returns the description of the specified storage pool by poolId. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2574,11 +2763,11 @@ declare namespace gapi.client {
       /** Returns descriptions of all storage pools owned by the caller. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2609,11 +2798,11 @@ declare namespace gapi.client {
       /** Updates the storage pool properties with the full spec */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2640,11 +2829,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2671,11 +2860,11 @@ declare namespace gapi.client {
       /** This operation will switch the active/replica zone for a regional storagePool. */
       switch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2700,11 +2889,11 @@ declare namespace gapi.client {
       switch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2729,11 +2918,11 @@ declare namespace gapi.client {
       /** ValidateDirectoryService does a connectivity check for a directory service policy attached to the storage pool. */
       validateDirectoryService(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2758,11 +2947,11 @@ declare namespace gapi.client {
       validateDirectoryService(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2789,11 +2978,11 @@ declare namespace gapi.client {
       /** Creates a new quota rule. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2820,11 +3009,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2851,11 +3040,11 @@ declare namespace gapi.client {
       /** Deletes a quota rule. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2878,11 +3067,11 @@ declare namespace gapi.client {
       /** Returns details of the specified quota rule. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2905,11 +3094,11 @@ declare namespace gapi.client {
       /** Returns list of all quota rules in a location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2940,11 +3129,11 @@ declare namespace gapi.client {
       /** Updates a quota rule. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2971,11 +3160,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3004,11 +3193,11 @@ declare namespace gapi.client {
       /** Create a new replication for a volume. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3035,11 +3224,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3066,11 +3255,11 @@ declare namespace gapi.client {
       /** Deletes a replication. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3093,11 +3282,11 @@ declare namespace gapi.client {
       /** Establish replication peering. */
       establishPeering(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3122,11 +3311,11 @@ declare namespace gapi.client {
       establishPeering(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3151,11 +3340,11 @@ declare namespace gapi.client {
       /** Describe a replication for a volume. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3178,11 +3367,11 @@ declare namespace gapi.client {
       /** Returns descriptions of all replications for a volume. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3213,11 +3402,11 @@ declare namespace gapi.client {
       /** Updates the settings of a specific replication. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3244,11 +3433,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3275,11 +3464,11 @@ declare namespace gapi.client {
       /** Resume Cross Region Replication. */
       resume(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3304,11 +3493,11 @@ declare namespace gapi.client {
       resume(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3333,11 +3522,11 @@ declare namespace gapi.client {
       /** Reverses direction of replication. Source becomes destination and destination becomes source. */
       reverseDirection(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3362,11 +3551,11 @@ declare namespace gapi.client {
       reverseDirection(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3391,11 +3580,11 @@ declare namespace gapi.client {
       /** Stop Cross Region Replication. */
       stop(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3420,11 +3609,11 @@ declare namespace gapi.client {
       stop(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3449,11 +3638,11 @@ declare namespace gapi.client {
       /** Syncs the replication. This will invoke one time volume data transfer from source to destination. */
       sync(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3478,11 +3667,11 @@ declare namespace gapi.client {
       sync(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3509,11 +3698,11 @@ declare namespace gapi.client {
       /** Create a new snapshot for a volume. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3540,11 +3729,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3571,11 +3760,11 @@ declare namespace gapi.client {
       /** Deletes a snapshot. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3598,11 +3787,11 @@ declare namespace gapi.client {
       /** Describe a snapshot for a volume. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3625,11 +3814,11 @@ declare namespace gapi.client {
       /** Returns descriptions of all snapshots for a volume. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3660,11 +3849,11 @@ declare namespace gapi.client {
       /** Updates the settings of a specific snapshot. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3691,11 +3880,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3724,11 +3913,11 @@ declare namespace gapi.client {
       /** Creates a new Volume in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3755,11 +3944,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3786,11 +3975,11 @@ declare namespace gapi.client {
       /** Deletes a single Volume. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3815,11 +4004,11 @@ declare namespace gapi.client {
       /** Establish volume peering. This is used to establish cluster and svm peerings between the GCNV and OnPrem clusters. */
       establishPeering(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3844,11 +4033,11 @@ declare namespace gapi.client {
       establishPeering(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3873,11 +4062,11 @@ declare namespace gapi.client {
       /** Gets details of a single Volume. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3900,11 +4089,11 @@ declare namespace gapi.client {
       /** Lists Volumes in a given project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3935,11 +4124,11 @@ declare namespace gapi.client {
       /** Updates the parameters of a single Volume. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3966,11 +4155,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3997,11 +4186,11 @@ declare namespace gapi.client {
       /** Restore files from a backup to a volume. */
       restore(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4026,11 +4215,11 @@ declare namespace gapi.client {
       restore(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4055,11 +4244,11 @@ declare namespace gapi.client {
       /** Revert an existing volume to a specified snapshot. Warning! This operation will permanently revert all changes made after the snapshot was created. */
       revert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4084,11 +4273,11 @@ declare namespace gapi.client {
       revert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4118,11 +4307,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4145,11 +4334,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */

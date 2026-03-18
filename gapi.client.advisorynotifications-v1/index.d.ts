@@ -74,7 +74,12 @@ declare namespace gapi.client {
       /** The resource name of the notification. Format: organizations/{organization}/locations/{location}/notifications/{notification} or projects/{project}/locations/{location}/notifications/{notification}. */
       name?: string;
       /** Type of notification */
-      notificationType?: string;
+      notificationType?:
+        | 'NOTIFICATION_TYPE_UNSPECIFIED'
+        | 'NOTIFICATION_TYPE_SECURITY_PRIVACY_ADVISORY'
+        | 'NOTIFICATION_TYPE_SENSITIVE_ACTIONS'
+        | 'NOTIFICATION_TYPE_SECURITY_MSA'
+        | 'NOTIFICATION_TYPE_THREAT_HORIZONS';
       /** The subject line of the notification. */
       subject?: GoogleCloudAdvisorynotificationsV1Subject;
     }
@@ -100,7 +105,11 @@ declare namespace gapi.client {
       /** The English copy. */
       enText?: string;
       /** Status of the localization. */
-      localizationState?: string;
+      localizationState?:
+        | 'LOCALIZATION_STATE_UNSPECIFIED'
+        | 'LOCALIZATION_STATE_NOT_APPLICABLE'
+        | 'LOCALIZATION_STATE_PENDING'
+        | 'LOCALIZATION_STATE_COMPLETED';
       /** The requested localized copy (if applicable). */
       localizedText?: string;
     }
@@ -108,11 +117,11 @@ declare namespace gapi.client {
       /** Gets a notification. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -137,11 +146,11 @@ declare namespace gapi.client {
       /** Lists notifications under a given parent. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -167,18 +176,18 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Specifies which parts of the notification resource should be returned in the response. */
-        view?: string;
+        view?: 'NOTIFICATION_VIEW_UNSPECIFIED' | 'BASIC' | 'FULL';
       }): Request<GoogleCloudAdvisorynotificationsV1ListNotificationsResponse>;
     }
     interface LocationsResource {
       /** Get notification settings. */
       getSettings(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -201,11 +210,11 @@ declare namespace gapi.client {
       /** Update notification settings. */
       updateSettings(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -230,11 +239,11 @@ declare namespace gapi.client {
       updateSettings(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -265,11 +274,11 @@ declare namespace gapi.client {
       /** Gets a notification. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -294,11 +303,11 @@ declare namespace gapi.client {
       /** Lists notifications under a given parent. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -324,18 +333,18 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Specifies which parts of the notification resource should be returned in the response. */
-        view?: string;
+        view?: 'NOTIFICATION_VIEW_UNSPECIFIED' | 'BASIC' | 'FULL';
       }): Request<GoogleCloudAdvisorynotificationsV1ListNotificationsResponse>;
     }
     interface LocationsResource {
       /** Get notification settings. */
       getSettings(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -358,11 +367,11 @@ declare namespace gapi.client {
       /** Update notification settings. */
       updateSettings(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -387,11 +396,11 @@ declare namespace gapi.client {
       updateSettings(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

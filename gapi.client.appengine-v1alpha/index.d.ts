@@ -65,7 +65,7 @@ declare namespace gapi.client {
       /** The previous and current reasons for a container state will be sent for a container event. CLHs that need to know the signal that caused the container event to trigger (edges) as opposed to just knowing the state can act upon differences in the previous and current reasons.Reasons will be provided for every system: service management, data governance, abuse, and billing.If this is a CCFE-triggered event used for reconciliation then the current reasons will be set to their *_CONTROL_PLANE_SYNC state. The previous reasons will contain the last known set of non-unknown non-control_plane_sync reasons for the state. */
       previousReasons?: Reasons;
       /** The current state of the container. This state is the culmination of all of the opinions from external systems that CCFE knows about of the container. */
-      state?: string;
+      state?: 'UNKNOWN_STATE' | 'ON' | 'OFF' | 'DELETED';
     }
     interface CreateVersionMetadataV1 {
       /** The Cloud Build ID if one was created as part of the version create. @OutputOnly */
@@ -160,7 +160,15 @@ declare namespace gapi.client {
       /** Time at which the certificate was last renewed. The renewal process is fully managed. Certificate renewal will automatically occur before the certificate expires. Renewal errors can be tracked via ManagementStatus.@OutputOnly */
       lastRenewalTime?: string;
       /** Status of certificate management. Refers to the most recent certificate acquisition or renewal attempt.@OutputOnly */
-      status?: string;
+      status?:
+        | 'UNSPECIFIED_STATUS'
+        | 'OK'
+        | 'PENDING'
+        | 'FAILED_RETRYING_INTERNAL'
+        | 'FAILED_RETRYING_NOT_VISIBLE'
+        | 'FAILED_PERMANENTLY_NOT_VISIBLE'
+        | 'FAILED_RETRYING_CAA_FORBIDDEN'
+        | 'FAILED_RETRYING_CAA_CHECKING';
     }
     interface Operation {
       /** If the value is false, it means the operation is still in progress. If true, the operation is completed, and either error or response is available. */
@@ -229,7 +237,10 @@ declare namespace gapi.client {
       /** The unique ID for this project event. CLHs can use this value to dedup repeated calls. required */
       eventId?: string;
       /** Phase indicates when in the container event propagation this event is being communicated. Events are sent before and after the per-resource events are propagated. required */
-      phase?: string;
+      phase?:
+        | 'CONTAINER_EVENT_PHASE_UNSPECIFIED'
+        | 'BEFORE_RESOURCE_HANDLING'
+        | 'AFTER_RESOURCE_HANDLING';
       /** The projects metadata for this project. required */
       projectMetadata?: ProjectsMetadata;
       /** The state of the organization that led to this event. */
@@ -241,7 +252,7 @@ declare namespace gapi.client {
       /** The consumer project number. */
       consumerProjectNumber?: string;
       /** The CCFE state of the consumer project. It is the same state that is communicated to the CLH during project events. Notice that this field is not set in the DB, it is only set in this proto when communicated to CLH in the side channel. */
-      consumerProjectState?: string;
+      consumerProjectState?: 'UNKNOWN_STATE' | 'ON' | 'OFF' | 'DELETED';
       /** The GCE tags associated with the consumer project and those inherited due to their ancestry, if any. Not supported by CCFE. */
       gceTag?: GceTag[];
       /** DEPRECATED: Indicates whether the GCE project is in the DEPROVISIONING state. This field is a temporary workaround (see b/475310865) to allow GCE extensions to bypass certain checks during deprovisioning. It will be replaced by a permanent solution in the future. */
@@ -258,12 +269,37 @@ declare namespace gapi.client {
       tenantProjectNumber?: string;
     }
     interface Reasons {
-      abuse?: string;
-      billing?: string;
-      dataGovernance?: string;
+      abuse?:
+        | 'ABUSE_UNKNOWN_REASON'
+        | 'ABUSE_CONTROL_PLANE_SYNC'
+        | 'SUSPEND'
+        | 'REINSTATE';
+      billing?:
+        | 'BILLING_UNKNOWN_REASON'
+        | 'BILLING_CONTROL_PLANE_SYNC'
+        | 'PROBATION'
+        | 'CLOSE'
+        | 'OPEN';
+      dataGovernance?:
+        | 'DATA_GOVERNANCE_UNKNOWN_REASON'
+        | 'DATA_GOVERNANCE_CONTROL_PLANE_SYNC'
+        | 'HIDE'
+        | 'UNHIDE'
+        | 'PURGE';
       /** Consumer Container denotes if the service is active within a project or not. This information could be used to clean up resources in case service in DISABLED_FULL i.e. Service is inactive > 30 days. */
-      serviceActivation?: string;
-      serviceManagement?: string;
+      serviceActivation?:
+        | 'SERVICE_ACTIVATION_STATUS_UNSPECIFIED'
+        | 'SERVICE_ACTIVATION_ENABLED'
+        | 'SERVICE_ACTIVATION_DISABLED'
+        | 'SERVICE_ACTIVATION_DISABLED_FULL'
+        | 'SERVICE_ACTIVATION_UNKNOWN_REASON';
+      serviceManagement?:
+        | 'SERVICE_MANAGEMENT_UNKNOWN_REASON'
+        | 'SERVICE_MANAGEMENT_CONTROL_PLANE_SYNC'
+        | 'ACTIVATION'
+        | 'PREPARE_DEACTIVATION'
+        | 'ABORT_DEACTIVATION'
+        | 'COMMIT_DEACTIVATION';
     }
     interface ResourceEvent {
       /** The unique ID for this per-resource event. CLHs can use this value to dedup repeated calls. required */
@@ -279,7 +315,7 @@ declare namespace gapi.client {
       /** Data for this record. Values vary by record type, as defined in RFC 1035 (section 5) and RFC 1034 (section 3.6.1). */
       rrdata?: string;
       /** Resource record type. Example: AAAA. */
-      type?: string;
+      type?: 'A' | 'AAAA' | 'CNAME';
     }
     interface SslSettings {
       /** ID of the AuthorizedCertificate resource configuring SSL for the application. Clearing this field will remove SSL support.By default, a managed certificate is automatically created for every domain mapping. To omit SSL support or to configure SSL manually, specify no_managed_certificate on a CREATE or UPDATE request. You must be authorized to administer the AuthorizedCertificate resource to manually map it to a DomainMapping resource. Example: 12345. */
@@ -299,11 +335,11 @@ declare namespace gapi.client {
       /** Uploads the specified SSL certificate. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */
         appsId: string;
         /** JSONP */
@@ -328,11 +364,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */
           appsId: string;
           /** JSONP */
@@ -357,11 +393,11 @@ declare namespace gapi.client {
       /** Deletes the specified SSL certificate. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Required. Name of the resource to delete. Example: apps/myapp/authorizedCertificates/12345. */
         appsId: string;
         /** Part of `name`. See documentation of `appsId`. */
@@ -386,11 +422,11 @@ declare namespace gapi.client {
       /** Gets the specified SSL certificate. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Required. Name of the resource requested. Example: apps/myapp/authorizedCertificates/12345. */
         appsId: string;
         /** Part of `name`. See documentation of `appsId`. */
@@ -412,16 +448,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Controls the set of fields returned in the GET response. */
-        view?: string;
+        view?: 'BASIC_CERTIFICATE' | 'FULL_CERTIFICATE';
       }): Request<AuthorizedCertificate>;
       /** Lists all SSL certificates the user is authorized to administer. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */
         appsId: string;
         /** JSONP */
@@ -445,16 +481,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Controls the set of fields returned in the LIST response. */
-        view?: string;
+        view?: 'BASIC_CERTIFICATE' | 'FULL_CERTIFICATE';
       }): Request<ListAuthorizedCertificatesResponse>;
       /** Updates the specified SSL certificate. To renew a certificate and maintain its existing domain mappings, update certificate_data with a new certificate. The new certificate must be applicable to the same domains as the original certificate. The certificate display_name may also be updated. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Required. Name of the resource to update. Example: apps/myapp/authorizedCertificates/12345. */
         appsId: string;
         /** Part of `name`. See documentation of `appsId`. */
@@ -483,11 +519,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `name`. Required. Name of the resource to update. Example: apps/myapp/authorizedCertificates/12345. */
           appsId: string;
           /** Part of `name`. See documentation of `appsId`. */
@@ -518,11 +554,11 @@ declare namespace gapi.client {
       /** Lists all domains the user is authorized to administer. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */
         appsId: string;
         /** JSONP */
@@ -551,11 +587,11 @@ declare namespace gapi.client {
       /** Maps a domain to an application. A user must be authorized to administer a domain in order to map it to an application. For a list of available authorized domains, see AuthorizedDomains.ListAuthorizedDomains. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */
         appsId: string;
         /** JSONP */
@@ -569,7 +605,10 @@ declare namespace gapi.client {
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Whether the domain creation should override any existing mappings for this domain. By default, overrides are rejected. */
-        overrideStrategy?: string;
+        overrideStrategy?:
+          | 'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY'
+          | 'STRICT'
+          | 'OVERRIDE';
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
@@ -584,11 +623,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */
           appsId: string;
           /** JSONP */
@@ -602,7 +641,10 @@ declare namespace gapi.client {
           /** OAuth 2.0 token for the current user. */
           oauth_token?: string;
           /** Whether the domain creation should override any existing mappings for this domain. By default, overrides are rejected. */
-          overrideStrategy?: string;
+          overrideStrategy?:
+            | 'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY'
+            | 'STRICT'
+            | 'OVERRIDE';
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
           /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
@@ -617,11 +659,11 @@ declare namespace gapi.client {
       /** Deletes the specified domain mapping. A user must be authorized to administer the associated domain in order to delete a DomainMapping resource. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Required. Name of the resource to delete. Example: apps/myapp/domainMappings/example.com. */
         appsId: string;
         /** JSONP */
@@ -646,11 +688,11 @@ declare namespace gapi.client {
       /** Gets the specified domain mapping. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Required. Name of the resource requested. Example: apps/myapp/domainMappings/example.com. */
         appsId: string;
         /** JSONP */
@@ -675,11 +717,11 @@ declare namespace gapi.client {
       /** Lists the domain mappings on an application. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */
         appsId: string;
         /** JSONP */
@@ -706,11 +748,11 @@ declare namespace gapi.client {
       /** Updates the specified domain mapping. To map an SSL certificate to a domain mapping, update certificate_id to point to an AuthorizedCertificate resource. A user must be authorized to administer the associated domain in order to update a DomainMapping resource. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Required. Name of the resource to update. Example: apps/myapp/domainMappings/example.com. */
         appsId: string;
         /** JSONP */
@@ -741,11 +783,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `name`. Required. Name of the resource to update. Example: apps/myapp/domainMappings/example.com. */
           appsId: string;
           /** JSONP */
@@ -778,11 +820,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Resource name for the location. */
         appsId: string;
         /** JSONP */
@@ -807,11 +849,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: List all public locations: Use the path GET /v1/locations. List project-visible locations: Use the path GET /v1/projects/{project_id}/locations. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. The resource that owns the locations collection, if applicable. */
         appsId: string;
         /** JSONP */
@@ -844,11 +886,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. The name of the operation resource. */
         appsId: string;
         /** JSONP */
@@ -873,11 +915,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. The name of the operation's parent resource. */
         appsId: string;
         /** JSONP */
@@ -917,11 +959,11 @@ declare namespace gapi.client {
       /** Uploads the specified SSL certificate. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. See documentation of `projectsId`. */
         applicationsId: string;
         /** JSONP */
@@ -950,11 +992,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `parent`. See documentation of `projectsId`. */
           applicationsId: string;
           /** JSONP */
@@ -983,11 +1025,11 @@ declare namespace gapi.client {
       /** Deletes the specified SSL certificate. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. See documentation of `projectsId`. */
         applicationsId: string;
         /** Part of `name`. See documentation of `projectsId`. */
@@ -1016,11 +1058,11 @@ declare namespace gapi.client {
       /** Gets the specified SSL certificate. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. See documentation of `projectsId`. */
         applicationsId: string;
         /** Part of `name`. See documentation of `projectsId`. */
@@ -1046,16 +1088,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Controls the set of fields returned in the GET response. */
-        view?: string;
+        view?: 'BASIC_CERTIFICATE' | 'FULL_CERTIFICATE';
       }): Request<AuthorizedCertificate>;
       /** Lists all SSL certificates the user is authorized to administer. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. See documentation of `projectsId`. */
         applicationsId: string;
         /** JSONP */
@@ -1083,16 +1125,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Controls the set of fields returned in the LIST response. */
-        view?: string;
+        view?: 'BASIC_CERTIFICATE' | 'FULL_CERTIFICATE';
       }): Request<ListAuthorizedCertificatesResponse>;
       /** Updates the specified SSL certificate. To renew a certificate and maintain its existing domain mappings, update certificate_data with a new certificate. The new certificate must be applicable to the same domains as the original certificate. The certificate display_name may also be updated. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. See documentation of `projectsId`. */
         applicationsId: string;
         /** Part of `name`. See documentation of `projectsId`. */
@@ -1125,11 +1167,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `name`. See documentation of `projectsId`. */
           applicationsId: string;
           /** Part of `name`. See documentation of `projectsId`. */
@@ -1164,11 +1206,11 @@ declare namespace gapi.client {
       /** Lists all domains the user is authorized to administer. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. See documentation of `projectsId`. */
         applicationsId: string;
         /** JSONP */
@@ -1201,11 +1243,11 @@ declare namespace gapi.client {
       /** Maps a domain to an application. A user must be authorized to administer a domain in order to map it to an application. For a list of available authorized domains, see AuthorizedDomains.ListAuthorizedDomains. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. See documentation of `projectsId`. */
         applicationsId: string;
         /** JSONP */
@@ -1221,7 +1263,10 @@ declare namespace gapi.client {
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Whether the domain creation should override any existing mappings for this domain. By default, overrides are rejected. */
-        overrideStrategy?: string;
+        overrideStrategy?:
+          | 'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY'
+          | 'STRICT'
+          | 'OVERRIDE';
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */
@@ -1238,11 +1283,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `parent`. See documentation of `projectsId`. */
           applicationsId: string;
           /** JSONP */
@@ -1258,7 +1303,10 @@ declare namespace gapi.client {
           /** OAuth 2.0 token for the current user. */
           oauth_token?: string;
           /** Whether the domain creation should override any existing mappings for this domain. By default, overrides are rejected. */
-          overrideStrategy?: string;
+          overrideStrategy?:
+            | 'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY'
+            | 'STRICT'
+            | 'OVERRIDE';
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
           /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */
@@ -1275,11 +1323,11 @@ declare namespace gapi.client {
       /** Deletes the specified domain mapping. A user must be authorized to administer the associated domain in order to delete a DomainMapping resource. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. See documentation of `projectsId`. */
         applicationsId: string;
         /** JSONP */
@@ -1308,11 +1356,11 @@ declare namespace gapi.client {
       /** Gets the specified domain mapping. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. See documentation of `projectsId`. */
         applicationsId: string;
         /** JSONP */
@@ -1341,11 +1389,11 @@ declare namespace gapi.client {
       /** Lists the domain mappings on an application. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. See documentation of `projectsId`. */
         applicationsId: string;
         /** JSONP */
@@ -1376,11 +1424,11 @@ declare namespace gapi.client {
       /** Updates the specified domain mapping. To map an SSL certificate to a domain mapping, update certificate_id to point to an AuthorizedCertificate resource. A user must be authorized to administer the associated domain in order to update a DomainMapping resource. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. See documentation of `projectsId`. */
         applicationsId: string;
         /** JSONP */
@@ -1415,11 +1463,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `name`. See documentation of `projectsId`. */
           applicationsId: string;
           /** JSONP */
@@ -1461,11 +1509,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1492,11 +1540,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1531,11 +1579,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1560,11 +1608,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: List all public locations: Use the path GET /v1/locations. List project-visible locations: Use the path GET /v1/projects/{project_id}/locations. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */

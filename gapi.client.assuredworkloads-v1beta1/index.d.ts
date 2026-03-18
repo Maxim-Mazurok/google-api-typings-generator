@@ -30,7 +30,10 @@ declare namespace gapi.client {
   namespace assuredworkloads {
     interface GoogleCloudAssuredworkloadsV1beta1AcknowledgeViolationRequest {
       /** Optional. Acknowledge type of specified violation. */
-      acknowledgeType?: string;
+      acknowledgeType?:
+        | 'ACKNOWLEDGE_TYPE_UNSPECIFIED'
+        | 'SINGLE_VIOLATION'
+        | 'EXISTING_CHILD_RESOURCE_VIOLATIONS';
       /** Required. Business justification explaining the need for violation acknowledgement */
       comment?: string;
       /** Optional. This field is deprecated and will be removed in future version of the API. Name of the OrgPolicy which was modified with non-compliant change and resulted in this violation. Format: projects/{project_number}/policies/{constraint_name} folders/{folder_id}/policies/{constraint_name} organizations/{organization_id}/policies/{constraint_name} */
@@ -45,7 +48,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudAssuredworkloadsV1beta1ApplyWorkloadUpdateOperationMetadata {
       /** Optional. The time the operation was created. */
-      action?: string;
+      action?: 'WORKLOAD_UPDATE_ACTION_UNSPECIFIED' | 'APPLY';
       /** Optional. Output only. The time the operation was created. */
       createTime?: string;
       /** Required. The resource name of the update */
@@ -53,7 +56,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudAssuredworkloadsV1beta1ApplyWorkloadUpdateRequest {
       /** The action to be performed on the update. */
-      action?: string;
+      action?: 'WORKLOAD_UPDATE_ACTION_UNSPECIFIED' | 'APPLY';
     }
     interface GoogleCloudAssuredworkloadsV1beta1ApplyWorkloadUpdateResponse {
       /** The update that was applied. */
@@ -69,7 +72,52 @@ declare namespace gapi.client {
     }
     interface GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata {
       /** Optional. Compliance controls that should be applied to the resources managed by the workload. */
-      complianceRegime?: string;
+      complianceRegime?:
+        | 'COMPLIANCE_REGIME_UNSPECIFIED'
+        | 'IL4'
+        | 'CJIS'
+        | 'FEDRAMP_HIGH'
+        | 'FEDRAMP_MODERATE'
+        | 'US_REGIONAL_ACCESS'
+        | 'HIPAA'
+        | 'HITRUST'
+        | 'EU_REGIONS_AND_SUPPORT'
+        | 'CA_REGIONS_AND_SUPPORT'
+        | 'ITAR'
+        | 'AU_REGIONS_AND_US_SUPPORT'
+        | 'ASSURED_WORKLOADS_FOR_PARTNERS'
+        | 'ISR_REGIONS'
+        | 'ISR_REGIONS_AND_SUPPORT'
+        | 'CA_PROTECTED_B'
+        | 'IL5'
+        | 'IL2'
+        | 'JP_REGIONS_AND_SUPPORT'
+        | 'KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS'
+        | 'REGIONAL_CONTROLS'
+        | 'HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS'
+        | 'HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS_US_SUPPORT'
+        | 'IRS_1075'
+        | 'CANADA_CONTROLLED_GOODS'
+        | 'AUSTRALIA_DATA_BOUNDARY_AND_SUPPORT'
+        | 'CANADA_DATA_BOUNDARY_AND_SUPPORT'
+        | 'DATA_BOUNDARY_FOR_CANADA_CONTROLLED_GOODS'
+        | 'DATA_BOUNDARY_FOR_CANADA_PROTECTED_B'
+        | 'DATA_BOUNDARY_FOR_CJIS'
+        | 'DATA_BOUNDARY_FOR_FEDRAMP_HIGH'
+        | 'DATA_BOUNDARY_FOR_FEDRAMP_MODERATE'
+        | 'DATA_BOUNDARY_FOR_IL2'
+        | 'DATA_BOUNDARY_FOR_IL4'
+        | 'DATA_BOUNDARY_FOR_IL5'
+        | 'DATA_BOUNDARY_FOR_IRS_PUBLICATION_1075'
+        | 'DATA_BOUNDARY_FOR_ITAR'
+        | 'EU_DATA_BOUNDARY_AND_SUPPORT'
+        | 'ISRAEL_DATA_BOUNDARY_AND_SUPPORT'
+        | 'US_DATA_BOUNDARY_AND_SUPPORT'
+        | 'US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES'
+        | 'US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES_WITH_SUPPORT'
+        | 'KSA_DATA_BOUNDARY_WITH_ACCESS_JUSTIFICATIONS'
+        | 'REGIONAL_DATA_BOUNDARY'
+        | 'JAPAN_DATA_BOUNDARY';
       /** Optional. Time when the operation was created. */
       createTime?: string;
       /** Optional. The display name of the workload. */
@@ -153,7 +201,11 @@ declare namespace gapi.client {
     }
     interface GoogleCloudAssuredworkloadsV1beta1RestrictAllowedResourcesRequest {
       /** Required. The type of restriction for using gcp products in the Workload environment. */
-      restrictionType?: string;
+      restrictionType?:
+        | 'RESTRICTION_TYPE_UNSPECIFIED'
+        | 'ALLOW_ALL_GCP_RESOURCES'
+        | 'ALLOW_COMPLIANT_RESOURCES'
+        | 'APPEND_COMPLIANT_RESOURCES';
     }
     interface GoogleCloudAssuredworkloadsV1beta1RestrictAllowedResourcesResponse {}
     interface GoogleCloudAssuredworkloadsV1beta1UpdateDetails {
@@ -196,11 +248,11 @@ declare namespace gapi.client {
       /** Optional. Output only. Type of the resource like compute.googleapis.com/Disk, etc. Empty for org-policy violations. */
       resourceType?: string;
       /** Output only. State of the violation */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'RESOLVED' | 'UNRESOLVED' | 'EXCEPTION';
       /** Output only. The last time when the Violation record was updated. */
       updateTime?: string;
       /** Output only. Type of the violation */
-      violationType?: string;
+      violationType?: 'VIOLATION_TYPE_UNSPECIFIED' | 'ORG_POLICY' | 'RESOURCE';
     }
     interface GoogleCloudAssuredworkloadsV1beta1ViolationExceptionContext {
       /** Timestamp when the violation was acknowledged. */
@@ -216,7 +268,14 @@ declare namespace gapi.client {
       /** Required. Remediation instructions to resolve violations */
       instructions?: GoogleCloudAssuredworkloadsV1beta1ViolationRemediationInstructions;
       /** Output only. Reemediation type based on the type of org policy values violated */
-      remediationType?: string;
+      remediationType?:
+        | 'REMEDIATION_TYPE_UNSPECIFIED'
+        | 'REMEDIATION_BOOLEAN_ORG_POLICY_VIOLATION'
+        | 'REMEDIATION_LIST_ALLOWED_VALUES_ORG_POLICY_VIOLATION'
+        | 'REMEDIATION_LIST_DENIED_VALUES_ORG_POLICY_VIOLATION'
+        | 'REMEDIATION_RESTRICT_CMEK_CRYPTO_KEY_PROJECTS_ORG_POLICY_VIOLATION'
+        | 'REMEDIATION_RESOURCE_VIOLATION'
+        | 'REMEDIATION_RESOURCE_VIOLATION_NON_CMEK_SERVICES';
     }
     interface GoogleCloudAssuredworkloadsV1beta1ViolationRemediationInstructions {
       /** Remediation instructions to resolve violation via cloud console */
@@ -248,7 +307,52 @@ declare namespace gapi.client {
       /** Input only. Immutable. Settings specific to resources needed for CJIS. */
       cjisSettings?: GoogleCloudAssuredworkloadsV1beta1WorkloadCJISSettings;
       /** Required. Immutable. Compliance Regime associated with this workload. */
-      complianceRegime?: string;
+      complianceRegime?:
+        | 'COMPLIANCE_REGIME_UNSPECIFIED'
+        | 'IL4'
+        | 'CJIS'
+        | 'FEDRAMP_HIGH'
+        | 'FEDRAMP_MODERATE'
+        | 'US_REGIONAL_ACCESS'
+        | 'HIPAA'
+        | 'HITRUST'
+        | 'EU_REGIONS_AND_SUPPORT'
+        | 'CA_REGIONS_AND_SUPPORT'
+        | 'ITAR'
+        | 'AU_REGIONS_AND_US_SUPPORT'
+        | 'ASSURED_WORKLOADS_FOR_PARTNERS'
+        | 'ISR_REGIONS'
+        | 'ISR_REGIONS_AND_SUPPORT'
+        | 'CA_PROTECTED_B'
+        | 'IL5'
+        | 'IL2'
+        | 'JP_REGIONS_AND_SUPPORT'
+        | 'KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS'
+        | 'REGIONAL_CONTROLS'
+        | 'HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS'
+        | 'HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS_US_SUPPORT'
+        | 'IRS_1075'
+        | 'CANADA_CONTROLLED_GOODS'
+        | 'AUSTRALIA_DATA_BOUNDARY_AND_SUPPORT'
+        | 'CANADA_DATA_BOUNDARY_AND_SUPPORT'
+        | 'DATA_BOUNDARY_FOR_CANADA_CONTROLLED_GOODS'
+        | 'DATA_BOUNDARY_FOR_CANADA_PROTECTED_B'
+        | 'DATA_BOUNDARY_FOR_CJIS'
+        | 'DATA_BOUNDARY_FOR_FEDRAMP_HIGH'
+        | 'DATA_BOUNDARY_FOR_FEDRAMP_MODERATE'
+        | 'DATA_BOUNDARY_FOR_IL2'
+        | 'DATA_BOUNDARY_FOR_IL4'
+        | 'DATA_BOUNDARY_FOR_IL5'
+        | 'DATA_BOUNDARY_FOR_IRS_PUBLICATION_1075'
+        | 'DATA_BOUNDARY_FOR_ITAR'
+        | 'EU_DATA_BOUNDARY_AND_SUPPORT'
+        | 'ISRAEL_DATA_BOUNDARY_AND_SUPPORT'
+        | 'US_DATA_BOUNDARY_AND_SUPPORT'
+        | 'US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES'
+        | 'US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES_WITH_SUPPORT'
+        | 'KSA_DATA_BOUNDARY_WITH_ACCESS_JUSTIFICATIONS'
+        | 'REGIONAL_DATA_BOUNDARY'
+        | 'JAPAN_DATA_BOUNDARY';
       /** Output only. Count of active Violations in the Workload. */
       complianceStatus?: GoogleCloudAssuredworkloadsV1beta1WorkloadComplianceStatus;
       /** Output only. Indicates whether the compliance updates feature is enabled for a workload. The compliance updates feature can be enabled via the EnableComplianceUpdates endpoint. */
@@ -272,7 +376,10 @@ declare namespace gapi.client {
       /** Input only. Immutable. Settings specific to resources needed for IL4. */
       il4Settings?: GoogleCloudAssuredworkloadsV1beta1WorkloadIL4Settings;
       /** Output only. Represents the KAJ enrollment state of the given workload. */
-      kajEnrollmentState?: string;
+      kajEnrollmentState?:
+        | 'KAJ_ENROLLMENT_STATE_UNSPECIFIED'
+        | 'KAJ_ENROLLMENT_STATE_PENDING'
+        | 'KAJ_ENROLLMENT_STATE_COMPLETE';
       /** Input only. Settings used to create a CMEK crypto key. When set, a project with a KMS CMEK key is provisioned. This field is deprecated as of Feb 28, 2022. In order to create a Keyring, callers should specify, ENCRYPTION_KEYS_PROJECT or KEYRING in ResourceSettings.resource_type field. */
       kmsSettings?: GoogleCloudAssuredworkloadsV1beta1WorkloadKMSSettings;
       /** Optional. Labels applied to the workload. */
@@ -280,7 +387,15 @@ declare namespace gapi.client {
       /** Optional. The resource name of the workload. Format: organizations/{organization}/locations/{location}/workloads/{workload} Read-only. */
       name?: string;
       /** Optional. Partner regime associated with this workload. */
-      partner?: string;
+      partner?:
+        | 'PARTNER_UNSPECIFIED'
+        | 'LOCAL_CONTROLS_BY_S3NS'
+        | 'SOVEREIGN_CONTROLS_BY_T_SYSTEMS'
+        | 'SOVEREIGN_CONTROLS_BY_SIA_MINSAIT'
+        | 'SOVEREIGN_CONTROLS_BY_PSN'
+        | 'SOVEREIGN_CONTROLS_BY_CNTXT'
+        | 'SOVEREIGN_CONTROLS_BY_CNTXT_NO_EKM'
+        | 'SPAIN_DATA_BOUNDARY_BY_TELEFONICA';
       /** Optional. Permissions granted to the AW Partner SA account for the customer workload */
       partnerPermissions?: GoogleCloudAssuredworkloadsV1beta1WorkloadPartnerPermissions;
       /** Optional. Billing account necessary for purchasing services from Sovereign Partners. This field is required for creating SIA/PSN/CNTXT partner workloads. The caller should have 'billing.resourceAssociations.create' IAM permission on this billing-account. The format of this string is billingAccounts/AAAAAA-BBBBBB-CCCCCC */
@@ -316,11 +431,25 @@ declare namespace gapi.client {
     }
     interface GoogleCloudAssuredworkloadsV1beta1WorkloadEkmProvisioningResponse {
       /** Indicates Ekm provisioning error if any. */
-      ekmProvisioningErrorDomain?: string;
+      ekmProvisioningErrorDomain?:
+        | 'EKM_PROVISIONING_ERROR_DOMAIN_UNSPECIFIED'
+        | 'UNSPECIFIED_ERROR'
+        | 'GOOGLE_SERVER_ERROR'
+        | 'EXTERNAL_USER_ERROR'
+        | 'EXTERNAL_PARTNER_ERROR'
+        | 'TIMEOUT_ERROR';
       /** Detailed error message if Ekm provisioning fails */
-      ekmProvisioningErrorMapping?: string;
+      ekmProvisioningErrorMapping?:
+        | 'EKM_PROVISIONING_ERROR_MAPPING_UNSPECIFIED'
+        | 'INVALID_SERVICE_ACCOUNT'
+        | 'MISSING_METRICS_SCOPE_ADMIN_PERMISSION'
+        | 'MISSING_EKM_CONNECTION_ADMIN_PERMISSION';
       /** Output only. Indicates Ekm enrollment Provisioning of a given workload. */
-      ekmProvisioningState?: string;
+      ekmProvisioningState?:
+        | 'EKM_PROVISIONING_STATE_UNSPECIFIED'
+        | 'EKM_PROVISIONING_STATE_PENDING'
+        | 'EKM_PROVISIONING_STATE_FAILED'
+        | 'EKM_PROVISIONING_STATE_COMPLETED';
     }
     interface GoogleCloudAssuredworkloadsV1beta1WorkloadFedrampHighSettings {
       /** Input only. Immutable. Settings used to create a CMEK crypto key. */
@@ -354,7 +483,12 @@ declare namespace gapi.client {
       /** Output only. Resource identifier. For a project this represents project_number. */
       resourceId?: string;
       /** Indicates the type of resource. */
-      resourceType?: string;
+      resourceType?:
+        | 'RESOURCE_TYPE_UNSPECIFIED'
+        | 'CONSUMER_PROJECT'
+        | 'CONSUMER_FOLDER'
+        | 'ENCRYPTION_KEYS_PROJECT'
+        | 'KEYRING';
     }
     interface GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings {
       /** User-assigned resource display name. If not empty it will be used to create a resource with the specified name. */
@@ -362,13 +496,26 @@ declare namespace gapi.client {
       /** Resource identifier. For a project this represents project_id. If the project is already taken, the workload creation will fail. For KeyRing, this represents the keyring_id. For a folder, don't set this value as folder_id is assigned by Google. */
       resourceId?: string;
       /** Indicates the type of resource. This field should be specified to correspond the id to the right project type (CONSUMER_PROJECT or ENCRYPTION_KEYS_PROJECT) */
-      resourceType?: string;
+      resourceType?:
+        | 'RESOURCE_TYPE_UNSPECIFIED'
+        | 'CONSUMER_PROJECT'
+        | 'CONSUMER_FOLDER'
+        | 'ENCRYPTION_KEYS_PROJECT'
+        | 'KEYRING';
     }
     interface GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse {
       /** Indicates SAA enrollment setup error if any. */
-      setupErrors?: string[];
+      setupErrors?:
+        | 'SETUP_ERROR_UNSPECIFIED'
+        | 'ERROR_INVALID_BASE_SETUP'
+        | 'ERROR_MISSING_EXTERNAL_SIGNING_KEY'
+        | 'ERROR_NOT_ALL_SERVICES_ENROLLED'
+        | 'ERROR_SETUP_CHECK_FAILED'[];
       /** Output only. Indicates SAA enrollment status of a given workload. */
-      setupStatus?: string;
+      setupStatus?:
+        | 'SETUP_STATE_UNSPECIFIED'
+        | 'STATUS_PENDING'
+        | 'STATUS_COMPLETE';
     }
     interface GoogleCloudAssuredworkloadsV1beta1WorkloadUpdate {
       /** The time the update was created. */
@@ -378,13 +525,15 @@ declare namespace gapi.client {
       /** Output only. Immutable. Identifier. Resource name of the WorkloadUpdate. Format: organizations/{organization}/locations/{location}/workloads/{workload}/updates/{update} */
       name?: string;
       /** Output only. The state of the update. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'AVAILABLE' | 'APPLIED' | 'WITHDRAWN';
       /** The time the update was last updated. */
       updateTime?: string;
     }
     interface GoogleCloudAssuredworkloadsV1beta1WorkloadWorkloadOptions {
       /** Optional. Specifies type of KAJ Enrollment if provided. */
-      kajEnrollmentType?: string;
+      kajEnrollmentType?:
+        | 'KAJ_ENROLLMENT_TYPE_UNSPECIFIED'
+        | 'KEY_ACCESS_TRANSPARENCY_OFF';
     }
     interface GoogleLongrunningListOperationsResponse {
       /** The standard List next-page token. */
@@ -419,11 +568,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -446,11 +595,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -483,11 +632,11 @@ declare namespace gapi.client {
       /** This endpoint creates a new operation to apply the given update. */
       apply(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -512,11 +661,11 @@ declare namespace gapi.client {
       apply(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -541,11 +690,11 @@ declare namespace gapi.client {
       /** This endpoint lists all updates for the given workload. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -574,11 +723,11 @@ declare namespace gapi.client {
       /** Acknowledges an existing violation. By acknowledging a violation, users acknowledge the existence of a compliance violation in their workload and decide to ignore it due to a valid business justification. Acknowledgement is a permanent operation and it cannot be reverted. */
       acknowledge(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -603,11 +752,11 @@ declare namespace gapi.client {
       acknowledge(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -632,11 +781,11 @@ declare namespace gapi.client {
       /** Retrieves Assured Workload Violation based on ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -659,11 +808,11 @@ declare namespace gapi.client {
       /** Lists the Violations in the AssuredWorkload Environment. Callers may also choose to read across multiple Workloads as per [AIP-159](https://google.aip.dev/159) by using '-' (the hyphen or dash character) as a wildcard character instead of workload-id in the parent. Format `organizations/{org_id}/locations/{location}/workloads/-` */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -698,11 +847,11 @@ declare namespace gapi.client {
       /** Analyzes a hypothetical move of a source resource to a target workload to surface compliance risks. The analysis is best effort and is not guaranteed to be exhaustive. */
       analyzeWorkloadMove(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Optional. List of asset types to be analyzed, including and under the source resource. If empty, all assets are analyzed. The complete list of asset types is available [here](https://cloud.google.com/asset-inventory/docs/supported-asset-types). */
         assetTypes?: string | string[];
         /** JSONP */
@@ -733,11 +882,11 @@ declare namespace gapi.client {
       /** Creates Assured Workload. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. A identifier associated with the workload and underlying projects which allows for the break down of billing costs for a workload. The value provided for the identifier will add a label to the workload and contained projects with the identifier as the value. */
@@ -764,11 +913,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Optional. A identifier associated with the workload and underlying projects which allows for the break down of billing costs for a workload. The value provided for the identifier will add a label to the workload and contained projects with the identifier as the value. */
@@ -795,11 +944,11 @@ declare namespace gapi.client {
       /** Deletes the workload. Make sure that workload's direct children are already in a deleted state, otherwise the request will fail with a FAILED_PRECONDITION error. In addition to assuredworkloads.workload.delete permission, the user should also have orgpolicy.policy.set permission on the deleted folder to remove Assured Workloads OrgPolicies. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. The etag of the workload. If this is provided, it must match the server's etag. */
@@ -824,11 +973,11 @@ declare namespace gapi.client {
       /** This endpoint enables Assured Workloads service to offer compliance updates for the folder based assured workload. It sets up an Assured Workloads Service Agent, having permissions to read compliance controls (for example: Org Policies) applied on the workload. The caller must have `resourcemanager.folders.getIamPolicy` and `resourcemanager.folders.setIamPolicy` permissions on the assured workload folder. */
       enableComplianceUpdates(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -851,11 +1000,11 @@ declare namespace gapi.client {
       /** Enable resource violation monitoring for a workload. */
       enableResourceMonitoring(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -878,11 +1027,11 @@ declare namespace gapi.client {
       /** Gets Assured Workload associated with a CRM Node */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -905,11 +1054,11 @@ declare namespace gapi.client {
       /** Lists Assured Workloads under a CRM Node. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -938,11 +1087,11 @@ declare namespace gapi.client {
       /** Updates an existing workload. Currently allows updating of workload display_name and labels. For force updates don't set etag field in the Workload. Only one update operation per workload can be in progress. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -969,11 +1118,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1000,11 +1149,11 @@ declare namespace gapi.client {
       /** Restrict the list of resources allowed in the Workload environment. The current list of allowed products can be found at https://cloud.google.com/assured-workloads/docs/supported-products In addition to assuredworkloads.workload.update permission, the user should also have orgpolicy.policy.set permission on the folder resource to use this functionality. */
       restrictAllowedResources(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1029,11 +1178,11 @@ declare namespace gapi.client {
       restrictAllowedResources(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

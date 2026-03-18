@@ -30,14 +30,17 @@ declare namespace gapi.client {
     }
     interface AppDevExperienceStatus {
       /** Code specifies AppDevExperienceFeature's subcomponent ready state. */
-      code?: string;
+      code?: 'CODE_UNSPECIFIED' | 'OK' | 'FAILED' | 'UNKNOWN';
       /** Description is populated if Code is Failed, explaining why it has failed. */
       description?: string;
     }
     interface CancelOperationRequest {}
     interface CloudBuildSpec {
       /** Whether it is allowed to run the privileged builds on the cluster or not. */
-      securityPolicy?: string;
+      securityPolicy?:
+        | 'SECURITY_POLICY_UNSPECIFIED'
+        | 'NON_PRIVILEGED'
+        | 'PRIVILEGED';
       /** Version of the cloud build software on the cluster. */
       version?: string;
     }
@@ -67,7 +70,14 @@ declare namespace gapi.client {
     }
     interface ClusterUpgradeUpgradeStatus {
       /** Status code of the upgrade. */
-      code?: string;
+      code?:
+        | 'CODE_UNSPECIFIED'
+        | 'INELIGIBLE'
+        | 'PENDING'
+        | 'IN_PROGRESS'
+        | 'SOAKING'
+        | 'FORCED_SOAKING'
+        | 'COMPLETE';
       /** Reason for this status. */
       reason?: string;
       /** Last timestamp the status was updated. */
@@ -81,7 +91,12 @@ declare namespace gapi.client {
       /** The version of binauthz that is installed. */
       version?: ConfigManagementBinauthzVersion;
       /** The state of the binauthz webhook. */
-      webhook?: string;
+      webhook?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
     }
     interface ConfigManagementBinauthzVersion {
       /** The version of the binauthz webhook. */
@@ -107,23 +122,68 @@ declare namespace gapi.client {
     }
     interface ConfigManagementConfigSyncDeploymentState {
       /** Deployment state of admission-webhook. */
-      admissionWebhook?: string;
+      admissionWebhook?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
       /** Deployment state of the git-sync pod. */
-      gitSync?: string;
+      gitSync?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
       /** Deployment state of the importer pod. */
-      importer?: string;
+      importer?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
       /** Deployment state of the monitor pod. */
-      monitor?: string;
+      monitor?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
       /** Deployment state of otel-collector */
-      otelCollector?: string;
+      otelCollector?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
       /** Deployment state of reconciler-manager pod. */
-      reconcilerManager?: string;
+      reconcilerManager?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
       /** Deployment state of resource-group-controller-manager */
-      resourceGroupControllerManager?: string;
+      resourceGroupControllerManager?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
       /** Deployment state of root-reconciler. */
-      rootReconciler?: string;
+      rootReconciler?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
       /** Deployment state of the syncer pod. */
-      syncer?: string;
+      syncer?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
     }
     interface ConfigManagementConfigSyncError {
       /** A string representing the user facing error message */
@@ -131,7 +191,11 @@ declare namespace gapi.client {
     }
     interface ConfigManagementConfigSyncState {
       /** Output only. Whether syncing resources to the cluster is stopped at the cluster level. */
-      clusterLevelStopSyncingState?: string;
+      clusterLevelStopSyncingState?:
+        | 'STOP_SYNCING_STATE_UNSPECIFIED'
+        | 'NOT_STOPPED'
+        | 'PENDING'
+        | 'STOPPED';
       /** Output only. The number of RootSync and RepoSync CRs in the cluster. */
       crCount?: number;
       /** Output only. Information about the deployment of ConfigSync, including the version. of the various Pods deployed */
@@ -139,11 +203,26 @@ declare namespace gapi.client {
       /** Output only. Errors pertaining to the installation of Config Sync. */
       errors?: ConfigManagementConfigSyncError[];
       /** Output only. The state of the Reposync CRD */
-      reposyncCrd?: string;
+      reposyncCrd?:
+        | 'CRD_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'TERMINATING'
+        | 'INSTALLING';
       /** Output only. The state of the RootSync CRD */
-      rootsyncCrd?: string;
+      rootsyncCrd?:
+        | 'CRD_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'TERMINATING'
+        | 'INSTALLING';
       /** Output only. The state of CS This field summarizes the other fields in this message. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CONFIG_SYNC_NOT_INSTALLED'
+        | 'CONFIG_SYNC_INSTALLED'
+        | 'CONFIG_SYNC_ERROR'
+        | 'CONFIG_SYNC_PENDING';
       /** Output only. The state of ConfigSync's process to sync configs to a cluster. */
       syncState?: ConfigManagementSyncState;
       /** Output only. The version of ConfigSync deployed. */
@@ -201,11 +280,26 @@ declare namespace gapi.client {
     }
     interface ConfigManagementGatekeeperDeploymentState {
       /** Status of gatekeeper-audit deployment. */
-      gatekeeperAudit?: string;
+      gatekeeperAudit?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
       /** Status of gatekeeper-controller-manager pod. */
-      gatekeeperControllerManagerState?: string;
+      gatekeeperControllerManagerState?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
       /** Status of the pod serving the mutation webhook. */
-      gatekeeperMutation?: string;
+      gatekeeperMutation?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
     }
     interface ConfigManagementGitConfig {
       /** Optional. The Google Cloud Service Account Email used for auth when secret_type is `gcpserviceaccount`. */
@@ -243,9 +337,19 @@ declare namespace gapi.client {
     }
     interface ConfigManagementHierarchyControllerDeploymentState {
       /** The deployment state for Hierarchy Controller extension (e.g. v0.7.0-hc.1). */
-      extension?: string;
+      extension?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
       /** The deployment state for open source HNC (e.g. v0.7.0-hc.0). */
-      hnc?: string;
+      hnc?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
     }
     interface ConfigManagementHierarchyControllerState {
       /** The deployment state for Hierarchy Controller. */
@@ -277,7 +381,12 @@ declare namespace gapi.client {
     }
     interface ConfigManagementOperatorState {
       /** The state of the Operator's deployment. */
-      deploymentState?: string;
+      deploymentState?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
       /** Install errors. */
       errors?: ConfigManagementInstallError[];
       /** The semenatic version number of the operator. */
@@ -307,11 +416,14 @@ declare namespace gapi.client {
       /** Last time this membership spec was copied to PoCo feature. */
       copyTime?: string;
       /** Stage of the migration. */
-      stage?: string;
+      stage?: 'STAGE_UNSPECIFIED' | 'ACM_MANAGED' | 'POCO_MANAGED';
     }
     interface ConfigManagementPolicyControllerMonitoring {
       /** Specifies the list of backends Policy Controller will export to. An empty list would effectively disable metrics export. */
-      backends?: string[];
+      backends?:
+        | 'MONITORING_BACKEND_UNSPECIFIED'
+        | 'PROMETHEUS'
+        | 'CLOUD_MONITORING'[];
     }
     interface ConfigManagementPolicyControllerState {
       /** The state about the policy controller installation. */
@@ -335,7 +447,10 @@ declare namespace gapi.client {
       /** Optional. Hierarchy Controller configuration for the cluster. Deprecated: Configuring Hierarchy Controller through the configmanagement feature is no longer recommended. Use https://github.com/kubernetes-sigs/hierarchical-namespaces instead. */
       hierarchyController?: ConfigManagementHierarchyControllerConfig;
       /** Optional. Deprecated: From version 1.21.0, automatic Feature management is unavailable, and Config Sync only supports manual upgrades. */
-      management?: string;
+      management?:
+        | 'MANAGEMENT_UNSPECIFIED'
+        | 'MANAGEMENT_AUTOMATIC'
+        | 'MANAGEMENT_MANUAL';
       /** Optional. Policy Controller configuration for the cluster. Deprecated: Configuring Policy Controller through the configmanagement feature is no longer recommended. Use the policycontroller feature instead. */
       policyController?: ConfigManagementPolicyController;
       /** Optional. Version of Config Sync to install. Defaults to the latest supported Config Sync version if the config_sync field is enabled. See supported versions at https://cloud.google.com/kubernetes-engine/config-sync/docs/get-support-config-sync#version_support_policy. */
@@ -369,7 +484,15 @@ declare namespace gapi.client {
     }
     interface ConfigManagementSyncState {
       /** Sync status code. */
-      code?: string;
+      code?:
+        | 'SYNC_CODE_UNSPECIFIED'
+        | 'SYNCED'
+        | 'PENDING'
+        | 'ERROR'
+        | 'NOT_CONFIGURED'
+        | 'NOT_INSTALLED'
+        | 'UNAUTHORIZED'
+        | 'UNREACHABLE';
       /** A list of errors resulting from problematic configs. This list will be truncated after 100 errors, although it is unlikely for that many errors to simultaneously exist. */
       errors?: ConfigManagementSyncError[];
       /** Token indicating the state of the importer. */
@@ -580,7 +703,7 @@ declare namespace gapi.client {
       /** Last reconciled membership configuration */
       memberConfig?: IdentityServiceSpec;
       /** Deployment state on this member */
-      state?: string;
+      state?: 'DEPLOYMENT_STATE_UNSPECIFIED' | 'OK' | 'ERROR';
     }
     interface IdentityServiceUserConfig {
       /** Required. The location of the subtree in the LDAP directory to search for user entries. */
@@ -594,7 +717,13 @@ declare namespace gapi.client {
     }
     interface LifecycleState {
       /** Output only. The current state of the Feature resource in the Hub API. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'ENABLING'
+        | 'ACTIVE'
+        | 'DISABLING'
+        | 'UPDATING'
+        | 'SERVICE_UPDATING';
     }
     interface ListLocationsResponse {
       /** A list of locations that matches the specified filter in the request. */
@@ -684,7 +813,7 @@ declare namespace gapi.client {
     }
     interface Origin {
       /** Type specifies which type of origin is set. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'FLEET' | 'FLEET_OUT_OF_SYNC' | 'USER';
     }
     interface PolicyControllerBundleInstallSpec {
       /** the set of namespaces to be exempted from the bundle */
@@ -702,7 +831,12 @@ declare namespace gapi.client {
       /** The set of namespaces that are excluded from Policy Controller checks. Namespaces do not need to currently exist on the cluster. */
       exemptableNamespaces?: string[];
       /** The install_spec represents the intended state specified by the latest request that mutated install_spec in the feature spec, not the lifecycle state of the feature observed by the Hub feature controller that is reported in the feature state. */
-      installSpec?: string;
+      installSpec?:
+        | 'INSTALL_SPEC_UNSPECIFIED'
+        | 'INSTALL_SPEC_NOT_INSTALLED'
+        | 'INSTALL_SPEC_ENABLED'
+        | 'INSTALL_SPEC_SUSPENDED'
+        | 'INSTALL_SPEC_DETACHED';
       /** Logs all denies and dry run failures. */
       logDeniesEnabled?: boolean;
       /** Monitoring specifies the configuration of monitoring. */
@@ -716,13 +850,26 @@ declare namespace gapi.client {
     }
     interface PolicyControllerMonitoringConfig {
       /** Specifies the list of backends Policy Controller will export to. An empty list would effectively disable metrics export. */
-      backends?: string[];
+      backends?:
+        | 'MONITORING_BACKEND_UNSPECIFIED'
+        | 'PROMETHEUS'
+        | 'CLOUD_MONITORING'[];
     }
     interface PolicyControllerOnClusterState {
       /** Surface potential errors or information logs. */
       details?: string;
       /** The lifecycle state of this component. */
-      state?: string;
+      state?:
+        | 'LIFECYCLE_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLING'
+        | 'ACTIVE'
+        | 'UPDATING'
+        | 'DECOMMISSIONING'
+        | 'CLUSTER_ERROR'
+        | 'HUB_ERROR'
+        | 'SUSPENDED'
+        | 'DETACHED';
     }
     interface PolicyControllerPolicyContentSpec {
       /** map of bundle name to BundleInstallSpec. The bundle name maps to the `bundleName` key in the `policycontroller.gke.io/constraintData` annotation on a constraint. */
@@ -742,7 +889,7 @@ declare namespace gapi.client {
       /** Container resource requirements. */
       containerResources?: PolicyControllerResourceRequirements;
       /** Pod affinity configuration. */
-      podAffinity?: string;
+      podAffinity?: 'AFFINITY_UNSPECIFIED' | 'NO_AFFINITY' | 'ANTI_AFFINITY';
       /** Pod anti-affinity enablement. Deprecated: use `pod_affinity` instead. */
       podAntiAffinity?: boolean;
       /** Pod tolerations of node taints. */
@@ -774,11 +921,21 @@ declare namespace gapi.client {
       /** The overall content state observed by the Hub Feature controller. */
       policyContentState?: PolicyControllerPolicyContentState;
       /** The overall Policy Controller lifecycle state observed by the Hub Feature controller. */
-      state?: string;
+      state?:
+        | 'LIFECYCLE_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLING'
+        | 'ACTIVE'
+        | 'UPDATING'
+        | 'DECOMMISSIONING'
+        | 'CLUSTER_ERROR'
+        | 'HUB_ERROR'
+        | 'SUSPENDED'
+        | 'DETACHED';
     }
     interface PolicyControllerTemplateLibraryConfig {
       /** Configures the manner in which the template library is installed on the cluster. */
-      installation?: string;
+      installation?: 'INSTALLATION_UNSPECIFIED' | 'NOT_INSTALLED' | 'ALL';
     }
     interface PolicyControllerToleration {
       /** Matches a taint effect. */
@@ -794,7 +951,10 @@ declare namespace gapi.client {
       /** The reason for the failure. */
       description?: string;
       /** Output only. The state of the RBACRoleBinding. */
-      state?: string;
+      state?:
+        | 'ROLE_BINDING_STATE_UNSPECIFIED'
+        | 'OK'
+        | 'CUSTOM_ROLE_MISSING_FROM_CLUSTER';
       /** The time the RBACRoleBinding status was last updated. */
       updateTime?: string;
     }
@@ -819,43 +979,128 @@ declare namespace gapi.client {
       /** A url pointing to the Service Mesh or Istio documentation for this specific error type. */
       documentationUrl?: string;
       /** Represents how severe a message is. */
-      level?: string;
+      level?: 'LEVEL_UNSPECIFIED' | 'ERROR' | 'WARNING' | 'INFO';
       /** Represents the specific type of a message. */
       type?: ServiceMeshType;
     }
     interface ServiceMeshCondition {
       /** Unique identifier of the condition which describes the condition recognizable to the user. */
-      code?: string;
+      code?:
+        | 'CODE_UNSPECIFIED'
+        | 'MESH_IAM_PERMISSION_DENIED'
+        | 'MESH_IAM_CROSS_PROJECT_PERMISSION_DENIED'
+        | 'CNI_CONFIG_UNSUPPORTED'
+        | 'GKE_SANDBOX_UNSUPPORTED'
+        | 'NODEPOOL_WORKLOAD_IDENTITY_FEDERATION_REQUIRED'
+        | 'CNI_INSTALLATION_FAILED'
+        | 'CNI_POD_UNSCHEDULABLE'
+        | 'CLUSTER_HAS_ZERO_NODES'
+        | 'CANONICAL_SERVICE_ERROR'
+        | 'UNSUPPORTED_MULTIPLE_CONTROL_PLANES'
+        | 'VPCSC_GA_SUPPORTED'
+        | 'DEPRECATED_SPEC_CONTROL_PLANE_MANAGEMENT'
+        | 'DEPRECATED_SPEC_CONTROL_PLANE_MANAGEMENT_SAFE'
+        | 'CONFIG_APPLY_INTERNAL_ERROR'
+        | 'CONFIG_VALIDATION_ERROR'
+        | 'CONFIG_VALIDATION_WARNING'
+        | 'QUOTA_EXCEEDED_BACKEND_SERVICES'
+        | 'QUOTA_EXCEEDED_HEALTH_CHECKS'
+        | 'QUOTA_EXCEEDED_HTTP_ROUTES'
+        | 'QUOTA_EXCEEDED_TCP_ROUTES'
+        | 'QUOTA_EXCEEDED_TLS_ROUTES'
+        | 'QUOTA_EXCEEDED_TRAFFIC_POLICIES'
+        | 'QUOTA_EXCEEDED_ENDPOINT_POLICIES'
+        | 'QUOTA_EXCEEDED_GATEWAYS'
+        | 'QUOTA_EXCEEDED_MESHES'
+        | 'QUOTA_EXCEEDED_SERVER_TLS_POLICIES'
+        | 'QUOTA_EXCEEDED_CLIENT_TLS_POLICIES'
+        | 'QUOTA_EXCEEDED_SERVICE_LB_POLICIES'
+        | 'QUOTA_EXCEEDED_HTTP_FILTERS'
+        | 'QUOTA_EXCEEDED_TCP_FILTERS'
+        | 'QUOTA_EXCEEDED_NETWORK_ENDPOINT_GROUPS'
+        | 'LEGACY_MC_SECRETS'
+        | 'WORKLOAD_IDENTITY_REQUIRED'
+        | 'NON_STANDARD_BINARY_USAGE'
+        | 'UNSUPPORTED_GATEWAY_CLASS'
+        | 'MANAGED_CNI_NOT_ENABLED'
+        | 'MODERNIZATION_SCHEDULED'
+        | 'MODERNIZATION_IN_PROGRESS'
+        | 'MODERNIZATION_COMPLETED'
+        | 'MODERNIZATION_ABORTED'
+        | 'MODERNIZATION_PREPARING'
+        | 'MODERNIZATION_STALLED'
+        | 'MODERNIZATION_PREPARED'
+        | 'MODERNIZATION_MIGRATING_WORKLOADS'
+        | 'MODERNIZATION_ROLLING_BACK_CLUSTER'
+        | 'MODERNIZATION_WILL_BE_SCHEDULED'
+        | 'MODERNIZATION_MANUAL'
+        | 'MODERNIZATION_ELIGIBLE'
+        | 'MODERNIZATION_MODERNIZING'
+        | 'MODERNIZATION_MODERNIZED_SOAKING'
+        | 'MODERNIZATION_FINALIZED'
+        | 'MODERNIZATION_ROLLING_BACK_FLEET';
       /** A short summary about the issue. */
       details?: string;
       /** Links contains actionable information. */
       documentationLink?: string;
       /** Severity level of the condition. */
-      severity?: string;
+      severity?: 'SEVERITY_UNSPECIFIED' | 'ERROR' | 'WARNING' | 'INFO';
     }
     interface ServiceMeshControlPlaneManagement {
       /** Explanation of state. */
       details?: ServiceMeshStatusDetails[];
       /** Output only. Implementation of managed control plane. */
-      implementation?: string;
+      implementation?:
+        | 'IMPLEMENTATION_UNSPECIFIED'
+        | 'ISTIOD'
+        | 'TRAFFIC_DIRECTOR'
+        | 'UPDATING';
       /** LifecycleState of control plane management. */
-      state?: string;
+      state?:
+        | 'LIFECYCLE_STATE_UNSPECIFIED'
+        | 'DISABLED'
+        | 'FAILED_PRECONDITION'
+        | 'PROVISIONING'
+        | 'ACTIVE'
+        | 'STALLED'
+        | 'NEEDS_ATTENTION'
+        | 'DEGRADED'
+        | 'DEPROVISIONING';
     }
     interface ServiceMeshDataPlaneManagement {
       /** Explanation of the status. */
       details?: ServiceMeshStatusDetails[];
       /** Lifecycle status of data plane management. */
-      state?: string;
+      state?:
+        | 'LIFECYCLE_STATE_UNSPECIFIED'
+        | 'DISABLED'
+        | 'FAILED_PRECONDITION'
+        | 'PROVISIONING'
+        | 'ACTIVE'
+        | 'STALLED'
+        | 'NEEDS_ATTENTION'
+        | 'DEGRADED'
+        | 'DEPROVISIONING';
     }
     interface ServiceMeshSpec {
       /** Optional. Specifies the API that will be used for configuring the mesh workloads. */
-      configApi?: string;
+      configApi?:
+        | 'CONFIG_API_UNSPECIFIED'
+        | 'CONFIG_API_ISTIO'
+        | 'CONFIG_API_GATEWAY';
       /** Deprecated: use `management` instead Enables automatic control plane management. */
-      controlPlane?: string;
+      controlPlane?:
+        | 'CONTROL_PLANE_MANAGEMENT_UNSPECIFIED'
+        | 'AUTOMATIC'
+        | 'MANUAL';
       /** Determines which release channel to use for default injection and service mesh APIs. */
-      defaultChannel?: string;
+      defaultChannel?: 'CHANNEL_UNSPECIFIED' | 'RAPID' | 'REGULAR' | 'STABLE';
       /** Optional. Enables automatic Service Mesh management. */
-      management?: string;
+      management?:
+        | 'MANAGEMENT_UNSPECIFIED'
+        | 'MANAGEMENT_AUTOMATIC'
+        | 'MANAGEMENT_MANUAL'
+        | 'MANAGEMENT_NOT_INSTALLED';
     }
     interface ServiceMeshState {
       /** Output only. Results of running Service Mesh analyzers. */
@@ -883,7 +1128,7 @@ declare namespace gapi.client {
     }
     interface State {
       /** The high-level, machine-readable status of this MembershipFeature. */
-      code?: string;
+      code?: 'CODE_UNSPECIFIED' | 'OK' | 'WARNING' | 'ERROR';
       /** A human-readable description of the current status. */
       description?: string;
       /** The time this status and any related Feature-specific details were updated. */
@@ -891,11 +1136,17 @@ declare namespace gapi.client {
     }
     interface WorkloadCertificateSpec {
       /** CertificateManagement specifies workload certificate management. */
-      certificateManagement?: string;
+      certificateManagement?:
+        | 'CERTIFICATE_MANAGEMENT_UNSPECIFIED'
+        | 'DISABLED'
+        | 'ENABLED';
     }
     interface WorkloadIdentityIdentityProviderStateDetail {
       /** The state of the Identity Provider. */
-      code?: string;
+      code?:
+        | 'IDENTITY_PROVIDER_STATE_UNSPECIFIED'
+        | 'IDENTITY_PROVIDER_STATE_OK'
+        | 'IDENTITY_PROVIDER_STATE_ERROR';
       /** A human-readable description of the current state or returned error. */
       description?: string;
     }
@@ -911,11 +1162,11 @@ declare namespace gapi.client {
       /** Creates membershipFeature under a given parent. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the membership_feature to create. */
@@ -944,11 +1195,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID of the membership_feature to create. */
@@ -977,11 +1228,11 @@ declare namespace gapi.client {
       /** Removes a membershipFeature. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1006,11 +1257,11 @@ declare namespace gapi.client {
       /** ========= MembershipFeature Services ========= Gets details of a membershipFeature. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1033,11 +1284,11 @@ declare namespace gapi.client {
       /** Lists MembershipFeatures in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1068,13 +1319,13 @@ declare namespace gapi.client {
       /** Updates an existing MembershipFeature. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. If set to true, and the MembershipFeature is not found, a new MembershipFeature will be created. In this situation, `update_mask` is ignored. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1103,13 +1354,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Optional. If set to true, and the MembershipFeature is not found, a new MembershipFeature will be created. In this situation, `update_mask` is ignored. */
           allowMissing?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1143,11 +1394,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1172,11 +1423,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1201,11 +1452,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1228,11 +1479,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1265,11 +1516,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1292,11 +1543,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */

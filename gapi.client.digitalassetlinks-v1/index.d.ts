@@ -54,7 +54,18 @@ declare namespace gapi.client {
     }
     interface BulkCheckResponse {
       /** Error code for the entire request. Present only if the entire request failed. Individual check errors will not trigger the presence of this field. */
-      bulkErrorCode?: string;
+      bulkErrorCode?:
+        | 'ERROR_CODE_UNSPECIFIED'
+        | 'ERROR_CODE_INVALID_QUERY'
+        | 'ERROR_CODE_FETCH_ERROR'
+        | 'ERROR_CODE_FAILED_SSL_VALIDATION'
+        | 'ERROR_CODE_REDIRECT'
+        | 'ERROR_CODE_TOO_LARGE'
+        | 'ERROR_CODE_MALFORMED_HTTP_RESPONSE'
+        | 'ERROR_CODE_WRONG_CONTENT_TYPE'
+        | 'ERROR_CODE_MALFORMED_CONTENT'
+        | 'ERROR_CODE_SECURE_ASSET_INCLUDES_INSECURE'
+        | 'ERROR_CODE_FETCH_BUDGET_EXHAUSTED';
       /** List of results for each check request. Results are returned in the same order in which they were sent in the request. */
       checkResults?: CheckResponse[];
     }
@@ -66,7 +77,18 @@ declare namespace gapi.client {
       /** Human-readable message containing information intended to help end users understand, reproduce and debug the result. The message will be in English and we are currently not planning to offer any translations. Please note that no guarantees are made about the contents or format of this string. Any aspect of it may be subject to change without notice. You should not attempt to programmatically parse this data. For programmatic access, use the error_code field below. */
       debugString?: string;
       /** Error codes that describe the result of the Check operation. NOTE: Error codes may be populated even when `linked` is true. The error codes do not necessarily imply that the request failed, but rather, specify any errors encountered in the statements file(s) which may or may not impact whether the server determines the requested source and target to be linked. */
-      errorCode?: string[];
+      errorCode?:
+        | 'ERROR_CODE_UNSPECIFIED'
+        | 'ERROR_CODE_INVALID_QUERY'
+        | 'ERROR_CODE_FETCH_ERROR'
+        | 'ERROR_CODE_FAILED_SSL_VALIDATION'
+        | 'ERROR_CODE_REDIRECT'
+        | 'ERROR_CODE_TOO_LARGE'
+        | 'ERROR_CODE_MALFORMED_HTTP_RESPONSE'
+        | 'ERROR_CODE_WRONG_CONTENT_TYPE'
+        | 'ERROR_CODE_MALFORMED_CONTENT'
+        | 'ERROR_CODE_SECURE_ASSET_INCLUDES_INSECURE'
+        | 'ERROR_CODE_FETCH_BUDGET_EXHAUSTED'[];
       /** Set to true if the assets specified in the request are linked by the relation specified in the request. */
       linked?: boolean;
       /** From serving time, how much longer the response should be considered valid barring further updates. REQUIRED */
@@ -78,7 +100,18 @@ declare namespace gapi.client {
       /** Human-readable message containing information intended to help end users understand, reproduce and debug the result. The message will be in English and we are currently not planning to offer any translations. Please note that no guarantees are made about the contents or format of this string. Any aspect of it may be subject to change without notice. You should not attempt to programmatically parse this data. For programmatic access, use the error_code field below. */
       debugString?: string;
       /** Error codes that describe the result of the List operation. */
-      errorCode?: string[];
+      errorCode?:
+        | 'ERROR_CODE_UNSPECIFIED'
+        | 'ERROR_CODE_INVALID_QUERY'
+        | 'ERROR_CODE_FETCH_ERROR'
+        | 'ERROR_CODE_FAILED_SSL_VALIDATION'
+        | 'ERROR_CODE_REDIRECT'
+        | 'ERROR_CODE_TOO_LARGE'
+        | 'ERROR_CODE_MALFORMED_HTTP_RESPONSE'
+        | 'ERROR_CODE_WRONG_CONTENT_TYPE'
+        | 'ERROR_CODE_MALFORMED_CONTENT'
+        | 'ERROR_CODE_SECURE_ASSET_INCLUDES_INSECURE'
+        | 'ERROR_CODE_FETCH_BUDGET_EXHAUSTED'[];
       /** From serving time, how much longer the response should be considered valid barring further updates. REQUIRED */
       maxAge?: string;
       /** A list of all the matching statements that have been found. */
@@ -110,11 +143,11 @@ declare namespace gapi.client {
       /** Send a bundle of statement checks in a single RPC to minimize latency and service load. Statements need not be all for the same source and/or target. We recommend using this method when you need to check more than one statement in a short period of time. */
       bulkCheck(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -137,11 +170,11 @@ declare namespace gapi.client {
       bulkCheck(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -164,11 +197,11 @@ declare namespace gapi.client {
       /** Determines whether the specified (directional) relationship exists between the specified source and target assets. The relation describes the intent of the link between the two assets as claimed by the source asset. An example for such relationships is the delegation of privileges or permissions. This command is most often used by infrastructure systems to check preconditions for an action. For example, a client may want to know if it is OK to send a web URL to a particular mobile app instead. The client can check for the relevant asset link from the website to the mobile app to decide if the operation should be allowed. A note about security: if you specify a secure asset as the source, such as an HTTPS website or an Android app, the API will ensure that any statements used to generate the response have been made in a secure way by the owner of that asset. Conversely, if the source asset is an insecure HTTP website (that is, the URL starts with `http://` instead of `https://`), the API cannot verify its statements securely, and it is not possible to ensure that the website's statements have not been altered by a third party. For more information, see the [Digital Asset Links technical design specification](https://github.com/google/digitalassetlinks/blob/master/well-known/details.md). */
       check(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -207,11 +240,11 @@ declare namespace gapi.client {
       /** Retrieves a list of all statements from a given source that match the specified target and statement string. The API guarantees that all statements with secure source assets, such as HTTPS websites or Android apps, have been made in a secure way by the owner of those assets, as described in the [Digital Asset Links technical design specification](https://github.com/google/digitalassetlinks/blob/master/well-known/details.md). Specifically, you should consider that for insecure websites (that is, where the URL starts with `http://` instead of `https://`), this guarantee cannot be made. The `List` command is most useful in cases where the API client wants to know all the ways in which two assets are related, or enumerate all the relationships from a particular source asset. Example: a feature that helps users navigate to related items. When a mobile app is running on a device, the feature would make it easy to navigate to the corresponding web site or Google+ profile. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

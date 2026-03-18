@@ -811,7 +811,7 @@ declare namespace gapi.client {
       /** Deletes an access control rule. */
       delete(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
         calendarId: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -832,7 +832,7 @@ declare namespace gapi.client {
       /** Returns an access control rule. */
       get(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
         calendarId: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -853,7 +853,7 @@ declare namespace gapi.client {
       /** Creates an access control rule. */
       insert(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
         calendarId: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -876,7 +876,7 @@ declare namespace gapi.client {
       insert(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
           calendarId: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -899,7 +899,7 @@ declare namespace gapi.client {
       /** Returns the rules in the access control list for the calendar. */
       list(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
         calendarId: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -931,7 +931,7 @@ declare namespace gapi.client {
       /** Updates an access control rule. This method supports patch semantics. */
       patch(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
         calendarId: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -956,7 +956,7 @@ declare namespace gapi.client {
       patch(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
           calendarId: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -981,7 +981,7 @@ declare namespace gapi.client {
       /** Updates an access control rule. */
       update(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
         calendarId: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1006,7 +1006,7 @@ declare namespace gapi.client {
       update(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
           calendarId: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1031,7 +1031,7 @@ declare namespace gapi.client {
       /** Watch for changes to ACL resources. */
       watch(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
         calendarId: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1065,7 +1065,7 @@ declare namespace gapi.client {
       watch(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
           calendarId: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1101,7 +1101,7 @@ declare namespace gapi.client {
       /** Removes a calendar from the user's calendar list. */
       delete(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
         calendarId: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1120,7 +1120,7 @@ declare namespace gapi.client {
       /** Returns a calendar from the user's calendar list. */
       get(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
         calendarId: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1139,7 +1139,7 @@ declare namespace gapi.client {
       /** Inserts an existing calendar into the user's calendar list. */
       insert(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False. */
         colorRgbFormat?: boolean;
         /** Selector specifying which fields to include in a partial response. */
@@ -1160,7 +1160,7 @@ declare namespace gapi.client {
       insert(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False. */
           colorRgbFormat?: boolean;
           /** Selector specifying which fields to include in a partial response. */
@@ -1181,7 +1181,7 @@ declare namespace gapi.client {
       /** Returns the calendars on the user's calendar list. */
       list(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1189,7 +1189,7 @@ declare namespace gapi.client {
         /** Maximum number of entries returned on one result page. By default the value is 100 entries. The page size can never be larger than 250 entries. Optional. */
         maxResults?: number;
         /** The minimum access role for the user in the returned entries. Optional. The default is no restriction. */
-        minAccessRole?: string;
+        minAccessRole?: 'freeBusyReader' | 'owner' | 'reader' | 'writer';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Token specifying which result page to return. Optional. */
@@ -1216,7 +1216,7 @@ declare namespace gapi.client {
       /** Updates an existing calendar on the user's calendar list. This method supports patch semantics. */
       patch(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
         calendarId: string;
         /** Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False. */
@@ -1239,7 +1239,7 @@ declare namespace gapi.client {
       patch(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
           calendarId: string;
           /** Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False. */
@@ -1262,7 +1262,7 @@ declare namespace gapi.client {
       /** Updates an existing calendar on the user's calendar list. */
       update(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
         calendarId: string;
         /** Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False. */
@@ -1285,7 +1285,7 @@ declare namespace gapi.client {
       update(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
           calendarId: string;
           /** Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False. */
@@ -1308,7 +1308,7 @@ declare namespace gapi.client {
       /** Watch for changes to CalendarList resources. */
       watch(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1316,7 +1316,7 @@ declare namespace gapi.client {
         /** Maximum number of entries returned on one result page. By default the value is 100 entries. The page size can never be larger than 250 entries. Optional. */
         maxResults?: number;
         /** The minimum access role for the user in the returned entries. Optional. The default is no restriction. */
-        minAccessRole?: string;
+        minAccessRole?: 'freeBusyReader' | 'owner' | 'reader' | 'writer';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Token specifying which result page to return. Optional. */
@@ -1345,7 +1345,7 @@ declare namespace gapi.client {
       watch(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1353,7 +1353,7 @@ declare namespace gapi.client {
           /** Maximum number of entries returned on one result page. By default the value is 100 entries. The page size can never be larger than 250 entries. Optional. */
           maxResults?: number;
           /** The minimum access role for the user in the returned entries. Optional. The default is no restriction. */
-          minAccessRole?: string;
+          minAccessRole?: 'freeBusyReader' | 'owner' | 'reader' | 'writer';
           /** OAuth 2.0 token for the current user. */
           oauth_token?: string;
           /** Token specifying which result page to return. Optional. */
@@ -1384,7 +1384,7 @@ declare namespace gapi.client {
       /** Clears a primary calendar. This operation deletes all events associated with the primary calendar of an account. */
       clear(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
         calendarId: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1403,7 +1403,7 @@ declare namespace gapi.client {
       /** Deletes a secondary calendar. Use calendars.clear for clearing all events on primary calendars. */
       delete(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
         calendarId: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1422,7 +1422,7 @@ declare namespace gapi.client {
       /** Returns metadata for a calendar. */
       get(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
         calendarId: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1446,7 +1446,7 @@ declare namespace gapi.client {
        */
       insert(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1465,7 +1465,7 @@ declare namespace gapi.client {
       insert(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1484,7 +1484,7 @@ declare namespace gapi.client {
       /** Updates metadata for a calendar. This method supports patch semantics. */
       patch(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
         calendarId: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1505,7 +1505,7 @@ declare namespace gapi.client {
       patch(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
           calendarId: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1526,7 +1526,7 @@ declare namespace gapi.client {
       /** Updates metadata for a calendar. */
       update(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
         calendarId: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1547,7 +1547,7 @@ declare namespace gapi.client {
       update(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
           calendarId: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1570,7 +1570,7 @@ declare namespace gapi.client {
       /** Stop watching resources through this channel */
       stop(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1589,7 +1589,7 @@ declare namespace gapi.client {
       stop(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1610,7 +1610,7 @@ declare namespace gapi.client {
       /** Returns the color definitions for calendars and events. */
       get(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1629,7 +1629,7 @@ declare namespace gapi.client {
       /** Deletes an event. */
       delete(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
         calendarId: string;
         /** Event identifier. */
@@ -1651,14 +1651,14 @@ declare namespace gapi.client {
          */
         sendNotifications?: boolean;
         /** Guests who should receive notifications about the deletion of the event. */
-        sendUpdates?: string;
+        sendUpdates?: 'all' | 'externalOnly' | 'none';
         /** Deprecated. Please use quotaUser instead. */
         userIp?: string;
       }): Request<void>;
       /** Returns an event based on its Google Calendar ID. To retrieve an event using its iCalendar ID, call the events.list method using the iCalUID parameter. */
       get(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Deprecated and ignored. A value will always be returned in the email field for the organizer, creator and attendees, even if no real email address is available (i.e. a generated, non-working value will be provided). */
         alwaysIncludeEmail?: boolean;
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
@@ -1688,7 +1688,7 @@ declare namespace gapi.client {
        */
       import(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
         calendarId: string;
         /** Version number of conference data supported by the API client. Version 0 assumes no conference data support and ignores conference data in the event's body. Version 1 enables support for copying of ConferenceData as well as for creating new conferences using the createRequest field of conferenceData. The default is 0. */
@@ -1713,7 +1713,7 @@ declare namespace gapi.client {
       import(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
           calendarId: string;
           /** Version number of conference data supported by the API client. Version 0 assumes no conference data support and ignores conference data in the event's body. Version 1 enables support for copying of ConferenceData as well as for creating new conferences using the createRequest field of conferenceData. The default is 0. */
@@ -1738,7 +1738,7 @@ declare namespace gapi.client {
       /** Creates an event. */
       insert(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
         calendarId: string;
         /** Version number of conference data supported by the API client. Version 0 assumes no conference data support and ignores conference data in the event's body. Version 1 enables support for copying of ConferenceData as well as for creating new conferences using the createRequest field of conferenceData. The default is 0. */
@@ -1762,7 +1762,7 @@ declare namespace gapi.client {
          */
         sendNotifications?: boolean;
         /** Whether to send notifications about the creation of the new event. Note that some emails might still be sent. The default is false. */
-        sendUpdates?: string;
+        sendUpdates?: 'all' | 'externalOnly' | 'none';
         /** Whether API client performing operation supports event attachments. Optional. The default is False. */
         supportsAttachments?: boolean;
         /** Deprecated. Please use quotaUser instead. */
@@ -1773,7 +1773,7 @@ declare namespace gapi.client {
       insert(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
           calendarId: string;
           /** Version number of conference data supported by the API client. Version 0 assumes no conference data support and ignores conference data in the event's body. Version 1 enables support for copying of ConferenceData as well as for creating new conferences using the createRequest field of conferenceData. The default is 0. */
@@ -1797,7 +1797,7 @@ declare namespace gapi.client {
            */
           sendNotifications?: boolean;
           /** Whether to send notifications about the creation of the new event. Note that some emails might still be sent. The default is false. */
-          sendUpdates?: string;
+          sendUpdates?: 'all' | 'externalOnly' | 'none';
           /** Whether API client performing operation supports event attachments. Optional. The default is False. */
           supportsAttachments?: boolean;
           /** Deprecated. Please use quotaUser instead. */
@@ -1808,7 +1808,7 @@ declare namespace gapi.client {
       /** Returns instances of the specified recurring event. */
       instances(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Deprecated and ignored. A value will always be returned in the email field for the organizer, creator and attendees, even if no real email address is available (i.e. a generated, non-working value will be provided). */
         alwaysIncludeEmail?: boolean;
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
@@ -1847,13 +1847,27 @@ declare namespace gapi.client {
       /** Returns events on the specified calendar. */
       list(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Deprecated and ignored. */
         alwaysIncludeEmail?: boolean;
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
         calendarId: string;
         /** Event types to return. Optional. This parameter can be repeated multiple times to return events of different types. If unset, returns all event types. */
-        eventTypes?: string | string[];
+        eventTypes?:
+          | 'birthday'
+          | 'default'
+          | 'focusTime'
+          | 'fromGmail'
+          | 'outOfOffice'
+          | 'workingLocation'
+          | (
+              | 'birthday'
+              | 'default'
+              | 'focusTime'
+              | 'fromGmail'
+              | 'outOfOffice'
+              | 'workingLocation'
+            )[];
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** Specifies an event ID in the iCalendar format to be provided in the response. Optional. Use this if you want to search for an event by its iCalendar ID. */
@@ -1867,7 +1881,7 @@ declare namespace gapi.client {
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** The order of the events returned in the result. Optional. The default is an unspecified, stable order. */
-        orderBy?: string;
+        orderBy?: 'startTime' | 'updated';
         /** Token specifying which result page to return. Optional. */
         pageToken?: string;
         /** Returns response with indentations and line breaks. */
@@ -1932,7 +1946,7 @@ declare namespace gapi.client {
       /** Moves an event to another calendar, i.e. changes an event's organizer. Note that only default events can be moved; birthday, focusTime, fromGmail, outOfOffice and workingLocation events cannot be moved. */
       move(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Calendar identifier of the source calendar where the event currently is on. */
         calendarId: string;
         /** Calendar identifier of the target calendar where the event is to be moved to. */
@@ -1956,14 +1970,14 @@ declare namespace gapi.client {
          */
         sendNotifications?: boolean;
         /** Guests who should receive notifications about the change of the event's organizer. */
-        sendUpdates?: string;
+        sendUpdates?: 'all' | 'externalOnly' | 'none';
         /** Deprecated. Please use quotaUser instead. */
         userIp?: string;
       }): Request<Event>;
       /** Updates an event. This method supports patch semantics. */
       patch(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Deprecated and ignored. A value will always be returned in the email field for the organizer, creator and attendees, even if no real email address is available (i.e. a generated, non-working value will be provided). */
         alwaysIncludeEmail?: boolean;
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
@@ -1991,7 +2005,7 @@ declare namespace gapi.client {
          */
         sendNotifications?: boolean;
         /** Guests who should receive notifications about the event update (for example, title changes, etc.). */
-        sendUpdates?: string;
+        sendUpdates?: 'all' | 'externalOnly' | 'none';
         /** Whether API client performing operation supports event attachments. Optional. The default is False. */
         supportsAttachments?: boolean;
         /** Deprecated. Please use quotaUser instead. */
@@ -2002,7 +2016,7 @@ declare namespace gapi.client {
       patch(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Deprecated and ignored. A value will always be returned in the email field for the organizer, creator and attendees, even if no real email address is available (i.e. a generated, non-working value will be provided). */
           alwaysIncludeEmail?: boolean;
           /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
@@ -2030,7 +2044,7 @@ declare namespace gapi.client {
            */
           sendNotifications?: boolean;
           /** Guests who should receive notifications about the event update (for example, title changes, etc.). */
-          sendUpdates?: string;
+          sendUpdates?: 'all' | 'externalOnly' | 'none';
           /** Whether API client performing operation supports event attachments. Optional. The default is False. */
           supportsAttachments?: boolean;
           /** Deprecated. Please use quotaUser instead. */
@@ -2041,7 +2055,7 @@ declare namespace gapi.client {
       /** Creates an event based on a simple text string. */
       quickAdd(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
         calendarId: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2061,7 +2075,7 @@ declare namespace gapi.client {
          */
         sendNotifications?: boolean;
         /** Guests who should receive notifications about the creation of the new event. */
-        sendUpdates?: string;
+        sendUpdates?: 'all' | 'externalOnly' | 'none';
         /** The text describing the event to be created. */
         text: string;
         /** Deprecated. Please use quotaUser instead. */
@@ -2070,7 +2084,7 @@ declare namespace gapi.client {
       /** Updates an event. */
       update(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Deprecated and ignored. A value will always be returned in the email field for the organizer, creator and attendees, even if no real email address is available (i.e. a generated, non-working value will be provided). */
         alwaysIncludeEmail?: boolean;
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
@@ -2098,7 +2112,7 @@ declare namespace gapi.client {
          */
         sendNotifications?: boolean;
         /** Guests who should receive notifications about the event update (for example, title changes, etc.). */
-        sendUpdates?: string;
+        sendUpdates?: 'all' | 'externalOnly' | 'none';
         /** Whether API client performing operation supports event attachments. Optional. The default is False. */
         supportsAttachments?: boolean;
         /** Deprecated. Please use quotaUser instead. */
@@ -2109,7 +2123,7 @@ declare namespace gapi.client {
       update(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Deprecated and ignored. A value will always be returned in the email field for the organizer, creator and attendees, even if no real email address is available (i.e. a generated, non-working value will be provided). */
           alwaysIncludeEmail?: boolean;
           /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
@@ -2137,7 +2151,7 @@ declare namespace gapi.client {
            */
           sendNotifications?: boolean;
           /** Guests who should receive notifications about the event update (for example, title changes, etc.). */
-          sendUpdates?: string;
+          sendUpdates?: 'all' | 'externalOnly' | 'none';
           /** Whether API client performing operation supports event attachments. Optional. The default is False. */
           supportsAttachments?: boolean;
           /** Deprecated. Please use quotaUser instead. */
@@ -2148,13 +2162,27 @@ declare namespace gapi.client {
       /** Watch for changes to Events resources. */
       watch(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Deprecated and ignored. */
         alwaysIncludeEmail?: boolean;
         /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
         calendarId: string;
         /** Event types to return. Optional. This parameter can be repeated multiple times to return events of different types. If unset, returns all event types. */
-        eventTypes?: string | string[];
+        eventTypes?:
+          | 'birthday'
+          | 'default'
+          | 'focusTime'
+          | 'fromGmail'
+          | 'outOfOffice'
+          | 'workingLocation'
+          | (
+              | 'birthday'
+              | 'default'
+              | 'focusTime'
+              | 'fromGmail'
+              | 'outOfOffice'
+              | 'workingLocation'
+            )[];
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** Specifies an event ID in the iCalendar format to be provided in the response. Optional. Use this if you want to search for an event by its iCalendar ID. */
@@ -2168,7 +2196,7 @@ declare namespace gapi.client {
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** The order of the events returned in the result. Optional. The default is an unspecified, stable order. */
-        orderBy?: string;
+        orderBy?: 'startTime' | 'updated';
         /** Token specifying which result page to return. Optional. */
         pageToken?: string;
         /** Returns response with indentations and line breaks. */
@@ -2235,13 +2263,27 @@ declare namespace gapi.client {
       watch(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Deprecated and ignored. */
           alwaysIncludeEmail?: boolean;
           /** Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the "primary" keyword. */
           calendarId: string;
           /** Event types to return. Optional. This parameter can be repeated multiple times to return events of different types. If unset, returns all event types. */
-          eventTypes?: string | string[];
+          eventTypes?:
+            | 'birthday'
+            | 'default'
+            | 'focusTime'
+            | 'fromGmail'
+            | 'outOfOffice'
+            | 'workingLocation'
+            | (
+                | 'birthday'
+                | 'default'
+                | 'focusTime'
+                | 'fromGmail'
+                | 'outOfOffice'
+                | 'workingLocation'
+              )[];
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** Specifies an event ID in the iCalendar format to be provided in the response. Optional. Use this if you want to search for an event by its iCalendar ID. */
@@ -2255,7 +2297,7 @@ declare namespace gapi.client {
           /** OAuth 2.0 token for the current user. */
           oauth_token?: string;
           /** The order of the events returned in the result. Optional. The default is an unspecified, stable order. */
-          orderBy?: string;
+          orderBy?: 'startTime' | 'updated';
           /** Token specifying which result page to return. Optional. */
           pageToken?: string;
           /** Returns response with indentations and line breaks. */
@@ -2324,7 +2366,7 @@ declare namespace gapi.client {
       /** Returns free/busy information for a set of calendars. */
       query(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2343,7 +2385,7 @@ declare namespace gapi.client {
       query(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2364,7 +2406,7 @@ declare namespace gapi.client {
       /** Returns a single user setting. */
       get(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2383,7 +2425,7 @@ declare namespace gapi.client {
       /** Returns all user settings for the authenticated user. */
       list(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2411,7 +2453,7 @@ declare namespace gapi.client {
       /** Watch for changes to Settings resources. */
       watch(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2441,7 +2483,7 @@ declare namespace gapi.client {
       watch(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */

@@ -87,7 +87,11 @@ declare namespace gapi.client {
       /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
       exemptedMembers?: string[];
       /** The log type that this config enables. */
-      logType?: string;
+      logType?:
+        | 'LOG_TYPE_UNSPECIFIED'
+        | 'ADMIN_READ'
+        | 'DATA_WRITE'
+        | 'DATA_READ';
     }
     interface Automation {
       /** Optional. User annotations. These attributes can only be set and used by the user, and not by Cloud Deploy. Annotations must meet the following constraints: * Annotations are key/value pairs. * Valid annotation keys have two segments: an optional prefix and name, separated by a slash (`/`). * The name segment is required and must be 63 characters or less, beginning and ending with an alphanumeric character (`[a-z0-9A-Z]`) with dashes (`-`), underscores (`_`), dots (`.`), and alphanumerics between. * The prefix is optional. If specified, the prefix must be a DNS subdomain: a series of DNS labels separated by dots(`.`), not longer than 253 characters in total, followed by a slash (`/`). See https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/#syntax-and-character-set for more details. */
@@ -123,7 +127,16 @@ declare namespace gapi.client {
       /** Unique identifier of the `DeliveryPipeline`. */
       pipelineUid?: string;
       /** Type of this notification, e.g. for a Pub/Sub failure. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'TYPE_PUBSUB_NOTIFICATION_FAILURE'
+        | 'TYPE_RESOURCE_STATE_CHANGE'
+        | 'TYPE_PROCESS_ABORTED'
+        | 'TYPE_RESTRICTION_VIOLATED'
+        | 'TYPE_RESOURCE_DELETED'
+        | 'TYPE_ROLLOUT_UPDATE'
+        | 'TYPE_DEPLOY_POLICY_EVALUATION'
+        | 'TYPE_RENDER_STATUES_CHANGE';
     }
     interface AutomationResourceSelector {
       /** Optional. Contains attributes about a target. */
@@ -179,7 +192,14 @@ declare namespace gapi.client {
       /** Output only. Email address of the user-managed IAM service account that performs the operations against Cloud Deploy resources. */
       serviceAccount?: string;
       /** Output only. Current state of the `AutomationRun`. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'SUCCEEDED'
+        | 'CANCELLED'
+        | 'FAILED'
+        | 'IN_PROGRESS'
+        | 'PENDING'
+        | 'ABORTED';
       /** Output only. Explains the current state of the `AutomationRun`. Present only when an explanation is needed. */
       stateDescription?: string;
       /** Output only. The ID of the source target that initiates the `AutomationRun`. The value of this field is the last segment of a target name. */
@@ -207,7 +227,16 @@ declare namespace gapi.client {
       /** Identifier of the `Automation` rule. */
       ruleId?: string;
       /** Type of this notification, e.g. for a Pub/Sub failure. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'TYPE_PUBSUB_NOTIFICATION_FAILURE'
+        | 'TYPE_RESOURCE_STATE_CHANGE'
+        | 'TYPE_PROCESS_ABORTED'
+        | 'TYPE_RESTRICTION_VIOLATED'
+        | 'TYPE_RESOURCE_DELETED'
+        | 'TYPE_ROLLOUT_UPDATE'
+        | 'TYPE_DEPLOY_POLICY_EVALUATION'
+        | 'TYPE_RENDER_STATUES_CHANGE';
     }
     interface Binding {
       /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
@@ -358,7 +387,16 @@ declare namespace gapi.client {
       /** Debug message for when a notification fails to send. */
       message?: string;
       /** Type of this notification, e.g. for a Pub/Sub failure. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'TYPE_PUBSUB_NOTIFICATION_FAILURE'
+        | 'TYPE_RESOURCE_STATE_CHANGE'
+        | 'TYPE_PROCESS_ABORTED'
+        | 'TYPE_RESTRICTION_VIOLATED'
+        | 'TYPE_RESOURCE_DELETED'
+        | 'TYPE_ROLLOUT_UPDATE'
+        | 'TYPE_DEPLOY_POLICY_EVALUATION'
+        | 'TYPE_RENDER_STATUES_CHANGE';
     }
     interface Date {
       /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
@@ -412,7 +450,16 @@ declare namespace gapi.client {
       /** Unique identifier of the `DeliveryPipeline`. */
       pipelineUid?: string;
       /** Type of this notification, e.g. for a Pub/Sub failure. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'TYPE_PUBSUB_NOTIFICATION_FAILURE'
+        | 'TYPE_RESOURCE_STATE_CHANGE'
+        | 'TYPE_PROCESS_ABORTED'
+        | 'TYPE_RESTRICTION_VIOLATED'
+        | 'TYPE_RESOURCE_DELETED'
+        | 'TYPE_ROLLOUT_UPDATE'
+        | 'TYPE_DEPLOY_POLICY_EVALUATION'
+        | 'TYPE_RENDER_STATUES_CHANGE';
     }
     interface DeployArtifact {
       /** Output only. URI of a directory containing the artifacts. All paths are relative to this location. */
@@ -427,7 +474,14 @@ declare namespace gapi.client {
       /** Output only. The resource name of the Cloud Build `Build` object that is used to deploy. Format is `projects/{project}/locations/{location}/builds/{build}`. */
       build?: string;
       /** Output only. The reason the deploy failed. This will always be unspecified while the deploy is in progress or if it succeeded. */
-      failureCause?: string;
+      failureCause?:
+        | 'FAILURE_CAUSE_UNSPECIFIED'
+        | 'CLOUD_BUILD_UNAVAILABLE'
+        | 'EXECUTION_FAILED'
+        | 'DEADLINE_EXCEEDED'
+        | 'MISSING_RESOURCES_FOR_CANARY'
+        | 'CLOUD_BUILD_REQUEST_FAILED'
+        | 'DEPLOY_FEATURE_NOT_SUPPORTED';
       /** Output only. Additional information about the deploy failure, if available. */
       failureMessage?: string;
       /** Output only. Metadata containing information about the deploy job run. */
@@ -491,11 +545,14 @@ declare namespace gapi.client {
       /** Unique identifier of the `DeployPolicy`. */
       deployPolicyUid?: string;
       /** What invoked the action (e.g. a user or automation). */
-      invoker?: string;
+      invoker?: 'INVOKER_UNSPECIFIED' | 'USER' | 'DEPLOY_AUTOMATION';
       /** Debug message for when a deploy policy event occurs. */
       message?: string;
       /** Things that could have overridden the policy verdict. Overrides together with verdict decide whether the request is allowed. */
-      overrides?: string[];
+      overrides?:
+        | 'POLICY_VERDICT_OVERRIDE_UNSPECIFIED'
+        | 'POLICY_OVERRIDDEN'
+        | 'POLICY_SUSPENDED'[];
       /** Unique identifier of the `Delivery Pipeline`. */
       pipelineUid?: string;
       /** Rule id. */
@@ -507,7 +564,10 @@ declare namespace gapi.client {
       /** Unique identifier of the `Target`. This is an optional field, as a `Target` may not always be applicable to a policy. */
       targetUid?: string;
       /** The policy verdict of the request. */
-      verdict?: string;
+      verdict?:
+        | 'POLICY_VERDICT_UNSPECIFIED'
+        | 'ALLOWED_BY_POLICY'
+        | 'DENIED_BY_POLICY';
     }
     interface DeployPolicyNotificationEvent {
       /** The name of the `DeployPolicy`. */
@@ -517,7 +577,16 @@ declare namespace gapi.client {
       /** Debug message for when a deploy policy fails to send a pub/sub notification. */
       message?: string;
       /** Type of this notification, e.g. for a Pub/Sub failure. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'TYPE_PUBSUB_NOTIFICATION_FAILURE'
+        | 'TYPE_RESOURCE_STATE_CHANGE'
+        | 'TYPE_PROCESS_ABORTED'
+        | 'TYPE_RESTRICTION_VIOLATED'
+        | 'TYPE_RESOURCE_DELETED'
+        | 'TYPE_ROLLOUT_UPDATE'
+        | 'TYPE_DEPLOY_POLICY_EVALUATION'
+        | 'TYPE_RENDER_STATUES_CHANGE';
     }
     interface DeployPolicyResourceSelector {
       /** Optional. Contains attributes about a delivery pipeline. */
@@ -538,7 +607,13 @@ declare namespace gapi.client {
       /** Optional. Google service account to use for execution. If unspecified, the project execution service account (-compute@developer.gserviceaccount.com) is used. */
       serviceAccount?: string;
       /** Required. Usages when this configuration should be applied. */
-      usages?: string[];
+      usages?:
+        | 'EXECUTION_ENVIRONMENT_USAGE_UNSPECIFIED'
+        | 'RENDER'
+        | 'DEPLOY'
+        | 'VERIFY'
+        | 'PREDEPLOY'
+        | 'POSTDEPLOY'[];
       /** Optional. If true, additional logging will be enabled when running builds in this execution environment. */
       verbose?: boolean;
       /** Optional. The resource name of the `WorkerPool`, with the format `projects/{project}/locations/{location}/workerPools/{worker_pool}`. If this optional field is unspecified, the default Cloud Build pool will be used. */
@@ -607,7 +682,16 @@ declare namespace gapi.client {
       /** Output only. Additional information on why the Job was skipped, if available. */
       skipMessage?: string;
       /** Output only. The current state of the Job. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PENDING'
+        | 'DISABLED'
+        | 'IN_PROGRESS'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'ABORTED'
+        | 'SKIPPED'
+        | 'IGNORED';
       /** Output only. A verify Job. */
       verifyJob?: any;
     }
@@ -637,7 +721,13 @@ declare namespace gapi.client {
       /** Output only. Time at which the `JobRun` was started. */
       startTime?: string;
       /** Output only. The current state of the `JobRun`. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'IN_PROGRESS'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'TERMINATING'
+        | 'TERMINATED';
       /** Output only. Unique identifier of the `JobRun`. */
       uid?: string;
       /** Output only. Information specific to a verify `JobRun`. */
@@ -661,7 +751,16 @@ declare namespace gapi.client {
       /** ID of the `Target`. */
       targetId?: string;
       /** Type of this notification, e.g. for a Pub/Sub failure. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'TYPE_PUBSUB_NOTIFICATION_FAILURE'
+        | 'TYPE_RESOURCE_STATE_CHANGE'
+        | 'TYPE_PROCESS_ABORTED'
+        | 'TYPE_RESTRICTION_VIOLATED'
+        | 'TYPE_RESOURCE_DELETED'
+        | 'TYPE_ROLLOUT_UPDATE'
+        | 'TYPE_DEPLOY_POLICY_EVALUATION'
+        | 'TYPE_RENDER_STATUES_CHANGE';
     }
     interface KubernetesConfig {
       /** Optional. Kubernetes Gateway API service mesh configuration. */
@@ -827,7 +926,14 @@ declare namespace gapi.client {
       /** Output only. Additional information on why the Phase was skipped, if available. */
       skipMessage?: string;
       /** Output only. Current state of the Phase. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PENDING'
+        | 'IN_PROGRESS'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'ABORTED'
+        | 'SKIPPED';
     }
     interface PhaseArtifact {
       /** Output only. File path of the directory of rendered job manifests relative to the URI. This is only set if it is applicable. */
@@ -903,7 +1009,12 @@ declare namespace gapi.client {
       /** Output only. The resource name of the Cloud Build `Build` object that is used to execute the custom actions associated with the postdeploy Job. Format is `projects/{project}/locations/{location}/builds/{build}`. */
       build?: string;
       /** Output only. The reason the postdeploy failed. This will always be unspecified while the postdeploy is in progress or if it succeeded. */
-      failureCause?: string;
+      failureCause?:
+        | 'FAILURE_CAUSE_UNSPECIFIED'
+        | 'CLOUD_BUILD_UNAVAILABLE'
+        | 'EXECUTION_FAILED'
+        | 'DEADLINE_EXCEEDED'
+        | 'CLOUD_BUILD_REQUEST_FAILED';
       /** Output only. Additional information about the postdeploy failure, if available. */
       failureMessage?: string;
     }
@@ -919,7 +1030,12 @@ declare namespace gapi.client {
       /** Output only. The resource name of the Cloud Build `Build` object that is used to execute the custom actions associated with the predeploy Job. Format is `projects/{project}/locations/{location}/builds/{build}`. */
       build?: string;
       /** Output only. The reason the predeploy failed. This will always be unspecified while the predeploy is in progress or if it succeeded. */
-      failureCause?: string;
+      failureCause?:
+        | 'FAILURE_CAUSE_UNSPECIFIED'
+        | 'CLOUD_BUILD_UNAVAILABLE'
+        | 'EXECUTION_FAILED'
+        | 'DEADLINE_EXCEEDED'
+        | 'CLOUD_BUILD_REQUEST_FAILED';
       /** Output only. Additional information about the predeploy failure, if available. */
       failureMessage?: string;
     }
@@ -983,7 +1099,11 @@ declare namespace gapi.client {
       /** Output only. Time at which the render began. */
       renderStartTime?: string;
       /** Output only. Current state of the render operation. */
-      renderState?: string;
+      renderState?:
+        | 'RENDER_STATE_UNSPECIFIED'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'IN_PROGRESS';
       /** Optional. Filepath of the Skaffold config inside of the config URI. */
       skaffoldConfigPath?: string;
       /** Optional. Cloud Storage URI of tar.gz archive containing Skaffold configuration. */
@@ -1029,7 +1149,16 @@ declare namespace gapi.client {
       /** Unique identifier of the `Release`. */
       releaseUid?: string;
       /** Type of this notification, e.g. for a Pub/Sub failure. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'TYPE_PUBSUB_NOTIFICATION_FAILURE'
+        | 'TYPE_RESOURCE_STATE_CHANGE'
+        | 'TYPE_PROCESS_ABORTED'
+        | 'TYPE_RESTRICTION_VIOLATED'
+        | 'TYPE_RESOURCE_DELETED'
+        | 'TYPE_ROLLOUT_UPDATE'
+        | 'TYPE_DEPLOY_POLICY_EVALUATION'
+        | 'TYPE_RENDER_STATUES_CHANGE';
     }
     interface ReleaseReadyCondition {
       /** True if the Release is in a valid state. Otherwise at least one condition in `ReleaseCondition` is in an invalid state. Iterate over those conditions and see which condition(s) has status = false to find out what is wrong with the Release. */
@@ -1043,9 +1172,22 @@ declare namespace gapi.client {
       /** The name of the release. release_uid is not in this log message because we write some of these log messages at release creation time, before we've generated the uid. */
       release?: string;
       /** The state of the release render. */
-      releaseRenderState?: string;
+      releaseRenderState?:
+        | 'RENDER_STATE_UNSPECIFIED'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'IN_PROGRESS';
       /** Type of this notification, e.g. for a release render state change event. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'TYPE_PUBSUB_NOTIFICATION_FAILURE'
+        | 'TYPE_RESOURCE_STATE_CHANGE'
+        | 'TYPE_PROCESS_ABORTED'
+        | 'TYPE_RESTRICTION_VIOLATED'
+        | 'TYPE_RESOURCE_DELETED'
+        | 'TYPE_ROLLOUT_UPDATE'
+        | 'TYPE_DEPLOY_POLICY_EVALUATION'
+        | 'TYPE_RENDER_STATUES_CHANGE';
     }
     interface RenderMetadata {
       /** Output only. Metadata associated with rendering for Cloud Run. */
@@ -1093,7 +1235,10 @@ declare namespace gapi.client {
       /** Required. Total number of retries. Retry is skipped if set to 0; The minimum value is 1, and the maximum value is 10. */
       attempts?: string;
       /** Optional. The pattern of how wait time will be increased. Default is linear. Backoff mode will be ignored if `wait` is 0. */
-      backoffMode?: string;
+      backoffMode?:
+        | 'BACKOFF_MODE_UNSPECIFIED'
+        | 'BACKOFF_MODE_LINEAR'
+        | 'BACKOFF_MODE_EXPONENTIAL';
       /** Optional. How long to wait for the first retry. Default is 0, and the maximum value is 14d. */
       wait?: string;
     }
@@ -1101,7 +1246,14 @@ declare namespace gapi.client {
       /** Output only. The index of this retry attempt. */
       attempt?: string;
       /** Output only. Valid state of this retry action. */
-      state?: string;
+      state?:
+        | 'REPAIR_STATE_UNSPECIFIED'
+        | 'REPAIR_STATE_SUCCEEDED'
+        | 'REPAIR_STATE_CANCELLED'
+        | 'REPAIR_STATE_FAILED'
+        | 'REPAIR_STATE_IN_PROGRESS'
+        | 'REPAIR_STATE_PENDING'
+        | 'REPAIR_STATE_ABORTED';
       /** Output only. Description of the state of the Retry. */
       stateDesc?: string;
       /** Output only. How long the operation will be paused. */
@@ -1120,7 +1272,10 @@ declare namespace gapi.client {
       /** Output only. Detail of a retry action. */
       attempts?: RetryAttempt[];
       /** Output only. The pattern of how the wait time of the retry attempt is calculated. */
-      backoffMode?: string;
+      backoffMode?:
+        | 'BACKOFF_MODE_UNSPECIFIED'
+        | 'BACKOFF_MODE_LINEAR'
+        | 'BACKOFF_MODE_EXPONENTIAL';
       /** Output only. The number of attempts that have been made. */
       totalAttempts?: string;
     }
@@ -1138,7 +1293,14 @@ declare namespace gapi.client {
       /** Output only. ID of the rollback `Rollout` to create. */
       rolloutId?: string;
       /** Output only. Valid state of this rollback action. */
-      state?: string;
+      state?:
+        | 'REPAIR_STATE_UNSPECIFIED'
+        | 'REPAIR_STATE_SUCCEEDED'
+        | 'REPAIR_STATE_CANCELLED'
+        | 'REPAIR_STATE_FAILED'
+        | 'REPAIR_STATE_IN_PROGRESS'
+        | 'REPAIR_STATE_PENDING'
+        | 'REPAIR_STATE_ABORTED';
       /** Output only. Description of the state of the Rollback. */
       stateDesc?: string;
     }
@@ -1174,7 +1336,12 @@ declare namespace gapi.client {
       /** Optional. User annotations. These attributes can only be set and used by the user, and not by Cloud Deploy. See https://google.aip.dev/128#annotations for more details such as format and size limitations. */
       annotations?: {[P in string]: string};
       /** Output only. Approval state of the `Rollout`. */
-      approvalState?: string;
+      approvalState?:
+        | 'APPROVAL_STATE_UNSPECIFIED'
+        | 'NEEDS_APPROVAL'
+        | 'DOES_NOT_NEED_APPROVAL'
+        | 'APPROVED'
+        | 'REJECTED';
       /** Output only. Time at which the `Rollout` was approved. */
       approveTime?: string;
       /** Output only. Name of the `ControllerRollout`. Format is `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`. */
@@ -1184,7 +1351,16 @@ declare namespace gapi.client {
       /** Output only. Time at which the `Rollout` finished deploying. */
       deployEndTime?: string;
       /** Output only. The reason this rollout failed. This will always be unspecified while the rollout is in progress. */
-      deployFailureCause?: string;
+      deployFailureCause?:
+        | 'FAILURE_CAUSE_UNSPECIFIED'
+        | 'CLOUD_BUILD_UNAVAILABLE'
+        | 'EXECUTION_FAILED'
+        | 'DEADLINE_EXCEEDED'
+        | 'RELEASE_FAILED'
+        | 'RELEASE_ABANDONED'
+        | 'VERIFICATION_CONFIG_NOT_FOUND'
+        | 'CLOUD_BUILD_REQUEST_FAILED'
+        | 'OPERATION_FEATURE_NOT_SUPPORTED';
       /** Output only. The resource name of the Cloud Build `Build` object that is used to deploy the Rollout. Format is `projects/{project}/locations/{location}/builds/{build}`. */
       deployingBuild?: string;
       /** Output only. Time at which the `Rollout` started deploying. */
@@ -1210,7 +1386,18 @@ declare namespace gapi.client {
       /** Output only. Names of `Rollouts` that rolled back this `Rollout`. */
       rolledBackByRollouts?: string[];
       /** Output only. Current state of the `Rollout`. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'IN_PROGRESS'
+        | 'PENDING_APPROVAL'
+        | 'APPROVAL_REJECTED'
+        | 'PENDING'
+        | 'PENDING_RELEASE'
+        | 'CANCELLING'
+        | 'CANCELLED'
+        | 'HALTED';
       /** Required. The ID of Target to which this `Rollout` is deploying. */
       targetId?: string;
       /** Output only. Unique identifier of the `Rollout`. */
@@ -1232,15 +1419,33 @@ declare namespace gapi.client {
       /** ID of the `Target` that the rollout is deployed to. */
       targetId?: string;
       /** Type of this notification, e.g. for a Pub/Sub failure. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'TYPE_PUBSUB_NOTIFICATION_FAILURE'
+        | 'TYPE_RESOURCE_STATE_CHANGE'
+        | 'TYPE_PROCESS_ABORTED'
+        | 'TYPE_RESTRICTION_VIOLATED'
+        | 'TYPE_RESOURCE_DELETED'
+        | 'TYPE_ROLLOUT_UPDATE'
+        | 'TYPE_DEPLOY_POLICY_EVALUATION'
+        | 'TYPE_RENDER_STATUES_CHANGE';
     }
     interface RolloutRestriction {
       /** Optional. Rollout actions to be restricted as part of the policy. If left empty, all actions will be restricted. */
-      actions?: string[];
+      actions?:
+        | 'ROLLOUT_ACTIONS_UNSPECIFIED'
+        | 'ADVANCE'
+        | 'APPROVE'
+        | 'CANCEL'
+        | 'CREATE'
+        | 'IGNORE_JOB'
+        | 'RETRY_JOB'
+        | 'ROLLBACK'
+        | 'TERMINATE_JOBRUN'[];
       /** Required. Restriction rule ID. Required and must be unique within a DeployPolicy. The format is `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`. */
       id?: string;
       /** Optional. What invoked the action. If left empty, all invoker types will be restricted. */
-      invokers?: string[];
+      invokers?: 'INVOKER_UNSPECIFIED' | 'USER' | 'DEPLOY_AUTOMATION'[];
       /** Required. Time window within which actions are restricted. */
       timeWindows?: TimeWindows;
     }
@@ -1256,11 +1461,34 @@ declare namespace gapi.client {
       /** The name of the rollout. rollout_uid is not in this log message because we write some of these log messages at rollout creation time, before we've generated the uid. */
       rollout?: string;
       /** The type of the rollout update. */
-      rolloutUpdateType?: string;
+      rolloutUpdateType?:
+        | 'ROLLOUT_UPDATE_TYPE_UNSPECIFIED'
+        | 'PENDING'
+        | 'PENDING_RELEASE'
+        | 'IN_PROGRESS'
+        | 'CANCELLING'
+        | 'CANCELLED'
+        | 'HALTED'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'APPROVAL_REQUIRED'
+        | 'APPROVED'
+        | 'REJECTED'
+        | 'ADVANCE_REQUIRED'
+        | 'ADVANCED';
       /** ID of the target. */
       targetId?: string;
       /** Type of this notification, e.g. for a rollout update event. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'TYPE_PUBSUB_NOTIFICATION_FAILURE'
+        | 'TYPE_RESOURCE_STATE_CHANGE'
+        | 'TYPE_PROCESS_ABORTED'
+        | 'TYPE_RESTRICTION_VIOLATED'
+        | 'TYPE_RESOURCE_DELETED'
+        | 'TYPE_ROLLOUT_UPDATE'
+        | 'TYPE_DEPLOY_POLICY_EVALUATION'
+        | 'TYPE_RENDER_STATUES_CHANGE';
     }
     interface RouteDestinations {
       /** Required. The clusters where the Gateway API HTTPRoute resource will be deployed to. Valid entries include the associated entities IDs configured in the Target resource and "@self" to include the Target cluster. */
@@ -1330,7 +1558,11 @@ declare namespace gapi.client {
       /** The time at which this release's version of Skaffold will enter maintenance mode. */
       maintenanceModeTime?: string;
       /** The Skaffold support state for this release's version of Skaffold. */
-      skaffoldSupportState?: string;
+      skaffoldSupportState?:
+        | 'SKAFFOLD_SUPPORT_STATE_UNSPECIFIED'
+        | 'SKAFFOLD_SUPPORT_STATE_SUPPORTED'
+        | 'SKAFFOLD_SUPPORT_STATE_MAINTENANCE_MODE'
+        | 'SKAFFOLD_SUPPORT_STATE_UNSUPPORTED';
       /** True if the version of Skaffold used by this release is supported. */
       status?: boolean;
       /** The time at which this release's version of Skaffold will no longer be supported. */
@@ -1438,11 +1670,28 @@ declare namespace gapi.client {
       /** The name of the `Target`. */
       target?: string;
       /** Type of this notification, e.g. for a Pub/Sub failure. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'TYPE_PUBSUB_NOTIFICATION_FAILURE'
+        | 'TYPE_RESOURCE_STATE_CHANGE'
+        | 'TYPE_PROCESS_ABORTED'
+        | 'TYPE_RESTRICTION_VIOLATED'
+        | 'TYPE_RESOURCE_DELETED'
+        | 'TYPE_ROLLOUT_UPDATE'
+        | 'TYPE_DEPLOY_POLICY_EVALUATION'
+        | 'TYPE_RENDER_STATUES_CHANGE';
     }
     interface TargetRender {
       /** Output only. Reason this render failed. This will always be unspecified while the render in progress. */
-      failureCause?: string;
+      failureCause?:
+        | 'FAILURE_CAUSE_UNSPECIFIED'
+        | 'CLOUD_BUILD_UNAVAILABLE'
+        | 'EXECUTION_FAILED'
+        | 'CLOUD_BUILD_REQUEST_FAILED'
+        | 'VERIFICATION_CONFIG_NOT_FOUND'
+        | 'CUSTOM_ACTION_NOT_FOUND'
+        | 'DEPLOYMENT_STRATEGY_NOT_SUPPORTED'
+        | 'RENDER_FEATURE_NOT_SUPPORTED';
       /** Output only. Additional information about the render failure, if available. */
       failureMessage?: string;
       /** Output only. Metadata related to the `Release` render for this Target. */
@@ -1450,7 +1699,11 @@ declare namespace gapi.client {
       /** Output only. The resource name of the Cloud Build `Build` object that is used to render the manifest for this target. Format is `projects/{project}/locations/{location}/builds/{build}`. */
       renderingBuild?: string;
       /** Output only. Current state of the render operation for this Target. */
-      renderingState?: string;
+      renderingState?:
+        | 'TARGET_RENDER_STATE_UNSPECIFIED'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'IN_PROGRESS';
     }
     interface Targets {
       /** Optional. The destination target ID. */
@@ -1553,7 +1806,11 @@ declare namespace gapi.client {
       /** Output only. The time at which this release's version of the tool will no longer be supported. */
       supportExpirationTime?: string;
       /** Output only. The tool support state for this release's version of the tool. */
-      toolVersionSupportState?: string;
+      toolVersionSupportState?:
+        | 'TOOL_VERSION_SUPPORT_STATE_UNSPECIFIED'
+        | 'TOOL_VERSION_SUPPORT_STATE_SUPPORTED'
+        | 'TOOL_VERSION_SUPPORT_STATE_MAINTENANCE_MODE'
+        | 'TOOL_VERSION_SUPPORT_STATE_UNSUPPORTED';
     }
     interface VerifyJob {}
     interface VerifyJobRun {
@@ -1564,13 +1821,27 @@ declare namespace gapi.client {
       /** Output only. File path of the Skaffold event log relative to the artifact URI. */
       eventLogPath?: string;
       /** Output only. The reason the verify failed. This will always be unspecified while the verify is in progress or if it succeeded. */
-      failureCause?: string;
+      failureCause?:
+        | 'FAILURE_CAUSE_UNSPECIFIED'
+        | 'CLOUD_BUILD_UNAVAILABLE'
+        | 'EXECUTION_FAILED'
+        | 'DEADLINE_EXCEEDED'
+        | 'VERIFICATION_CONFIG_NOT_FOUND'
+        | 'CLOUD_BUILD_REQUEST_FAILED';
       /** Output only. Additional information about the verify failure, if available. */
       failureMessage?: string;
     }
     interface WeeklyWindow {
       /** Optional. Days of week. If left empty, all days of the week will be included. */
-      daysOfWeek?: string[];
+      daysOfWeek?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY'[];
       /** Optional. End time (exclusive). Use 24:00 to indicate midnight. If you specify end_time you must also specify start_time. If left empty, this will block for the entire day for the days specified in days_of_week. */
       endTime?: TimeOfDay;
       /** Optional. Start time (inclusive). Use 00:00 for the beginning of the day. If you specify start_time you must also specify end_time. If left empty, this will block for the entire day for the days specified in days_of_week. */
@@ -1580,11 +1851,11 @@ declare namespace gapi.client {
       /** Creates a new CustomTargetType in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. ID of the `CustomTargetType`. */
@@ -1615,11 +1886,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. ID of the `CustomTargetType`. */
@@ -1650,13 +1921,13 @@ declare namespace gapi.client {
       /** Deletes a single CustomTargetType. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. If set to true, then deleting an already deleted or non-existing `CustomTargetType` will succeed. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. */
@@ -1685,11 +1956,11 @@ declare namespace gapi.client {
       /** Gets details of a single CustomTargetType. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1712,11 +1983,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1741,11 +2012,11 @@ declare namespace gapi.client {
       /** Lists CustomTargetTypes in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1776,13 +2047,13 @@ declare namespace gapi.client {
       /** Updates a single CustomTargetType. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. If set to true, updating a `CustomTargetType` that does not exist will result in the creation of a new `CustomTargetType`. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1813,13 +2084,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Optional. If set to true, updating a `CustomTargetType` that does not exist will result in the creation of a new `CustomTargetType`. */
           allowMissing?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1851,11 +2122,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1882,11 +2153,11 @@ declare namespace gapi.client {
       /** Cancels an AutomationRun. The `state` of the `AutomationRun` after cancelling is `CANCELLED`. `CancelAutomationRun` can be called on AutomationRun in the state `IN_PROGRESS` and `PENDING`; AutomationRun in a different state returns an `FAILED_PRECONDITION` error. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1911,11 +2182,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1940,11 +2211,11 @@ declare namespace gapi.client {
       /** Gets details of a single AutomationRun. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1967,11 +2238,11 @@ declare namespace gapi.client {
       /** Lists AutomationRuns in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2004,11 +2275,11 @@ declare namespace gapi.client {
       /** Creates a new Automation in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. ID of the `Automation`. */
         automationId?: string;
         /** JSONP */
@@ -2039,11 +2310,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. ID of the `Automation`. */
           automationId?: string;
           /** JSONP */
@@ -2074,13 +2345,13 @@ declare namespace gapi.client {
       /** Deletes a single Automation resource. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. If set to true, then deleting an already deleted or non-existing `Automation` will succeed. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. The weak etag of the request. This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. */
@@ -2109,11 +2380,11 @@ declare namespace gapi.client {
       /** Gets details of a single Automation. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2136,11 +2407,11 @@ declare namespace gapi.client {
       /** Lists Automations in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2171,13 +2442,13 @@ declare namespace gapi.client {
       /** Updates the parameters of a single Automation resource. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. If set to true, updating a `Automation` that does not exist will result in the creation of a new `Automation`. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2208,13 +2479,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Optional. If set to true, updating a `Automation` that does not exist will result in the creation of a new `Automation`. */
           allowMissing?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2247,11 +2518,11 @@ declare namespace gapi.client {
       /** Gets details of a single JobRun. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2274,11 +2545,11 @@ declare namespace gapi.client {
       /** Lists JobRuns in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2309,11 +2580,11 @@ declare namespace gapi.client {
       /** Terminates a Job Run in a given project and location. */
       terminate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2338,11 +2609,11 @@ declare namespace gapi.client {
       terminate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2369,11 +2640,11 @@ declare namespace gapi.client {
       /** Advances a Rollout in a given project and location. */
       advance(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2398,11 +2669,11 @@ declare namespace gapi.client {
       advance(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2427,11 +2698,11 @@ declare namespace gapi.client {
       /** Approves a Rollout. */
       approve(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2456,11 +2727,11 @@ declare namespace gapi.client {
       approve(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2485,11 +2756,11 @@ declare namespace gapi.client {
       /** Cancels a Rollout in a given project and location. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2514,11 +2785,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2543,11 +2814,11 @@ declare namespace gapi.client {
       /** Creates a new Rollout in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2582,11 +2853,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2621,11 +2892,11 @@ declare namespace gapi.client {
       /** Gets details of a single Rollout. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2648,11 +2919,11 @@ declare namespace gapi.client {
       /** Ignores the specified Job in a Rollout. */
       ignoreJob(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2677,11 +2948,11 @@ declare namespace gapi.client {
       ignoreJob(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2706,11 +2977,11 @@ declare namespace gapi.client {
       /** Lists Rollouts in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2741,11 +3012,11 @@ declare namespace gapi.client {
       /** Retries the specified Job in a Rollout. */
       retryJob(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2770,11 +3041,11 @@ declare namespace gapi.client {
       retryJob(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2802,11 +3073,11 @@ declare namespace gapi.client {
       /** Abandons a Release in the Delivery Pipeline. */
       abandon(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2831,11 +3102,11 @@ declare namespace gapi.client {
       abandon(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2860,11 +3131,11 @@ declare namespace gapi.client {
       /** Creates a new Release in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2897,11 +3168,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2934,11 +3205,11 @@ declare namespace gapi.client {
       /** Gets details of a single Release. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2961,11 +3232,11 @@ declare namespace gapi.client {
       /** Lists Releases in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2999,11 +3270,11 @@ declare namespace gapi.client {
       /** Creates a new DeliveryPipeline in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. ID of the `DeliveryPipeline`. */
@@ -3034,11 +3305,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. ID of the `DeliveryPipeline`. */
@@ -3069,13 +3340,13 @@ declare namespace gapi.client {
       /** Deletes a single DeliveryPipeline. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. If set to true, then deleting an already deleted or non-existing `DeliveryPipeline` will succeed. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. */
@@ -3106,11 +3377,11 @@ declare namespace gapi.client {
       /** Gets details of a single DeliveryPipeline. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3133,11 +3404,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3162,11 +3433,11 @@ declare namespace gapi.client {
       /** Lists DeliveryPipelines in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3197,13 +3468,13 @@ declare namespace gapi.client {
       /** Updates the parameters of a single DeliveryPipeline. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. If set to true, updating a `DeliveryPipeline` that does not exist will result in the creation of a new `DeliveryPipeline`. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3234,13 +3505,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Optional. If set to true, updating a `DeliveryPipeline` that does not exist will result in the creation of a new `DeliveryPipeline`. */
           allowMissing?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3271,11 +3542,11 @@ declare namespace gapi.client {
       /** Creates a `Rollout` to roll back the specified target. */
       rollbackTarget(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3300,11 +3571,11 @@ declare namespace gapi.client {
       rollbackTarget(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3330,11 +3601,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3360,11 +3631,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3394,11 +3665,11 @@ declare namespace gapi.client {
       /** Creates a new DeployPolicy in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. ID of the `DeployPolicy`. */
@@ -3429,11 +3700,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. ID of the `DeployPolicy`. */
@@ -3464,13 +3735,13 @@ declare namespace gapi.client {
       /** Deletes a single DeployPolicy. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. If set to true, then deleting an already deleted or non-existing `DeployPolicy` will succeed. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. */
@@ -3499,11 +3770,11 @@ declare namespace gapi.client {
       /** Gets details of a single DeployPolicy. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3526,11 +3797,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3555,11 +3826,11 @@ declare namespace gapi.client {
       /** Lists DeployPolicies in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3590,13 +3861,13 @@ declare namespace gapi.client {
       /** Updates the parameters of a single DeployPolicy. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. If set to true, updating a `DeployPolicy` that does not exist will result in the creation of a new `DeployPolicy`. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3627,13 +3898,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Optional. If set to true, updating a `DeployPolicy` that does not exist will result in the creation of a new `DeployPolicy`. */
           allowMissing?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3665,11 +3936,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3696,11 +3967,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3725,11 +3996,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3754,11 +4025,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3781,11 +4052,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3808,11 +4079,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3845,11 +4116,11 @@ declare namespace gapi.client {
       /** Creates a new Target in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3880,11 +4151,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3915,13 +4186,13 @@ declare namespace gapi.client {
       /** Deletes a single Target. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. If set to true, then deleting an already deleted or non-existing `Target` will succeed. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. */
@@ -3950,11 +4221,11 @@ declare namespace gapi.client {
       /** Gets details of a single Target. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3977,11 +4248,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4006,11 +4277,11 @@ declare namespace gapi.client {
       /** Lists Targets in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4041,13 +4312,13 @@ declare namespace gapi.client {
       /** Updates the parameters of a single Target. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. If set to true, updating a `Target` that does not exist will result in the creation of a new `Target`. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4078,13 +4349,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Optional. If set to true, updating a `Target` that does not exist will result in the creation of a new `Target`. */
           allowMissing?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4116,11 +4387,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4146,11 +4417,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4177,11 +4448,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4204,11 +4475,11 @@ declare namespace gapi.client {
       /** Gets the configuration for a location. */
       getConfig(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4231,11 +4502,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */

@@ -60,7 +60,18 @@ declare namespace gapi.client {
       /** Output only. High-Precision Severity Analysis for the alert. */
       severityAnalysis?: SeverityAnalysis;
       /** Output only. State of the alert. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'NEW'
+        | 'READ'
+        | 'TRIAGED'
+        | 'ESCALATED'
+        | 'RESOLVED'
+        | 'DUPLICATE'
+        | 'FALSE_POSITIVE'
+        | 'NOT_ACTIONABLE'
+        | 'BENIGN'
+        | 'TRACKED_EXTERNALLY';
     }
     interface AlertDetail {
       /** Data Leak alert detail type. */
@@ -130,7 +141,7 @@ declare namespace gapi.client {
       /** Required. Name of the service that provides the configuration. */
       provider?: string;
       /** Optional. State of the configuration. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'ENABLED' | 'DISABLED' | 'DEPRECATED';
       /** Optional. A user-manipulatable version. Does not adhere to a specific format */
       version?: string;
     }
@@ -296,7 +307,12 @@ declare namespace gapi.client {
       /** Required. Reference to the match score of the Data Leak finding. This is a float value greater than 0 and less than or equal to 1 calculated by the matching engine based on the similarity of the document and the user provided configurations. */
       matchScore?: number;
       /** Required. The severity of the Data Leak finding. This indicates the potential impact of the threat. */
-      severity?: string;
+      severity?:
+        | 'SEVERITY_UNSPECIFIED'
+        | 'LOW'
+        | 'MEDIUM'
+        | 'HIGH'
+        | 'CRITICAL';
     }
     interface EnumerateAlertFacetsResponse {
       /** List of facets and the counts. */
@@ -382,7 +398,12 @@ declare namespace gapi.client {
       /** Required. Reference to the match score of the IAB finding. This is a float value between 0 and 1 calculated by the matching engine based on the similarity of the document and the user provided configurations. */
       matchScore?: number;
       /** Required. The severity of the IAB finding. This indicates the potential impact of the threat. */
-      severity?: string;
+      severity?:
+        | 'SEVERITY_UNSPECIFIED'
+        | 'LOW'
+        | 'MEDIUM'
+        | 'HIGH'
+        | 'CRITICAL';
     }
     interface InsiderThreatAlertDetail {
       /** Required. Array of ids to accommodate multiple discovery documents */
@@ -396,7 +417,12 @@ declare namespace gapi.client {
       /** Required. Reference to the match score of the InsiderThreat finding. This is a float value greater than 0 and less than or equal to 1 calculated by the matching engine based on the similarity of the document and the user provided configurations. */
       matchScore?: number;
       /** Required. The severity of the InsiderThreat finding. This indicates the potential impact of the threat. */
-      severity?: string;
+      severity?:
+        | 'SEVERITY_UNSPECIFIED'
+        | 'LOW'
+        | 'MEDIUM'
+        | 'HIGH'
+        | 'CRITICAL';
     }
     interface ListAlertsResponse {
       /** List of alerts. */
@@ -448,21 +474,38 @@ declare namespace gapi.client {
     }
     interface PriorityAnalysis {
       /** The level of confidence in the given verdict. */
-      confidence?: string;
+      confidence?:
+        | 'CONFIDENCE_LEVEL_UNSPECIFIED'
+        | 'CONFIDENCE_LEVEL_LOW'
+        | 'CONFIDENCE_LEVEL_MEDIUM'
+        | 'CONFIDENCE_LEVEL_HIGH';
       /** The level of Priority. */
-      priorityLevel?: string;
+      priorityLevel?:
+        | 'PRIORITY_LEVEL_UNSPECIFIED'
+        | 'PRIORITY_LEVEL_LOW'
+        | 'PRIORITY_LEVEL_MEDIUM'
+        | 'PRIORITY_LEVEL_HIGH'
+        | 'PRIORITY_LEVEL_CRITICAL';
       /** Human-readable explanation from the model, detailing why a particular result is considered to have a certain priority. */
       reasoning?: string;
     }
     interface RelevanceAnalysis {
       /** The level of confidence in the given verdict. */
-      confidence?: string;
+      confidence?:
+        | 'CONFIDENCE_LEVEL_UNSPECIFIED'
+        | 'CONFIDENCE_LEVEL_LOW'
+        | 'CONFIDENCE_LEVEL_MEDIUM'
+        | 'CONFIDENCE_LEVEL_HIGH';
       /** Evidence supporting the verdict, including matched and unmatched items. */
       evidence?: Evidence;
       /** Human-readable explanation from the matcher, detailing why a particular result is considered relevant or not relevant. */
       reasoning?: string;
       /** The level of relevance. */
-      relevanceLevel?: string;
+      relevanceLevel?:
+        | 'RELEVANCE_LEVEL_UNSPECIFIED'
+        | 'RELEVANCE_LEVEL_LOW'
+        | 'RELEVANCE_LEVEL_MEDIUM'
+        | 'RELEVANCE_LEVEL_HIGH';
       /** Indicates whether the threat is considered relevant. */
       relevant?: boolean;
     }
@@ -474,11 +517,19 @@ declare namespace gapi.client {
     }
     interface SeverityAnalysis {
       /** The level of confidence in the given verdict. */
-      confidence?: string;
+      confidence?:
+        | 'CONFIDENCE_LEVEL_UNSPECIFIED'
+        | 'CONFIDENCE_LEVEL_LOW'
+        | 'CONFIDENCE_LEVEL_MEDIUM'
+        | 'CONFIDENCE_LEVEL_HIGH';
       /** Human-readable explanation from the model, detailing why a particular result is considered to have a certain severity. */
       reasoning?: string;
       /** The level of severity. */
-      severityLevel?: string;
+      severityLevel?:
+        | 'SEVERITY_LEVEL_UNSPECIFIED'
+        | 'SEVERITY_LEVEL_LOW'
+        | 'SEVERITY_LEVEL_MEDIUM'
+        | 'SEVERITY_LEVEL_HIGH';
     }
     interface Status {
       /** The status code, which should be an enum value of google.rpc.Code. */
@@ -496,11 +547,11 @@ declare namespace gapi.client {
       /** Gets a specific document associated with an alert. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -525,11 +576,11 @@ declare namespace gapi.client {
       /** Marks an alert as benign - BENIGN. */
       benign(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -554,11 +605,11 @@ declare namespace gapi.client {
       benign(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -583,11 +634,11 @@ declare namespace gapi.client {
       /** Marks an alert as a duplicate of another alert. - DUPLICATE. */
       duplicate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -612,11 +663,11 @@ declare namespace gapi.client {
       duplicate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -641,11 +692,11 @@ declare namespace gapi.client {
       /** EnumerateAlertFacets returns the facets and the number of alerts that meet the filter criteria and have that value for each facet. */
       enumerateFacets(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -670,11 +721,11 @@ declare namespace gapi.client {
       /** Marks an alert as escalated - ESCALATED. */
       escalate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -699,11 +750,11 @@ declare namespace gapi.client {
       escalate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -728,11 +779,11 @@ declare namespace gapi.client {
       /** Marks an alert as a false positive - FALSE_POSITIVE. */
       falsePositive(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -757,11 +808,11 @@ declare namespace gapi.client {
       falsePositive(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -786,11 +837,11 @@ declare namespace gapi.client {
       /** Get an alert by name. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -813,11 +864,11 @@ declare namespace gapi.client {
       /** Get a list of alerts that meet the filter criteria. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -848,11 +899,11 @@ declare namespace gapi.client {
       /** Marks an alert as not actionable - NOT_ACTIONABLE. */
       notActionable(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -877,11 +928,11 @@ declare namespace gapi.client {
       notActionable(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -906,11 +957,11 @@ declare namespace gapi.client {
       /** Marks an alert as read - READ. */
       read(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -935,11 +986,11 @@ declare namespace gapi.client {
       read(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -964,11 +1015,11 @@ declare namespace gapi.client {
       /** Marks an alert to closed state - RESOLVED. */
       resolve(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -993,11 +1044,11 @@ declare namespace gapi.client {
       resolve(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1022,11 +1073,11 @@ declare namespace gapi.client {
       /** Marks an alert as tracked externally - TRACKED_EXTERNALLY. */
       trackExternally(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1051,11 +1102,11 @@ declare namespace gapi.client {
       trackExternally(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1080,11 +1131,11 @@ declare namespace gapi.client {
       /** Marks an alert as triaged - TRIAGED. */
       triage(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1109,11 +1160,11 @@ declare namespace gapi.client {
       triage(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1141,11 +1192,11 @@ declare namespace gapi.client {
       /** List configuration revisions that meet the filter criteria. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1178,11 +1229,11 @@ declare namespace gapi.client {
       /** Get a configuration by name. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1205,11 +1256,11 @@ declare namespace gapi.client {
       /** Get a list of configurations that meet the filter criteria. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1240,11 +1291,11 @@ declare namespace gapi.client {
       /** Creates or updates a configuration. */
       upsert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1271,11 +1322,11 @@ declare namespace gapi.client {
       upsert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1305,11 +1356,11 @@ declare namespace gapi.client {
       /** Get a finding by name. The `name` field should have the format: `projects/{project}/findings/{finding}` */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1332,11 +1383,11 @@ declare namespace gapi.client {
       /** Get a list of findings that meet the filter criteria. The `parent` field in ListFindingsRequest should have the format: projects/{project} */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1367,11 +1418,11 @@ declare namespace gapi.client {
       /** SearchFindings is a more powerful version of ListFindings that supports complex queries like "findings for alerts" using functions such as `has_alert` in the query string. The `parent` field in SearchFindingsRequest should have the format: projects/{project} Example to search for findings for a specific issue: `has_alert("name=\"projects/gti-12345/alerts/alert-12345\"")` */
       search(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1404,11 +1455,11 @@ declare namespace gapi.client {
       /** Triggers the generation of a Customer Profile for a project. */
       generateOrgProfile(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1433,11 +1484,11 @@ declare namespace gapi.client {
       generateOrgProfile(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

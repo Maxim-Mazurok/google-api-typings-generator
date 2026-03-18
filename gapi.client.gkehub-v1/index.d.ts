@@ -43,7 +43,11 @@ declare namespace gapi.client {
       /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
       exemptedMembers?: string[];
       /** The log type that this config enables. */
-      logType?: string;
+      logType?:
+        | 'LOG_TYPE_UNSPECIFIED'
+        | 'ADMIN_READ'
+        | 'DATA_WRITE'
+        | 'DATA_READ';
     }
     interface Authority {
       /** Output only. An identity provider that reflects the `issuer` in the workload identity pool. */
@@ -61,7 +65,10 @@ declare namespace gapi.client {
     }
     interface BinaryAuthorizationConfig {
       /** Optional. Mode of operation for binauthz policy evaluation. */
-      evaluationMode?: string;
+      evaluationMode?:
+        | 'EVALUATION_MODE_UNSPECIFIED'
+        | 'DISABLED'
+        | 'POLICY_BINDINGS';
       /** Optional. Binauthz policies that apply to this cluster. */
       policyBindings?: PolicyBinding[];
     }
@@ -150,7 +157,14 @@ declare namespace gapi.client {
     }
     interface ClusterUpgradeUpgradeStatus {
       /** Status code of the upgrade. */
-      code?: string;
+      code?:
+        | 'CODE_UNSPECIFIED'
+        | 'INELIGIBLE'
+        | 'PENDING'
+        | 'IN_PROGRESS'
+        | 'SOAKING'
+        | 'FORCED_SOAKING'
+        | 'COMPLETE';
       /** Reason for this status. */
       reason?: string;
       /** Last timestamp the status was updated. */
@@ -200,7 +214,7 @@ declare namespace gapi.client {
       /** List of enabled compliance standards. */
       complianceStandards?: ComplianceStandard[];
       /** Defines the enablement mode for Compliance Posture. */
-      mode?: string;
+      mode?: 'MODE_UNSPECIFIED' | 'DISABLED' | 'ENABLED';
     }
     interface ComplianceStandard {
       /** Name of the compliance standard. */
@@ -226,23 +240,68 @@ declare namespace gapi.client {
     }
     interface ConfigManagementConfigSyncDeploymentState {
       /** Deployment state of admission-webhook */
-      admissionWebhook?: string;
+      admissionWebhook?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
       /** Deployment state of the git-sync pod */
-      gitSync?: string;
+      gitSync?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
       /** Deployment state of the importer pod */
-      importer?: string;
+      importer?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
       /** Deployment state of the monitor pod */
-      monitor?: string;
+      monitor?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
       /** Deployment state of otel-collector */
-      otelCollector?: string;
+      otelCollector?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
       /** Deployment state of reconciler-manager pod */
-      reconcilerManager?: string;
+      reconcilerManager?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
       /** Deployment state of resource-group-controller-manager */
-      resourceGroupControllerManager?: string;
+      resourceGroupControllerManager?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
       /** Deployment state of root-reconciler */
-      rootReconciler?: string;
+      rootReconciler?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
       /** Deployment state of the syncer pod */
-      syncer?: string;
+      syncer?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
     }
     interface ConfigManagementConfigSyncError {
       /** A string representing the user facing error message */
@@ -250,7 +309,11 @@ declare namespace gapi.client {
     }
     interface ConfigManagementConfigSyncState {
       /** Output only. Whether syncing resources to the cluster is stopped at the cluster level. */
-      clusterLevelStopSyncingState?: string;
+      clusterLevelStopSyncingState?:
+        | 'STOP_SYNCING_STATE_UNSPECIFIED'
+        | 'NOT_STOPPED'
+        | 'PENDING'
+        | 'STOPPED';
       /** Output only. The number of RootSync and RepoSync CRs in the cluster. */
       crCount?: number;
       /** Output only. Information about the deployment of ConfigSync, including the version of the various Pods deployed */
@@ -258,11 +321,26 @@ declare namespace gapi.client {
       /** Output only. Errors pertaining to the installation of Config Sync. */
       errors?: ConfigManagementConfigSyncError[];
       /** Output only. The state of the Reposync CRD */
-      reposyncCrd?: string;
+      reposyncCrd?:
+        | 'CRD_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'TERMINATING'
+        | 'INSTALLING';
       /** Output only. The state of the RootSync CRD */
-      rootsyncCrd?: string;
+      rootsyncCrd?:
+        | 'CRD_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'TERMINATING'
+        | 'INSTALLING';
       /** Output only. The state of CS This field summarizes the other fields in this message. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CONFIG_SYNC_NOT_INSTALLED'
+        | 'CONFIG_SYNC_INSTALLED'
+        | 'CONFIG_SYNC_ERROR'
+        | 'CONFIG_SYNC_PENDING';
       /** Output only. The state of ConfigSync's process to sync configs to a cluster */
       syncState?: ConfigManagementSyncState;
       /** Output only. The version of ConfigSync deployed */
@@ -320,11 +398,26 @@ declare namespace gapi.client {
     }
     interface ConfigManagementGatekeeperDeploymentState {
       /** Status of gatekeeper-audit deployment. */
-      gatekeeperAudit?: string;
+      gatekeeperAudit?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
       /** Status of gatekeeper-controller-manager pod. */
-      gatekeeperControllerManagerState?: string;
+      gatekeeperControllerManagerState?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
       /** Status of the pod serving the mutation webhook. */
-      gatekeeperMutation?: string;
+      gatekeeperMutation?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
     }
     interface ConfigManagementGitConfig {
       /** Optional. The Google Cloud Service Account Email used for auth when secret_type is `gcpserviceaccount`. */
@@ -362,9 +455,19 @@ declare namespace gapi.client {
     }
     interface ConfigManagementHierarchyControllerDeploymentState {
       /** The deployment state for Hierarchy Controller extension (e.g. v0.7.0-hc.1) */
-      extension?: string;
+      extension?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
       /** The deployment state for open source HNC (e.g. v0.7.0-hc.0) */
-      hnc?: string;
+      hnc?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
     }
     interface ConfigManagementHierarchyControllerState {
       /** The deployment state for Hierarchy Controller */
@@ -390,7 +493,10 @@ declare namespace gapi.client {
       /** Optional. Hierarchy Controller configuration for the cluster. Deprecated: Configuring Hierarchy Controller through the configmanagement feature is no longer recommended. Use https://github.com/kubernetes-sigs/hierarchical-namespaces instead. */
       hierarchyController?: ConfigManagementHierarchyControllerConfig;
       /** Optional. Deprecated: From version 1.21.0, automatic Feature management is unavailable, and Config Sync only supports manual upgrades. */
-      management?: string;
+      management?:
+        | 'MANAGEMENT_UNSPECIFIED'
+        | 'MANAGEMENT_AUTOMATIC'
+        | 'MANAGEMENT_MANUAL';
       /** Optional. Policy Controller configuration for the cluster. Deprecated: Configuring Policy Controller through the configmanagement feature is no longer recommended. Use the policycontroller feature instead. */
       policyController?: ConfigManagementPolicyController;
       /** Optional. Version of Config Sync to install. Defaults to the latest supported Config Sync version if the config_sync field is enabled. See supported versions at https://cloud.google.com/kubernetes-engine/config-sync/docs/get-support-config-sync#version_support_policy. */
@@ -426,7 +532,12 @@ declare namespace gapi.client {
     }
     interface ConfigManagementOperatorState {
       /** The state of the Operator's deployment */
-      deploymentState?: string;
+      deploymentState?:
+        | 'DEPLOYMENT_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLED'
+        | 'ERROR'
+        | 'PENDING';
       /** Install errors. */
       errors?: ConfigManagementInstallError[];
       /** The semenatic version number of the operator */
@@ -456,11 +567,14 @@ declare namespace gapi.client {
       /** Last time this membership spec was copied to PoCo feature. */
       copyTime?: string;
       /** Stage of the migration. */
-      stage?: string;
+      stage?: 'STAGE_UNSPECIFIED' | 'ACM_MANAGED' | 'POCO_MANAGED';
     }
     interface ConfigManagementPolicyControllerMonitoring {
       /** Specifies the list of backends Policy Controller will export to. An empty list would effectively disable metrics export. */
-      backends?: string[];
+      backends?:
+        | 'MONITORING_BACKEND_UNSPECIFIED'
+        | 'PROMETHEUS'
+        | 'CLOUD_MONITORING'[];
     }
     interface ConfigManagementPolicyControllerState {
       /** The state about the policy controller installation. */
@@ -484,7 +598,15 @@ declare namespace gapi.client {
     }
     interface ConfigManagementSyncState {
       /** Sync status code */
-      code?: string;
+      code?:
+        | 'SYNC_CODE_UNSPECIFIED'
+        | 'SYNCED'
+        | 'PENDING'
+        | 'ERROR'
+        | 'NOT_CONFIGURED'
+        | 'NOT_INSTALLED'
+        | 'UNAUTHORIZED'
+        | 'UNREACHABLE';
       /** A list of errors resulting from problematic configs. This list will be truncated after 100 errors, although it is unlikely for that many errors to simultaneously exist. */
       errors?: ConfigManagementSyncError[];
       /** Token indicating the state of the importer. */
@@ -563,11 +685,17 @@ declare namespace gapi.client {
     }
     interface FeatureResourceState {
       /** The current state of the Feature resource in the Hub API. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'ENABLING'
+        | 'ACTIVE'
+        | 'DISABLING'
+        | 'UPDATING'
+        | 'SERVICE_UPDATING';
     }
     interface FeatureState {
       /** The high-level, machine-readable status of this Feature. */
-      code?: string;
+      code?: 'CODE_UNSPECIFIED' | 'OK' | 'WARNING' | 'ERROR';
       /** A human-readable description of the current status. */
       description?: string;
       /** The time this status and any related Feature-specific details were updated. */
@@ -595,7 +723,12 @@ declare namespace gapi.client {
     }
     interface FleetLifecycleState {
       /** Output only. The current state of the Fleet resource. */
-      code?: string;
+      code?:
+        | 'CODE_UNSPECIFIED'
+        | 'CREATING'
+        | 'READY'
+        | 'DELETING'
+        | 'UPDATING';
     }
     interface FleetObservabilityFeatureError {
       /** The code of the error. */
@@ -615,7 +748,7 @@ declare namespace gapi.client {
     }
     interface FleetObservabilityFleetObservabilityBaseFeatureState {
       /** The high-level, machine-readable status of this Feature. */
-      code?: string;
+      code?: 'CODE_UNSPECIFIED' | 'OK' | 'ERROR';
       /** Errors after reconciling the monitoring and logging feature if the code is not OK. */
       errors?: FleetObservabilityFeatureError[];
     }
@@ -639,7 +772,7 @@ declare namespace gapi.client {
     interface FleetObservabilityMembershipState {}
     interface FleetObservabilityRoutingConfig {
       /** mode configures the logs routing mode. */
-      mode?: string;
+      mode?: 'MODE_UNSPECIFIED' | 'COPY' | 'MOVE';
     }
     interface GenerateConnectManifestResponse {
       /** The ordered list of Kubernetes resources that need to be applied to the cluster for GKE Connect agent installation/upgrade. */
@@ -743,7 +876,7 @@ declare namespace gapi.client {
       /** Last reconciled membership configuration */
       memberConfig?: IdentityServiceMembershipSpec;
       /** Deployment state on this member */
-      state?: string;
+      state?: 'DEPLOYMENT_STATE_UNSPECIFIED' | 'OK' | 'ERROR';
     }
     interface IdentityServiceOidcConfig {
       /** PEM-encoded CA for OIDC provider. */
@@ -945,7 +1078,7 @@ declare namespace gapi.client {
       /** Optional. How to identify workloads from this Membership. See the documentation on Workload Identity for more details: https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity */
       authority?: Authority;
       /** Output only. The tier of the cluster. */
-      clusterTier?: string;
+      clusterTier?: 'CLUSTER_TIER_UNSPECIFIED' | 'STANDARD' | 'ENTERPRISE';
       /** Output only. When the Membership was created. */
       createTime?: string;
       /** Output only. When the Membership was deleted. */
@@ -961,7 +1094,7 @@ declare namespace gapi.client {
       /** Output only. For clusters using Connect, the timestamp of the most recent connection established with Google Cloud. This time is updated every several minutes, not continuously. For clusters that do not use GKE Connect, or that have never connected successfully, this field will be unset. */
       lastConnectionTime?: string;
       /** Output only. The type of the membership. */
-      membershipType?: string;
+      membershipType?: 'MEMBERSHIP_TYPE_UNSPECIFIED' | 'LIGHTWEIGHT';
       /** Optional. The monitoring config information for this membership. */
       monitoringConfig?: MonitoringConfig;
       /** Output only. The full, unique name of this Membership resource in the format `projects/*‍/locations/*‍/memberships/{membership_id}`, set during creation. `membership_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
@@ -993,7 +1126,12 @@ declare namespace gapi.client {
     }
     interface MembershipBindingLifecycleState {
       /** Output only. The current state of the MembershipBinding resource. */
-      code?: string;
+      code?:
+        | 'CODE_UNSPECIFIED'
+        | 'CREATING'
+        | 'READY'
+        | 'DELETING'
+        | 'UPDATING';
     }
     interface MembershipEndpoint {
       /** Optional. Specific information for a GDC Edge Appliance cluster. */
@@ -1049,7 +1187,13 @@ declare namespace gapi.client {
     }
     interface MembershipState {
       /** Output only. The current state of the Membership resource. */
-      code?: string;
+      code?:
+        | 'CODE_UNSPECIFIED'
+        | 'CREATING'
+        | 'READY'
+        | 'DELETING'
+        | 'UPDATING'
+        | 'SERVICE_UPDATING';
     }
     interface MonitoringConfig {
       /** Optional. Cluster name used to report metrics. For Anthos on VMWare/Baremetal/MultiCloud clusters, it would be in format {cluster_type}/{cluster_name}, e.g., "awsClusters/cluster_1". */
@@ -1095,7 +1239,12 @@ declare namespace gapi.client {
     }
     interface NamespaceLifecycleState {
       /** Output only. The current state of the Namespace resource. */
-      code?: string;
+      code?:
+        | 'CODE_UNSPECIFIED'
+        | 'CREATING'
+        | 'READY'
+        | 'DELETING'
+        | 'UPDATING';
     }
     interface OnPremCluster {
       /** Immutable. Whether the cluster is an admin cluster. */
@@ -1103,7 +1252,12 @@ declare namespace gapi.client {
       /** Output only. If cluster_missing is set then it denotes that API(gkeonprem.googleapis.com) resource for this GKE On-Prem cluster no longer exists. */
       clusterMissing?: boolean;
       /** Immutable. The on prem cluster's type. */
-      clusterType?: string;
+      clusterType?:
+        | 'CLUSTERTYPE_UNSPECIFIED'
+        | 'BOOTSTRAP'
+        | 'HYBRID'
+        | 'STANDALONE'
+        | 'USER';
       /** Immutable. Self-link of the Google Cloud resource for the GKE On-Prem cluster. For example: //gkeonprem.googleapis.com/projects/my-project/locations/us-west1-a/vmwareClusters/my-cluster //gkeonprem.googleapis.com/projects/my-project/locations/us-west1-a/bareMetalClusters/my-cluster */
       resourceLink?: string;
     }
@@ -1137,7 +1291,7 @@ declare namespace gapi.client {
     }
     interface Origin {
       /** Type specifies which type of origin is set. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'FLEET' | 'FLEET_OUT_OF_SYNC' | 'USER';
     }
     interface Policy {
       /** Specifies cloud audit logging configuration for this policy. */
@@ -1169,7 +1323,12 @@ declare namespace gapi.client {
       /** The set of namespaces that are excluded from Policy Controller checks. Namespaces do not need to currently exist on the cluster. */
       exemptableNamespaces?: string[];
       /** The install_spec represents the intended state specified by the latest request that mutated install_spec in the feature spec, not the lifecycle state of the feature observed by the Hub feature controller that is reported in the feature state. */
-      installSpec?: string;
+      installSpec?:
+        | 'INSTALL_SPEC_UNSPECIFIED'
+        | 'INSTALL_SPEC_NOT_INSTALLED'
+        | 'INSTALL_SPEC_ENABLED'
+        | 'INSTALL_SPEC_SUSPENDED'
+        | 'INSTALL_SPEC_DETACHED';
       /** Logs all denies and dry run failures. */
       logDeniesEnabled?: boolean;
       /** Monitoring specifies the configuration of monitoring. */
@@ -1193,17 +1352,40 @@ declare namespace gapi.client {
       /** The overall content state observed by the Hub Feature controller. */
       policyContentState?: PolicyControllerPolicyContentState;
       /** The overall Policy Controller lifecycle state observed by the Hub Feature controller. */
-      state?: string;
+      state?:
+        | 'LIFECYCLE_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLING'
+        | 'ACTIVE'
+        | 'UPDATING'
+        | 'DECOMMISSIONING'
+        | 'CLUSTER_ERROR'
+        | 'HUB_ERROR'
+        | 'SUSPENDED'
+        | 'DETACHED';
     }
     interface PolicyControllerMonitoringConfig {
       /** Specifies the list of backends Policy Controller will export to. An empty list would effectively disable metrics export. */
-      backends?: string[];
+      backends?:
+        | 'MONITORING_BACKEND_UNSPECIFIED'
+        | 'PROMETHEUS'
+        | 'CLOUD_MONITORING'[];
     }
     interface PolicyControllerOnClusterState {
       /** Surface potential errors or information logs. */
       details?: string;
       /** The lifecycle state of this component. */
-      state?: string;
+      state?:
+        | 'LIFECYCLE_STATE_UNSPECIFIED'
+        | 'NOT_INSTALLED'
+        | 'INSTALLING'
+        | 'ACTIVE'
+        | 'UPDATING'
+        | 'DECOMMISSIONING'
+        | 'CLUSTER_ERROR'
+        | 'HUB_ERROR'
+        | 'SUSPENDED'
+        | 'DETACHED';
     }
     interface PolicyControllerPolicyContentSpec {
       /** map of bundle name to BundleInstallSpec. The bundle name maps to the `bundleName` key in the `policycontroller.gke.io/constraintData` annotation on a constraint. */
@@ -1223,7 +1405,7 @@ declare namespace gapi.client {
       /** Container resource requirements. */
       containerResources?: PolicyControllerResourceRequirements;
       /** Pod affinity configuration. */
-      podAffinity?: string;
+      podAffinity?: 'AFFINITY_UNSPECIFIED' | 'NO_AFFINITY' | 'ANTI_AFFINITY';
       /** Pod anti-affinity enablement. Deprecated: use `pod_affinity` instead. */
       podAntiAffinity?: boolean;
       /** Pod tolerations of node taints. */
@@ -1245,7 +1427,7 @@ declare namespace gapi.client {
     }
     interface PolicyControllerTemplateLibraryConfig {
       /** Configures the manner in which the template library is installed on the cluster. */
-      installation?: string;
+      installation?: 'INSTALLATION_UNSPECIFIED' | 'NOT_INSTALLED' | 'ALL';
     }
     interface PolicyControllerToleration {
       /** Matches a taint effect. */
@@ -1286,7 +1468,12 @@ declare namespace gapi.client {
     interface RBACRoleBindingActuationFeatureState {}
     interface RBACRoleBindingLifecycleState {
       /** Output only. The current state of the rbacrolebinding resource. */
-      code?: string;
+      code?:
+        | 'CODE_UNSPECIFIED'
+        | 'CREATING'
+        | 'READY'
+        | 'DELETING'
+        | 'UPDATING';
     }
     interface ResourceManifest {
       /** Output only. Whether the resource provided in the manifest is `cluster_scoped`. If unset, the manifest is assumed to be namespace scoped. This field is used for REST mapping when applying the resource in a cluster. */
@@ -1308,7 +1495,7 @@ declare namespace gapi.client {
       /** Optional. custom_role is the name of a custom KubernetesClusterRole to use. */
       customRole?: string;
       /** predefined_role is the Kubernetes default role to use */
-      predefinedRole?: string;
+      predefinedRole?: 'UNKNOWN' | 'ADMIN' | 'EDIT' | 'VIEW' | 'ANTHOS_SUPPORT';
     }
     interface Scope {
       /** Output only. When the scope was created. */
@@ -1335,45 +1522,139 @@ declare namespace gapi.client {
     }
     interface ScopeLifecycleState {
       /** Output only. The current state of the scope resource. */
-      code?: string;
+      code?:
+        | 'CODE_UNSPECIFIED'
+        | 'CREATING'
+        | 'READY'
+        | 'DELETING'
+        | 'UPDATING';
     }
     interface SecurityPostureConfig {
       /** Sets which mode to use for Security Posture features. */
-      mode?: string;
+      mode?: 'MODE_UNSPECIFIED' | 'DISABLED' | 'BASIC' | 'ENTERPRISE';
       /** Sets which mode to use for vulnerability scanning. */
-      vulnerabilityMode?: string;
+      vulnerabilityMode?:
+        | 'VULNERABILITY_MODE_UNSPECIFIED'
+        | 'VULNERABILITY_DISABLED'
+        | 'VULNERABILITY_BASIC'
+        | 'VULNERABILITY_ENTERPRISE';
     }
     interface ServiceMeshCondition {
       /** Unique identifier of the condition which describes the condition recognizable to the user. */
-      code?: string;
+      code?:
+        | 'CODE_UNSPECIFIED'
+        | 'MESH_IAM_PERMISSION_DENIED'
+        | 'MESH_IAM_CROSS_PROJECT_PERMISSION_DENIED'
+        | 'CNI_CONFIG_UNSUPPORTED'
+        | 'GKE_SANDBOX_UNSUPPORTED'
+        | 'NODEPOOL_WORKLOAD_IDENTITY_FEDERATION_REQUIRED'
+        | 'CNI_INSTALLATION_FAILED'
+        | 'CNI_POD_UNSCHEDULABLE'
+        | 'CLUSTER_HAS_ZERO_NODES'
+        | 'CANONICAL_SERVICE_ERROR'
+        | 'UNSUPPORTED_MULTIPLE_CONTROL_PLANES'
+        | 'VPCSC_GA_SUPPORTED'
+        | 'DEPRECATED_SPEC_CONTROL_PLANE_MANAGEMENT'
+        | 'DEPRECATED_SPEC_CONTROL_PLANE_MANAGEMENT_SAFE'
+        | 'CONFIG_APPLY_INTERNAL_ERROR'
+        | 'CONFIG_VALIDATION_ERROR'
+        | 'CONFIG_VALIDATION_WARNING'
+        | 'QUOTA_EXCEEDED_BACKEND_SERVICES'
+        | 'QUOTA_EXCEEDED_HEALTH_CHECKS'
+        | 'QUOTA_EXCEEDED_HTTP_ROUTES'
+        | 'QUOTA_EXCEEDED_TCP_ROUTES'
+        | 'QUOTA_EXCEEDED_TLS_ROUTES'
+        | 'QUOTA_EXCEEDED_TRAFFIC_POLICIES'
+        | 'QUOTA_EXCEEDED_ENDPOINT_POLICIES'
+        | 'QUOTA_EXCEEDED_GATEWAYS'
+        | 'QUOTA_EXCEEDED_MESHES'
+        | 'QUOTA_EXCEEDED_SERVER_TLS_POLICIES'
+        | 'QUOTA_EXCEEDED_CLIENT_TLS_POLICIES'
+        | 'QUOTA_EXCEEDED_SERVICE_LB_POLICIES'
+        | 'QUOTA_EXCEEDED_HTTP_FILTERS'
+        | 'QUOTA_EXCEEDED_TCP_FILTERS'
+        | 'QUOTA_EXCEEDED_NETWORK_ENDPOINT_GROUPS'
+        | 'LEGACY_MC_SECRETS'
+        | 'WORKLOAD_IDENTITY_REQUIRED'
+        | 'NON_STANDARD_BINARY_USAGE'
+        | 'UNSUPPORTED_GATEWAY_CLASS'
+        | 'MANAGED_CNI_NOT_ENABLED'
+        | 'MODERNIZATION_SCHEDULED'
+        | 'MODERNIZATION_IN_PROGRESS'
+        | 'MODERNIZATION_COMPLETED'
+        | 'MODERNIZATION_ABORTED'
+        | 'MODERNIZATION_PREPARING'
+        | 'MODERNIZATION_STALLED'
+        | 'MODERNIZATION_PREPARED'
+        | 'MODERNIZATION_MIGRATING_WORKLOADS'
+        | 'MODERNIZATION_ROLLING_BACK_CLUSTER'
+        | 'MODERNIZATION_WILL_BE_SCHEDULED'
+        | 'MODERNIZATION_MANUAL'
+        | 'MODERNIZATION_ELIGIBLE'
+        | 'MODERNIZATION_MODERNIZING'
+        | 'MODERNIZATION_MODERNIZED_SOAKING'
+        | 'MODERNIZATION_FINALIZED'
+        | 'MODERNIZATION_ROLLING_BACK_FLEET';
       /** A short summary about the issue. */
       details?: string;
       /** Links contains actionable information. */
       documentationLink?: string;
       /** Severity level of the condition. */
-      severity?: string;
+      severity?: 'SEVERITY_UNSPECIFIED' | 'ERROR' | 'WARNING' | 'INFO';
     }
     interface ServiceMeshControlPlaneManagement {
       /** Explanation of state. */
       details?: ServiceMeshStatusDetails[];
       /** Output only. Implementation of managed control plane. */
-      implementation?: string;
+      implementation?:
+        | 'IMPLEMENTATION_UNSPECIFIED'
+        | 'ISTIOD'
+        | 'TRAFFIC_DIRECTOR'
+        | 'UPDATING';
       /** LifecycleState of control plane management. */
-      state?: string;
+      state?:
+        | 'LIFECYCLE_STATE_UNSPECIFIED'
+        | 'DISABLED'
+        | 'FAILED_PRECONDITION'
+        | 'PROVISIONING'
+        | 'ACTIVE'
+        | 'STALLED'
+        | 'NEEDS_ATTENTION'
+        | 'DEGRADED'
+        | 'DEPROVISIONING';
     }
     interface ServiceMeshDataPlaneManagement {
       /** Explanation of the status. */
       details?: ServiceMeshStatusDetails[];
       /** Lifecycle status of data plane management. */
-      state?: string;
+      state?:
+        | 'LIFECYCLE_STATE_UNSPECIFIED'
+        | 'DISABLED'
+        | 'FAILED_PRECONDITION'
+        | 'PROVISIONING'
+        | 'ACTIVE'
+        | 'STALLED'
+        | 'NEEDS_ATTENTION'
+        | 'DEGRADED'
+        | 'DEPROVISIONING';
     }
     interface ServiceMeshMembershipSpec {
       /** Optional. Specifies the API that will be used for configuring the mesh workloads. */
-      configApi?: string;
+      configApi?:
+        | 'CONFIG_API_UNSPECIFIED'
+        | 'CONFIG_API_ISTIO'
+        | 'CONFIG_API_GATEWAY';
       /** Deprecated: use `management` instead Enables automatic control plane management. */
-      controlPlane?: string;
+      controlPlane?:
+        | 'CONTROL_PLANE_MANAGEMENT_UNSPECIFIED'
+        | 'AUTOMATIC'
+        | 'MANUAL';
       /** Optional. Enables automatic Service Mesh management. */
-      management?: string;
+      management?:
+        | 'MANAGEMENT_UNSPECIFIED'
+        | 'MANAGEMENT_AUTOMATIC'
+        | 'MANAGEMENT_MANUAL'
+        | 'MANAGEMENT_NOT_INSTALLED';
     }
     interface ServiceMeshMembershipState {
       /** Output only. List of conditions reported for this membership. */
@@ -1397,7 +1678,7 @@ declare namespace gapi.client {
     }
     interface Status {
       /** Code specifies AppDevExperienceFeature's subcomponent ready state. */
-      code?: string;
+      code?: 'CODE_UNSPECIFIED' | 'OK' | 'FAILED' | 'UNKNOWN';
       /** Description is populated if Code is Failed, explaining why it has failed. */
       description?: string;
     }
@@ -1425,7 +1706,12 @@ declare namespace gapi.client {
         [P in string]: WorkloadIdentityNamespaceStateDetail;
       };
       /** Deprecated, this field will be erased after code is changed to use the new field. */
-      namespaceStates?: {[P in string]: string};
+      namespaceStates?: {
+        [P in string]:
+          | 'NAMESPACE_STATE_UNSPECIFIED'
+          | 'NAMESPACE_STATE_OK'
+          | 'NAMESPACE_STATE_ERROR';
+      };
       /** The full name of the scope-tenancy pool for the fleet. */
       scopeTenancyWorkloadIdentityPool?: string;
       /** The full name of the svc.id.goog pool for the fleet. */
@@ -1437,7 +1723,10 @@ declare namespace gapi.client {
     }
     interface WorkloadIdentityIdentityProviderStateDetail {
       /** The state of the Identity Provider. */
-      code?: string;
+      code?:
+        | 'IDENTITY_PROVIDER_STATE_UNSPECIFIED'
+        | 'IDENTITY_PROVIDER_STATE_OK'
+        | 'IDENTITY_PROVIDER_STATE_ERROR';
       /** A human-readable description of the current state or returned error. */
       description?: string;
     }
@@ -1451,13 +1740,19 @@ declare namespace gapi.client {
     }
     interface WorkloadIdentityNamespaceStateDetail {
       /** The state of the IAM namespace. */
-      code?: string;
+      code?:
+        | 'NAMESPACE_STATE_UNSPECIFIED'
+        | 'NAMESPACE_STATE_OK'
+        | 'NAMESPACE_STATE_ERROR';
       /** A human-readable description of the current state or returned error. */
       description?: string;
     }
     interface WorkloadIdentityWorkloadIdentityPoolStateDetail {
       /** The state of the Workload Identity Pool. */
-      code?: string;
+      code?:
+        | 'WORKLOAD_IDENTITY_POOL_STATE_UNSPECIFIED'
+        | 'WORKLOAD_IDENTITY_POOL_STATE_OK'
+        | 'WORKLOAD_IDENTITY_POOL_STATE_ERROR';
       /** A human-readable description of the current state or returned error. */
       description?: string;
     }
@@ -1465,11 +1760,11 @@ declare namespace gapi.client {
       /** Returns all fleets within an organization or a project that the caller has access to. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1504,11 +1799,11 @@ declare namespace gapi.client {
       /** Adds a new Feature. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The ID of the feature to create. */
@@ -1537,11 +1832,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The ID of the feature to create. */
@@ -1570,11 +1865,11 @@ declare namespace gapi.client {
       /** Removes a Feature. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1601,11 +1896,11 @@ declare namespace gapi.client {
       /** Gets details of a single Feature. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1630,11 +1925,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1659,11 +1954,11 @@ declare namespace gapi.client {
       /** Lists Features in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1696,11 +1991,11 @@ declare namespace gapi.client {
       /** Updates an existing Feature. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1729,11 +2024,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1763,11 +2058,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1793,11 +2088,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1824,11 +2119,11 @@ declare namespace gapi.client {
       /** Creates a fleet. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1853,11 +2148,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1882,11 +2177,11 @@ declare namespace gapi.client {
       /** Removes a Fleet. There must be no memberships remaining in the Fleet. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1909,11 +2204,11 @@ declare namespace gapi.client {
       /** Returns the details of a fleet. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1936,11 +2231,11 @@ declare namespace gapi.client {
       /** Returns all fleets within an organization or a project that the caller has access to. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1967,11 +2262,11 @@ declare namespace gapi.client {
       /** Updates a fleet. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1998,11 +2293,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2031,11 +2326,11 @@ declare namespace gapi.client {
       /** Creates a MembershipBinding. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2062,11 +2357,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2093,11 +2388,11 @@ declare namespace gapi.client {
       /** Deletes a MembershipBinding. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2120,11 +2415,11 @@ declare namespace gapi.client {
       /** Returns the details of a MembershipBinding. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2147,11 +2442,11 @@ declare namespace gapi.client {
       /** Lists MembershipBindings. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2180,11 +2475,11 @@ declare namespace gapi.client {
       /** Updates a MembershipBinding. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2211,11 +2506,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2244,11 +2539,11 @@ declare namespace gapi.client {
       /** Creates a Membership RBACRoleBinding. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2275,11 +2570,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2306,11 +2601,11 @@ declare namespace gapi.client {
       /** Deletes a Membership RBACRoleBinding. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2333,11 +2628,11 @@ declare namespace gapi.client {
       /** Generates a YAML of the RBAC policies for the specified RoleBinding and its associated impersonation resources. */
       generateMembershipRBACRoleBindingYAML(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2364,11 +2659,11 @@ declare namespace gapi.client {
       generateMembershipRBACRoleBindingYAML(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2395,11 +2690,11 @@ declare namespace gapi.client {
       /** Returns the details of a Membership RBACRoleBinding. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2422,11 +2717,11 @@ declare namespace gapi.client {
       /** Lists all Membership RBACRoleBindings. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2453,11 +2748,11 @@ declare namespace gapi.client {
       /** Updates a Membership RBACRoleBinding. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2484,11 +2779,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2517,11 +2812,11 @@ declare namespace gapi.client {
       /** Creates a new Membership. **This is currently only supported for GKE clusters on Google Cloud**. To register other clusters, follow the instructions at https://cloud.google.com/anthos/multicluster-management/connect/registering-a-cluster. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2550,11 +2845,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2583,11 +2878,11 @@ declare namespace gapi.client {
       /** Removes a Membership. **This is currently only supported for GKE clusters on Google Cloud**. To unregister other clusters, follow the instructions at https://cloud.google.com/anthos/multicluster-management/connect/unregistering-a-cluster. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2614,11 +2909,11 @@ declare namespace gapi.client {
       /** Generates the manifest for deployment of the GKE connect agent. **This method is used internally by Google-provided libraries.** Most clients should not need to call this method directly. */
       generateConnectManifest(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2653,11 +2948,11 @@ declare namespace gapi.client {
       /** Gets the details of a Membership. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2680,11 +2975,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2709,11 +3004,11 @@ declare namespace gapi.client {
       /** Lists Memberships in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2744,11 +3039,11 @@ declare namespace gapi.client {
       /** Updates an existing Membership. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2777,11 +3072,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2811,11 +3106,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2841,11 +3136,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2874,11 +3169,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2903,11 +3198,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2932,11 +3227,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2959,11 +3254,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2986,11 +3281,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3023,11 +3318,11 @@ declare namespace gapi.client {
       /** Creates a fleet namespace. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3054,11 +3349,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3085,11 +3380,11 @@ declare namespace gapi.client {
       /** Deletes a fleet namespace. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3112,11 +3407,11 @@ declare namespace gapi.client {
       /** Returns the details of a fleet namespace. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3139,11 +3434,11 @@ declare namespace gapi.client {
       /** Lists fleet namespaces. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3170,11 +3465,11 @@ declare namespace gapi.client {
       /** Updates a fleet namespace. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3201,11 +3496,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3234,11 +3529,11 @@ declare namespace gapi.client {
       /** Creates a Scope RBACRoleBinding. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3265,11 +3560,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3296,11 +3591,11 @@ declare namespace gapi.client {
       /** Deletes a Scope RBACRoleBinding. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3323,11 +3618,11 @@ declare namespace gapi.client {
       /** Returns the details of a Scope RBACRoleBinding. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3350,11 +3645,11 @@ declare namespace gapi.client {
       /** Lists all Scope RBACRoleBindings. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3381,11 +3676,11 @@ declare namespace gapi.client {
       /** Updates a Scope RBACRoleBinding. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3412,11 +3707,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3445,11 +3740,11 @@ declare namespace gapi.client {
       /** Creates a Scope. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3476,11 +3771,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3507,11 +3802,11 @@ declare namespace gapi.client {
       /** Deletes a Scope. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3534,11 +3829,11 @@ declare namespace gapi.client {
       /** Returns the details of a Scope. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3561,11 +3856,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3590,11 +3885,11 @@ declare namespace gapi.client {
       /** Lists Scopes. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3621,11 +3916,11 @@ declare namespace gapi.client {
       /** Lists Memberships bound to a Scope. The response includes relevant Memberships from all regions. */
       listMemberships(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3654,11 +3949,11 @@ declare namespace gapi.client {
       /** Lists permitted Scopes. */
       listPermitted(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3685,11 +3980,11 @@ declare namespace gapi.client {
       /** Updates a scopes. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3716,11 +4011,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3748,11 +4043,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3778,11 +4073,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3811,11 +4106,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3838,11 +4133,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */

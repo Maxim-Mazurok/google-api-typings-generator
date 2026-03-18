@@ -30,7 +30,7 @@ declare namespace gapi.client {
   namespace ondemandscanning {
     interface AliasContext {
       /** The alias kind. */
-      kind?: string;
+      kind?: 'KIND_UNSPECIFIED' | 'FIXED' | 'MOVABLE' | 'OTHER';
       /** The alias name. */
       name?: string;
     }
@@ -206,20 +206,58 @@ declare namespace gapi.client {
       version?: string;
     }
     interface CVSS {
-      attackComplexity?: string;
+      attackComplexity?:
+        | 'ATTACK_COMPLEXITY_UNSPECIFIED'
+        | 'ATTACK_COMPLEXITY_LOW'
+        | 'ATTACK_COMPLEXITY_HIGH'
+        | 'ATTACK_COMPLEXITY_MEDIUM';
       /** Base Metrics Represents the intrinsic characteristics of a vulnerability that are constant over time and across user environments. */
-      attackVector?: string;
-      authentication?: string;
-      availabilityImpact?: string;
+      attackVector?:
+        | 'ATTACK_VECTOR_UNSPECIFIED'
+        | 'ATTACK_VECTOR_NETWORK'
+        | 'ATTACK_VECTOR_ADJACENT'
+        | 'ATTACK_VECTOR_LOCAL'
+        | 'ATTACK_VECTOR_PHYSICAL';
+      authentication?:
+        | 'AUTHENTICATION_UNSPECIFIED'
+        | 'AUTHENTICATION_MULTIPLE'
+        | 'AUTHENTICATION_SINGLE'
+        | 'AUTHENTICATION_NONE';
+      availabilityImpact?:
+        | 'IMPACT_UNSPECIFIED'
+        | 'IMPACT_HIGH'
+        | 'IMPACT_LOW'
+        | 'IMPACT_NONE'
+        | 'IMPACT_PARTIAL'
+        | 'IMPACT_COMPLETE';
       /** The base score is a function of the base metric scores. */
       baseScore?: number;
-      confidentialityImpact?: string;
+      confidentialityImpact?:
+        | 'IMPACT_UNSPECIFIED'
+        | 'IMPACT_HIGH'
+        | 'IMPACT_LOW'
+        | 'IMPACT_NONE'
+        | 'IMPACT_PARTIAL'
+        | 'IMPACT_COMPLETE';
       exploitabilityScore?: number;
       impactScore?: number;
-      integrityImpact?: string;
-      privilegesRequired?: string;
-      scope?: string;
-      userInteraction?: string;
+      integrityImpact?:
+        | 'IMPACT_UNSPECIFIED'
+        | 'IMPACT_HIGH'
+        | 'IMPACT_LOW'
+        | 'IMPACT_NONE'
+        | 'IMPACT_PARTIAL'
+        | 'IMPACT_COMPLETE';
+      privilegesRequired?:
+        | 'PRIVILEGES_REQUIRED_UNSPECIFIED'
+        | 'PRIVILEGES_REQUIRED_NONE'
+        | 'PRIVILEGES_REQUIRED_LOW'
+        | 'PRIVILEGES_REQUIRED_HIGH';
+      scope?: 'SCOPE_UNSPECIFIED' | 'SCOPE_UNCHANGED' | 'SCOPE_CHANGED';
+      userInteraction?:
+        | 'USER_INTERACTION_UNSPECIFIED'
+        | 'USER_INTERACTION_NONE'
+        | 'USER_INTERACTION_REQUIRED';
     }
     interface DeploymentOccurrence {
       /** Address of the runtime element hosting this deployment. */
@@ -229,7 +267,7 @@ declare namespace gapi.client {
       /** Required. Beginning of the lifetime of this deployment. */
       deployTime?: string;
       /** Platform hosting this deployment. */
-      platform?: string;
+      platform?: 'PLATFORM_UNSPECIFIED' | 'GKE' | 'FLEX' | 'CUSTOM';
       /** Output only. Resource URI for the artifact being deployed taken from the deployable field with the same name. */
       resourceUri?: string[];
       /** End of the lifetime of this deployment. */
@@ -242,13 +280,23 @@ declare namespace gapi.client {
       /** Indicates any errors encountered during analysis of a resource. There could be 0 or more of these errors. */
       analysisError?: Status[];
       /** The status of discovery for the resource. */
-      analysisStatus?: string;
+      analysisStatus?:
+        | 'ANALYSIS_STATUS_UNSPECIFIED'
+        | 'PENDING'
+        | 'SCANNING'
+        | 'FINISHED_SUCCESS'
+        | 'COMPLETE'
+        | 'FINISHED_FAILED'
+        | 'FINISHED_UNSUPPORTED';
       /** When an error is encountered this will contain a LocalizedMessage under details to show to the user. The LocalizedMessage is output only and populated by the API. */
       analysisStatusError?: Status;
       /** Output only. The time occurrences related to this discovery occurrence were archived. */
       archiveTime?: string;
       /** Whether the resource is continuously analyzed. */
-      continuousAnalysis?: string;
+      continuousAnalysis?:
+        | 'CONTINUOUS_ANALYSIS_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'INACTIVE';
       /** The CPE of the resource being scanned. */
       cpe?: string;
       /** Files that make up the resource described by the occurrence. */
@@ -429,7 +477,13 @@ declare namespace gapi.client {
       /** Additional details on why this justification was chosen. */
       details?: string;
       /** The justification type for this vulnerability. */
-      justificationType?: string;
+      justificationType?:
+        | 'JUSTIFICATION_TYPE_UNSPECIFIED'
+        | 'COMPONENT_NOT_PRESENT'
+        | 'VULNERABLE_CODE_NOT_PRESENT'
+        | 'VULNERABLE_CODE_NOT_IN_EXECUTE_PATH'
+        | 'VULNERABLE_CODE_CANNOT_BE_CONTROLLED_BY_ADVERSARY'
+        | 'INLINE_MITIGATIONS_ALREADY_EXIST';
     }
     interface Jwt {
       /** The compact encoding of a JWS, which is always three base64 encoded strings joined by periods. For details, see: https://tools.ietf.org/html/rfc7515.html#section-3.1 */
@@ -535,7 +589,21 @@ declare namespace gapi.client {
       /** Describes how this resource derives from the basis in the associated note. */
       image?: ImageOccurrence;
       /** Output only. This explicitly denotes which of the occurrence details are specified. This field can be used as a filter in list requests. */
-      kind?: string;
+      kind?:
+        | 'NOTE_KIND_UNSPECIFIED'
+        | 'VULNERABILITY'
+        | 'BUILD'
+        | 'IMAGE'
+        | 'PACKAGE'
+        | 'DEPLOYMENT'
+        | 'DISCOVERY'
+        | 'ATTESTATION'
+        | 'UPGRADE'
+        | 'COMPLIANCE'
+        | 'DSSE_ATTESTATION'
+        | 'VULNERABILITY_ASSESSMENT'
+        | 'SBOM_REFERENCE'
+        | 'SECRET';
       /** Output only. The name of the occurrence in the form of `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]`. */
       name?: string;
       /** Required. Immutable. The analysis note associated with this occurrence, in the form of `projects/[PROVIDER_ID]/notes/[NOTE_ID]`. This field can be used as a filter in list requests. */
@@ -596,7 +664,19 @@ declare namespace gapi.client {
       /** The package being analysed for vulnerabilities */
       package?: string;
       /** The type of package: os, maven, go, etc. */
-      packageType?: string;
+      packageType?:
+        | 'PACKAGE_TYPE_UNSPECIFIED'
+        | 'OS'
+        | 'MAVEN'
+        | 'GO'
+        | 'GO_STDLIB'
+        | 'PYPI'
+        | 'NPM'
+        | 'NUGET'
+        | 'RUBYGEMS'
+        | 'RUST'
+        | 'COMPOSER'
+        | 'SWIFT';
       /** CVEs that this package is no longer vulnerable to */
       patchedCve?: string[];
       /** DEPRECATED */
@@ -613,7 +693,13 @@ declare namespace gapi.client {
       /** Required. The version of the package that is installed on the resource affected by this vulnerability. */
       affectedVersion?: Version;
       /** Output only. The distro or language system assigned severity for this vulnerability when that is available and note provider assigned severity when it is not available. */
-      effectiveSeverity?: string;
+      effectiveSeverity?:
+        | 'SEVERITY_UNSPECIFIED'
+        | 'MINIMAL'
+        | 'LOW'
+        | 'MEDIUM'
+        | 'HIGH'
+        | 'CRITICAL';
       /** The location at which this package was found. */
       fileLocation?: GrafeasV1FileLocation[];
       /** Output only. Whether a fix is available for this package. */
@@ -629,7 +715,7 @@ declare namespace gapi.client {
     }
     interface PackageOccurrence {
       /** Output only. The CPU architecture for which packages in this distribution channel were built. Architecture will be blank for language packages. */
-      architecture?: string;
+      architecture?: 'ARCHITECTURE_UNSPECIFIED' | 'X86' | 'X64';
       /** Output only. The cpe_uri in [CPE format](https://cpe.mitre.org/specification/) denoting the package manager version distributing a package. The cpe_uri will be blank for language packages. */
       cpeUri?: string;
       /** Licenses that have been declared by the authors of the package. */
@@ -682,7 +768,13 @@ declare namespace gapi.client {
       /** Contains a comprehensive human-readable discussion of the remediation. */
       details?: string;
       /** The type of remediation that can be applied. */
-      remediationType?: string;
+      remediationType?:
+        | 'REMEDIATION_TYPE_UNSPECIFIED'
+        | 'MITIGATION'
+        | 'NO_FIX_PLANNED'
+        | 'NONE_AVAILABLE'
+        | 'VENDOR_FIX'
+        | 'WORKAROUND';
       /** Contains the URL where to obtain the remediation. */
       remediationUri?: RelatedUrl;
     }
@@ -744,7 +836,7 @@ declare namespace gapi.client {
       /** If there was an error generating an SBOM, this will indicate what that error was. */
       error?: string;
       /** The progress of the SBOM generation. */
-      sbomState?: string;
+      sbomState?: 'SBOM_STATE_UNSPECIFIED' | 'PENDING' | 'COMPLETE';
     }
     interface SecretLocation {
       /** The secret is found from a file. */
@@ -752,7 +844,30 @@ declare namespace gapi.client {
     }
     interface SecretOccurrence {
       /** Required. Type of secret. */
-      kind?: string;
+      kind?:
+        | 'SECRET_KIND_UNSPECIFIED'
+        | 'SECRET_KIND_UNKNOWN'
+        | 'SECRET_KIND_GCP_SERVICE_ACCOUNT_KEY'
+        | 'SECRET_KIND_GCP_API_KEY'
+        | 'SECRET_KIND_GCP_OAUTH2_CLIENT_CREDENTIALS'
+        | 'SECRET_KIND_GCP_OAUTH2_ACCESS_TOKEN'
+        | 'SECRET_KIND_ANTHROPIC_ADMIN_API_KEY'
+        | 'SECRET_KIND_ANTHROPIC_API_KEY'
+        | 'SECRET_KIND_AZURE_ACCESS_TOKEN'
+        | 'SECRET_KIND_AZURE_IDENTITY_TOKEN'
+        | 'SECRET_KIND_DOCKER_HUB_PERSONAL_ACCESS_TOKEN'
+        | 'SECRET_KIND_GITHUB_APP_REFRESH_TOKEN'
+        | 'SECRET_KIND_GITHUB_APP_SERVER_TO_SERVER_TOKEN'
+        | 'SECRET_KIND_GITHUB_APP_USER_TO_SERVER_TOKEN'
+        | 'SECRET_KIND_GITHUB_CLASSIC_PERSONAL_ACCESS_TOKEN'
+        | 'SECRET_KIND_GITHUB_FINE_GRAINED_PERSONAL_ACCESS_TOKEN'
+        | 'SECRET_KIND_GITHUB_OAUTH_TOKEN'
+        | 'SECRET_KIND_HUGGINGFACE_API_KEY'
+        | 'SECRET_KIND_OPENAI_API_KEY'
+        | 'SECRET_KIND_PERPLEXITY_API_KEY'
+        | 'SECRET_KIND_STRIPE_SECRET_KEY'
+        | 'SECRET_KIND_STRIPE_RESTRICTED_KEY'
+        | 'SECRET_KIND_STRIPE_WEBHOOK_SECRET';
       /** Optional. Locations where the secret is detected. */
       locations?: SecretLocation[];
       /** Optional. Status of the secret. */
@@ -762,7 +877,7 @@ declare namespace gapi.client {
       /** Optional. Optional message about the status code. */
       message?: string;
       /** Optional. The status of the secret. */
-      status?: string;
+      status?: 'STATUS_UNSPECIFIED' | 'UNKNOWN' | 'VALID' | 'INVALID';
       /** Optional. The time the secret status was last updated. */
       updateTime?: string;
     }
@@ -889,7 +1004,7 @@ declare namespace gapi.client {
       /** Whether this version is specifying part of an inclusive range. Grafeas does not have the capability to specify version ranges; instead we have fields that specify start version and end versions. At times this is insufficient - we also need to specify whether the version is included in the range or is excluded from the range. This boolean is expected to be set to true when the version is included in a range. */
       inclusive?: boolean;
       /** Required. Distinguishes between sentinel MIN/MAX versions and normal versions. */
-      kind?: string;
+      kind?: 'VERSION_KIND_UNSPECIFIED' | 'NORMAL' | 'MINIMUM' | 'MAXIMUM';
       /** Required only when version kind is NORMAL. The main part of the version name. */
       name?: string;
       /** The iteration of the package build from the above version. */
@@ -909,7 +1024,12 @@ declare namespace gapi.client {
       /** Specifies details on how to handle (and presumably, fix) a vulnerability. */
       remediations?: Remediation[];
       /** Provides the state of this Vulnerability assessment. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'AFFECTED'
+        | 'NOT_AFFECTED'
+        | 'FIXED'
+        | 'UNDER_INVESTIGATION';
       /** The vulnerability identifier for this Assessment. Will hold one of common identifiers e.g. CVE, GHSA etc. */
       vulnerabilityId?: string;
     }
@@ -921,9 +1041,18 @@ declare namespace gapi.client {
       /** The cvss v3 score for the vulnerability. */
       cvssv3?: CVSS;
       /** Output only. CVSS version used to populate cvss_score and severity. */
-      cvssVersion?: string;
+      cvssVersion?:
+        | 'CVSS_VERSION_UNSPECIFIED'
+        | 'CVSS_VERSION_2'
+        | 'CVSS_VERSION_3';
       /** The distro assigned severity for this vulnerability when it is available, otherwise this is the note provider assigned severity. When there are multiple PackageIssues for this vulnerability, they can have different effective severities because some might be provided by the distro while others are provided by the language ecosystem for a language pack. For this reason, it is advised to use the effective severity on the PackageIssue level. In the case where multiple PackageIssues have differing effective severities, this field should be the highest severity for any of the PackageIssues. */
-      effectiveSeverity?: string;
+      effectiveSeverity?:
+        | 'SEVERITY_UNSPECIFIED'
+        | 'MINIMAL'
+        | 'LOW'
+        | 'MEDIUM'
+        | 'HIGH'
+        | 'CRITICAL';
       /** Occurrence-specific extra details about the vulnerability. */
       extraDetails?: string;
       /** Output only. Whether at least one of the affected packages has a fix available. */
@@ -937,7 +1066,13 @@ declare namespace gapi.client {
       /** Risk information about the vulnerability, such as CISA, EPSS, etc. */
       risk?: Risk;
       /** Output only. The note provider assigned severity of this vulnerability. */
-      severity?: string;
+      severity?:
+        | 'SEVERITY_UNSPECIFIED'
+        | 'MINIMAL'
+        | 'LOW'
+        | 'MEDIUM'
+        | 'HIGH'
+        | 'CRITICAL';
       /** Output only. A one sentence description of this vulnerability. */
       shortDescription?: string;
       /** The type of package; whether native or non native (e.g., ruby gems, node.js packages, etc.). */
@@ -964,11 +1099,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -991,11 +1126,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1018,11 +1153,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1045,11 +1180,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1080,11 +1215,11 @@ declare namespace gapi.client {
       /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
       wait(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1111,11 +1246,11 @@ declare namespace gapi.client {
       /** Lists vulnerabilities resulting from a successfully completed scan. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1144,11 +1279,11 @@ declare namespace gapi.client {
       /** Initiates an analysis of the provided packages. */
       analyzePackages(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1173,11 +1308,11 @@ declare namespace gapi.client {
       analyzePackages(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

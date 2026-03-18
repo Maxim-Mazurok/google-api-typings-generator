@@ -34,7 +34,11 @@ declare namespace gapi.client {
       /** Required. The desired hash length in bytes. Minimum is 4 and maximum is 1024. */
       hashLengthBytes?: number;
       /** Required. Must not be HASH_TYPE_UNSPECIFIED. */
-      hashType?: string;
+      hashType?:
+        | 'HASH_TYPE_UNSPECIFIED'
+        | 'ARGON2_D'
+        | 'ARGON2_ID'
+        | 'ARGON2_I';
       /** Required. The number of iterations to perform. Minimum is 1, maximum is 16. */
       iterations?: number;
       /** Required. The memory cost in kibibytes. Maximum is 32768. */
@@ -42,7 +46,7 @@ declare namespace gapi.client {
       /** Required. The degree of parallelism, also called threads or lanes. Minimum is 1, maximum is 16. */
       parallelism?: number;
       /** The version of the Argon2 algorithm. This defaults to VERSION_13 if not specified. */
-      version?: string;
+      version?: 'VERSION_UNSPECIFIED' | 'VERSION_10' | 'VERSION_13';
     }
     interface GoogleCloudIdentitytoolkitV1AutoRetrievalInfo {
       /** The Android app's signature hash for Google Play Service's SMS Retriever API. */
@@ -157,7 +161,7 @@ declare namespace gapi.client {
       /** Whether the template is disabled. If true, a default template will be used. */
       disabled?: boolean;
       /** Email body format */
-      format?: string;
+      format?: 'EMAIL_BODY_FORMAT_UNSPECIFIED' | 'PLAINTEXT' | 'HTML';
       /** From address of the email */
       from?: string;
       /** From display name */
@@ -219,7 +223,11 @@ declare namespace gapi.client {
       captchaResp?: string;
       challenge?: string;
       /** The client type: web, Android or iOS. Required when reCAPTCHA Enterprise protection is enabled. */
-      clientType?: string;
+      clientType?:
+        | 'CLIENT_TYPE_UNSPECIFIED'
+        | 'CLIENT_TYPE_WEB'
+        | 'CLIENT_TYPE_ANDROID'
+        | 'CLIENT_TYPE_IOS';
       /** The Url to continue after user clicks the link sent in email. This is the url that will allow the web widget to handle the OOB code. */
       continueUrl?: string;
       /** In order to ensure that the url used can be easily opened up in iOS or android, we create a [Firebase Dynamic Link](https://firebase.google.com/docs/dynamic-links). Most Identity Platform projects will only have one Dynamic Link domain enabled, and can leave this field blank. This field contains a specified Dynamic Link domain for projects that have multiple enabled. */
@@ -237,9 +245,20 @@ declare namespace gapi.client {
       /** The email address the account is being updated to. Required only for VERIFY_AND_CHANGE_EMAIL requests. */
       newEmail?: string;
       /** The reCAPTCHA version of the reCAPTCHA token in the captcha_response. */
-      recaptchaVersion?: string;
+      recaptchaVersion?:
+        | 'RECAPTCHA_VERSION_UNSPECIFIED'
+        | 'RECAPTCHA_ENTERPRISE';
       /** Required. The type of out-of-band (OOB) code to send. Depending on this value, other fields in this request will be required and/or have different meanings. There are 4 different OOB codes that can be sent: * PASSWORD_RESET * EMAIL_SIGNIN * VERIFY_EMAIL * VERIFY_AND_CHANGE_EMAIL */
-      requestType?: string;
+      requestType?:
+        | 'OOB_REQ_TYPE_UNSPECIFIED'
+        | 'PASSWORD_RESET'
+        | 'OLD_EMAIL_AGREE'
+        | 'NEW_EMAIL_ACCEPT'
+        | 'VERIFY_EMAIL'
+        | 'RECOVER_EMAIL'
+        | 'EMAIL_SIGNIN'
+        | 'VERIFY_AND_CHANGE_EMAIL'
+        | 'REVERT_SECOND_FACTOR_ADDITION';
       /** Whether the confirmation link containing the OOB code should be returned in the response (no email is sent). Used when a developer wants to construct the email template and send it on their own. By default this is false; to specify this field, and to set it to true, it requires a Google OAuth 2.0 credential with proper [permissions](https://cloud.google.com/identity-platform/docs/access-control) */
       returnOobLink?: boolean;
       /** The Project ID of the Identity Platform project which the account belongs to. To specify this field, it requires a Google OAuth 2.0 credential with proper [permissions](https://cloud.google.com/identity-platform/docs/access-control). */
@@ -305,7 +324,19 @@ declare namespace gapi.client {
       enabled?: boolean;
       /** Percent of users who will be prompted/redirected federated login for this IdP */
       experimentPercent?: number;
-      provider?: string;
+      provider?:
+        | 'PROVIDER_UNSPECIFIED'
+        | 'MSLIVE'
+        | 'GOOGLE'
+        | 'FACEBOOK'
+        | 'PAYPAL'
+        | 'TWITTER'
+        | 'YAHOO'
+        | 'AOL'
+        | 'GITHUB'
+        | 'GOOGLE_PLAY_GAMES'
+        | 'LINKEDIN'
+        | 'IOS_GAME_CENTER';
       /** OAuth2 client secret. */
       secret?: string;
       /** Whitelisted client IDs for audience check. */
@@ -399,10 +430,16 @@ declare namespace gapi.client {
       limit?: string;
       /** The number of accounts to skip from the beginning of matching records. Only valid when `return_user_info` is set to `true`. */
       offset?: string;
-      order?: string;
+      order?: 'ORDER_UNSPECIFIED' | 'ASC' | 'DESC';
       /** If `true`, this request will return the accounts matching the query. If `false`, only the __count__ of accounts matching the query will be returned. Defaults to `true`. */
       returnUserInfo?: boolean;
-      sortBy?: string;
+      sortBy?:
+        | 'SORT_BY_FIELD_UNSPECIFIED'
+        | 'USER_ID'
+        | 'NAME'
+        | 'CREATED_AT'
+        | 'LAST_LOGIN_AT'
+        | 'USER_EMAIL';
       /** The ID of the tenant to which the result is scoped. */
       tenantId?: string;
     }
@@ -430,7 +467,16 @@ declare namespace gapi.client {
       kind?: string;
       mfaInfo?: GoogleCloudIdentitytoolkitV1MfaEnrollment;
       newEmail?: string;
-      requestType?: string;
+      requestType?:
+        | 'OOB_REQ_TYPE_UNSPECIFIED'
+        | 'PASSWORD_RESET'
+        | 'OLD_EMAIL_AGREE'
+        | 'NEW_EMAIL_ACCEPT'
+        | 'VERIFY_EMAIL'
+        | 'RECOVER_EMAIL'
+        | 'EMAIL_SIGNIN'
+        | 'VERIFY_AND_CHANGE_EMAIL'
+        | 'REVERT_SECOND_FACTOR_ADDITION';
     }
     interface GoogleCloudIdentitytoolkitV1SendVerificationCodeRequest {
       /** Android only. Used by Google Play Services to identify the app for auto-retrieval. */
@@ -438,7 +484,11 @@ declare namespace gapi.client {
       /** Optional. The reCAPTCHA Enterprise token provided by the reCAPTCHA client-side integration. Required when reCAPTCHA enterprise is enabled. */
       captchaResponse?: string;
       /** Optional. The client type, web, android or ios. Required when reCAPTCHA Enterprise is enabled. */
-      clientType?: string;
+      clientType?:
+        | 'CLIENT_TYPE_UNSPECIFIED'
+        | 'CLIENT_TYPE_WEB'
+        | 'CLIENT_TYPE_ANDROID'
+        | 'CLIENT_TYPE_IOS';
       /** Receipt of successful iOS app token validation. At least one of (`ios_receipt` and `ios_secret`), `recaptcha_token`, or `play_integrity_token` must be specified to verify the verification code is being sent on behalf of a real app and not an emulator, if 'captcha_response' is not used (reCAPTCHA enterprise is not enabled). This should come from the response of verifyIosClient. If present, the caller should also provide the `ios_secret`, as well as a bundle ID in the `x-ios-bundle-identifier` header, which must match the bundle ID from the verifyIosClient request. */
       iosReceipt?: string;
       /** Secret delivered to iOS app as a push notification. Should be passed with an `ios_receipt` as well as the `x-ios-bundle-identifier` header. */
@@ -450,7 +500,9 @@ declare namespace gapi.client {
       /** Recaptcha token for app verification. At least one of (`ios_receipt` and `ios_secret`), `recaptcha_token`, or `play_integrity_token` must be specified to verify the verification code is being sent on behalf of a real app and not an emulator, if 'captcha_response' is not used (reCAPTCHA enterprise is not enabled). The recaptcha should be generated by calling getRecaptchaParams and the recaptcha token will be generated on user completion of the recaptcha challenge. */
       recaptchaToken?: string;
       /** Optional. The reCAPTCHA version of the reCAPTCHA token in the captcha_response. Required when reCAPTCHA Enterprise is enabled. */
-      recaptchaVersion?: string;
+      recaptchaVersion?:
+        | 'RECAPTCHA_VERSION_UNSPECIFIED'
+        | 'RECAPTCHA_ENTERPRISE';
       /** Android only. Safety Net has been deprecated. Please use play_integrity_token instead. */
       safetyNetToken?: string;
       /** Tenant ID of the Identity Platform tenant the user is signing in to. */
@@ -469,7 +521,14 @@ declare namespace gapi.client {
       /** JSON formatted custom attributes to be stored in the Identity Platform ID token. Specifying this field requires a Google OAuth 2.0 credential with proper [permissions] (https://cloud.google.com/identity-platform/docs/access-control). */
       customAttributes?: string;
       delegatedProjectNumber?: string;
-      deleteAttribute?: string[];
+      deleteAttribute?:
+        | 'USER_ATTRIBUTE_NAME_UNSPECIFIED'
+        | 'EMAIL'
+        | 'DISPLAY_NAME'
+        | 'PROVIDER'
+        | 'PHOTO_URL'
+        | 'PASSWORD'
+        | 'RAW_USER_INFO'[];
       /** The Identity Providers to unlink from the user's account. */
       deleteProvider?: string[];
       /** If true, marks the account as disabled, meaning the user will no longer be able to sign-in. */
@@ -734,7 +793,11 @@ declare namespace gapi.client {
       /** The reCAPTCHA token provided by the reCAPTCHA client-side integration. reCAPTCHA Enterprise uses it for risk assessment. Required when reCAPTCHA Enterprise is enabled. */
       captchaResponse?: string;
       /** The client type, web, android or ios. Required when reCAPTCHA Enterprise is enabled. */
-      clientType?: string;
+      clientType?:
+        | 'CLIENT_TYPE_UNSPECIFIED'
+        | 'CLIENT_TYPE_WEB'
+        | 'CLIENT_TYPE_ANDROID'
+        | 'CLIENT_TYPE_IOS';
       delegatedProjectNumber?: string;
       /** Required. The email the user is signing in with. The length of email should be less than 256 characters and in the format of `name@domain.tld`. The email should also match the [RFC 822](https://tools.ietf.org/html/rfc822) addr-spec production. */
       email?: string;
@@ -744,7 +807,9 @@ declare namespace gapi.client {
       password?: string;
       pendingIdToken?: string;
       /** The reCAPTCHA version of the reCAPTCHA token in the captcha_response. */
-      recaptchaVersion?: string;
+      recaptchaVersion?:
+        | 'RECAPTCHA_VERSION_UNSPECIFIED'
+        | 'RECAPTCHA_ENTERPRISE';
       /** Should always be true. */
       returnSecureToken?: boolean;
       /** The ID of the Identity Platform tenant the user is signing in to. If not set, the user will sign in to the default Identity Platform instance in the project. */
@@ -785,7 +850,12 @@ declare namespace gapi.client {
       code?: string;
       /** A valid ID token for an Identity Platform account. If passed, this request will link the phone number to the user represented by this ID token if the phone number is not in use, or will reauthenticate the user if the phone number is already linked to the user. */
       idToken?: string;
-      operation?: string;
+      operation?:
+        | 'VERIFY_OP_UNSPECIFIED'
+        | 'SIGN_UP_OR_IN'
+        | 'REAUTH'
+        | 'UPDATE'
+        | 'LINK';
       /** The user's phone number to sign in with. This is necessary in the case of uing a temporary proof, in which case it must match the phone number that was authenticated in the request that generated the temporary proof. This field is ignored if a session info is passed. */
       phoneNumber?: string;
       /** Encrypted session information from the response of sendVerificationCode. In the case of authenticating with an SMS code this must be specified, but in the case of using a temporary proof it can be unspecified. */
@@ -824,7 +894,11 @@ declare namespace gapi.client {
       /** The reCAPTCHA token provided by the reCAPTCHA client-side integration. reCAPTCHA Enterprise uses it for assessment. Required when reCAPTCHA enterprise is enabled. */
       captchaResponse?: string;
       /** The client type: web, Android or iOS. Required when enabling reCAPTCHA enterprise protection. */
-      clientType?: string;
+      clientType?:
+        | 'CLIENT_TYPE_UNSPECIFIED'
+        | 'CLIENT_TYPE_WEB'
+        | 'CLIENT_TYPE_ANDROID'
+        | 'CLIENT_TYPE_IOS';
       /** Whether the user will be disabled upon creation. Disabled accounts are inaccessible except for requests bearing a Google OAuth2 credential with proper [permissions](https://cloud.google.com/identity-platform/docs/access-control). */
       disabled?: boolean;
       /** The display name of the user to be created. */
@@ -847,7 +921,9 @@ declare namespace gapi.client {
       /** The profile photo url of the user to create. */
       photoUrl?: string;
       /** The reCAPTCHA version of the reCAPTCHA token in the captcha_response. */
-      recaptchaVersion?: string;
+      recaptchaVersion?:
+        | 'RECAPTCHA_VERSION_UNSPECIFIED'
+        | 'RECAPTCHA_ENTERPRISE';
       /** The project ID of the project which the user should belong to. Specifying this field requires a Google OAuth 2.0 credential with the proper [permissions](https://cloud.google.com/identity-platform/docs/access-control). If this is not set, the target project is inferred from the scope associated to the Bearer access token. */
       targetProjectId?: string;
       /** The ID of the Identity Platform tenant to create a user under. If not set, the user will be created under the default Identity Platform project. */
@@ -895,7 +971,10 @@ declare namespace gapi.client {
       memoryCost?: number;
       /** The parallelization cost parameter to be used by the STANDARD_SCRYPT hashing function. This parameter, along with block_size and cpu_mem_cost help tune the resources needed to hash a password, and should be tuned as processor speeds and memory technologies advance. */
       parallelization?: number;
-      passwordHashOrder?: string;
+      passwordHashOrder?:
+        | 'UNSPECIFIED_ORDER'
+        | 'SALT_AND_PASSWORD'
+        | 'PASSWORD_AND_SALT';
       /** The number of rounds used for hash calculation. Only required for the following hashing functions: * MD5 * SHA1 * SHA256 * SHA512 * PBKDF_SHA1 * PBKDF2_SHA256 * SCRYPT */
       rounds?: number;
       /** One or more bytes to be inserted between the salt and plain text password. For stronger security, this should be a single non-printable character. */
@@ -972,7 +1051,14 @@ declare namespace gapi.client {
     }
     interface GoogleCloudIdentitytoolkitV1UserNotification {
       /** Warning notification enum. Can be used for localization. */
-      notificationCode?: string;
+      notificationCode?:
+        | 'NOTIFICATION_CODE_UNSPECIFIED'
+        | 'MISSING_LOWERCASE_CHARACTER'
+        | 'MISSING_UPPERCASE_CHARACTER'
+        | 'MISSING_NUMERIC_CHARACTER'
+        | 'MISSING_NON_ALPHANUMERIC_CHARACTER'
+        | 'MINIMUM_PASSWORD_LENGTH'
+        | 'MAXIMUM_PASSWORD_LENGTH';
       /** Warning notification string. Can be used as fallback. */
       notificationMessage?: string;
     }
@@ -992,11 +1078,11 @@ declare namespace gapi.client {
       /** If an email identifier is specified, checks and returns if any user account is registered with the email. If there is a registered account, fetches all providers associated with the account's email. If the provider ID of an Identity Provider (IdP) is specified, creates an authorization URI for the IdP. The user can be directed to this URI to sign in with the IdP. An [API key](https://cloud.google.com/docs/authentication/api-keys) is required in the request in order to identify the Google Cloud project. */
       createAuthUri(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1019,11 +1105,11 @@ declare namespace gapi.client {
       createAuthUri(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1046,11 +1132,11 @@ declare namespace gapi.client {
       /** Deletes a user's account. */
       delete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1073,11 +1159,11 @@ declare namespace gapi.client {
       delete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1100,11 +1186,11 @@ declare namespace gapi.client {
       /** Experimental */
       issueSamlResponse(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1127,11 +1213,11 @@ declare namespace gapi.client {
       issueSamlResponse(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1154,11 +1240,11 @@ declare namespace gapi.client {
       /** Gets account information for all matched accounts. For an end user request, retrieves the account of the end user. For an admin request with Google OAuth 2.0 credential, retrieves one or multiple account(s) with matching criteria. */
       lookup(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1181,11 +1267,11 @@ declare namespace gapi.client {
       lookup(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1208,11 +1294,11 @@ declare namespace gapi.client {
       /** Resets the password of an account either using an out-of-band code generated by sendOobCode or by specifying the email and password of the account to be modified. Can also check the purpose of an out-of-band code without consuming it. */
       resetPassword(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1235,11 +1321,11 @@ declare namespace gapi.client {
       resetPassword(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1262,11 +1348,11 @@ declare namespace gapi.client {
       /** Sends an out-of-band confirmation code for an account. Requests from a authenticated request can optionally return a link including the OOB code instead of sending it. */
       sendOobCode(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1289,11 +1375,11 @@ declare namespace gapi.client {
       sendOobCode(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1316,11 +1402,11 @@ declare namespace gapi.client {
       /** Sends a SMS verification code for phone number sign-in. To localize the text of the SMS sent to the user, set the HTTP header `X-Firebase-Locale` to the language code that corresponds with the user's locale. An [API key](https://cloud.google.com/docs/authentication/api-keys) is required in the request in order to identify the Google Cloud project. */
       sendVerificationCode(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1343,11 +1429,11 @@ declare namespace gapi.client {
       sendVerificationCode(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1370,11 +1456,11 @@ declare namespace gapi.client {
       /** Signs in or signs up a user by exchanging a custom Auth token. Upon a successful sign-in or sign-up, a new Identity Platform ID token and refresh token are issued for the user. An [API key](https://cloud.google.com/docs/authentication/api-keys) is required in the request in order to identify the Google Cloud project. */
       signInWithCustomToken(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1397,11 +1483,11 @@ declare namespace gapi.client {
       signInWithCustomToken(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1424,11 +1510,11 @@ declare namespace gapi.client {
       /** Signs in or signs up a user with a out-of-band code from an email link. If a user does not exist with the given email address, a user record will be created. If the sign-in succeeds, an Identity Platform ID and refresh token are issued for the authenticated user. An [API key](https://cloud.google.com/docs/authentication/api-keys) is required in the request in order to identify the Google Cloud project. */
       signInWithEmailLink(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1451,11 +1537,11 @@ declare namespace gapi.client {
       signInWithEmailLink(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1478,11 +1564,11 @@ declare namespace gapi.client {
       /** Signs in or signs up a user with iOS Game Center credentials. If the sign-in succeeds, a new Identity Platform ID token and refresh token are issued for the authenticated user. The bundle ID is required in the request header as `x-ios-bundle-identifier`. An [API key](https://cloud.google.com/docs/authentication/api-keys) is required in the request in order to identify the Google Cloud project. Apple has [deprecated the `playerID` field](https://developer.apple.com/documentation/gamekit/gkplayer/1521127-playerid/). The Apple platform Firebase SDK will use `gamePlayerID` and `teamPlayerID` from version 10.5.0 and onwards. Upgrading to SDK version 10.5.0 or later updates existing integrations that use `playerID` to instead use `gamePlayerID` and `teamPlayerID`. When making calls to `signInWithGameCenter`, you must include `playerID` along with the new fields `gamePlayerID` and `teamPlayerID` to successfully identify all existing users. Upgrading existing Game Center sign in integrations to SDK version 10.5.0 or later is irreversible. */
       signInWithGameCenter(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1505,11 +1591,11 @@ declare namespace gapi.client {
       signInWithGameCenter(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1532,11 +1618,11 @@ declare namespace gapi.client {
       /** Signs in or signs up a user using credentials from an Identity Provider (IdP). This is done by manually providing an IdP credential, or by providing the authorization response obtained via the authorization request from CreateAuthUri. If the sign-in succeeds, a new Identity Platform ID token and refresh token are issued for the authenticated user. A new Identity Platform user account will be created if the user has not previously signed in to the IdP with the same account. In addition, when the "One account per email address" setting is enabled, there should not be an existing Identity Platform user account with the same email address for a new user account to be created. An [API key](https://cloud.google.com/docs/authentication/api-keys) is required in the request in order to identify the Google Cloud project. */
       signInWithIdp(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1559,11 +1645,11 @@ declare namespace gapi.client {
       signInWithIdp(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1586,11 +1672,11 @@ declare namespace gapi.client {
       /** Signs in a user with email and password. If the sign-in succeeds, a new Identity Platform ID token and refresh token are issued for the authenticated user. An [API key](https://cloud.google.com/docs/authentication/api-keys) is required in the request in order to identify the Google Cloud project. */
       signInWithPassword(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1613,11 +1699,11 @@ declare namespace gapi.client {
       signInWithPassword(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1640,11 +1726,11 @@ declare namespace gapi.client {
       /** Completes a phone number authentication attempt. If a user already exists with the given phone number, an ID token is minted for that user. Otherwise, a new user is created and associated with the phone number. This method may also be used to link a phone number to an existing user. To localize the text of the SMS sent to the user, set the HTTP header `X-Firebase-Locale` to the language code that corresponds with the user's locale. An [API key](https://cloud.google.com/docs/authentication/api-keys) is required in the request in order to identify the Google Cloud project. */
       signInWithPhoneNumber(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1667,11 +1753,11 @@ declare namespace gapi.client {
       signInWithPhoneNumber(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1694,11 +1780,11 @@ declare namespace gapi.client {
       /** Signs up a new email and password user or anonymous user, or upgrades an anonymous user to email and password. For an admin request with a Google OAuth 2.0 credential with the proper [permissions](https://cloud.google.com/identity-platform/docs/access-control), creates a new anonymous, email and password, or phone number user. An [API key](https://cloud.google.com/docs/authentication/api-keys) is required in the request in order to identify the Google Cloud project. */
       signUp(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1721,11 +1807,11 @@ declare namespace gapi.client {
       signUp(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1748,11 +1834,11 @@ declare namespace gapi.client {
       /** Updates account-related information for the specified user by setting specific fields or applying action codes. Requests from administrators and end users are supported. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1775,11 +1861,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1802,11 +1888,11 @@ declare namespace gapi.client {
       /** Verifies an iOS client is a real iOS device. If the request is valid, a receipt will be sent in the response and a secret will be sent via Apple Push Notification Service. The client should send both of them back to certain Identity Platform APIs in a later call (for example, /accounts:sendVerificationCode), in order to verify the client. The bundle ID is required in the request header as `x-ios-bundle-identifier`. An [API key](https://cloud.google.com/docs/authentication/api-keys) is required in the request in order to identify the Google Cloud project. */
       verifyIosClient(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1829,11 +1915,11 @@ declare namespace gapi.client {
       verifyIosClient(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1858,11 +1944,11 @@ declare namespace gapi.client {
       /** Uploads multiple accounts into the Google Cloud project. If there is a problem uploading one or more of the accounts, the rest will be uploaded, and a list of the errors will be returned. To use this method requires a Google OAuth 2.0 credential with proper [permissions](https://cloud.google.com/identity-platform/docs/access-control). */
       batchCreate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1887,11 +1973,11 @@ declare namespace gapi.client {
       batchCreate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1916,11 +2002,11 @@ declare namespace gapi.client {
       /** Batch deletes multiple accounts. For accounts that fail to be deleted, error info is contained in the response. The method ignores accounts that do not exist or are duplicated in the request. This method requires a Google OAuth 2.0 credential with proper [permissions] (https://cloud.google.com/identity-platform/docs/access-control). */
       batchDelete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1945,11 +2031,11 @@ declare namespace gapi.client {
       batchDelete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1974,11 +2060,11 @@ declare namespace gapi.client {
       /** Download account information for all accounts on the project in a paginated manner. To use this method requires a Google OAuth 2.0 credential with proper [permissions](https://cloud.google.com/identity-platform/docs/access-control).. Furthermore, additional permissions are needed to get password hash, password salt, and password version from accounts; otherwise these fields are redacted. */
       batchGet(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         delegatedProjectNumber?: string;
@@ -2008,11 +2094,11 @@ declare namespace gapi.client {
       /** Deletes a user's account. */
       delete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2037,11 +2123,11 @@ declare namespace gapi.client {
       delete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2066,11 +2152,11 @@ declare namespace gapi.client {
       /** Gets account information for all matched accounts. For an end user request, retrieves the account of the end user. For an admin request with Google OAuth 2.0 credential, retrieves one or multiple account(s) with matching criteria. */
       lookup(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2095,11 +2181,11 @@ declare namespace gapi.client {
       lookup(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2124,11 +2210,11 @@ declare namespace gapi.client {
       /** Looks up user accounts within a project or a tenant based on conditions in the request. */
       query(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2153,11 +2239,11 @@ declare namespace gapi.client {
       query(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2182,11 +2268,11 @@ declare namespace gapi.client {
       /** Sends an out-of-band confirmation code for an account. Requests from a authenticated request can optionally return a link including the OOB code instead of sending it. */
       sendOobCode(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2211,11 +2297,11 @@ declare namespace gapi.client {
       sendOobCode(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2240,11 +2326,11 @@ declare namespace gapi.client {
       /** Updates account-related information for the specified user by setting specific fields or applying action codes. Requests from administrators and end users are supported. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2269,11 +2355,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2300,11 +2386,11 @@ declare namespace gapi.client {
       /** Uploads multiple accounts into the Google Cloud project. If there is a problem uploading one or more of the accounts, the rest will be uploaded, and a list of the errors will be returned. To use this method requires a Google OAuth 2.0 credential with proper [permissions](https://cloud.google.com/identity-platform/docs/access-control). */
       batchCreate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2331,11 +2417,11 @@ declare namespace gapi.client {
       batchCreate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2362,11 +2448,11 @@ declare namespace gapi.client {
       /** Batch deletes multiple accounts. For accounts that fail to be deleted, error info is contained in the response. The method ignores accounts that do not exist or are duplicated in the request. This method requires a Google OAuth 2.0 credential with proper [permissions] (https://cloud.google.com/identity-platform/docs/access-control). */
       batchDelete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2393,11 +2479,11 @@ declare namespace gapi.client {
       batchDelete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2424,11 +2510,11 @@ declare namespace gapi.client {
       /** Download account information for all accounts on the project in a paginated manner. To use this method requires a Google OAuth 2.0 credential with proper [permissions](https://cloud.google.com/identity-platform/docs/access-control).. Furthermore, additional permissions are needed to get password hash, password salt, and password version from accounts; otherwise these fields are redacted. */
       batchGet(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         delegatedProjectNumber?: string;
@@ -2458,11 +2544,11 @@ declare namespace gapi.client {
       /** Deletes a user's account. */
       delete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2489,11 +2575,11 @@ declare namespace gapi.client {
       delete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2520,11 +2606,11 @@ declare namespace gapi.client {
       /** Gets account information for all matched accounts. For an end user request, retrieves the account of the end user. For an admin request with Google OAuth 2.0 credential, retrieves one or multiple account(s) with matching criteria. */
       lookup(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2551,11 +2637,11 @@ declare namespace gapi.client {
       lookup(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2582,11 +2668,11 @@ declare namespace gapi.client {
       /** Looks up user accounts within a project or a tenant based on conditions in the request. */
       query(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2613,11 +2699,11 @@ declare namespace gapi.client {
       query(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2644,11 +2730,11 @@ declare namespace gapi.client {
       /** Sends an out-of-band confirmation code for an account. Requests from a authenticated request can optionally return a link including the OOB code instead of sending it. */
       sendOobCode(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2675,11 +2761,11 @@ declare namespace gapi.client {
       sendOobCode(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2706,11 +2792,11 @@ declare namespace gapi.client {
       /** Updates account-related information for the specified user by setting specific fields or applying action codes. Requests from administrators and end users are supported. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2737,11 +2823,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2770,11 +2856,11 @@ declare namespace gapi.client {
       /** Creates a session cookie for the given Identity Platform ID token. The session cookie is used by the client to preserve the user's login state. */
       createSessionCookie(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2801,11 +2887,11 @@ declare namespace gapi.client {
       createSessionCookie(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2835,11 +2921,11 @@ declare namespace gapi.client {
       /** Creates a session cookie for the given Identity Platform ID token. The session cookie is used by the client to preserve the user's login state. */
       createSessionCookie(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2864,11 +2950,11 @@ declare namespace gapi.client {
       createSessionCookie(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2893,11 +2979,11 @@ declare namespace gapi.client {
       /** Looks up user accounts within a project or a tenant based on conditions in the request. */
       queryAccounts(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2922,11 +3008,11 @@ declare namespace gapi.client {
       queryAccounts(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2955,11 +3041,11 @@ declare namespace gapi.client {
       /** Gets a project's public Identity Toolkit configuration. (Legacy) This method also supports authenticated calls from a developer to retrieve non-public configuration. */
       getProjects(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Android package name to check against the real android package name. If this field is provided, and sha1_cert_hash is not provided, the action will throw an error if this does not match the real android package name. */
         androidPackageName?: string;
         /** JSONP */
@@ -2996,11 +3082,11 @@ declare namespace gapi.client {
       /** Retrieves public keys of the legacy Identity Toolkit token signer to enable third parties to verify the legacy ID token. For now the X509 pem cert is the only format supported. */
       getPublicKeys(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3021,11 +3107,11 @@ declare namespace gapi.client {
       /** Gets parameters needed for generating a reCAPTCHA challenge. */
       getRecaptchaParams(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3046,11 +3132,11 @@ declare namespace gapi.client {
       /** Retrieves the set of public keys of the session cookie JSON Web Token (JWT) signer that can be used to validate the session cookie created through createSessionCookie. */
       getSessionCookiePublicKeys(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

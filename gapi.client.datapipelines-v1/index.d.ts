@@ -44,9 +44,15 @@ declare namespace gapi.client {
       /** Whether to enable Streaming Engine for the job. */
       enableStreamingEngine?: boolean;
       /** Set FlexRS goal for the job. https://cloud.google.com/dataflow/docs/guides/flexrs */
-      flexrsGoal?: string;
+      flexrsGoal?:
+        | 'FLEXRS_UNSPECIFIED'
+        | 'FLEXRS_SPEED_OPTIMIZED'
+        | 'FLEXRS_COST_OPTIMIZED';
       /** Configuration for VM IPs. */
-      ipConfiguration?: string;
+      ipConfiguration?:
+        | 'WORKER_IP_UNSPECIFIED'
+        | 'WORKER_IP_PUBLIC'
+        | 'WORKER_IP_PRIVATE';
       /** Name for the Cloud KMS key for the job. Key format is: projects//locations//keyRings//cryptoKeys/ */
       kmsKeyName?: string;
       /** The machine type to use for the job. Defaults to the value from the template if not specified. */
@@ -82,7 +88,13 @@ declare namespace gapi.client {
       /** Required. The fully qualified resource name for the job. */
       name?: string;
       /** The current state of the job. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'STATE_PENDING'
+        | 'STATE_RUNNING'
+        | 'STATE_DONE'
+        | 'STATE_FAILED'
+        | 'STATE_CANCELLED';
       /** Status capturing any error code or message related to job creation or execution. */
       status?: GoogleRpcStatus;
     }
@@ -166,9 +178,18 @@ declare namespace gapi.client {
       /** Optional. A service account email to be used with the Cloud Scheduler job. If not specified, the default compute engine service account will be used. */
       schedulerServiceAccountEmail?: string;
       /** Required. The state of the pipeline. When the pipeline is created, the state is set to 'PIPELINE_STATE_ACTIVE' by default. State changes can be requested by setting the state to stopping, paused, or resuming. State cannot be changed through UpdatePipeline requests. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'STATE_RESUMING'
+        | 'STATE_ACTIVE'
+        | 'STATE_STOPPING'
+        | 'STATE_ARCHIVED'
+        | 'STATE_PAUSED';
       /** Required. The type of the pipeline. This field affects the scheduling of the pipeline and the type of metrics to show for the pipeline. */
-      type?: string;
+      type?:
+        | 'PIPELINE_TYPE_UNSPECIFIED'
+        | 'PIPELINE_TYPE_BATCH'
+        | 'PIPELINE_TYPE_STREAMING';
       /** Workload information for creating new jobs. */
       workload?: GoogleCloudDatapipelinesV1Workload;
     }
@@ -187,7 +208,10 @@ declare namespace gapi.client {
       /** Whether to enable Streaming Engine for the job. */
       enableStreamingEngine?: boolean;
       /** Configuration for VM IPs. */
-      ipConfiguration?: string;
+      ipConfiguration?:
+        | 'WORKER_IP_UNSPECIFIED'
+        | 'WORKER_IP_PUBLIC'
+        | 'WORKER_IP_PRIVATE';
       /** Name for the Cloud KMS key for the job. The key format is: projects//locations//keyRings//cryptoKeys/ */
       kmsKeyName?: string;
       /** The machine type to use for the job. Defaults to the value from the template if not specified. */
@@ -221,7 +245,12 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDatapipelinesV1SdkVersion {
       /** The support status for this SDK version. */
-      sdkSupportStatus?: string;
+      sdkSupportStatus?:
+        | 'UNKNOWN'
+        | 'SUPPORTED'
+        | 'STALE'
+        | 'DEPRECATED'
+        | 'UNSUPPORTED';
       /** The version of the SDK used to run the job. */
       version?: string;
       /** A readable string describing the version of the SDK. */
@@ -247,11 +276,11 @@ declare namespace gapi.client {
       /** Lists jobs for a given pipeline. Throws a "FORBIDDEN" error if the caller doesn't have permission to access it. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -280,11 +309,11 @@ declare namespace gapi.client {
       /** Creates a pipeline. For a batch pipeline, you can pass scheduler information. Data Pipelines uses the scheduler information to create an internal scheduler that runs jobs periodically. If the internal scheduler is not configured, you can use RunPipeline to run jobs. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -309,11 +338,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -338,11 +367,11 @@ declare namespace gapi.client {
       /** Deletes a pipeline. If a scheduler job is attached to the pipeline, it will be deleted. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -365,11 +394,11 @@ declare namespace gapi.client {
       /** Looks up a single pipeline. Returns a "NOT_FOUND" error if no such pipeline exists. Returns a "FORBIDDEN" error if the caller doesn't have permission to access it. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -392,11 +421,11 @@ declare namespace gapi.client {
       /** Lists pipelines. Returns a "FORBIDDEN" error if the caller doesn't have permission to access it. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -425,11 +454,11 @@ declare namespace gapi.client {
       /** Updates a pipeline. If successful, the updated Pipeline is returned. Returns `NOT_FOUND` if the pipeline doesn't exist. If UpdatePipeline does not return successfully, you can retry the UpdatePipeline request until you receive a successful response. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -456,11 +485,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -487,11 +516,11 @@ declare namespace gapi.client {
       /** Creates a job for the specified pipeline directly. You can use this method when the internal scheduler is not configured and you want to trigger the job directly or through an external system. Returns a "NOT_FOUND" error if the pipeline doesn't exist. Returns a "FORBIDDEN" error if the user doesn't have permission to access the pipeline or run jobs for the pipeline. */
       run(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -516,11 +545,11 @@ declare namespace gapi.client {
       run(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -545,11 +574,11 @@ declare namespace gapi.client {
       /** Freezes pipeline execution permanently. If there's a corresponding scheduler entry, it's deleted, and the pipeline state is changed to "ARCHIVED". However, pipeline metadata is retained. */
       stop(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -574,11 +603,11 @@ declare namespace gapi.client {
       stop(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

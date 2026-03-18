@@ -83,7 +83,7 @@ declare namespace gapi.client {
     interface Anyone {}
     interface ApplicationReference {
       /** The reference type corresponding to this event. */
-      type?: string;
+      type?: 'UNSPECIFIED_REFERENCE_TYPE' | 'LINK' | 'DISCUSS';
     }
     interface AppliedLabelChange {
       /** Changes that were made to the Label on the Target. */
@@ -97,13 +97,26 @@ declare namespace gapi.client {
       /** The human-readable title of the label that changed. */
       title?: string;
       /** The types of changes made to the Label on the Target. */
-      types?: string[];
+      types?:
+        | 'TYPE_UNSPECIFIED'
+        | 'LABEL_ADDED'
+        | 'LABEL_REMOVED'
+        | 'LABEL_FIELD_VALUE_CHANGED'
+        | 'LABEL_APPLIED_BY_ITEM_CREATE'[];
     }
     interface Assignment {
       /** The user to whom the comment was assigned. */
       assignedUser?: User;
       /** The sub-type of this event. */
-      subtype?: string;
+      subtype?:
+        | 'SUBTYPE_UNSPECIFIED'
+        | 'ADDED'
+        | 'DELETED'
+        | 'REPLY_ADDED'
+        | 'REPLY_DELETED'
+        | 'RESOLVED'
+        | 'REOPENED'
+        | 'REASSIGNED';
     }
     interface Comment {
       /** A change on an assignment. */
@@ -135,7 +148,7 @@ declare namespace gapi.client {
     }
     interface DataLeakPreventionChange {
       /** The type of Data Leak Prevention (DLP) change. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'FLAGGED' | 'CLEARED';
     }
     interface Date {
       /** Date value. */
@@ -143,7 +156,7 @@ declare namespace gapi.client {
     }
     interface Delete {
       /** The type of delete action taken. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'TRASH' | 'PERMANENT_DELETE';
     }
     interface DeletedUser {}
     interface Domain {
@@ -177,7 +190,11 @@ declare namespace gapi.client {
     interface DriveFile {}
     interface DriveFolder {
       /** The type of Drive folder. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'MY_DRIVE_ROOT'
+        | 'SHARED_DRIVE_ROOT'
+        | 'STANDARD_FOLDER';
     }
     interface DriveItem {
       /** The Drive item is a file. */
@@ -259,7 +276,11 @@ declare namespace gapi.client {
     }
     interface Folder {
       /** This field is deprecated; please see `DriveFolder.type` instead. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'MY_DRIVE_ROOT'
+        | 'TEAM_DRIVE_ROOT'
+        | 'STANDARD_FOLDER';
     }
     interface Group {
       /** The email address of the group. */
@@ -310,7 +331,15 @@ declare namespace gapi.client {
       /** The group to whom this permission applies. */
       group?: Group;
       /** Indicates the [Google Drive permissions role](https://developers.google.com/workspace/drive/web/manage-sharing#roles). The role determines a user's ability to read, write, and comment on items. */
-      role?: string;
+      role?:
+        | 'ROLE_UNSPECIFIED'
+        | 'OWNER'
+        | 'ORGANIZER'
+        | 'FILE_ORGANIZER'
+        | 'EDITOR'
+        | 'COMMENTER'
+        | 'VIEWER'
+        | 'PUBLISHED_VIEWER';
       /** The user to whom this permission applies. */
       user?: User;
     }
@@ -322,7 +351,14 @@ declare namespace gapi.client {
     }
     interface Post {
       /** The sub-type of this event. */
-      subtype?: string;
+      subtype?:
+        | 'SUBTYPE_UNSPECIFIED'
+        | 'ADDED'
+        | 'DELETED'
+        | 'REPLY_ADDED'
+        | 'REPLY_DELETED'
+        | 'RESOLVED'
+        | 'REOPENED';
     }
     interface QueryDriveActivityRequest {
       /** Return activities for this Drive folder, plus all children and descendants. The format is `items/ITEM_ID`. */
@@ -352,13 +388,24 @@ declare namespace gapi.client {
     }
     interface Restore {
       /** The type of restore action taken. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'UNTRASH';
     }
     interface RestrictionChange {
       /** The feature which had a change in restriction policy. */
-      feature?: string;
+      feature?:
+        | 'FEATURE_UNSPECIFIED'
+        | 'SHARING_OUTSIDE_DOMAIN'
+        | 'DIRECT_SHARING'
+        | 'ITEM_DUPLICATION'
+        | 'DRIVE_FILE_STREAM'
+        | 'FILE_ORGANIZER_CAN_SHARE_FOLDERS'
+        | 'READERS_CAN_DOWNLOAD'
+        | 'WRITERS_CAN_DOWNLOAD';
       /** The restriction in place after the change. */
-      newRestriction?: string;
+      newRestriction?:
+        | 'RESTRICTION_UNSPECIFIED'
+        | 'UNRESTRICTED'
+        | 'FULLY_RESTRICTED';
     }
     interface Selection {
       /** Selection value as human-readable display string. */
@@ -380,11 +427,20 @@ declare namespace gapi.client {
     }
     interface Suggestion {
       /** The sub-type of this event. */
-      subtype?: string;
+      subtype?:
+        | 'SUBTYPE_UNSPECIFIED'
+        | 'ADDED'
+        | 'DELETED'
+        | 'REPLY_ADDED'
+        | 'REPLY_DELETED'
+        | 'ACCEPTED'
+        | 'REJECTED'
+        | 'ACCEPT_DELETED'
+        | 'REJECT_DELETED';
     }
     interface SystemEvent {
       /** The type of the system event that may triggered activity. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'USER_DELETION' | 'TRASH_AUTO_PURGE';
     }
     interface Target {
       /** The target is a shared drive. */
@@ -450,11 +506,11 @@ declare namespace gapi.client {
       /** Query past activity in Google Drive. */
       query(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -477,11 +533,11 @@ declare namespace gapi.client {
       query(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

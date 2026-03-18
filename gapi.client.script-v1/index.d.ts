@@ -61,7 +61,11 @@ declare namespace gapi.client {
       /** Add-on properties. */
       addOn?: GoogleAppsScriptTypeAddOnEntryPoint;
       /** The type of the entry point. */
-      entryPointType?: string;
+      entryPointType?:
+        | 'ENTRY_POINT_TYPE_UNSPECIFIED'
+        | 'WEB_APP'
+        | 'EXECUTION_API'
+        | 'ADD_ON';
       /** An entry point specification for Apps Script API execution calls. */
       executionApi?: GoogleAppsScriptTypeExecutionApiEntryPoint;
       /** An entry point specification for web apps. */
@@ -101,13 +105,13 @@ declare namespace gapi.client {
       /** The file content. */
       source?: string;
       /** The type of the file. */
-      type?: string;
+      type?: 'ENUM_TYPE_UNSPECIFIED' | 'SERVER_JS' | 'HTML' | 'JSON';
       /** Last modified date timestamp. */
       updateTime?: string;
     }
     interface GoogleAppsScriptTypeAddOnEntryPoint {
       /** The add-on's required list of supported container types. */
-      addOnType?: string;
+      addOnType?: 'UNKNOWN_ADDON_TYPE' | 'GMAIL' | 'DATA_STUDIO';
       /** The add-on's optional description. */
       description?: string;
       /** The add-on's optional help URL. */
@@ -121,7 +125,12 @@ declare namespace gapi.client {
     }
     interface GoogleAppsScriptTypeExecutionApiConfig {
       /** Who has permission to run the API executable. */
-      access?: string;
+      access?:
+        | 'UNKNOWN_ACCESS'
+        | 'MYSELF'
+        | 'DOMAIN'
+        | 'ANYONE'
+        | 'ANYONE_ANONYMOUS';
     }
     interface GoogleAppsScriptTypeExecutionApiEntryPoint {
       /** The entry point's configuration. */
@@ -143,17 +152,42 @@ declare namespace gapi.client {
       /** Name of the function the started the execution. */
       functionName?: string;
       /** The executions status. */
-      processStatus?: string;
+      processStatus?:
+        | 'PROCESS_STATUS_UNSPECIFIED'
+        | 'RUNNING'
+        | 'PAUSED'
+        | 'COMPLETED'
+        | 'CANCELED'
+        | 'FAILED'
+        | 'TIMED_OUT'
+        | 'UNKNOWN'
+        | 'DELAYED'
+        | 'EXECUTION_DISABLED';
       /** The executions type. */
-      processType?: string;
+      processType?:
+        | 'PROCESS_TYPE_UNSPECIFIED'
+        | 'ADD_ON'
+        | 'EXECUTION_API'
+        | 'TIME_DRIVEN'
+        | 'TRIGGER'
+        | 'WEBAPP'
+        | 'EDITOR'
+        | 'SIMPLE_TRIGGER'
+        | 'MENU'
+        | 'BATCH_TASK';
       /** Name of the script being executed. */
       projectName?: string;
       /** Which version of maestro to use to execute the script. */
-      runtimeVersion?: string;
+      runtimeVersion?: 'RUNTIME_VERSION_UNSPECIFIED' | 'DEPRECATED_ES5' | 'V8';
       /** Time the execution started. */
       startTime?: string;
       /** The executing users access level to the script. */
-      userAccessLevel?: string;
+      userAccessLevel?:
+        | 'USER_ACCESS_LEVEL_UNSPECIFIED'
+        | 'NONE'
+        | 'READ'
+        | 'WRITE'
+        | 'OWNER';
     }
     interface GoogleAppsScriptTypeUser {
       /** The user's domain. */
@@ -167,9 +201,14 @@ declare namespace gapi.client {
     }
     interface GoogleAppsScriptTypeWebAppConfig {
       /** Who has permission to run the web app. */
-      access?: string;
+      access?:
+        | 'UNKNOWN_ACCESS'
+        | 'MYSELF'
+        | 'DOMAIN'
+        | 'ANYONE'
+        | 'ANYONE_ANONYMOUS';
       /** Who to execute the web app as. */
-      executeAs?: string;
+      executeAs?: 'UNKNOWN_EXECUTE_AS' | 'USER_ACCESSING' | 'USER_DEPLOYING';
     }
     interface GoogleAppsScriptTypeWebAppEntryPoint {
       /** The entry point's configuration. */
@@ -273,11 +312,11 @@ declare namespace gapi.client {
       /** List information about processes made by or on behalf of a user, such as process type and current status. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -311,20 +350,76 @@ declare namespace gapi.client {
         /** Optional field used to limit returned processes to those that were started on or after the given timestamp. */
         'userProcessFilter.startTime'?: string;
         /** Optional field used to limit returned processes to those having one of the specified process statuses. */
-        'userProcessFilter.statuses'?: string | string[];
+        'userProcessFilter.statuses'?:
+          | 'PROCESS_STATUS_UNSPECIFIED'
+          | 'RUNNING'
+          | 'PAUSED'
+          | 'COMPLETED'
+          | 'CANCELED'
+          | 'FAILED'
+          | 'TIMED_OUT'
+          | 'UNKNOWN'
+          | 'DELAYED'
+          | 'EXECUTION_DISABLED'
+          | (
+              | 'PROCESS_STATUS_UNSPECIFIED'
+              | 'RUNNING'
+              | 'PAUSED'
+              | 'COMPLETED'
+              | 'CANCELED'
+              | 'FAILED'
+              | 'TIMED_OUT'
+              | 'UNKNOWN'
+              | 'DELAYED'
+              | 'EXECUTION_DISABLED'
+            )[];
         /** Optional field used to limit returned processes to those having one of the specified process types. */
-        'userProcessFilter.types'?: string | string[];
+        'userProcessFilter.types'?:
+          | 'PROCESS_TYPE_UNSPECIFIED'
+          | 'ADD_ON'
+          | 'EXECUTION_API'
+          | 'TIME_DRIVEN'
+          | 'TRIGGER'
+          | 'WEBAPP'
+          | 'EDITOR'
+          | 'SIMPLE_TRIGGER'
+          | 'MENU'
+          | 'BATCH_TASK'
+          | (
+              | 'PROCESS_TYPE_UNSPECIFIED'
+              | 'ADD_ON'
+              | 'EXECUTION_API'
+              | 'TIME_DRIVEN'
+              | 'TRIGGER'
+              | 'WEBAPP'
+              | 'EDITOR'
+              | 'SIMPLE_TRIGGER'
+              | 'MENU'
+              | 'BATCH_TASK'
+            )[];
         /** Optional field used to limit returned processes to those having one of the specified user access levels. */
-        'userProcessFilter.userAccessLevels'?: string | string[];
+        'userProcessFilter.userAccessLevels'?:
+          | 'USER_ACCESS_LEVEL_UNSPECIFIED'
+          | 'NONE'
+          | 'READ'
+          | 'WRITE'
+          | 'OWNER'
+          | (
+              | 'USER_ACCESS_LEVEL_UNSPECIFIED'
+              | 'NONE'
+              | 'READ'
+              | 'WRITE'
+              | 'OWNER'
+            )[];
       }): Request<ListUserProcessesResponse>;
       /** List information about a script's executed processes, such as process type and current status. */
       listScriptProcesses(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -352,11 +447,67 @@ declare namespace gapi.client {
         /** Optional field used to limit returned processes to those that were started on or after the given timestamp. */
         'scriptProcessFilter.startTime'?: string;
         /** Optional field used to limit returned processes to those having one of the specified process statuses. */
-        'scriptProcessFilter.statuses'?: string | string[];
+        'scriptProcessFilter.statuses'?:
+          | 'PROCESS_STATUS_UNSPECIFIED'
+          | 'RUNNING'
+          | 'PAUSED'
+          | 'COMPLETED'
+          | 'CANCELED'
+          | 'FAILED'
+          | 'TIMED_OUT'
+          | 'UNKNOWN'
+          | 'DELAYED'
+          | 'EXECUTION_DISABLED'
+          | (
+              | 'PROCESS_STATUS_UNSPECIFIED'
+              | 'RUNNING'
+              | 'PAUSED'
+              | 'COMPLETED'
+              | 'CANCELED'
+              | 'FAILED'
+              | 'TIMED_OUT'
+              | 'UNKNOWN'
+              | 'DELAYED'
+              | 'EXECUTION_DISABLED'
+            )[];
         /** Optional field used to limit returned processes to those having one of the specified process types. */
-        'scriptProcessFilter.types'?: string | string[];
+        'scriptProcessFilter.types'?:
+          | 'PROCESS_TYPE_UNSPECIFIED'
+          | 'ADD_ON'
+          | 'EXECUTION_API'
+          | 'TIME_DRIVEN'
+          | 'TRIGGER'
+          | 'WEBAPP'
+          | 'EDITOR'
+          | 'SIMPLE_TRIGGER'
+          | 'MENU'
+          | 'BATCH_TASK'
+          | (
+              | 'PROCESS_TYPE_UNSPECIFIED'
+              | 'ADD_ON'
+              | 'EXECUTION_API'
+              | 'TIME_DRIVEN'
+              | 'TRIGGER'
+              | 'WEBAPP'
+              | 'EDITOR'
+              | 'SIMPLE_TRIGGER'
+              | 'MENU'
+              | 'BATCH_TASK'
+            )[];
         /** Optional field used to limit returned processes to those having one of the specified user access levels. */
-        'scriptProcessFilter.userAccessLevels'?: string | string[];
+        'scriptProcessFilter.userAccessLevels'?:
+          | 'USER_ACCESS_LEVEL_UNSPECIFIED'
+          | 'NONE'
+          | 'READ'
+          | 'WRITE'
+          | 'OWNER'
+          | (
+              | 'USER_ACCESS_LEVEL_UNSPECIFIED'
+              | 'NONE'
+              | 'READ'
+              | 'WRITE'
+              | 'OWNER'
+            )[];
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -367,11 +518,11 @@ declare namespace gapi.client {
       /** Creates a deployment of an Apps Script project. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -396,11 +547,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -425,11 +576,11 @@ declare namespace gapi.client {
       /** Deletes a deployment of an Apps Script project. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The deployment ID to be undeployed. */
@@ -454,11 +605,11 @@ declare namespace gapi.client {
       /** Gets a deployment of an Apps Script project. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The deployment ID. */
@@ -483,11 +634,11 @@ declare namespace gapi.client {
       /** Lists the deployments of an Apps Script project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -514,11 +665,11 @@ declare namespace gapi.client {
       /** Updates a deployment of an Apps Script project. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The deployment ID for this deployment. */
@@ -545,11 +696,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The deployment ID for this deployment. */
@@ -578,11 +729,11 @@ declare namespace gapi.client {
       /** Creates a new immutable version using the current code, with a unique version number. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -607,11 +758,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -636,11 +787,11 @@ declare namespace gapi.client {
       /** Gets a version of a script project. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -665,11 +816,11 @@ declare namespace gapi.client {
       /** List the versions of a script project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -698,11 +849,11 @@ declare namespace gapi.client {
       /** Creates a new, empty script project with no script files and a base manifest file. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -725,11 +876,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -752,11 +903,11 @@ declare namespace gapi.client {
       /** Gets a script project's metadata. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -779,11 +930,11 @@ declare namespace gapi.client {
       /** Gets the content of the script project, including the code source and metadata for each script file. */
       getContent(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -808,11 +959,11 @@ declare namespace gapi.client {
       /** Get metrics data for scripts, such as number of executions and active users. */
       getMetrics(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -822,7 +973,7 @@ declare namespace gapi.client {
         /** Optional field indicating a specific deployment to retrieve metrics from. */
         'metricsFilter.deploymentId'?: string;
         /** Required field indicating what granularity of metrics are returned. */
-        metricsGranularity?: string;
+        metricsGranularity?: 'UNSPECIFIED_GRANULARITY' | 'WEEKLY' | 'DAILY';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Returns response with indentations and line breaks. */
@@ -839,11 +990,11 @@ declare namespace gapi.client {
       /** Updates the content of the specified script project. This content is stored as the HEAD version, and is used when the script is executed as a trigger, in the script editor, in add-on preview mode, or as a web app or Apps Script API in development mode. This clears all the existing files in the project. */
       updateContent(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -868,11 +1019,11 @@ declare namespace gapi.client {
       updateContent(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -900,11 +1051,11 @@ declare namespace gapi.client {
     interface ScriptsResource {
       run(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -929,11 +1080,11 @@ declare namespace gapi.client {
       run(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

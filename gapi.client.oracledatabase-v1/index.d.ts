@@ -114,7 +114,14 @@ declare namespace gapi.client {
       /** Output only. Additional information about the current lifecycle state. */
       lifecycleDetails?: string;
       /** Output only. The lifecycle state of the backup. */
-      lifecycleState?: string;
+      lifecycleState?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'ACTIVE'
+        | 'DELETING'
+        | 'DELETED'
+        | 'FAILED'
+        | 'UPDATING';
       /** Output only. OCID of the Autonomous Database backup. https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm#Oracle */
       ocid?: string;
       /** Optional. Retention period in days for the backup. */
@@ -124,7 +131,7 @@ declare namespace gapi.client {
       /** Output only. The date and time the backup started. */
       startTime?: string;
       /** Output only. The type of the backup. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'INCREMENTAL' | 'FULL' | 'LONG_TERM';
       /** Optional. The OCID of the vault. */
       vaultId?: string;
     }
@@ -132,7 +139,10 @@ declare namespace gapi.client {
       /** Output only. The character set name for the Autonomous Database which is the ID in the resource name. */
       characterSet?: string;
       /** Output only. The character set type for the Autonomous Database. */
-      characterSetType?: string;
+      characterSetType?:
+        | 'CHARACTER_SET_TYPE_UNSPECIFIED'
+        | 'DATABASE'
+        | 'NATIONAL';
       /** Identifier. The name of the Autonomous Database Character Set resource in the following format: projects/{project}/locations/{region}/autonomousDatabaseCharacterSets/{autonomous_database_character_set} */
       name?: string;
     }
@@ -198,21 +208,37 @@ declare namespace gapi.client {
       /** Optional. Immutable. The list of customer contacts. */
       customerContacts?: CustomerContact[];
       /** Output only. The current state of database management for the Autonomous Database. */
-      databaseManagementState?: string;
+      databaseManagementState?:
+        | 'DATABASE_MANAGEMENT_STATE_UNSPECIFIED'
+        | 'ENABLING'
+        | 'ENABLED'
+        | 'DISABLING'
+        | 'NOT_ENABLED'
+        | 'FAILED_ENABLING'
+        | 'FAILED_DISABLING';
       /** Output only. The date and time the Autonomous Data Guard role was changed for the standby Autonomous Database. */
       dataGuardRoleChangedTime?: string;
       /** Output only. The current state of the Data Safe registration for the Autonomous Database. */
-      dataSafeState?: string;
+      dataSafeState?:
+        | 'DATA_SAFE_STATE_UNSPECIFIED'
+        | 'REGISTERING'
+        | 'REGISTERED'
+        | 'DEREGISTERING'
+        | 'NOT_REGISTERED'
+        | 'FAILED';
       /** Optional. Immutable. The size of the data stored in the database, in gigabytes. */
       dataStorageSizeGb?: number;
       /** Optional. Immutable. The size of the data stored in the database, in terabytes. */
       dataStorageSizeTb?: number;
       /** Optional. Immutable. The edition of the Autonomous Databases. */
-      dbEdition?: string;
+      dbEdition?:
+        | 'DATABASE_EDITION_UNSPECIFIED'
+        | 'STANDARD_EDITION'
+        | 'ENTERPRISE_EDITION';
       /** Optional. Immutable. The Oracle Database version for the Autonomous Database. */
       dbVersion?: string;
       /** Required. Immutable. The workload type of the Autonomous Database. */
-      dbWorkload?: string;
+      dbWorkload?: 'DB_WORKLOAD_UNSPECIFIED' | 'OLTP' | 'DW' | 'AJD' | 'APEX';
       /** Output only. The date and time the Disaster Recovery role was changed for the standby Autonomous Database. */
       disasterRecoveryRoleChangedTime?: string;
       /** Optional. The encryption key used to encrypt the Autonomous Database. Updating this field will add a new entry in the `encryption_key_history_entries` field with the former version. */
@@ -228,13 +254,19 @@ declare namespace gapi.client {
       /** Optional. Immutable. This field indicates if auto scaling is enabled for the Autonomous Database storage. */
       isStorageAutoScalingEnabled?: boolean;
       /** Required. Immutable. The license type used for the Autonomous Database. */
-      licenseType?: string;
+      licenseType?:
+        | 'LICENSE_TYPE_UNSPECIFIED'
+        | 'LICENSE_INCLUDED'
+        | 'BRING_YOUR_OWN_LICENSE';
       /** Output only. The details of the current lifestyle state of the Autonomous Database. */
       lifecycleDetails?: string;
       /** Output only. This field indicates the maximum data loss limit for an Autonomous Database, in seconds. */
       localAdgAutoFailoverMaxDataLossLimit?: number;
       /** Output only. This field indicates the local disaster recovery (DR) type of an Autonomous Database. */
-      localDisasterRecoveryType?: string;
+      localDisasterRecoveryType?:
+        | 'LOCAL_DISASTER_RECOVERY_TYPE_UNSPECIFIED'
+        | 'ADG'
+        | 'BACKUP_BASED';
       /** Output only. The details of the Autonomous Data Guard standby database. */
       localStandbyDb?: AutonomousDatabaseStandbySummary;
       /** Output only. The date and time when maintenance will begin. */
@@ -242,7 +274,10 @@ declare namespace gapi.client {
       /** Output only. The date and time when maintenance will end. */
       maintenanceEndTime?: string;
       /** Optional. Immutable. The maintenance schedule of the Autonomous Database. */
-      maintenanceScheduleType?: string;
+      maintenanceScheduleType?:
+        | 'MAINTENANCE_SCHEDULE_TYPE_UNSPECIFIED'
+        | 'EARLY'
+        | 'REGULAR';
       /** Output only. The amount of memory enabled per ECPU, in gigabytes. */
       memoryPerOracleComputeUnitGbs?: number;
       /** Output only. The memory assigned to in-memory tables in an Autonomous Database. */
@@ -258,13 +293,23 @@ declare namespace gapi.client {
       /** Output only. The Oracle Cloud Infrastructure link for the Autonomous Database. */
       ociUrl?: string;
       /** Output only. This field indicates the current mode of the Autonomous Database. */
-      openMode?: string;
+      openMode?: 'OPEN_MODE_UNSPECIFIED' | 'READ_ONLY' | 'READ_WRITE';
       /** Output only. This field indicates the state of Operations Insights for the Autonomous Database. */
-      operationsInsightsState?: string;
+      operationsInsightsState?:
+        | 'OPERATIONS_INSIGHTS_STATE_UNSPECIFIED'
+        | 'ENABLING'
+        | 'ENABLED'
+        | 'DISABLING'
+        | 'NOT_ENABLED'
+        | 'FAILED_ENABLING'
+        | 'FAILED_DISABLING';
       /** Output only. The list of OCIDs of standby databases located in Autonomous Data Guard remote regions that are associated with the source database. */
       peerDbIds?: string[];
       /** Output only. The permission level of the Autonomous Database. */
-      permissionLevel?: string;
+      permissionLevel?:
+        | 'PERMISSION_LEVEL_UNSPECIFIED'
+        | 'RESTRICTED'
+        | 'UNRESTRICTED';
       /** Output only. The private endpoint for the Autonomous Database. */
       privateEndpoint?: string;
       /** Optional. Immutable. The private endpoint IP address for the Autonomous Database. */
@@ -272,11 +317,20 @@ declare namespace gapi.client {
       /** Optional. Immutable. The private endpoint label for the Autonomous Database. */
       privateEndpointLabel?: string;
       /** Output only. The refresh mode of the cloned Autonomous Database. */
-      refreshableMode?: string;
+      refreshableMode?: 'REFRESHABLE_MODE_UNSPECIFIED' | 'AUTOMATIC' | 'MANUAL';
       /** Output only. The refresh State of the clone. */
-      refreshableState?: string;
+      refreshableState?:
+        | 'REFRESHABLE_STATE_UNSPECIFIED'
+        | 'REFRESHING'
+        | 'NOT_REFRESHING';
       /** Output only. The Data Guard role of the Autonomous Database. */
-      role?: string;
+      role?:
+        | 'ROLE_UNSPECIFIED'
+        | 'PRIMARY'
+        | 'STANDBY'
+        | 'DISABLED_STANDBY'
+        | 'BACKUP_COPY'
+        | 'SNAPSHOT_STANDBY';
       /** Output only. The list and details of the scheduled operations of the Autonomous Database. */
       scheduledOperationDetails?: ScheduledOperationDetails[];
       /** Optional. Immutable. The ID of the Oracle Cloud Infrastructure vault secret. */
@@ -286,7 +340,29 @@ declare namespace gapi.client {
       /** Output only. The SQL Web Developer URL for the Autonomous Database. */
       sqlWebDeveloperUrl?: string;
       /** Output only. The current lifecycle state of the Autonomous Database. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PROVISIONING'
+        | 'AVAILABLE'
+        | 'STOPPING'
+        | 'STOPPED'
+        | 'STARTING'
+        | 'TERMINATING'
+        | 'TERMINATED'
+        | 'UNAVAILABLE'
+        | 'RESTORE_IN_PROGRESS'
+        | 'RESTORE_FAILED'
+        | 'BACKUP_IN_PROGRESS'
+        | 'SCALE_IN_PROGRESS'
+        | 'AVAILABLE_NEEDS_ATTENTION'
+        | 'UPDATING'
+        | 'MAINTENANCE_IN_PROGRESS'
+        | 'RESTARTING'
+        | 'RECREATING'
+        | 'ROLE_CHANGE_IN_PROGRESS'
+        | 'UPGRADING'
+        | 'INACCESSIBLE'
+        | 'STANDBY';
       /** Output only. The list of available regions that can be used to create a clone for the Autonomous Database. */
       supportedCloneRegions?: string[];
       /** Output only. The storage space used by automatic backups of Autonomous Database, in gigabytes. */
@@ -306,11 +382,33 @@ declare namespace gapi.client {
       /** Output only. The additional details about the current lifecycle state of the Autonomous Database. */
       lifecycleDetails?: string;
       /** Output only. The current lifecycle state of the Autonomous Database. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PROVISIONING'
+        | 'AVAILABLE'
+        | 'STOPPING'
+        | 'STOPPED'
+        | 'STARTING'
+        | 'TERMINATING'
+        | 'TERMINATED'
+        | 'UNAVAILABLE'
+        | 'RESTORE_IN_PROGRESS'
+        | 'RESTORE_FAILED'
+        | 'BACKUP_IN_PROGRESS'
+        | 'SCALE_IN_PROGRESS'
+        | 'AVAILABLE_NEEDS_ATTENTION'
+        | 'UPDATING'
+        | 'MAINTENANCE_IN_PROGRESS'
+        | 'RESTARTING'
+        | 'RECREATING'
+        | 'ROLE_CHANGE_IN_PROGRESS'
+        | 'UPGRADING'
+        | 'INACCESSIBLE'
+        | 'STANDBY';
     }
     interface AutonomousDbVersion {
       /** Output only. The Autonomous Database workload type. */
-      dbWorkload?: string;
+      dbWorkload?: 'DB_WORKLOAD_UNSPECIFIED' | 'OLTP' | 'DW' | 'AJD' | 'APEX';
       /** Identifier. The name of the Autonomous Database Version resource with the format: projects/{project}/locations/{region}/autonomousDbVersions/{autonomous_db_version} */
       name?: string;
       /** Output only. An Oracle Database version for Autonomous Database. */
@@ -320,7 +418,13 @@ declare namespace gapi.client {
     }
     interface BackupDestinationDetails {
       /** Optional. The type of the database backup destination. */
-      type?: string;
+      type?:
+        | 'BACKUP_DESTINATION_TYPE_UNSPECIFIED'
+        | 'NFS'
+        | 'RECOVERY_APPLIANCE'
+        | 'OBJECT_STORE'
+        | 'LOCAL'
+        | 'DBRS';
     }
     interface CancelOperationRequest {}
     interface CloudAccountDetails {
@@ -359,7 +463,10 @@ declare namespace gapi.client {
       /** Optional. The number of compute servers for the Exadata Infrastructure. */
       computeCount?: number;
       /** Output only. The compute model of the Exadata Infrastructure. */
-      computeModel?: string;
+      computeModel?:
+        | 'COMPUTE_MODEL_UNSPECIFIED'
+        | 'COMPUTE_MODEL_ECPU'
+        | 'COMPUTE_MODEL_OCPU';
       /** Output only. The number of enabled CPU cores. */
       cpuCount?: number;
       /** Optional. The list of customer contacts. */
@@ -401,7 +508,15 @@ declare namespace gapi.client {
       /** Required. The shape of the Exadata Infrastructure. The shape determines the amount of CPU, storage, and memory resources allocated to the instance. */
       shape?: string;
       /** Output only. The current lifecycle state of the Exadata Infrastructure. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PROVISIONING'
+        | 'AVAILABLE'
+        | 'UPDATING'
+        | 'TERMINATING'
+        | 'TERMINATED'
+        | 'FAILED'
+        | 'MAINTENANCE_IN_PROGRESS';
       /** Optional. The number of Cloud Exadata storage servers for the Exadata Infrastructure. */
       storageCount?: number;
       /** Output only. The storage server type of the Exadata Infrastructure. */
@@ -447,7 +562,10 @@ declare namespace gapi.client {
       /** Output only. Compartment ID of cluster. */
       compartmentId?: string;
       /** Output only. The compute model of the VM Cluster. */
-      computeModel?: string;
+      computeModel?:
+        | 'COMPUTE_MODEL_UNSPECIFIED'
+        | 'COMPUTE_MODEL_ECPU'
+        | 'COMPUTE_MODEL_OCPU';
       /** Required. Number of enabled CPU cores. */
       cpuCoreCount?: number;
       /** Optional. The data disk group size to be allocated in TBs. */
@@ -459,7 +577,7 @@ declare namespace gapi.client {
       /** Optional. Data collection options for diagnostics. */
       diagnosticsDataCollectionOptions?: DataCollectionOptions;
       /** Optional. The type of redundancy. */
-      diskRedundancy?: string;
+      diskRedundancy?: 'DISK_REDUNDANCY_UNSPECIFIED' | 'HIGH' | 'NORMAL';
       /** Output only. DNS listener IP. */
       dnsListenerIp?: string;
       /** Output only. Parent DNS domain where SCAN DNS and hosts names are qualified. ex: ocispdelegated.ocisp10jvnet.oraclevcn.com */
@@ -471,7 +589,10 @@ declare namespace gapi.client {
       /** Optional. Prefix for VM cluster host names. */
       hostnamePrefix?: string;
       /** Required. License type of VM Cluster. */
-      licenseType?: string;
+      licenseType?:
+        | 'LICENSE_TYPE_UNSPECIFIED'
+        | 'LICENSE_INCLUDED'
+        | 'BRING_YOUR_OWN_LICENSE';
       /** Optional. Use local backup. */
       localBackupEnabled?: boolean;
       /** Optional. Memory allocated in GBs. */
@@ -501,7 +622,15 @@ declare namespace gapi.client {
       /** Optional. SSH public keys to be stored with cluster. */
       sshPublicKeys?: string[];
       /** Output only. State of the cluster. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PROVISIONING'
+        | 'AVAILABLE'
+        | 'UPDATING'
+        | 'TERMINATING'
+        | 'TERMINATED'
+        | 'FAILED'
+        | 'MAINTENANCE_IN_PROGRESS';
       /** Output only. The storage allocation for the disk group, in gigabytes (GB). */
       storageSizeGb?: number;
       /** Optional. Operating system version of the image. */
@@ -537,7 +666,14 @@ declare namespace gapi.client {
       /** Output only. HTTPS link to OCI resources exposed to Customer via UI Interface. */
       ociUrl?: string;
       /** Output only. The Status of Operations Insights for this Database. */
-      opsInsightsStatus?: string;
+      opsInsightsStatus?:
+        | 'OPERATIONS_INSIGHTS_STATUS_UNSPECIFIED'
+        | 'ENABLING'
+        | 'ENABLED'
+        | 'DISABLING'
+        | 'NOT_ENABLED'
+        | 'FAILED_ENABLING'
+        | 'FAILED_DISABLING';
       /** Optional. The ID of the pluggable database associated with the Database. The ID must be unique within the project and location. */
       pluggableDatabaseId?: string;
       /** Optional. The pluggable database associated with the Database. The name must begin with an alphabetic character and can contain a maximum of thirty alphanumeric characters. */
@@ -551,35 +687,60 @@ declare namespace gapi.client {
       /** Output only. The character set name for the Database which is the ID in the resource name. */
       characterSet?: string;
       /** Output only. The character set type for the Database. */
-      characterSetType?: string;
+      characterSetType?:
+        | 'CHARACTER_SET_TYPE_UNSPECIFIED'
+        | 'DATABASE'
+        | 'NATIONAL';
       /** Identifier. The name of the Database Character Set resource in the following format: projects/{project}/locations/{region}/databaseCharacterSets/{database_character_set} */
       name?: string;
     }
     interface DatabaseConnectionStringProfile {
       /** Output only. The current consumer group being used by the connection. */
-      consumerGroup?: string;
+      consumerGroup?:
+        | 'CONSUMER_GROUP_UNSPECIFIED'
+        | 'HIGH'
+        | 'MEDIUM'
+        | 'LOW'
+        | 'TP'
+        | 'TPURGENT';
       /** Output only. The display name for the database connection. */
       displayName?: string;
       /** Output only. The host name format being currently used in connection string. */
-      hostFormat?: string;
+      hostFormat?: 'HOST_FORMAT_UNSPECIFIED' | 'FQDN' | 'IP';
       /** Output only. This field indicates if the connection string is regional and is only applicable for cross-region Data Guard. */
       isRegional?: boolean;
       /** Output only. The protocol being used by the connection. */
-      protocol?: string;
+      protocol?: 'PROTOCOL_UNSPECIFIED' | 'TCP' | 'TCPS';
       /** Output only. The current session mode of the connection. */
-      sessionMode?: string;
+      sessionMode?: 'SESSION_MODE_UNSPECIFIED' | 'DIRECT' | 'INDIRECT';
       /** Output only. The syntax of the connection string. */
-      syntaxFormat?: string;
+      syntaxFormat?:
+        | 'SYNTAX_FORMAT_UNSPECIFIED'
+        | 'LONG'
+        | 'EZCONNECT'
+        | 'EZCONNECTPLUS';
       /** Output only. This field indicates the TLS authentication type of the connection. */
-      tlsAuthentication?: string;
+      tlsAuthentication?:
+        | 'TLS_AUTHENTICATION_UNSPECIFIED'
+        | 'SERVER'
+        | 'MUTUAL';
       /** Output only. The value of the connection string. */
       value?: string;
     }
     interface DatabaseManagementConfig {
       /** Output only. The status of the Database Management service. */
-      managementState?: string;
+      managementState?:
+        | 'MANAGEMENT_STATE_UNSPECIFIED'
+        | 'ENABLING'
+        | 'ENABLED'
+        | 'DISABLING'
+        | 'DISABLED'
+        | 'UPDATING'
+        | 'FAILED_ENABLING'
+        | 'FAILED_DISABLING'
+        | 'FAILED_UPDATING';
       /** Output only. The Database Management type. */
-      managementType?: string;
+      managementType?: 'MANAGEMENT_TYPE_UNSPECIFIED' | 'BASIC' | 'ADVANCED';
     }
     interface DatabaseProperties {
       /** Output only. The Database Management config. */
@@ -589,7 +750,18 @@ declare namespace gapi.client {
       /** Required. The Oracle Database version. */
       dbVersion?: string;
       /** Output only. State of the Database. */
-      state?: string;
+      state?:
+        | 'DATABASE_LIFECYCLE_STATE_UNSPECIFIED'
+        | 'PROVISIONING'
+        | 'AVAILABLE'
+        | 'UPDATING'
+        | 'BACKUP_IN_PROGRESS'
+        | 'UPGRADING'
+        | 'CONVERTING'
+        | 'TERMINATING'
+        | 'TERMINATED'
+        | 'RESTORE_FAILED'
+        | 'FAILED';
     }
     interface DataCollectionOptions {
       /** Optional. Indicates whether diagnostic collection is enabled for the VM cluster */
@@ -617,13 +789,50 @@ declare namespace gapi.client {
       /** Optional. If set to true, enables automatic backups on the database. */
       autoBackupEnabled?: boolean;
       /** Optional. The day of the week on which the full backup should be performed on the database. If no value is provided, it will default to Sunday. */
-      autoFullBackupDay?: string;
+      autoFullBackupDay?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY';
       /** Optional. The window in which the full backup should be performed on the database. If no value is provided, the default is anytime. */
-      autoFullBackupWindow?: string;
+      autoFullBackupWindow?:
+        | 'BACKUP_WINDOW_UNSPECIFIED'
+        | 'SLOT_ONE'
+        | 'SLOT_TWO'
+        | 'SLOT_THREE'
+        | 'SLOT_FOUR'
+        | 'SLOT_FIVE'
+        | 'SLOT_SIX'
+        | 'SLOT_SEVEN'
+        | 'SLOT_EIGHT'
+        | 'SLOT_NINE'
+        | 'SLOT_TEN'
+        | 'SLOT_ELEVEN'
+        | 'SLOT_TWELVE';
       /** Optional. The window in which the incremental backup should be performed on the database. If no value is provided, the default is anytime except the auto full backup day. */
-      autoIncrementalBackupWindow?: string;
+      autoIncrementalBackupWindow?:
+        | 'BACKUP_WINDOW_UNSPECIFIED'
+        | 'SLOT_ONE'
+        | 'SLOT_TWO'
+        | 'SLOT_THREE'
+        | 'SLOT_FOUR'
+        | 'SLOT_FIVE'
+        | 'SLOT_SIX'
+        | 'SLOT_SEVEN'
+        | 'SLOT_EIGHT'
+        | 'SLOT_NINE'
+        | 'SLOT_TEN'
+        | 'SLOT_ELEVEN'
+        | 'SLOT_TWELVE';
       /** Optional. This defines when the backups will be deleted after Database termination. */
-      backupDeletionPolicy?: string;
+      backupDeletionPolicy?:
+        | 'BACKUP_DELETION_POLICY_UNSPECIFIED'
+        | 'DELETE_IMMEDIATELY'
+        | 'DELETE_AFTER_RETENTION_PERIOD';
       /** Optional. Details of the database backup destinations. */
       backupDestinationDetails?: BackupDestinationDetails[];
       /** Optional. The number of days an automatic backup is retained before being automatically deleted. This value determines the earliest point in time to which a database can be restored. Min: 1, Max: 60. */
@@ -661,7 +870,17 @@ declare namespace gapi.client {
       /** Optional. OCPU count per database node. */
       ocpuCount?: number;
       /** Output only. State of the database node. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PROVISIONING'
+        | 'AVAILABLE'
+        | 'UPDATING'
+        | 'STOPPING'
+        | 'STOPPED'
+        | 'STARTING'
+        | 'TERMINATING'
+        | 'TERMINATED'
+        | 'FAILED';
       /** Total CPU core count of the database node. */
       totalCpuCoreCount?: number;
     }
@@ -691,7 +910,13 @@ declare namespace gapi.client {
       /** Optional. OCPU count per database. */
       ocpuCount?: number;
       /** Output only. State of the database server. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'AVAILABLE'
+        | 'UNAVAILABLE'
+        | 'DELETING'
+        | 'DELETED';
       /** Optional. Vm count per database. */
       vmCount?: number;
     }
@@ -727,23 +952,27 @@ declare namespace gapi.client {
       /** Output only. List of storage disk details available for launches from backup. */
       launchFromBackupStorageSizeDetails?: StorageSizeDetails[];
       /** Output only. VM shape platform type */
-      shapeType?: string;
+      shapeType?: 'SHAPE_TYPE_UNSPECIFIED' | 'STANDARD_X86';
       /** Output only. The storage option used in DB system. */
-      storageManagement?: string;
+      storageManagement?: 'STORAGE_MANAGEMENT_UNSPECIFIED' | 'ASM' | 'LVM';
       /** Output only. List of storage disk details. */
       storageSizeDetails?: StorageSizeDetails[];
     }
     interface DbSystemOptions {
       /** Optional. The storage option used in DB system. */
-      storageManagement?: string;
+      storageManagement?: 'STORAGE_MANAGEMENT_UNSPECIFIED' | 'ASM' | 'LVM';
     }
     interface DbSystemProperties {
       /** Required. The number of CPU cores to enable for the DbSystem. */
       computeCount?: number;
       /** Optional. The compute model of the DbSystem. */
-      computeModel?: string;
+      computeModel?: 'COMPUTE_MODEL_UNSPECIFIED' | 'ECPU' | 'OCPU';
       /** Required. The database edition of the DbSystem. */
-      databaseEdition?: string;
+      databaseEdition?:
+        | 'DB_SYSTEM_DATABASE_EDITION_UNSPECIFIED'
+        | 'STANDARD_EDITION'
+        | 'ENTERPRISE_EDITION'
+        | 'ENTERPRISE_EDITION_HIGH_PERFORMANCE';
       /** Optional. Data collection options for diagnostics. */
       dataCollectionOptions?: DataCollectionOptionsDbSystem;
       /** Optional. The data storage size in GB that is currently available to DbSystems. */
@@ -761,9 +990,23 @@ declare namespace gapi.client {
       /** Required. The initial data storage size in GB. */
       initialDataStorageSizeGb?: number;
       /** Required. The license model of the DbSystem. */
-      licenseModel?: string;
+      licenseModel?:
+        | 'LICENSE_MODEL_UNSPECIFIED'
+        | 'LICENSE_INCLUDED'
+        | 'BRING_YOUR_OWN_LICENSE';
       /** Output only. State of the DbSystem. */
-      lifecycleState?: string;
+      lifecycleState?:
+        | 'DB_SYSTEM_LIFECYCLE_STATE_UNSPECIFIED'
+        | 'PROVISIONING'
+        | 'AVAILABLE'
+        | 'UPDATING'
+        | 'TERMINATING'
+        | 'TERMINATED'
+        | 'FAILED'
+        | 'MIGRATED'
+        | 'MAINTENANCE_IN_PROGRESS'
+        | 'NEEDS_ATTENTION'
+        | 'UPGRADING';
       /** Optional. The memory size in GB. */
       memorySizeGb?: number;
       /** Optional. The number of nodes in the DbSystem. */
@@ -834,7 +1077,7 @@ declare namespace gapi.client {
       /** Optional. The KMS key used to encrypt the Autonomous Database. This field is required if the provider is GOOGLE_MANAGED. The name of the KMS key resource in the following format: `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}`. */
       kmsKey?: string;
       /** Optional. The provider of the encryption key. */
-      provider?: string;
+      provider?: 'PROVIDER_UNSPECIFIED' | 'GOOGLE_MANAGED' | 'ORACLE_MANAGED';
     }
     interface EncryptionKeyHistoryEntry {
       /** Output only. The date and time when the encryption key was activated on the Autonomous Database.. */
@@ -850,7 +1093,13 @@ declare namespace gapi.client {
       /** Identifier. The name of the Entitlement resource with the format: projects/{project}/locations/{region}/entitlements/{entitlement} */
       name?: string;
       /** Output only. Entitlement State. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'ACCOUNT_NOT_LINKED'
+        | 'ACCOUNT_NOT_ACTIVE'
+        | 'ACTIVE'
+        | 'ACCOUNT_SUSPENDED'
+        | 'NOT_APPROVED_IN_PRIVATE_MARKETPLACE';
     }
     interface ExadbVmCluster {
       /** Required. Immutable. The name of the backup OdbSubnet associated with the ExadbVmCluster. Format: projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet} */
@@ -894,9 +1143,20 @@ declare namespace gapi.client {
       /** Required. Immutable. Prefix for VM cluster host names. */
       hostnamePrefix?: string;
       /** Optional. Immutable. The license type of the ExadbVmCluster. */
-      licenseModel?: string;
+      licenseModel?:
+        | 'LICENSE_MODEL_UNSPECIFIED'
+        | 'LICENSE_INCLUDED'
+        | 'BRING_YOUR_OWN_LICENSE';
       /** Output only. State of the cluster. */
-      lifecycleState?: string;
+      lifecycleState?:
+        | 'EXADB_VM_CLUSTER_LIFECYCLE_STATE_UNSPECIFIED'
+        | 'PROVISIONING'
+        | 'AVAILABLE'
+        | 'UPDATING'
+        | 'TERMINATING'
+        | 'TERMINATED'
+        | 'FAILED'
+        | 'MAINTENANCE_IN_PROGRESS';
       /** Output only. Memory per VM (GB) (Read-only): Shows the amount of memory allocated to each VM. Memory is calculated based on 2.75 GB per Total ECPUs. */
       memorySizeGb?: number;
       /** Required. The number of nodes/VMs in the ExadbVmCluster. */
@@ -906,7 +1166,10 @@ declare namespace gapi.client {
       /** Optional. Immutable. SCAN listener port - TCP */
       scanListenerPortTcp?: number;
       /** Required. Immutable. The shape attribute of the VM cluster. The type of Exascale storage used for Exadata VM cluster. The default is SMART_STORAGE which supports Oracle Database 23ai and later */
-      shapeAttribute?: string;
+      shapeAttribute?:
+        | 'SHAPE_ATTRIBUTE_UNSPECIFIED'
+        | 'SMART_STORAGE'
+        | 'BLOCK_STORAGE';
       /** Required. Immutable. The SSH public keys for the ExadbVmCluster. */
       sshPublicKeys?: string[];
       /** Optional. Immutable. The time zone of the ExadbVmCluster. */
@@ -944,9 +1207,15 @@ declare namespace gapi.client {
       /** Optional. The size of additional flash cache in percentage of high capacity database storage. */
       additionalFlashCachePercent?: number;
       /** Output only. The shape attributes of the VM clusters attached to the ExascaleDbStorageVault. */
-      attachedShapeAttributes?: string[];
+      attachedShapeAttributes?:
+        | 'SHAPE_ATTRIBUTE_UNSPECIFIED'
+        | 'SMART_STORAGE'
+        | 'BLOCK_STORAGE'[];
       /** Output only. The shape attributes available for the VM clusters to be attached to the ExascaleDbStorageVault. */
-      availableShapeAttributes?: string[];
+      availableShapeAttributes?:
+        | 'SHAPE_ATTRIBUTE_UNSPECIFIED'
+        | 'SMART_STORAGE'
+        | 'BLOCK_STORAGE'[];
       /** Optional. The description of the ExascaleDbStorageVault. */
       description?: string;
       /** Required. The storage details of the ExascaleDbStorageVault. */
@@ -956,7 +1225,14 @@ declare namespace gapi.client {
       /** Output only. Deep link to the OCI console to view this resource. */
       ociUri?: string;
       /** Output only. The state of the ExascaleDbStorageVault. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PROVISIONING'
+        | 'AVAILABLE'
+        | 'UPDATING'
+        | 'TERMINATING'
+        | 'TERMINATED'
+        | 'FAILED';
       /** Output only. The time zone of the ExascaleDbStorageVault. */
       timeZone?: TimeZone;
       /** Output only. The number of VM clusters associated with the ExascaleDbStorageVault. */
@@ -974,7 +1250,7 @@ declare namespace gapi.client {
       /** Required. The password used to encrypt the keys inside the wallet. The password must be a minimum of 8 characters. */
       password?: string;
       /** Optional. The type of wallet generation for the Autonomous Database. The default value is SINGLE. */
-      type?: string;
+      type?: 'GENERATE_TYPE_UNSPECIFIED' | 'ALL' | 'SINGLE';
     }
     interface GenerateAutonomousDatabaseWalletResponse {
       /** Output only. The base64 encoded wallet files. */
@@ -988,7 +1264,12 @@ declare namespace gapi.client {
     }
     interface IdentityConnector {
       /** Output only. The connection state of the identity connector. */
-      connectionState?: string;
+      connectionState?:
+        | 'CONNECTION_STATE_UNSPECIFIED'
+        | 'CONNECTED'
+        | 'PARTIALLY_CONNECTED'
+        | 'DISCONNECTED'
+        | 'UNKNOWN';
       /** Output only. A google managed service account on which customers can grant roles to access resources in the customer project. Example: `p176944527254-55-75119d87fd8f@gcp-sa-oci.iam.gserviceaccount.com` */
       serviceAgentEmail?: string;
     }
@@ -1162,7 +1443,15 @@ declare namespace gapi.client {
       /** Optional. Determines the amount of time the system will wait before the start of each database server patching operation. Custom action timeout is in minutes and valid value is between 15 to 120 (inclusive). */
       customActionTimeoutMins?: number;
       /** Optional. Days during the week when maintenance should be performed. */
-      daysOfWeek?: string[];
+      daysOfWeek?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY'[];
       /** Optional. The window of hours during the day when maintenance should be performed. The window is a 4 hour slot. Valid values are: 0 - represents time slot 0:00 - 3:59 UTC 4 - represents time slot 4:00 - 7:59 UTC 8 - represents time slot 8:00 - 11:59 UTC 12 - represents time slot 12:00 - 15:59 UTC 16 - represents time slot 16:00 - 19:59 UTC 20 - represents time slot 20:00 - 23:59 UTC */
       hoursOfDay?: number[];
       /** Optional. If true, enables the configuration of a custom action timeout (waiting period) between database server patching operations. */
@@ -1170,11 +1459,27 @@ declare namespace gapi.client {
       /** Optional. Lead time window allows user to set a lead time to prepare for a down time. The lead time is in weeks and valid value is between 1 to 4. */
       leadTimeWeek?: number;
       /** Optional. Months during the year when maintenance should be performed. */
-      months?: string[];
+      months?:
+        | 'MONTH_UNSPECIFIED'
+        | 'JANUARY'
+        | 'FEBRUARY'
+        | 'MARCH'
+        | 'APRIL'
+        | 'MAY'
+        | 'JUNE'
+        | 'JULY'
+        | 'AUGUST'
+        | 'SEPTEMBER'
+        | 'OCTOBER'
+        | 'NOVEMBER'
+        | 'DECEMBER'[];
       /** Optional. Cloud CloudExadataInfrastructure node patching method, either "ROLLING" or "NONROLLING". Default value is ROLLING. */
-      patchingMode?: string;
+      patchingMode?: 'PATCHING_MODE_UNSPECIFIED' | 'ROLLING' | 'NON_ROLLING';
       /** Optional. The maintenance window scheduling preference. */
-      preference?: string;
+      preference?:
+        | 'MAINTENANCE_WINDOW_PREFERENCE_UNSPECIFIED'
+        | 'CUSTOM_PREFERENCE'
+        | 'NO_PREFERENCE';
       /** Optional. Weeks during the month when maintenance should be performed. Weeks start on the 1st, 8th, 15th, and 22nd days of the month, and have a duration of 7 days. Weeks start and end based on calendar dates, not days of the week. */
       weeksOfMonth?: number[];
     }
@@ -1200,7 +1505,12 @@ declare namespace gapi.client {
       /** Required. The name of the VPC network in the following format: projects/{project}/global/networks/{network} */
       network?: string;
       /** Output only. State of the ODB Network. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PROVISIONING'
+        | 'AVAILABLE'
+        | 'TERMINATING'
+        | 'FAILED';
     }
     interface OdbSubnet {
       /** Required. The CIDR range of the subnet. */
@@ -1212,9 +1522,14 @@ declare namespace gapi.client {
       /** Identifier. The name of the OdbSubnet resource in the following format: projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet} */
       name?: string;
       /** Required. Purpose of the subnet. */
-      purpose?: string;
+      purpose?: 'PURPOSE_UNSPECIFIED' | 'CLIENT_SUBNET' | 'BACKUP_SUBNET';
       /** Output only. State of the ODB Subnet. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PROVISIONING'
+        | 'AVAILABLE'
+        | 'TERMINATING'
+        | 'FAILED';
     }
     interface Operation {
       /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
@@ -1268,7 +1583,12 @@ declare namespace gapi.client {
       /** Required. The Node name of the Database home. */
       nodeName?: string;
       /** Required. The mode that the pluggable database is in to open it. */
-      openMode?: string;
+      openMode?:
+        | 'PLUGGABLE_DATABASE_OPEN_MODE_UNSPECIFIED'
+        | 'READ_ONLY'
+        | 'READ_WRITE'
+        | 'MOUNTED'
+        | 'MIGRATE';
       /** Required. The OCID of the Pluggable Database. */
       pluggableDatabaseId?: string;
     }
@@ -1290,11 +1610,32 @@ declare namespace gapi.client {
       /** Output only. Additional information about the current lifecycle state. */
       lifecycleDetails?: string;
       /** Output only. The current state of the pluggable database. */
-      lifecycleState?: string;
+      lifecycleState?:
+        | 'PLUGGABLE_DATABASE_LIFECYCLE_STATE_UNSPECIFIED'
+        | 'PROVISIONING'
+        | 'AVAILABLE'
+        | 'TERMINATING'
+        | 'TERMINATED'
+        | 'UPDATING'
+        | 'FAILED'
+        | 'RELOCATING'
+        | 'RELOCATED'
+        | 'REFRESHING'
+        | 'RESTORE_IN_PROGRESS'
+        | 'RESTORE_FAILED'
+        | 'BACKUP_IN_PROGRESS'
+        | 'DISABLED';
       /** Output only. The OCID of the pluggable database. */
       ocid?: string;
       /** Output only. The status of Operations Insights for this Database. */
-      operationsInsightsState?: string;
+      operationsInsightsState?:
+        | 'OPERATIONS_INSIGHTS_STATE_UNSPECIFIED'
+        | 'ENABLING'
+        | 'ENABLED'
+        | 'DISABLING'
+        | 'NOT_ENABLED'
+        | 'FAILED_ENABLING'
+        | 'FAILED_DISABLING';
       /** Required. The database name. */
       pdbName?: string;
       /** Optional. Pluggable Database Node Level Details */
@@ -1313,7 +1654,15 @@ declare namespace gapi.client {
     }
     interface ScheduledOperationDetails {
       /** Output only. Day of week. */
-      dayOfWeek?: string;
+      dayOfWeek?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY';
       /** Output only. Auto start time. */
       startTime?: TimeOfDay;
       /** Output only. Auto stop time. */
@@ -1365,11 +1714,11 @@ declare namespace gapi.client {
       /** Lists the long-term and automatic backups of an Autonomous Database. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1400,11 +1749,11 @@ declare namespace gapi.client {
       /** Lists Autonomous Database Character Sets in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1435,11 +1784,11 @@ declare namespace gapi.client {
       /** Creates a new Autonomous Database in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The ID of the Autonomous Database to create. This value is restricted to (^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$) and must be a maximum of 63 characters in length. The value must start with a letter and end with a letter or a number. */
         autonomousDatabaseId?: string;
         /** JSONP */
@@ -1468,11 +1817,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. The ID of the Autonomous Database to create. This value is restricted to (^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$) and must be a maximum of 63 characters in length. The value must start with a letter and end with a letter or a number. */
           autonomousDatabaseId?: string;
           /** JSONP */
@@ -1501,11 +1850,11 @@ declare namespace gapi.client {
       /** Deletes a single Autonomous Database. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1530,11 +1879,11 @@ declare namespace gapi.client {
       /** Initiates a failover to target autonomous database from the associated primary database. */
       failover(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1559,11 +1908,11 @@ declare namespace gapi.client {
       failover(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1588,11 +1937,11 @@ declare namespace gapi.client {
       /** Generates a wallet for an Autonomous Database. */
       generateWallet(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1617,11 +1966,11 @@ declare namespace gapi.client {
       generateWallet(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1646,11 +1995,11 @@ declare namespace gapi.client {
       /** Gets the details of a single Autonomous Database. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1673,11 +2022,11 @@ declare namespace gapi.client {
       /** Lists the Autonomous Databases in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1708,11 +2057,11 @@ declare namespace gapi.client {
       /** Updates the parameters of a single Autonomous Database. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1741,11 +2090,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1774,11 +2123,11 @@ declare namespace gapi.client {
       /** Restarts an Autonomous Database. */
       restart(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1803,11 +2152,11 @@ declare namespace gapi.client {
       restart(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1832,11 +2181,11 @@ declare namespace gapi.client {
       /** Restores a single Autonomous Database. */
       restore(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1861,11 +2210,11 @@ declare namespace gapi.client {
       restore(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1890,11 +2239,11 @@ declare namespace gapi.client {
       /** Starts an Autonomous Database. */
       start(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1919,11 +2268,11 @@ declare namespace gapi.client {
       start(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1948,11 +2297,11 @@ declare namespace gapi.client {
       /** Stops an Autonomous Database. */
       stop(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1977,11 +2326,11 @@ declare namespace gapi.client {
       stop(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2006,11 +2355,11 @@ declare namespace gapi.client {
       /** Initiates a switchover of specified autonomous database to the associated peer database. */
       switchover(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2035,11 +2384,11 @@ declare namespace gapi.client {
       switchover(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2066,11 +2415,11 @@ declare namespace gapi.client {
       /** Lists all the available Autonomous Database versions for a project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2099,11 +2448,11 @@ declare namespace gapi.client {
       /** Lists the database servers of an Exadata Infrastructure instance. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2132,11 +2481,11 @@ declare namespace gapi.client {
       /** Creates a new Exadata Infrastructure in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the Exadata Infrastructure to create. This value is restricted to (^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$) and must be a maximum of 63 characters in length. The value must start with a letter and end with a letter or a number. */
@@ -2165,11 +2514,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID of the Exadata Infrastructure to create. This value is restricted to (^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$) and must be a maximum of 63 characters in length. The value must start with a letter and end with a letter or a number. */
@@ -2198,11 +2547,11 @@ declare namespace gapi.client {
       /** Deletes a single Exadata Infrastructure. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2229,11 +2578,11 @@ declare namespace gapi.client {
       /** Gets details of a single Exadata Infrastructure. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2256,11 +2605,11 @@ declare namespace gapi.client {
       /** Lists Exadata Infrastructures in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2294,11 +2643,11 @@ declare namespace gapi.client {
       /** Lists the database nodes of a VM Cluster. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2327,11 +2676,11 @@ declare namespace gapi.client {
       /** Creates a new VM Cluster in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the VM Cluster to create. This value is restricted to (^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$) and must be a maximum of 63 characters in length. The value must start with a letter and end with a letter or a number. */
@@ -2360,11 +2709,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID of the VM Cluster to create. This value is restricted to (^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$) and must be a maximum of 63 characters in length. The value must start with a letter and end with a letter or a number. */
@@ -2393,11 +2742,11 @@ declare namespace gapi.client {
       /** Deletes a single VM Cluster. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2424,11 +2773,11 @@ declare namespace gapi.client {
       /** Gets details of a single VM Cluster. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2451,11 +2800,11 @@ declare namespace gapi.client {
       /** Lists the VM Clusters in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2487,11 +2836,11 @@ declare namespace gapi.client {
       /** List DatabaseCharacterSets for the given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2522,11 +2871,11 @@ declare namespace gapi.client {
       /** Gets details of a single Database. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2549,11 +2898,11 @@ declare namespace gapi.client {
       /** Lists all the Databases for the given project, location and DbSystem. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2584,11 +2933,11 @@ declare namespace gapi.client {
       /** Lists all the DbSystemInitialStorageSizes for the given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2617,11 +2966,11 @@ declare namespace gapi.client {
       /** Creates a new DbSystem in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the DbSystem to create. This value is restricted to (^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$) and must be a maximum of 63 characters in length. The value must start with a letter and end with a letter or a number. */
@@ -2650,11 +2999,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID of the DbSystem to create. This value is restricted to (^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$) and must be a maximum of 63 characters in length. The value must start with a letter and end with a letter or a number. */
@@ -2683,11 +3032,11 @@ declare namespace gapi.client {
       /** Deletes a single DbSystem. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2712,11 +3061,11 @@ declare namespace gapi.client {
       /** Gets details of a single DbSystem. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2739,11 +3088,11 @@ declare namespace gapi.client {
       /** Lists all the DbSystems for the given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2776,11 +3125,11 @@ declare namespace gapi.client {
       /** Lists the database system shapes available for the project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2811,11 +3160,11 @@ declare namespace gapi.client {
       /** List DbVersions for the given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2846,11 +3195,11 @@ declare namespace gapi.client {
       /** Lists the entitlements in a given project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2879,11 +3228,11 @@ declare namespace gapi.client {
       /** Lists the database nodes of a VM Cluster. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2912,11 +3261,11 @@ declare namespace gapi.client {
       /** Creates a new Exadb (Exascale) VM Cluster resource. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the ExadbVmCluster to create. This value is restricted to (^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$) and must be a maximum of 63 characters in length. The value must start with a letter and end with a letter or a number. */
@@ -2945,11 +3294,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID of the ExadbVmCluster to create. This value is restricted to (^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$) and must be a maximum of 63 characters in length. The value must start with a letter and end with a letter or a number. */
@@ -2978,11 +3327,11 @@ declare namespace gapi.client {
       /** Deletes a single Exadb (Exascale) VM Cluster. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3007,11 +3356,11 @@ declare namespace gapi.client {
       /** Gets details of a single Exadb (Exascale) VM Cluster. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3034,11 +3383,11 @@ declare namespace gapi.client {
       /** Lists all the Exadb (Exascale) VM Clusters for the given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3069,11 +3418,11 @@ declare namespace gapi.client {
       /** Updates a single Exadb (Exascale) VM Cluster. To add virtual machines to existing exadb vm cluster, only pass the node count. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3102,11 +3451,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3135,11 +3484,11 @@ declare namespace gapi.client {
       /** Removes virtual machines from an existing exadb vm cluster. */
       removeVirtualMachine(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3164,11 +3513,11 @@ declare namespace gapi.client {
       removeVirtualMachine(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3196,11 +3545,11 @@ declare namespace gapi.client {
       /** Creates a new ExascaleDB Storage Vault resource. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the ExascaleDbStorageVault to create. This value is restricted to (^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$) and must be a maximum of 63 characters in length. The value must start with a letter and end with a letter or a number. */
@@ -3229,11 +3578,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID of the ExascaleDbStorageVault to create. This value is restricted to (^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$) and must be a maximum of 63 characters in length. The value must start with a letter and end with a letter or a number. */
@@ -3262,11 +3611,11 @@ declare namespace gapi.client {
       /** Deletes a single ExascaleDB Storage Vault. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3291,11 +3640,11 @@ declare namespace gapi.client {
       /** Gets details of a single ExascaleDB Storage Vault. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3318,11 +3667,11 @@ declare namespace gapi.client {
       /** Lists all the ExascaleDB Storage Vaults for the given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3355,11 +3704,11 @@ declare namespace gapi.client {
       /** Lists all the valid minor versions for the given project, location, gi version and shape family. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3390,11 +3739,11 @@ declare namespace gapi.client {
       /** Lists all the valid Oracle Grid Infrastructure (GI) versions for the given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3426,11 +3775,11 @@ declare namespace gapi.client {
       /** Creates a new ODB Subnet in a given ODB Network. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3459,11 +3808,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3492,11 +3841,11 @@ declare namespace gapi.client {
       /** Deletes a single ODB Subnet. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3521,11 +3870,11 @@ declare namespace gapi.client {
       /** Gets details of a single ODB Subnet. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3548,11 +3897,11 @@ declare namespace gapi.client {
       /** Lists all the ODB Subnets in a given ODB Network. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3585,11 +3934,11 @@ declare namespace gapi.client {
       /** Creates a new ODB Network in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3618,11 +3967,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3651,11 +4000,11 @@ declare namespace gapi.client {
       /** Deletes a single ODB Network. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3680,11 +4029,11 @@ declare namespace gapi.client {
       /** Gets details of a single ODB Network. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3707,11 +4056,11 @@ declare namespace gapi.client {
       /** Lists the ODB Networks in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3745,11 +4094,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3774,11 +4123,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3803,11 +4152,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3830,11 +4179,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3857,11 +4206,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3894,11 +4243,11 @@ declare namespace gapi.client {
       /** Gets details of a single PluggableDatabase. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3921,11 +4270,11 @@ declare namespace gapi.client {
       /** Lists all the PluggableDatabases for the given project, location and Container Database. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3956,11 +4305,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3983,11 +4332,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */

@@ -30,7 +30,7 @@ declare namespace gapi.client {
   namespace verifiedaccess {
     interface Antivirus {
       /** Output only. The state of the antivirus on the device. Introduced in Chrome M136. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'MISSING' | 'DISABLED' | 'ENABLED';
     }
     interface Challenge {
       /** Generated challenge, the bytes representation of SignedData. */
@@ -64,7 +64,11 @@ declare namespace gapi.client {
       /** Output only. The name of the device's model. */
       deviceModel?: string;
       /** Output only. The encryption state of the disk. On ChromeOS, the main disk is always ENCRYPTED. */
-      diskEncryption?: string;
+      diskEncryption?:
+        | 'DISK_ENCRYPTION_UNSPECIFIED'
+        | 'DISK_ENCRYPTION_UNKNOWN'
+        | 'DISK_ENCRYPTION_DISABLED'
+        | 'DISK_ENCRYPTION_ENCRYPTED';
       /** Output only. The display name of the device, as defined by the user. */
       displayName?: string;
       /** Hostname of the device. */
@@ -76,25 +80,55 @@ declare namespace gapi.client {
       /** Output only. Mobile Equipment Identifier (MEID) of the device. Available on ChromeOS only. */
       meid?: string[];
       /** Output only. The type of the Operating System currently running on the device. */
-      operatingSystem?: string;
+      operatingSystem?:
+        | 'OPERATING_SYSTEM_UNSPECIFIED'
+        | 'CHROME_OS'
+        | 'CHROMIUM_OS'
+        | 'WINDOWS'
+        | 'MAC_OS_X'
+        | 'LINUX';
       /** Output only. The state of the OS level firewall. On ChromeOS, the value will always be ENABLED on regular devices and UNKNOWN on devices in developer mode. Support for MacOS 15 (Sequoia) and later has been introduced in Chrome M131. */
-      osFirewall?: string;
+      osFirewall?:
+        | 'OS_FIREWALL_UNSPECIFIED'
+        | 'OS_FIREWALL_UNKNOWN'
+        | 'OS_FIREWALL_DISABLED'
+        | 'OS_FIREWALL_ENABLED';
       /** Output only. The current version of the Operating System. On Windows and linux, the value will also include the security patch information. */
       osVersion?: string;
       /** Output only. Whether the Password Protection Warning feature is enabled or not. Password protection alerts users when they reuse their protected password on potentially suspicious sites. This setting is controlled by an enterprise policy: https://chromeenterprise.google/policies/#PasswordProtectionWarningTrigger. Note that the policy unset does not have the same effects as having the policy explicitly set to `PASSWORD_PROTECTION_OFF`. */
-      passwordProtectionWarningTrigger?: string;
+      passwordProtectionWarningTrigger?:
+        | 'PASSWORD_PROTECTION_WARNING_TRIGGER_UNSPECIFIED'
+        | 'POLICY_UNSET'
+        | 'PASSWORD_PROTECTION_OFF'
+        | 'PASSWORD_REUSE'
+        | 'PHISHING_REUSE';
       /** Output only. Affiliation IDs of the organizations that are affiliated with the organization that is currently managing the Chrome Profile’s user or ChromeOS user. */
       profileAffiliationIds?: string[];
       /** Output only. Enrollment domain of the customer which is currently managing the profile. */
       profileEnrollmentDomain?: string;
       /** Output only. Whether Enterprise-grade (i.e. custom) unsafe URL scanning is enabled or not. This setting may be controlled by an enterprise policy: https://chromeenterprise.google/policies/#EnterpriseRealTimeUrlCheckMode */
-      realtimeUrlCheckMode?: string;
+      realtimeUrlCheckMode?:
+        | 'REALTIME_URL_CHECK_MODE_UNSPECIFIED'
+        | 'REALTIME_URL_CHECK_MODE_DISABLED'
+        | 'REALTIME_URL_CHECK_MODE_ENABLED_MAIN_FRAME';
       /** Output only. Safe Browsing Protection Level. That setting may be controlled by an enterprise policy: https://chromeenterprise.google/policies/#SafeBrowsingProtectionLevel. */
-      safeBrowsingProtectionLevel?: string;
+      safeBrowsingProtectionLevel?:
+        | 'SAFE_BROWSING_PROTECTION_LEVEL_UNSPECIFIED'
+        | 'INACTIVE'
+        | 'STANDARD'
+        | 'ENHANCED';
       /** Output only. The state of the Screen Lock password protection. On ChromeOS, this value will always be ENABLED as there is not way to disable requiring a password or pin when unlocking the device. */
-      screenLockSecured?: string;
+      screenLockSecured?:
+        | 'SCREEN_LOCK_SECURED_UNSPECIFIED'
+        | 'SCREEN_LOCK_SECURED_UNKNOWN'
+        | 'SCREEN_LOCK_SECURED_DISABLED'
+        | 'SCREEN_LOCK_SECURED_ENABLED';
       /** Output only. Whether the device's startup software has its Secure Boot feature enabled. Available on Windows only. */
-      secureBootMode?: string;
+      secureBootMode?:
+        | 'SECURE_BOOT_MODE_UNSPECIFIED'
+        | 'SECURE_BOOT_MODE_UNKNOWN'
+        | 'SECURE_BOOT_MODE_DISABLED'
+        | 'SECURE_BOOT_MODE_ENABLED';
       /** Output only. The serial number of the device. On Windows, this represents the BIOS's serial number. Not available on most Linux distributions. */
       serialNumber?: string;
       /** Output only. Whether the Site Isolation (a.k.a Site Per Process) setting is enabled. That setting may be controlled by an enterprise policy: https://chromeenterprise.google/policies/#SitePerProcess */
@@ -104,7 +138,10 @@ declare namespace gapi.client {
       /** Output only. Deprecated. The corresponding policy is now deprecated. Whether Chrome is blocking third-party software injection or not. This setting may be controlled by an enterprise policy: https://chromeenterprise.google/policies/?policy=ThirdPartyBlockingEnabled. Available on Windows only. */
       thirdPartyBlockingEnabled?: boolean;
       /** Output only. The trigger which generated this set of signals. */
-      trigger?: string;
+      trigger?:
+        | 'TRIGGER_UNSPECIFIED'
+        | 'TRIGGER_BROWSER_NAVIGATION'
+        | 'TRIGGER_LOGIN_SCREEN';
       /** Output only. Windows domain that the current machine has joined. Available on Windows only. */
       windowsMachineDomain?: string;
       /** Output only. Windows domain for the current OS user. Available on Windows only. */
@@ -131,11 +168,25 @@ declare namespace gapi.client {
       /** Output only. Device signals. */
       deviceSignals?: DeviceSignals;
       /** Output only. Device attested key trust level. */
-      keyTrustLevel?: string;
+      keyTrustLevel?:
+        | 'KEY_TRUST_LEVEL_UNSPECIFIED'
+        | 'CHROME_OS_VERIFIED_MODE'
+        | 'CHROME_OS_DEVELOPER_MODE'
+        | 'CHROME_BROWSER_HW_KEY'
+        | 'CHROME_BROWSER_OS_KEY'
+        | 'CHROME_BROWSER_NO_KEY'
+        | 'CHROME_OS_NO_KEY';
       /** Output only. Unique customer id that this profile belongs to, as defined by the Google Admin SDK at https://developers.google.com/admin-sdk/directory/v1/guides/manage-customers */
       profileCustomerId?: string;
       /** Output only. Profile attested key trust level. */
-      profileKeyTrustLevel?: string;
+      profileKeyTrustLevel?:
+        | 'KEY_TRUST_LEVEL_UNSPECIFIED'
+        | 'CHROME_OS_VERIFIED_MODE'
+        | 'CHROME_OS_DEVELOPER_MODE'
+        | 'CHROME_BROWSER_HW_KEY'
+        | 'CHROME_BROWSER_OS_KEY'
+        | 'CHROME_BROWSER_NO_KEY'
+        | 'CHROME_OS_NO_KEY';
       /** Output only. The unique server-side ID of a profile on the device. */
       profilePermanentId?: string;
       /** Output only. Certificate Signing Request (in the SPKAC format, base64 encoded) is returned in this field. This field will be set only if device has included CSR in its challenge response. (the option to include CSR is now available for both user and machine responses) */
@@ -149,11 +200,11 @@ declare namespace gapi.client {
       /** Generates a new challenge. */
       generate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -176,11 +227,11 @@ declare namespace gapi.client {
       generate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -203,11 +254,11 @@ declare namespace gapi.client {
       /** Verifies the challenge response. */
       verify(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -230,11 +281,11 @@ declare namespace gapi.client {
       verify(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

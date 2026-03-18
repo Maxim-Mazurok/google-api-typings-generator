@@ -151,7 +151,16 @@ declare namespace gapi.client {
       /** A description of any additional eligibility requirements for voting in this contest. */
       electorateSpecifications?: string;
       /** The levels of government of the office for this contest. There may be more than one in cases where a jurisdiction effectively acts at two different levels of government; for example, the mayor of the District of Columbia acts at "locality" level, but also effectively at both "administrative-area-2" and "administrative-area-1". */
-      level?: string[];
+      level?:
+        | 'international'
+        | 'country'
+        | 'administrativeArea1'
+        | 'regional'
+        | 'administrativeArea2'
+        | 'locality'
+        | 'subLocality1'
+        | 'subLocality2'
+        | 'special'[];
       /** The number of candidates that will be elected to office in this contest. */
       numberElected?: string;
       /** The number of candidates that a voter may vote for in this contest. */
@@ -181,7 +190,19 @@ declare namespace gapi.client {
       /** A link to the referendum. This field is only populated for contests of type 'Referendum'. */
       referendumUrl?: string;
       /** The roles which this office fulfills. */
-      roles?: string[];
+      roles?:
+        | 'headOfState'
+        | 'headOfGovernment'
+        | 'deputyHeadOfGovernment'
+        | 'governmentOfficer'
+        | 'executiveCouncil'
+        | 'legislatorUpperBody'
+        | 'legislatorLowerBody'
+        | 'highestCourtJudge'
+        | 'judge'
+        | 'schoolBoard'
+        | 'specialPurposeOfficer'
+        | 'otherRole'[];
       /** A list of sources for this contest. If multiple sources are listed, the data has been aggregated from those sources. */
       sources?: CivicinfoSchemaV2Source[];
       /** "Yes" or "No" depending on whether this a contest being held outside the normal election cycle. */
@@ -198,7 +219,10 @@ declare namespace gapi.client {
       name?: string;
       /** The political division of the election. Represented as an OCD Division ID. Voters within these political jurisdictions are covered by this election. This is typically a state such as ocd-division/country:us/state:ca or for the midterms or general election the entire US (i.e. ocd-division/country:us). */
       ocdDivisionId?: string;
-      shapeLookupBehavior?: string;
+      shapeLookupBehavior?:
+        | 'shapeLookupDefault'
+        | 'shapeLookupDisabled'
+        | 'shapeLookupEnabled';
     }
     interface CivicinfoSchemaV2ElectionOfficial {
       /** The email address of the election official. */
@@ -218,7 +242,21 @@ declare namespace gapi.client {
       /** The name of the district. */
       name?: string;
       /** The geographic scope of this district. If unspecified the district's geography is not known. One of: national, statewide, congressional, stateUpper, stateLower, countywide, judicial, schoolBoard, cityWide, township, countyCouncil, cityCouncil, ward, special */
-      scope?: string;
+      scope?:
+        | 'statewide'
+        | 'congressional'
+        | 'stateUpper'
+        | 'stateLower'
+        | 'countywide'
+        | 'judicial'
+        | 'schoolBoard'
+        | 'citywide'
+        | 'special'
+        | 'countyCouncil'
+        | 'township'
+        | 'ward'
+        | 'cityCouncil'
+        | 'national';
     }
     interface CivicinfoSchemaV2GeographicDivision {
       /** Any other valid OCD IDs that refer to the same division.\n\nBecause OCD IDs are meant to be human-readable and at least somewhat predictable, there are occasionally several identifiers for a single division. These identifiers are defined to be equivalent to one another, and one is always indicated as the primary identifier. The primary identifier will be returned in ocd_id above, and any other equivalent valid identifiers will be returned in this list.\n\nFor example, if this division's OCD ID is ocd-division/country:us/district:dc, this will contain ocd-division/country:us/state:dc. */
@@ -307,12 +345,12 @@ declare namespace gapi.client {
       /** Lookup OCDIDs and names for divisions related to an address. */
       queryDivisionByAddress(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         address?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -333,11 +371,11 @@ declare namespace gapi.client {
       /** Searches for political divisions by their natural name or OCD ID. */
       search(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -362,11 +400,11 @@ declare namespace gapi.client {
       /** List of available elections to query. */
       electionQuery(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -389,13 +427,13 @@ declare namespace gapi.client {
       /** Looks up information relevant to a voter based on the voter's registered address. */
       voterInfoQuery(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The registered address of the voter to look up. */
         address?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID of the election to look up. A list of election IDs can be obtained at https://www.googleapis.com/civicinfo/{version}/elections. If no election ID is specified in the query and there is more than one election with data for the given voter, the additional elections are provided in the otherElections response field. */

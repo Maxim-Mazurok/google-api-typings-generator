@@ -44,13 +44,13 @@ declare namespace gapi.client {
       /** Optional. The external IP address of this access configuration. */
       natIP?: string;
       /** Optional. This signifies the networking tier used for configuring this access */
-      networkTier?: string;
+      networkTier?: 'NETWORK_TIER_UNSPECIFIED' | 'PREMIUM' | 'STANDARD';
       /** Optional. The DNS domain name for the public PTR record. */
       publicPtrDomainName?: string;
       /** Optional. Specifies whether a public DNS 'PTR' record should be created to map the external IP address of the instance to a DNS domain name. */
       setPublicPtr?: boolean;
       /** Optional. In accessConfigs (IPv4), the default and only option is ONE_TO_ONE_NAT. In ipv6AccessConfigs, the default and only option is DIRECT_IPV6. */
-      type?: string;
+      type?: 'ACCESS_TYPE_UNSPECIFIED' | 'ONE_TO_ONE_NAT' | 'DIRECT_IPV6';
     }
     interface AdvancedMachineFeatures {
       /** Optional. Whether to enable nested virtualization or not (default is false). */
@@ -70,7 +70,11 @@ declare namespace gapi.client {
     }
     interface AllocationAffinity {
       /** Optional. Specifies the type of reservation from which this instance can consume */
-      consumeReservationType?: string;
+      consumeReservationType?:
+        | 'TYPE_UNSPECIFIED'
+        | 'NO_RESERVATION'
+        | 'ANY_RESERVATION'
+        | 'SPECIFIC_RESERVATION';
       /** Optional. Corresponds to the label key of a reservation resource. */
       key?: string;
       /** Optional. Corresponds to the label values of a reservation resource. */
@@ -120,13 +124,18 @@ declare namespace gapi.client {
       /** Optional. Encrypts or decrypts a disk using a customer-supplied encryption key. */
       diskEncryptionKey?: CustomerEncryptionKey;
       /** Optional. Specifies the disk interface to use for attaching this disk. */
-      diskInterface?: string;
+      diskInterface?:
+        | 'DISK_INTERFACE_UNSPECIFIED'
+        | 'SCSI'
+        | 'NVME'
+        | 'NVDIMM'
+        | 'ISCSI';
       /** Optional. The size of the disk in GB. */
       diskSizeGb?: string;
       /** Optional. Output only. The URI of the disk type resource. For example: projects/project/zones/zone/diskTypes/pd-standard or pd-ssd */
       diskType?: string;
       /** Specifies the type of the disk. */
-      diskTypeDeprecated?: string;
+      diskTypeDeprecated?: 'DISK_TYPE_UNSPECIFIED' | 'SCRATCH' | 'PERSISTENT';
       /** Optional. A list of features to enable on the guest operating system. Applicable only for bootable images. */
       guestOsFeature?: GuestOsFeature[];
       /** Optional. A zero-based index to this disk, where 0 is reserved for the boot disk. */
@@ -138,13 +147,13 @@ declare namespace gapi.client {
       /** Optional. Any valid publicly visible licenses. */
       license?: string[];
       /** Optional. The mode in which to attach this disk. */
-      mode?: string;
+      mode?: 'DISK_MODE_UNSPECIFIED' | 'READ_WRITE' | 'READ_ONLY' | 'LOCKED';
       /** Optional. Output only. The state of the disk. */
-      savedState?: string;
+      savedState?: 'DISK_SAVED_STATE_UNSPECIFIED' | 'PRESERVED';
       /** Optional. Specifies a valid partial or full URL to an existing Persistent Disk resource. */
       source?: string;
       /** Optional. Specifies the type of the disk. */
-      type?: string;
+      type?: 'DISK_TYPE_UNSPECIFIED' | 'SCRATCH' | 'PERSISTENT';
     }
     interface AuditConfig {
       /** The configuration for logging of each type of permission. */
@@ -156,7 +165,11 @@ declare namespace gapi.client {
       /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
       exemptedMembers?: string[];
       /** The log type that this config enables. */
-      logType?: string;
+      logType?:
+        | 'LOG_TYPE_UNSPECIFIED'
+        | 'ADMIN_READ'
+        | 'DATA_WRITE'
+        | 'DATA_READ';
     }
     interface Backup {
       /** Output only. AlloyDB specific backup properties. */
@@ -166,9 +179,16 @@ declare namespace gapi.client {
       /** Optional. The list of BackupLocks taken by the accessor Backup Appliance. */
       backupApplianceLocks?: BackupLock[];
       /** Output only. Setting for how the enforced retention end time is inherited. This value is copied from this backup's BackupVault. */
-      backupRetentionInheritance?: string;
+      backupRetentionInheritance?:
+        | 'BACKUP_RETENTION_INHERITANCE_UNSPECIFIED'
+        | 'INHERIT_VAULT_RETENTION'
+        | 'MATCH_BACKUP_EXPIRE_TIME';
       /** Output only. Type of the backup, unspecified, scheduled or ondemand. */
-      backupType?: string;
+      backupType?:
+        | 'BACKUP_TYPE_UNSPECIFIED'
+        | 'SCHEDULED'
+        | 'ON_DEMAND'
+        | 'ON_DEMAND_OPERATIONAL';
       /** Output only. Cloud SQL specific backup properties. */
       cloudSqlInstanceBackupProperties?: CloudSqlInstanceBackupProperties;
       /** Output only. Compute Engine specific backup properties. */
@@ -206,7 +226,13 @@ declare namespace gapi.client {
       /** Output only. The list of BackupLocks taken by the service to prevent the deletion of the backup. */
       serviceLocks?: BackupLock[];
       /** Output only. The Backup resource instance state. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'ACTIVE'
+        | 'DELETING'
+        | 'ERROR'
+        | 'UPLOADING';
       /** Output only. The time when the instance was updated. */
       updateTime?: string;
     }
@@ -270,9 +296,14 @@ declare namespace gapi.client {
       /** Output only. Point in time recovery settings of the backup configuration resource. */
       pitrSettings?: PitrSettings;
       /** Output only. The state of the backup config resource. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'ACTIVE' | 'INACTIVE' | 'ERROR';
       /** Output only. The type of the backup config resource. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'CLOUD_SQL_INSTANCE_BACKUP_CONFIG'
+        | 'COMPUTE_ENGINE_RESOURCE_POLICY'
+        | 'BACKUPDR_BACKUP_PLAN'
+        | 'BACKUPDR_TEMPLATE';
     }
     interface BackupConfigInfo {
       /** Configuration for an application backed up by a Backup Appliance. */
@@ -282,7 +313,12 @@ declare namespace gapi.client {
       /** Output only. If the last backup failed, this field has the error message. */
       lastBackupError?: Status;
       /** Output only. The status of the last backup to this BackupVault */
-      lastBackupState?: string;
+      lastBackupState?:
+        | 'LAST_BACKUP_STATE_UNSPECIFIED'
+        | 'FIRST_BACKUP_PENDING'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'PERMISSION_DENIED';
       /** Output only. If the last backup were successful, this field has the consistency date. */
       lastSuccessfulBackupConsistencyTime?: string;
     }
@@ -314,7 +350,7 @@ declare namespace gapi.client {
       /** Output only. The id of the cloud location. Example: "us-central1" */
       locationId?: string;
       /** Output only. The type of the location. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'ZONAL' | 'REGIONAL' | 'MULTI_REGIONAL';
     }
     interface BackupLock {
       /** If the client is a backup and recovery appliance, this contains metadata about why the lock exists. */
@@ -354,7 +390,13 @@ declare namespace gapi.client {
       /** Output only. The resource id of the `BackupPlanRevision`. Format: `projects/{project}/locations/{location}/backupPlans/{backup_plan}/revisions/{revision_id}` */
       revisionName?: string;
       /** Output only. The `State` for the `BackupPlan`. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'ACTIVE'
+        | 'DELETING'
+        | 'INACTIVE'
+        | 'UPDATING';
       /** Output only. All resource types to which backupPlan can be applied. */
       supportedResourceTypes?: string[];
       /** Output only. When the `BackupPlan` was last updated. */
@@ -386,7 +428,13 @@ declare namespace gapi.client {
       /** Output only. The config info related to backup rules. */
       rulesConfigInfo?: RuleConfigInfo[];
       /** Output only. The BackupPlanAssociation resource state. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'ACTIVE'
+        | 'DELETING'
+        | 'INACTIVE'
+        | 'UPDATING';
       /** Output only. The time when the instance was updated. */
       updateTime?: string;
     }
@@ -400,7 +448,12 @@ declare namespace gapi.client {
       /** Output only. The user friendly revision ID of the `BackupPlanRevision`. Example: v0, v1, v2, etc. */
       revisionId?: string;
       /** Output only. Resource State */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'ACTIVE'
+        | 'DELETING'
+        | 'INACTIVE';
     }
     interface BackupRule {
       /** Required. Configures the duration for which backup data will be kept. It is defined in “days”. The value should be greater than or equal to minimum enforced retention of the backup vault. Minimum value is 1 and maximum value is 36159 for custom retention on-demand backup. Minimum and maximum values are workload specific for all other rules. Note: Longer retention can lead to higher storage costs post introductory trial. We recommend starting with a short duration of 3 days or less. */
@@ -412,7 +465,12 @@ declare namespace gapi.client {
     }
     interface BackupVault {
       /** Optional. Note: This field is added for future use case and will not be supported in the current release. Access restriction for the backup vault. Default value is WITHIN_ORGANIZATION if not provided during creation. */
-      accessRestriction?: string;
+      accessRestriction?:
+        | 'ACCESS_RESTRICTION_UNSPECIFIED'
+        | 'WITHIN_PROJECT'
+        | 'WITHIN_ORGANIZATION'
+        | 'UNRESTRICTED'
+        | 'WITHIN_ORG_BUT_UNRESTRICTED_FOR_BA';
       /** Optional. User annotations. See https://google.aip.dev/128#annotations Stores small amounts of arbitrary data. */
       annotations?: {[P in string]: string};
       /** Output only. The number of backups in this backup vault. */
@@ -420,7 +478,10 @@ declare namespace gapi.client {
       /** Required. The default and minimum enforced retention for each backup within the backup vault. The enforced retention for each backup can be extended. Note: Longer minimum enforced retention period impacts potential storage costs post introductory trial. We recommend starting with a short duration of 3 days or less. */
       backupMinimumEnforcedRetentionDuration?: string;
       /** Optional. Setting for how a backup's enforced retention end time is inherited. */
-      backupRetentionInheritance?: string;
+      backupRetentionInheritance?:
+        | 'BACKUP_RETENTION_INHERITANCE_UNSPECIFIED'
+        | 'INHERIT_VAULT_RETENTION'
+        | 'MATCH_BACKUP_EXPIRE_TIME';
       /** Output only. The time when the instance was created. */
       createTime?: string;
       /** Output only. Set to true when there are no backups nested under this resource. */
@@ -440,7 +501,13 @@ declare namespace gapi.client {
       /** Output only. Service account used by the BackupVault Service for this BackupVault. The user should grant this account permissions in their workload project to enable the service to run backups and restores there. */
       serviceAccount?: string;
       /** Output only. The BackupVault resource instance state. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'ACTIVE'
+        | 'DELETING'
+        | 'ERROR'
+        | 'UPDATING';
       /** Output only. Total size of the storage used by all backup resources. */
       totalStoredBytes?: string;
       /** Output only. Immutable after resource creation until resource deletion. */
@@ -503,7 +570,7 @@ declare namespace gapi.client {
     }
     interface CloudSqlInstanceInitializationConfig {
       /** Required. The edition of the Cloud SQL instance. */
-      edition?: string;
+      edition?: 'EDITION_UNSPECIFIED' | 'ENTERPRISE' | 'ENTERPRISE_PLUS';
     }
     interface ComputeInstanceBackupProperties {
       /** Enables instances created based on these properties to send packets with source IP addresses other than their own and receive packets with destination IP addresses other than their own. If these instances will be used as an IP gateway or it will be set as the next-hop in a Route resource, specify `true`. If unsure, leave this set to `false`. See the https://cloud.google.com/vpc/docs/using-routes#canipforward documentation for more information. */
@@ -515,7 +582,10 @@ declare namespace gapi.client {
       /** A list of guest accelerator cards' type and count to use for instances created from these properties. */
       guestAccelerator?: AcceleratorConfig[];
       /** KeyRevocationActionType of the instance. Supported options are "STOP" and "NONE". The default value is "NONE" if it is not specified. */
-      keyRevocationActionType?: string;
+      keyRevocationActionType?:
+        | 'KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED'
+        | 'NONE'
+        | 'STOP';
       /** Labels to apply to instances that are created from these properties. */
       labels?: {[P in string]: string};
       /** The machine type to use for instances that are created from these properties. */
@@ -569,7 +639,10 @@ declare namespace gapi.client {
       /** Optional. Encrypts suspended data for an instance with a customer-managed encryption key. */
       instanceEncryptionKey?: CustomerEncryptionKey;
       /** Optional. KeyRevocationActionType of the instance. */
-      keyRevocationActionType?: string;
+      keyRevocationActionType?:
+        | 'KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED'
+        | 'NONE'
+        | 'STOP';
       /** Optional. Labels to apply to this instance. */
       labels?: {[P in string]: string};
       /** Optional. Full or partial URL of the machine type resource to use for this instance. */
@@ -587,7 +660,11 @@ declare namespace gapi.client {
       /** Input only. Additional params passed with the request, but not persisted as part of resource payload. */
       params?: InstanceParams;
       /** Optional. The private IPv6 google access type for the VM. If not specified, use INHERIT_FROM_SUBNETWORK as default. */
-      privateIpv6GoogleAccess?: string;
+      privateIpv6GoogleAccess?:
+        | 'INSTANCE_PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED'
+        | 'INHERIT_FROM_SUBNETWORK'
+        | 'ENABLE_OUTBOUND_VM_ACCESS_TO_GOOGLE'
+        | 'ENABLE_BIDIRECTIONAL_ACCESS_TO_GOOGLE';
       /** Optional. Specifies the reservations that this instance can consume from. */
       reservationAffinity?: AllocationAffinity;
       /** Optional. Resource policies applied to this instance. By default, no resource policies will be applied. */
@@ -627,7 +704,7 @@ declare namespace gapi.client {
       /** Number of backups in the data source. */
       backupCount?: string;
       /** Output only. The backup configuration state. */
-      configState?: string;
+      configState?: 'BACKUP_CONFIG_STATE_UNSPECIFIED' | 'ACTIVE' | 'PASSIVE';
       /** Output only. The time when the instance was created. */
       createTime?: string;
       /** The backed up resource is a backup appliance application. */
@@ -641,7 +718,12 @@ declare namespace gapi.client {
       /** Output only. Identifier. Name of the datasource to create. It must have the format`"projects/{project}/locations/{location}/backupVaults/{backupvault}/dataSources/{datasource}"`. `{datasource}` cannot be changed after creation. It must be between 3-63 characters long and must be unique within the backup vault. */
       name?: string;
       /** Output only. The DataSource resource instance state. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'ACTIVE'
+        | 'DELETING'
+        | 'ERROR';
       /** The number of bytes (metadata and data) stored in this datasource. */
       totalStoredBytes?: string;
       /** Output only. The time when the instance was updated. */
@@ -665,7 +747,12 @@ declare namespace gapi.client {
     }
     interface DataSourceBackupConfigInfo {
       /** Output only. The status of the last backup in this DataSource */
-      lastBackupState?: string;
+      lastBackupState?:
+        | 'LAST_BACKUP_STATE_UNSPECIFIED'
+        | 'FIRST_BACKUP_PENDING'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'PERMISSION_DENIED';
       /** Output only. Timestamp of the last successful backup to this DataSource. */
       lastSuccessfulBackupConsistencyTime?: string;
     }
@@ -705,7 +792,10 @@ declare namespace gapi.client {
       /** Output only. Information of backup configuration on the DataSource. */
       dataSourceBackupConfigInfo?: DataSourceBackupConfigInfo;
       /** Output only. The backup configuration state of the DataSource. */
-      dataSourceBackupConfigState?: string;
+      dataSourceBackupConfigState?:
+        | 'BACKUP_CONFIG_STATE_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'PASSIVE';
       /** Output only. Number of backups in the DataSource. */
       dataSourceBackupCount?: string;
       /** Output only. The Google Cloud resource that the DataSource is associated with. */
@@ -723,7 +813,7 @@ declare namespace gapi.client {
       /** The access mode of the source disk. */
       accessMode?: string;
       /** The architecture of the source disk. Valid values are ARM64 or X86_64. */
-      architecture?: string;
+      architecture?: 'ARCHITECTURE_UNSPECIFIED' | 'X86_64' | 'ARM64';
       /** A description of the source disk. */
       description?: string;
       /** Indicates whether the source disk is using confidential compute mode. */
@@ -769,9 +859,9 @@ declare namespace gapi.client {
     }
     interface DiskRestoreProperties {
       /** Optional. The access mode of the disk. */
-      accessMode?: string;
+      accessMode?: 'READ_WRITE_SINGLE' | 'READ_WRITE_MANY' | 'READ_ONLY_MANY';
       /** Optional. The architecture of the source disk. Valid values are ARM64 or X86_64. */
-      architecture?: string;
+      architecture?: 'ARCHITECTURE_UNSPECIFIED' | 'X86_64' | 'ARM64';
       /** Optional. An optional description of this resource. Provide this property when you create the resource. */
       description?: string;
       /** Optional. Encrypts the disk using a customer-supplied encryption key or a customer-managed encryption key. */
@@ -820,7 +910,7 @@ declare namespace gapi.client {
     }
     interface EndTrialRequest {
       /** Required. The reason for ending the trial. */
-      endReason?: string;
+      endReason?: 'END_REASON_UNSPECIFIED' | 'MOVE_TO_PAID' | 'DISCONTINUED';
     }
     interface Entry {
       /** Optional. Key for the metadata entry. */
@@ -958,7 +1048,22 @@ declare namespace gapi.client {
     }
     interface GuestOsFeature {
       /** The ID of a supported feature. */
-      type?: string;
+      type?:
+        | 'FEATURE_TYPE_UNSPECIFIED'
+        | 'VIRTIO_SCSI_MULTIQUEUE'
+        | 'WINDOWS'
+        | 'MULTI_IP_SUBNET'
+        | 'UEFI_COMPATIBLE'
+        | 'SECURE_BOOT'
+        | 'GVNIC'
+        | 'SEV_CAPABLE'
+        | 'BARE_METAL_LINUX_COMPATIBLE'
+        | 'SUSPEND_RESUME_COMPATIBLE'
+        | 'SEV_LIVE_MIGRATABLE'
+        | 'SEV_SNP_CAPABLE'
+        | 'TDX_CAPABLE'
+        | 'IDPF'
+        | 'SEV_LIVE_MIGRATABLE_V2';
     }
     interface InitializeParams {
       /** Optional. Specifies the disk name. If not specified, the default is to use the name of the instance. */
@@ -1092,7 +1197,16 @@ declare namespace gapi.client {
     }
     interface LocationMetadata {
       /** List of features that are not supported in the location. */
-      unsupportedFeatures?: string[];
+      unsupportedFeatures?:
+        | 'FEATURE_UNSPECIFIED'
+        | 'MANAGEMENT_SERVER'
+        | 'COMPUTE_INSTANCE'
+        | 'PROTECTION_SUMMARY'
+        | 'DISK'
+        | 'CLOUD_SQL'
+        | 'ALLOY_DB'
+        | 'FILESTORE'
+        | 'SAAS_PLATFORM'[];
     }
     interface ManagementServer {
       /** Output only. The hostname or ip address of the exposed AGM endpoints, used by BAs to connect to BA proxy. */
@@ -1118,9 +1232,17 @@ declare namespace gapi.client {
       /** Output only. Reserved for future use. */
       satisfiesPzs?: boolean;
       /** Output only. The ManagementServer state. */
-      state?: string;
+      state?:
+        | 'INSTANCE_STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'READY'
+        | 'UPDATING'
+        | 'DELETING'
+        | 'REPAIRING'
+        | 'MAINTENANCE'
+        | 'ERROR';
       /** Optional. The type of the ManagementServer resource. */
-      type?: string;
+      type?: 'INSTANCE_TYPE_UNSPECIFIED' | 'BACKUP_RESTORE';
       /** Output only. The time when the instance was updated. */
       updateTime?: string;
       /** Output only. The hostnames of the exposed AGM endpoints for both types of user i.e. 1p and 3p, used to connect AGM/RM UI. */
@@ -1142,7 +1264,7 @@ declare namespace gapi.client {
       /** Optional. The resource name of the Google Compute Engine VPC network to which the ManagementServer instance is connected. */
       network?: string;
       /** Optional. The network connect mode of the ManagementServer instance. For this version, only PRIVATE_SERVICE_ACCESS is supported. */
-      peeringMode?: string;
+      peeringMode?: 'PEERING_MODE_UNSPECIFIED' | 'PRIVATE_SERVICE_ACCESS';
     }
     interface NetworkInterface {
       /** Optional. An array of configurations for this interface. Currently, only one access config,ONE_TO_ONE_NAT is supported. If there are no accessConfigs specified, then this instance will have no external internet access. */
@@ -1154,7 +1276,7 @@ declare namespace gapi.client {
       /** Optional. An array of IPv6 access configurations for this interface. Currently, only one IPv6 access config, DIRECT_IPV6, is supported. If there is no ipv6AccessConfig specified, then this instance will have no external IPv6 Internet access. */
       ipv6AccessConfigs?: AccessConfig[];
       /** Optional. [Output Only] One of EXTERNAL, INTERNAL to indicate whether the IP can be accessed from the Internet. This field is always inherited from its subnetwork. */
-      ipv6AccessType?: string;
+      ipv6AccessType?: 'UNSPECIFIED_IPV6_ACCESS_TYPE' | 'INTERNAL' | 'EXTERNAL';
       /** Optional. An IPv6 internal network address for this network interface. To use a static internal IP address, it must be unused and in the same region as the instance's zone. If not specified, Google Cloud will automatically assign an internal IPv6 address from the instance's subnetwork. */
       ipv6Address?: string;
       /** Output only. [Output Only] The name of the network interface, which is generated by the server. */
@@ -1166,23 +1288,23 @@ declare namespace gapi.client {
       /** Optional. An IPv4 internal IP address to assign to the instance for this network interface. If not specified by the user, an unused internal IP is assigned by the system. */
       networkIP?: string;
       /** Optional. The type of vNIC to be used on this interface. This may be gVNIC or VirtioNet. */
-      nicType?: string;
+      nicType?: 'NIC_TYPE_UNSPECIFIED' | 'VIRTIO_NET' | 'GVNIC';
       /** Optional. The networking queue count that's specified by users for the network interface. Both Rx and Tx queues will be set to this number. It'll be empty if not specified by the users. */
       queueCount?: number;
       /** The stack type for this network interface. */
-      stackType?: string;
+      stackType?: 'STACK_TYPE_UNSPECIFIED' | 'IPV4_ONLY' | 'IPV4_IPV6';
       /** Optional. The URL of the Subnetwork resource for this instance. */
       subnetwork?: string;
     }
     interface NetworkPerformanceConfig {
       /** Optional. The tier of the total egress bandwidth. */
-      totalEgressBandwidthTier?: string;
+      totalEgressBandwidthTier?: 'TIER_UNSPECIFIED' | 'DEFAULT' | 'TIER_1';
     }
     interface NodeAffinity {
       /** Optional. Corresponds to the label key of Node resource. */
       key?: string;
       /** Optional. Defines the operation of node selection. */
-      operator?: string;
+      operator?: 'OPERATOR_UNSPECIFIED' | 'IN' | 'NOT_IN';
       /** Optional. Corresponds to the label values of Node resource. */
       values?: string[];
     }
@@ -1238,7 +1360,12 @@ declare namespace gapi.client {
       /** Labels associated with the target resource. */
       targetResourceLabels?: {[P in string]: string};
       /** Output only. The type of the target resource. */
-      targetResourceType?: string;
+      targetResourceType?:
+        | 'RESOURCE_TYPE_UNSPECIFIED'
+        | 'CLOUD_SQL_INSTANCE'
+        | 'COMPUTE_ENGINE_VM'
+        | 'COMPUTE_ENGINE_DISK'
+        | 'COMPUTE_ENGINE_REGIONAL_DISK';
       /** Output only. The unique identifier of the resource backup config. */
       uid?: string;
       /** Output only. Whether the target resource is protected by a backup vault. This is true if the backup_configs_details is not empty and any of the ResourceBackupConfig.backup_configs_details has a backup configuration with BackupConfigDetails.backup_vault set. */
@@ -1268,7 +1395,12 @@ declare namespace gapi.client {
       /** Output only. google.rpc.Status object to store the last backup error. */
       lastBackupError?: Status;
       /** Output only. The last backup state for rule. */
-      lastBackupState?: string;
+      lastBackupState?:
+        | 'LAST_BACKUP_STATE_UNSPECIFIED'
+        | 'FIRST_BACKUP_PENDING'
+        | 'PERMISSION_DENIED'
+        | 'SUCCEEDED'
+        | 'FAILED';
       /** Output only. The point in time when the last successful backup was captured from the source. */
       lastSuccessfulBackupConsistencyTime?: string;
       /** Output only. Backup Rule id fetched from backup plan. */
@@ -1278,7 +1410,10 @@ declare namespace gapi.client {
       /** Optional. Specifies whether the instance should be automatically restarted if it is terminated by Compute Engine (not terminated by a user). */
       automaticRestart?: boolean;
       /** Optional. Specifies the termination action for the instance. */
-      instanceTerminationAction?: string;
+      instanceTerminationAction?:
+        | 'INSTANCE_TERMINATION_ACTION_UNSPECIFIED'
+        | 'DELETE'
+        | 'STOP';
       /** Optional. Specifies the maximum amount of time a Local Ssd Vm should wait while recovery of the Local Ssd state is attempted. Its value should be in between 0 and 168 hours with hour granularity and the default value being 1 hour. */
       localSsdRecoveryTimeout?: SchedulingDuration;
       /** Optional. The minimum number of virtual CPUs this instance will consume when running on a sole-tenant node. */
@@ -1286,11 +1421,17 @@ declare namespace gapi.client {
       /** Optional. A set of node affinity and anti-affinity configurations. Overrides reservationAffinity. */
       nodeAffinities?: NodeAffinity[];
       /** Optional. Defines the maintenance behavior for this instance. */
-      onHostMaintenance?: string;
+      onHostMaintenance?:
+        | 'ON_HOST_MAINTENANCE_UNSPECIFIED'
+        | 'TERMINATE'
+        | 'MIGRATE';
       /** Optional. Defines whether the instance is preemptible. */
       preemptible?: boolean;
       /** Optional. Specifies the provisioning model of the instance. */
-      provisioningModel?: string;
+      provisioningModel?:
+        | 'PROVISIONING_MODEL_UNSPECIFIED'
+        | 'STANDARD'
+        | 'SPOT';
     }
     interface SchedulingDuration {
       /** Optional. Span of time that's a fraction of a second at nanosecond resolution. */
@@ -1316,7 +1457,10 @@ declare namespace gapi.client {
     }
     interface SetInternalStatusRequest {
       /** Required. Output only. The new BackupConfigState to set for the DataSource. */
-      backupConfigState?: string;
+      backupConfigState?:
+        | 'BACKUP_CONFIG_STATE_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'PASSIVE';
       /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
       requestId?: string;
       /** Required. The value required for this method to work. This field must be the 32-byte SHA256 hash of the DataSourceID. The DataSourceID used here is only the final piece of the fully qualified resource path for this DataSource (i.e. the part after '.../dataSources/'). This field exists to make this method difficult to call since it is intended for use only by Backup Appliances. */
@@ -1329,13 +1473,40 @@ declare namespace gapi.client {
       /** Optional. Specifies days of months like 1, 5, or 14 on which jobs will run. Values for `days_of_month` are only applicable for `recurrence_type`, `MONTHLY` and `YEARLY`. A validation error will occur if other values are supplied. */
       daysOfMonth?: number[];
       /** Optional. Specifies days of week like, MONDAY or TUESDAY, on which jobs will run. This is required for `recurrence_type`, `WEEKLY` and is not applicable otherwise. A validation error will occur if a value is supplied and `recurrence_type` is not `WEEKLY`. */
-      daysOfWeek?: string[];
+      daysOfWeek?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY'[];
       /** Optional. Specifies frequency for hourly backups. A hourly frequency of 2 means jobs will run every 2 hours from start time till end time defined. This is required for `recurrence_type`, `HOURLY` and is not applicable otherwise. A validation error will occur if a value is supplied and `recurrence_type` is not `HOURLY`. Value of hourly frequency should be between 4 and 23. Reason for limit : We found that there is bandwidth limitation of 3GB/S for GMI while taking a backup and 5GB/S while doing a restore. Given the amount of parallel backups and restore we are targeting, this will potentially take the backup time to mins and hours (in worst case scenario). */
       hourlyFrequency?: number;
       /** Optional. Specifies the months of year, like `FEBRUARY` and/or `MAY`, on which jobs will run. This field is only applicable when `recurrence_type` is `YEARLY`. A validation error will occur if other values are supplied. */
-      months?: string[];
+      months?:
+        | 'MONTH_UNSPECIFIED'
+        | 'JANUARY'
+        | 'FEBRUARY'
+        | 'MARCH'
+        | 'APRIL'
+        | 'MAY'
+        | 'JUNE'
+        | 'JULY'
+        | 'AUGUST'
+        | 'SEPTEMBER'
+        | 'OCTOBER'
+        | 'NOVEMBER'
+        | 'DECEMBER'[];
       /** Required. Specifies the `RecurrenceType` for the schedule. */
-      recurrenceType?: string;
+      recurrenceType?:
+        | 'RECURRENCE_TYPE_UNSPECIFIED'
+        | 'HOURLY'
+        | 'DAILY'
+        | 'WEEKLY'
+        | 'MONTHLY'
+        | 'YEARLY';
       /** Required. The time zone to be used when interpreting the schedule. The value of this field must be a time zone name from the IANA tz database. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for the list of valid timezone names. For example, Europe/Paris. */
       timeZone?: string;
       /** Optional. Specifies a week day of the month like, FIRST SUNDAY or LAST MONDAY, on which jobs will run. This will be specified by two fields in `WeekDayOfMonth`, one for the day, e.g. `MONDAY`, and one for the week, e.g. `LAST`. This field is only applicable for `recurrence_type`, `MONTHLY` and `YEARLY`. A validation error will occur if other values are supplied. */
@@ -1368,7 +1539,7 @@ declare namespace gapi.client {
     }
     interface Trial {
       /** Output only. The reason for ending the trial. */
-      endReason?: string;
+      endReason?: 'END_REASON_UNSPECIFIED' | 'MOVE_TO_PAID' | 'DISCONTINUED';
       /** Output only. The time when the trial will expire. */
       endTime?: string;
       /** Identifier. The resource name of the trial. Format: projects/{project}/locations/{location}/trial */
@@ -1376,7 +1547,13 @@ declare namespace gapi.client {
       /** Output only. The time when the trial was subscribed. */
       startTime?: string;
       /** Output only. The state of the trial. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'SUBSCRIBED'
+        | 'UNSUBSCRIBED'
+        | 'EXPIRED'
+        | 'ELIGIBLE'
+        | 'NOT_ELIGIBLE';
     }
     interface TriggerBackupRequest {
       /** Optional. The duration for which backup data will be kept, while taking an on-demand backup with custom retention. It is defined in "days". It is mutually exclusive with rule_id. This field is required if rule_id is not provided. */
@@ -1390,9 +1567,23 @@ declare namespace gapi.client {
     }
     interface WeekDayOfMonth {
       /** Required. Specifies the day of the week. */
-      dayOfWeek?: string;
+      dayOfWeek?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY';
       /** Required. Specifies the week of the month. */
-      weekOfMonth?: string;
+      weekOfMonth?:
+        | 'WEEK_OF_MONTH_UNSPECIFIED'
+        | 'FIRST'
+        | 'SECOND'
+        | 'THIRD'
+        | 'FOURTH'
+        | 'LAST';
     }
     interface WorkforceIdentityBasedManagementURI {
       /** Output only. First party Management URI for Google Identities. */
@@ -1410,11 +1601,11 @@ declare namespace gapi.client {
       /** Create a BackupPlanAssociation */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The name of the backup plan association to create. The name must be unique for the specified project and location. */
         backupPlanAssociationId?: string;
         /** JSONP */
@@ -1443,11 +1634,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. The name of the backup plan association to create. The name must be unique for the specified project and location. */
           backupPlanAssociationId?: string;
           /** JSONP */
@@ -1476,11 +1667,11 @@ declare namespace gapi.client {
       /** Deletes a single BackupPlanAssociation. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1505,11 +1696,11 @@ declare namespace gapi.client {
       /** List BackupPlanAssociations for a given resource type. */
       fetchForResourceType(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1542,11 +1733,11 @@ declare namespace gapi.client {
       /** Gets details of a single BackupPlanAssociation. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1569,11 +1760,11 @@ declare namespace gapi.client {
       /** Lists BackupPlanAssociations in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1602,11 +1793,11 @@ declare namespace gapi.client {
       /** Update a BackupPlanAssociation. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1635,11 +1826,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1668,11 +1859,11 @@ declare namespace gapi.client {
       /** Triggers a new Backup. */
       triggerBackup(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1697,11 +1888,11 @@ declare namespace gapi.client {
       triggerBackup(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1728,11 +1919,11 @@ declare namespace gapi.client {
       /** Gets details of a single BackupPlanRevision. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1755,11 +1946,11 @@ declare namespace gapi.client {
       /** Lists BackupPlanRevisions in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1788,11 +1979,11 @@ declare namespace gapi.client {
       /** Create a BackupPlan */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The name of the `BackupPlan` to create. The name must be unique for the specified project and location.The name must start with a lowercase letter followed by up to 62 lowercase letters, numbers, or hyphens. Pattern, /a-z{,62}/. */
         backupPlanId?: string;
         /** JSONP */
@@ -1821,11 +2012,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. The name of the `BackupPlan` to create. The name must be unique for the specified project and location.The name must start with a lowercase letter followed by up to 62 lowercase letters, numbers, or hyphens. Pattern, /a-z{,62}/. */
           backupPlanId?: string;
           /** JSONP */
@@ -1854,11 +2045,11 @@ declare namespace gapi.client {
       /** Deletes a single BackupPlan. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1883,11 +2074,11 @@ declare namespace gapi.client {
       /** Gets details of a single BackupPlan. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1910,11 +2101,11 @@ declare namespace gapi.client {
       /** Lists BackupPlans in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1945,11 +2136,11 @@ declare namespace gapi.client {
       /** Update a BackupPlan. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1978,11 +2169,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2014,11 +2205,11 @@ declare namespace gapi.client {
       /** Deletes a Backup. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2043,11 +2234,11 @@ declare namespace gapi.client {
       /** Fetch Backups for a given resource type. */
       fetchForResourceType(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2077,16 +2268,19 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Optional. This parameter is used to specify the view of the backup. If not specified, the default view is BASIC. */
-        view?: string;
+        view?:
+          | 'BACKUP_VIEW_UNSPECIFIED'
+          | 'BACKUP_VIEW_BASIC'
+          | 'BACKUP_VIEW_FULL';
       }): Request<FetchBackupsForResourceTypeResponse>;
       /** Gets details of a Backup. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2106,16 +2300,19 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Optional. Reserved for future use to provide a BASIC & FULL view of Backup resource. */
-        view?: string;
+        view?:
+          | 'BACKUP_VIEW_UNSPECIFIED'
+          | 'BACKUP_VIEW_BASIC'
+          | 'BACKUP_VIEW_FULL';
       }): Request<Backup>;
       /** Lists Backups in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2143,16 +2340,19 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Optional. Reserved for future use to provide a BASIC & FULL view of Backup resource. */
-        view?: string;
+        view?:
+          | 'BACKUP_VIEW_UNSPECIFIED'
+          | 'BACKUP_VIEW_BASIC'
+          | 'BACKUP_VIEW_FULL';
       }): Request<ListBackupsResponse>;
       /** Updates the settings of a Backup. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2181,11 +2381,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2214,11 +2414,11 @@ declare namespace gapi.client {
       /** Restore from a Backup */
       restore(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2243,11 +2443,11 @@ declare namespace gapi.client {
       restore(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2274,11 +2474,11 @@ declare namespace gapi.client {
       /** Internal only. Abandons a backup. */
       abandonBackup(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The resource name of the instance, in the format 'projects/*‍/locations/*‍/backupVaults/*‍/dataSources/'. */
@@ -2303,11 +2503,11 @@ declare namespace gapi.client {
       abandonBackup(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The resource name of the instance, in the format 'projects/*‍/locations/*‍/backupVaults/*‍/dataSources/'. */
@@ -2332,11 +2532,11 @@ declare namespace gapi.client {
       /** Internal only. Fetch access token for a given data source. */
       fetchAccessToken(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2361,11 +2561,11 @@ declare namespace gapi.client {
       fetchAccessToken(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2390,11 +2590,11 @@ declare namespace gapi.client {
       /** Internal only. Finalize a backup that was started by a call to InitiateBackup. */
       finalizeBackup(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The resource name of the instance, in the format 'projects/*‍/locations/*‍/backupVaults/*‍/dataSources/'. */
@@ -2419,11 +2619,11 @@ declare namespace gapi.client {
       finalizeBackup(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The resource name of the instance, in the format 'projects/*‍/locations/*‍/backupVaults/*‍/dataSources/'. */
@@ -2448,11 +2648,11 @@ declare namespace gapi.client {
       /** Gets details of a DataSource. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2475,11 +2675,11 @@ declare namespace gapi.client {
       /** Internal only. Initiates a backup. */
       initiateBackup(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The resource name of the instance, in the format 'projects/*‍/locations/*‍/backupVaults/*‍/dataSources/'. */
@@ -2504,11 +2704,11 @@ declare namespace gapi.client {
       initiateBackup(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The resource name of the instance, in the format 'projects/*‍/locations/*‍/backupVaults/*‍/dataSources/'. */
@@ -2533,11 +2733,11 @@ declare namespace gapi.client {
       /** Lists DataSources in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2568,13 +2768,13 @@ declare namespace gapi.client {
       /** Updates the settings of a DataSource. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. Enable upsert. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2603,13 +2803,13 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Optional. Enable upsert. */
           allowMissing?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2638,11 +2838,11 @@ declare namespace gapi.client {
       /** Deletes a DataSource. This is a custom method instead of a standard delete method because external clients will not delete DataSources except for BackupDR backup appliances. */
       remove(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2667,11 +2867,11 @@ declare namespace gapi.client {
       remove(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2696,11 +2896,11 @@ declare namespace gapi.client {
       /** Sets the internal status of a DataSource. */
       setInternalStatus(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The resource name of the instance, in the format 'projects/*‍/locations/*‍/backupVaults/*‍/dataSources/'. */
@@ -2725,11 +2925,11 @@ declare namespace gapi.client {
       setInternalStatus(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The resource name of the instance, in the format 'projects/*‍/locations/*‍/backupVaults/*‍/dataSources/'. */
@@ -2757,11 +2957,11 @@ declare namespace gapi.client {
       /** Creates a new BackupVault in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. ID of the requesting object If auto-generating ID server-side, remove this field and backup_vault_id from the method_signature of Create RPC */
         backupVaultId?: string;
         /** JSONP */
@@ -2792,11 +2992,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. ID of the requesting object If auto-generating ID server-side, remove this field and backup_vault_id from the method_signature of Create RPC */
           backupVaultId?: string;
           /** JSONP */
@@ -2827,13 +3027,13 @@ declare namespace gapi.client {
       /** Deletes a BackupVault. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. If true and the BackupVault is not found, the request will succeed but no action will be taken. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The current etag of the backup vault. If an etag is provided and does not match the current etag of the connection, deletion will be blocked. */
@@ -2866,11 +3066,11 @@ declare namespace gapi.client {
       /** FetchUsableBackupVaults lists usable BackupVaults in a given project and location. Usable BackupVault are the ones that user has backupdr.backupVaults.get permission. */
       fetchUsable(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2901,11 +3101,11 @@ declare namespace gapi.client {
       /** Gets details of a BackupVault. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2925,16 +3125,19 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Optional. Reserved for future use to provide a BASIC & FULL view of Backup Vault */
-        view?: string;
+        view?:
+          | 'BACKUP_VAULT_VIEW_UNSPECIFIED'
+          | 'BACKUP_VAULT_VIEW_BASIC'
+          | 'BACKUP_VAULT_VIEW_FULL';
       }): Request<BackupVault>;
       /** Lists BackupVaults in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2962,16 +3165,19 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Optional. Reserved for future use to provide a BASIC & FULL view of Backup Vault. */
-        view?: string;
+        view?:
+          | 'BACKUP_VAULT_VIEW_UNSPECIFIED'
+          | 'BACKUP_VAULT_VIEW_BASIC'
+          | 'BACKUP_VAULT_VIEW_FULL';
       }): Request<ListBackupVaultsResponse>;
       /** Updates the settings of a BackupVault. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3006,11 +3212,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3046,11 +3252,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3078,11 +3284,11 @@ declare namespace gapi.client {
       /** Fetch DataSourceReferences for a given project, location and resource type. */
       fetchForResourceType(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3115,11 +3321,11 @@ declare namespace gapi.client {
       /** Gets details of a single DataSourceReference. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3142,11 +3348,11 @@ declare namespace gapi.client {
       /** Lists DataSourceReferences for a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3179,11 +3385,11 @@ declare namespace gapi.client {
       /** Creates a new ManagementServer in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3212,11 +3418,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3245,11 +3451,11 @@ declare namespace gapi.client {
       /** Deletes a single ManagementServer. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3274,11 +3480,11 @@ declare namespace gapi.client {
       /** Gets details of a single ManagementServer. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3301,11 +3507,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3330,11 +3536,11 @@ declare namespace gapi.client {
       /** Lists ManagementServers in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3365,11 +3571,11 @@ declare namespace gapi.client {
       /** Returns the Assured Workloads compliance metadata for a given project. */
       msComplianceMetadata(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3394,11 +3600,11 @@ declare namespace gapi.client {
       msComplianceMetadata(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3424,11 +3630,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3454,11 +3660,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3485,11 +3691,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3514,11 +3720,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3543,11 +3749,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3570,11 +3776,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3597,11 +3803,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3634,11 +3840,11 @@ declare namespace gapi.client {
       /** Lists ResourceBackupConfigs. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3671,11 +3877,11 @@ declare namespace gapi.client {
       /** Initializes the service related config for a project. */
       initialize(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3700,11 +3906,11 @@ declare namespace gapi.client {
       initialize(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3731,11 +3937,11 @@ declare namespace gapi.client {
       /** Ends the trial for a project */
       end(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3760,11 +3966,11 @@ declare namespace gapi.client {
       end(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3789,11 +3995,11 @@ declare namespace gapi.client {
       /** Subscribes to a trial for a project */
       subscribe(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3818,11 +4024,11 @@ declare namespace gapi.client {
       subscribe(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3849,11 +4055,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3876,11 +4082,11 @@ declare namespace gapi.client {
       /** Gets the Trial state for a given project */
       getTrial(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3903,11 +4109,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */

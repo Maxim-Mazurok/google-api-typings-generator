@@ -36,11 +36,20 @@ declare namespace gapi.client {
       /** Unique identifier of each sub alert that is onboarded. */
       subAlertId?: string;
       /** Variation of AbuseDetected alerts. The variation_type determines the texts displayed the alert details. This differs from sub_alert_id because each sub alert can have multiple variation_types, representing different stages of the alert. */
-      variationType?: string;
+      variationType?:
+        | 'ABUSE_DETECTED_VARIATION_TYPE_UNSPECIFIED'
+        | 'DRIVE_ABUSIVE_CONTENT'
+        | 'LIMITED_DISABLE';
     }
     interface AccessApproval {
       /** Justification for data access based on justification enums. */
-      justificationReason?: string[];
+      justificationReason?:
+        | 'JUSTIFICATION_UNSPECIFIED'
+        | 'CUSTOMER_INITIATED_SUPPORT'
+        | 'GOOGLE_INITIATED_REVIEW'
+        | 'GOOGLE_INITIATED_SERVICE'
+        | 'THIRD_PARTY_DATA_REQUEST'
+        | 'GOOGLE_RESPONSE_TO_PRODUCTION_ALERT'[];
       /** Office location of Google staff requesting access such as "US". */
       officeLocation?: string;
       /** Products within scope of the Access Approvals request. */
@@ -54,7 +63,17 @@ declare namespace gapi.client {
     }
     interface AccountSuspensionDetails {
       /** The reason why this account is receiving an account suspension warning. */
-      abuseReason?: string;
+      abuseReason?:
+        | 'ACCOUNT_SUSPENSION_ABUSE_REASON_UNSPECIFIED'
+        | 'TOS_VIOLATION'
+        | 'SPAM'
+        | 'PHISHING'
+        | 'TRAFFIC_PUMPING'
+        | 'FRAUD'
+        | 'NUMBER_HARVESTING'
+        | 'PAYMENTS_FRAUD'
+        | 'UNWANTED_CONTENT'
+        | 'UNQUALIFIED_EDU';
       /** The name of the product being abused. This is restricted to only the following values: "Gmail" "Google Workspace" "Payments" "Voice" "YouTube" "Other" */
       productName?: string;
     }
@@ -62,7 +81,12 @@ declare namespace gapi.client {
       /** The amount of time remaining to appeal an imminent suspension. After this window has elapsed, the account will be suspended. Only populated if the account suspension is in WARNING state. */
       appealWindow?: string;
       /** Account suspension warning state. */
-      state?: string;
+      state?:
+        | 'ACCOUNT_SUSPENSION_WARNING_STATE_UNSPECIFIED'
+        | 'WARNING'
+        | 'SUSPENDED'
+        | 'APPEAL_APPROVED'
+        | 'APPEAL_SUBMITTED';
       /** Details about why an account is being suspended. */
       suspensionDetails?: AccountSuspensionDetails[];
     }
@@ -139,7 +163,11 @@ declare namespace gapi.client {
       /** Output only. The unique identifier for the feedback. */
       feedbackId?: string;
       /** Required. The type of the feedback. */
-      type?: string;
+      type?:
+        | 'ALERT_FEEDBACK_TYPE_UNSPECIFIED'
+        | 'NOT_USEFUL'
+        | 'SOMEWHAT_USEFUL'
+        | 'VERY_USEFUL';
     }
     interface AlertMetadata {
       /** Output only. The alert identifier. */
@@ -189,7 +217,15 @@ declare namespace gapi.client {
       /** Timestamp when the outage is expected to be resolved, or has confirmed resolution. Provided only when known. */
       resolutionTime?: string;
       /** Current outage status. */
-      status?: string;
+      status?:
+        | 'STATUS_UNSPECIFIED'
+        | 'NEW'
+        | 'ONGOING'
+        | 'RESOLVED'
+        | 'FALSE_POSITIVE'
+        | 'PARTIALLY_RESOLVED'
+        | 'MERGED'
+        | 'DOWNGRADED';
     }
     interface Attachment {
       /** A CSV file attachment. */
@@ -237,7 +273,7 @@ declare namespace gapi.client {
     }
     interface CloudPubsubTopic {
       /** Optional. The format of the payload that would be sent. If not specified the format will be JSON. */
-      payloadFormat?: string;
+      payloadFormat?: 'PAYLOAD_FORMAT_UNSPECIFIED' | 'JSON';
       /** The `name` field of a Cloud Pubsub [Topic] (https://cloud.google.com/pubsub/docs/reference/rest/v1/projects.topics#Topic). */
       topicName?: string;
     }
@@ -366,13 +402,31 @@ declare namespace gapi.client {
       /** Number of similar errors encountered. */
       errorCount?: string;
       /** Info on the identity provider error. */
-      errorInfo?: string;
+      errorInfo?:
+        | 'IDENTITY_PROVIDER_ERROR_INFO_UNSPECIFIED'
+        | 'EMAIL_MISMATCH'
+        | 'UNAVAILABLE_DISCOVERY_CONTENT'
+        | 'INVALID_DISCOVERY_CONTENT'
+        | 'UNAVAILABLE_CSE_CONFIGURATION_CONTENT'
+        | 'INVALID_CSE_CONFIGURATION_CONTENT'
+        | 'INVALID_ID_TOKEN'
+        | 'INVALID_OIDC_SETUP'
+        | 'UNAVAILABLE_IDP'
+        | 'AUTH_CODE_EXCHANGE_ERROR'
+        | 'AUTHENTICATION_TOKEN_MISSING_CLAIM_EMAIL';
     }
     interface KeyServiceError {
       /** Number of similar errors encountered. */
       errorCount?: string;
       /** Info on the key service error. */
-      errorInfo?: string;
+      errorInfo?:
+        | 'KEY_SERVICE_ERROR_INFO_UNSPECIFIED'
+        | 'MALFORMED_JSON'
+        | 'MISSING_KEY'
+        | 'MISSING_SIGNATURE'
+        | 'MISSING_ALGORITHM_NAME'
+        | 'UNSUPPORTED_ALGORITHM'
+        | 'FETCH_REQUEST_ERROR';
       /** HTTP response status code from the key service. */
       httpResponseCode?: string;
       /** Url of the external key service. */
@@ -404,7 +458,10 @@ declare namespace gapi.client {
       /** The list of messages contained by this alert. */
       messages?: GmailMessageInfo[];
       /** System actions on the messages. */
-      systemActionType?: string;
+      systemActionType?:
+        | 'SYSTEM_ACTION_TYPE_UNSPECIFIED'
+        | 'NO_OPERATION'
+        | 'REMOVED_FROM_INBOX';
     }
     interface MaliciousEntity {
       /** The header from display name. */
@@ -496,9 +553,12 @@ declare namespace gapi.client {
     }
     interface RuleViolationInfo {
       /** Source of the data. */
-      dataSource?: string;
+      dataSource?: 'DATA_SOURCE_UNSPECIFIED' | 'DRIVE' | 'CHROME' | 'CHAT';
       /** Event associated with this alert after applying the rule. */
-      eventType?: string;
+      eventType?:
+        | 'EVENT_TYPE_UNSPECIFIED'
+        | 'ACCESS_BLOCKED'
+        | 'SHARING_BLOCKED';
       /** List of matches that were found in the resource content. */
       matchInfo?: MatchInfo[];
       /** Resource recipients. For Drive, they are grantees that the Drive file was shared with at the time of rule triggering. Valid values include user emails, group emails, domains, or 'anyone' if the file was publicly accessible. If the file was private the recipients list will be empty. For Gmail, they are emails of the users or groups that the Gmail message was sent to. */
@@ -508,13 +568,68 @@ declare namespace gapi.client {
       /** Details of the violated rule. */
       ruleInfo?: RuleInfo;
       /** Actions suppressed due to other actions with higher priority. */
-      suppressedActionTypes?: string[];
+      suppressedActionTypes?:
+        | 'ACTION_TYPE_UNSPECIFIED'
+        | 'DRIVE_BLOCK_EXTERNAL_SHARING'
+        | 'DRIVE_WARN_ON_EXTERNAL_SHARING'
+        | 'DRIVE_RESTRICT_DOWNLOAD_PRINT_COPY'
+        | 'DRIVE_APPLY_DRIVE_LABELS'
+        | 'CHROME_BLOCK_FILE_DOWNLOAD'
+        | 'CHROME_WARN_FILE_DOWNLOAD'
+        | 'CHROME_BLOCK_FILE_UPLOAD'
+        | 'CHROME_WARN_FILE_UPLOAD'
+        | 'CHROME_BLOCK_WEB_CONTENT_UPLOAD'
+        | 'CHROME_WARN_WEB_CONTENT_UPLOAD'
+        | 'CHROME_BLOCK_PAGE_PRINT'
+        | 'CHROME_WARN_PAGE_PRINT'
+        | 'CHROME_BLOCK_URL_VISITED'
+        | 'CHROME_WARN_URL_VISITED'
+        | 'CHROME_BLOCK_SCREENSHOT'
+        | 'CHROME_STORE_CONTENT'
+        | 'DELETE_WEBPROTECT_EVIDENCE'
+        | 'CHAT_BLOCK_CONTENT'
+        | 'CHAT_WARN_USER'
+        | 'ALERT'
+        | 'RULE_ACTIVATE'
+        | 'RULE_DEACTIVATE'[];
       /** Trigger of the rule. */
-      trigger?: string;
+      trigger?:
+        | 'TRIGGER_UNSPECIFIED'
+        | 'DRIVE_SHARE'
+        | 'CHROME_FILE_DOWNLOAD'
+        | 'CHROME_FILE_UPLOAD'
+        | 'CHROME_WEB_CONTENT_UPLOAD'
+        | 'CHAT_MESSAGE_SENT'
+        | 'CHAT_ATTACHMENT_UPLOADED'
+        | 'CHROME_PAGE_PRINT'
+        | 'CHROME_URL_VISITED';
       /** Metadata related to the triggered actions. */
       triggeredActionInfo?: any[];
       /** Actions applied as a consequence of the rule being triggered. */
-      triggeredActionTypes?: string[];
+      triggeredActionTypes?:
+        | 'ACTION_TYPE_UNSPECIFIED'
+        | 'DRIVE_BLOCK_EXTERNAL_SHARING'
+        | 'DRIVE_WARN_ON_EXTERNAL_SHARING'
+        | 'DRIVE_RESTRICT_DOWNLOAD_PRINT_COPY'
+        | 'DRIVE_APPLY_DRIVE_LABELS'
+        | 'CHROME_BLOCK_FILE_DOWNLOAD'
+        | 'CHROME_WARN_FILE_DOWNLOAD'
+        | 'CHROME_BLOCK_FILE_UPLOAD'
+        | 'CHROME_WARN_FILE_UPLOAD'
+        | 'CHROME_BLOCK_WEB_CONTENT_UPLOAD'
+        | 'CHROME_WARN_WEB_CONTENT_UPLOAD'
+        | 'CHROME_BLOCK_PAGE_PRINT'
+        | 'CHROME_WARN_PAGE_PRINT'
+        | 'CHROME_BLOCK_URL_VISITED'
+        | 'CHROME_WARN_URL_VISITED'
+        | 'CHROME_BLOCK_SCREENSHOT'
+        | 'CHROME_STORE_CONTENT'
+        | 'DELETE_WEBPROTECT_EVIDENCE'
+        | 'CHAT_BLOCK_CONTENT'
+        | 'CHAT_WARN_USER'
+        | 'ALERT'
+        | 'RULE_ACTIVATE'
+        | 'RULE_DEACTIVATE'[];
       /** Email of the user who caused the violation. Value could be empty if not applicable, for example, a violation found by drive continuous scan. */
       triggeringUserEmail?: string;
     }
@@ -604,11 +719,20 @@ declare namespace gapi.client {
       /** User's email address. This may be unavailable if the entity was deleted. */
       email?: string;
       /** Type of entity being transferred to. For ring group members, this should always be USER. */
-      entityType?: string;
+      entityType?:
+        | 'TRANSFER_ENTITY_TYPE_UNSPECIFIED'
+        | 'TRANSFER_AUTO_ATTENDANT'
+        | 'TRANSFER_RING_GROUP'
+        | 'TRANSFER_USER';
       /** Ring group or auto attendant ID. Not set for users. */
       id?: string;
       /** Reason for the error. */
-      invalidReason?: string;
+      invalidReason?:
+        | 'TRANSFER_INVALID_REASON_UNSPECIFIED'
+        | 'TRANSFER_TARGET_DELETED'
+        | 'UNLICENSED'
+        | 'SUSPENDED'
+        | 'NO_PHONE_NUMBER';
       /** User's full name, or the ring group / auto attendant name. This may be unavailable if the entity was deleted. */
       name?: string;
     }
@@ -638,9 +762,14 @@ declare namespace gapi.client {
     }
     interface VaultAcceleratedDeletion {
       /** The action can be one of create and cancel */
-      actionType?: string;
+      actionType?:
+        | 'VAULT_ACCELERATED_DELETION_ACTION_TYPE_UNSPECIFIED'
+        | 'VAULT_ACCELERATED_DELETION_ACTION_TYPE_CREATE'
+        | 'VAULT_ACCELERATED_DELETION_ACTION_TYPE_CANCEL';
       /** Currentlty only Gmail is supported as app type */
-      appType?: string;
+      appType?:
+        | 'VAULT_ACCELERATED_DELETION_APP_TYPE_UNSPECIFIED'
+        | 'VAULT_ACCELERATED_DELETION_APP_TYPE_GMAIL';
       /** The UTC timestamp of when the AD request was created */
       createTime?: string;
       /** Accelerated deletion request ID intended to be used to construct the Vault UI link to the AD request */
@@ -656,13 +785,16 @@ declare namespace gapi.client {
       /** Email address of the invalid recipient. This may be unavailable if the recipient was deleted. */
       email?: string;
       /** Reason for the error. */
-      invalidReason?: string;
+      invalidReason?:
+        | 'EMAIL_INVALID_REASON_UNSPECIFIED'
+        | 'OUT_OF_QUOTA'
+        | 'RECIPIENT_DELETED';
     }
     interface VoiceMisconfiguration {
       /** Name of the entity whose configuration is now invalid. */
       entityName?: string;
       /** Type of the entity whose configuration is now invalid. */
-      entityType?: string;
+      entityType?: 'ENTITY_TYPE_UNSPECIFIED' | 'AUTO_ATTENDANT' | 'RING_GROUP';
       /** Link that the admin can follow to fix the issue. */
       fixUri?: string;
       /** Issue(s) with members of a ring group. */
@@ -676,13 +808,13 @@ declare namespace gapi.client {
       /** Creates new feedback for an alert. Attempting to create a feedback for a non-existent alert returns `NOT_FOUND` error. Attempting to create a feedback for an alert that is marked for deletion returns `FAILED_PRECONDITION' error. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The identifier of the alert this feedback belongs to. */
         alertId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. The unique identifier of the Google Workspace account of the customer the alert is associated with. The `customer_id` must have the initial "C" stripped (for example, `046psxkn`). Inferred from the caller identity if not provided. [Find your customer ID](https://support.google.com/cloudidentity/answer/10070793). */
@@ -707,13 +839,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The identifier of the alert this feedback belongs to. */
           alertId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Optional. The unique identifier of the Google Workspace account of the customer the alert is associated with. The `customer_id` must have the initial "C" stripped (for example, `046psxkn`). Inferred from the caller identity if not provided. [Find your customer ID](https://support.google.com/cloudidentity/answer/10070793). */
@@ -738,13 +870,13 @@ declare namespace gapi.client {
       /** Lists all the feedback for an alert. Attempting to list feedbacks for a non-existent alert returns `NOT_FOUND` error. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The alert identifier. The "-" wildcard could be used to represent all alerts. */
         alertId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. The unique identifier of the Google Workspace account of the customer the alert is associated with. The `customer_id` must have the initial "C" stripped (for example, `046psxkn`). Inferred from the caller identity if not provided. [Find your customer ID](https://support.google.com/cloudidentity/answer/10070793). */
@@ -771,11 +903,11 @@ declare namespace gapi.client {
       /** Performs batch delete operation on alerts. */
       batchDelete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -798,11 +930,11 @@ declare namespace gapi.client {
       batchDelete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -825,11 +957,11 @@ declare namespace gapi.client {
       /** Performs batch undelete operation on alerts. */
       batchUndelete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -852,11 +984,11 @@ declare namespace gapi.client {
       batchUndelete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -879,13 +1011,13 @@ declare namespace gapi.client {
       /** Marks the specified alert for deletion. An alert that has been marked for deletion is removed from Alert Center after 30 days. Marking an alert for deletion has no effect on an alert which has already been marked for deletion. Attempting to mark a nonexistent alert for deletion results in a `NOT_FOUND` error. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The identifier of the alert to delete. */
         alertId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. The unique identifier of the Google Workspace account of the customer the alert is associated with. The `customer_id` must have the initial "C" stripped (for example, `046psxkn`). Inferred from the caller identity if not provided. [Find your customer ID](https://support.google.com/cloudidentity/answer/10070793). */
@@ -908,13 +1040,13 @@ declare namespace gapi.client {
       /** Gets the specified alert. Attempting to get a nonexistent alert returns `NOT_FOUND` error. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The identifier of the alert to retrieve. */
         alertId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. The unique identifier of the Google Workspace account of the customer the alert is associated with. The `customer_id` must have the initial "C" stripped (for example, `046psxkn`). Inferred from the caller identity if not provided. [Find your customer ID](https://support.google.com/cloudidentity/answer/10070793). */
@@ -937,13 +1069,13 @@ declare namespace gapi.client {
       /** Returns the metadata of an alert. Attempting to get metadata for a non-existent alert returns `NOT_FOUND` error. */
       getMetadata(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The identifier of the alert this metadata belongs to. */
         alertId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. The unique identifier of the Google Workspace account of the customer the alert metadata is associated with. The `customer_id` must have the initial "C" stripped (for example, `046psxkn`). Inferred from the caller identity if not provided. [Find your customer ID](https://support.google.com/cloudidentity/answer/10070793). */
@@ -966,11 +1098,11 @@ declare namespace gapi.client {
       /** Lists the alerts. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. The unique identifier of the Google Workspace account of the customer the alerts are associated with. The `customer_id` must have the initial "C" stripped (for example, `046psxkn`). Inferred from the caller identity if not provided. [Find your customer ID](https://support.google.com/cloudidentity/answer/10070793). */
@@ -1001,13 +1133,13 @@ declare namespace gapi.client {
       /** Restores, or "undeletes", an alert that was marked for deletion within the past 30 days. Attempting to undelete an alert which was marked for deletion over 30 days ago (which has been removed from the Alert Center database) or a nonexistent alert returns a `NOT_FOUND` error. Attempting to undelete an alert which has not been marked for deletion has no effect. */
       undelete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The identifier of the alert to undelete. */
         alertId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1030,13 +1162,13 @@ declare namespace gapi.client {
       undelete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The identifier of the alert to undelete. */
           alertId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1062,11 +1194,11 @@ declare namespace gapi.client {
       /** Returns customer-level settings. */
       getSettings(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. The unique identifier of the Google Workspace account of the customer the alert settings are associated with. The `customer_id` must/ have the initial "C" stripped (for example, `046psxkn`). Inferred from the caller identity if not provided. [Find your customer ID](https://support.google.com/cloudidentity/answer/10070793). */
@@ -1089,11 +1221,11 @@ declare namespace gapi.client {
       /** Updates the customer-level settings. */
       updateSettings(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. The unique identifier of the Google Workspace account of the customer the alert settings are associated with. The `customer_id` must have the initial "C" stripped (for example, `046psxkn`). Inferred from the caller identity if not provided. [Find your customer ID](https://support.google.com/cloudidentity/answer/10070793). */
@@ -1118,11 +1250,11 @@ declare namespace gapi.client {
       updateSettings(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Optional. The unique identifier of the Google Workspace account of the customer the alert settings are associated with. The `customer_id` must have the initial "C" stripped (for example, `046psxkn`). Inferred from the caller identity if not provided. [Find your customer ID](https://support.google.com/cloudidentity/answer/10070793). */

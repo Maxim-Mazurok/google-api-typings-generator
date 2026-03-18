@@ -32,11 +32,20 @@ declare namespace gapi.client {
       /** Output only. Account takeover risk assessment for this request. */
       accountTakeoverVerdict?: GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTakeoverVerdict;
       /** Output only. Labels for this request. */
-      labels?: string[];
+      labels?:
+        | 'ACCOUNT_DEFENDER_LABEL_UNSPECIFIED'
+        | 'PROFILE_MATCH'
+        | 'SUSPICIOUS_LOGIN_ACTIVITY'
+        | 'SUSPICIOUS_ACCOUNT_CREATION'
+        | 'RELATED_ACCOUNTS_NUMBER_HIGH'[];
     }
     interface GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason {
       /** Output only. A risk reason associated with this request. */
-      reason?: string;
+      reason?:
+        | 'RISK_REASON_UNSPECIFIED'
+        | 'CLIENT_HISTORICAL_BOT_ACTIVITY'
+        | 'ACCOUNT_IN_LARGE_RELATED_GROUP'
+        | 'CLIENT_ACCESSED_MANY_ACCOUNTS';
     }
     interface GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTakeoverVerdict {
       /** Output only. Account takeover attempt probability. Values are from 0.0 (lowest risk) to 1.0 (highest risk). */
@@ -48,7 +57,10 @@ declare namespace gapi.client {
     }
     interface GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason {
       /** Output only. A trust reason associated with this request. */
-      reason?: string;
+      reason?:
+        | 'TRUST_REASON_UNSPECIFIED'
+        | 'PROFILE_MATCH'
+        | 'ACCOUNT_HISTORY_REPUTABLE';
     }
     interface GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo {
       /** Optional. Endpoints that can be used for identity verification. */
@@ -56,7 +68,17 @@ declare namespace gapi.client {
       /** Optional. Language code preference for the verification message, set as a IETF BCP 47 language code. */
       languageCode?: string;
       /** Output only. Result of the latest account verification challenge. */
-      latestVerificationResult?: string;
+      latestVerificationResult?:
+        | 'RESULT_UNSPECIFIED'
+        | 'SUCCESS_USER_VERIFIED'
+        | 'ERROR_USER_NOT_VERIFIED'
+        | 'ERROR_SITE_ONBOARDING_INCOMPLETE'
+        | 'ERROR_RECIPIENT_NOT_ALLOWED'
+        | 'ERROR_RECIPIENT_ABUSE_LIMIT_EXHAUSTED'
+        | 'ERROR_CRITICAL_INTERNAL'
+        | 'ERROR_CUSTOMER_QUOTA_EXHAUSTED'
+        | 'ERROR_VERIFICATION_BYPASSED'
+        | 'ERROR_VERDICT_MISMATCH';
       /** Username of the account that is being verified. Deprecated. Customers should now provide the `account_id` field in `event.user_info`. */
       username?: string;
     }
@@ -77,13 +99,33 @@ declare namespace gapi.client {
       /** Optional. A stable account identifier to apply to the assessment. This is an alternative to setting `account_id` in `CreateAssessment`, for example when a stable account identifier is not yet known in the initial request. */
       accountId?: string;
       /** Optional. The annotation that is assigned to the Event. This field can be left empty to provide reasons that apply to an event without concluding whether the event is legitimate or fraudulent. */
-      annotation?: string;
+      annotation?:
+        | 'ANNOTATION_UNSPECIFIED'
+        | 'LEGITIMATE'
+        | 'FRAUDULENT'
+        | 'PASSWORD_CORRECT'
+        | 'PASSWORD_INCORRECT';
       /** Optional. A stable hashed account identifier to apply to the assessment. This is an alternative to setting `hashed_account_id` in `CreateAssessment`, for example when a stable account identifier is not yet known in the initial request. */
       hashedAccountId?: string;
       /** Optional. If using an external multi-factor authentication provider, provide phone authentication details for fraud detection purposes. */
       phoneAuthenticationEvent?: GoogleCloudRecaptchaenterpriseV1PhoneAuthenticationEvent;
       /** Optional. Reasons for the annotation that are assigned to the event. */
-      reasons?: string[];
+      reasons?:
+        | 'REASON_UNSPECIFIED'
+        | 'CHARGEBACK'
+        | 'CHARGEBACK_FRAUD'
+        | 'CHARGEBACK_DISPUTE'
+        | 'REFUND'
+        | 'REFUND_FRAUD'
+        | 'TRANSACTION_ACCEPTED'
+        | 'TRANSACTION_DECLINED'
+        | 'PAYMENT_HEURISTICS'
+        | 'INITIATED_TWO_FACTOR'
+        | 'PASSED_TWO_FACTOR'
+        | 'FAILED_TWO_FACTOR'
+        | 'CORRECT_PASSWORD'
+        | 'INCORRECT_PASSWORD'
+        | 'SOCIAL_SPAM'[];
       /** Optional. If the assessment is part of a payment transaction, provide details on payment lifecycle events that occur in the transaction. */
       transactionEvent?: GoogleCloudRecaptchaenterpriseV1TransactionEvent;
     }
@@ -130,7 +172,11 @@ declare namespace gapi.client {
     }
     interface GoogleCloudRecaptchaenterpriseV1Bot {
       /** Optional. Enumerated field representing the type of bot. */
-      botType?: string;
+      botType?:
+        | 'BOT_TYPE_UNSPECIFIED'
+        | 'AI_AGENT'
+        | 'CONTENT_SCRAPER'
+        | 'SEARCH_INDEXER';
       /** Optional. Enumerated string value that indicates the identity of the bot, formatted in kebab-case. */
       name?: string;
     }
@@ -162,7 +208,7 @@ declare namespace gapi.client {
       /** Optional. Flag for enabling firewall policy config assessment. If this flag is enabled, the firewall policy is evaluated and a suggested firewall action is returned in the response. */
       firewallPolicyEvaluation?: boolean;
       /** Optional. The Fraud Prevention setting for this assessment. */
-      fraudPrevention?: string;
+      fraudPrevention?: 'FRAUD_PREVENTION_UNSPECIFIED' | 'ENABLED' | 'DISABLED';
       /** Optional. Deprecated: use `user_info.account_id` instead. Unique stable hashed user identifier for the request. The identifier must be hashed using hmac-sha256 with stable secret. */
       hashedAccountId?: string;
       /** Optional. HTTP header information about the request. */
@@ -257,7 +303,13 @@ declare namespace gapi.client {
     }
     interface GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason {
       /** Output only. Risk reasons applicable to the Fraud Prevention assessment. */
-      reason?: string;
+      reason?:
+        | 'REASON_UNSPECIFIED'
+        | 'HIGH_TRANSACTION_VELOCITY'
+        | 'EXCESSIVE_ENUMERATION_PATTERN'
+        | 'SHORT_IDENTITY_HISTORY'
+        | 'GEOLOCATION_DISCREPANCY'
+        | 'ASSOCIATED_WITH_FRAUD_CLUSTER';
     }
     interface GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict {
       /** Output only. Probability of this transaction being executed with a stolen instrument. Values are from 0.0 (lowest) to 1.0 (highest). */
@@ -271,7 +323,11 @@ declare namespace gapi.client {
     }
     interface GoogleCloudRecaptchaenterpriseV1FraudSignalsCardSignals {
       /** Output only. The labels for the payment card in this transaction. */
-      cardLabels?: string[];
+      cardLabels?:
+        | 'CARD_LABEL_UNSPECIFIED'
+        | 'PREPAID'
+        | 'VIRTUAL'
+        | 'UNEXPECTED_LOCATION'[];
     }
     interface GoogleCloudRecaptchaenterpriseV1FraudSignalsUserSignals {
       /** Output only. This user (based on email, phone, and other identifiers) has been seen on the internet for at least this number of days. */
@@ -291,7 +347,7 @@ declare namespace gapi.client {
       /** Required. The IP address to override (can be IPv4, IPv6 or CIDR). The IP override must be a valid IPv4 or IPv6 address, or a CIDR range. The IP override must be a public IP address. Example of IPv4: 168.192.5.6 Example of IPv6: 2001:0000:130F:0000:0000:09C0:876A:130B Example of IPv4 with CIDR: 168.192.5.0/24 Example of IPv6 with CIDR: 2001:0DB8:1234::/48 */
       ip?: string;
       /** Required. Describes the type of IP override. */
-      overrideType?: string;
+      overrideType?: 'OVERRIDE_TYPE_UNSPECIFIED' | 'ALLOW';
     }
     interface GoogleCloudRecaptchaenterpriseV1Key {
       /** Settings for keys that can be used by Android apps. */
@@ -407,11 +463,19 @@ declare namespace gapi.client {
     }
     interface GoogleCloudRecaptchaenterpriseV1RiskAnalysis {
       /** Output only. Challenge information for POLICY_BASED_CHALLENGE and INVISIBLE keys. */
-      challenge?: string;
+      challenge?: 'CHALLENGE_UNSPECIFIED' | 'NOCAPTCHA' | 'PASSED' | 'FAILED';
       /** Output only. Advanced reasons contributing to the risk analysis verdict. These reasons are available to Enterprise tier projects only. Contact sales for more information. The set of possible reasons is subject to change. */
       extendedVerdictReasons?: string[];
       /** Output only. Reasons contributing to the risk analysis verdict. */
-      reasons?: string[];
+      reasons?:
+        | 'CLASSIFICATION_REASON_UNSPECIFIED'
+        | 'AUTOMATION'
+        | 'UNEXPECTED_ENVIRONMENT'
+        | 'TOO_MUCH_TRAFFIC'
+        | 'UNEXPECTED_USAGE_PATTERNS'
+        | 'LOW_CONFIDENCE_SCORE'
+        | 'SUSPECTED_CARDING'
+        | 'SUSPECTED_CHARGEBACK'[];
       /** Output only. Legitimate event score from 0.0 to 1.0. (1.0 means very likely legitimate traffic while 0.0 means very likely non-legitimate traffic). */
       score?: number;
       /** Output only. Bots with identities that have been verified by reCAPTCHA and detected in the event. */
@@ -447,13 +511,16 @@ declare namespace gapi.client {
     }
     interface GoogleCloudRecaptchaenterpriseV1SmsTollFraudVerdict {
       /** Output only. Reasons contributing to the SMS toll fraud verdict. */
-      reasons?: string[];
+      reasons?: 'SMS_TOLL_FRAUD_REASON_UNSPECIFIED' | 'INVALID_PHONE_NUMBER'[];
       /** Output only. Probability of an SMS event being fraudulent. Values are from 0.0 (lowest) to 1.0 (highest). */
       risk?: number;
     }
     interface GoogleCloudRecaptchaenterpriseV1TestingOptions {
       /** Optional. For challenge-based keys only (CHECKBOX, INVISIBLE), all challenge requests for this site return nocaptcha if NOCAPTCHA, or an unsolvable challenge if CHALLENGE. */
-      testingChallenge?: string;
+      testingChallenge?:
+        | 'TESTING_CHALLENGE_UNSPECIFIED'
+        | 'NOCAPTCHA'
+        | 'UNSOLVABLE_CHALLENGE';
       /** Optional. All assessments for this Key return this score. Must be between 0 (likely not legitimate) and 1 (likely legitimate) inclusive. */
       testingScore?: number;
     }
@@ -467,7 +534,15 @@ declare namespace gapi.client {
       /** Output only. The hostname of the page on which the token was generated (Web keys only). */
       hostname?: string;
       /** Output only. Reason associated with the response when valid = false. */
-      invalidReason?: string;
+      invalidReason?:
+        | 'INVALID_REASON_UNSPECIFIED'
+        | 'UNKNOWN_INVALID_REASON'
+        | 'MALFORMED'
+        | 'EXPIRED'
+        | 'DUPE'
+        | 'MISSING'
+        | 'BROWSER_ERROR'
+        | 'UNEXPECTED_ACTION';
       /** Output only. The ID of the iOS bundle with which the token was generated (iOS keys only). */
       iosBundleId?: string;
       /** Output only. Whether the provided user response token is valid. When valid = false, the reason could be specified in invalid_reason or it could also be due to a user failing to solve a challenge or a sitekey mismatch (i.e the sitekey used to generate the token was different than the one specified in the assessment). */
@@ -553,7 +628,26 @@ declare namespace gapi.client {
       /** Optional. Timestamp when this transaction event occurred; otherwise assumed to be the time of the API call. */
       eventTime?: string;
       /** Optional. The type of this transaction event. */
-      eventType?: string;
+      eventType?:
+        | 'TRANSACTION_EVENT_TYPE_UNSPECIFIED'
+        | 'MERCHANT_APPROVE'
+        | 'MERCHANT_DENY'
+        | 'MANUAL_REVIEW'
+        | 'AUTHORIZATION'
+        | 'AUTHORIZATION_DECLINE'
+        | 'PAYMENT_CAPTURE'
+        | 'PAYMENT_CAPTURE_DECLINE'
+        | 'CANCEL'
+        | 'CHARGEBACK_INQUIRY'
+        | 'CHARGEBACK_ALERT'
+        | 'FRAUD_NOTIFICATION'
+        | 'CHARGEBACK'
+        | 'CHARGEBACK_REPRESENTMENT'
+        | 'CHARGEBACK_REVERSE'
+        | 'REFUND_REQUEST'
+        | 'REFUND_DECLINE'
+        | 'REFUND'
+        | 'REFUND_REVERSE';
       /** Optional. The reason or standardized code that corresponds with this transaction event, if one exists. For example, a CHARGEBACK event with code 6005. */
       reason?: string;
       /** Optional. The value that corresponds with this transaction event, if one exists. For example, a refund event where $5.00 was refunded. Currency is obtained from the original transaction data. */
@@ -577,9 +671,19 @@ declare namespace gapi.client {
     }
     interface GoogleCloudRecaptchaenterpriseV1WafSettings {
       /** Required. The Web Application Firewall (WAF) feature for which this key is enabled. */
-      wafFeature?: string;
+      wafFeature?:
+        | 'WAF_FEATURE_UNSPECIFIED'
+        | 'CHALLENGE_PAGE'
+        | 'SESSION_TOKEN'
+        | 'ACTION_TOKEN'
+        | 'EXPRESS';
       /** Required. The Web Application Firewall (WAF) service that uses this key. */
-      wafService?: string;
+      wafService?:
+        | 'WAF_SERVICE_UNSPECIFIED'
+        | 'CA'
+        | 'FASTLY'
+        | 'CLOUDFLARE'
+        | 'AKAMAI';
     }
     interface GoogleCloudRecaptchaenterpriseV1WebKeySettings {
       /** Optional. If set to true, it means allowed_domains are not enforced. */
@@ -589,11 +693,20 @@ declare namespace gapi.client {
       /** Optional. Domains or subdomains of websites allowed to use the key. All subdomains of an allowed domain are automatically allowed. A valid domain requires a host and must not include any path, port, query or fragment. Examples: 'example.com' or 'subdomain.example.com' Each key supports a maximum of 250 domains. To use a key on more domains, set `allow_all_domains` to true. When this is set, you are responsible for validating the hostname by checking the `token_properties.hostname` field in each assessment response against your list of allowed domains. */
       allowedDomains?: string[];
       /** Optional. Settings for the frequency and difficulty at which this key triggers captcha challenges. This should only be specified for `IntegrationType` CHECKBOX, INVISIBLE or POLICY_BASED_CHALLENGE. */
-      challengeSecurityPreference?: string;
+      challengeSecurityPreference?:
+        | 'CHALLENGE_SECURITY_PREFERENCE_UNSPECIFIED'
+        | 'USABILITY'
+        | 'BALANCE'
+        | 'SECURITY';
       /** Optional. Challenge settings. */
       challengeSettings?: GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSettings;
       /** Required. Describes how this key is integrated with the website. */
-      integrationType?: string;
+      integrationType?:
+        | 'INTEGRATION_TYPE_UNSPECIFIED'
+        | 'SCORE'
+        | 'CHECKBOX'
+        | 'INVISIBLE'
+        | 'POLICY_BASED_CHALLENGE';
     }
     interface GoogleCloudRecaptchaenterpriseV1WebKeySettingsActionSettings {
       /** Required. A challenge is triggered if the end-user score is below that threshold. Value must be between 0 and 1 (inclusive). */
@@ -620,11 +733,11 @@ declare namespace gapi.client {
       /** Annotates a previously created Assessment to provide additional information on whether the event turned out to be authentic or fraudulent. */
       annotate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -649,11 +762,11 @@ declare namespace gapi.client {
       annotate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -678,11 +791,11 @@ declare namespace gapi.client {
       /** Creates an Assessment of the likelihood an event is legitimate. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -707,11 +820,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -738,11 +851,11 @@ declare namespace gapi.client {
       /** Creates a new FirewallPolicy, specifying conditions at which reCAPTCHA Enterprise actions can be executed. A project may have a maximum of 1000 policies. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -767,11 +880,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -796,11 +909,11 @@ declare namespace gapi.client {
       /** Deletes the specified firewall policy. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -823,11 +936,11 @@ declare namespace gapi.client {
       /** Returns the specified firewall policy. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -850,11 +963,11 @@ declare namespace gapi.client {
       /** Returns the list of all firewall policies that belong to a project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -881,11 +994,11 @@ declare namespace gapi.client {
       /** Updates the specified firewall policy. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -912,11 +1025,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -943,11 +1056,11 @@ declare namespace gapi.client {
       /** Reorders all firewall policies. */
       reorder(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -972,11 +1085,11 @@ declare namespace gapi.client {
       reorder(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1003,11 +1116,11 @@ declare namespace gapi.client {
       /** Adds an IP override to a key. The following restrictions hold: * The maximum number of IP overrides per key is 1000. * For any conflict (such as IP already exists or IP part of an existing IP range), an error is returned. */
       addIpOverride(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1032,11 +1145,11 @@ declare namespace gapi.client {
       addIpOverride(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1061,11 +1174,11 @@ declare namespace gapi.client {
       /** Creates a new reCAPTCHA Enterprise key. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1090,11 +1203,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1119,11 +1232,11 @@ declare namespace gapi.client {
       /** Deletes the specified key. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1146,11 +1259,11 @@ declare namespace gapi.client {
       /** Returns the specified key. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1173,11 +1286,11 @@ declare namespace gapi.client {
       /** Get some aggregated metrics for a Key. This data can be used to build dashboards. */
       getMetrics(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1200,11 +1313,11 @@ declare namespace gapi.client {
       /** Returns the list of all keys that belong to a project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1231,11 +1344,11 @@ declare namespace gapi.client {
       /** Lists all IP overrides for a key. */
       listIpOverrides(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1262,11 +1375,11 @@ declare namespace gapi.client {
       /** Migrates an existing key from reCAPTCHA to reCAPTCHA Enterprise. Once a key is migrated, it can be used from either product. SiteVerify requests are billed as CreateAssessment calls. You must be authenticated as one of the current owners of the reCAPTCHA Key, and your user must have the reCAPTCHA Enterprise Admin IAM role in the destination project. */
       migrate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1291,11 +1404,11 @@ declare namespace gapi.client {
       migrate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1320,11 +1433,11 @@ declare namespace gapi.client {
       /** Updates the specified key. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1351,11 +1464,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1382,11 +1495,11 @@ declare namespace gapi.client {
       /** Removes an IP override from a key. The following restrictions hold: * If the IP isn't found in an existing IP override, a `NOT_FOUND` error is returned. * If the IP is found in an existing IP override, but the override type does not match, a `NOT_FOUND` error is returned. */
       removeIpOverride(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1411,11 +1524,11 @@ declare namespace gapi.client {
       removeIpOverride(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1440,11 +1553,11 @@ declare namespace gapi.client {
       /** Returns the secret key related to the specified public key. You must use the legacy secret key only in a 3rd party integration with legacy reCAPTCHA. */
       retrieveLegacySecretKey(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1467,11 +1580,11 @@ declare namespace gapi.client {
       /** Search group memberships related to a given account. */
       search(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1496,11 +1609,11 @@ declare namespace gapi.client {
       search(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1527,11 +1640,11 @@ declare namespace gapi.client {
       /** Get memberships in a group of related accounts. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1560,11 +1673,11 @@ declare namespace gapi.client {
       /** List groups of related accounts. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

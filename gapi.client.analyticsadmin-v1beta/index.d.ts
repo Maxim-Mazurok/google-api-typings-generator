@@ -98,7 +98,13 @@ declare namespace gapi.client {
     }
     interface GoogleAnalyticsAdminV1betaAccessNumericFilter {
       /** The operation type for this filter. */
-      operation?: string;
+      operation?:
+        | 'OPERATION_UNSPECIFIED'
+        | 'EQUAL'
+        | 'LESS_THAN'
+        | 'LESS_THAN_OR_EQUAL'
+        | 'GREATER_THAN'
+        | 'GREATER_THAN_OR_EQUAL';
       /** A numeric value or a date value. */
       value?: GoogleAnalyticsAdminV1betaNumericValue;
     }
@@ -114,7 +120,11 @@ declare namespace gapi.client {
       /** A dimension name in the request to order by. */
       dimensionName?: string;
       /** Controls the rule for dimension value ordering. */
-      orderType?: string;
+      orderType?:
+        | 'ORDER_TYPE_UNSPECIFIED'
+        | 'ALPHANUMERIC'
+        | 'CASE_INSENSITIVE_ALPHANUMERIC'
+        | 'NUMERIC';
     }
     interface GoogleAnalyticsAdminV1betaAccessOrderByMetricOrderBy {
       /** A metric name in the request to order by. */
@@ -148,7 +158,14 @@ declare namespace gapi.client {
       /** If true, the string value is case sensitive. */
       caseSensitive?: boolean;
       /** The match type for this filter. */
-      matchType?: string;
+      matchType?:
+        | 'MATCH_TYPE_UNSPECIFIED'
+        | 'EXACT'
+        | 'BEGINS_WITH'
+        | 'ENDS_WITH'
+        | 'CONTAINS'
+        | 'FULL_REGEXP'
+        | 'PARTIAL_REGEXP';
       /** The string value used for the matching. */
       value?: string;
     }
@@ -187,7 +204,7 @@ declare namespace gapi.client {
     interface GoogleAnalyticsAdminV1betaArchiveCustomMetricRequest {}
     interface GoogleAnalyticsAdminV1betaChangeHistoryChange {
       /** The type of action that changed this resource. */
-      action?: string;
+      action?: 'ACTION_TYPE_UNSPECIFIED' | 'CREATED' | 'UPDATED' | 'DELETED';
       /** Resource name of the resource whose changes are described by this entry. */
       resource?: string;
       /** Resource contents from after the change was made. If this resource was deleted in this change, this field will be missing. */
@@ -215,7 +232,7 @@ declare namespace gapi.client {
     }
     interface GoogleAnalyticsAdminV1betaChangeHistoryEvent {
       /** The type of actor that made this change. */
-      actorType?: string;
+      actorType?: 'ACTOR_TYPE_UNSPECIFIED' | 'USER' | 'SYSTEM' | 'SUPPORT';
       /** A list of changes made in this change history event that fit the filters specified in SearchChangeHistoryEventsRequest. */
       changes?: GoogleAnalyticsAdminV1betaChangeHistoryChange[];
       /** If true, then the list of changes returned was filtered, and does not represent all changes that occurred in this event. */
@@ -229,7 +246,10 @@ declare namespace gapi.client {
     }
     interface GoogleAnalyticsAdminV1betaConversionEvent {
       /** Optional. The method by which conversions will be counted across multiple events within a session. If this value is not provided, it will be set to `ONCE_PER_EVENT`. */
-      countingMethod?: string;
+      countingMethod?:
+        | 'CONVERSION_COUNTING_METHOD_UNSPECIFIED'
+        | 'ONCE_PER_EVENT'
+        | 'ONCE_PER_SESSION';
       /** Output only. Time when this conversion event was created in the property. */
       createTime?: string;
       /** Output only. If set to true, this conversion event refers to a custom event. If set to false, this conversion event refers to a default event in GA. Default events typically have special meaning in GA. Default events are usually created for you by the GA system, but in some cases can be created by property admins. Custom events count towards the maximum number of custom conversion events that may be created per property. */
@@ -261,7 +281,7 @@ declare namespace gapi.client {
       /** Required. Immutable. Tagging parameter name for this custom dimension. If this is a user-scoped dimension, then this is the user property name. If this is an event-scoped dimension, then this is the event parameter name. If this is an item-scoped dimension, then this is the parameter name found in the eCommerce items array. May only contain alphanumeric and underscore characters, starting with a letter. Max length of 24 characters for user-scoped dimensions, 40 characters for event-scoped dimensions. */
       parameterName?: string;
       /** Required. Immutable. The scope of this dimension. */
-      scope?: string;
+      scope?: 'DIMENSION_SCOPE_UNSPECIFIED' | 'EVENT' | 'USER' | 'ITEM';
     }
     interface GoogleAnalyticsAdminV1betaCustomMetric {
       /** Optional. Description for this custom dimension. Max length of 150 characters. */
@@ -269,25 +289,51 @@ declare namespace gapi.client {
       /** Required. Display name for this custom metric as shown in the Analytics UI. Max length of 82 characters, alphanumeric plus space and underscore starting with a letter. Legacy system-generated display names may contain square brackets, but updates to this field will never permit square brackets. */
       displayName?: string;
       /** Required. The type for the custom metric's value. */
-      measurementUnit?: string;
+      measurementUnit?:
+        | 'MEASUREMENT_UNIT_UNSPECIFIED'
+        | 'STANDARD'
+        | 'CURRENCY'
+        | 'FEET'
+        | 'METERS'
+        | 'KILOMETERS'
+        | 'MILES'
+        | 'MILLISECONDS'
+        | 'SECONDS'
+        | 'MINUTES'
+        | 'HOURS';
       /** Output only. Resource name for this CustomMetric resource. Format: properties/{property}/customMetrics/{customMetric} */
       name?: string;
       /** Required. Immutable. Tagging name for this custom metric. If this is an event-scoped metric, then this is the event parameter name. May only contain alphanumeric and underscore charactes, starting with a letter. Max length of 40 characters for event-scoped metrics. */
       parameterName?: string;
       /** Optional. Types of restricted data that this metric may contain. Required for metrics with CURRENCY measurement unit. Must be empty for metrics with a non-CURRENCY measurement unit. */
-      restrictedMetricType?: string[];
+      restrictedMetricType?:
+        | 'RESTRICTED_METRIC_TYPE_UNSPECIFIED'
+        | 'COST_DATA'
+        | 'REVENUE_DATA'[];
       /** Required. Immutable. The scope of this custom metric. */
-      scope?: string;
+      scope?: 'METRIC_SCOPE_UNSPECIFIED' | 'EVENT';
     }
     interface GoogleAnalyticsAdminV1betaDataRetentionSettings {
       /** Required. The length of time that event-level data is retained. */
-      eventDataRetention?: string;
+      eventDataRetention?:
+        | 'RETENTION_DURATION_UNSPECIFIED'
+        | 'TWO_MONTHS'
+        | 'FOURTEEN_MONTHS'
+        | 'TWENTY_SIX_MONTHS'
+        | 'THIRTY_EIGHT_MONTHS'
+        | 'FIFTY_MONTHS';
       /** Output only. Resource name for this DataRetentionSetting resource. Format: properties/{property}/dataRetentionSettings */
       name?: string;
       /** If true, reset the retention period for the user identifier with every event from that user. */
       resetUserDataOnNewActivity?: boolean;
       /** Required. The length of time that user-level data is retained. */
-      userDataRetention?: string;
+      userDataRetention?:
+        | 'RETENTION_DURATION_UNSPECIFIED'
+        | 'TWO_MONTHS'
+        | 'FOURTEEN_MONTHS'
+        | 'TWENTY_SIX_MONTHS'
+        | 'THIRTY_EIGHT_MONTHS'
+        | 'FIFTY_MONTHS';
     }
     interface GoogleAnalyticsAdminV1betaDataSharingSettings {
       /** Output only. Resource name. Format: accounts/{account}/dataSharingSettings Example: "accounts/1000/dataSharingSettings" */
@@ -315,7 +361,11 @@ declare namespace gapi.client {
       /** Output only. Resource name of this Data Stream. Format: properties/{property_id}/dataStreams/{stream_id} Example: "properties/1000/dataStreams/2000" */
       name?: string;
       /** Required. Immutable. The type of this DataStream resource. */
-      type?: string;
+      type?:
+        | 'DATA_STREAM_TYPE_UNSPECIFIED'
+        | 'WEB_DATA_STREAM'
+        | 'ANDROID_APP_DATA_STREAM'
+        | 'IOS_APP_DATA_STREAM';
       /** Output only. Time when stream payload fields were last updated. */
       updateTime?: string;
       /** Data specific to web streams. Must be populated if type is WEB_DATA_STREAM. */
@@ -367,7 +417,10 @@ declare namespace gapi.client {
     }
     interface GoogleAnalyticsAdminV1betaKeyEvent {
       /** Required. The method by which Key Events will be counted across multiple events within a session. */
-      countingMethod?: string;
+      countingMethod?:
+        | 'COUNTING_METHOD_UNSPECIFIED'
+        | 'ONCE_PER_EVENT'
+        | 'ONCE_PER_SESSION';
       /** Output only. Time when this key event was created in the property. */
       createTime?: string;
       /** Output only. If set to true, this key event refers to a custom event. If set to false, this key event refers to a default event in GA. Default events typically have special meaning in GA. Default events are usually created for you by the GA system, but in some cases can be created by property admins. Custom events count towards the maximum number of custom key events that may be created per property. */
@@ -481,15 +534,49 @@ declare namespace gapi.client {
       /** Output only. If set, the time at which this trashed property will be permanently deleted. If not set, then this property is not currently in the trash can and is not slated to be deleted. */
       expireTime?: string;
       /** Industry associated with this property Example: AUTOMOTIVE, FOOD_AND_DRINK */
-      industryCategory?: string;
+      industryCategory?:
+        | 'INDUSTRY_CATEGORY_UNSPECIFIED'
+        | 'AUTOMOTIVE'
+        | 'BUSINESS_AND_INDUSTRIAL_MARKETS'
+        | 'FINANCE'
+        | 'HEALTHCARE'
+        | 'TECHNOLOGY'
+        | 'TRAVEL'
+        | 'OTHER'
+        | 'ARTS_AND_ENTERTAINMENT'
+        | 'BEAUTY_AND_FITNESS'
+        | 'BOOKS_AND_LITERATURE'
+        | 'FOOD_AND_DRINK'
+        | 'GAMES'
+        | 'HOBBIES_AND_LEISURE'
+        | 'HOME_AND_GARDEN'
+        | 'INTERNET_AND_TELECOM'
+        | 'LAW_AND_GOVERNMENT'
+        | 'NEWS'
+        | 'ONLINE_COMMUNITIES'
+        | 'PEOPLE_AND_SOCIETY'
+        | 'PETS_AND_ANIMALS'
+        | 'REAL_ESTATE'
+        | 'REFERENCE'
+        | 'SCIENCE'
+        | 'SPORTS'
+        | 'JOBS_AND_EDUCATION'
+        | 'SHOPPING';
       /** Output only. Resource name of this property. Format: properties/{property_id} Example: "properties/1000" */
       name?: string;
       /** Immutable. Resource name of this property's logical parent. Note: The Property-Moving UI can be used to change the parent. Format: accounts/{account}, properties/{property} Example: "accounts/100", "properties/101" */
       parent?: string;
       /** Immutable. The property type for this Property resource. When creating a property, if the type is "PROPERTY_TYPE_UNSPECIFIED", then "ORDINARY_PROPERTY" will be implied. */
-      propertyType?: string;
+      propertyType?:
+        | 'PROPERTY_TYPE_UNSPECIFIED'
+        | 'PROPERTY_TYPE_ORDINARY'
+        | 'PROPERTY_TYPE_SUBPROPERTY'
+        | 'PROPERTY_TYPE_ROLLUP';
       /** Output only. The Google Analytics service level that applies to this property. */
-      serviceLevel?: string;
+      serviceLevel?:
+        | 'SERVICE_LEVEL_UNSPECIFIED'
+        | 'GOOGLE_ANALYTICS_STANDARD'
+        | 'GOOGLE_ANALYTICS_360';
       /** Required. Reporting Time Zone, used as the day boundary for reports, regardless of where the data originates. If the time zone honors DST, Analytics will automatically adjust for the changes. NOTE: Changing the time zone only affects data going forward, and is not applied retroactively. Format: https://www.iana.org/time-zones Example: "America/Los_Angeles" */
       timeZone?: string;
       /** Output only. Time when entity payload fields were last updated. */
@@ -503,7 +590,11 @@ declare namespace gapi.client {
       /** Resource name of property referred to by this property summary Format: properties/{property_id} Example: "properties/1000" */
       property?: string;
       /** The property's property type. */
-      propertyType?: string;
+      propertyType?:
+        | 'PROPERTY_TYPE_UNSPECIFIED'
+        | 'PROPERTY_TYPE_ORDINARY'
+        | 'PROPERTY_TYPE_SUBPROPERTY'
+        | 'PROPERTY_TYPE_ROLLUP';
     }
     interface GoogleAnalyticsAdminV1betaProvisionAccountTicketRequest {
       /** The account to create. */
@@ -555,7 +646,7 @@ declare namespace gapi.client {
     }
     interface GoogleAnalyticsAdminV1betaSearchChangeHistoryEventsRequest {
       /** Optional. If set, only return changes that match one or more of these types of actions. */
-      action?: string[];
+      action?: 'ACTION_TYPE_UNSPECIFIED' | 'CREATED' | 'UPDATED' | 'DELETED'[];
       /** Optional. If set, only return changes if they are made by a user in this list. */
       actorEmail?: string[];
       /** Optional. If set, only return changes made after this time (inclusive). */
@@ -569,7 +660,22 @@ declare namespace gapi.client {
       /** Optional. Resource name for a child property. If set, only return changes made to this property or its child resources. Format: properties/{propertyId} Example: `properties/100` */
       property?: string;
       /** Optional. If set, only return changes if they are for a resource that matches at least one of these types. */
-      resourceType?: string[];
+      resourceType?:
+        | 'CHANGE_HISTORY_RESOURCE_TYPE_UNSPECIFIED'
+        | 'ACCOUNT'
+        | 'PROPERTY'
+        | 'FIREBASE_LINK'
+        | 'GOOGLE_ADS_LINK'
+        | 'GOOGLE_SIGNALS_SETTINGS'
+        | 'CONVERSION_EVENT'
+        | 'MEASUREMENT_PROTOCOL_SECRET'
+        | 'CUSTOM_DIMENSION'
+        | 'CUSTOM_METRIC'
+        | 'DATA_RETENTION_SETTINGS'
+        | 'DISPLAY_VIDEO_360_ADVERTISER_LINK'
+        | 'DISPLAY_VIDEO_360_ADVERTISER_LINK_PROPOSAL'
+        | 'DATA_STREAM'
+        | 'ATTRIBUTION_SETTINGS'[];
     }
     interface GoogleAnalyticsAdminV1betaSearchChangeHistoryEventsResponse {
       /** Results that were accessible to the caller. */
@@ -582,11 +688,11 @@ declare namespace gapi.client {
       /** Marks target Account as soft-deleted (ie: "trashed") and returns it. This API does not have a method to restore soft-deleted accounts. However, they can be restored using the Trash Can UI. If the accounts are not restored before the expiration time, the account and all child resources (eg: Properties, GoogleAdsLinks, Streams, AccessBindings) will be permanently purged. https://support.google.com/analytics/answer/6154772 Returns an error if the target is not found. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -609,11 +715,11 @@ declare namespace gapi.client {
       /** Lookup for a single Account. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -636,11 +742,11 @@ declare namespace gapi.client {
       /** Get data sharing settings on an account. Data sharing settings are singletons. */
       getDataSharingSettings(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -663,11 +769,11 @@ declare namespace gapi.client {
       /** Returns all accounts accessible by the caller. Note that these accounts might not currently have GA properties. Soft-deleted (ie: "trashed") accounts are excluded by default. Returns an empty list if no relevant accounts are found. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -694,11 +800,11 @@ declare namespace gapi.client {
       /** Updates an account. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -725,11 +831,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -756,11 +862,11 @@ declare namespace gapi.client {
       /** Requests a ticket for creating an account. */
       provisionAccountTicket(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -783,11 +889,11 @@ declare namespace gapi.client {
       provisionAccountTicket(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -810,11 +916,11 @@ declare namespace gapi.client {
       /** Returns a customized report of data access records. The report provides records of each time a user reads Google Analytics reporting data. Access records are retained for up to 2 years. Data Access Reports can be requested for a property. Reports may be requested for any property, but dimensions that aren't related to quota can only be requested on Google Analytics 360 properties. This method is only available to Administrators. These data access records include GA UI Reporting, GA UI Explorations, GA Data API, and other products like Firebase & Admob that can retrieve data from Google Analytics through a linkage. These records don't include property configuration changes like adding a stream or changing a property's time zone. For configuration change history, see [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents). To give your feedback on this API, complete the [Google Analytics Access Reports feedback](https://docs.google.com/forms/d/e/1FAIpQLSdmEBUrMzAEdiEKk5TV5dEHvDUZDRlgWYdQdAeSdtR4hVjEhw/viewform) form. */
       runAccessReport(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The Data Access Report supports requesting at the property level or account level. If requested at the account level, Data Access Reports include all access for all properties under that account. To request at the property level, entity should be for example 'properties/123' if "123" is your Google Analytics property ID. To request at the account level, entity should be for example 'accounts/1234' if "1234" is your Google Analytics Account ID. */
@@ -839,11 +945,11 @@ declare namespace gapi.client {
       runAccessReport(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The Data Access Report supports requesting at the property level or account level. If requested at the account level, Data Access Reports include all access for all properties under that account. To request at the property level, entity should be for example 'properties/123' if "123" is your Google Analytics property ID. To request at the account level, entity should be for example 'accounts/1234' if "1234" is your Google Analytics Account ID. */
@@ -868,13 +974,13 @@ declare namespace gapi.client {
       /** Searches through all changes to an account or its children given the specified set of filters. Only returns the subset of changes supported by the API. The UI may return additional changes. */
       searchChangeHistoryEvents(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The account resource for which to return change history resources. Format: accounts/{account} Example: `accounts/100` */
         account: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -897,13 +1003,13 @@ declare namespace gapi.client {
       searchChangeHistoryEvents(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The account resource for which to return change history resources. Format: accounts/{account} Example: `accounts/100` */
           account: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -928,11 +1034,11 @@ declare namespace gapi.client {
       /** Returns summaries of all accounts accessible by the caller. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -959,11 +1065,11 @@ declare namespace gapi.client {
       /** Deprecated: Use `CreateKeyEvent` instead. Creates a conversion event with the specified attributes. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -988,11 +1094,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1017,11 +1123,11 @@ declare namespace gapi.client {
       /** Deprecated: Use `DeleteKeyEvent` instead. Deletes a conversion event in a property. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1044,11 +1150,11 @@ declare namespace gapi.client {
       /** Deprecated: Use `GetKeyEvent` instead. Retrieve a single conversion event. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1071,11 +1177,11 @@ declare namespace gapi.client {
       /** Deprecated: Use `ListKeyEvents` instead. Returns a list of conversion events in the specified parent property. Returns an empty list if no conversion events are found. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1102,11 +1208,11 @@ declare namespace gapi.client {
       /** Deprecated: Use `UpdateKeyEvent` instead. Updates a conversion event with the specified attributes. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1133,11 +1239,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1166,11 +1272,11 @@ declare namespace gapi.client {
       /** Archives a CustomDimension on a property. */
       archive(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1195,11 +1301,11 @@ declare namespace gapi.client {
       archive(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1224,11 +1330,11 @@ declare namespace gapi.client {
       /** Creates a CustomDimension. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1253,11 +1359,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1282,11 +1388,11 @@ declare namespace gapi.client {
       /** Lookup for a single CustomDimension. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1309,11 +1415,11 @@ declare namespace gapi.client {
       /** Lists CustomDimensions on a property. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1340,11 +1446,11 @@ declare namespace gapi.client {
       /** Updates a CustomDimension on a property. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1371,11 +1477,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1404,11 +1510,11 @@ declare namespace gapi.client {
       /** Archives a CustomMetric on a property. */
       archive(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1433,11 +1539,11 @@ declare namespace gapi.client {
       archive(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1462,11 +1568,11 @@ declare namespace gapi.client {
       /** Creates a CustomMetric. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1491,11 +1597,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1520,11 +1626,11 @@ declare namespace gapi.client {
       /** Lookup for a single CustomMetric. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1547,11 +1653,11 @@ declare namespace gapi.client {
       /** Lists CustomMetrics on a property. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1578,11 +1684,11 @@ declare namespace gapi.client {
       /** Updates a CustomMetric on a property. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1609,11 +1715,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1642,11 +1748,11 @@ declare namespace gapi.client {
       /** Creates a measurement protocol secret. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1671,11 +1777,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1700,11 +1806,11 @@ declare namespace gapi.client {
       /** Deletes target MeasurementProtocolSecret. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1727,11 +1833,11 @@ declare namespace gapi.client {
       /** Lookup for a single MeasurementProtocolSecret. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1754,11 +1860,11 @@ declare namespace gapi.client {
       /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1785,11 +1891,11 @@ declare namespace gapi.client {
       /** Updates a measurement protocol secret. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1816,11 +1922,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1849,11 +1955,11 @@ declare namespace gapi.client {
       /** Creates a DataStream. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1878,11 +1984,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1907,11 +2013,11 @@ declare namespace gapi.client {
       /** Deletes a DataStream on a property. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1934,11 +2040,11 @@ declare namespace gapi.client {
       /** Lookup for a single DataStream. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1961,11 +2067,11 @@ declare namespace gapi.client {
       /** Lists DataStreams on a property. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1992,11 +2098,11 @@ declare namespace gapi.client {
       /** Updates a DataStream on a property. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2023,11 +2129,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2057,11 +2163,11 @@ declare namespace gapi.client {
       /** Creates a FirebaseLink. Properties can have at most one FirebaseLink. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2086,11 +2192,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2115,11 +2221,11 @@ declare namespace gapi.client {
       /** Deletes a FirebaseLink on a property */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2142,11 +2248,11 @@ declare namespace gapi.client {
       /** Lists FirebaseLinks on a property. Properties can have at most one FirebaseLink. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2175,11 +2281,11 @@ declare namespace gapi.client {
       /** Creates a GoogleAdsLink. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2204,11 +2310,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2233,11 +2339,11 @@ declare namespace gapi.client {
       /** Deletes a GoogleAdsLink on a property */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2260,11 +2366,11 @@ declare namespace gapi.client {
       /** Lists GoogleAdsLinks on a property. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2291,11 +2397,11 @@ declare namespace gapi.client {
       /** Updates a GoogleAdsLink on a property */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2322,11 +2428,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2355,11 +2461,11 @@ declare namespace gapi.client {
       /** Creates a Key Event. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2384,11 +2490,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2413,11 +2519,11 @@ declare namespace gapi.client {
       /** Deletes a Key Event. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2440,11 +2546,11 @@ declare namespace gapi.client {
       /** Retrieve a single Key Event. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2467,11 +2573,11 @@ declare namespace gapi.client {
       /** Returns a list of Key Events in the specified parent property. Returns an empty list if no Key Events are found. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2498,11 +2604,11 @@ declare namespace gapi.client {
       /** Updates a Key Event. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2529,11 +2635,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2562,11 +2668,11 @@ declare namespace gapi.client {
       /** Acknowledges the terms of user data collection for the specified property. This acknowledgement must be completed (either in the Google Analytics UI or through this API) before MeasurementProtocolSecret resources may be created. */
       acknowledgeUserDataCollection(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2591,11 +2697,11 @@ declare namespace gapi.client {
       acknowledgeUserDataCollection(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2620,11 +2726,11 @@ declare namespace gapi.client {
       /** Creates a Google Analytics property with the specified location and attributes. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2647,11 +2753,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2674,11 +2780,11 @@ declare namespace gapi.client {
       /** Marks target Property as soft-deleted (ie: "trashed") and returns it. This API does not have a method to restore soft-deleted properties. However, they can be restored using the Trash Can UI. If the properties are not restored before the expiration time, the Property and all child resources (eg: GoogleAdsLinks, Streams, AccessBindings) will be permanently purged. https://support.google.com/analytics/answer/6154772 Returns an error if the target is not found. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2701,11 +2807,11 @@ declare namespace gapi.client {
       /** Lookup for a single GA Property. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2728,11 +2834,11 @@ declare namespace gapi.client {
       /** Returns the singleton data retention settings for this property. */
       getDataRetentionSettings(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2755,11 +2861,11 @@ declare namespace gapi.client {
       /** Returns child Properties under the specified parent Account. Properties will be excluded if the caller does not have access. Soft-deleted (ie: "trashed") properties are excluded by default. Returns an empty list if no relevant properties are found. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2788,11 +2894,11 @@ declare namespace gapi.client {
       /** Updates a property. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2819,11 +2925,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2850,11 +2956,11 @@ declare namespace gapi.client {
       /** Returns a customized report of data access records. The report provides records of each time a user reads Google Analytics reporting data. Access records are retained for up to 2 years. Data Access Reports can be requested for a property. Reports may be requested for any property, but dimensions that aren't related to quota can only be requested on Google Analytics 360 properties. This method is only available to Administrators. These data access records include GA UI Reporting, GA UI Explorations, GA Data API, and other products like Firebase & Admob that can retrieve data from Google Analytics through a linkage. These records don't include property configuration changes like adding a stream or changing a property's time zone. For configuration change history, see [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents). To give your feedback on this API, complete the [Google Analytics Access Reports feedback](https://docs.google.com/forms/d/e/1FAIpQLSdmEBUrMzAEdiEKk5TV5dEHvDUZDRlgWYdQdAeSdtR4hVjEhw/viewform) form. */
       runAccessReport(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The Data Access Report supports requesting at the property level or account level. If requested at the account level, Data Access Reports include all access for all properties under that account. To request at the property level, entity should be for example 'properties/123' if "123" is your Google Analytics property ID. To request at the account level, entity should be for example 'accounts/1234' if "1234" is your Google Analytics Account ID. */
@@ -2879,11 +2985,11 @@ declare namespace gapi.client {
       runAccessReport(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The Data Access Report supports requesting at the property level or account level. If requested at the account level, Data Access Reports include all access for all properties under that account. To request at the property level, entity should be for example 'properties/123' if "123" is your Google Analytics property ID. To request at the account level, entity should be for example 'accounts/1234' if "1234" is your Google Analytics Account ID. */
@@ -2908,11 +3014,11 @@ declare namespace gapi.client {
       /** Updates the singleton data retention settings for this property. */
       updateDataRetentionSettings(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2939,11 +3045,11 @@ declare namespace gapi.client {
       updateDataRetentionSettings(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

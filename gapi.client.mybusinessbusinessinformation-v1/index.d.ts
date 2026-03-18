@@ -45,7 +45,12 @@ declare namespace gapi.client {
       /** The values for this attribute. The type of the values supplied must match that expected for that attribute. This is a repeated field where multiple attribute values may be provided. Attribute types only support one value. */
       values?: any[];
       /** Output only. The type of value that this attribute contains. This should be used to determine how to interpret the value. */
-      valueType?: string;
+      valueType?:
+        | 'ATTRIBUTE_VALUE_TYPE_UNSPECIFIED'
+        | 'BOOL'
+        | 'ENUM'
+        | 'URL'
+        | 'REPEATED_ENUM';
     }
     interface AttributeMetadata {
       /** If true, the attribute is deprecated and should no longer be used. If deprecated, updating this attribute will not result in an error, but updates will not be saved. At some point after being deprecated, the attribute will be removed entirely and it will become an error. */
@@ -61,7 +66,12 @@ declare namespace gapi.client {
       /** For some types of attributes (for example, enums), a list of supported values and corresponding display names for those values is provided. */
       valueMetadata?: AttributeValueMetadata[];
       /** The value type for the attribute. Values set and retrieved should be expected to be of this type. */
-      valueType?: string;
+      valueType?:
+        | 'ATTRIBUTE_VALUE_TYPE_UNSPECIFIED'
+        | 'BOOL'
+        | 'ENUM'
+        | 'URL'
+        | 'REPEATED_ENUM';
     }
     interface Attributes {
       /** A collection of attributes that need to be updated. */
@@ -286,7 +296,11 @@ declare namespace gapi.client {
       /** Optional. The date on which the location first opened. If the exact day is not known, month and year only can be provided. The date must be in the past or be no more than one year in the future. */
       openingDate?: Date;
       /** Required. Indicates whether or not the Location is currently open for business. All locations are open by default, unless updated to be closed. */
-      status?: string;
+      status?:
+        | 'OPEN_FOR_BUSINESS_UNSPECIFIED'
+        | 'OPEN'
+        | 'CLOSED_PERMANENTLY'
+        | 'CLOSED_TEMPORARILY';
     }
     interface PhoneNumbers {
       /** Optional. Up to two phone numbers (mobile or landline, no fax) at which your business can be called, in addition to your primary phone number. */
@@ -344,7 +358,10 @@ declare namespace gapi.client {
       /** Required. Specify the location that is on the other side of the relation by its placeID. */
       placeId?: string;
       /** Required. The type of the relationship. */
-      relationType?: string;
+      relationType?:
+        | 'RELATION_TYPE_UNSPECIFIED'
+        | 'DEPARTMENT_OF'
+        | 'INDEPENDENT_ESTABLISHMENT_IN';
     }
     interface RepeatedEnumAttributeValue {
       /** Enum values that are set. */
@@ -370,7 +387,10 @@ declare namespace gapi.client {
     }
     interface ServiceAreaBusiness {
       /** Required. Indicates the type of the service area business. */
-      businessType?: string;
+      businessType?:
+        | 'BUSINESS_TYPE_UNSPECIFIED'
+        | 'CUSTOMER_LOCATION_ONLY'
+        | 'CUSTOMER_AND_BUSINESS_LOCATION';
       /** The area that this business serves defined through a set of places. */
       places?: Places;
       /** Immutable. CLDR region code of the country/region that this service area business is based in. See http://cldr.unicode.org/ and http://www.unicode.org/cldr/charts/30/supplemental/territory_information.html for details. Example: "CH" for Switzerland. This field is required for CUSTOMER_LOCATION_ONLY businesses, and is ignored otherwise. The region specified here can be different from regions for the areas that this business serves (e.g. service area businesses that provide services in regions other than the one that they are based in). If this location requires verification after creation, the address provided for verification purposes *must* be located within this region, and the business owner or their authorized representative *must* be able to receive postal mail at the provided verification address. */
@@ -424,11 +444,27 @@ declare namespace gapi.client {
     }
     interface TimePeriod {
       /** Required. Indicates the day of the week this period ends on. */
-      closeDay?: string;
+      closeDay?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY';
       /** Required. Valid values are 00:00-24:00, where 24:00 represents midnight at the end of the specified day field. */
       closeTime?: TimeOfDay;
       /** Required. Indicates the day of the week this period starts on. */
-      openDay?: string;
+      openDay?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY';
       /** Required. Valid values are 00:00-24:00, where 24:00 represents midnight at the end of the specified day field. */
       openTime?: TimeOfDay;
     }
@@ -440,11 +476,11 @@ declare namespace gapi.client {
       /** Creates a new Location that will be owned by the logged in user. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -473,11 +509,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -506,11 +542,11 @@ declare namespace gapi.client {
       /** Lists the locations for the specified account. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -548,11 +584,11 @@ declare namespace gapi.client {
       /** Returns the list of attributes that would be available for a location with the given primary category and country. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The primary category stable ID to find available attributes. Must be of the format categories/{category_id}. */
@@ -589,11 +625,11 @@ declare namespace gapi.client {
       /** Returns a list of business categories for the provided language and GConcept ids. */
       batchGet(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -617,16 +653,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Required. Specifies which parts to the Category resource should be returned in the response. */
-        view?: string;
+        view?: 'CATEGORY_VIEW_UNSPECIFIED' | 'BASIC' | 'FULL';
       }): Request<BatchGetCategoriesResponse>;
       /** Returns a list of business categories. Search will match the category name but not the category ID. Search only matches the front of a category name (that is, 'food' may return 'Food Court' but not 'Fast Food Restaurant'). */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -654,18 +690,18 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Required. Specifies which parts to the Category resource should be returned in the response. */
-        view?: string;
+        view?: 'CATEGORY_VIEW_UNSPECIFIED' | 'BASIC' | 'FULL';
       }): Request<ListCategoriesResponse>;
     }
     interface ChainsResource {
       /** Gets the specified chain. Returns `NOT_FOUND` if the chain does not exist. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -688,11 +724,11 @@ declare namespace gapi.client {
       /** Searches the chain based on chain name. */
       search(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Search for a chain by its name. Exact/partial/fuzzy/related queries are supported. Examples: "walmart", "wal-mart", "walmmmart", "沃尔玛" */
@@ -719,11 +755,11 @@ declare namespace gapi.client {
       /** Search all of the possible locations that are a match to the specified request. */
       search(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -746,11 +782,11 @@ declare namespace gapi.client {
       search(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -775,11 +811,11 @@ declare namespace gapi.client {
       /** Gets the Google-updated version of the specified location. */
       getGoogleUpdated(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -804,11 +840,11 @@ declare namespace gapi.client {
       /** Deletes a location. If this location cannot be deleted using the API and it is marked so in the `google.mybusiness.businessinformation.v1.LocationState`, use the [Google Business Profile](https://business.google.com/manage/) website. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -831,11 +867,11 @@ declare namespace gapi.client {
       /** Returns the specified location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -860,11 +896,11 @@ declare namespace gapi.client {
       /** Looks up all the attributes set for a given location. */
       getAttributes(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -887,11 +923,11 @@ declare namespace gapi.client {
       /** Gets the Google-updated version of the specified location. */
       getGoogleUpdated(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -916,11 +952,11 @@ declare namespace gapi.client {
       /** Updates the specified location. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -949,11 +985,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -982,11 +1018,11 @@ declare namespace gapi.client {
       /** Update attributes for a given location. */
       updateAttributes(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. Attribute name of attributes that you'd like to update. Represented by `attributes/{attribute}`. Updates: All attributes provided in the attributes field that you would like to update must be set in the `attribute_mask`. Attributes set in the above list but not in the `attribute_mask` will be ignored. Deletes: If you'd like to delete certain attributes, they must be specified in the `attribute_mask` with no matching entry in the attributes list. If you'd like to delete all attributes set on a location, you should look up all the applicable attributes for the location and then add them to the `attribute_mask` with an empty attributes field. */
         attributeMask?: string;
         /** JSONP */
@@ -1013,11 +1049,11 @@ declare namespace gapi.client {
       updateAttributes(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. Attribute name of attributes that you'd like to update. Represented by `attributes/{attribute}`. Updates: All attributes provided in the attributes field that you would like to update must be set in the `attribute_mask`. Attributes set in the above list but not in the `attribute_mask` will be ignored. Deletes: If you'd like to delete certain attributes, they must be specified in the `attribute_mask` with no matching entry in the attributes list. If you'd like to delete all attributes set on a location, you should look up all the applicable attributes for the location and then add them to the `attribute_mask` with an empty attributes field. */
           attributeMask?: string;
           /** JSONP */

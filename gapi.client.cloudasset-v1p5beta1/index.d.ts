@@ -63,7 +63,11 @@ declare namespace gapi.client {
       /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
       exemptedMembers?: string[];
       /** The log type that this config enables. */
-      logType?: string;
+      logType?:
+        | 'LOG_TYPE_UNSPECIFIED'
+        | 'ADMIN_READ'
+        | 'DATA_WRITE'
+        | 'DATA_READ';
     }
     interface Binding {
       /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
@@ -155,7 +159,7 @@ declare namespace gapi.client {
       /** List of values allowed at this resource. Can only be set if `all_values` is set to `ALL_VALUES_UNSPECIFIED`. */
       allowedValues?: string[];
       /** The policy all_values state. */
-      allValues?: string;
+      allValues?: 'ALL_VALUES_UNSPECIFIED' | 'ALLOW' | 'DENY';
       /** List of values denied at this resource. Can only be set if `all_values` is set to `ALL_VALUES_UNSPECIFIED`. */
       deniedValues?: string[];
       /** Determines the inheritance behavior for this `Policy`. By default, a `ListPolicy` set at a resource supersedes any `Policy` set anywhere up the resource hierarchy. However, if `inherit_from_parent` is set to `true`, then the values from the effective `Policy` of the parent resource are inherited, meaning the values set in this `Policy` are added to the values inherited up the hierarchy. Setting `Policy` hierarchies that inherit both allowed values and denied values isn't recommended in most circumstances to keep the configuration simple and understandable. However, it is possible to set a `Policy` with `allowed_values` set that inherits a `Policy` with `denied_values` set. In this case, the values that are allowed must be in `allowed_values` and not present in `denied_values`. For example, suppose you have a `Constraint` `constraints/serviceuser.services`, which has a `constraint_type` of `list_constraint`, and with `constraint_default` set to `ALLOW`. Suppose that at the Organization level, a `Policy` is applied that restricts the allowed API activations to {`E1`, `E2`}. Then, if a `Policy` is applied to a project below the Organization that has `inherit_from_parent` set to `false` and field all_values set to DENY, then an attempt to activate any API will be denied. The following examples demonstrate different possible layerings for `projects/bar` parented by `organizations/foo`: Example 1 (no inherited values): `organizations/foo` has a `Policy` with values: {allowed_values: "E1" allowed_values:"E2"} `projects/bar` has `inherit_from_parent` `false` and values: {allowed_values: "E3" allowed_values: "E4"} The accepted values at `organizations/foo` are `E1`, `E2`. The accepted values at `projects/bar` are `E3`, and `E4`. Example 2 (inherited values): `organizations/foo` has a `Policy` with values: {allowed_values: "E1" allowed_values:"E2"} `projects/bar` has a `Policy` with values: {value: "E3" value: "E4" inherit_from_parent: true} The accepted values at `organizations/foo` are `E1`, `E2`. The accepted values at `projects/bar` are `E1`, `E2`, `E3`, and `E4`. Example 3 (inheriting both allowed and denied values): `organizations/foo` has a `Policy` with values: {allowed_values: "E1" allowed_values: "E2"} `projects/bar` has a `Policy` with: {denied_values: "E1"} The accepted values at `organizations/foo` are `E1`, `E2`. The value accepted at `projects/bar` is `E2`. Example 4 (RestoreDefault): `organizations/foo` has a `Policy` with values: {allowed_values: "E1" allowed_values:"E2"} `projects/bar` has a `Policy` with values: {RestoreDefault: {}} The accepted values at `organizations/foo` are `E1`, `E2`. The accepted values at `projects/bar` are either all or none depending on the value of `constraint_default` (if `ALLOW`, all; if `DENY`, none). Example 5 (no policy inherits parent policy): `organizations/foo` has no `Policy` set. `projects/bar` has no `Policy` set. The accepted values at both levels are either all or none depending on the value of `constraint_default` (if `ALLOW`, all; if `DENY`, none). Example 6 (ListConstraint allowing all): `organizations/foo` has a `Policy` with values: {allowed_values: "E1" allowed_values: "E2"} `projects/bar` has a `Policy` with: {all: ALLOW} The accepted values at `organizations/foo` are `E1`, E2`. Any value is accepted at `projects/bar`. Example 7 (ListConstraint allowing none): `organizations/foo` has a `Policy` with values: {allowed_values: "E1" allowed_values: "E2"} `projects/bar` has a `Policy` with: {all: DENY} The accepted values at `organizations/foo` are `E1`, E2`. No value is accepted at `projects/bar`. Example 10 (allowed and denied subtrees of Resource Manager hierarchy): Given the following resource hierarchy O1->{F1, F2}; F1->{P1}; F2->{P2, P3}, `organizations/foo` has a `Policy` with values: {allowed_values: "under:organizations/O1"} `projects/bar` has a `Policy` with: {allowed_values: "under:projects/P3"} {denied_values: "under:folders/F2"} The accepted values at `organizations/foo` are `organizations/O1`, `folders/F1`, `folders/F2`, `projects/P1`, `projects/P2`, `projects/P3`. The accepted values at `projects/bar` are `organizations/O1`, `folders/F1`, `projects/P1`. */
@@ -212,7 +216,7 @@ declare namespace gapi.client {
     }
     interface GoogleIdentityAccesscontextmanagerV1BasicLevel {
       /** How the `conditions` list should be combined to determine if a request is granted this `AccessLevel`. If AND is used, each `Condition` in `conditions` must be satisfied for the `AccessLevel` to be applied. If OR is used, at least one `Condition` in `conditions` must be satisfied for the `AccessLevel` to be applied. Default behavior is AND. */
-      combiningFunction?: string;
+      combiningFunction?: 'AND' | 'OR';
       /** Required. A list of requirements for the `AccessLevel` to be granted. */
       conditions?: GoogleIdentityAccesscontextmanagerV1Condition[];
     }
@@ -238,9 +242,17 @@ declare namespace gapi.client {
     }
     interface GoogleIdentityAccesscontextmanagerV1DevicePolicy {
       /** Allowed device management levels, an empty list allows all management levels. */
-      allowedDeviceManagementLevels?: string[];
+      allowedDeviceManagementLevels?:
+        | 'MANAGEMENT_UNSPECIFIED'
+        | 'NONE'
+        | 'BASIC'
+        | 'COMPLETE'[];
       /** Allowed encryptions statuses, an empty list allows all statuses. */
-      allowedEncryptionStatuses?: string[];
+      allowedEncryptionStatuses?:
+        | 'ENCRYPTION_UNSPECIFIED'
+        | 'ENCRYPTION_UNSUPPORTED'
+        | 'UNENCRYPTED'
+        | 'ENCRYPTED'[];
       /** Allowed OS versions, an empty list allows all types and all versions. */
       osConstraints?: GoogleIdentityAccesscontextmanagerV1OsConstraint[];
       /** Whether the device needs to be approved by the customer admin. */
@@ -254,9 +266,16 @@ declare namespace gapi.client {
       /** A list of identities that are allowed access through [EgressPolicy]. Identities can be an individual user, service account, Google group, or third-party identity. For third-party identity, only single identities are supported and other identity types are not supported. The `v1` identities that have the prefix `user`, `group`, `serviceAccount`, and `principal` in https://cloud.google.com/iam/docs/principal-identifiers#v1 are supported. */
       identities?: string[];
       /** Specifies the type of identities that are allowed access to outside the perimeter. If left unspecified, then members of `identities` field will be allowed access. */
-      identityType?: string;
+      identityType?:
+        | 'IDENTITY_TYPE_UNSPECIFIED'
+        | 'ANY_IDENTITY'
+        | 'ANY_USER_ACCOUNT'
+        | 'ANY_SERVICE_ACCOUNT';
       /** Whether to enforce traffic restrictions based on `sources` field. If the `sources` fields is non-empty, then this field must be set to `SOURCE_RESTRICTION_ENABLED`. */
-      sourceRestriction?: string;
+      sourceRestriction?:
+        | 'SOURCE_RESTRICTION_UNSPECIFIED'
+        | 'SOURCE_RESTRICTION_ENABLED'
+        | 'SOURCE_RESTRICTION_DISABLED';
       /** Sources that this EgressPolicy authorizes access from. If this field is not empty, then `source_restriction` must be set to `SOURCE_RESTRICTION_ENABLED`. */
       sources?: GoogleIdentityAccesscontextmanagerV1EgressSource[];
     }
@@ -288,7 +307,11 @@ declare namespace gapi.client {
       /** A list of identities that are allowed access through [IngressPolicy]. Identities can be an individual user, service account, Google group, or third-party identity. For third-party identity, only single identities are supported and other identity types are not supported. The `v1` identities that have the prefix `user`, `group`, `serviceAccount`, and `principal` in https://cloud.google.com/iam/docs/principal-identifiers#v1 are supported. */
       identities?: string[];
       /** Specifies the type of identities that are allowed access from outside the perimeter. If left unspecified, then members of `identities` field will be allowed access. */
-      identityType?: string;
+      identityType?:
+        | 'IDENTITY_TYPE_UNSPECIFIED'
+        | 'ANY_IDENTITY'
+        | 'ANY_USER_ACCOUNT'
+        | 'ANY_SERVICE_ACCOUNT';
       /** Sources that this IngressPolicy authorizes access from. */
       sources?: GoogleIdentityAccesscontextmanagerV1IngressSource[];
     }
@@ -324,7 +347,14 @@ declare namespace gapi.client {
       /** The minimum allowed OS version. If not set, any version of this OS satisfies the constraint. Format: `"major.minor.patch"`. Examples: `"10.5.301"`, `"9.2.1"`. */
       minimumVersion?: string;
       /** Required. The allowed OS type. */
-      osType?: string;
+      osType?:
+        | 'OS_UNSPECIFIED'
+        | 'DESKTOP_MAC'
+        | 'DESKTOP_WINDOWS'
+        | 'DESKTOP_LINUX'
+        | 'DESKTOP_CHROME_OS'
+        | 'ANDROID'
+        | 'IOS';
       /** Only allows requests from devices with a verified Chrome OS. Verifications includes requirements that the device is enterprise-managed, conformant to domain policies, and the caller has permission to call the API targeted by the request. */
       requireVerifiedChromeOs?: boolean;
     }
@@ -336,7 +366,7 @@ declare namespace gapi.client {
       /** Identifier. Resource name for the `ServicePerimeter`. Format: `accessPolicies/{access_policy}/servicePerimeters/{service_perimeter}`. The `service_perimeter` component must begin with a letter, followed by alphanumeric characters or `_`. After you create a `ServicePerimeter`, you cannot change its `name`. */
       name?: string;
       /** Perimeter type indicator. A single project or VPC network is allowed to be a member of single regular perimeter, but multiple service perimeter bridges. A project cannot be a included in a perimeter bridge without being included in regular perimeter. For perimeter bridges, the restricted service list as well as access level lists must be empty. */
-      perimeterType?: string;
+      perimeterType?: 'PERIMETER_TYPE_REGULAR' | 'PERIMETER_TYPE_BRIDGE';
       /** Proposed (or dry run) ServicePerimeter configuration. This configuration allows to specify and test ServicePerimeter configuration without enforcing actual access restrictions. Only allowed to be set when the "use_explicit_dry_run_spec" flag is set. */
       spec?: GoogleIdentityAccesscontextmanagerV1ServicePerimeterConfig;
       /** Current ServicePerimeter configuration. Specifies sets of resources, restricted services and access levels that determine perimeter content and boundaries. */
@@ -412,17 +442,22 @@ declare namespace gapi.client {
       /** Lists assets with time and resource types and returns paged results in response. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** A list of asset types to take a snapshot for. For example: "compute.googleapis.com/Disk". Regular expression is also supported. For example: * "compute.googleapis.com.*" snapshots resources whose asset type starts with "compute.googleapis.com". * ".*Instance" snapshots resources whose asset type ends with "Instance". * ".*Instance.*" snapshots resources whose asset type contains "Instance". See [RE2](https://github.com/google/re2/wiki/Syntax) for all supported regular expression syntax. If the regular expression does not match any supported asset type, an INVALID_ARGUMENT error will be returned. If specified, only matching assets will be returned, otherwise, it will snapshot all asset types. See [Introduction to Cloud Asset Inventory](https://cloud.google.com/asset-inventory/docs/overview) for all supported asset types. */
         assetTypes?: string | string[];
         /** JSONP */
         callback?: string;
         /** Asset content type. If not specified, no content but the asset name will be returned. */
-        contentType?: string;
+        contentType?:
+          | 'CONTENT_TYPE_UNSPECIFIED'
+          | 'RESOURCE'
+          | 'IAM_POLICY'
+          | 'ORG_POLICY'
+          | 'ACCESS_POLICY';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */

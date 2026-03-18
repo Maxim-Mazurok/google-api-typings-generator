@@ -38,7 +38,7 @@ declare namespace gapi.client {
       /** Notification to send to android devices. */
       notification?: AndroidNotification;
       /** Message priority. Can take "normal" and "high" values. For more information, see [Setting the priority of a message](https://firebase.google.com/docs/cloud-messaging/customize-messages/setting-message-priority). */
-      priority?: string;
+      priority?: 'NORMAL' | 'HIGH';
       /** Package name of the application where the registration token must match in order to receive the message. */
       restrictedPackageName?: string;
       /** Optional. If set to true, messages will be allowed to be delivered to the app while the device is connected over a restricted satellite network. This should only be enabled for messages that can be handled over a restricted satellite network and only for apps that are enabled to work over a restricted satellite network. Note that the ability of the app to connect to a restricted satellite network is dependent on the carrier's settings and the device model. */
@@ -82,9 +82,15 @@ declare namespace gapi.client {
       /** Sets the number of items this notification represents. May be displayed as a badge count for launchers that support badging.See [Notification Badge](https://developer.android.com/training/notify-user/badges). For example, this might be useful if you're using just one notification to represent multiple new messages but you want the count here to represent the number of total new messages. If zero or unspecified, systems that support badging use the default, which is to increment a number displayed on the long-press menu each time a new notification arrives. */
       notificationCount?: number;
       /** Set the relative priority for this notification. Priority is an indication of how much of the user's attention should be consumed by this notification. Low-priority notifications may be hidden from the user in certain situations, while the user might be interrupted for a higher-priority notification. This parameter affects notification priority only on devices running Android 7.1 (API level 25) and lower. On Android 8.0 (API level 26) and higher, priority is ignored in favor of channel [importance](https://developer.android.com/develop/ui/views/notifications/channels#importance). Note this priority differs from `AndroidMessagePriority`. This priority is processed by the client after the message has been delivered, whereas [AndroidMessagePriority](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#androidmessagepriority) is an FCM concept that controls when the message is delivered. */
-      notificationPriority?: string;
+      notificationPriority?:
+        | 'PRIORITY_UNSPECIFIED'
+        | 'PRIORITY_MIN'
+        | 'PRIORITY_LOW'
+        | 'PRIORITY_DEFAULT'
+        | 'PRIORITY_HIGH'
+        | 'PRIORITY_MAX';
       /** Setting to control when a notification may be proxied. */
-      proxy?: string;
+      proxy?: 'PROXY_UNSPECIFIED' | 'ALLOW' | 'DENY' | 'IF_PRIORITY_LOWERED';
       /** The sound to play when the device receives the notification. Supports "default" or the filename of a sound resource bundled in the app. Sound files must reside in /res/raw/. */
       sound?: string;
       /** When set to false or unset, the notification is automatically dismissed when the user clicks it in the panel. When set to true, the notification persists even when the user clicks it. */
@@ -102,7 +108,7 @@ declare namespace gapi.client {
       /** Set the vibration pattern to use. Pass in an array of [protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Duration) to turn on or off the vibrator. The first value indicates the `Duration` to wait before turning the vibrator on. The next value indicates the `Duration` to keep the vibrator on. Subsequent values alternate between `Duration` to turn the vibrator off and to turn the vibrator on. If `vibrate_timings` is set and `default_vibrate_timings` is set to `true`, the default value is used instead of the user-specified `vibrate_timings`. */
       vibrateTimings?: string[];
       /** Set the [Notification.visibility](https://developer.android.com/reference/android/app/Notification.html#visibility) of the notification. */
-      visibility?: string;
+      visibility?: 'VISIBILITY_UNSPECIFIED' | 'PRIVATE' | 'PUBLIC' | 'SECRET';
     }
     interface ApnsConfig {
       /** Options for features provided by the FCM SDK for iOS. */
@@ -198,11 +204,11 @@ declare namespace gapi.client {
       /** Send a message to specified target (a registration token, topic or condition). */
       send(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -227,11 +233,11 @@ declare namespace gapi.client {
       send(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

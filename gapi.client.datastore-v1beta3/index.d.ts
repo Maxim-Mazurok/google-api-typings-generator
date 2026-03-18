@@ -52,7 +52,12 @@ declare namespace gapi.client {
       /** The aggregation results for this batch. */
       aggregationResults?: AggregationResult[];
       /** The state of the query after the current batch. Only COUNT(*) aggregations are supported in the initial launch. Therefore, expected result type is limited to `NO_MORE_RESULTS`. */
-      moreResults?: string;
+      moreResults?:
+        | 'MORE_RESULTS_TYPE_UNSPECIFIED'
+        | 'NOT_FINISHED'
+        | 'MORE_RESULTS_AFTER_LIMIT'
+        | 'MORE_RESULTS_AFTER_CURSOR'
+        | 'NO_MORE_RESULTS';
       /** Read timestamp this batch was returned from. In a single transaction, subsequent query result batches for the same query can have a greater timestamp. Each batch's read timestamp is valid for all preceding batches. */
       readTime?: string;
     }
@@ -82,7 +87,7 @@ declare namespace gapi.client {
     }
     interface CommitRequest {
       /** The type of commit to perform. Defaults to `TRANSACTIONAL`. */
-      mode?: string;
+      mode?: 'MODE_UNSPECIFIED' | 'TRANSACTIONAL' | 'NON_TRANSACTIONAL';
       /** The mutations to perform. When mode is `TRANSACTIONAL`, mutations affecting a single entity are applied in order. The following sequences of mutations affecting a single entity are not permitted in a single `Commit` request: - `insert` followed by `insert` - `update` followed by `insert` - `upsert` followed by `insert` - `delete` followed by `update` When mode is `NON_TRANSACTIONAL`, no two mutations may affect a single entity. */
       mutations?: Mutation[];
       /** The identifier of the transaction associated with the commit. A transaction identifier is returned by a call to Datastore.BeginTransaction. */
@@ -100,7 +105,7 @@ declare namespace gapi.client {
       /** The list of filters to combine. Requires: * At least one filter is present. */
       filters?: Filter[];
       /** The operator for combining multiple filters. */
-      op?: string;
+      op?: 'OPERATOR_UNSPECIFIED' | 'AND' | 'OR';
     }
     interface Count {
       /** Optional. Optional constraint on the maximum number of entities to count. This provides a way to set an upper bound on the number of entities to scan, limiting latency, and cost. Unspecified is interpreted as no bound. If a zero value is provided, a count result of zero should always be expected. High-Level Example: ``` AGGREGATE COUNT_UP_TO(1000) OVER ( SELECT * FROM k ); ``` Requires: * Must be non-negative when present. */
@@ -152,7 +157,11 @@ declare namespace gapi.client {
     }
     interface FindNearest {
       /** Required. The Distance Measure to use, required. */
-      distanceMeasure?: string;
+      distanceMeasure?:
+        | 'DISTANCE_MEASURE_UNSPECIFIED'
+        | 'EUCLIDEAN'
+        | 'COSINE'
+        | 'DOT_PRODUCT';
       /** Optional. Optional name of the field to output the result of the vector distance calculation. Must conform to entity property limitations. */
       distanceResultProperty?: string;
       /** Optional. Option to specify a threshold for which no less similar documents will be returned. The behavior of the specified `distance_measure` will affect the meaning of the distance threshold. Since DOT_PRODUCT distances increase when the vectors are more similar, the comparison is inverted. * For EUCLIDEAN, COSINE: WHERE distance <= distance_threshold * For DOT_PRODUCT: WHERE distance >= distance_threshold */
@@ -170,11 +179,22 @@ declare namespace gapi.client {
       /** The client-assigned labels which were provided when the operation was created. May also include additional labels. */
       labels?: {[P in string]: string};
       /** The type of the operation. Can be used as a filter in ListOperationsRequest. */
-      operationType?: string;
+      operationType?:
+        | 'OPERATION_TYPE_UNSPECIFIED'
+        | 'EXPORT_ENTITIES'
+        | 'IMPORT_ENTITIES';
       /** The time that work began on the operation. */
       startTime?: string;
       /** The current state of the Operation. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'INITIALIZING'
+        | 'PROCESSING'
+        | 'CANCELLING'
+        | 'FINALIZING'
+        | 'SUCCESSFUL'
+        | 'FAILED'
+        | 'CANCELLED';
     }
     interface GoogleDatastoreAdminV1beta1EntityFilter {
       /** If empty, then this represents all kinds. */
@@ -222,17 +242,42 @@ declare namespace gapi.client {
       /** The client-assigned labels which were provided when the operation was created. May also include additional labels. */
       labels?: {[P in string]: string};
       /** The type of the operation. Can be used as a filter in ListOperationsRequest. */
-      operationType?: string;
+      operationType?:
+        | 'OPERATION_TYPE_UNSPECIFIED'
+        | 'EXPORT_ENTITIES'
+        | 'IMPORT_ENTITIES'
+        | 'CREATE_INDEX'
+        | 'DELETE_INDEX';
       /** The time that work began on the operation. */
       startTime?: string;
       /** The current state of the Operation. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'INITIALIZING'
+        | 'PROCESSING'
+        | 'CANCELLING'
+        | 'FINALIZING'
+        | 'SUCCESSFUL'
+        | 'FAILED'
+        | 'CANCELLED';
     }
     interface GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata {
       /** The current state of migration from Cloud Datastore to Cloud Firestore in Datastore mode. */
-      migrationState?: string;
+      migrationState?:
+        | 'MIGRATION_STATE_UNSPECIFIED'
+        | 'RUNNING'
+        | 'PAUSED'
+        | 'COMPLETE';
       /** The current step of migration from Cloud Datastore to Cloud Firestore in Datastore mode. */
-      migrationStep?: string;
+      migrationStep?:
+        | 'MIGRATION_STEP_UNSPECIFIED'
+        | 'PREPARE'
+        | 'START'
+        | 'APPLY_WRITES_SYNCHRONOUSLY'
+        | 'COPY_AND_VERIFY'
+        | 'REDIRECT_EVENTUALLY_CONSISTENT_READS'
+        | 'REDIRECT_STRONGLY_CONSISTENT_READS'
+        | 'REDIRECT_WRITES';
     }
     interface GoogleDatastoreAdminV1EntityFilter {
       /** If empty, then this represents all kinds. */
@@ -282,15 +327,27 @@ declare namespace gapi.client {
       /** Details for the `REDIRECT_WRITES` step. */
       redirectWritesStepDetails?: GoogleDatastoreAdminV1RedirectWritesStepDetails;
       /** The step that is starting. An event with step set to `START` indicates that the migration has been reverted back to the initial pre-migration state. */
-      step?: string;
+      step?:
+        | 'MIGRATION_STEP_UNSPECIFIED'
+        | 'PREPARE'
+        | 'START'
+        | 'APPLY_WRITES_SYNCHRONOUSLY'
+        | 'COPY_AND_VERIFY'
+        | 'REDIRECT_EVENTUALLY_CONSISTENT_READS'
+        | 'REDIRECT_STRONGLY_CONSISTENT_READS'
+        | 'REDIRECT_WRITES';
     }
     interface GoogleDatastoreAdminV1MigrationStateEvent {
       /** The new state of the migration. */
-      state?: string;
+      state?: 'MIGRATION_STATE_UNSPECIFIED' | 'RUNNING' | 'PAUSED' | 'COMPLETE';
     }
     interface GoogleDatastoreAdminV1PrepareStepDetails {
       /** The concurrency mode this database will use when it reaches the `REDIRECT_WRITES` step. */
-      concurrencyMode?: string;
+      concurrencyMode?:
+        | 'CONCURRENCY_MODE_UNSPECIFIED'
+        | 'PESSIMISTIC'
+        | 'OPTIMISTIC'
+        | 'OPTIMISTIC_WITH_ENTITY_GROUPS';
     }
     interface GoogleDatastoreAdminV1Progress {
       /** The amount of work that has been completed. Note that this may be greater than work_estimated. */
@@ -300,7 +357,11 @@ declare namespace gapi.client {
     }
     interface GoogleDatastoreAdminV1RedirectWritesStepDetails {
       /** The concurrency mode for this database. */
-      concurrencyMode?: string;
+      concurrencyMode?:
+        | 'CONCURRENCY_MODE_UNSPECIFIED'
+        | 'PESSIMISTIC'
+        | 'OPTIMISTIC'
+        | 'OPTIMISTIC_WITH_ENTITY_GROUPS';
     }
     interface GqlQuery {
       /** When false, the query string must not contain any literals and instead must bind all values. For example, `SELECT * FROM Kind WHERE a = 'string literal'` is not allowed, while `SELECT * FROM Kind WHERE a = @value` is. */
@@ -356,7 +417,10 @@ declare namespace gapi.client {
       /** The version of the entity that this mutation is being applied to. If this does not match the current version on the server, the mutation conflicts. */
       baseVersion?: string;
       /** The strategy to use when a conflict is detected. Defaults to `SERVER_VALUE`. If this is set, then `conflict_detection_strategy` must also be set. */
-      conflictResolutionStrategy?: string;
+      conflictResolutionStrategy?:
+        | 'STRATEGY_UNSPECIFIED'
+        | 'SERVER_VALUE'
+        | 'FAIL';
       /** The key of the entity to delete. The entity may or may not already exist. Must have a complete key path and must not be reserved/read-only. */
       delete?: Key;
       /** The entity to insert. The entity must not already exist. The entity key's final path element may be incomplete. */
@@ -410,7 +474,17 @@ declare namespace gapi.client {
     }
     interface PropertyFilter {
       /** The operator to filter by. */
-      op?: string;
+      op?:
+        | 'OPERATOR_UNSPECIFIED'
+        | 'LESS_THAN'
+        | 'LESS_THAN_OR_EQUAL'
+        | 'GREATER_THAN'
+        | 'GREATER_THAN_OR_EQUAL'
+        | 'EQUAL'
+        | 'IN'
+        | 'NOT_EQUAL'
+        | 'HAS_ANCESTOR'
+        | 'NOT_IN';
       /** The property to filter by. */
       property?: PropertyReference;
       /** The value to compare the property to. */
@@ -422,7 +496,7 @@ declare namespace gapi.client {
     }
     interface PropertyOrder {
       /** The direction to order by. Defaults to `ASCENDING`. */
-      direction?: string;
+      direction?: 'DIRECTION_UNSPECIFIED' | 'ASCENDING' | 'DESCENDING';
       /** The property to order by. */
       property?: PropertyReference;
     }
@@ -444,7 +518,7 @@ declare namespace gapi.client {
       /** Removes all of the given elements from the array in the property. If the property is not an array, or if the property does not yet exist, it is set to the empty array. Equivalent numbers of different types (e.g. 3L and 3.0) are considered equal when deciding whether an element should be removed. NaN is equal to NaN, and the null value is equal to the null value. This will remove all equivalent values if there are duplicates. The corresponding transform result will be the null value. */
       removeAllFromArray?: ArrayValue;
       /** Sets the property to the given server value. */
-      setToServerValue?: string;
+      setToServerValue?: 'SERVER_VALUE_UNSPECIFIED' | 'REQUEST_TIME';
     }
     interface Query {
       /** The properties to make distinct. The query results will contain the first result for each distinct combination of values for the given properties (if empty, all results are returned). Requires: * If `order` is specified, the set of distinct on properties must appear before the non-distinct on properties in `order`. */
@@ -474,9 +548,18 @@ declare namespace gapi.client {
       /** The results for this batch. */
       entityResults?: EntityResult[];
       /** The result type for every entity in `entity_results`. */
-      entityResultType?: string;
+      entityResultType?:
+        | 'RESULT_TYPE_UNSPECIFIED'
+        | 'FULL'
+        | 'PROJECTION'
+        | 'KEY_ONLY';
       /** The state of the query after the current batch. */
-      moreResults?: string;
+      moreResults?:
+        | 'MORE_RESULTS_TYPE_UNSPECIFIED'
+        | 'NOT_FINISHED'
+        | 'MORE_RESULTS_AFTER_LIMIT'
+        | 'MORE_RESULTS_AFTER_CURSOR'
+        | 'NO_MORE_RESULTS';
       /** Read timestamp this batch was returned from. This applies to the range of results from the query's `start_cursor` (or the beginning of the query if no cursor was given) to this batch's `end_cursor` (not the query's `end_cursor`). In a single transaction, subsequent query result batches for the same query can have a greater timestamp. Each batch's read timestamp is valid for all preceding batches. This value will not be set for eventually consistent queries in Cloud Datastore. */
       readTime?: string;
       /** A cursor that points to the position after the last skipped result. Will be set when `skipped_results` != 0. */
@@ -492,7 +575,7 @@ declare namespace gapi.client {
     }
     interface ReadOptions {
       /** The non-transactional read consistency to use. */
-      readConsistency?: string;
+      readConsistency?: 'READ_CONSISTENCY_UNSPECIFIED' | 'STRONG' | 'EVENTUAL';
       /** Reads entities as they were at the given time. This value is only supported for Cloud Firestore in Datastore mode. This must be a microsecond precision timestamp within the past one hour, or if Point-in-Time Recovery is enabled, can additionally be a whole minute timestamp within the past 7 days. */
       readTime?: string;
       /** The identifier of the transaction in which to read. A transaction identifier is returned by a call to Datastore.BeginTransaction. */
@@ -588,7 +671,7 @@ declare namespace gapi.client {
       /** The `meaning` field should only be populated for backwards compatibility. */
       meaning?: number;
       /** A null value. */
-      nullValue?: string;
+      nullValue?: 'NULL_VALUE';
       /** A UTF-8 encoded string value. When `exclude_from_indexes` is false (it is indexed) , may have at most 1500 bytes. Otherwise, may be set to at most 1,000,000 bytes. */
       stringValue?: string;
       /** A timestamp value. When stored in the Datastore, precise only to microseconds; any additional precision is rounded down. */
@@ -598,11 +681,11 @@ declare namespace gapi.client {
       /** Allocates IDs for the given keys, which is useful for referencing an entity before it is inserted. */
       allocateIds(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -627,11 +710,11 @@ declare namespace gapi.client {
       allocateIds(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -656,11 +739,11 @@ declare namespace gapi.client {
       /** Begins a new transaction. */
       beginTransaction(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -685,11 +768,11 @@ declare namespace gapi.client {
       beginTransaction(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -714,11 +797,11 @@ declare namespace gapi.client {
       /** Commits a transaction, optionally creating, deleting or modifying some entities. */
       commit(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -743,11 +826,11 @@ declare namespace gapi.client {
       commit(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -772,11 +855,11 @@ declare namespace gapi.client {
       /** Looks up entities by key. */
       lookup(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -801,11 +884,11 @@ declare namespace gapi.client {
       lookup(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -830,11 +913,11 @@ declare namespace gapi.client {
       /** Prevents the supplied keys' IDs from being auto-allocated by Cloud Datastore. */
       reserveIds(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -859,11 +942,11 @@ declare namespace gapi.client {
       reserveIds(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -888,11 +971,11 @@ declare namespace gapi.client {
       /** Rolls back a transaction. */
       rollback(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -917,11 +1000,11 @@ declare namespace gapi.client {
       rollback(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -946,11 +1029,11 @@ declare namespace gapi.client {
       /** Runs an aggregation query. */
       runAggregationQuery(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -975,11 +1058,11 @@ declare namespace gapi.client {
       runAggregationQuery(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1004,11 +1087,11 @@ declare namespace gapi.client {
       /** Queries for entities. */
       runQuery(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1033,11 +1116,11 @@ declare namespace gapi.client {
       runQuery(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

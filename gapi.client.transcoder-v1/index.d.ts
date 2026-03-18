@@ -45,7 +45,7 @@ declare namespace gapi.client {
       /** The time to end the fade animation, in seconds. Default: `start_time_offset` + 1s */
       endTimeOffset?: string;
       /** Required. Type of fade animation: `FADE_IN` or `FADE_OUT`. */
-      fadeType?: string;
+      fadeType?: 'FADE_TYPE_UNSPECIFIED' | 'FADE_IN' | 'FADE_OUT';
       /** The time to start the fade animation, in seconds. Default: 0 */
       startTimeOffset?: string;
       /** Normalized coordinates based on output video resolution. Valid values: `0.0`–`1.0`. `xy` is the upper-left coordinate of the overlay object. For example, use the x and y coordinates {0,0} to position the top-left corner of the overlay animation in the top-left corner of the output video. */
@@ -126,7 +126,10 @@ declare namespace gapi.client {
     }
     interface DashConfig {
       /** The segment reference scheme for a `DASH` manifest. The default is `SEGMENT_LIST`. */
-      segmentReferenceScheme?: string;
+      segmentReferenceScheme?:
+        | 'SEGMENT_REFERENCE_SCHEME_UNSPECIFIED'
+        | 'SEGMENT_LIST'
+        | 'SEGMENT_TEMPLATE_NUMBER';
     }
     interface Deblock {
       /** Enable deblocker. The default is `false`. */
@@ -216,7 +219,10 @@ declare namespace gapi.client {
       /** Required. The target video frame rate in frames per second (FPS). Must be less than or equal to 120. */
       frameRate?: number;
       /** Optional. Frame rate conversion strategy for desired frame rate. The default is `DOWNSAMPLE`. */
-      frameRateConversionStrategy?: string;
+      frameRateConversionStrategy?:
+        | 'FRAME_RATE_CONVERSION_STRATEGY_UNSPECIFIED'
+        | 'DOWNSAMPLE'
+        | 'DROP_DUPLICATE';
       /** Select the GOP size based on the specified duration. The default is `3s`. Note that `gopDuration` must be less than or equal to [`segmentDuration`](#SegmentSettings), and [`segmentDuration`](#SegmentSettings) must be divisible by `gopDuration`. */
       gopDuration?: string;
       /** Select the GOP size based on the specified frame count. Must be greater than zero. */
@@ -264,7 +270,10 @@ declare namespace gapi.client {
       /** Required. The target video frame rate in frames per second (FPS). Must be less than or equal to 120. */
       frameRate?: number;
       /** Optional. Frame rate conversion strategy for desired frame rate. The default is `DOWNSAMPLE`. */
-      frameRateConversionStrategy?: string;
+      frameRateConversionStrategy?:
+        | 'FRAME_RATE_CONVERSION_STRATEGY_UNSPECIFIED'
+        | 'DOWNSAMPLE'
+        | 'DROP_DUPLICATE';
       /** Select the GOP size based on the specified duration. The default is `3s`. Note that `gopDuration` must be less than or equal to [`segmentDuration`](#SegmentSettings), and [`segmentDuration`](#SegmentSettings) must be divisible by `gopDuration`. */
       gopDuration?: string;
       /** Select the GOP size based on the specified frame count. Must be greater than zero. */
@@ -337,17 +346,28 @@ declare namespace gapi.client {
       /** The labels associated with this job. You can use these to organize and group your jobs. */
       labels?: {[P in string]: string};
       /** The processing mode of the job. The default is `PROCESSING_MODE_INTERACTIVE`. */
-      mode?: string;
+      mode?:
+        | 'PROCESSING_MODE_UNSPECIFIED'
+        | 'PROCESSING_MODE_INTERACTIVE'
+        | 'PROCESSING_MODE_BATCH';
       /** The resource name of the job. Format: `projects/{project_number}/locations/{location}/jobs/{job}` */
       name?: string;
       /** Optional. The optimization strategy of the job. The default is `AUTODETECT`. */
-      optimization?: string;
+      optimization?:
+        | 'OPTIMIZATION_STRATEGY_UNSPECIFIED'
+        | 'AUTODETECT'
+        | 'DISABLED';
       /** Input only. Specify the `output_uri` to populate an empty `Job.config.output.uri` or `JobTemplate.config.output.uri` when using template. URI for the output file(s). For example, `gs://my-bucket/outputs/`. See [Supported input and output formats](https://cloud.google.com/transcoder/docs/concepts/supported-input-and-output-formats). */
       outputUri?: string;
       /** Output only. The time the transcoding started. */
       startTime?: string;
       /** Output only. The current state of the job. */
-      state?: string;
+      state?:
+        | 'PROCESSING_STATE_UNSPECIFIED'
+        | 'PENDING'
+        | 'RUNNING'
+        | 'SUCCEEDED'
+        | 'FAILED';
       /** Input only. Specify the `template_id` to use for populating `Job.config`. The default is `preset/web-hd`, which is the only supported preset. User defined JobTemplate: `{job_template_id}` */
       templateId?: string;
       /** Job time to live value in days, which will be effective after job completion. Job should be deleted automatically after the given TTL. Enter a value between 1 and 90. The default is 30. */
@@ -409,7 +429,7 @@ declare namespace gapi.client {
       /** Required. List of user supplied MuxStream.key values that should appear in this manifest. When Manifest.type is `HLS`, a media manifest with name MuxStream.key and `.m3u8` extension is generated for each element in this list. */
       muxStreams?: string[];
       /** Required. Type of the manifest. */
-      type?: string;
+      type?: 'MANIFEST_TYPE_UNSPECIFIED' | 'HLS' | 'DASH';
     }
     interface MpegCommonEncryption {
       /** Required. Specify the encryption scheme. Supported encryption schemes: - `cenc` - `cbcs` */
@@ -565,7 +585,10 @@ declare namespace gapi.client {
       /** Required. The target video frame rate in frames per second (FPS). Must be less than or equal to 120. */
       frameRate?: number;
       /** Optional. Frame rate conversion strategy for desired frame rate. The default is `DOWNSAMPLE`. */
-      frameRateConversionStrategy?: string;
+      frameRateConversionStrategy?:
+        | 'FRAME_RATE_CONVERSION_STRATEGY_UNSPECIFIED'
+        | 'DOWNSAMPLE'
+        | 'DROP_DUPLICATE';
       /** Select the GOP size based on the specified duration. The default is `3s`. Note that `gopDuration` must be less than or equal to [`segmentDuration`](#SegmentSettings), and [`segmentDuration`](#SegmentSettings) must be divisible by `gopDuration`. */
       gopDuration?: string;
       /** Select the GOP size based on the specified frame count. Must be greater than zero. */
@@ -602,11 +625,11 @@ declare namespace gapi.client {
       /** Creates a job in the specified region. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -631,11 +654,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -660,13 +683,13 @@ declare namespace gapi.client {
       /** Deletes a job. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** If set to true, and the job is not found, the request will succeed but no action will be taken on the server. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -689,11 +712,11 @@ declare namespace gapi.client {
       /** Returns the job data. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -716,11 +739,11 @@ declare namespace gapi.client {
       /** Lists jobs in the specified region. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -753,11 +776,11 @@ declare namespace gapi.client {
       /** Creates a job template in the specified region. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -784,11 +807,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -815,13 +838,13 @@ declare namespace gapi.client {
       /** Deletes a job template. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** If set to true, and the job template is not found, the request will succeed but no action will be taken on the server. */
         allowMissing?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -844,11 +867,11 @@ declare namespace gapi.client {
       /** Returns the job template data. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -871,11 +894,11 @@ declare namespace gapi.client {
       /** Lists job templates in the specified region. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

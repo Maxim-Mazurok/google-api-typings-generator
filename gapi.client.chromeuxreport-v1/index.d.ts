@@ -56,7 +56,7 @@ declare namespace gapi.client {
     }
     interface HistoryKey {
       /** The form factor is the device class that all users used to access the site for this record. If the form factor is unspecified, then aggregated data over all form factors will be returned. */
-      formFactor?: string;
+      formFactor?: 'ALL_FORM_FACTORS' | 'PHONE' | 'DESKTOP' | 'TABLET';
       /** Origin specifies the origin that this record is for. Note: When specifying an origin, data for loads under this origin over all pages are aggregated into origin level user experience data. */
       origin?: string;
       /** Url specifies a specific url that this record is for. This url should be normalized, following the normalization actions taken in the request to increase the chances of successful lookup. Note: When specifying a "url" only data for that specific url will be aggregated. */
@@ -74,7 +74,7 @@ declare namespace gapi.client {
       /** The effective connection type is the general connection class that all users experienced for this record. This field uses the values ["offline", "slow-2G", "2G", "3G", "4G"] as specified in: https://wicg.github.io/netinfo/#effective-connection-types If the effective connection type is unspecified, then aggregated data over all effective connection types will be returned. */
       effectiveConnectionType?: string;
       /** The form factor is the device class that all users used to access the site for this record. If the form factor is unspecified, then aggregated data over all form factors will be returned. */
-      formFactor?: string;
+      formFactor?: 'ALL_FORM_FACTORS' | 'PHONE' | 'DESKTOP' | 'TABLET';
       /** Origin specifies the origin that this record is for. Note: When specifying an origin, data for loads under this origin over all pages are aggregated into origin level user experience data. */
       origin?: string;
       /** Url specifies a specific url that this record is for. Note: When specifying a "url" only data for that specific url will be aggregated. */
@@ -104,7 +104,7 @@ declare namespace gapi.client {
       /** The number of collection periods to return. If not specified, the default is 25. If present, must be in the range [1, 40]. */
       collectionPeriodCount?: number;
       /** The form factor is a query dimension that specifies the device class that the record's data should belong to. Note: If no form factor is specified, then a special record with aggregated data over all form factors will be returned. */
-      formFactor?: string;
+      formFactor?: 'ALL_FORM_FACTORS' | 'PHONE' | 'DESKTOP' | 'TABLET';
       /** The metrics that should be included in the response. If none are specified then any metrics found will be returned. Allowed values: ["first_contentful_paint", "first_input_delay", "largest_contentful_paint", "cumulative_layout_shift", "experimental_time_to_first_byte", "experimental_interaction_to_next_paint"] */
       metrics?: string[];
       /** The url pattern "origin" refers to a url pattern that is the origin of a website. Examples: "https://example.com", "https://cloud.google.com" */
@@ -122,7 +122,7 @@ declare namespace gapi.client {
       /** The effective connection type is a query dimension that specifies the effective network class that the record's data should belong to. This field uses the values ["offline", "slow-2G", "2G", "3G", "4G"] as specified in: https://wicg.github.io/netinfo/#effective-connection-types Note: If no effective connection type is specified, then a special record with aggregated data over all effective connection types will be returned. */
       effectiveConnectionType?: string;
       /** The form factor is a query dimension that specifies the device class that the record's data should belong to. Note: If no form factor is specified, then a special record with aggregated data over all form factors will be returned. */
-      formFactor?: string;
+      formFactor?: 'ALL_FORM_FACTORS' | 'PHONE' | 'DESKTOP' | 'TABLET';
       /** The metrics that should be included in the response. If none are specified then any metrics found will be returned. Allowed values: ["first_contentful_paint", "first_input_delay", "largest_contentful_paint", "cumulative_layout_shift", "experimental_time_to_first_byte", "experimental_interaction_to_next_paint"] */
       metrics?: string[];
       /** The url pattern "origin" refers to a url pattern that is the origin of a website. Examples: "https://example.com", "https://cloud.google.com" */
@@ -166,11 +166,11 @@ declare namespace gapi.client {
       /** Queries the Chrome User Experience Report for a timeseries `history record` for a given site. Returns a `history record` that contains one or more `metric timeseries` corresponding to performance data about the requested site. */
       queryHistoryRecord(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -193,11 +193,11 @@ declare namespace gapi.client {
       queryHistoryRecord(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -220,11 +220,11 @@ declare namespace gapi.client {
       /** Queries the Chrome User Experience for a single `record` for a given site. Returns a `record` that contains one or more `metrics` corresponding to performance data about the requested site. */
       queryRecord(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -247,11 +247,11 @@ declare namespace gapi.client {
       queryRecord(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

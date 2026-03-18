@@ -37,7 +37,10 @@ declare namespace gapi.client {
       /** Output only. The human-readable name for the Analytics account. */
       displayName?: string;
       /** Output only. The verification state of the link between the Analytics account and the parent organization. */
-      linkVerificationState?: string;
+      linkVerificationState?:
+        | 'LINK_VERIFICATION_STATE_UNSPECIFIED'
+        | 'LINK_VERIFICATION_STATE_VERIFIED'
+        | 'LINK_VERIFICATION_STATE_NOT_VERIFIED';
       /** Identifier. Resource name of this AnalyticsAccountLink. Note the resource ID is the same as the ID of the Analtyics account. Format: organizations/{org_id}/analyticsAccountLinks/{analytics_account_link_id} Example: "organizations/xyz/analyticsAccountLinks/1234" */
       name?: string;
     }
@@ -112,9 +115,16 @@ declare namespace gapi.client {
       /** The name of the Google Analytics Admin API property resource. Format: analyticsadmin.googleapis.com/properties/{property_id} */
       property?: string;
       /** The subtype of the analytics property. This affects the billable event count. */
-      propertyType?: string;
+      propertyType?:
+        | 'ANALYTICS_PROPERTY_TYPE_UNSPECIFIED'
+        | 'ANALYTICS_PROPERTY_TYPE_ORDINARY'
+        | 'ANALYTICS_PROPERTY_TYPE_SUBPROPERTY'
+        | 'ANALYTICS_PROPERTY_TYPE_ROLLUP';
       /** The service level of the property. */
-      serviceLevel?: string;
+      serviceLevel?:
+        | 'ANALYTICS_SERVICE_LEVEL_UNSPECIFIED'
+        | 'ANALYTICS_SERVICE_LEVEL_STANDARD'
+        | 'ANALYTICS_SERVICE_LEVEL_360';
       /** Total event count that the property received during the requested month. */
       totalEventCount?: string;
     }
@@ -132,18 +142,21 @@ declare namespace gapi.client {
       /** Required. The Analytics property to change the ServiceLevel setting. This field is the name of the Google Analytics Admin API property resource. Format: analyticsadmin.googleapis.com/properties/{property_id} */
       analyticsProperty?: string;
       /** Required. The service level to set for this property. */
-      serviceLevel?: string;
+      serviceLevel?:
+        | 'ANALYTICS_SERVICE_LEVEL_UNSPECIFIED'
+        | 'ANALYTICS_SERVICE_LEVEL_STANDARD'
+        | 'ANALYTICS_SERVICE_LEVEL_360';
     }
     interface SetPropertyServiceLevelResponse {}
     interface AnalyticsAccountLinksResource {
       /** Creates the link between the Analytics account and the Google Marketing Platform organization. User needs to be an org user, and admin on the Analytics account to create the link. If the account is already linked to an organization, user needs to unlink the account from the current organization, then try link again. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -168,11 +181,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -197,11 +210,11 @@ declare namespace gapi.client {
       /** Deletes the AnalyticsAccountLink, which detaches the Analytics account from the Google Marketing Platform organization. User needs to be an org user, and admin on the Analytics account in order to delete the link. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -224,11 +237,11 @@ declare namespace gapi.client {
       /** Lists the Google Analytics accounts link to the specified Google Marketing Platform organization. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -255,11 +268,11 @@ declare namespace gapi.client {
       /** Updates the service level for an Analytics property. */
       setPropertyServiceLevel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The parent AnalyticsAccountLink scope where this property is in. Format: organizations/{org_id}/analyticsAccountLinks/{analytics_account_link_id} */
         analyticsAccountLink: string;
         /** JSONP */
@@ -284,11 +297,11 @@ declare namespace gapi.client {
       setPropertyServiceLevel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. The parent AnalyticsAccountLink scope where this property is in. Format: organizations/{org_id}/analyticsAccountLinks/{analytics_account_link_id} */
           analyticsAccountLink: string;
           /** JSONP */
@@ -315,11 +328,11 @@ declare namespace gapi.client {
       /** Returns a list of clients managed by the sales partner organization. User needs to be an OrgAdmin/BillingAdmin on the sales partner organization in order to view the end clients. */
       findSalesPartnerManagedClients(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -344,11 +357,11 @@ declare namespace gapi.client {
       findSalesPartnerManagedClients(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -373,11 +386,11 @@ declare namespace gapi.client {
       /** Looks up a single organization. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -400,11 +413,11 @@ declare namespace gapi.client {
       /** Returns a list of organizations that the user has access to. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -429,11 +442,11 @@ declare namespace gapi.client {
       /** Gets the usage and billing data for properties within the organization for the specified month. Per direct client org, user needs to be OrgAdmin/BillingAdmin on the organization in order to view the billing and usage data. Per sales partner client org, user needs to be OrgAdmin/BillingAdmin on the sales partner org in order to view the billing and usage data, or OrgAdmin/BillingAdmin on the sales partner client org in order to view the usage data only. */
       reportPropertyUsage(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -458,11 +471,11 @@ declare namespace gapi.client {
       reportPropertyUsage(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

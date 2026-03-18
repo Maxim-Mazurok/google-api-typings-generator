@@ -26,7 +26,7 @@ declare namespace gapi.client {
   namespace osconfig {
     interface AptRepository {
       /** Type of archive files in this repository. The default behavior is DEB. */
-      archiveType?: string;
+      archiveType?: 'ARCHIVE_TYPE_UNSPECIFIED' | 'DEB' | 'DEB_SRC';
       /** Required. List of components for this repository. Must contain at least one item. */
       components?: string[];
       /** Required. Distribution of this repository. */
@@ -42,7 +42,7 @@ declare namespace gapi.client {
       /** An exclusive list of packages to be updated. These are the only packages that will be updated. If these packages are not installed, they will be ignored. This field cannot be specified with any other patch configuration fields. */
       exclusivePackages?: string[];
       /** By changing the type to DIST, the patching is performed using `apt-get dist-upgrade` instead. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'DIST' | 'UPGRADE';
     }
     interface Assignment {
       /** Targets instances matching at least one of these label sets. This allows an assignment to target disparate groups, for example "env=prod or env=staging". */
@@ -108,7 +108,7 @@ declare namespace gapi.client {
       /** A Google Cloud Storage object containing the executable. */
       gcsObject?: GcsObject;
       /** The script interpreter to use to run the script. If no interpreter is specified the script will be executed directly, which will likely only succeed for scripts with [shebang lines] (https://en.wikipedia.org/wiki/Shebang_\(Unix\)). */
-      interpreter?: string;
+      interpreter?: 'INTERPRETER_UNSPECIFIED' | 'NONE' | 'SHELL' | 'POWERSHELL';
       /** An absolute path to the executable on the VM. */
       localPath?: string;
     }
@@ -192,13 +192,18 @@ declare namespace gapi.client {
     }
     interface GoogleCloudOsconfigV1__OSPolicyAssignmentOperationMetadata {
       /** The OS policy assignment API method. */
-      apiMethod?: string;
+      apiMethod?: 'API_METHOD_UNSPECIFIED' | 'CREATE' | 'UPDATE' | 'DELETE';
       /** Reference to the `OSPolicyAssignment` API resource. Format: `projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id@revision_id}` */
       osPolicyAssignment?: string;
       /** Rollout start time */
       rolloutStartTime?: string;
       /** State of the rollout */
-      rolloutState?: string;
+      rolloutState?:
+        | 'ROLLOUT_STATE_UNSPECIFIED'
+        | 'IN_PROGRESS'
+        | 'CANCELLING'
+        | 'CANCELLED'
+        | 'SUCCEEDED';
       /** Rollout update time */
       rolloutUpdateTime?: string;
     }
@@ -306,21 +311,36 @@ declare namespace gapi.client {
     }
     interface OSPolicyAssignmentOperationMetadata {
       /** The OS policy assignment API method. */
-      apiMethod?: string;
+      apiMethod?: 'API_METHOD_UNSPECIFIED' | 'CREATE' | 'UPDATE' | 'DELETE';
       /** Reference to the `OSPolicyAssignment` API resource. Format: `projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id@revision_id}` */
       osPolicyAssignment?: string;
       /** Rollout start time */
       rolloutStartTime?: string;
       /** State of the rollout */
-      rolloutState?: string;
+      rolloutState?:
+        | 'ROLLOUT_STATE_UNSPECIFIED'
+        | 'IN_PROGRESS'
+        | 'CANCELLING'
+        | 'CANCELLED'
+        | 'SUCCEEDED';
       /** Rollout update time */
       rolloutUpdateTime?: string;
     }
     interface Package {
       /** The desired_state the agent should maintain for this package. The default is to ensure the package is installed. */
-      desiredState?: string;
+      desiredState?:
+        | 'DESIRED_STATE_UNSPECIFIED'
+        | 'INSTALLED'
+        | 'UPDATED'
+        | 'REMOVED';
       /** Type of package manager that can be used to install this package. If a system does not have the package manager, the package is not installed or removed no error message is returned. By default, or if you specify `ANY`, the agent attempts to install and remove this package using the default package manager. This is useful when creating a policy that applies to different types of systems. The default behavior is ANY. */
-      manager?: string;
+      manager?:
+        | 'MANAGER_UNSPECIFIED'
+        | 'ANY'
+        | 'APT'
+        | 'YUM'
+        | 'ZYPPER'
+        | 'GOO';
       /** Required. The name of the package. A package is uniquely identified for conflict validation by checking the package name and the manager(s) that the package targets. */
       name?: string;
     }
@@ -346,7 +366,11 @@ declare namespace gapi.client {
       /** The `ExecStep` to run before the patch update. */
       preStep?: ExecStep;
       /** Post-patch reboot settings. */
-      rebootConfig?: string;
+      rebootConfig?:
+        | 'REBOOT_CONFIG_UNSPECIFIED'
+        | 'DEFAULT'
+        | 'ALWAYS'
+        | 'NEVER';
       /** Optional. Enables enhanced reporting for the patch job: 1. The patch job skips instances that cannot be patched and reports them as `SKIPPED`. An instance cannot be patched for two reasons: 1. The instance runs Container-Optimized OS (COS), which cannot be patched. 2. The instance is part of a managed instance group (MIG), and patching MIG instances is disabled in the patch job's configuration (PatchConfig.migInstancesAllowed is `false`). 2. The patch job is reported as `SUCCEEDED` if it completes without errors, even if some instances are `SKIPPED`. 3. The patch job is reported as `COMPLETED_WITH_INACTIVE_VMS` if it completes without errors, but does not patch instances that are `INACTIVE`. */
       skipUnpatchableVms?: boolean;
       /** Windows update settings. Use this override the default windows patch rules. */
@@ -378,7 +402,7 @@ declare namespace gapi.client {
       /** Optional. Rollout strategy of the patch job. */
       rollout?: PatchRollout;
       /** Output only. Current state of the patch deployment. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'ACTIVE' | 'PAUSED';
       /** Output only. Time the patch deployment was last updated. Timestamp is in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. */
       updateTime?: string;
     }
@@ -426,7 +450,16 @@ declare namespace gapi.client {
       /** Rollout strategy being applied. */
       rollout?: PatchRollout;
       /** The current state of the PatchJob. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'STARTED'
+        | 'INSTANCE_LOOKUP'
+        | 'PATCHING'
+        | 'SUCCEEDED'
+        | 'COMPLETED_WITH_INACTIVE_VMS'
+        | 'COMPLETED_WITH_ERRORS'
+        | 'CANCELED'
+        | 'TIMED_OUT';
       /** Last time this patch job was updated. */
       updateTime?: string;
     }
@@ -440,7 +473,24 @@ declare namespace gapi.client {
       /** The instance name in the form `projects/*‍/zones/*‍/instances/*` */
       name?: string;
       /** Current state of instance patch. */
-      state?: string;
+      state?:
+        | 'PATCH_STATE_UNSPECIFIED'
+        | 'PENDING'
+        | 'INACTIVE'
+        | 'NOTIFIED'
+        | 'STARTED'
+        | 'DOWNLOADING_PATCHES'
+        | 'APPLYING_PATCHES'
+        | 'REBOOTING'
+        | 'SUCCEEDED'
+        | 'SUCCEEDED_REBOOT_REQUIRED'
+        | 'FAILED'
+        | 'ACKED'
+        | 'TIMED_OUT'
+        | 'RUNNING_PRE_PATCH_STEP'
+        | 'RUNNING_POST_PATCH_STEP'
+        | 'NO_AGENT_DETECTED'
+        | 'SKIPPED';
     }
     interface PatchJobInstanceDetailsSummary {
       /** Number of instances that have acked and will start shortly. */
@@ -480,14 +530,14 @@ declare namespace gapi.client {
       /** The maximum number (or percentage) of VMs per zone to disrupt at any given moment. The number of VMs calculated from multiplying the percentage by the total number of VMs in a zone is rounded up. During patching, a VM is considered disrupted from the time the agent is notified to begin until patching has completed. This disruption time includes the time to complete reboot and any post-patch steps. A VM contributes to the disruption budget if its patching operation fails either when applying the patches, running pre or post patch steps, or if it fails to respond with a success notification before timing out. VMs that are not running or do not have an active agent do not count toward this disruption budget. For zone-by-zone rollouts, if the disruption budget in a zone is exceeded, the patch job stops, because continuing to the next zone requires completion of the patch process in the previous zone. For example, if the disruption budget has a fixed value of `10`, and 8 VMs fail to patch in the current zone, the patch job continues to patch 2 VMs at a time until the zone is completed. When that zone is completed successfully, patching begins with 10 VMs at a time in the next zone. If 10 VMs in the next zone fail to patch, the patch job stops. */
       disruptionBudget?: FixedOrPercent;
       /** Mode of the patch rollout. */
-      mode?: string;
+      mode?: 'MODE_UNSPECIFIED' | 'ZONE_BY_ZONE' | 'CONCURRENT_ZONES';
     }
     interface PausePatchDeploymentRequest {}
     interface RecurringSchedule {
       /** Optional. The end time at which a recurring patch deployment schedule is no longer active. */
       endTime?: string;
       /** Required. The frequency unit of this recurring schedule. */
-      frequency?: string;
+      frequency?: 'FREQUENCY_UNSPECIFIED' | 'WEEKLY' | 'MONTHLY' | 'DAILY';
       /** Output only. The time the last patch job ran successfully. */
       lastExecuteTime?: string;
       /** Required. Schedule with monthly executions. */
@@ -508,7 +558,11 @@ declare namespace gapi.client {
       /** Resources available to be used in the steps in the recipe. */
       artifacts?: SoftwareRecipeArtifact[];
       /** Default is INSTALLED. The desired state the agent should maintain for this recipe. INSTALLED: The software recipe is installed on the instance but won't be updated to new versions. UPDATED: The software recipe is installed on the instance. The recipe is updated to a higher version, if a higher version of the recipe is assigned to this instance. REMOVE: Remove is unsupported for software recipes and attempts to create or update a recipe to the REMOVE state is rejected. */
-      desiredState?: string;
+      desiredState?:
+        | 'DESIRED_STATE_UNSPECIFIED'
+        | 'INSTALLED'
+        | 'UPDATED'
+        | 'REMOVED';
       /** Actions to be taken for installing this recipe. On failure it stops executing steps and does not attempt another installation. Any steps taken (including partially completed steps) are not rolled back. */
       installSteps?: SoftwareRecipeStep[];
       /** Required. Unique identifier for the recipe. Only one recipe with a given name is installed on an instance. Names are also used to identify resources which helps to determine whether guest policies have conflicts. This means that requests to create multiple recipes with the same name and version are rejected since they could potentially have conflicting assignments. */
@@ -584,7 +638,14 @@ declare namespace gapi.client {
       /** Directory to extract archive to. Defaults to `/` on Linux or `C:\` on Windows. */
       destination?: string;
       /** Required. The type of the archive to extract. */
-      type?: string;
+      type?:
+        | 'ARCHIVE_TYPE_UNSPECIFIED'
+        | 'TAR'
+        | 'TAR_GZIP'
+        | 'TAR_BZIP'
+        | 'TAR_LZMA'
+        | 'TAR_XZ'
+        | 'ZIP';
     }
     interface SoftwareRecipeStepInstallDpkg {
       /** Required. The id of the relevant artifact in the recipe. */
@@ -606,7 +667,7 @@ declare namespace gapi.client {
       /** Return codes that indicate that the software installed or updated successfully. Behaviour defaults to [0] */
       allowedExitCodes?: number[];
       /** The script interpreter to use to run the script. If no interpreter is specified the script is executed directly, which likely only succeed for scripts with [shebang lines](https://en.wikipedia.org/wiki/Shebang_\(Unix\)). */
-      interpreter?: string;
+      interpreter?: 'INTERPRETER_UNSPECIFIED' | 'SHELL' | 'POWERSHELL';
       /** Required. The shell script to be executed. */
       script?: string;
     }
@@ -642,17 +703,43 @@ declare namespace gapi.client {
       /** Optional. Represents the number of days before or after the given week day of month that the patch deployment is scheduled for. For example if `week_ordinal` and `day_of_week` values point to the second day of the month and this `day_offset` value is set to `3`, the patch deployment takes place three days after the second Tuesday of the month. If this value is negative, for example -5, the patches are deployed five days before before the second Tuesday of the month. Allowed values are in range [-30, 30]. */
       dayOffset?: number;
       /** Required. A day of the week. */
-      dayOfWeek?: string;
+      dayOfWeek?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY';
       /** Required. Week number in a month. 1-4 indicates the 1st to 4th week of the month. -1 indicates the last week of the month. */
       weekOrdinal?: number;
     }
     interface WeeklySchedule {
       /** Required. Day of the week. */
-      dayOfWeek?: string;
+      dayOfWeek?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY';
     }
     interface WindowsUpdateSettings {
       /** Only apply updates of these windows update classifications. If empty, all updates are applied. */
-      classifications?: string[];
+      classifications?:
+        | 'CLASSIFICATION_UNSPECIFIED'
+        | 'CRITICAL'
+        | 'SECURITY'
+        | 'DEFINITION'
+        | 'DRIVER'
+        | 'FEATURE_PACK'
+        | 'SERVICE_PACK'
+        | 'TOOL'
+        | 'UPDATE_ROLLUP'
+        | 'UPDATE'[];
       /** List of KBs to exclude from update. */
       excludes?: string[];
       /** An exclusive list of kbs to be updated. These are the only patches that will be updated. This field must not be used with other patch configurations. */
@@ -706,11 +793,11 @@ declare namespace gapi.client {
       /** Create an OS Config guest policy. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -737,11 +824,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -768,11 +855,11 @@ declare namespace gapi.client {
       /** Delete an OS Config guest policy. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -795,11 +882,11 @@ declare namespace gapi.client {
       /** Get an OS Config guest policy. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -822,11 +909,11 @@ declare namespace gapi.client {
       /** Get a page of OS Config guest policies. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -853,11 +940,11 @@ declare namespace gapi.client {
       /** Update an OS Config guest policy. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -884,11 +971,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -917,11 +1004,11 @@ declare namespace gapi.client {
       /** Create an OS Config patch deployment. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -948,11 +1035,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -979,11 +1066,11 @@ declare namespace gapi.client {
       /** Delete an OS Config patch deployment. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1006,11 +1093,11 @@ declare namespace gapi.client {
       /** Get an OS Config patch deployment. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1033,11 +1120,11 @@ declare namespace gapi.client {
       /** Get a page of OS Config patch deployments. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1064,11 +1151,11 @@ declare namespace gapi.client {
       /** Update an OS Config patch deployment. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1095,11 +1182,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1126,11 +1213,11 @@ declare namespace gapi.client {
       /** Change state of patch deployment to "PAUSED". Patch deployment in paused state doesn't generate patch jobs. */
       pause(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1155,11 +1242,11 @@ declare namespace gapi.client {
       pause(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1184,11 +1271,11 @@ declare namespace gapi.client {
       /** Change state of patch deployment back to "ACTIVE". Patch deployment in active state continues to generate patch jobs. */
       resume(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1213,11 +1300,11 @@ declare namespace gapi.client {
       resume(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1244,11 +1331,11 @@ declare namespace gapi.client {
       /** Get a list of instance details for a given patch job. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1279,11 +1366,11 @@ declare namespace gapi.client {
       /** Cancel a patch job. The patch job must be active. Canceled patch jobs cannot be restarted. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1308,11 +1395,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1337,11 +1424,11 @@ declare namespace gapi.client {
       /** Patch VM instances by creating and running a patch job. */
       execute(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1366,11 +1453,11 @@ declare namespace gapi.client {
       execute(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1395,11 +1482,11 @@ declare namespace gapi.client {
       /** Get the patch job. This can be used to track the progress of an ongoing patch job or review the details of completed jobs. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1422,11 +1509,11 @@ declare namespace gapi.client {
       /** Get a list of patch jobs. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1458,11 +1545,11 @@ declare namespace gapi.client {
       /** Lookup the effective guest policy that applies to a VM instance. This lookup merges all policies that are assigned to the instance ancestry. */
       lookupEffectiveGuestPolicy(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1487,11 +1574,11 @@ declare namespace gapi.client {
       lookupEffectiveGuestPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

@@ -40,7 +40,7 @@ declare namespace gapi.client {
       /** Name of the creative asset. This is a required field while inserting an asset. After insertion, this assetIdentifier is used to identify the uploaded asset. Characters in the name must be alphanumeric or one of the following: ".-_ ". Spaces are allowed. */
       name?: string;
       /** Type of asset to upload. This is a required field. FLASH and IMAGE are no longer supported for new uploads. All image assets should use HTML_IMAGE. */
-      type?: string;
+      type?: 'IMAGE' | 'FLASH' | 'VIDEO' | 'HTML' | 'HTML_IMAGE' | 'AUDIO';
     }
     interface CreativeAssetMetadata {
       /** ID of the creative asset. This is a required field. */
@@ -50,7 +50,73 @@ declare namespace gapi.client {
       /** List of counter events configured for the asset. This is a read-only, auto-generated field and only applicable to a rich media asset. */
       counterCustomEvents?: CreativeCustomEvent[];
       /** List of feature dependencies for the creative asset that are detected by Campaign Manager. Feature dependencies are features that a browser must be able to support in order to render your HTML5 creative correctly. This is a read-only, auto-generated field. */
-      detectedFeatures?: string[];
+      detectedFeatures?:
+        | 'CSS_FONT_FACE'
+        | 'CSS_BACKGROUND_SIZE'
+        | 'CSS_BORDER_IMAGE'
+        | 'CSS_BORDER_RADIUS'
+        | 'CSS_BOX_SHADOW'
+        | 'CSS_FLEX_BOX'
+        | 'CSS_HSLA'
+        | 'CSS_MULTIPLE_BGS'
+        | 'CSS_OPACITY'
+        | 'CSS_RGBA'
+        | 'CSS_TEXT_SHADOW'
+        | 'CSS_ANIMATIONS'
+        | 'CSS_COLUMNS'
+        | 'CSS_GENERATED_CONTENT'
+        | 'CSS_GRADIENTS'
+        | 'CSS_REFLECTIONS'
+        | 'CSS_TRANSFORMS'
+        | 'CSS_TRANSFORMS3D'
+        | 'CSS_TRANSITIONS'
+        | 'APPLICATION_CACHE'
+        | 'CANVAS'
+        | 'CANVAS_TEXT'
+        | 'DRAG_AND_DROP'
+        | 'HASH_CHANGE'
+        | 'HISTORY'
+        | 'AUDIO'
+        | 'VIDEO'
+        | 'INDEXED_DB'
+        | 'INPUT_ATTR_AUTOCOMPLETE'
+        | 'INPUT_ATTR_AUTOFOCUS'
+        | 'INPUT_ATTR_LIST'
+        | 'INPUT_ATTR_PLACEHOLDER'
+        | 'INPUT_ATTR_MAX'
+        | 'INPUT_ATTR_MIN'
+        | 'INPUT_ATTR_MULTIPLE'
+        | 'INPUT_ATTR_PATTERN'
+        | 'INPUT_ATTR_REQUIRED'
+        | 'INPUT_ATTR_STEP'
+        | 'INPUT_TYPE_SEARCH'
+        | 'INPUT_TYPE_TEL'
+        | 'INPUT_TYPE_URL'
+        | 'INPUT_TYPE_EMAIL'
+        | 'INPUT_TYPE_DATETIME'
+        | 'INPUT_TYPE_DATE'
+        | 'INPUT_TYPE_MONTH'
+        | 'INPUT_TYPE_WEEK'
+        | 'INPUT_TYPE_TIME'
+        | 'INPUT_TYPE_DATETIME_LOCAL'
+        | 'INPUT_TYPE_NUMBER'
+        | 'INPUT_TYPE_RANGE'
+        | 'INPUT_TYPE_COLOR'
+        | 'LOCAL_STORAGE'
+        | 'POST_MESSAGE'
+        | 'SESSION_STORAGE'
+        | 'WEB_SOCKETS'
+        | 'WEB_SQL_DATABASE'
+        | 'WEB_WORKERS'
+        | 'GEO_LOCATION'
+        | 'INLINE_SVG'
+        | 'SMIL'
+        | 'SVG_HREF'
+        | 'SVG_CLIP_PATHS'
+        | 'TOUCH'
+        | 'WEBGL'
+        | 'SVG_FILTERS'
+        | 'SVG_FE_IMAGE'[];
       /** List of exit events configured for the asset. This is a read-only, auto-generated field and only applicable to a rich media asset. */
       exitCustomEvents?: CreativeCustomEvent[];
       /** Numeric ID of the asset. This is a read-only, auto-generated field. */
@@ -64,7 +130,33 @@ declare namespace gapi.client {
       /** List of timer events configured for the asset. This is a read-only, auto-generated field and only applicable to a rich media asset. */
       timerCustomEvents?: CreativeCustomEvent[];
       /** Rules validated during code generation that generated a warning. This is a read-only, auto-generated field. Possible values are: - "ADMOB_REFERENCED" - "ASSET_FORMAT_UNSUPPORTED_DCM" - "ASSET_INVALID" - "CLICK_TAG_HARD_CODED" - "CLICK_TAG_INVALID" - "CLICK_TAG_IN_GWD" - "CLICK_TAG_MISSING" - "CLICK_TAG_MORE_THAN_ONE" - "CLICK_TAG_NON_TOP_LEVEL" - "COMPONENT_UNSUPPORTED_DCM" - "ENABLER_UNSUPPORTED_METHOD_DCM" - "EXTERNAL_FILE_REFERENCED" - "FILE_DETAIL_EMPTY" - "FILE_TYPE_INVALID" - "GWD_PROPERTIES_INVALID" - "HTML5_FEATURE_UNSUPPORTED" - "LINKED_FILE_NOT_FOUND" - "MAX_FLASH_VERSION_11" - "MRAID_REFERENCED" - "NOT_SSL_COMPLIANT" - "ORPHANED_ASSET" - "PRIMARY_HTML_MISSING" - "SVG_INVALID" - "ZIP_INVALID" */
-      warnedValidationRules?: string[];
+      warnedValidationRules?:
+        | 'CLICK_TAG_NON_TOP_LEVEL'
+        | 'CLICK_TAG_MISSING'
+        | 'CLICK_TAG_MORE_THAN_ONE'
+        | 'CLICK_TAG_INVALID'
+        | 'ORPHANED_ASSET'
+        | 'PRIMARY_HTML_MISSING'
+        | 'EXTERNAL_FILE_REFERENCED'
+        | 'MRAID_REFERENCED'
+        | 'ADMOB_REFERENCED'
+        | 'FILE_TYPE_INVALID'
+        | 'ZIP_INVALID'
+        | 'LINKED_FILE_NOT_FOUND'
+        | 'MAX_FLASH_VERSION_11'
+        | 'NOT_SSL_COMPLIANT'
+        | 'FILE_DETAIL_EMPTY'
+        | 'ASSET_INVALID'
+        | 'GWD_PROPERTIES_INVALID'
+        | 'ENABLER_UNSUPPORTED_METHOD_DCM'
+        | 'ASSET_FORMAT_UNSUPPORTED_DCM'
+        | 'COMPONENT_UNSUPPORTED_DCM'
+        | 'HTML5_FEATURE_UNSUPPORTED'
+        | 'CLICK_TAG_IN_GWD'
+        | 'CLICK_TAG_HARD_CODED'
+        | 'SVG_INVALID'
+        | 'CLICK_TAG_IN_RICH_MEDIA'
+        | 'MISSING_ENABLER_REFERENCE'[];
     }
     interface CreativeClickThroughUrl {
       /** Read-only convenience field representing the actual URL that will be used for this click-through. The URL is computed as follows: - If landingPageId is specified then that landing page's URL is assigned to this field. - Otherwise, the customClickThroughUrl is assigned to this field. */
@@ -80,11 +172,18 @@ declare namespace gapi.client {
       /** User-entered name for the event. */
       advertiserCustomEventName?: string;
       /** Type of the event. This is a read-only field. */
-      advertiserCustomEventType?: string;
+      advertiserCustomEventType?:
+        | 'ADVERTISER_EVENT_TIMER'
+        | 'ADVERTISER_EVENT_EXIT'
+        | 'ADVERTISER_EVENT_COUNTER';
       /** Artwork label column, used to link events in Campaign Manager back to events in Studio. This is a required field and should not be modified after insertion. */
       artworkLabel?: string;
       /** Artwork type used by the creative.This is a read-only field. */
-      artworkType?: string;
+      artworkType?:
+        | 'ARTWORK_TYPE_FLASH'
+        | 'ARTWORK_TYPE_HTML5'
+        | 'ARTWORK_TYPE_MIXED'
+        | 'ARTWORK_TYPE_IMAGE';
       /** Exit click-through URL for the event. This field is used only for exit events. */
       exitClickThroughUrl?: CreativeClickThroughUrl;
       /** ID of this event. This is a required field and should not be modified after insertion. */
@@ -92,7 +191,12 @@ declare namespace gapi.client {
       /** Properties for rich media popup windows. This field is used only for exit events. */
       popupWindowProperties?: PopupWindowProperties;
       /** Target type used by the event. */
-      targetType?: string;
+      targetType?:
+        | 'TARGET_BLANK'
+        | 'TARGET_TOP'
+        | 'TARGET_SELF'
+        | 'TARGET_PARENT'
+        | 'TARGET_POPUP';
       /** Video reporting ID, used to differentiate multiple videos in a single creative. This is a read-only field. */
       videoReportingId?: string;
     }
@@ -106,7 +210,7 @@ declare namespace gapi.client {
       /** The kind of resource this is, in this case dfareporting#dimensionValue. */
       kind?: string;
       /** Determines how the 'value' field is matched when filtering. If not specified, defaults to EXACT. If set to WILDCARD_EXPRESSION, '*' is allowed as a placeholder for variable length character sequences, and it can be escaped with a backslash. Note, only paid search dimensions ('dfa:paidSearch*') allow a matchType other than EXACT. */
-      matchType?: string;
+      matchType?: 'EXACT' | 'BEGINS_WITH' | 'CONTAINS' | 'WILDCARD_EXPRESSION';
       /** The value of the dimension. */
       value?: string;
     }
@@ -122,7 +226,7 @@ declare namespace gapi.client {
       /** Upper-left corner coordinates of the popup window. Applicable if positionType is COORDINATES. */
       offset?: OffsetPosition;
       /** Popup window position either centered or at specific coordinate. */
-      positionType?: string;
+      positionType?: 'CENTER' | 'COORDINATES';
       /** Whether to display the browser address bar. */
       showAddressBar?: boolean;
       /** Whether to display the browser menu bar. */
@@ -152,13 +256,13 @@ declare namespace gapi.client {
       /** Inserts a new creative asset. */
       upload(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Advertiser ID of this creative. This is a required field. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -183,13 +287,13 @@ declare namespace gapi.client {
       upload(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Advertiser ID of this creative. This is a required field. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

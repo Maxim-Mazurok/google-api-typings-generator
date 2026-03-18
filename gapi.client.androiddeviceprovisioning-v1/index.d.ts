@@ -45,7 +45,10 @@ declare namespace gapi.client {
       /** Optional. Must and can only be set for Chrome OS devices. */
       preProvisioningToken?: string;
       /** Required. The section type of the device's provisioning record. */
-      sectionType?: string;
+      sectionType?:
+        | 'SECTION_TYPE_UNSPECIFIED'
+        | 'SECTION_TYPE_SIM_LOCK'
+        | 'SECTION_TYPE_ZERO_TOUCH';
       /** Optional. Must and can only be set when DeviceProvisioningSectionType is SECTION_TYPE_SIM_LOCK. The unique identifier of the SimLock profile. */
       simlockProfileId?: string;
     }
@@ -77,7 +80,11 @@ declare namespace gapi.client {
       /** Input only. If set to true, welcome email will not be sent to the customer. It is recommended to skip the welcome email if devices will be claimed with additional DEVICE_PROTECTION service, as the customer will receive separate emails at device claim time. This field is ignored if this is not a Zero-touch customer. */
       skipWelcomeEmail?: boolean;
       /** Output only. Whether any user from the company has accepted the latest Terms of Service (ToS). See TermsStatus. */
-      termsStatus?: string;
+      termsStatus?:
+        | 'TERMS_STATUS_UNSPECIFIED'
+        | 'TERMS_STATUS_NOT_ACCEPTED'
+        | 'TERMS_STATUS_ACCEPTED'
+        | 'TERMS_STATUS_STALE';
     }
     interface Configuration {
       /** Required. The name of the organization. Zero-touch enrollment shows this organization name to device users during device provisioning. */
@@ -157,7 +164,9 @@ declare namespace gapi.client {
     }
     interface DeviceClaim {
       /** The Additional service registered for the device. */
-      additionalService?: string;
+      additionalService?:
+        | 'ADDITIONAL_SERVICE_UNSPECIFIED'
+        | 'DEVICE_PROTECTION';
       /** The ID of the Google Workspace account that owns the Chrome OS device. */
       googleWorkspaceCustomerId?: string;
       /** The ID of the Customer that purchased the device. */
@@ -165,7 +174,10 @@ declare namespace gapi.client {
       /** The ID of the reseller that claimed the device. */
       resellerId?: string;
       /** Output only. The type of claim made on the device. */
-      sectionType?: string;
+      sectionType?:
+        | 'SECTION_TYPE_UNSPECIFIED'
+        | 'SECTION_TYPE_SIM_LOCK'
+        | 'SECTION_TYPE_ZERO_TOUCH';
       /** The timestamp when the device will exit ‘vacation mode’. This value is present iff the device is in 'vacation mode'. */
       vacationModeExpireTime?: string;
       /** The timestamp when the device was put into ‘vacation mode’. This value is present iff the device is in 'vacation mode'. */
@@ -175,7 +187,10 @@ declare namespace gapi.client {
       /** An identifier provided by OEMs, carried through the production and sales process. Only applicable to Chrome OS devices. */
       chromeOsAttestedDeviceId?: string;
       /** The type of the device */
-      deviceType?: string;
+      deviceType?:
+        | 'DEVICE_TYPE_UNSPECIFIED'
+        | 'DEVICE_TYPE_ANDROID'
+        | 'DEVICE_TYPE_CHROME_OS';
       /** The device’s IMEI number. Validated on input. */
       imei?: string;
       /** The device’s second IMEI number. */
@@ -205,7 +220,11 @@ declare namespace gapi.client {
       /** The number of metadata updates in the operation. This might be different from the number of updates in the request if the API can't parse some of the updates. */
       devicesCount?: number;
       /** The processing status of the operation. */
-      processingStatus?: string;
+      processingStatus?:
+        | 'BATCH_PROCESS_STATUS_UNSPECIFIED'
+        | 'BATCH_PROCESS_PENDING'
+        | 'BATCH_PROCESS_IN_PROGRESS'
+        | 'BATCH_PROCESS_PROCESSED';
       /** The processing progress of the operation. Measured as a number from 0 to 100. A value of 10O doesn't always mean the operation completed—check for the inclusion of a `done` field. */
       progress?: number;
     }
@@ -250,7 +269,10 @@ declare namespace gapi.client {
       /** A token specifying which result page to return. */
       pageToken?: string;
       /** Required. The section type of the device's provisioning record. */
-      sectionType?: string;
+      sectionType?:
+        | 'SECTION_TYPE_UNSPECIFIED'
+        | 'SECTION_TYPE_SIM_LOCK'
+        | 'SECTION_TYPE_ZERO_TOUCH';
     }
     interface FindDevicesByOwnerResponse {
       /** The customer's devices. */
@@ -265,7 +287,11 @@ declare namespace gapi.client {
       deviceIdentifier?: DeviceIdentifier;
     }
     interface GetDeviceSimLockStateResponse {
-      simLockState?: string;
+      simLockState?:
+        | 'SIM_LOCK_STATE_UNSPECIFIED'
+        | 'UNLOCKED'
+        | 'LOCKED_TO_PARTNER'
+        | 'LOCKED_TO_OTHER_PARTNER';
     }
     interface GoogleWorkspaceAccount {
       /** Required. The customer ID. */
@@ -333,7 +359,10 @@ declare namespace gapi.client {
       /** Optional. Must and can only be set for Chrome OS devices. */
       preProvisioningToken?: string;
       /** Required. The section type of the device's provisioning record. */
-      sectionType?: string;
+      sectionType?:
+        | 'SECTION_TYPE_UNSPECIFIED'
+        | 'SECTION_TYPE_SIM_LOCK'
+        | 'SECTION_TYPE_ZERO_TOUCH';
       /** Optional. Must and can only be set when DeviceProvisioningSectionType is SECTION_TYPE_SIM_LOCK. The unique identifier of the SimLock profile. */
       simlockProfileId?: string;
     }
@@ -343,7 +372,10 @@ declare namespace gapi.client {
       /** Required. Device identifier of the device. */
       deviceIdentifier?: DeviceIdentifier;
       /** Required. The section type of the device's provisioning record. */
-      sectionType?: string;
+      sectionType?:
+        | 'SECTION_TYPE_UNSPECIFIED'
+        | 'SECTION_TYPE_SIM_LOCK'
+        | 'SECTION_TYPE_ZERO_TOUCH';
       /** Optional. The duration of the vacation unlock starting from when the request is processed. (1 day is treated as 24 hours) */
       vacationModeDays?: number;
       /** Optional. The expiration time of the vacation unlock. */
@@ -357,7 +389,18 @@ declare namespace gapi.client {
       /** If processing fails, a developer message explaining what went wrong. */
       errorMessage?: string;
       /** The result status of the device after processing. */
-      status?: string;
+      status?:
+        | 'SINGLE_DEVICE_STATUS_UNSPECIFIED'
+        | 'SINGLE_DEVICE_STATUS_UNKNOWN_ERROR'
+        | 'SINGLE_DEVICE_STATUS_OTHER_ERROR'
+        | 'SINGLE_DEVICE_STATUS_SUCCESS'
+        | 'SINGLE_DEVICE_STATUS_PERMISSION_DENIED'
+        | 'SINGLE_DEVICE_STATUS_INVALID_DEVICE_IDENTIFIER'
+        | 'SINGLE_DEVICE_STATUS_INVALID_SECTION_TYPE'
+        | 'SINGLE_DEVICE_STATUS_SECTION_NOT_YOURS'
+        | 'SINGLE_DEVICE_STATUS_INVALID_TOKEN'
+        | 'SINGLE_DEVICE_STATUS_REVOKED_TOKEN'
+        | 'SINGLE_DEVICE_STATUS_DEVICE_LIMIT_EXCEEDED';
     }
     interface Status {
       /** The status code, which should be an enum value of google.rpc.Code. */
@@ -373,7 +416,10 @@ declare namespace gapi.client {
       /** Required. The device identifier you used when you claimed this device. */
       deviceIdentifier?: DeviceIdentifier;
       /** Required. The section type of the device's provisioning record. */
-      sectionType?: string;
+      sectionType?:
+        | 'SECTION_TYPE_UNSPECIFIED'
+        | 'SECTION_TYPE_SIM_LOCK'
+        | 'SECTION_TYPE_ZERO_TOUCH';
       /** The duration of the vacation unlock starting from when the request is processed. (1 day is treated as 24 hours) */
       vacationModeDays?: number;
       /** The expiration time of the vacation unlock. */
@@ -403,11 +449,11 @@ declare namespace gapi.client {
       /** Creates a new configuration. Once created, a customer can apply the configuration to devices. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -432,11 +478,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -461,11 +507,11 @@ declare namespace gapi.client {
       /** Deletes an unused configuration. The API call fails if the customer has devices with the configuration applied. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -488,11 +534,11 @@ declare namespace gapi.client {
       /** Gets the details of a configuration. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -515,11 +561,11 @@ declare namespace gapi.client {
       /** Lists a customer's configurations. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -542,11 +588,11 @@ declare namespace gapi.client {
       /** Updates a configuration's field values. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -573,11 +619,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -606,11 +652,11 @@ declare namespace gapi.client {
       /** Applies a Configuration to the device to register the device for zero-touch enrollment. After applying a configuration to a device, the device automatically provisions itself on first boot, or next factory reset. */
       applyConfiguration(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -635,11 +681,11 @@ declare namespace gapi.client {
       applyConfiguration(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -664,11 +710,11 @@ declare namespace gapi.client {
       /** Gets the details of a device. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -691,11 +737,11 @@ declare namespace gapi.client {
       /** Lists a customer's devices. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -722,11 +768,11 @@ declare namespace gapi.client {
       /** Removes a configuration from device. */
       removeConfiguration(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -751,11 +797,11 @@ declare namespace gapi.client {
       removeConfiguration(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -780,11 +826,11 @@ declare namespace gapi.client {
       /** Unclaims a device from a customer and removes it from zero-touch enrollment. After removing a device, a customer must contact their reseller to register the device into zero-touch enrollment again. */
       unclaim(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -809,11 +855,11 @@ declare namespace gapi.client {
       unclaim(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -840,11 +886,11 @@ declare namespace gapi.client {
       /** Lists the DPCs (device policy controllers) that support zero-touch enrollment. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -869,11 +915,11 @@ declare namespace gapi.client {
       /** Lists the user's customer accounts. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -903,11 +949,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -932,11 +978,11 @@ declare namespace gapi.client {
       /** Creates a customer for zero-touch enrollment. After the method returns successfully, admin and owner roles can manage devices and EMM configs by calling API methods or using their zero-touch enrollment portal. The customer receives an email that welcomes them to zero-touch enrollment and explains how to sign into the portal. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -961,11 +1007,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -990,11 +1036,11 @@ declare namespace gapi.client {
       /** Lists the customers that are enrolled to the reseller identified by the `partnerId` argument. This list includes customers that the reseller created and customers that enrolled themselves using the portal. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1023,11 +1069,11 @@ declare namespace gapi.client {
       /** Claims a device for a customer and adds it to zero-touch enrollment. If the device is already claimed by another customer, the call returns an error. */
       claim(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1052,11 +1098,11 @@ declare namespace gapi.client {
       claim(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1081,11 +1127,11 @@ declare namespace gapi.client {
       /** Claims a batch of devices for a customer asynchronously. Adds the devices to zero-touch enrollment. To learn more, read [Long‑running batch operations](/zero-touch/guides/how-it-works#operations). */
       claimAsync(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1110,11 +1156,11 @@ declare namespace gapi.client {
       claimAsync(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1139,11 +1185,11 @@ declare namespace gapi.client {
       /** Finds devices by hardware identifiers, such as IMEI. */
       findByIdentifier(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1168,11 +1214,11 @@ declare namespace gapi.client {
       findByIdentifier(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1197,11 +1243,11 @@ declare namespace gapi.client {
       /** Finds devices claimed for customers. The results only contain devices registered to the reseller that's identified by the `partnerId` argument. The customer's devices purchased from other resellers don't appear in the results. */
       findByOwner(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1226,11 +1272,11 @@ declare namespace gapi.client {
       findByOwner(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1255,11 +1301,11 @@ declare namespace gapi.client {
       /** Gets a device. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1282,11 +1328,11 @@ declare namespace gapi.client {
       /** Gets a device's SIM lock state. */
       getSimLockState(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1311,11 +1357,11 @@ declare namespace gapi.client {
       getSimLockState(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1340,11 +1386,11 @@ declare namespace gapi.client {
       /** Updates reseller metadata associated with the device. Android devices only. */
       metadata(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the device. */
@@ -1371,11 +1417,11 @@ declare namespace gapi.client {
       metadata(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID of the device. */
@@ -1402,11 +1448,11 @@ declare namespace gapi.client {
       /** Unclaims a device from a customer and removes it from zero-touch enrollment. */
       unclaim(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1431,11 +1477,11 @@ declare namespace gapi.client {
       unclaim(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1460,11 +1506,11 @@ declare namespace gapi.client {
       /** Unclaims a batch of devices for a customer asynchronously. Removes the devices from zero-touch enrollment. To learn more, read [Long‑running batch operations](/zero-touch/guides/how-it-works#operations). */
       unclaimAsync(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1489,11 +1535,11 @@ declare namespace gapi.client {
       unclaimAsync(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1518,11 +1564,11 @@ declare namespace gapi.client {
       /** Updates the reseller metadata attached to a batch of devices. This method updates devices asynchronously and returns an `Operation` that can be used to track progress. Read [Long‑running batch operations](/zero-touch/guides/how-it-works#operations). Android Devices only. */
       updateMetadataAsync(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1547,11 +1593,11 @@ declare namespace gapi.client {
       updateMetadataAsync(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1578,11 +1624,11 @@ declare namespace gapi.client {
       /** Lists the customers of the vendor. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1611,11 +1657,11 @@ declare namespace gapi.client {
       /** Lists the vendors of the partner. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

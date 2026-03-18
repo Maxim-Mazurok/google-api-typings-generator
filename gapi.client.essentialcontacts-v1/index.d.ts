@@ -42,11 +42,20 @@ declare namespace gapi.client {
       /** Output only. The identifier for the contact. Format: {resource_type}/{resource_id}/contacts/{contact_id} */
       name?: string;
       /** Required. The categories of notifications that the contact will receive communications for. */
-      notificationCategorySubscriptions?: string[];
+      notificationCategorySubscriptions?:
+        | 'NOTIFICATION_CATEGORY_UNSPECIFIED'
+        | 'ALL'
+        | 'SUSPENSION'
+        | 'SECURITY'
+        | 'TECHNICAL'
+        | 'BILLING'
+        | 'LEGAL'
+        | 'PRODUCT_UPDATES'
+        | 'TECHNICAL_INCIDENTS'[];
       /** Output only. The last time the validation_state was updated, either manually or automatically. A contact is considered stale if its validation state was updated more than 1 year ago. */
       validateTime?: string;
       /** Output only. The validity of the contact. A contact is considered valid if it is the correct recipient for notifications for a particular resource. */
-      validationState?: string;
+      validationState?: 'VALIDATION_STATE_UNSPECIFIED' | 'VALID' | 'INVALID';
     }
     interface GoogleCloudEssentialcontactsV1ListContactsResponse {
       /** The contacts for the specified resource. */
@@ -58,18 +67,27 @@ declare namespace gapi.client {
       /** Required. The list of names of the contacts to send a test message to. Format: organizations/{organization_id}/contacts/{contact_id}, folders/{folder_id}/contacts/{contact_id} or projects/{project_id}/contacts/{contact_id} */
       contacts?: string[];
       /** Required. The notification category to send the test message for. All contacts must be subscribed to this category. */
-      notificationCategory?: string;
+      notificationCategory?:
+        | 'NOTIFICATION_CATEGORY_UNSPECIFIED'
+        | 'ALL'
+        | 'SUSPENSION'
+        | 'SECURITY'
+        | 'TECHNICAL'
+        | 'BILLING'
+        | 'LEGAL'
+        | 'PRODUCT_UPDATES'
+        | 'TECHNICAL_INCIDENTS';
     }
     interface GoogleProtobufEmpty {}
     interface ContactsResource {
       /** Lists all contacts for the resource that are subscribed to the specified notification categories, including contacts inherited from any parent resources. */
       compute(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -77,7 +95,27 @@ declare namespace gapi.client {
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** The categories of notifications to compute contacts for. If ALL is included in this list, contacts subscribed to any notification category will be returned. */
-        notificationCategories?: string | string[];
+        notificationCategories?:
+          | 'NOTIFICATION_CATEGORY_UNSPECIFIED'
+          | 'ALL'
+          | 'SUSPENSION'
+          | 'SECURITY'
+          | 'TECHNICAL'
+          | 'BILLING'
+          | 'LEGAL'
+          | 'PRODUCT_UPDATES'
+          | 'TECHNICAL_INCIDENTS'
+          | (
+              | 'NOTIFICATION_CATEGORY_UNSPECIFIED'
+              | 'ALL'
+              | 'SUSPENSION'
+              | 'SECURITY'
+              | 'TECHNICAL'
+              | 'BILLING'
+              | 'LEGAL'
+              | 'PRODUCT_UPDATES'
+              | 'TECHNICAL_INCIDENTS'
+            )[];
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of `next_page_token` in the response indicates that more results might be available. If not specified, the default page_size is 100. */
@@ -98,11 +136,11 @@ declare namespace gapi.client {
       /** Adds a new contact for a resource. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -127,11 +165,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -156,11 +194,11 @@ declare namespace gapi.client {
       /** Deletes a contact. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -183,11 +221,11 @@ declare namespace gapi.client {
       /** Gets a single contact. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -210,11 +248,11 @@ declare namespace gapi.client {
       /** Lists the contacts that have been set on a resource. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -241,11 +279,11 @@ declare namespace gapi.client {
       /** Updates a contact. Note: A contact's email address cannot be changed. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -272,11 +310,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -304,11 +342,11 @@ declare namespace gapi.client {
       sendTestMessage(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -338,11 +376,11 @@ declare namespace gapi.client {
       /** Lists all contacts for the resource that are subscribed to the specified notification categories, including contacts inherited from any parent resources. */
       compute(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -350,7 +388,27 @@ declare namespace gapi.client {
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** The categories of notifications to compute contacts for. If ALL is included in this list, contacts subscribed to any notification category will be returned. */
-        notificationCategories?: string | string[];
+        notificationCategories?:
+          | 'NOTIFICATION_CATEGORY_UNSPECIFIED'
+          | 'ALL'
+          | 'SUSPENSION'
+          | 'SECURITY'
+          | 'TECHNICAL'
+          | 'BILLING'
+          | 'LEGAL'
+          | 'PRODUCT_UPDATES'
+          | 'TECHNICAL_INCIDENTS'
+          | (
+              | 'NOTIFICATION_CATEGORY_UNSPECIFIED'
+              | 'ALL'
+              | 'SUSPENSION'
+              | 'SECURITY'
+              | 'TECHNICAL'
+              | 'BILLING'
+              | 'LEGAL'
+              | 'PRODUCT_UPDATES'
+              | 'TECHNICAL_INCIDENTS'
+            )[];
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of `next_page_token` in the response indicates that more results might be available. If not specified, the default page_size is 100. */
@@ -371,11 +429,11 @@ declare namespace gapi.client {
       /** Adds a new contact for a resource. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -400,11 +458,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -429,11 +487,11 @@ declare namespace gapi.client {
       /** Deletes a contact. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -456,11 +514,11 @@ declare namespace gapi.client {
       /** Gets a single contact. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -483,11 +541,11 @@ declare namespace gapi.client {
       /** Lists the contacts that have been set on a resource. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -514,11 +572,11 @@ declare namespace gapi.client {
       /** Updates a contact. Note: A contact's email address cannot be changed. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -545,11 +603,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -577,11 +635,11 @@ declare namespace gapi.client {
       sendTestMessage(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -611,11 +669,11 @@ declare namespace gapi.client {
       /** Lists all contacts for the resource that are subscribed to the specified notification categories, including contacts inherited from any parent resources. */
       compute(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -623,7 +681,27 @@ declare namespace gapi.client {
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** The categories of notifications to compute contacts for. If ALL is included in this list, contacts subscribed to any notification category will be returned. */
-        notificationCategories?: string | string[];
+        notificationCategories?:
+          | 'NOTIFICATION_CATEGORY_UNSPECIFIED'
+          | 'ALL'
+          | 'SUSPENSION'
+          | 'SECURITY'
+          | 'TECHNICAL'
+          | 'BILLING'
+          | 'LEGAL'
+          | 'PRODUCT_UPDATES'
+          | 'TECHNICAL_INCIDENTS'
+          | (
+              | 'NOTIFICATION_CATEGORY_UNSPECIFIED'
+              | 'ALL'
+              | 'SUSPENSION'
+              | 'SECURITY'
+              | 'TECHNICAL'
+              | 'BILLING'
+              | 'LEGAL'
+              | 'PRODUCT_UPDATES'
+              | 'TECHNICAL_INCIDENTS'
+            )[];
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of `next_page_token` in the response indicates that more results might be available. If not specified, the default page_size is 100. */
@@ -644,11 +722,11 @@ declare namespace gapi.client {
       /** Adds a new contact for a resource. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -673,11 +751,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -702,11 +780,11 @@ declare namespace gapi.client {
       /** Deletes a contact. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -729,11 +807,11 @@ declare namespace gapi.client {
       /** Gets a single contact. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -756,11 +834,11 @@ declare namespace gapi.client {
       /** Lists the contacts that have been set on a resource. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -787,11 +865,11 @@ declare namespace gapi.client {
       /** Updates a contact. Note: A contact's email address cannot be changed. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -818,11 +896,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -850,11 +928,11 @@ declare namespace gapi.client {
       sendTestMessage(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

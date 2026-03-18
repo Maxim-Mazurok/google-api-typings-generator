@@ -760,7 +760,7 @@ declare namespace gapi.client {
       /** Creates the URI used by the IdP to authenticate the user. */
       createAuthUri(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -779,7 +779,7 @@ declare namespace gapi.client {
       createAuthUri(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -798,7 +798,7 @@ declare namespace gapi.client {
       /** Delete user account. */
       deleteAccount(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -817,7 +817,7 @@ declare namespace gapi.client {
       deleteAccount(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -836,7 +836,7 @@ declare namespace gapi.client {
       /** Batch download user accounts. */
       downloadAccount(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -855,7 +855,7 @@ declare namespace gapi.client {
       downloadAccount(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -874,7 +874,7 @@ declare namespace gapi.client {
       /** Reset password for a user. */
       emailLinkSignin(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -893,7 +893,7 @@ declare namespace gapi.client {
       emailLinkSignin(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -912,7 +912,7 @@ declare namespace gapi.client {
       /** Returns the account info. */
       getAccountInfo(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -931,7 +931,7 @@ declare namespace gapi.client {
       getAccountInfo(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -950,7 +950,7 @@ declare namespace gapi.client {
       /** Get a code for user action confirmation. */
       getOobConfirmationCode(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -969,7 +969,7 @@ declare namespace gapi.client {
       getOobConfirmationCode(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -988,7 +988,7 @@ declare namespace gapi.client {
       /** Get project configuration. */
       getProjectConfig(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Delegated GCP project number of the request. */
         delegatedProjectNumber?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1009,7 +1009,7 @@ declare namespace gapi.client {
       /** Get token signing public key. */
       getPublicKeys(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1026,7 +1026,7 @@ declare namespace gapi.client {
       /** Get recaptcha secure param. */
       getRecaptchaParam(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1043,7 +1043,7 @@ declare namespace gapi.client {
       /** Reset password for a user. */
       resetPassword(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1062,7 +1062,7 @@ declare namespace gapi.client {
       resetPassword(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1081,7 +1081,7 @@ declare namespace gapi.client {
       /** Send SMS verification code. */
       sendVerificationCode(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1100,7 +1100,7 @@ declare namespace gapi.client {
       sendVerificationCode(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1119,7 +1119,7 @@ declare namespace gapi.client {
       /** Set account info for a user. */
       setAccountInfo(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1138,7 +1138,7 @@ declare namespace gapi.client {
       setAccountInfo(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1157,7 +1157,7 @@ declare namespace gapi.client {
       /** Set project configuration. */
       setProjectConfig(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1176,7 +1176,7 @@ declare namespace gapi.client {
       setProjectConfig(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1195,7 +1195,7 @@ declare namespace gapi.client {
       /** Sign out user. */
       signOutUser(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1214,7 +1214,7 @@ declare namespace gapi.client {
       signOutUser(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1233,7 +1233,7 @@ declare namespace gapi.client {
       /** Signup new user. */
       signupNewUser(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1252,7 +1252,7 @@ declare namespace gapi.client {
       signupNewUser(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1271,7 +1271,7 @@ declare namespace gapi.client {
       /** Batch upload existing user accounts. */
       uploadAccount(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1290,7 +1290,7 @@ declare namespace gapi.client {
       uploadAccount(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1309,7 +1309,7 @@ declare namespace gapi.client {
       /** Verifies the assertion returned by the IdP. */
       verifyAssertion(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1328,7 +1328,7 @@ declare namespace gapi.client {
       verifyAssertion(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1347,7 +1347,7 @@ declare namespace gapi.client {
       /** Verifies the developer asserted ID token. */
       verifyCustomToken(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1366,7 +1366,7 @@ declare namespace gapi.client {
       verifyCustomToken(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1385,7 +1385,7 @@ declare namespace gapi.client {
       /** Verifies the user entered password. */
       verifyPassword(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1404,7 +1404,7 @@ declare namespace gapi.client {
       verifyPassword(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1423,7 +1423,7 @@ declare namespace gapi.client {
       /** Verifies ownership of a phone number and creates/updates the user account accordingly. */
       verifyPhoneNumber(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1442,7 +1442,7 @@ declare namespace gapi.client {
       verifyPhoneNumber(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */

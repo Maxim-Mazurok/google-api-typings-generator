@@ -39,7 +39,11 @@ declare namespace gapi.client {
       /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
       exemptedMembers?: string[];
       /** The log type that this config enables. */
-      logType?: string;
+      logType?:
+        | 'LOG_TYPE_UNSPECIFIED'
+        | 'ADMIN_READ'
+        | 'DATA_WRITE'
+        | 'DATA_READ';
     }
     interface AutomaticUpdatePolicy {}
     interface Binding {
@@ -55,7 +59,10 @@ declare namespace gapi.client {
       /** Output only. The Cloud Build name of the latest successful deployment of the function. */
       build?: string;
       /** Docker Registry to use for this deployment. This configuration is only applicable to 1st Gen functions, 2nd Gen functions can only use Artifact Registry. Deprecated: as of March 2025, `CONTAINER_REGISTRY` option is no longer available in response to Container Registry's deprecation: https://cloud.google.com/artifact-registry/docs/transition/transition-from-gcr Please use Artifact Registry instead, which is the default choice. If unspecified, it defaults to `ARTIFACT_REGISTRY`. If `docker_repository` field is specified, this field should either be left unspecified or set to `ARTIFACT_REGISTRY`. */
-      dockerRegistry?: string;
+      dockerRegistry?:
+        | 'DOCKER_REGISTRY_UNSPECIFIED'
+        | 'CONTAINER_REGISTRY'
+        | 'ARTIFACT_REGISTRY';
       /** Repository in Artifact Registry to which the function docker image will be pushed after it is built by Cloud Build. If specified by user, it is created and managed by user with a customer managed encryption key. Otherwise, GCF will create and use a repository named 'gcf-artifacts' for every deployed region. It must match the pattern `projects/{project}/locations/{location}/repositories/{repository}`. Repository format must be 'DOCKER'. */
       dockerRepository?: string;
       /** The name of the function (as defined in source code) that will be executed. Defaults to the resource name suffix, if not specified. For backward compatibility, if function with given name is not found, then the system will try to use function named "function". For Node.js this is name of a function exported by the module specified in `source_location`. */
@@ -117,7 +124,10 @@ declare namespace gapi.client {
       /** Optional. The name of a Pub/Sub topic in the same project that will be used as the transport topic for the event delivery. Format: `projects/{project}/topics/{topic}`. This is only valid for events of type `google.cloud.pubsub.topic.v1.messagePublished`. The topic provided here will not be deleted at function deletion. */
       pubsubTopic?: string;
       /** Optional. If unset, then defaults to ignoring failures (i.e. not retrying them). */
-      retryPolicy?: string;
+      retryPolicy?:
+        | 'RETRY_POLICY_UNSPECIFIED'
+        | 'RETRY_POLICY_DO_NOT_RETRY'
+        | 'RETRY_POLICY_RETRY';
       /** Optional. The hostname of the service that 1st Gen function should be observed. If no string is provided, the default service implementing the API will be used. For example, `storage.googleapis.com` is the default for all event types in the `google.storage` namespace. The field is only applicable to 1st Gen functions. */
       service?: string;
       /** Optional. The email of the trigger's service account. The service account must have permission to invoke Cloud Run services, the permission is `run.routes.invoke`. If empty, defaults to the Compute Engine default service account: `{project_number}-compute@developer.gserviceaccount.com`. */
@@ -145,7 +155,7 @@ declare namespace gapi.client {
       /** User-provided description of a function. */
       description?: string;
       /** Describe whether the function is 1st Gen or 2nd Gen. */
-      environment?: string;
+      environment?: 'ENVIRONMENT_UNSPECIFIED' | 'GEN_1' | 'GEN_2';
       /** An Eventarc trigger managed by Google Cloud Functions that fires events in response to a condition in another service. */
       eventTrigger?: EventTrigger;
       /** Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt function resources. It must match the pattern `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}`. */
@@ -161,7 +171,15 @@ declare namespace gapi.client {
       /** Describes the Service being deployed. Currently deploys services to Cloud Run (fully managed). */
       serviceConfig?: ServiceConfig;
       /** Output only. State of the function. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'FAILED'
+        | 'DEPLOYING'
+        | 'DELETING'
+        | 'UNKNOWN'
+        | 'DETACHING'
+        | 'DETACH_FAILED';
       /** Output only. State Messages for this Cloud Function. */
       stateMessages?: GoogleCloudFunctionsV2betaStateMessage[];
       /** Output only. The last update timestamp of a Cloud Function. */
@@ -178,7 +196,7 @@ declare namespace gapi.client {
     }
     interface GenerateUploadUrlRequest {
       /** The function environment the generated upload url will be used for. The upload url for 2nd Gen functions can also be used for 1st gen functions, but not vice versa. If not specified, 2nd generation-style upload URLs are generated. */
-      environment?: string;
+      environment?: 'ENVIRONMENT_UNSPECIFIED' | 'GEN_1' | 'GEN_2';
       /** Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt function source code objects in intermediate Cloud Storage buckets. When you generate an upload url and upload your source code, it gets copied to an intermediate Cloud Storage bucket. The source code is then copied to a versioned directory in the sources bucket in the consumer project during the function deployment. It must match the pattern `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}`. The Google Cloud Functions service account (service-{project_number}@gcf-admin-robot.iam.gserviceaccount.com) must be granted the role 'Cloud KMS CryptoKey Encrypter/Decrypter (roles/cloudkms.cryptoKeyEncrypterDecrypter)' on the Key/KeyRing/Project/Organization (least access preferred). */
       kmsKeyName?: string;
     }
@@ -190,7 +208,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudFunctionsV2betaLocationMetadata {
       /** The Cloud Function environments this location supports. */
-      environments?: string[];
+      environments?: 'ENVIRONMENT_UNSPECIFIED' | 'GEN_1' | 'GEN_2'[];
     }
     interface GoogleCloudFunctionsV2betaOperationMetadata {
       /** API version used to start the operation. */
@@ -206,7 +224,18 @@ declare namespace gapi.client {
       /** The time the operation finished running. */
       endTime?: string;
       /** The operation type. */
-      operationType?: string;
+      operationType?:
+        | 'OPERATIONTYPE_UNSPECIFIED'
+        | 'CREATE_FUNCTION'
+        | 'UPDATE_FUNCTION'
+        | 'DELETE_FUNCTION'
+        | 'REDIRECT_FUNCTION_UPGRADE_TRAFFIC'
+        | 'ROLLBACK_FUNCTION_UPGRADE_TRAFFIC'
+        | 'SETUP_FUNCTION_UPGRADE_CONFIG'
+        | 'ABORT_FUNCTION_UPGRADE'
+        | 'COMMIT_FUNCTION_UPGRADE'
+        | 'DETACH_FUNCTION'
+        | 'COMMIT_FUNCTION_UPGRADE_AS_GEN2';
       /** The original request that started the operation. */
       requestResource?: {[P in string]: any};
       /** An identifier for Firebase function sources. Disclaimer: This field is only supported for Firebase function deployments. */
@@ -224,13 +253,20 @@ declare namespace gapi.client {
       /** Message describing the Stage */
       message?: string;
       /** Name of the Stage. This will be unique for each Stage. */
-      name?: string;
+      name?:
+        | 'NAME_UNSPECIFIED'
+        | 'ARTIFACT_REGISTRY'
+        | 'BUILD'
+        | 'SERVICE'
+        | 'TRIGGER'
+        | 'SERVICE_ROLLBACK'
+        | 'TRIGGER_ROLLBACK';
       /** Resource of the Stage */
       resource?: string;
       /** Link to the current Stage resource */
       resourceUri?: string;
       /** Current state of the Stage */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'NOT_STARTED' | 'IN_PROGRESS' | 'COMPLETE';
       /** State messages from the current Stage. */
       stateMessages?: GoogleCloudFunctionsV2betaStateMessage[];
     }
@@ -238,7 +274,7 @@ declare namespace gapi.client {
       /** The message. */
       message?: string;
       /** Severity of the state message. */
-      severity?: string;
+      severity?: 'SEVERITY_UNSPECIFIED' | 'ERROR' | 'WARNING' | 'INFO';
       /** One-word CamelCase type of the state message. */
       type?: string;
     }
@@ -308,7 +344,11 @@ declare namespace gapi.client {
       /** Target of the operation - for example `projects/project-1/locations/region-1/functions/function-1` */
       target?: string;
       /** Type of operation. */
-      type?: string;
+      type?:
+        | 'OPERATION_UNSPECIFIED'
+        | 'CREATE_FUNCTION'
+        | 'UPDATE_FUNCTION'
+        | 'DELETE_FUNCTION';
       /** The last update timestamp of the operation. */
       updateTime?: string;
       /** Version id of the function created or updated by an API call. This field is only populated for Create and Update operations. */
@@ -348,11 +388,18 @@ declare namespace gapi.client {
       /** The user facing name, eg 'Go 1.13', 'Node.js 12', etc. */
       displayName?: string;
       /** The environment for the runtime. */
-      environment?: string;
+      environment?: 'ENVIRONMENT_UNSPECIFIED' | 'GEN_1' | 'GEN_2';
       /** The name of the runtime, e.g., 'go113', 'nodejs12', etc. */
       name?: string;
       /** The stage of life this runtime is in, e.g., BETA, GA, etc. */
-      stage?: string;
+      stage?:
+        | 'RUNTIME_STAGE_UNSPECIFIED'
+        | 'DEVELOPMENT'
+        | 'ALPHA'
+        | 'BETA'
+        | 'GA'
+        | 'DEPRECATED'
+        | 'DECOMMISSIONED';
       /** Warning messages, e.g., a deprecation warning. */
       warnings?: string[];
     }
@@ -392,13 +439,20 @@ declare namespace gapi.client {
       /** Optional. The binary authorization policy to be checked when deploying the Cloud Run service. */
       binaryAuthorizationPolicy?: string;
       /** Optional. Egress settings for direct VPC. If not provided, it defaults to VPC_EGRESS_PRIVATE_RANGES_ONLY. */
-      directVpcEgress?: string;
+      directVpcEgress?:
+        | 'DIRECT_VPC_EGRESS_UNSPECIFIED'
+        | 'VPC_EGRESS_PRIVATE_RANGES_ONLY'
+        | 'VPC_EGRESS_ALL_TRAFFIC';
       /** Optional. The Direct VPC network interface for the Cloud Function. Currently only a single Direct VPC is supported. */
       directVpcNetworkInterface?: DirectVpcNetworkInterface[];
       /** Environment variables that shall be available during function execution. */
       environmentVariables?: {[P in string]: string};
       /** The ingress settings for the function, controlling what traffic can reach it. */
-      ingressSettings?: string;
+      ingressSettings?:
+        | 'INGRESS_SETTINGS_UNSPECIFIED'
+        | 'ALLOW_ALL'
+        | 'ALLOW_INTERNAL_ONLY'
+        | 'ALLOW_INTERNAL_AND_GCLB';
       /** The limit on the maximum number of function instances that may coexist at a given time. In some cases, such as rapid traffic surges, Cloud Functions may, for a short period of time, create more instances than the specified max instances limit. If your function cannot tolerate this temporary behavior, you may want to factor in a safety margin and set a lower max instances value than your function can tolerate. See the [Max Instances](https://cloud.google.com/functions/docs/max-instances) Guide for more details. */
       maxInstanceCount?: number;
       /** Sets the maximum number of concurrent requests that each instance can receive. Defaults to 1. */
@@ -412,7 +466,10 @@ declare namespace gapi.client {
       /** Secret volumes configuration. */
       secretVolumes?: SecretVolume[];
       /** Security level configure whether the function only accepts https. This configuration is only applicable to 1st Gen functions with Http trigger. By default https is optional for 1st Gen functions; 2nd Gen functions are https ONLY. */
-      securityLevel?: string;
+      securityLevel?:
+        | 'SECURITY_LEVEL_UNSPECIFIED'
+        | 'SECURE_ALWAYS'
+        | 'SECURE_OPTIONAL';
       /** Output only. Name of the service associated with a Function. The format of this field is `projects/{project}/locations/{region}/services/{service}` */
       service?: string;
       /** The email of the service's service account. If empty, defaults to `{project_number}-compute@developer.gserviceaccount.com`. */
@@ -424,7 +481,10 @@ declare namespace gapi.client {
       /** The Serverless VPC Access connector that this cloud function can connect to. The format of this field is `projects/*‍/locations/*‍/connectors/*`. */
       vpcConnector?: string;
       /** The egress settings for the connector, controlling what traffic is diverted through it. */
-      vpcConnectorEgressSettings?: string;
+      vpcConnectorEgressSettings?:
+        | 'VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED'
+        | 'PRIVATE_RANGES_ONLY'
+        | 'ALL_TRAFFIC';
     }
     interface ServiceConfigOverrides {
       /** Optional. Specifies the maximum number of instances for the new Cloud Run function. If provided, this overrides the max_instance_count setting of the Gen1 function. */
@@ -494,17 +554,31 @@ declare namespace gapi.client {
       /** Describes the Cloud Run service which has been setup to prepare for 2nd gen upgrade. */
       serviceConfig?: ServiceConfig;
       /** UpgradeState of the function */
-      upgradeState?: string;
+      upgradeState?:
+        | 'UPGRADE_STATE_UNSPECIFIED'
+        | 'ELIGIBLE_FOR_2ND_GEN_UPGRADE'
+        | 'INELIGIBLE_FOR_UPGRADE_UNTIL_REDEPLOYMENT'
+        | 'UPGRADE_OPERATION_IN_PROGRESS'
+        | 'SETUP_FUNCTION_UPGRADE_CONFIG_SUCCESSFUL'
+        | 'SETUP_FUNCTION_UPGRADE_CONFIG_ERROR'
+        | 'ABORT_FUNCTION_UPGRADE_ERROR'
+        | 'REDIRECT_FUNCTION_UPGRADE_TRAFFIC_SUCCESSFUL'
+        | 'REDIRECT_FUNCTION_UPGRADE_TRAFFIC_ERROR'
+        | 'ROLLBACK_FUNCTION_UPGRADE_TRAFFIC_ERROR'
+        | 'COMMIT_FUNCTION_UPGRADE_ERROR'
+        | 'COMMIT_FUNCTION_UPGRADE_ERROR_ROLLBACK_SAFE'
+        | 'COMMIT_FUNCTION_UPGRADE_AS_GEN2_SUCCESSFUL'
+        | 'COMMIT_FUNCTION_UPGRADE_AS_GEN2_ERROR';
     }
     interface FunctionsResource {
       /** Aborts generation upgrade process for a function with the given name from the specified project. Deletes all 2nd Gen copy related configuration and resources which were created during the upgrade process. */
       abortFunctionUpgrade(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -529,11 +603,11 @@ declare namespace gapi.client {
       abortFunctionUpgrade(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -558,11 +632,11 @@ declare namespace gapi.client {
       /** Finalizes the upgrade after which function upgrade can not be rolled back. This is the last step of the multi step process to upgrade 1st Gen functions to 2nd Gen. Deletes all original 1st Gen related configuration and resources. */
       commitFunctionUpgrade(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -587,11 +661,11 @@ declare namespace gapi.client {
       commitFunctionUpgrade(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -616,11 +690,11 @@ declare namespace gapi.client {
       /** Commits a function upgrade from GCF Gen1 to GCF Gen2. This action deletes the Gen1 function, leaving the Gen2 function active and manageable by the GCFv2 API. */
       commitFunctionUpgradeAsGen2(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -645,11 +719,11 @@ declare namespace gapi.client {
       commitFunctionUpgradeAsGen2(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -674,11 +748,11 @@ declare namespace gapi.client {
       /** Creates a new function. If a function with the given name already exists in the specified project, the long running operation will return `ALREADY_EXISTS` error. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -705,11 +779,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -736,11 +810,11 @@ declare namespace gapi.client {
       /** Deletes a function with the given name from the specified project. If the given function is used by some trigger, the trigger will be updated to remove this function. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -763,11 +837,11 @@ declare namespace gapi.client {
       /** Detaches 2nd Gen function to Cloud Run function. */
       detachFunction(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -792,11 +866,11 @@ declare namespace gapi.client {
       detachFunction(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -821,11 +895,11 @@ declare namespace gapi.client {
       /** Returns a signed URL for downloading deployed function source code. The URL is only valid for a limited period and should be used within 30 minutes of generation. For more information about the signed URL usage see: https://cloud.google.com/storage/docs/access-control/signed-urls */
       generateDownloadUrl(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -850,11 +924,11 @@ declare namespace gapi.client {
       generateDownloadUrl(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -879,11 +953,11 @@ declare namespace gapi.client {
       /** Returns a signed URL for uploading a function source code. For more information about the signed URL usage see: https://cloud.google.com/storage/docs/access-control/signed-urls. Once the function source code upload is complete, the used signed URL should be provided in CreateFunction or UpdateFunction request as a reference to the function source code. When uploading source code to the generated signed URL, please follow these restrictions: * Source file type should be a zip file. * No credentials should be attached - the signed URLs provide access to the target bucket using internal service identity; if credentials were attached, the identity from the credentials would be used, but that identity does not have permissions to upload files to the URL. When making a HTTP PUT request, specify this header: * `content-type: application/zip` Do not specify this header: * `Authorization: Bearer YOUR_TOKEN` */
       generateUploadUrl(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -908,11 +982,11 @@ declare namespace gapi.client {
       generateUploadUrl(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -937,11 +1011,11 @@ declare namespace gapi.client {
       /** Returns a function with the given name from the requested project. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -966,11 +1040,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -995,11 +1069,11 @@ declare namespace gapi.client {
       /** Returns a list of functions that belong to the requested project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1030,11 +1104,11 @@ declare namespace gapi.client {
       /** Updates existing function. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1061,11 +1135,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1092,11 +1166,11 @@ declare namespace gapi.client {
       /** Changes the traffic target of a function from the original 1st Gen function to the 2nd Gen copy. This is the second step of the multi step process to upgrade 1st Gen functions to 2nd Gen. After this operation, all new traffic will be served by 2nd Gen copy. */
       redirectFunctionUpgradeTraffic(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1121,11 +1195,11 @@ declare namespace gapi.client {
       redirectFunctionUpgradeTraffic(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1150,11 +1224,11 @@ declare namespace gapi.client {
       /** Reverts the traffic target of a function from the 2nd Gen copy to the original 1st Gen function. After this operation, all new traffic would be served by the 1st Gen. */
       rollbackFunctionUpgradeTraffic(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1179,11 +1253,11 @@ declare namespace gapi.client {
       rollbackFunctionUpgradeTraffic(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1209,11 +1283,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1238,11 +1312,11 @@ declare namespace gapi.client {
       /** Creates a 2nd Gen copy of the function configuration based on the 1st Gen function with the given name. This is the first step of the multi step process to upgrade 1st Gen functions to 2nd Gen. Only 2nd Gen configuration is setup as part of this request and traffic continues to be served by 1st Gen. */
       setupFunctionUpgradeConfig(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1267,11 +1341,11 @@ declare namespace gapi.client {
       setupFunctionUpgradeConfig(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1297,11 +1371,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1328,11 +1402,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1355,11 +1429,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1392,11 +1466,11 @@ declare namespace gapi.client {
       /** Returns a list of runtimes that are supported for the requested project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1423,11 +1497,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */

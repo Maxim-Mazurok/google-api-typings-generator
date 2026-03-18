@@ -52,7 +52,11 @@ declare namespace gapi.client {
     }
     interface AgeRangeType {
       /** The age range. */
-      ageRange?: string;
+      ageRange?:
+        | 'AGE_RANGE_UNSPECIFIED'
+        | 'LESS_THAN_EIGHTEEN'
+        | 'EIGHTEEN_TO_TWENTY'
+        | 'TWENTY_ONE_OR_OLDER';
       /** Metadata about the age range. */
       metadata?: FieldMetadata;
     }
@@ -62,7 +66,12 @@ declare namespace gapi.client {
       /** Required. A field mask to restrict which fields on each person are returned in the response. Multiple fields can be specified by separating them with commas. If read mask is left empty, the post-mutate-get is skipped and no data will be returned in the response. Valid values are: * addresses * ageRanges * biographies * birthdays * calendarUrls * clientData * coverPhotos * emailAddresses * events * externalIds * genders * imClients * interests * locales * locations * memberships * metadata * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * photos * relations * sipAddresses * skills * urls * userDefined */
       readMask?: string;
       /** Optional. A mask of what source types to return in the post mutate read. Defaults to READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set. */
-      sources?: string[];
+      sources?:
+        | 'READ_SOURCE_TYPE_UNSPECIFIED'
+        | 'READ_SOURCE_TYPE_PROFILE'
+        | 'READ_SOURCE_TYPE_CONTACT'
+        | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+        | 'READ_SOURCE_TYPE_OTHER_CONTACT'[];
     }
     interface BatchCreateContactsResponse {
       /** The contacts that were created, unless the request `read_mask` is empty. */
@@ -82,7 +91,12 @@ declare namespace gapi.client {
       /** Required. A field mask to restrict which fields on each person are returned. Multiple fields can be specified by separating them with commas. If read mask is left empty, the post-mutate-get is skipped and no data will be returned in the response. Valid values are: * addresses * ageRanges * biographies * birthdays * calendarUrls * clientData * coverPhotos * emailAddresses * events * externalIds * genders * imClients * interests * locales * locations * memberships * metadata * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * photos * relations * sipAddresses * skills * urls * userDefined */
       readMask?: string;
       /** Optional. A mask of what source types to return. Defaults to READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set. */
-      sources?: string[];
+      sources?:
+        | 'READ_SOURCE_TYPE_UNSPECIFIED'
+        | 'READ_SOURCE_TYPE_PROFILE'
+        | 'READ_SOURCE_TYPE_CONTACT'
+        | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+        | 'READ_SOURCE_TYPE_OTHER_CONTACT'[];
       /** Required. A field mask to restrict which fields on the person are updated. Multiple fields can be specified by separating them with commas. All specified fields will be replaced, or cleared if left empty for each person. Valid values are: * addresses * biographies * birthdays * calendarUrls * clientData * emailAddresses * events * externalIds * genders * imClients * interests * locales * locations * memberships * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * relations * sipAddresses * urls * userDefined */
       updateMask?: string;
     }
@@ -92,7 +106,7 @@ declare namespace gapi.client {
     }
     interface Biography {
       /** The content type of the biography. */
-      contentType?: string;
+      contentType?: 'CONTENT_TYPE_UNSPECIFIED' | 'TEXT_PLAIN' | 'TEXT_HTML';
       /** Metadata about the biography. */
       metadata?: FieldMetadata;
       /** The short biography. */
@@ -138,7 +152,10 @@ declare namespace gapi.client {
       /** Output only. The name translated and formatted in the viewer's account locale or the `Accept-Language` HTTP header locale for system groups names. Group names set by the owner are the same as name. */
       formattedName?: string;
       /** Output only. The contact group type. */
-      groupType?: string;
+      groupType?:
+        | 'GROUP_TYPE_UNSPECIFIED'
+        | 'USER_CONTACT_GROUP'
+        | 'SYSTEM_CONTACT_GROUP';
       /** Output only. The total number of contacts in the group irrespective of max members in specified in the request. */
       memberCount?: number;
       /** Output only. The list of contact person resource names that are members of the contact group. The field is only populated for GET requests and will only return as many members as `maxMembers` in the get request. */
@@ -180,7 +197,12 @@ declare namespace gapi.client {
       /** Optional. A field mask to restrict which fields on the person are returned. Multiple fields can be specified by separating them with commas. Defaults to the copy mask with metadata and membership fields if not set. Valid values are: * addresses * ageRanges * biographies * birthdays * calendarUrls * clientData * coverPhotos * emailAddresses * events * externalIds * genders * imClients * interests * locales * locations * memberships * metadata * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * photos * relations * sipAddresses * skills * urls * userDefined */
       readMask?: string;
       /** Optional. A mask of what source types to return. Defaults to READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set. */
-      sources?: string[];
+      sources?:
+        | 'READ_SOURCE_TYPE_UNSPECIFIED'
+        | 'READ_SOURCE_TYPE_PROFILE'
+        | 'READ_SOURCE_TYPE_CONTACT'
+        | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+        | 'READ_SOURCE_TYPE_OTHER_CONTACT'[];
     }
     interface CoverPhoto {
       /** True if the cover photo is the default cover photo; false if the cover photo is a user-provided cover photo. */
@@ -379,7 +401,19 @@ declare namespace gapi.client {
       /** Metadata about the miscellaneous keyword. */
       metadata?: FieldMetadata;
       /** The miscellaneous keyword type. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'OUTLOOK_BILLING_INFORMATION'
+        | 'OUTLOOK_DIRECTORY_SERVER'
+        | 'OUTLOOK_KEYWORD'
+        | 'OUTLOOK_MILEAGE'
+        | 'OUTLOOK_PRIORITY'
+        | 'OUTLOOK_SENSITIVITY'
+        | 'OUTLOOK_SUBJECT'
+        | 'OUTLOOK_USER'
+        | 'HOME'
+        | 'WORK'
+        | 'OTHER';
       /** The value of the miscellaneous keyword. */
       value?: string;
     }
@@ -431,7 +465,14 @@ declare namespace gapi.client {
       /** Metadata about the nickname. */
       metadata?: FieldMetadata;
       /** The type of the nickname. */
-      type?: string;
+      type?:
+        | 'DEFAULT'
+        | 'MAIDEN_NAME'
+        | 'INITIALS'
+        | 'GPLUS'
+        | 'OTHER_NAME'
+        | 'ALTERNATE_NAME'
+        | 'SHORT_NAME';
       /** The nickname. */
       value?: string;
     }
@@ -479,7 +520,11 @@ declare namespace gapi.client {
       /** The person's street addresses. */
       addresses?: Address[];
       /** Output only. **DEPRECATED** (Please use `person.ageRanges` instead) The person's age range. */
-      ageRange?: string;
+      ageRange?:
+        | 'AGE_RANGE_UNSPECIFIED'
+        | 'LESS_THAN_EIGHTEEN'
+        | 'EIGHTEEN_TO_TWENTY'
+        | 'TWENTY_ONE_OR_OLDER';
       /** Output only. The person's age ranges. */
       ageRanges?: AgeRangeType[];
       /** The person's biographies. This field is a singleton for contact sources. */
@@ -559,7 +604,7 @@ declare namespace gapi.client {
       /** Output only. Resource names of people linked to this resource. */
       linkedPeopleResourceNames?: string[];
       /** Output only. **DEPRECATED** (Please use `person.metadata.sources.profileMetadata.objectType` instead) The type of the person object. */
-      objectType?: string;
+      objectType?: 'OBJECT_TYPE_UNSPECIFIED' | 'PERSON' | 'PAGE';
       /** Output only. Any former resource names this person has had. Populated only for `people.connections.list` requests that include a sync token. The resource name may change when adding or removing fields that link a contact and profile such as a verified email, verified phone number, or profile URL. */
       previousResourceNames?: string[];
       /** The sources of data for the person. */
@@ -597,9 +642,13 @@ declare namespace gapi.client {
     }
     interface ProfileMetadata {
       /** Output only. The profile object type. */
-      objectType?: string;
+      objectType?: 'OBJECT_TYPE_UNSPECIFIED' | 'PERSON' | 'PAGE';
       /** Output only. The user types. */
-      userTypes?: string[];
+      userTypes?:
+        | 'USER_TYPE_UNKNOWN'
+        | 'GOOGLE_USER'
+        | 'GPLUS_USER'
+        | 'GOOGLE_APPS_USER'[];
     }
     interface Relation {
       /** Output only. The type of the relation translated and formatted in the viewer's account locale or the locale specified in the Accept-Language HTTP header. */
@@ -675,7 +724,14 @@ declare namespace gapi.client {
       /** Output only. **Only populated in `person.metadata.sources`.** Metadata about a source of type PROFILE. */
       profileMetadata?: ProfileMetadata;
       /** The source type. */
-      type?: string;
+      type?:
+        | 'SOURCE_TYPE_UNSPECIFIED'
+        | 'ACCOUNT'
+        | 'PROFILE'
+        | 'DOMAIN_PROFILE'
+        | 'CONTACT'
+        | 'OTHER_CONTACT'
+        | 'DOMAIN_CONTACT';
       /** Output only. **Only populated in `person.metadata.sources`.** Last update timestamp of this source. */
       updateTime?: string;
     }
@@ -707,7 +763,12 @@ declare namespace gapi.client {
       /** Required. Raw photo bytes */
       photoBytes?: string;
       /** Optional. A mask of what source types to return. Defaults to READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set. */
-      sources?: string[];
+      sources?:
+        | 'READ_SOURCE_TYPE_UNSPECIFIED'
+        | 'READ_SOURCE_TYPE_PROFILE'
+        | 'READ_SOURCE_TYPE_CONTACT'
+        | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+        | 'READ_SOURCE_TYPE_OTHER_CONTACT'[];
     }
     interface UpdateContactPhotoResponse {
       /** The updated person, if person_fields is set in the UpdateContactPhotoRequest; otherwise this will be unset. */
@@ -735,11 +796,11 @@ declare namespace gapi.client {
       /** Modify the members of a contact group owned by the authenticated user. The only system contact groups that can have members added are `contactGroups/myContacts` and `contactGroups/starred`. Other system contact groups are deprecated and can only have contacts removed. */
       modify(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -764,11 +825,11 @@ declare namespace gapi.client {
       modify(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -795,11 +856,11 @@ declare namespace gapi.client {
       /** Get a list of contact groups owned by the authenticated user by specifying a list of contact group resource names. */
       batchGet(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -826,11 +887,11 @@ declare namespace gapi.client {
       /** Create a new contact group owned by the authenticated user. Created contact group names must be unique to the users contact groups. Attempting to create a group with a duplicate name will return a HTTP 409 error. Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -853,11 +914,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -880,11 +941,11 @@ declare namespace gapi.client {
       /** Delete an existing contact group owned by the authenticated user by specifying a contact group resource name. Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Set to true to also delete the contacts in the specified group. */
@@ -909,11 +970,11 @@ declare namespace gapi.client {
       /** Get a specific contact group owned by the authenticated user by specifying a contact group resource name. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -940,11 +1001,11 @@ declare namespace gapi.client {
       /** List all contact groups owned by the authenticated user. Members of the contact groups are not populated. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -973,11 +1034,11 @@ declare namespace gapi.client {
       /** Update the name of an existing contact group owned by the authenticated user. Updated contact group names must be unique to the users contact groups. Attempting to create a group with a duplicate name will return a HTTP 409 error. Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1002,11 +1063,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1034,11 +1095,11 @@ declare namespace gapi.client {
       /** Copies an "Other contact" to a new contact in the user's "myContacts" group Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
       copyOtherContactToMyContactsGroup(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1063,11 +1124,11 @@ declare namespace gapi.client {
       copyOtherContactToMyContactsGroup(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1092,11 +1153,11 @@ declare namespace gapi.client {
       /** List all "Other contacts", that is contacts that are not in a contact group. "Other contacts" are typically auto created contacts from interactions. Sync tokens expire 7 days after the full sync. A request with an expired sync token will get an error with an [google.rpc.ErrorInfo](https://cloud.google.com/apis/design/errors#error_info) with reason "EXPIRED_SYNC_TOKEN". In the case of such an error clients should make a full sync request without a `sync_token`. The first page of a full sync request has an additional quota. If the quota is exceeded, a 429 error will be returned. This quota is fixed and can not be increased. When the `sync_token` is specified, resources deleted since the last sync will be returned as a person with `PersonMetadata.deleted` set to true. When the `page_token` or `sync_token` is specified, all other request parameters must match the first call. Writes may have a propagation delay of several minutes for sync requests. Incremental syncs are not intended for read-after-write use cases. See example usage at [List the user's other contacts that have changed](/people/v1/other-contacts#list_the_users_other_contacts_that_have_changed). */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1118,7 +1179,19 @@ declare namespace gapi.client {
         /** Optional. Whether the response should return `next_sync_token` on the last page of results. It can be used to get incremental changes since the last request by setting it on the request `sync_token`. More details about sync behavior at `otherContacts.list`. */
         requestSyncToken?: boolean;
         /** Optional. A mask of what source types to return. Defaults to READ_SOURCE_TYPE_CONTACT if not set. Possible values for this field are: * READ_SOURCE_TYPE_CONTACT * READ_SOURCE_TYPE_CONTACT,READ_SOURCE_TYPE_PROFILE Specifying READ_SOURCE_TYPE_PROFILE without specifying READ_SOURCE_TYPE_CONTACT is not permitted. */
-        sources?: string | string[];
+        sources?:
+          | 'READ_SOURCE_TYPE_UNSPECIFIED'
+          | 'READ_SOURCE_TYPE_PROFILE'
+          | 'READ_SOURCE_TYPE_CONTACT'
+          | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+          | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+          | (
+              | 'READ_SOURCE_TYPE_UNSPECIFIED'
+              | 'READ_SOURCE_TYPE_PROFILE'
+              | 'READ_SOURCE_TYPE_CONTACT'
+              | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+              | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+            )[];
         /** Optional. A sync token, received from a previous response `next_sync_token` Provide this to retrieve only the resources changed since the last request. When syncing, all other parameters provided to `otherContacts.list` must match the first call that provided the sync token. More details about sync behavior at `otherContacts.list`. */
         syncToken?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1129,11 +1202,11 @@ declare namespace gapi.client {
       /** Provides a list of contacts in the authenticated user's other contacts that matches the search query. The query matches on a contact's `names`, `emailAddresses`, and `phoneNumbers` fields that are from the OTHER_CONTACT source. **IMPORTANT**: Before searching, clients should send a warmup request with an empty query to update the cache. See https://developers.google.com/people/v1/other-contacts#search_the_users_other_contacts */
       search(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1162,11 +1235,11 @@ declare namespace gapi.client {
       /** Provides a list of the authenticated user's contacts. Sync tokens expire 7 days after the full sync. A request with an expired sync token will get an error with an [google.rpc.ErrorInfo](https://cloud.google.com/apis/design/errors#error_info) with reason "EXPIRED_SYNC_TOKEN". In the case of such an error clients should make a full sync request without a `sync_token`. The first page of a full sync request has an additional quota. If the quota is exceeded, a 429 error will be returned. This quota is fixed and can not be increased. When the `sync_token` is specified, resources deleted since the last sync will be returned as a person with `PersonMetadata.deleted` set to true. When the `page_token` or `sync_token` is specified, all other request parameters must match the first call. Writes may have a propagation delay of several minutes for sync requests. Incremental syncs are not intended for read-after-write use cases. See example usage at [List the user's contacts that have changed](/people/v1/contacts#list_the_users_contacts_that_have_changed). */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1192,9 +1265,25 @@ declare namespace gapi.client {
         /** Required. The resource name to return connections for. Only `people/me` is valid. */
         resourceName: string;
         /** Optional. The order in which the connections should be sorted. Defaults to `LAST_MODIFIED_ASCENDING`. */
-        sortOrder?: string;
+        sortOrder?:
+          | 'LAST_MODIFIED_ASCENDING'
+          | 'LAST_MODIFIED_DESCENDING'
+          | 'FIRST_NAME_ASCENDING'
+          | 'LAST_NAME_ASCENDING';
         /** Optional. A mask of what source types to return. Defaults to READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set. */
-        sources?: string | string[];
+        sources?:
+          | 'READ_SOURCE_TYPE_UNSPECIFIED'
+          | 'READ_SOURCE_TYPE_PROFILE'
+          | 'READ_SOURCE_TYPE_CONTACT'
+          | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+          | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+          | (
+              | 'READ_SOURCE_TYPE_UNSPECIFIED'
+              | 'READ_SOURCE_TYPE_PROFILE'
+              | 'READ_SOURCE_TYPE_CONTACT'
+              | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+              | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+            )[];
         /** Optional. A sync token, received from a previous response `next_sync_token` Provide this to retrieve only the resources changed since the last request. When syncing, all other parameters provided to `people.connections.list` must match the first call that provided the sync token. More details about sync behavior at `people.connections.list`. */
         syncToken?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1207,11 +1296,11 @@ declare namespace gapi.client {
       /** Create a batch of new contacts and return the PersonResponses for the newly Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
       batchCreateContacts(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1234,11 +1323,11 @@ declare namespace gapi.client {
       batchCreateContacts(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1261,11 +1350,11 @@ declare namespace gapi.client {
       /** Delete a batch of contacts. Any non-contact data will not be deleted. Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
       batchDeleteContacts(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1288,11 +1377,11 @@ declare namespace gapi.client {
       batchDeleteContacts(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1315,11 +1404,11 @@ declare namespace gapi.client {
       /** Update a batch of contacts and return a map of resource names to PersonResponses for the updated contacts. Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
       batchUpdateContacts(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1342,11 +1431,11 @@ declare namespace gapi.client {
       batchUpdateContacts(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1369,11 +1458,11 @@ declare namespace gapi.client {
       /** Create a new contact and return the person resource for that contact. The request returns a 400 error if more than one field is specified on a field that is a singleton for contact sources: * biographies * birthdays * genders * names Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
       createContact(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1389,7 +1478,19 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Optional. A mask of what source types to return. Defaults to READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set. */
-        sources?: string | string[];
+        sources?:
+          | 'READ_SOURCE_TYPE_UNSPECIFIED'
+          | 'READ_SOURCE_TYPE_PROFILE'
+          | 'READ_SOURCE_TYPE_CONTACT'
+          | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+          | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+          | (
+              | 'READ_SOURCE_TYPE_UNSPECIFIED'
+              | 'READ_SOURCE_TYPE_PROFILE'
+              | 'READ_SOURCE_TYPE_CONTACT'
+              | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+              | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+            )[];
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1400,11 +1501,11 @@ declare namespace gapi.client {
       createContact(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1420,7 +1521,19 @@ declare namespace gapi.client {
           /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
           quotaUser?: string;
           /** Optional. A mask of what source types to return. Defaults to READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set. */
-          sources?: string | string[];
+          sources?:
+            | 'READ_SOURCE_TYPE_UNSPECIFIED'
+            | 'READ_SOURCE_TYPE_PROFILE'
+            | 'READ_SOURCE_TYPE_CONTACT'
+            | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+            | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+            | (
+                | 'READ_SOURCE_TYPE_UNSPECIFIED'
+                | 'READ_SOURCE_TYPE_PROFILE'
+                | 'READ_SOURCE_TYPE_CONTACT'
+                | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+                | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+              )[];
           /** Upload protocol for media (e.g. "raw", "multipart"). */
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1431,11 +1544,11 @@ declare namespace gapi.client {
       /** Delete a contact person. Any non-contact data will not be deleted. Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
       deleteContact(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1458,11 +1571,11 @@ declare namespace gapi.client {
       /** Delete a contact's photo. Mutate requests for the same user should be done sequentially to avoid // lock contention. */
       deleteContactPhoto(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1480,7 +1593,19 @@ declare namespace gapi.client {
         /** Required. The resource name of the contact whose photo will be deleted. */
         resourceName: string;
         /** Optional. A mask of what source types to return. Defaults to READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set. */
-        sources?: string | string[];
+        sources?:
+          | 'READ_SOURCE_TYPE_UNSPECIFIED'
+          | 'READ_SOURCE_TYPE_PROFILE'
+          | 'READ_SOURCE_TYPE_CONTACT'
+          | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+          | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+          | (
+              | 'READ_SOURCE_TYPE_UNSPECIFIED'
+              | 'READ_SOURCE_TYPE_PROFILE'
+              | 'READ_SOURCE_TYPE_CONTACT'
+              | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+              | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+            )[];
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1489,11 +1614,11 @@ declare namespace gapi.client {
       /** Provides information about a person by specifying a resource name. Use `people/me` to indicate the authenticated user. The request returns a 400 error if 'personFields' is not specified. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1513,7 +1638,19 @@ declare namespace gapi.client {
         /** Required. The resource name of the person to provide information about. - To get information about the authenticated user, specify `people/me`. - To get information about a google account, specify `people/{account_id}`. - To get information about a contact, specify the resource name that identifies the contact as returned by `people.connections.list`. */
         resourceName: string;
         /** Optional. A mask of what source types to return. Defaults to READ_SOURCE_TYPE_PROFILE and READ_SOURCE_TYPE_CONTACT if not set. */
-        sources?: string | string[];
+        sources?:
+          | 'READ_SOURCE_TYPE_UNSPECIFIED'
+          | 'READ_SOURCE_TYPE_PROFILE'
+          | 'READ_SOURCE_TYPE_CONTACT'
+          | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+          | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+          | (
+              | 'READ_SOURCE_TYPE_UNSPECIFIED'
+              | 'READ_SOURCE_TYPE_PROFILE'
+              | 'READ_SOURCE_TYPE_CONTACT'
+              | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+              | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+            )[];
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1522,11 +1659,11 @@ declare namespace gapi.client {
       /** Provides information about a list of specific people by specifying a list of requested resource names. Use `people/me` to indicate the authenticated user. The request returns a 400 error if 'personFields' is not specified. */
       getBatchGet(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1546,7 +1683,19 @@ declare namespace gapi.client {
         /** Required. The resource names of the people to provide information about. It's repeatable. The URL query parameter should be resourceNames=<name1>&resourceNames=<name2>&... - To get information about the authenticated user, specify `people/me`. - To get information about a google account, specify `people/{account_id}`. - To get information about a contact, specify the resource name that identifies the contact as returned by `people.connections.list`. There is a maximum of 200 resource names. */
         resourceNames?: string | string[];
         /** Optional. A mask of what source types to return. Defaults to READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set. */
-        sources?: string | string[];
+        sources?:
+          | 'READ_SOURCE_TYPE_UNSPECIFIED'
+          | 'READ_SOURCE_TYPE_PROFILE'
+          | 'READ_SOURCE_TYPE_CONTACT'
+          | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+          | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+          | (
+              | 'READ_SOURCE_TYPE_UNSPECIFIED'
+              | 'READ_SOURCE_TYPE_PROFILE'
+              | 'READ_SOURCE_TYPE_CONTACT'
+              | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+              | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+            )[];
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1555,11 +1704,11 @@ declare namespace gapi.client {
       /** Provides a list of domain profiles and domain contacts in the authenticated user's domain directory. When the `sync_token` is specified, resources deleted since the last sync will be returned as a person with `PersonMetadata.deleted` set to true. When the `page_token` or `sync_token` is specified, all other request parameters must match the first call. Writes may have a propagation delay of several minutes for sync requests. Incremental syncs are not intended for read-after-write use cases. See example usage at [List the directory people that have changed](/people/v1/directory#list_the_directory_people_that_have_changed). */
       listDirectoryPeople(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1567,7 +1716,13 @@ declare namespace gapi.client {
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** Optional. Additional data to merge into the directory sources if they are connected through verified join keys such as email addresses or phone numbers. */
-        mergeSources?: string | string[];
+        mergeSources?:
+          | 'DIRECTORY_MERGE_SOURCE_TYPE_UNSPECIFIED'
+          | 'DIRECTORY_MERGE_SOURCE_TYPE_CONTACT'
+          | (
+              | 'DIRECTORY_MERGE_SOURCE_TYPE_UNSPECIFIED'
+              | 'DIRECTORY_MERGE_SOURCE_TYPE_CONTACT'
+            )[];
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Optional. The number of people to include in the response. Valid values are between 1 and 1000, inclusive. Defaults to 100 if not set or set to 0. */
@@ -1583,7 +1738,15 @@ declare namespace gapi.client {
         /** Optional. Whether the response should return `next_sync_token`. It can be used to get incremental changes since the last request by setting it on the request `sync_token`. More details about sync behavior at `people.listDirectoryPeople`. */
         requestSyncToken?: boolean;
         /** Required. Directory sources to return. */
-        sources?: string | string[];
+        sources?:
+          | 'DIRECTORY_SOURCE_TYPE_UNSPECIFIED'
+          | 'DIRECTORY_SOURCE_TYPE_DOMAIN_CONTACT'
+          | 'DIRECTORY_SOURCE_TYPE_DOMAIN_PROFILE'
+          | (
+              | 'DIRECTORY_SOURCE_TYPE_UNSPECIFIED'
+              | 'DIRECTORY_SOURCE_TYPE_DOMAIN_CONTACT'
+              | 'DIRECTORY_SOURCE_TYPE_DOMAIN_PROFILE'
+            )[];
         /** Optional. A sync token, received from a previous response `next_sync_token` Provide this to retrieve only the resources changed since the last request. When syncing, all other parameters provided to `people.listDirectoryPeople` must match the first call that provided the sync token. More details about sync behavior at `people.listDirectoryPeople`. */
         syncToken?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1594,11 +1757,11 @@ declare namespace gapi.client {
       /** Provides a list of contacts in the authenticated user's grouped contacts that matches the search query. The query matches on a contact's `names`, `nickNames`, `emailAddresses`, `phoneNumbers`, and `organizations` fields that are from the CONTACT source. **IMPORTANT**: Before searching, clients should send a warmup request with an empty query to update the cache. See https://developers.google.com/people/v1/contacts#search_the_users_contacts */
       searchContacts(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1618,7 +1781,19 @@ declare namespace gapi.client {
         /** Required. A field mask to restrict which fields on each person are returned. Multiple fields can be specified by separating them with commas. Valid values are: * addresses * ageRanges * biographies * birthdays * calendarUrls * clientData * coverPhotos * emailAddresses * events * externalIds * genders * imClients * interests * locales * locations * memberships * metadata * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * photos * relations * sipAddresses * skills * urls * userDefined */
         readMask?: string;
         /** Optional. A mask of what source types to return. Defaults to READ_SOURCE_TYPE_CONTACT if not set. */
-        sources?: string | string[];
+        sources?:
+          | 'READ_SOURCE_TYPE_UNSPECIFIED'
+          | 'READ_SOURCE_TYPE_PROFILE'
+          | 'READ_SOURCE_TYPE_CONTACT'
+          | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+          | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+          | (
+              | 'READ_SOURCE_TYPE_UNSPECIFIED'
+              | 'READ_SOURCE_TYPE_PROFILE'
+              | 'READ_SOURCE_TYPE_CONTACT'
+              | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+              | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+            )[];
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1627,11 +1802,11 @@ declare namespace gapi.client {
       /** Provides a list of domain profiles and domain contacts in the authenticated user's domain directory that match the search query. */
       searchDirectoryPeople(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1639,7 +1814,13 @@ declare namespace gapi.client {
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** Optional. Additional data to merge into the directory sources if they are connected through verified join keys such as email addresses or phone numbers. */
-        mergeSources?: string | string[];
+        mergeSources?:
+          | 'DIRECTORY_MERGE_SOURCE_TYPE_UNSPECIFIED'
+          | 'DIRECTORY_MERGE_SOURCE_TYPE_CONTACT'
+          | (
+              | 'DIRECTORY_MERGE_SOURCE_TYPE_UNSPECIFIED'
+              | 'DIRECTORY_MERGE_SOURCE_TYPE_CONTACT'
+            )[];
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Optional. The number of people to include in the response. Valid values are between 1 and 500, inclusive. Defaults to 100 if not set or set to 0. */
@@ -1655,7 +1836,15 @@ declare namespace gapi.client {
         /** Required. A field mask to restrict which fields on each person are returned. Multiple fields can be specified by separating them with commas. Valid values are: * addresses * ageRanges * biographies * birthdays * calendarUrls * clientData * coverPhotos * emailAddresses * events * externalIds * genders * imClients * interests * locales * locations * memberships * metadata * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * photos * relations * sipAddresses * skills * urls * userDefined */
         readMask?: string;
         /** Required. Directory sources to return. */
-        sources?: string | string[];
+        sources?:
+          | 'DIRECTORY_SOURCE_TYPE_UNSPECIFIED'
+          | 'DIRECTORY_SOURCE_TYPE_DOMAIN_CONTACT'
+          | 'DIRECTORY_SOURCE_TYPE_DOMAIN_PROFILE'
+          | (
+              | 'DIRECTORY_SOURCE_TYPE_UNSPECIFIED'
+              | 'DIRECTORY_SOURCE_TYPE_DOMAIN_CONTACT'
+              | 'DIRECTORY_SOURCE_TYPE_DOMAIN_PROFILE'
+            )[];
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1664,11 +1853,11 @@ declare namespace gapi.client {
       /** Update contact data for an existing contact person. Any non-contact data will not be modified. Any non-contact data in the person to update will be ignored. All fields specified in the `update_mask` will be replaced. The server returns a 400 error if `person.metadata.sources` is not specified for the contact to be updated or if there is no contact source. The server returns a 400 error with reason `"failedPrecondition"` if `person.metadata.sources.etag` is different than the contact's etag, which indicates the contact has changed since its data was read. Clients should get the latest person and merge their updates into the latest person. If making sequential updates to the same person, the etag from the `updateContact` response should be used to avoid failures. The server returns a 400 error if `memberships` are being updated and there are no contact group memberships specified on the person. The server returns a 400 error if more than one field is specified on a field that is a singleton for contact sources: * biographies * birthdays * genders * names Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
       updateContact(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1686,7 +1875,19 @@ declare namespace gapi.client {
         /** The resource name for the person, assigned by the server. An ASCII string in the form of `people/{person_id}`. */
         resourceName: string;
         /** Optional. A mask of what source types to return. Defaults to READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set. */
-        sources?: string | string[];
+        sources?:
+          | 'READ_SOURCE_TYPE_UNSPECIFIED'
+          | 'READ_SOURCE_TYPE_PROFILE'
+          | 'READ_SOURCE_TYPE_CONTACT'
+          | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+          | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+          | (
+              | 'READ_SOURCE_TYPE_UNSPECIFIED'
+              | 'READ_SOURCE_TYPE_PROFILE'
+              | 'READ_SOURCE_TYPE_CONTACT'
+              | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+              | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+            )[];
         /** Required. A field mask to restrict which fields on the person are updated. Multiple fields can be specified by separating them with commas. All updated fields will be replaced. Valid values are: * addresses * biographies * birthdays * calendarUrls * clientData * emailAddresses * events * externalIds * genders * imClients * interests * locales * locations * memberships * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * relations * sipAddresses * urls * userDefined */
         updatePersonFields?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1699,11 +1900,11 @@ declare namespace gapi.client {
       updateContact(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1721,7 +1922,19 @@ declare namespace gapi.client {
           /** The resource name for the person, assigned by the server. An ASCII string in the form of `people/{person_id}`. */
           resourceName: string;
           /** Optional. A mask of what source types to return. Defaults to READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set. */
-          sources?: string | string[];
+          sources?:
+            | 'READ_SOURCE_TYPE_UNSPECIFIED'
+            | 'READ_SOURCE_TYPE_PROFILE'
+            | 'READ_SOURCE_TYPE_CONTACT'
+            | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+            | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+            | (
+                | 'READ_SOURCE_TYPE_UNSPECIFIED'
+                | 'READ_SOURCE_TYPE_PROFILE'
+                | 'READ_SOURCE_TYPE_CONTACT'
+                | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+                | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+              )[];
           /** Required. A field mask to restrict which fields on the person are updated. Multiple fields can be specified by separating them with commas. All updated fields will be replaced. Valid values are: * addresses * biographies * birthdays * calendarUrls * clientData * emailAddresses * events * externalIds * genders * imClients * interests * locales * locations * memberships * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * relations * sipAddresses * urls * userDefined */
           updatePersonFields?: string;
           /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1734,11 +1947,11 @@ declare namespace gapi.client {
       /** Update a contact's photo. Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
       updateContactPhoto(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1763,11 +1976,11 @@ declare namespace gapi.client {
       updateContactPhoto(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

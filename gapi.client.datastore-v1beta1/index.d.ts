@@ -34,11 +34,22 @@ declare namespace gapi.client {
       /** The client-assigned labels which were provided when the operation was created. May also include additional labels. */
       labels?: {[P in string]: string};
       /** The type of the operation. Can be used as a filter in ListOperationsRequest. */
-      operationType?: string;
+      operationType?:
+        | 'OPERATION_TYPE_UNSPECIFIED'
+        | 'EXPORT_ENTITIES'
+        | 'IMPORT_ENTITIES';
       /** The time that work began on the operation. */
       startTime?: string;
       /** The current state of the Operation. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'INITIALIZING'
+        | 'PROCESSING'
+        | 'CANCELLING'
+        | 'FINALIZING'
+        | 'SUCCESSFUL'
+        | 'FAILED'
+        | 'CANCELLED';
     }
     interface GoogleDatastoreAdminV1beta1EntityFilter {
       /** If empty, then this represents all kinds. */
@@ -102,17 +113,42 @@ declare namespace gapi.client {
       /** The client-assigned labels which were provided when the operation was created. May also include additional labels. */
       labels?: {[P in string]: string};
       /** The type of the operation. Can be used as a filter in ListOperationsRequest. */
-      operationType?: string;
+      operationType?:
+        | 'OPERATION_TYPE_UNSPECIFIED'
+        | 'EXPORT_ENTITIES'
+        | 'IMPORT_ENTITIES'
+        | 'CREATE_INDEX'
+        | 'DELETE_INDEX';
       /** The time that work began on the operation. */
       startTime?: string;
       /** The current state of the Operation. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'INITIALIZING'
+        | 'PROCESSING'
+        | 'CANCELLING'
+        | 'FINALIZING'
+        | 'SUCCESSFUL'
+        | 'FAILED'
+        | 'CANCELLED';
     }
     interface GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata {
       /** The current state of migration from Cloud Datastore to Cloud Firestore in Datastore mode. */
-      migrationState?: string;
+      migrationState?:
+        | 'MIGRATION_STATE_UNSPECIFIED'
+        | 'RUNNING'
+        | 'PAUSED'
+        | 'COMPLETE';
       /** The current step of migration from Cloud Datastore to Cloud Firestore in Datastore mode. */
-      migrationStep?: string;
+      migrationStep?:
+        | 'MIGRATION_STEP_UNSPECIFIED'
+        | 'PREPARE'
+        | 'START'
+        | 'APPLY_WRITES_SYNCHRONOUSLY'
+        | 'COPY_AND_VERIFY'
+        | 'REDIRECT_EVENTUALLY_CONSISTENT_READS'
+        | 'REDIRECT_STRONGLY_CONSISTENT_READS'
+        | 'REDIRECT_WRITES';
     }
     interface GoogleDatastoreAdminV1EntityFilter {
       /** If empty, then this represents all kinds. */
@@ -162,15 +198,27 @@ declare namespace gapi.client {
       /** Details for the `REDIRECT_WRITES` step. */
       redirectWritesStepDetails?: GoogleDatastoreAdminV1RedirectWritesStepDetails;
       /** The step that is starting. An event with step set to `START` indicates that the migration has been reverted back to the initial pre-migration state. */
-      step?: string;
+      step?:
+        | 'MIGRATION_STEP_UNSPECIFIED'
+        | 'PREPARE'
+        | 'START'
+        | 'APPLY_WRITES_SYNCHRONOUSLY'
+        | 'COPY_AND_VERIFY'
+        | 'REDIRECT_EVENTUALLY_CONSISTENT_READS'
+        | 'REDIRECT_STRONGLY_CONSISTENT_READS'
+        | 'REDIRECT_WRITES';
     }
     interface GoogleDatastoreAdminV1MigrationStateEvent {
       /** The new state of the migration. */
-      state?: string;
+      state?: 'MIGRATION_STATE_UNSPECIFIED' | 'RUNNING' | 'PAUSED' | 'COMPLETE';
     }
     interface GoogleDatastoreAdminV1PrepareStepDetails {
       /** The concurrency mode this database will use when it reaches the `REDIRECT_WRITES` step. */
-      concurrencyMode?: string;
+      concurrencyMode?:
+        | 'CONCURRENCY_MODE_UNSPECIFIED'
+        | 'PESSIMISTIC'
+        | 'OPTIMISTIC'
+        | 'OPTIMISTIC_WITH_ENTITY_GROUPS';
     }
     interface GoogleDatastoreAdminV1Progress {
       /** The amount of work that has been completed. Note that this may be greater than work_estimated. */
@@ -180,7 +228,11 @@ declare namespace gapi.client {
     }
     interface GoogleDatastoreAdminV1RedirectWritesStepDetails {
       /** The concurrency mode for this database. */
-      concurrencyMode?: string;
+      concurrencyMode?:
+        | 'CONCURRENCY_MODE_UNSPECIFIED'
+        | 'PESSIMISTIC'
+        | 'OPTIMISTIC'
+        | 'OPTIMISTIC_WITH_ENTITY_GROUPS';
     }
     interface GoogleLongrunningOperation {
       /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
@@ -206,11 +258,11 @@ declare namespace gapi.client {
       /** Exports a copy of all or a subset of entities from Google Cloud Datastore to another storage system, such as Google Cloud Storage. Recent updates to entities may not be reflected in the export. The export occurs in the background and its progress can be monitored and managed via the Operation resource that is created. The output of an export may only be used once the associated operation is done. If an export operation is cancelled before completion it may leave partial data behind in Google Cloud Storage. */
       export(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -235,11 +287,11 @@ declare namespace gapi.client {
       export(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -264,11 +316,11 @@ declare namespace gapi.client {
       /** Imports entities into Google Cloud Datastore. Existing entities with the same key are overwritten. The import occurs in the background and its progress can be monitored and managed via the Operation resource that is created. If an ImportEntities operation is cancelled, it is possible that a subset of the data has already been imported to Cloud Datastore. */
       import(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -293,11 +345,11 @@ declare namespace gapi.client {
       import(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

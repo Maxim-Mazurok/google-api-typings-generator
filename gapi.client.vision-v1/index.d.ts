@@ -154,13 +154,24 @@ declare namespace gapi.client {
       /** The time when the batch request is finished and google.longrunning.Operation.done is set to true. */
       endTime?: string;
       /** The current state of the batch operation. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PROCESSING'
+        | 'SUCCESSFUL'
+        | 'FAILED'
+        | 'CANCELLED';
       /** The time when the batch request was submitted to the server. */
       submitTime?: string;
     }
     interface Block {
       /** Detected block type (text, image etc) for this block. */
-      blockType?: string;
+      blockType?:
+        | 'UNKNOWN'
+        | 'TEXT'
+        | 'TABLE'
+        | 'PICTURE'
+        | 'RULER'
+        | 'BARCODE';
       /** The bounding box for the block. The vertices are in the order of top-left, top-right, bottom-right, bottom-left. When a rotation of the bounding box is detected the rotation is represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | | 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3). */
       boundingBox?: BoundingPoly;
       /** Confidence of the OCR results on the block. Range [0, 1]. */
@@ -215,7 +226,13 @@ declare namespace gapi.client {
       /** True if break prepends the element. */
       isPrefix?: boolean;
       /** Detected break type. */
-      type?: string;
+      type?:
+        | 'UNKNOWN'
+        | 'SPACE'
+        | 'SURE_SPACE'
+        | 'EOL_SURE_SPACE'
+        | 'HYPHEN'
+        | 'LINE_BREAK';
     }
     interface DetectedLanguage {
       /** Confidence of detected language. Range [0, 1]. */
@@ -250,9 +267,21 @@ declare namespace gapi.client {
     }
     interface FaceAnnotation {
       /** Anger likelihood. */
-      angerLikelihood?: string;
+      angerLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Blurred likelihood. */
-      blurredLikelihood?: string;
+      blurredLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** The bounding polygon around the face. The coordinates of the bounding box are in the original image's scale. The bounding box is computed to "frame" the face in accordance with human expectations. It is based on the landmarker results. Note that one or more x and/or y coordinates may not be generated in the `BoundingPoly` (the polygon will be unbounded) if only a partial face appears in the image to be annotated. */
       boundingPoly?: BoundingPoly;
       /** Detection confidence. Range [0, 1]. */
@@ -260,9 +289,21 @@ declare namespace gapi.client {
       /** The `fd_bounding_poly` bounding polygon is tighter than the `boundingPoly`, and encloses only the skin part of the face. Typically, it is used to eliminate the face from any image analysis that detects the "amount of skin" visible in an image. It is not based on the landmarker results, only on the initial face detection, hence the fd (face detection) prefix. */
       fdBoundingPoly?: BoundingPoly;
       /** Headwear likelihood. */
-      headwearLikelihood?: string;
+      headwearLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Joy likelihood. */
-      joyLikelihood?: string;
+      joyLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Face landmarking confidence. Range [0, 1]. */
       landmarkingConfidence?: number;
       /** Detected face landmarks. */
@@ -272,13 +313,31 @@ declare namespace gapi.client {
       /** Roll angle, which indicates the amount of clockwise/anti-clockwise rotation of the face relative to the image vertical about the axis perpendicular to the face. Range [-180,180]. */
       rollAngle?: number;
       /** Sorrow likelihood. */
-      sorrowLikelihood?: string;
+      sorrowLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Surprise likelihood. */
-      surpriseLikelihood?: string;
+      surpriseLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Pitch angle, which indicates the upwards/downwards angle that the face is pointing relative to the image's horizontal plane. Range [-180,180]. */
       tiltAngle?: number;
       /** Under-exposed likelihood. */
-      underExposedLikelihood?: string;
+      underExposedLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
     }
     interface Feature {
       /** Maximum number of results of this type. Does not apply to `TEXT_DETECTION`, `DOCUMENT_TEXT_DETECTION`, or `CROP_HINTS`. */
@@ -286,7 +345,20 @@ declare namespace gapi.client {
       /** Model to use for the feature. Supported values: "builtin/stable" (the default if unset) and "builtin/latest". `DOCUMENT_TEXT_DETECTION` and `TEXT_DETECTION` also support "builtin/rc" for the latest release candidate. */
       model?: string;
       /** The feature type. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'FACE_DETECTION'
+        | 'LANDMARK_DETECTION'
+        | 'LOGO_DETECTION'
+        | 'LABEL_DETECTION'
+        | 'TEXT_DETECTION'
+        | 'DOCUMENT_TEXT_DETECTION'
+        | 'SAFE_SEARCH_DETECTION'
+        | 'IMAGE_PROPERTIES'
+        | 'CROP_HINTS'
+        | 'WEB_DETECTION'
+        | 'PRODUCT_SEARCH'
+        | 'OBJECT_LOCALIZATION';
     }
     interface GcsDestination {
       /** Google Cloud Storage URI prefix where the results will be stored. Results will be in JSON format and preceded by its corresponding input URI prefix. This field can either represent a gcs file prefix or gcs directory. In either case, the uri should be unique because in order to get all of the output files, you will need to do a wildcard gcs search on the uri prefix you provide. Examples: * File Prefix: gs://bucket-name/here/filenameprefix The output files will be created in gs://bucket-name/here/ and the names of the output files will begin with "filenameprefix". * Directory Prefix: gs://bucket-name/some/location/ The output files will be created in gs://bucket-name/some/location/ and the names of the output files could be anything because there was no filename prefix specified. If multiple outputs, each response is still AnnotateFileResponse, each of which contains some subset of the full list of AnnotateImageResponse. Multiple outputs can happen if, for example, the output JSON is too large and overflows into multiple sharded files. */
@@ -346,7 +418,13 @@ declare namespace gapi.client {
     }
     interface GoogleCloudVisionV1p1beta1Block {
       /** Detected block type (text, image etc) for this block. */
-      blockType?: string;
+      blockType?:
+        | 'UNKNOWN'
+        | 'TEXT'
+        | 'TABLE'
+        | 'PICTURE'
+        | 'RULER'
+        | 'BARCODE';
       /** The bounding box for the block. The vertices are in the order of top-left, top-right, bottom-right, bottom-left. When a rotation of the bounding box is detected the rotation is represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | | 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3). */
       boundingBox?: GoogleCloudVisionV1p1beta1BoundingPoly;
       /** Confidence of the OCR results on the block. Range [0, 1]. */
@@ -408,9 +486,21 @@ declare namespace gapi.client {
     }
     interface GoogleCloudVisionV1p1beta1FaceAnnotation {
       /** Anger likelihood. */
-      angerLikelihood?: string;
+      angerLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Blurred likelihood. */
-      blurredLikelihood?: string;
+      blurredLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** The bounding polygon around the face. The coordinates of the bounding box are in the original image's scale. The bounding box is computed to "frame" the face in accordance with human expectations. It is based on the landmarker results. Note that one or more x and/or y coordinates may not be generated in the `BoundingPoly` (the polygon will be unbounded) if only a partial face appears in the image to be annotated. */
       boundingPoly?: GoogleCloudVisionV1p1beta1BoundingPoly;
       /** Detection confidence. Range [0, 1]. */
@@ -418,9 +508,21 @@ declare namespace gapi.client {
       /** The `fd_bounding_poly` bounding polygon is tighter than the `boundingPoly`, and encloses only the skin part of the face. Typically, it is used to eliminate the face from any image analysis that detects the "amount of skin" visible in an image. It is not based on the landmarker results, only on the initial face detection, hence the fd (face detection) prefix. */
       fdBoundingPoly?: GoogleCloudVisionV1p1beta1BoundingPoly;
       /** Headwear likelihood. */
-      headwearLikelihood?: string;
+      headwearLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Joy likelihood. */
-      joyLikelihood?: string;
+      joyLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Face landmarking confidence. Range [0, 1]. */
       landmarkingConfidence?: number;
       /** Detected face landmarks. */
@@ -430,19 +532,74 @@ declare namespace gapi.client {
       /** Roll angle, which indicates the amount of clockwise/anti-clockwise rotation of the face relative to the image vertical about the axis perpendicular to the face. Range [-180,180]. */
       rollAngle?: number;
       /** Sorrow likelihood. */
-      sorrowLikelihood?: string;
+      sorrowLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Surprise likelihood. */
-      surpriseLikelihood?: string;
+      surpriseLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Pitch angle, which indicates the upwards/downwards angle that the face is pointing relative to the image's horizontal plane. Range [-180,180]. */
       tiltAngle?: number;
       /** Under-exposed likelihood. */
-      underExposedLikelihood?: string;
+      underExposedLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
     }
     interface GoogleCloudVisionV1p1beta1FaceAnnotationLandmark {
       /** Face landmark position. */
       position?: GoogleCloudVisionV1p1beta1Position;
       /** Face landmark type. */
-      type?: string;
+      type?:
+        | 'UNKNOWN_LANDMARK'
+        | 'LEFT_EYE'
+        | 'RIGHT_EYE'
+        | 'LEFT_OF_LEFT_EYEBROW'
+        | 'RIGHT_OF_LEFT_EYEBROW'
+        | 'LEFT_OF_RIGHT_EYEBROW'
+        | 'RIGHT_OF_RIGHT_EYEBROW'
+        | 'MIDPOINT_BETWEEN_EYES'
+        | 'NOSE_TIP'
+        | 'UPPER_LIP'
+        | 'LOWER_LIP'
+        | 'MOUTH_LEFT'
+        | 'MOUTH_RIGHT'
+        | 'MOUTH_CENTER'
+        | 'NOSE_BOTTOM_RIGHT'
+        | 'NOSE_BOTTOM_LEFT'
+        | 'NOSE_BOTTOM_CENTER'
+        | 'LEFT_EYE_TOP_BOUNDARY'
+        | 'LEFT_EYE_RIGHT_CORNER'
+        | 'LEFT_EYE_BOTTOM_BOUNDARY'
+        | 'LEFT_EYE_LEFT_CORNER'
+        | 'RIGHT_EYE_TOP_BOUNDARY'
+        | 'RIGHT_EYE_RIGHT_CORNER'
+        | 'RIGHT_EYE_BOTTOM_BOUNDARY'
+        | 'RIGHT_EYE_LEFT_CORNER'
+        | 'LEFT_EYEBROW_UPPER_MIDPOINT'
+        | 'RIGHT_EYEBROW_UPPER_MIDPOINT'
+        | 'LEFT_EAR_TRAGION'
+        | 'RIGHT_EAR_TRAGION'
+        | 'LEFT_EYE_PUPIL'
+        | 'RIGHT_EYE_PUPIL'
+        | 'FOREHEAD_GLABELLA'
+        | 'CHIN_GNATHION'
+        | 'CHIN_LEFT_GONION'
+        | 'CHIN_RIGHT_GONION'
+        | 'LEFT_CHEEK_CENTER'
+        | 'RIGHT_CHEEK_CENTER';
     }
     interface GoogleCloudVisionV1p1beta1GcsDestination {
       /** Google Cloud Storage URI prefix where the results will be stored. Results will be in JSON format and preceded by its corresponding input URI prefix. This field can either represent a gcs file prefix or gcs directory. In either case, the uri should be unique because in order to get all of the output files, you will need to do a wildcard gcs search on the uri prefix you provide. Examples: * File Prefix: gs://bucket-name/here/filenameprefix The output files will be created in gs://bucket-name/here/ and the names of the output files will begin with "filenameprefix". * Directory Prefix: gs://bucket-name/some/location/ The output files will be created in gs://bucket-name/some/location/ and the names of the output files could be anything because there was no filename prefix specified. If multiple outputs, each response is still AnnotateFileResponse, each of which contains some subset of the full list of AnnotateImageResponse. Multiple outputs can happen if, for example, the output JSON is too large and overflows into multiple sharded files. */
@@ -496,7 +653,12 @@ declare namespace gapi.client {
       /** The time when the batch request was received. */
       createTime?: string;
       /** Current state of the batch operation. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATED'
+        | 'RUNNING'
+        | 'DONE'
+        | 'CANCELLED';
       /** The time when the operation result was last updated. */
       updateTime?: string;
     }
@@ -598,15 +760,45 @@ declare namespace gapi.client {
     }
     interface GoogleCloudVisionV1p1beta1SafeSearchAnnotation {
       /** Represents the adult content likelihood for the image. Adult content may contain elements such as nudity, pornographic images or cartoons, or sexual activities. */
-      adult?: string;
+      adult?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Likelihood that this is a medical image. */
-      medical?: string;
+      medical?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Likelihood that the request image contains racy content. Racy content may include (but is not limited to) skimpy or sheer clothing, strategically covered nudity, lewd or provocative poses, or close-ups of sensitive body areas. */
-      racy?: string;
+      racy?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Spoof likelihood. The likelihood that an modification was made to the image's canonical version to make it appear funny or offensive. */
-      spoof?: string;
+      spoof?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Likelihood that this image contains violent content. Violent content may include death, serious harm, or injury to individuals or groups of individuals. */
-      violence?: string;
+      violence?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
     }
     interface GoogleCloudVisionV1p1beta1Symbol {
       /** The bounding box for the symbol. The vertices are in the order of top-left, top-right, bottom-right, bottom-left. When a rotation of the bounding box is detected the rotation is represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | | 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3). */
@@ -628,7 +820,13 @@ declare namespace gapi.client {
       /** True if break prepends the element. */
       isPrefix?: boolean;
       /** Detected break type. */
-      type?: string;
+      type?:
+        | 'UNKNOWN'
+        | 'SPACE'
+        | 'SURE_SPACE'
+        | 'EOL_SURE_SPACE'
+        | 'HYPHEN'
+        | 'LINE_BREAK';
     }
     interface GoogleCloudVisionV1p1beta1TextAnnotationDetectedLanguage {
       /** Confidence of detected language. Range [0, 1]. */
@@ -754,7 +952,13 @@ declare namespace gapi.client {
     }
     interface GoogleCloudVisionV1p2beta1Block {
       /** Detected block type (text, image etc) for this block. */
-      blockType?: string;
+      blockType?:
+        | 'UNKNOWN'
+        | 'TEXT'
+        | 'TABLE'
+        | 'PICTURE'
+        | 'RULER'
+        | 'BARCODE';
       /** The bounding box for the block. The vertices are in the order of top-left, top-right, bottom-right, bottom-left. When a rotation of the bounding box is detected the rotation is represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | | 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3). */
       boundingBox?: GoogleCloudVisionV1p2beta1BoundingPoly;
       /** Confidence of the OCR results on the block. Range [0, 1]. */
@@ -816,9 +1020,21 @@ declare namespace gapi.client {
     }
     interface GoogleCloudVisionV1p2beta1FaceAnnotation {
       /** Anger likelihood. */
-      angerLikelihood?: string;
+      angerLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Blurred likelihood. */
-      blurredLikelihood?: string;
+      blurredLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** The bounding polygon around the face. The coordinates of the bounding box are in the original image's scale. The bounding box is computed to "frame" the face in accordance with human expectations. It is based on the landmarker results. Note that one or more x and/or y coordinates may not be generated in the `BoundingPoly` (the polygon will be unbounded) if only a partial face appears in the image to be annotated. */
       boundingPoly?: GoogleCloudVisionV1p2beta1BoundingPoly;
       /** Detection confidence. Range [0, 1]. */
@@ -826,9 +1042,21 @@ declare namespace gapi.client {
       /** The `fd_bounding_poly` bounding polygon is tighter than the `boundingPoly`, and encloses only the skin part of the face. Typically, it is used to eliminate the face from any image analysis that detects the "amount of skin" visible in an image. It is not based on the landmarker results, only on the initial face detection, hence the fd (face detection) prefix. */
       fdBoundingPoly?: GoogleCloudVisionV1p2beta1BoundingPoly;
       /** Headwear likelihood. */
-      headwearLikelihood?: string;
+      headwearLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Joy likelihood. */
-      joyLikelihood?: string;
+      joyLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Face landmarking confidence. Range [0, 1]. */
       landmarkingConfidence?: number;
       /** Detected face landmarks. */
@@ -838,19 +1066,74 @@ declare namespace gapi.client {
       /** Roll angle, which indicates the amount of clockwise/anti-clockwise rotation of the face relative to the image vertical about the axis perpendicular to the face. Range [-180,180]. */
       rollAngle?: number;
       /** Sorrow likelihood. */
-      sorrowLikelihood?: string;
+      sorrowLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Surprise likelihood. */
-      surpriseLikelihood?: string;
+      surpriseLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Pitch angle, which indicates the upwards/downwards angle that the face is pointing relative to the image's horizontal plane. Range [-180,180]. */
       tiltAngle?: number;
       /** Under-exposed likelihood. */
-      underExposedLikelihood?: string;
+      underExposedLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
     }
     interface GoogleCloudVisionV1p2beta1FaceAnnotationLandmark {
       /** Face landmark position. */
       position?: GoogleCloudVisionV1p2beta1Position;
       /** Face landmark type. */
-      type?: string;
+      type?:
+        | 'UNKNOWN_LANDMARK'
+        | 'LEFT_EYE'
+        | 'RIGHT_EYE'
+        | 'LEFT_OF_LEFT_EYEBROW'
+        | 'RIGHT_OF_LEFT_EYEBROW'
+        | 'LEFT_OF_RIGHT_EYEBROW'
+        | 'RIGHT_OF_RIGHT_EYEBROW'
+        | 'MIDPOINT_BETWEEN_EYES'
+        | 'NOSE_TIP'
+        | 'UPPER_LIP'
+        | 'LOWER_LIP'
+        | 'MOUTH_LEFT'
+        | 'MOUTH_RIGHT'
+        | 'MOUTH_CENTER'
+        | 'NOSE_BOTTOM_RIGHT'
+        | 'NOSE_BOTTOM_LEFT'
+        | 'NOSE_BOTTOM_CENTER'
+        | 'LEFT_EYE_TOP_BOUNDARY'
+        | 'LEFT_EYE_RIGHT_CORNER'
+        | 'LEFT_EYE_BOTTOM_BOUNDARY'
+        | 'LEFT_EYE_LEFT_CORNER'
+        | 'RIGHT_EYE_TOP_BOUNDARY'
+        | 'RIGHT_EYE_RIGHT_CORNER'
+        | 'RIGHT_EYE_BOTTOM_BOUNDARY'
+        | 'RIGHT_EYE_LEFT_CORNER'
+        | 'LEFT_EYEBROW_UPPER_MIDPOINT'
+        | 'RIGHT_EYEBROW_UPPER_MIDPOINT'
+        | 'LEFT_EAR_TRAGION'
+        | 'RIGHT_EAR_TRAGION'
+        | 'LEFT_EYE_PUPIL'
+        | 'RIGHT_EYE_PUPIL'
+        | 'FOREHEAD_GLABELLA'
+        | 'CHIN_GNATHION'
+        | 'CHIN_LEFT_GONION'
+        | 'CHIN_RIGHT_GONION'
+        | 'LEFT_CHEEK_CENTER'
+        | 'RIGHT_CHEEK_CENTER';
     }
     interface GoogleCloudVisionV1p2beta1GcsDestination {
       /** Google Cloud Storage URI prefix where the results will be stored. Results will be in JSON format and preceded by its corresponding input URI prefix. This field can either represent a gcs file prefix or gcs directory. In either case, the uri should be unique because in order to get all of the output files, you will need to do a wildcard gcs search on the uri prefix you provide. Examples: * File Prefix: gs://bucket-name/here/filenameprefix The output files will be created in gs://bucket-name/here/ and the names of the output files will begin with "filenameprefix". * Directory Prefix: gs://bucket-name/some/location/ The output files will be created in gs://bucket-name/some/location/ and the names of the output files could be anything because there was no filename prefix specified. If multiple outputs, each response is still AnnotateFileResponse, each of which contains some subset of the full list of AnnotateImageResponse. Multiple outputs can happen if, for example, the output JSON is too large and overflows into multiple sharded files. */
@@ -904,7 +1187,12 @@ declare namespace gapi.client {
       /** The time when the batch request was received. */
       createTime?: string;
       /** Current state of the batch operation. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATED'
+        | 'RUNNING'
+        | 'DONE'
+        | 'CANCELLED';
       /** The time when the operation result was last updated. */
       updateTime?: string;
     }
@@ -1006,15 +1294,45 @@ declare namespace gapi.client {
     }
     interface GoogleCloudVisionV1p2beta1SafeSearchAnnotation {
       /** Represents the adult content likelihood for the image. Adult content may contain elements such as nudity, pornographic images or cartoons, or sexual activities. */
-      adult?: string;
+      adult?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Likelihood that this is a medical image. */
-      medical?: string;
+      medical?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Likelihood that the request image contains racy content. Racy content may include (but is not limited to) skimpy or sheer clothing, strategically covered nudity, lewd or provocative poses, or close-ups of sensitive body areas. */
-      racy?: string;
+      racy?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Spoof likelihood. The likelihood that an modification was made to the image's canonical version to make it appear funny or offensive. */
-      spoof?: string;
+      spoof?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Likelihood that this image contains violent content. Violent content may include death, serious harm, or injury to individuals or groups of individuals. */
-      violence?: string;
+      violence?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
     }
     interface GoogleCloudVisionV1p2beta1Symbol {
       /** The bounding box for the symbol. The vertices are in the order of top-left, top-right, bottom-right, bottom-left. When a rotation of the bounding box is detected the rotation is represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | | 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3). */
@@ -1036,7 +1354,13 @@ declare namespace gapi.client {
       /** True if break prepends the element. */
       isPrefix?: boolean;
       /** Detected break type. */
-      type?: string;
+      type?:
+        | 'UNKNOWN'
+        | 'SPACE'
+        | 'SURE_SPACE'
+        | 'EOL_SURE_SPACE'
+        | 'HYPHEN'
+        | 'LINE_BREAK';
     }
     interface GoogleCloudVisionV1p2beta1TextAnnotationDetectedLanguage {
       /** Confidence of detected language. Range [0, 1]. */
@@ -1164,13 +1488,24 @@ declare namespace gapi.client {
       /** The time when the batch request is finished and google.longrunning.Operation.done is set to true. */
       endTime?: string;
       /** The current state of the batch operation. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PROCESSING'
+        | 'SUCCESSFUL'
+        | 'FAILED'
+        | 'CANCELLED';
       /** The time when the batch request was submitted to the server. */
       submitTime?: string;
     }
     interface GoogleCloudVisionV1p3beta1Block {
       /** Detected block type (text, image etc) for this block. */
-      blockType?: string;
+      blockType?:
+        | 'UNKNOWN'
+        | 'TEXT'
+        | 'TABLE'
+        | 'PICTURE'
+        | 'RULER'
+        | 'BARCODE';
       /** The bounding box for the block. The vertices are in the order of top-left, top-right, bottom-right, bottom-left. When a rotation of the bounding box is detected the rotation is represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | | 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3). */
       boundingBox?: GoogleCloudVisionV1p3beta1BoundingPoly;
       /** Confidence of the OCR results on the block. Range [0, 1]. */
@@ -1232,9 +1567,21 @@ declare namespace gapi.client {
     }
     interface GoogleCloudVisionV1p3beta1FaceAnnotation {
       /** Anger likelihood. */
-      angerLikelihood?: string;
+      angerLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Blurred likelihood. */
-      blurredLikelihood?: string;
+      blurredLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** The bounding polygon around the face. The coordinates of the bounding box are in the original image's scale. The bounding box is computed to "frame" the face in accordance with human expectations. It is based on the landmarker results. Note that one or more x and/or y coordinates may not be generated in the `BoundingPoly` (the polygon will be unbounded) if only a partial face appears in the image to be annotated. */
       boundingPoly?: GoogleCloudVisionV1p3beta1BoundingPoly;
       /** Detection confidence. Range [0, 1]. */
@@ -1242,9 +1589,21 @@ declare namespace gapi.client {
       /** The `fd_bounding_poly` bounding polygon is tighter than the `boundingPoly`, and encloses only the skin part of the face. Typically, it is used to eliminate the face from any image analysis that detects the "amount of skin" visible in an image. It is not based on the landmarker results, only on the initial face detection, hence the fd (face detection) prefix. */
       fdBoundingPoly?: GoogleCloudVisionV1p3beta1BoundingPoly;
       /** Headwear likelihood. */
-      headwearLikelihood?: string;
+      headwearLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Joy likelihood. */
-      joyLikelihood?: string;
+      joyLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Face landmarking confidence. Range [0, 1]. */
       landmarkingConfidence?: number;
       /** Detected face landmarks. */
@@ -1254,19 +1613,74 @@ declare namespace gapi.client {
       /** Roll angle, which indicates the amount of clockwise/anti-clockwise rotation of the face relative to the image vertical about the axis perpendicular to the face. Range [-180,180]. */
       rollAngle?: number;
       /** Sorrow likelihood. */
-      sorrowLikelihood?: string;
+      sorrowLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Surprise likelihood. */
-      surpriseLikelihood?: string;
+      surpriseLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Pitch angle, which indicates the upwards/downwards angle that the face is pointing relative to the image's horizontal plane. Range [-180,180]. */
       tiltAngle?: number;
       /** Under-exposed likelihood. */
-      underExposedLikelihood?: string;
+      underExposedLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
     }
     interface GoogleCloudVisionV1p3beta1FaceAnnotationLandmark {
       /** Face landmark position. */
       position?: GoogleCloudVisionV1p3beta1Position;
       /** Face landmark type. */
-      type?: string;
+      type?:
+        | 'UNKNOWN_LANDMARK'
+        | 'LEFT_EYE'
+        | 'RIGHT_EYE'
+        | 'LEFT_OF_LEFT_EYEBROW'
+        | 'RIGHT_OF_LEFT_EYEBROW'
+        | 'LEFT_OF_RIGHT_EYEBROW'
+        | 'RIGHT_OF_RIGHT_EYEBROW'
+        | 'MIDPOINT_BETWEEN_EYES'
+        | 'NOSE_TIP'
+        | 'UPPER_LIP'
+        | 'LOWER_LIP'
+        | 'MOUTH_LEFT'
+        | 'MOUTH_RIGHT'
+        | 'MOUTH_CENTER'
+        | 'NOSE_BOTTOM_RIGHT'
+        | 'NOSE_BOTTOM_LEFT'
+        | 'NOSE_BOTTOM_CENTER'
+        | 'LEFT_EYE_TOP_BOUNDARY'
+        | 'LEFT_EYE_RIGHT_CORNER'
+        | 'LEFT_EYE_BOTTOM_BOUNDARY'
+        | 'LEFT_EYE_LEFT_CORNER'
+        | 'RIGHT_EYE_TOP_BOUNDARY'
+        | 'RIGHT_EYE_RIGHT_CORNER'
+        | 'RIGHT_EYE_BOTTOM_BOUNDARY'
+        | 'RIGHT_EYE_LEFT_CORNER'
+        | 'LEFT_EYEBROW_UPPER_MIDPOINT'
+        | 'RIGHT_EYEBROW_UPPER_MIDPOINT'
+        | 'LEFT_EAR_TRAGION'
+        | 'RIGHT_EAR_TRAGION'
+        | 'LEFT_EYE_PUPIL'
+        | 'RIGHT_EYE_PUPIL'
+        | 'FOREHEAD_GLABELLA'
+        | 'CHIN_GNATHION'
+        | 'CHIN_LEFT_GONION'
+        | 'CHIN_RIGHT_GONION'
+        | 'LEFT_CHEEK_CENTER'
+        | 'RIGHT_CHEEK_CENTER';
     }
     interface GoogleCloudVisionV1p3beta1GcsDestination {
       /** Google Cloud Storage URI prefix where the results will be stored. Results will be in JSON format and preceded by its corresponding input URI prefix. This field can either represent a gcs file prefix or gcs directory. In either case, the uri should be unique because in order to get all of the output files, you will need to do a wildcard gcs search on the uri prefix you provide. Examples: * File Prefix: gs://bucket-name/here/filenameprefix The output files will be created in gs://bucket-name/here/ and the names of the output files will begin with "filenameprefix". * Directory Prefix: gs://bucket-name/some/location/ The output files will be created in gs://bucket-name/some/location/ and the names of the output files could be anything because there was no filename prefix specified. If multiple outputs, each response is still AnnotateFileResponse, each of which contains some subset of the full list of AnnotateImageResponse. Multiple outputs can happen if, for example, the output JSON is too large and overflows into multiple sharded files. */
@@ -1326,7 +1740,12 @@ declare namespace gapi.client {
       /** The time when the batch request was received. */
       createTime?: string;
       /** Current state of the batch operation. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATED'
+        | 'RUNNING'
+        | 'DONE'
+        | 'CANCELLED';
       /** The time when the operation result was last updated. */
       updateTime?: string;
     }
@@ -1436,15 +1855,45 @@ declare namespace gapi.client {
     }
     interface GoogleCloudVisionV1p3beta1SafeSearchAnnotation {
       /** Represents the adult content likelihood for the image. Adult content may contain elements such as nudity, pornographic images or cartoons, or sexual activities. */
-      adult?: string;
+      adult?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Likelihood that this is a medical image. */
-      medical?: string;
+      medical?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Likelihood that the request image contains racy content. Racy content may include (but is not limited to) skimpy or sheer clothing, strategically covered nudity, lewd or provocative poses, or close-ups of sensitive body areas. */
-      racy?: string;
+      racy?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Spoof likelihood. The likelihood that an modification was made to the image's canonical version to make it appear funny or offensive. */
-      spoof?: string;
+      spoof?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Likelihood that this image contains violent content. Violent content may include death, serious harm, or injury to individuals or groups of individuals. */
-      violence?: string;
+      violence?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
     }
     interface GoogleCloudVisionV1p3beta1Symbol {
       /** The bounding box for the symbol. The vertices are in the order of top-left, top-right, bottom-right, bottom-left. When a rotation of the bounding box is detected the rotation is represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | | 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3). */
@@ -1466,7 +1915,13 @@ declare namespace gapi.client {
       /** True if break prepends the element. */
       isPrefix?: boolean;
       /** Detected break type. */
-      type?: string;
+      type?:
+        | 'UNKNOWN'
+        | 'SPACE'
+        | 'SURE_SPACE'
+        | 'EOL_SURE_SPACE'
+        | 'HYPHEN'
+        | 'LINE_BREAK';
     }
     interface GoogleCloudVisionV1p3beta1TextAnnotationDetectedLanguage {
       /** Confidence of detected language. Range [0, 1]. */
@@ -1602,13 +2057,24 @@ declare namespace gapi.client {
       /** The time when the batch request is finished and google.longrunning.Operation.done is set to true. */
       endTime?: string;
       /** The current state of the batch operation. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PROCESSING'
+        | 'SUCCESSFUL'
+        | 'FAILED'
+        | 'CANCELLED';
       /** The time when the batch request was submitted to the server. */
       submitTime?: string;
     }
     interface GoogleCloudVisionV1p4beta1Block {
       /** Detected block type (text, image etc) for this block. */
-      blockType?: string;
+      blockType?:
+        | 'UNKNOWN'
+        | 'TEXT'
+        | 'TABLE'
+        | 'PICTURE'
+        | 'RULER'
+        | 'BARCODE';
       /** The bounding box for the block. The vertices are in the order of top-left, top-right, bottom-right, bottom-left. When a rotation of the bounding box is detected the rotation is represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | | 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3). */
       boundingBox?: GoogleCloudVisionV1p4beta1BoundingPoly;
       /** Confidence of the OCR results on the block. Range [0, 1]. */
@@ -1678,9 +2144,21 @@ declare namespace gapi.client {
     }
     interface GoogleCloudVisionV1p4beta1FaceAnnotation {
       /** Anger likelihood. */
-      angerLikelihood?: string;
+      angerLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Blurred likelihood. */
-      blurredLikelihood?: string;
+      blurredLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** The bounding polygon around the face. The coordinates of the bounding box are in the original image's scale. The bounding box is computed to "frame" the face in accordance with human expectations. It is based on the landmarker results. Note that one or more x and/or y coordinates may not be generated in the `BoundingPoly` (the polygon will be unbounded) if only a partial face appears in the image to be annotated. */
       boundingPoly?: GoogleCloudVisionV1p4beta1BoundingPoly;
       /** Detection confidence. Range [0, 1]. */
@@ -1688,9 +2166,21 @@ declare namespace gapi.client {
       /** The `fd_bounding_poly` bounding polygon is tighter than the `boundingPoly`, and encloses only the skin part of the face. Typically, it is used to eliminate the face from any image analysis that detects the "amount of skin" visible in an image. It is not based on the landmarker results, only on the initial face detection, hence the fd (face detection) prefix. */
       fdBoundingPoly?: GoogleCloudVisionV1p4beta1BoundingPoly;
       /** Headwear likelihood. */
-      headwearLikelihood?: string;
+      headwearLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Joy likelihood. */
-      joyLikelihood?: string;
+      joyLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Face landmarking confidence. Range [0, 1]. */
       landmarkingConfidence?: number;
       /** Detected face landmarks. */
@@ -1702,19 +2192,74 @@ declare namespace gapi.client {
       /** Roll angle, which indicates the amount of clockwise/anti-clockwise rotation of the face relative to the image vertical about the axis perpendicular to the face. Range [-180,180]. */
       rollAngle?: number;
       /** Sorrow likelihood. */
-      sorrowLikelihood?: string;
+      sorrowLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Surprise likelihood. */
-      surpriseLikelihood?: string;
+      surpriseLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Pitch angle, which indicates the upwards/downwards angle that the face is pointing relative to the image's horizontal plane. Range [-180,180]. */
       tiltAngle?: number;
       /** Under-exposed likelihood. */
-      underExposedLikelihood?: string;
+      underExposedLikelihood?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
     }
     interface GoogleCloudVisionV1p4beta1FaceAnnotationLandmark {
       /** Face landmark position. */
       position?: GoogleCloudVisionV1p4beta1Position;
       /** Face landmark type. */
-      type?: string;
+      type?:
+        | 'UNKNOWN_LANDMARK'
+        | 'LEFT_EYE'
+        | 'RIGHT_EYE'
+        | 'LEFT_OF_LEFT_EYEBROW'
+        | 'RIGHT_OF_LEFT_EYEBROW'
+        | 'LEFT_OF_RIGHT_EYEBROW'
+        | 'RIGHT_OF_RIGHT_EYEBROW'
+        | 'MIDPOINT_BETWEEN_EYES'
+        | 'NOSE_TIP'
+        | 'UPPER_LIP'
+        | 'LOWER_LIP'
+        | 'MOUTH_LEFT'
+        | 'MOUTH_RIGHT'
+        | 'MOUTH_CENTER'
+        | 'NOSE_BOTTOM_RIGHT'
+        | 'NOSE_BOTTOM_LEFT'
+        | 'NOSE_BOTTOM_CENTER'
+        | 'LEFT_EYE_TOP_BOUNDARY'
+        | 'LEFT_EYE_RIGHT_CORNER'
+        | 'LEFT_EYE_BOTTOM_BOUNDARY'
+        | 'LEFT_EYE_LEFT_CORNER'
+        | 'RIGHT_EYE_TOP_BOUNDARY'
+        | 'RIGHT_EYE_RIGHT_CORNER'
+        | 'RIGHT_EYE_BOTTOM_BOUNDARY'
+        | 'RIGHT_EYE_LEFT_CORNER'
+        | 'LEFT_EYEBROW_UPPER_MIDPOINT'
+        | 'RIGHT_EYEBROW_UPPER_MIDPOINT'
+        | 'LEFT_EAR_TRAGION'
+        | 'RIGHT_EAR_TRAGION'
+        | 'LEFT_EYE_PUPIL'
+        | 'RIGHT_EYE_PUPIL'
+        | 'FOREHEAD_GLABELLA'
+        | 'CHIN_GNATHION'
+        | 'CHIN_LEFT_GONION'
+        | 'CHIN_RIGHT_GONION'
+        | 'LEFT_CHEEK_CENTER'
+        | 'RIGHT_CHEEK_CENTER';
     }
     interface GoogleCloudVisionV1p4beta1FaceRecognitionResult {
       /** The Celebrity that this face was matched to. */
@@ -1780,7 +2325,12 @@ declare namespace gapi.client {
       /** The time when the batch request was received. */
       createTime?: string;
       /** Current state of the batch operation. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATED'
+        | 'RUNNING'
+        | 'DONE'
+        | 'CANCELLED';
       /** The time when the operation result was last updated. */
       updateTime?: string;
     }
@@ -1890,15 +2440,45 @@ declare namespace gapi.client {
     }
     interface GoogleCloudVisionV1p4beta1SafeSearchAnnotation {
       /** Represents the adult content likelihood for the image. Adult content may contain elements such as nudity, pornographic images or cartoons, or sexual activities. */
-      adult?: string;
+      adult?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Likelihood that this is a medical image. */
-      medical?: string;
+      medical?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Likelihood that the request image contains racy content. Racy content may include (but is not limited to) skimpy or sheer clothing, strategically covered nudity, lewd or provocative poses, or close-ups of sensitive body areas. */
-      racy?: string;
+      racy?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Spoof likelihood. The likelihood that an modification was made to the image's canonical version to make it appear funny or offensive. */
-      spoof?: string;
+      spoof?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Likelihood that this image contains violent content. Violent content may include death, serious harm, or injury to individuals or groups of individuals. */
-      violence?: string;
+      violence?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
     }
     interface GoogleCloudVisionV1p4beta1Symbol {
       /** The bounding box for the symbol. The vertices are in the order of top-left, top-right, bottom-right, bottom-left. When a rotation of the bounding box is detected the rotation is represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | | 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3). */
@@ -1920,7 +2500,13 @@ declare namespace gapi.client {
       /** True if break prepends the element. */
       isPrefix?: boolean;
       /** Detected break type. */
-      type?: string;
+      type?:
+        | 'UNKNOWN'
+        | 'SPACE'
+        | 'SURE_SPACE'
+        | 'EOL_SURE_SPACE'
+        | 'HYPHEN'
+        | 'LINE_BREAK';
     }
     interface GoogleCloudVisionV1p4beta1TextAnnotationDetectedLanguage {
       /** Confidence of detected language. Range [0, 1]. */
@@ -2076,7 +2662,44 @@ declare namespace gapi.client {
       /** Face landmark position. */
       position?: Position;
       /** Face landmark type. */
-      type?: string;
+      type?:
+        | 'UNKNOWN_LANDMARK'
+        | 'LEFT_EYE'
+        | 'RIGHT_EYE'
+        | 'LEFT_OF_LEFT_EYEBROW'
+        | 'RIGHT_OF_LEFT_EYEBROW'
+        | 'LEFT_OF_RIGHT_EYEBROW'
+        | 'RIGHT_OF_RIGHT_EYEBROW'
+        | 'MIDPOINT_BETWEEN_EYES'
+        | 'NOSE_TIP'
+        | 'UPPER_LIP'
+        | 'LOWER_LIP'
+        | 'MOUTH_LEFT'
+        | 'MOUTH_RIGHT'
+        | 'MOUTH_CENTER'
+        | 'NOSE_BOTTOM_RIGHT'
+        | 'NOSE_BOTTOM_LEFT'
+        | 'NOSE_BOTTOM_CENTER'
+        | 'LEFT_EYE_TOP_BOUNDARY'
+        | 'LEFT_EYE_RIGHT_CORNER'
+        | 'LEFT_EYE_BOTTOM_BOUNDARY'
+        | 'LEFT_EYE_LEFT_CORNER'
+        | 'RIGHT_EYE_TOP_BOUNDARY'
+        | 'RIGHT_EYE_RIGHT_CORNER'
+        | 'RIGHT_EYE_BOTTOM_BOUNDARY'
+        | 'RIGHT_EYE_LEFT_CORNER'
+        | 'LEFT_EYEBROW_UPPER_MIDPOINT'
+        | 'RIGHT_EYEBROW_UPPER_MIDPOINT'
+        | 'LEFT_EAR_TRAGION'
+        | 'RIGHT_EAR_TRAGION'
+        | 'LEFT_EYE_PUPIL'
+        | 'RIGHT_EYE_PUPIL'
+        | 'FOREHEAD_GLABELLA'
+        | 'CHIN_GNATHION'
+        | 'CHIN_LEFT_GONION'
+        | 'CHIN_RIGHT_GONION'
+        | 'LEFT_CHEEK_CENTER'
+        | 'RIGHT_CHEEK_CENTER';
     }
     interface LatLng {
       /** The latitude in degrees. It must be in the range [-90.0, +90.0]. */
@@ -2172,7 +2795,12 @@ declare namespace gapi.client {
       /** The time when the batch request was received. */
       createTime?: string;
       /** Current state of the batch operation. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATED'
+        | 'RUNNING'
+        | 'DONE'
+        | 'CANCELLED';
       /** The time when the operation result was last updated. */
       updateTime?: string;
     }
@@ -2294,15 +2922,45 @@ declare namespace gapi.client {
     }
     interface SafeSearchAnnotation {
       /** Represents the adult content likelihood for the image. Adult content may contain elements such as nudity, pornographic images or cartoons, or sexual activities. */
-      adult?: string;
+      adult?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Likelihood that this is a medical image. */
-      medical?: string;
+      medical?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Likelihood that the request image contains racy content. Racy content may include (but is not limited to) skimpy or sheer clothing, strategically covered nudity, lewd or provocative poses, or close-ups of sensitive body areas. */
-      racy?: string;
+      racy?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Spoof likelihood. The likelihood that an modification was made to the image's canonical version to make it appear funny or offensive. */
-      spoof?: string;
+      spoof?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Likelihood that this image contains violent content. Violent content may include death, serious harm, or injury to individuals or groups of individuals. */
-      violence?: string;
+      violence?:
+        | 'UNKNOWN'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
     }
     interface Status {
       /** The status code, which should be an enum value of google.rpc.Code. */
@@ -2410,11 +3068,11 @@ declare namespace gapi.client {
       /** Service that performs image detection and annotation for a batch of files. Now only "application/pdf", "image/tiff" and "image/gif" are supported. This service will extract at most 5 (customers can specify which 5 in AnnotateFileRequest.pages) frames (gif) or pages (pdf or tiff) from each file provided and perform detection and annotation for each image extracted. */
       annotate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2437,11 +3095,11 @@ declare namespace gapi.client {
       annotate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2464,11 +3122,11 @@ declare namespace gapi.client {
       /** Run asynchronous image detection and annotation for a list of generic files, such as PDF files, which may contain multiple pages and multiple images per page. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateFilesResponse` (results). */
       asyncBatchAnnotate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2491,11 +3149,11 @@ declare namespace gapi.client {
       asyncBatchAnnotate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2520,11 +3178,11 @@ declare namespace gapi.client {
       /** Run image detection and annotation for a batch of images. */
       annotate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2547,11 +3205,11 @@ declare namespace gapi.client {
       annotate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2574,11 +3232,11 @@ declare namespace gapi.client {
       /** Run asynchronous image detection and annotation for a list of images. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateImagesResponse` (results). This service will write image annotation outputs to json files in customer GCS bucket, each json file containing BatchAnnotateImagesResponse proto. */
       asyncBatchAnnotate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2601,11 +3259,11 @@ declare namespace gapi.client {
       asyncBatchAnnotate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2630,11 +3288,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2662,11 +3320,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2691,11 +3349,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2720,11 +3378,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2747,11 +3405,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2774,11 +3432,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2811,11 +3469,11 @@ declare namespace gapi.client {
       /** Service that performs image detection and annotation for a batch of files. Now only "application/pdf", "image/tiff" and "image/gif" are supported. This service will extract at most 5 (customers can specify which 5 in AnnotateFileRequest.pages) frames (gif) or pages (pdf or tiff) from each file provided and perform detection and annotation for each image extracted. */
       annotate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2840,11 +3498,11 @@ declare namespace gapi.client {
       annotate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2869,11 +3527,11 @@ declare namespace gapi.client {
       /** Run asynchronous image detection and annotation for a list of generic files, such as PDF files, which may contain multiple pages and multiple images per page. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateFilesResponse` (results). */
       asyncBatchAnnotate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2898,11 +3556,11 @@ declare namespace gapi.client {
       asyncBatchAnnotate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2929,11 +3587,11 @@ declare namespace gapi.client {
       /** Run image detection and annotation for a batch of images. */
       annotate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2958,11 +3616,11 @@ declare namespace gapi.client {
       annotate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2987,11 +3645,11 @@ declare namespace gapi.client {
       /** Run asynchronous image detection and annotation for a list of images. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateImagesResponse` (results). This service will write image annotation outputs to json files in customer GCS bucket, each json file containing BatchAnnotateImagesResponse proto. */
       asyncBatchAnnotate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3016,11 +3674,11 @@ declare namespace gapi.client {
       asyncBatchAnnotate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3047,11 +3705,11 @@ declare namespace gapi.client {
       /** Service that performs image detection and annotation for a batch of files. Now only "application/pdf", "image/tiff" and "image/gif" are supported. This service will extract at most 5 (customers can specify which 5 in AnnotateFileRequest.pages) frames (gif) or pages (pdf or tiff) from each file provided and perform detection and annotation for each image extracted. */
       annotate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3076,11 +3734,11 @@ declare namespace gapi.client {
       annotate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3105,11 +3763,11 @@ declare namespace gapi.client {
       /** Run asynchronous image detection and annotation for a list of generic files, such as PDF files, which may contain multiple pages and multiple images per page. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateFilesResponse` (results). */
       asyncBatchAnnotate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3134,11 +3792,11 @@ declare namespace gapi.client {
       asyncBatchAnnotate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3165,11 +3823,11 @@ declare namespace gapi.client {
       /** Run image detection and annotation for a batch of images. */
       annotate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3194,11 +3852,11 @@ declare namespace gapi.client {
       annotate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3223,11 +3881,11 @@ declare namespace gapi.client {
       /** Run asynchronous image detection and annotation for a list of images. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `OperationMetadata` (metadata). `Operation.response` contains `AsyncBatchAnnotateImagesResponse` (results). This service will write image annotation outputs to json files in customer GCS bucket, each json file containing BatchAnnotateImagesResponse proto. */
       asyncBatchAnnotate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3252,11 +3910,11 @@ declare namespace gapi.client {
       asyncBatchAnnotate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3283,11 +3941,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3312,11 +3970,11 @@ declare namespace gapi.client {
       /** Creates and returns a new ReferenceImage resource. The `bounding_poly` field is optional. If `bounding_poly` is not specified, the system will try to detect regions of interest in the image that are compatible with the product_category on the parent product. If it is specified, detection is ALWAYS skipped. The system converts polygons into non-rotated rectangles. Note that the pipeline will resize the image if the image resolution is too large to process (above 50MP). Possible errors: * Returns INVALID_ARGUMENT if the image_uri is missing or longer than 4096 characters. * Returns INVALID_ARGUMENT if the product does not exist. * Returns INVALID_ARGUMENT if bounding_poly is not provided, and nothing compatible with the parent product's product_category is detected. * Returns INVALID_ARGUMENT if bounding_poly contains more than 10 polygons. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3343,11 +4001,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3374,11 +4032,11 @@ declare namespace gapi.client {
       /** Permanently deletes a reference image. The image metadata will be deleted right away, but search queries against ProductSets containing the image may still work until all related caches are refreshed. The actual image files are not deleted from Google Cloud Storage. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3401,11 +4059,11 @@ declare namespace gapi.client {
       /** Gets information associated with a ReferenceImage. Possible errors: * Returns NOT_FOUND if the specified image does not exist. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3428,11 +4086,11 @@ declare namespace gapi.client {
       /** Lists reference images. Possible errors: * Returns NOT_FOUND if the parent product does not exist. * Returns INVALID_ARGUMENT if the page_size is greater than 100, or less than 1. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3461,11 +4119,11 @@ declare namespace gapi.client {
       /** Creates and returns a new product resource. Possible errors: * Returns INVALID_ARGUMENT if display_name is missing or longer than 4096 characters. * Returns INVALID_ARGUMENT if description is longer than 4096 characters. * Returns INVALID_ARGUMENT if product_category is missing or invalid. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3492,11 +4150,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3523,11 +4181,11 @@ declare namespace gapi.client {
       /** Permanently deletes a product and its reference images. Metadata of the product and all its images will be deleted right away, but search queries against ProductSets containing the product may still work until all related caches are refreshed. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3550,11 +4208,11 @@ declare namespace gapi.client {
       /** Gets information associated with a Product. Possible errors: * Returns NOT_FOUND if the Product does not exist. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3577,11 +4235,11 @@ declare namespace gapi.client {
       /** Lists products in an unspecified order. Possible errors: * Returns INVALID_ARGUMENT if page_size is greater than 100 or less than 1. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3608,11 +4266,11 @@ declare namespace gapi.client {
       /** Makes changes to a Product resource. Only the `display_name`, `description`, and `labels` fields can be updated right now. If labels are updated, the change will not be reflected in queries until the next index time. Possible errors: * Returns NOT_FOUND if the Product does not exist. * Returns INVALID_ARGUMENT if display_name is present in update_mask but is missing from the request or longer than 4096 characters. * Returns INVALID_ARGUMENT if description is present in update_mask but is longer than 4096 characters. * Returns INVALID_ARGUMENT if product_category is present in update_mask. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3639,11 +4297,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3670,11 +4328,11 @@ declare namespace gapi.client {
       /** Asynchronous API to delete all Products in a ProductSet or all Products that are in no ProductSet. If a Product is a member of the specified ProductSet in addition to other ProductSets, the Product will still be deleted. It is recommended to not delete the specified ProductSet until after this operation has completed. It is also recommended to not add any of the Products involved in the batch delete to a new ProductSet while this operation is running because those Products may still end up deleted. It's not possible to undo the PurgeProducts operation. Therefore, it is recommended to keep the csv files used in ImportProductSets (if that was how you originally built the Product Set) before starting PurgeProducts, in case you need to re-import the data after deletion. If the plan is to purge all of the Products from a ProductSet and then re-use the empty ProductSet to re-import new Products into the empty ProductSet, you must wait until the PurgeProducts operation has finished for that ProductSet. The google.longrunning.Operation API can be used to keep track of the progress and results of the request. `Operation.metadata` contains `BatchOperationMetadata`. (progress) */
       purge(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3699,11 +4357,11 @@ declare namespace gapi.client {
       purge(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3731,11 +4389,11 @@ declare namespace gapi.client {
       /** Lists the Products in a ProductSet, in an unspecified order. If the ProductSet does not exist, the products field of the response will be empty. Possible errors: * Returns INVALID_ARGUMENT if page_size is greater than 100 or less than 1. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3764,11 +4422,11 @@ declare namespace gapi.client {
       /** Adds a Product to the specified ProductSet. If the Product is already present, no change is made. One Product can be added to at most 100 ProductSets. Possible errors: * Returns NOT_FOUND if the Product or the ProductSet doesn't exist. */
       addProduct(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3793,11 +4451,11 @@ declare namespace gapi.client {
       addProduct(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3822,11 +4480,11 @@ declare namespace gapi.client {
       /** Creates and returns a new ProductSet resource. Possible errors: * Returns INVALID_ARGUMENT if display_name is missing, or is longer than 4096 characters. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3853,11 +4511,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3884,11 +4542,11 @@ declare namespace gapi.client {
       /** Permanently deletes a ProductSet. Products and ReferenceImages in the ProductSet are not deleted. The actual image files are not deleted from Google Cloud Storage. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3911,11 +4569,11 @@ declare namespace gapi.client {
       /** Gets information associated with a ProductSet. Possible errors: * Returns NOT_FOUND if the ProductSet does not exist. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3938,11 +4596,11 @@ declare namespace gapi.client {
       /** Asynchronous API that imports a list of reference images to specified product sets based on a list of image information. The google.longrunning.Operation API can be used to keep track of the progress and results of the request. `Operation.metadata` contains `BatchOperationMetadata`. (progress) `Operation.response` contains `ImportProductSetsResponse`. (results) The input source of this method is a csv file on Google Cloud Storage. For the format of the csv file please see ImportProductSetsGcsSource.csv_file_uri. */
       import(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3967,11 +4625,11 @@ declare namespace gapi.client {
       import(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3996,11 +4654,11 @@ declare namespace gapi.client {
       /** Lists ProductSets in an unspecified order. Possible errors: * Returns INVALID_ARGUMENT if page_size is greater than 100, or less than 1. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4027,11 +4685,11 @@ declare namespace gapi.client {
       /** Makes changes to a ProductSet resource. Only display_name can be updated currently. Possible errors: * Returns NOT_FOUND if the ProductSet does not exist. * Returns INVALID_ARGUMENT if display_name is present in update_mask but missing from the request or longer than 4096 characters. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4058,11 +4716,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4089,11 +4747,11 @@ declare namespace gapi.client {
       /** Removes a Product from the specified ProductSet. */
       removeProduct(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4118,11 +4776,11 @@ declare namespace gapi.client {
       removeProduct(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4157,11 +4815,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

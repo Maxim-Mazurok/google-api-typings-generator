@@ -30,21 +30,44 @@ declare namespace gapi.client {
   namespace playintegrity {
     interface AccountActivity {
       /** Required. Indicates the activity level of the account. */
-      activityLevel?: string;
+      activityLevel?:
+        | 'ACTIVITY_LEVEL_UNSPECIFIED'
+        | 'UNEVALUATED'
+        | 'UNUSUAL'
+        | 'UNKNOWN'
+        | 'TYPICAL_BASIC'
+        | 'TYPICAL_STRONG';
     }
     interface AccountDetails {
       /** (Restricted Access) Details about the account activity for the user in the scope. */
       accountActivity?: AccountActivity;
       /** Required. Details about the licensing status of the user for the app in the scope. */
-      appLicensingVerdict?: string;
+      appLicensingVerdict?:
+        | 'UNKNOWN'
+        | 'LICENSED'
+        | 'UNLICENSED'
+        | 'UNEVALUATED';
     }
     interface AppAccessRiskVerdict {
       /** List of detected app types signalled for App Access Risk. */
-      appsDetected?: string[];
+      appsDetected?:
+        | 'APPS_DETECTED_UNSPECIFIED'
+        | 'KNOWN_INSTALLED'
+        | 'KNOWN_CAPTURING'
+        | 'KNOWN_OVERLAYS'
+        | 'KNOWN_CONTROLLING'
+        | 'UNKNOWN_INSTALLED'
+        | 'UNKNOWN_CAPTURING'
+        | 'UNKNOWN_OVERLAYS'
+        | 'UNKNOWN_CONTROLLING'[];
     }
     interface AppIntegrity {
       /** Required. Details about the app recognition verdict */
-      appRecognitionVerdict?: string;
+      appRecognitionVerdict?:
+        | 'UNKNOWN'
+        | 'PLAY_RECOGNIZED'
+        | 'UNRECOGNIZED_VERSION'
+        | 'UNEVALUATED';
       /** The SHA256 hash of the requesting app's signing certificates (base64 web-safe encoded). Set iff app_recognition_verdict != UNEVALUATED. */
       certificateSha256Digest?: string[];
       /** Package name of the application under attestation. Set iff app_recognition_verdict != UNEVALUATED. */
@@ -78,9 +101,19 @@ declare namespace gapi.client {
       /** Details about the device recall bits set by the developer. */
       deviceRecall?: DeviceRecall;
       /** Details about the integrity of the device the app is running on. */
-      deviceRecognitionVerdict?: string[];
+      deviceRecognitionVerdict?:
+        | 'UNKNOWN'
+        | 'MEETS_BASIC_INTEGRITY'
+        | 'MEETS_DEVICE_INTEGRITY'
+        | 'MEETS_STRONG_INTEGRITY'
+        | 'MEETS_VIRTUAL_INTEGRITY'[];
       /** Contains legacy details about the integrity of the device the app is running on. Only for devices with Android version T or higher and only for apps opted in to the new verdicts. Only available during the transition period to the new verdicts system and will be removed afterwards. */
-      legacyDeviceRecognitionVerdict?: string[];
+      legacyDeviceRecognitionVerdict?:
+        | 'UNKNOWN'
+        | 'MEETS_BASIC_INTEGRITY'
+        | 'MEETS_DEVICE_INTEGRITY'
+        | 'MEETS_STRONG_INTEGRITY'
+        | 'MEETS_VIRTUAL_INTEGRITY'[];
       /** Details about the device activity of the device the app is running on. */
       recentDeviceActivity?: RecentDeviceActivity;
     }
@@ -94,15 +127,28 @@ declare namespace gapi.client {
       /** The evaluation of the App Access Risk verdicts. */
       appAccessRiskVerdict?: AppAccessRiskVerdict;
       /** The evaluation of Play Protect verdict. */
-      playProtectVerdict?: string;
+      playProtectVerdict?:
+        | 'PLAY_PROTECT_VERDICT_UNSPECIFIED'
+        | 'UNEVALUATED'
+        | 'NO_ISSUES'
+        | 'NO_DATA'
+        | 'MEDIUM_RISK'
+        | 'HIGH_RISK'
+        | 'POSSIBLE_RISK';
     }
     interface PcAccountDetails {
       /** Required. Details about the licensing status of the user for the app in the scope. */
-      appLicensingVerdict?: string;
+      appLicensingVerdict?:
+        | 'UNKNOWN'
+        | 'LICENSED'
+        | 'UNLICENSED'
+        | 'UNEVALUATED';
     }
     interface PcDeviceIntegrity {
       /** Details about the integrity of the device the app is running on. */
-      deviceRecognitionVerdict?: string[];
+      deviceRecognitionVerdict?:
+        | 'DEVICE_RECOGNITION_VERDICT_UNSPECIFIED'
+        | 'MEETS_PC_INTEGRITY'[];
     }
     interface PcRequestDetails {
       /** Request hash that was provided in the request. */
@@ -128,7 +174,13 @@ declare namespace gapi.client {
     }
     interface RecentDeviceActivity {
       /** Required. Indicates the activity level of the device. */
-      deviceActivityLevel?: string;
+      deviceActivityLevel?:
+        | 'DEVICE_ACTIVITY_LEVEL_UNSPECIFIED'
+        | 'UNEVALUATED'
+        | 'LEVEL_1'
+        | 'LEVEL_2'
+        | 'LEVEL_3'
+        | 'LEVEL_4';
     }
     interface RequestDetails {
       /** Nonce that was provided in the request (which is base64 web-safe no-wrap). */
@@ -185,11 +237,11 @@ declare namespace gapi.client {
       /** Writes recall bits for the device where Play Integrity API token is obtained. The endpoint is available to select Play partners in an early access program (EAP). */
       write(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -214,11 +266,11 @@ declare namespace gapi.client {
       write(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -245,11 +297,11 @@ declare namespace gapi.client {
       /** Decodes the integrity token and returns the token payload. */
       decodeIntegrityToken(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -274,11 +326,11 @@ declare namespace gapi.client {
       decodeIntegrityToken(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -303,11 +355,11 @@ declare namespace gapi.client {
       /** Decodes the PC integrity token and returns the PC token payload. */
       decodePcIntegrityToken(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -332,11 +384,11 @@ declare namespace gapi.client {
       decodePcIntegrityToken(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

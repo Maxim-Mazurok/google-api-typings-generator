@@ -70,7 +70,11 @@ declare namespace gapi.client {
       /** Field that this message concerns. */
       fieldMask?: string;
       /** Message severity */
-      severity?: string;
+      severity?:
+        | 'SEVERITY_UNSPECIFIED'
+        | 'SEVERITY_INFO'
+        | 'SEVERITY_WARNING'
+        | 'SEVERITY_ERROR';
     }
     interface BacklightInfo {
       /** Output only. Current brightness of the backlight, between 0 and max_brightness. */
@@ -82,9 +86,24 @@ declare namespace gapi.client {
     }
     interface BatchChangeChromeOsDeviceStatusRequest {
       /** Required. The action to take on the ChromeOS device in order to change its status. */
-      changeChromeOsDeviceStatusAction?: string;
+      changeChromeOsDeviceStatusAction?:
+        | 'CHANGE_CHROME_OS_DEVICE_STATUS_ACTION_UNSPECIFIED'
+        | 'CHANGE_CHROME_OS_DEVICE_STATUS_ACTION_DEPROVISION'
+        | 'CHANGE_CHROME_OS_DEVICE_STATUS_ACTION_DISABLE'
+        | 'CHANGE_CHROME_OS_DEVICE_STATUS_ACTION_REENABLE';
       /** Optional. The reason behind a device deprovision. Must be provided if 'changeChromeOsDeviceStatusAction' is set to 'CHANGE_CHROME_OS_DEVICE_STATUS_ACTION_DEPROVISION'. Otherwise, omit this field. */
-      deprovisionReason?: string;
+      deprovisionReason?:
+        | 'DEPROVISION_REASON_UNSPECIFIED'
+        | 'DEPROVISION_REASON_SAME_MODEL_REPLACEMENT'
+        | 'DEPROVISION_REASON_UPGRADE'
+        | 'DEPROVISION_REASON_DOMAIN_MOVE'
+        | 'DEPROVISION_REASON_SERVICE_EXPIRATION'
+        | 'DEPROVISION_REASON_OTHER'
+        | 'DEPROVISION_REASON_DIFFERENT_MODEL_REPLACEMENT'
+        | 'DEPROVISION_REASON_RETIRING_DEVICE'
+        | 'DEPROVISION_REASON_UPGRADE_TRANSFER'
+        | 'DEPROVISION_REASON_NOT_REQUIRED'
+        | 'DEPROVISION_REASON_REPAIR_CENTER';
       /** Required. List of the IDs of the ChromeOS devices to change. Maximum 50. */
       deviceIds?: string[];
     }
@@ -292,7 +311,7 @@ declare namespace gapi.client {
       /** The boot mode for the device. The possible values are: * `Verified`: The device is running a valid version of the Chrome OS. * `Dev`: The devices's developer hardware switch is enabled. When booted, the device has a command line shell. For an example of a developer switch, see the [Chromebook developer information](https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices/samsung-series-5-chromebook#TOC-Developer-switch). */
       bootMode?: string;
       /** Output only. Chrome OS type of the device. */
-      chromeOsType?: string;
+      chromeOsType?: 'chromeOsTypeUnspecified' | 'chromeOsFlex' | 'chromeOs';
       /** Information regarding CPU specs in the device. */
       cpuInfo?: Array<{
         /** The CPU architecture. */
@@ -332,7 +351,18 @@ declare namespace gapi.client {
         reportTime?: string;
       }>;
       /** (Read-only) Deprovision reason. */
-      deprovisionReason?: string;
+      deprovisionReason?:
+        | 'DEPROVISION_REASON_UNSPECIFIED'
+        | 'DEPROVISION_REASON_SAME_MODEL_REPLACEMENT'
+        | 'DEPROVISION_REASON_UPGRADE'
+        | 'DEPROVISION_REASON_DOMAIN_MOVE'
+        | 'DEPROVISION_REASON_SERVICE_EXPIRATION'
+        | 'DEPROVISION_REASON_OTHER'
+        | 'DEPROVISION_REASON_DIFFERENT_MODEL_REPLACEMENT'
+        | 'DEPROVISION_REASON_RETIRING_DEVICE'
+        | 'DEPROVISION_REASON_UPGRADE_TRANSFER'
+        | 'DEPROVISION_REASON_NOT_REQUIRED'
+        | 'DEPROVISION_REASON_REPAIR_CENTER';
       /** A list of device files to download (Read-only) */
       deviceFiles?: Array<{
         /** Date and time the file was created */
@@ -347,7 +377,17 @@ declare namespace gapi.client {
       /** The unique ID of the Chrome device. */
       deviceId?: string;
       /** Output only. Device license type. */
-      deviceLicenseType?: string;
+      deviceLicenseType?:
+        | 'deviceLicenseTypeUnspecified'
+        | 'enterprise'
+        | 'enterpriseUpgrade'
+        | 'educationUpgrade'
+        | 'education'
+        | 'kioskUpgrade'
+        | 'enterpriseUpgradePerpetual'
+        | 'enterpriseUpgradeFixedTerm'
+        | 'educationUpgradePerpetual'
+        | 'educationUpgradeFixedTerm';
       /** Output only. How much disk space the device has available and is currently using. */
       diskSpaceUsage?: ByteUsage;
       /** Reports of disk space and other info about mounted/connected volumes. */
@@ -418,7 +458,11 @@ declare namespace gapi.client {
       /** The Chrome device's operating system version. */
       osVersion?: string;
       /** Output only. Device policy compliance status of the OS version. */
-      osVersionCompliance?: string;
+      osVersionCompliance?:
+        | 'complianceUnspecified'
+        | 'compliant'
+        | 'pending'
+        | 'notCompliant';
       /** The Chrome device's platform version. */
       platformVersion?: string;
       /** A list of recent device users, in descending order, by last login time. */
@@ -559,9 +603,26 @@ declare namespace gapi.client {
       /** The payload that the command specified, if any. */
       payload?: string;
       /** Indicates the command state. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PENDING'
+        | 'EXPIRED'
+        | 'CANCELLED'
+        | 'SENT_TO_CLIENT'
+        | 'ACKED_BY_CLIENT'
+        | 'EXECUTED_BY_CLIENT';
       /** The type of the command. */
-      type?: string;
+      type?:
+        | 'COMMAND_TYPE_UNSPECIFIED'
+        | 'REBOOT'
+        | 'TAKE_A_SCREENSHOT'
+        | 'SET_VOLUME'
+        | 'WIPE_USERS'
+        | 'REMOTE_POWERWASH'
+        | 'DEVICE_START_CRD_SESSION'
+        | 'CAPTURE_LOGS'
+        | 'FETCH_CRD_AVAILABILITY_INFO'
+        | 'FETCH_SUPPORT_PACKET';
     }
     interface DirectoryChromeosdevicesCommandResult {
       /** The payload for the command result. The following commands respond with a payload: * `DEVICE_START_CRD_SESSION`: Payload is a stringified JSON object in the form: { "url": url }. The provided URL links to the Chrome Remote Desktop session and requires authentication using only the `email` associated with the command's issuance. * `FETCH_CRD_AVAILABILITY_INFO`: Payload is a stringified JSON object in the form: { "deviceIdleTimeInSeconds": number, "userSessionType": string, "remoteSupportAvailability": string, "remoteAccessAvailability": string }. The "remoteSupportAvailability" field is set to "AVAILABLE" if `shared` CRD session to the device is available. The "remoteAccessAvailability" field is set to "AVAILABLE" if `private` CRD session to the device is available. */
@@ -571,11 +632,25 @@ declare namespace gapi.client {
       /** The time at which the command was executed or failed to execute. */
       executeTime?: string;
       /** The result of the command. */
-      result?: string;
+      result?:
+        | 'COMMAND_RESULT_TYPE_UNSPECIFIED'
+        | 'IGNORED'
+        | 'FAILURE'
+        | 'SUCCESS';
     }
     interface DirectoryChromeosdevicesIssueCommandRequest {
       /** The type of command. */
-      commandType?: string;
+      commandType?:
+        | 'COMMAND_TYPE_UNSPECIFIED'
+        | 'REBOOT'
+        | 'TAKE_A_SCREENSHOT'
+        | 'SET_VOLUME'
+        | 'WIPE_USERS'
+        | 'REMOTE_POWERWASH'
+        | 'DEVICE_START_CRD_SESSION'
+        | 'CAPTURE_LOGS'
+        | 'FETCH_CRD_AVAILABILITY_INFO'
+        | 'FETCH_SUPPORT_PACKET';
       /** The payload for the command, provide it only if command supports it. The following commands support adding payload: * `SET_VOLUME`: Payload is a stringified JSON object in the form: { "volume": 50 }. The volume has to be an integer in the range [0,100]. * `DEVICE_START_CRD_SESSION`: Payload is optionally a stringified JSON object in the form: { "ackedUserPresence": true, "crdSessionType": string }. `ackedUserPresence` is a boolean. By default, `ackedUserPresence` is set to `false`. To start a Chrome Remote Desktop session for an active device, set `ackedUserPresence` to `true`. `crdSessionType` can only select from values `private` (which grants the remote admin exclusive control of the ChromeOS device) or `shared` (which allows the admin and the local user to share control of the ChromeOS device). If not set, `crdSessionType` defaults to `shared`. The `FETCH_CRD_AVAILABILITY_INFO` command can be used to determine available session types on the device. * `REBOOT`: Payload is a stringified JSON object in the form: { "user_session_delay_seconds": 300 }. The `user_session_delay_seconds` is the amount of seconds to wait before rebooting the device if a user is logged in. It has to be an integer in the range [0,300]. When payload is not present for reboot, 0 delay is the default. Note: This only applies if an actual user is logged in, including a Guest. If the device is in the login screen or in Kiosk mode the value is not respected and the device immediately reboots. * `FETCH_SUPPORT_PACKET`: Payload is optionally a stringified JSON object in the form: {"supportPacketDetails":{ "issueCaseId": optional_support_case_id_string, "issueDescription": optional_issue_description_string, "requestedDataCollectors": []}} The list of available `data_collector_enums` are as following: Chrome System Information (1), Crash IDs (2), Memory Details (3), UI Hierarchy (4), Additional ChromeOS Platform Logs (5), Device Event (6), Intel WiFi NICs Debug Dump (7), Touch Events (8), Lacros (9), Lacros System Information (10), ChromeOS Flex Logs (11), DBus Details (12), ChromeOS Network Routes (13), ChromeOS Shill (Connection Manager) Logs (14), Policies (15), ChromeOS System State and Logs (16), ChromeOS System Logs (17), ChromeOS Chrome User Logs (18), ChromeOS Bluetooth (19), ChromeOS Connected Input Devices (20), ChromeOS Traffic Counters (21), ChromeOS Virtual Keyboard (22), ChromeOS Network Health (23). See more details in [help article](https://support.google.com/chrome/a?p=remote-log). */
       payload?: string;
     }
@@ -638,7 +713,24 @@ declare namespace gapi.client {
     interface Empty {}
     interface FailureInfo {
       /** Canonical code for why the update failed to apply. */
-      errorCode?: string;
+      errorCode?:
+        | 'OK'
+        | 'CANCELLED'
+        | 'UNKNOWN'
+        | 'INVALID_ARGUMENT'
+        | 'DEADLINE_EXCEEDED'
+        | 'NOT_FOUND'
+        | 'ALREADY_EXISTS'
+        | 'PERMISSION_DENIED'
+        | 'UNAUTHENTICATED'
+        | 'RESOURCE_EXHAUSTED'
+        | 'FAILED_PRECONDITION'
+        | 'ABORTED'
+        | 'OUT_OF_RANGE'
+        | 'UNIMPLEMENTED'
+        | 'INTERNAL'
+        | 'UNAVAILABLE'
+        | 'DATA_LOSS';
       /** Failure reason message. */
       errorMessage?: string;
       /** Failed printer. */
@@ -913,7 +1005,11 @@ declare namespace gapi.client {
       /** Date and time of the last reboot. */
       rebootTime?: string;
       /** The update state of an OS update. */
-      state?: string;
+      state?:
+        | 'updateStateUnspecified'
+        | 'updateStateNotStarted'
+        | 'updateStateDownloadInProgress'
+        | 'updateStateNeedReboot';
       /** New required platform version from the pending updated kiosk app. */
       targetKioskAppVersion?: string;
       /** New platform version of the OS image being downloaded and applied. It is only set when update status is UPDATE_STATUS_DOWNLOAD_IN_PROGRESS or UPDATE_STATUS_NEED_REBOOT. Note this could be a dummy "0.0.0.0" for UPDATE_STATUS_NEED_REBOOT for some edge cases, e.g. update engine is restarted without a reboot. */
@@ -971,7 +1067,24 @@ declare namespace gapi.client {
     }
     interface PrintServerFailureInfo {
       /** Canonical code for why the update failed to apply. */
-      errorCode?: string;
+      errorCode?:
+        | 'OK'
+        | 'CANCELLED'
+        | 'UNKNOWN'
+        | 'INVALID_ARGUMENT'
+        | 'DEADLINE_EXCEEDED'
+        | 'NOT_FOUND'
+        | 'ALREADY_EXISTS'
+        | 'PERMISSION_DENIED'
+        | 'UNAUTHENTICATED'
+        | 'RESOURCE_EXHAUSTED'
+        | 'FAILED_PRECONDITION'
+        | 'ABORTED'
+        | 'OUT_OF_RANGE'
+        | 'UNIMPLEMENTED'
+        | 'INTERNAL'
+        | 'UNAVAILABLE'
+        | 'DATA_LOSS';
       /** Failure reason message. */
       errorMessage?: string;
       /** Failed print server. */
@@ -1030,7 +1143,7 @@ declare namespace gapi.client {
       /** The unique ID of the entity this role is assigned to—either the `user_id` of a user, the `group_id` of a group, or the `uniqueId` of a service account as defined in [Identity and Access Management (IAM)](https://cloud.google.com/iam/docs/reference/rest/v1/projects.serviceAccounts). */
       assignedTo?: string;
       /** Output only. The type of the assignee (`USER` or `GROUP`). */
-      assigneeType?: string;
+      assigneeType?: 'user' | 'group';
       /** Optional. The condition associated with this role assignment. Note: Feature is available to Enterprise Standard, Enterprise Plus, Google Workspace for Education Plus and Cloud Identity Premium customers. A `RoleAssignment` with the `condition` field set will only take effect when the resource being accessed meets the condition. If `condition` is empty, the role (`role_id`) is applied to the actor (`assigned_to`) at the scope (`scope_type`) unconditionally. Currently, the following conditions are supported: - To make the `RoleAssignment` only applicable to [Security Groups](https://cloud.google.com/identity/docs/groups#group_types): `api.getAttribute('cloudidentity.googleapis.com/groups.labels', []).hasAny(['groups.security']) && resource.type == 'cloudidentity.googleapis.com/Group'` - To make the `RoleAssignment` not applicable to [Security Groups](https://cloud.google.com/identity/docs/groups#group_types): `!api.getAttribute('cloudidentity.googleapis.com/groups.labels', []).hasAny(['groups.security']) && resource.type == 'cloudidentity.googleapis.com/Group'` Currently, the condition strings have to be verbatim and they only work with the following [pre-built administrator roles](https://support.google.com/a/answer/2405986): - Groups Editor - Groups Reader The condition follows [Cloud IAM condition syntax](https://cloud.google.com/iam/docs/conditions-overview). - To make the `RoleAssignment` not applicable to [Locked Groups](https://cloud.google.com/identity/docs/groups#group_types): `!api.getAttribute('cloudidentity.googleapis.com/groups.labels', []).hasAny(['groups.locked']) && resource.type == 'cloudidentity.googleapis.com/Group'` This condition can also be used in conjunction with a Security-related condition. */
       condition?: string;
       /** ETag of the resource. */
@@ -1528,11 +1641,11 @@ declare namespace gapi.client {
       /** Stops watching resources through this channel. */
       stop(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1555,11 +1668,11 @@ declare namespace gapi.client {
       stop(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1584,11 +1697,11 @@ declare namespace gapi.client {
       /** Gets command data a specific command issued to the device. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Immutable. ID of Chrome OS Device Command. */
@@ -1617,11 +1730,11 @@ declare namespace gapi.client {
       /** Changes the status of a batch of ChromeOS devices. For more information about changing a ChromeOS device state [Repair, repurpose, or retire ChromeOS devices](https://support.google.com/chrome/a/answer/3523633). */
       batchChangeStatus(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Immutable ID of the Google Workspace account. */
@@ -1646,11 +1759,11 @@ declare namespace gapi.client {
       batchChangeStatus(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. Immutable ID of the Google Workspace account. */
@@ -1675,11 +1788,11 @@ declare namespace gapi.client {
       /** Counts ChromeOS devices matching the request. */
       countChromeOsDevices(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Immutable ID of the Google Workspace account. */
@@ -1708,11 +1821,11 @@ declare namespace gapi.client {
       /** Issues a command for the device to execute. */
       issueCommand(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Immutable. ID of the Google Workspace account. */
@@ -1739,11 +1852,11 @@ declare namespace gapi.client {
       issueCommand(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Immutable. ID of the Google Workspace account. */
@@ -1779,11 +1892,11 @@ declare namespace gapi.client {
       /** Creates printers under given Organization Unit. */
       batchCreatePrinters(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1808,11 +1921,11 @@ declare namespace gapi.client {
       batchCreatePrinters(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1837,11 +1950,11 @@ declare namespace gapi.client {
       /** Deletes printers in batch. */
       batchDeletePrinters(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1866,11 +1979,11 @@ declare namespace gapi.client {
       batchDeletePrinters(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1895,11 +2008,11 @@ declare namespace gapi.client {
       /** Creates a printer under given Organization Unit. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1924,11 +2037,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1953,11 +2066,11 @@ declare namespace gapi.client {
       /** Deletes a `Printer`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1980,11 +2093,11 @@ declare namespace gapi.client {
       /** Returns a `Printer` resource (printer's config). */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2007,11 +2120,11 @@ declare namespace gapi.client {
       /** List printers configs. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2044,11 +2157,11 @@ declare namespace gapi.client {
       /** Lists the supported printer models. */
       listPrinterModels(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2077,11 +2190,11 @@ declare namespace gapi.client {
       /** Updates a `Printer` resource. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The list of fields to be cleared. Note, some of the fields are read only and cannot be updated. Values for not specified fields will be patched. */
@@ -2110,11 +2223,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The list of fields to be cleared. Note, some of the fields are read only and cannot be updated. Values for not specified fields will be patched. */
@@ -2145,11 +2258,11 @@ declare namespace gapi.client {
       /** Creates multiple print servers. */
       batchCreatePrintServers(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2174,11 +2287,11 @@ declare namespace gapi.client {
       batchCreatePrintServers(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2203,11 +2316,11 @@ declare namespace gapi.client {
       /** Deletes multiple print servers. */
       batchDeletePrintServers(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2232,11 +2345,11 @@ declare namespace gapi.client {
       batchDeletePrintServers(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2261,11 +2374,11 @@ declare namespace gapi.client {
       /** Creates a print server. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2290,11 +2403,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2319,11 +2432,11 @@ declare namespace gapi.client {
       /** Deletes a print server. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2346,11 +2459,11 @@ declare namespace gapi.client {
       /** Returns a print server's configuration. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2373,11 +2486,11 @@ declare namespace gapi.client {
       /** Lists print server configurations. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2410,11 +2523,11 @@ declare namespace gapi.client {
       /** Updates a print server's configuration. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2441,11 +2554,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2527,7 +2640,11 @@ declare namespace gapi.client {
       /** Field that this message concerns. */
       fieldMask?: string;
       /** Message severity */
-      severity?: string;
+      severity?:
+        | 'SEVERITY_UNSPECIFIED'
+        | 'SEVERITY_INFO'
+        | 'SEVERITY_WARNING'
+        | 'SEVERITY_ERROR';
     }
     interface BacklightInfo {
       /** Output only. Current brightness of the backlight, between 0 and max_brightness. */
@@ -2539,9 +2656,24 @@ declare namespace gapi.client {
     }
     interface BatchChangeChromeOsDeviceStatusRequest {
       /** Required. The action to take on the ChromeOS device in order to change its status. */
-      changeChromeOsDeviceStatusAction?: string;
+      changeChromeOsDeviceStatusAction?:
+        | 'CHANGE_CHROME_OS_DEVICE_STATUS_ACTION_UNSPECIFIED'
+        | 'CHANGE_CHROME_OS_DEVICE_STATUS_ACTION_DEPROVISION'
+        | 'CHANGE_CHROME_OS_DEVICE_STATUS_ACTION_DISABLE'
+        | 'CHANGE_CHROME_OS_DEVICE_STATUS_ACTION_REENABLE';
       /** Optional. The reason behind a device deprovision. Must be provided if 'changeChromeOsDeviceStatusAction' is set to 'CHANGE_CHROME_OS_DEVICE_STATUS_ACTION_DEPROVISION'. Otherwise, omit this field. */
-      deprovisionReason?: string;
+      deprovisionReason?:
+        | 'DEPROVISION_REASON_UNSPECIFIED'
+        | 'DEPROVISION_REASON_SAME_MODEL_REPLACEMENT'
+        | 'DEPROVISION_REASON_UPGRADE'
+        | 'DEPROVISION_REASON_DOMAIN_MOVE'
+        | 'DEPROVISION_REASON_SERVICE_EXPIRATION'
+        | 'DEPROVISION_REASON_OTHER'
+        | 'DEPROVISION_REASON_DIFFERENT_MODEL_REPLACEMENT'
+        | 'DEPROVISION_REASON_RETIRING_DEVICE'
+        | 'DEPROVISION_REASON_UPGRADE_TRANSFER'
+        | 'DEPROVISION_REASON_NOT_REQUIRED'
+        | 'DEPROVISION_REASON_REPAIR_CENTER';
       /** Required. List of the IDs of the ChromeOS devices to change. Maximum 50. */
       deviceIds?: string[];
     }
@@ -2749,7 +2881,7 @@ declare namespace gapi.client {
       /** The boot mode for the device. The possible values are: * `Verified`: The device is running a valid version of the Chrome OS. * `Dev`: The devices's developer hardware switch is enabled. When booted, the device has a command line shell. For an example of a developer switch, see the [Chromebook developer information](https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices/samsung-series-5-chromebook#TOC-Developer-switch). */
       bootMode?: string;
       /** Output only. Chrome OS type of the device. */
-      chromeOsType?: string;
+      chromeOsType?: 'chromeOsTypeUnspecified' | 'chromeOsFlex' | 'chromeOs';
       /** Information regarding CPU specs in the device. */
       cpuInfo?: Array<{
         /** The CPU architecture. */
@@ -2789,7 +2921,18 @@ declare namespace gapi.client {
         reportTime?: string;
       }>;
       /** (Read-only) Deprovision reason. */
-      deprovisionReason?: string;
+      deprovisionReason?:
+        | 'DEPROVISION_REASON_UNSPECIFIED'
+        | 'DEPROVISION_REASON_SAME_MODEL_REPLACEMENT'
+        | 'DEPROVISION_REASON_UPGRADE'
+        | 'DEPROVISION_REASON_DOMAIN_MOVE'
+        | 'DEPROVISION_REASON_SERVICE_EXPIRATION'
+        | 'DEPROVISION_REASON_OTHER'
+        | 'DEPROVISION_REASON_DIFFERENT_MODEL_REPLACEMENT'
+        | 'DEPROVISION_REASON_RETIRING_DEVICE'
+        | 'DEPROVISION_REASON_UPGRADE_TRANSFER'
+        | 'DEPROVISION_REASON_NOT_REQUIRED'
+        | 'DEPROVISION_REASON_REPAIR_CENTER';
       /** A list of device files to download (Read-only) */
       deviceFiles?: Array<{
         /** Date and time the file was created */
@@ -2804,7 +2947,17 @@ declare namespace gapi.client {
       /** The unique ID of the Chrome device. */
       deviceId?: string;
       /** Output only. Device license type. */
-      deviceLicenseType?: string;
+      deviceLicenseType?:
+        | 'deviceLicenseTypeUnspecified'
+        | 'enterprise'
+        | 'enterpriseUpgrade'
+        | 'educationUpgrade'
+        | 'education'
+        | 'kioskUpgrade'
+        | 'enterpriseUpgradePerpetual'
+        | 'enterpriseUpgradeFixedTerm'
+        | 'educationUpgradePerpetual'
+        | 'educationUpgradeFixedTerm';
       /** Output only. How much disk space the device has available and is currently using. */
       diskSpaceUsage?: ByteUsage;
       /** Reports of disk space and other info about mounted/connected volumes. */
@@ -2875,7 +3028,11 @@ declare namespace gapi.client {
       /** The Chrome device's operating system version. */
       osVersion?: string;
       /** Output only. Device policy compliance status of the OS version. */
-      osVersionCompliance?: string;
+      osVersionCompliance?:
+        | 'complianceUnspecified'
+        | 'compliant'
+        | 'pending'
+        | 'notCompliant';
       /** The Chrome device's platform version. */
       platformVersion?: string;
       /** A list of recent device users, in descending order, by last login time. */
@@ -3016,9 +3173,26 @@ declare namespace gapi.client {
       /** The payload that the command specified, if any. */
       payload?: string;
       /** Indicates the command state. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PENDING'
+        | 'EXPIRED'
+        | 'CANCELLED'
+        | 'SENT_TO_CLIENT'
+        | 'ACKED_BY_CLIENT'
+        | 'EXECUTED_BY_CLIENT';
       /** The type of the command. */
-      type?: string;
+      type?:
+        | 'COMMAND_TYPE_UNSPECIFIED'
+        | 'REBOOT'
+        | 'TAKE_A_SCREENSHOT'
+        | 'SET_VOLUME'
+        | 'WIPE_USERS'
+        | 'REMOTE_POWERWASH'
+        | 'DEVICE_START_CRD_SESSION'
+        | 'CAPTURE_LOGS'
+        | 'FETCH_CRD_AVAILABILITY_INFO'
+        | 'FETCH_SUPPORT_PACKET';
     }
     interface DirectoryChromeosdevicesCommandResult {
       /** The payload for the command result. The following commands respond with a payload: * `DEVICE_START_CRD_SESSION`: Payload is a stringified JSON object in the form: { "url": url }. The provided URL links to the Chrome Remote Desktop session and requires authentication using only the `email` associated with the command's issuance. * `FETCH_CRD_AVAILABILITY_INFO`: Payload is a stringified JSON object in the form: { "deviceIdleTimeInSeconds": number, "userSessionType": string, "remoteSupportAvailability": string, "remoteAccessAvailability": string }. The "remoteSupportAvailability" field is set to "AVAILABLE" if `shared` CRD session to the device is available. The "remoteAccessAvailability" field is set to "AVAILABLE" if `private` CRD session to the device is available. */
@@ -3028,11 +3202,25 @@ declare namespace gapi.client {
       /** The time at which the command was executed or failed to execute. */
       executeTime?: string;
       /** The result of the command. */
-      result?: string;
+      result?:
+        | 'COMMAND_RESULT_TYPE_UNSPECIFIED'
+        | 'IGNORED'
+        | 'FAILURE'
+        | 'SUCCESS';
     }
     interface DirectoryChromeosdevicesIssueCommandRequest {
       /** The type of command. */
-      commandType?: string;
+      commandType?:
+        | 'COMMAND_TYPE_UNSPECIFIED'
+        | 'REBOOT'
+        | 'TAKE_A_SCREENSHOT'
+        | 'SET_VOLUME'
+        | 'WIPE_USERS'
+        | 'REMOTE_POWERWASH'
+        | 'DEVICE_START_CRD_SESSION'
+        | 'CAPTURE_LOGS'
+        | 'FETCH_CRD_AVAILABILITY_INFO'
+        | 'FETCH_SUPPORT_PACKET';
       /** The payload for the command, provide it only if command supports it. The following commands support adding payload: * `SET_VOLUME`: Payload is a stringified JSON object in the form: { "volume": 50 }. The volume has to be an integer in the range [0,100]. * `DEVICE_START_CRD_SESSION`: Payload is optionally a stringified JSON object in the form: { "ackedUserPresence": true, "crdSessionType": string }. `ackedUserPresence` is a boolean. By default, `ackedUserPresence` is set to `false`. To start a Chrome Remote Desktop session for an active device, set `ackedUserPresence` to `true`. `crdSessionType` can only select from values `private` (which grants the remote admin exclusive control of the ChromeOS device) or `shared` (which allows the admin and the local user to share control of the ChromeOS device). If not set, `crdSessionType` defaults to `shared`. The `FETCH_CRD_AVAILABILITY_INFO` command can be used to determine available session types on the device. * `REBOOT`: Payload is a stringified JSON object in the form: { "user_session_delay_seconds": 300 }. The `user_session_delay_seconds` is the amount of seconds to wait before rebooting the device if a user is logged in. It has to be an integer in the range [0,300]. When payload is not present for reboot, 0 delay is the default. Note: This only applies if an actual user is logged in, including a Guest. If the device is in the login screen or in Kiosk mode the value is not respected and the device immediately reboots. * `FETCH_SUPPORT_PACKET`: Payload is optionally a stringified JSON object in the form: {"supportPacketDetails":{ "issueCaseId": optional_support_case_id_string, "issueDescription": optional_issue_description_string, "requestedDataCollectors": []}} The list of available `data_collector_enums` are as following: Chrome System Information (1), Crash IDs (2), Memory Details (3), UI Hierarchy (4), Additional ChromeOS Platform Logs (5), Device Event (6), Intel WiFi NICs Debug Dump (7), Touch Events (8), Lacros (9), Lacros System Information (10), ChromeOS Flex Logs (11), DBus Details (12), ChromeOS Network Routes (13), ChromeOS Shill (Connection Manager) Logs (14), Policies (15), ChromeOS System State and Logs (16), ChromeOS System Logs (17), ChromeOS Chrome User Logs (18), ChromeOS Bluetooth (19), ChromeOS Connected Input Devices (20), ChromeOS Traffic Counters (21), ChromeOS Virtual Keyboard (22), ChromeOS Network Health (23). See more details in [help article](https://support.google.com/chrome/a?p=remote-log). */
       payload?: string;
     }
@@ -3095,7 +3283,24 @@ declare namespace gapi.client {
     interface Empty {}
     interface FailureInfo {
       /** Canonical code for why the update failed to apply. */
-      errorCode?: string;
+      errorCode?:
+        | 'OK'
+        | 'CANCELLED'
+        | 'UNKNOWN'
+        | 'INVALID_ARGUMENT'
+        | 'DEADLINE_EXCEEDED'
+        | 'NOT_FOUND'
+        | 'ALREADY_EXISTS'
+        | 'PERMISSION_DENIED'
+        | 'UNAUTHENTICATED'
+        | 'RESOURCE_EXHAUSTED'
+        | 'FAILED_PRECONDITION'
+        | 'ABORTED'
+        | 'OUT_OF_RANGE'
+        | 'UNIMPLEMENTED'
+        | 'INTERNAL'
+        | 'UNAVAILABLE'
+        | 'DATA_LOSS';
       /** Failure reason message. */
       errorMessage?: string;
       /** Failed printer. */
@@ -3370,7 +3575,11 @@ declare namespace gapi.client {
       /** Date and time of the last reboot. */
       rebootTime?: string;
       /** The update state of an OS update. */
-      state?: string;
+      state?:
+        | 'updateStateUnspecified'
+        | 'updateStateNotStarted'
+        | 'updateStateDownloadInProgress'
+        | 'updateStateNeedReboot';
       /** New required platform version from the pending updated kiosk app. */
       targetKioskAppVersion?: string;
       /** New platform version of the OS image being downloaded and applied. It is only set when update status is UPDATE_STATUS_DOWNLOAD_IN_PROGRESS or UPDATE_STATUS_NEED_REBOOT. Note this could be a dummy "0.0.0.0" for UPDATE_STATUS_NEED_REBOOT for some edge cases, e.g. update engine is restarted without a reboot. */
@@ -3428,7 +3637,24 @@ declare namespace gapi.client {
     }
     interface PrintServerFailureInfo {
       /** Canonical code for why the update failed to apply. */
-      errorCode?: string;
+      errorCode?:
+        | 'OK'
+        | 'CANCELLED'
+        | 'UNKNOWN'
+        | 'INVALID_ARGUMENT'
+        | 'DEADLINE_EXCEEDED'
+        | 'NOT_FOUND'
+        | 'ALREADY_EXISTS'
+        | 'PERMISSION_DENIED'
+        | 'UNAUTHENTICATED'
+        | 'RESOURCE_EXHAUSTED'
+        | 'FAILED_PRECONDITION'
+        | 'ABORTED'
+        | 'OUT_OF_RANGE'
+        | 'UNIMPLEMENTED'
+        | 'INTERNAL'
+        | 'UNAVAILABLE'
+        | 'DATA_LOSS';
       /** Failure reason message. */
       errorMessage?: string;
       /** Failed print server. */
@@ -3487,7 +3713,7 @@ declare namespace gapi.client {
       /** The unique ID of the entity this role is assigned to—either the `user_id` of a user, the `group_id` of a group, or the `uniqueId` of a service account as defined in [Identity and Access Management (IAM)](https://cloud.google.com/iam/docs/reference/rest/v1/projects.serviceAccounts). */
       assignedTo?: string;
       /** Output only. The type of the assignee (`USER` or `GROUP`). */
-      assigneeType?: string;
+      assigneeType?: 'user' | 'group';
       /** Optional. The condition associated with this role assignment. Note: Feature is available to Enterprise Standard, Enterprise Plus, Google Workspace for Education Plus and Cloud Identity Premium customers. A `RoleAssignment` with the `condition` field set will only take effect when the resource being accessed meets the condition. If `condition` is empty, the role (`role_id`) is applied to the actor (`assigned_to`) at the scope (`scope_type`) unconditionally. Currently, the following conditions are supported: - To make the `RoleAssignment` only applicable to [Security Groups](https://cloud.google.com/identity/docs/groups#group_types): `api.getAttribute('cloudidentity.googleapis.com/groups.labels', []).hasAny(['groups.security']) && resource.type == 'cloudidentity.googleapis.com/Group'` - To make the `RoleAssignment` not applicable to [Security Groups](https://cloud.google.com/identity/docs/groups#group_types): `!api.getAttribute('cloudidentity.googleapis.com/groups.labels', []).hasAny(['groups.security']) && resource.type == 'cloudidentity.googleapis.com/Group'` Currently, the condition strings have to be verbatim and they only work with the following [pre-built administrator roles](https://support.google.com/a/answer/2405986): - Groups Editor - Groups Reader The condition follows [Cloud IAM condition syntax](https://cloud.google.com/iam/docs/conditions-overview). - To make the `RoleAssignment` not applicable to [Locked Groups](https://cloud.google.com/identity/docs/groups#group_types): `!api.getAttribute('cloudidentity.googleapis.com/groups.labels', []).hasAny(['groups.locked']) && resource.type == 'cloudidentity.googleapis.com/Group'` This condition can also be used in conjunction with a Security-related condition. */
       condition?: string;
       /** ETag of the resource. */
@@ -3985,11 +4211,11 @@ declare namespace gapi.client {
       /** Deletes an ASP issued by a user. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID of the ASP to be deleted. */
@@ -4014,11 +4240,11 @@ declare namespace gapi.client {
       /** Gets information about an ASP issued by a user. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID of the ASP. */
@@ -4043,11 +4269,11 @@ declare namespace gapi.client {
       /** Lists the ASPs issued by a user. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4072,11 +4298,11 @@ declare namespace gapi.client {
       /** Use [BatchChangeChromeOsDeviceStatus](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customer.devices.chromeos/batchChangeStatus) instead. Takes an action that affects a Chrome OS Device. This includes deprovisioning, disabling, and re-enabling devices. *Warning:* * Deprovisioning a device will stop device policy syncing and remove device-level printers. After a device is deprovisioned, it must be wiped before it can be re-enrolled. * Lost or stolen devices should use the disable action. * Re-enabling a disabled device will consume a device license. If you do not have sufficient licenses available when completing the re-enable action, you will receive an error. For more information about deprovisioning and disabling devices, visit the [help center](https://support.google.com/chrome/a/answer/3523633). */
       action(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users resource](https://developers.google.com/workspace/admin/directory/v1/reference/users). */
@@ -4103,11 +4329,11 @@ declare namespace gapi.client {
       action(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users resource](https://developers.google.com/workspace/admin/directory/v1/reference/users). */
@@ -4134,11 +4360,11 @@ declare namespace gapi.client {
       /** Retrieves a Chrome OS device's properties. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users resource](https://developers.google.com/workspace/admin/directory/v1/reference/users). */
@@ -4154,7 +4380,7 @@ declare namespace gapi.client {
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Determines whether the response contains the full list of properties or only a subset. */
-        projection?: string;
+        projection?: 'BASIC' | 'FULL';
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -4165,11 +4391,11 @@ declare namespace gapi.client {
       /** Retrieves a paginated list of Chrome OS devices within an account. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users resource](https://developers.google.com/workspace/admin/directory/v1/reference/users). */
@@ -4185,7 +4411,13 @@ declare namespace gapi.client {
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Device property to use for sorting results. */
-        orderBy?: string;
+        orderBy?:
+          | 'annotatedLocation'
+          | 'annotatedUser'
+          | 'lastSync'
+          | 'notes'
+          | 'serialNumber'
+          | 'status';
         /** The full path of the organizational unit (minus the leading `/`) or its unique ID. */
         orgUnitPath?: string;
         /** The `pageToken` query parameter is used to request the next page of query results. The follow-on request's `pageToken` query parameter is the `nextPageToken` from your previous response. */
@@ -4193,13 +4425,13 @@ declare namespace gapi.client {
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Determines whether the response contains the full list of properties or only a subset. */
-        projection?: string;
+        projection?: 'BASIC' | 'FULL';
         /** Search string in the format given at [List query operators](https://developers.google.com/workspace/admin/directory/v1/list-query-operators). */
         query?: string;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Whether to return results in ascending or descending order. Must be used with the `orderBy` parameter. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -4208,11 +4440,11 @@ declare namespace gapi.client {
       /** Moves or inserts multiple Chrome OS devices to an organizational unit. You can move up to 50 devices at once. */
       moveDevicesToOu(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Immutable. ID of the Google Workspace account */
@@ -4239,11 +4471,11 @@ declare namespace gapi.client {
       moveDevicesToOu(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Immutable. ID of the Google Workspace account */
@@ -4270,11 +4502,11 @@ declare namespace gapi.client {
       /** Updates a device's updatable properties, such as `annotatedUser`, `annotatedLocation`, `notes`, `orgUnitPath`, or `annotatedAssetId`. This method supports [patch semantics](https://developers.google.com/workspace/admin/directory/v1/guides/performance#patch). */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users resource](https://developers.google.com/workspace/admin/directory/v1/reference/users). */
@@ -4290,7 +4522,7 @@ declare namespace gapi.client {
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Determines whether the response contains the full list of properties or only a subset. */
-        projection?: string;
+        projection?: 'BASIC' | 'FULL';
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -4303,11 +4535,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users resource](https://developers.google.com/workspace/admin/directory/v1/reference/users). */
@@ -4323,7 +4555,7 @@ declare namespace gapi.client {
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
           /** Determines whether the response contains the full list of properties or only a subset. */
-          projection?: string;
+          projection?: 'BASIC' | 'FULL';
           /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
           quotaUser?: string;
           /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -4336,11 +4568,11 @@ declare namespace gapi.client {
       /** Updates a device's updatable properties, such as `annotatedUser`, `annotatedLocation`, `notes`, `orgUnitPath`, or `annotatedAssetId`. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users resource](https://developers.google.com/workspace/admin/directory/v1/reference/users). */
@@ -4356,7 +4588,7 @@ declare namespace gapi.client {
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Determines whether the response contains the full list of properties or only a subset. */
-        projection?: string;
+        projection?: 'BASIC' | 'FULL';
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -4369,11 +4601,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users resource](https://developers.google.com/workspace/admin/directory/v1/reference/users). */
@@ -4389,7 +4621,7 @@ declare namespace gapi.client {
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
           /** Determines whether the response contains the full list of properties or only a subset. */
-          projection?: string;
+          projection?: 'BASIC' | 'FULL';
           /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
           quotaUser?: string;
           /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -4404,11 +4636,11 @@ declare namespace gapi.client {
       /** Retrieves a customer. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Id of the customer to be retrieved */
@@ -4431,11 +4663,11 @@ declare namespace gapi.client {
       /** Patches a customer. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Id of the customer to be updated */
@@ -4460,11 +4692,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Id of the customer to be updated */
@@ -4489,11 +4721,11 @@ declare namespace gapi.client {
       /** Updates a customer. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Id of the customer to be updated */
@@ -4518,11 +4750,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Id of the customer to be updated */
@@ -4549,11 +4781,11 @@ declare namespace gapi.client {
       /** Deletes a domain Alias of the customer. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Immutable ID of the Google Workspace account. */
@@ -4578,11 +4810,11 @@ declare namespace gapi.client {
       /** Retrieves a domain alias of the customer. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. In case of a multi-domain account, to fetch all groups for a customer, use this field instead of `domain`. You can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users) resource. You must provide either the `customer` or the `domain` parameter. */
@@ -4607,11 +4839,11 @@ declare namespace gapi.client {
       /** Inserts a domain alias of the customer. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Immutable ID of the Google Workspace account. */
@@ -4636,11 +4868,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Immutable ID of the Google Workspace account. */
@@ -4665,11 +4897,11 @@ declare namespace gapi.client {
       /** Lists the domain aliases of the customer. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. In case of a multi-domain account, to fetch all groups for a customer, use this field instead of `domain`. You can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users) resource. You must provide either the `customer` or the `domain` parameter. */
@@ -4696,11 +4928,11 @@ declare namespace gapi.client {
       /** Deletes a domain of the customer. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Immutable ID of the Google Workspace account. */
@@ -4725,11 +4957,11 @@ declare namespace gapi.client {
       /** Retrieves a domain of the customer. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. In case of a multi-domain account, to fetch all groups for a customer, use this field instead of `domain`. You can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users) resource. You must provide either the `customer` or the `domain` parameter. */
@@ -4754,11 +4986,11 @@ declare namespace gapi.client {
       /** Inserts a domain of the customer. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Immutable ID of the Google Workspace account. */
@@ -4783,11 +5015,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Immutable ID of the Google Workspace account. */
@@ -4812,11 +5044,11 @@ declare namespace gapi.client {
       /** Lists the domains of the customer. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. In case of a multi-domain account, to fetch all groups for a customer, use this field instead of `domain`. You can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users) resource. You must provide either the `customer` or the `domain` parameter. */
@@ -4841,13 +5073,13 @@ declare namespace gapi.client {
       /** Removes an alias. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The alias to be removed */
         alias: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4870,11 +5102,11 @@ declare namespace gapi.client {
       /** Adds an alias for the group. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4899,11 +5131,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4928,11 +5160,11 @@ declare namespace gapi.client {
       /** Lists all aliases for a group. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4957,11 +5189,11 @@ declare namespace gapi.client {
       /** Deletes a group. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4984,11 +5216,11 @@ declare namespace gapi.client {
       /** Retrieves a group's properties. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5011,11 +5243,11 @@ declare namespace gapi.client {
       /** Creates a group. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5038,11 +5270,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5065,11 +5297,11 @@ declare namespace gapi.client {
       /** Retrieves all groups of a domain or of a user given a userKey (paginated). */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. In case of a multi-domain account, to fetch all groups for a customer, use this field instead of `domain`. You can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users) resource. You must provide either the `customer` or the `domain` parameter. */
@@ -5085,7 +5317,7 @@ declare namespace gapi.client {
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Column to use for sorting results */
-        orderBy?: string;
+        orderBy?: 'email';
         /** Token to specify next page in the list */
         pageToken?: string;
         /** Returns response with indentations and line breaks. */
@@ -5095,7 +5327,7 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Whether to return results in ascending or descending order. Only of use when orderBy is also used */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -5106,11 +5338,11 @@ declare namespace gapi.client {
       /** Updates a group's properties. This method supports [patch semantics](https://developers.google.com/workspace/admin/directory/v1/guides/performance#patch). */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5135,11 +5367,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5164,11 +5396,11 @@ declare namespace gapi.client {
       /** Updates a group's properties. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5193,11 +5425,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5225,11 +5457,11 @@ declare namespace gapi.client {
       /** Removes a member from a group. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5254,11 +5486,11 @@ declare namespace gapi.client {
       /** Retrieves a group member's properties. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5283,11 +5515,11 @@ declare namespace gapi.client {
       /** Checks whether the given user is a member of the group. Membership can be direct or nested, but if nested, the `memberKey` and `groupKey` must be entities in the same domain or an `Invalid input` error is returned. To check for nested memberships that include entities outside of the group's domain, use the [`checkTransitiveMembership()`](https://cloud.google.com/identity/docs/reference/rest/v1/groups.memberships/checkTransitiveMembership) method in the Cloud Identity Groups API. */
       hasMember(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5312,11 +5544,11 @@ declare namespace gapi.client {
       /** Adds a user to the specified group. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5341,11 +5573,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5370,11 +5602,11 @@ declare namespace gapi.client {
       /** Retrieves a paginated list of all members in a group. This method times out after 60 minutes. For more information, see [Troubleshoot error codes](https://developers.google.com/workspace/admin/directory/v1/guides/troubleshoot-error-codes). */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5405,11 +5637,11 @@ declare namespace gapi.client {
       /** Updates the membership properties of a user in the specified group. This method supports [patch semantics](https://developers.google.com/workspace/admin/directory/v1/guides/performance#patch). */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5436,11 +5668,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5467,11 +5699,11 @@ declare namespace gapi.client {
       /** Updates the membership of a user in the specified group. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5498,11 +5730,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5531,11 +5763,11 @@ declare namespace gapi.client {
       /** Takes an action that affects a mobile device. For example, remotely wiping a device. */
       action(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users resource](https://developers.google.com/workspace/admin/directory/v1/reference/users). */
@@ -5562,11 +5794,11 @@ declare namespace gapi.client {
       action(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users resource](https://developers.google.com/workspace/admin/directory/v1/reference/users). */
@@ -5593,11 +5825,11 @@ declare namespace gapi.client {
       /** Removes a mobile device. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users resource](https://developers.google.com/workspace/admin/directory/v1/reference/users). */
@@ -5622,11 +5854,11 @@ declare namespace gapi.client {
       /** Retrieves a mobile device's properties. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users resource](https://developers.google.com/workspace/admin/directory/v1/reference/users). */
@@ -5640,7 +5872,7 @@ declare namespace gapi.client {
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Restrict information returned to a set of selected fields. */
-        projection?: string;
+        projection?: 'BASIC' | 'FULL';
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** The unique ID the API service uses to identify the mobile device. */
@@ -5653,11 +5885,11 @@ declare namespace gapi.client {
       /** Retrieves a paginated list of all user-owned mobile devices for an account. To retrieve a list that includes company-owned devices, use the Cloud Identity [Devices API](https://cloud.google.com/identity/docs/concepts/overview-devices) instead. This method times out after 60 minutes. For more information, see [Troubleshoot error codes](https://developers.google.com/workspace/admin/directory/v1/guides/troubleshoot-error-codes). */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users resource](https://developers.google.com/workspace/admin/directory/v1/reference/users). */
@@ -5671,19 +5903,27 @@ declare namespace gapi.client {
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Device property to use for sorting results. */
-        orderBy?: string;
+        orderBy?:
+          | 'deviceId'
+          | 'email'
+          | 'lastSync'
+          | 'model'
+          | 'name'
+          | 'os'
+          | 'status'
+          | 'type';
         /** Token to specify next page in the list */
         pageToken?: string;
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Restrict information returned to a set of selected fields. */
-        projection?: string;
+        projection?: 'BASIC' | 'FULL';
         /** Search string in the format given at https://developers.google.com/workspace/admin/directory/v1/search-operators */
         query?: string;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Whether to return results in ascending or descending order. Must be used with the `orderBy` parameter. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -5694,11 +5934,11 @@ declare namespace gapi.client {
       /** Removes an organizational unit. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users resource](https://developers.google.com/workspace/admin/directory/v1/reference/users). */
@@ -5723,11 +5963,11 @@ declare namespace gapi.client {
       /** Retrieves an organizational unit. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users resource](https://developers.google.com/workspace/admin/directory/v1/reference/users). */
@@ -5752,11 +5992,11 @@ declare namespace gapi.client {
       /** Adds an organizational unit. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users resource](https://developers.google.com/workspace/admin/directory/v1/reference/users). */
@@ -5781,11 +6021,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users resource](https://developers.google.com/workspace/admin/directory/v1/reference/users). */
@@ -5810,11 +6050,11 @@ declare namespace gapi.client {
       /** Retrieves a list of all organizational units for an account. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users resource](https://developers.google.com/workspace/admin/directory/v1/reference/users). */
@@ -5832,7 +6072,7 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Whether to return all sub-organizations or just immediate children. */
-        type?: string;
+        type?: 'all' | 'children' | 'allIncludingParent';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -5841,11 +6081,11 @@ declare namespace gapi.client {
       /** Updates an organizational unit. This method supports [patch semantics](https://developers.google.com/workspace/admin/directory/v1/guides/performance#patch) */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users resource](https://developers.google.com/workspace/admin/directory/v1/reference/users). */
@@ -5872,11 +6112,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users resource](https://developers.google.com/workspace/admin/directory/v1/reference/users). */
@@ -5903,11 +6143,11 @@ declare namespace gapi.client {
       /** Updates an organizational unit. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users resource](https://developers.google.com/workspace/admin/directory/v1/reference/users). */
@@ -5934,11 +6174,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users resource](https://developers.google.com/workspace/admin/directory/v1/reference/users). */
@@ -5967,11 +6207,11 @@ declare namespace gapi.client {
       /** Retrieves a paginated list of all privileges for a customer. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. In case of a multi-domain account, to fetch all groups for a customer, use this field instead of `domain`. You can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users) resource. You must provide either the `customer` or the `domain` parameter. */
@@ -5996,11 +6236,11 @@ declare namespace gapi.client {
       /** Deletes a building. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The id of the building to delete. */
         buildingId: string;
         /** JSONP */
@@ -6025,11 +6265,11 @@ declare namespace gapi.client {
       /** Retrieves a building. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The unique ID of the building to retrieve. */
         buildingId: string;
         /** JSONP */
@@ -6054,15 +6294,18 @@ declare namespace gapi.client {
       /** Inserts a building. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Source from which Building.coordinates are derived. */
-        coordinatesSource?: string;
+        coordinatesSource?:
+          | 'CLIENT_SPECIFIED'
+          | 'RESOLVED_FROM_ADDRESS'
+          | 'SOURCE_UNSPECIFIED';
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
         customer: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6085,15 +6328,18 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Source from which Building.coordinates are derived. */
-          coordinatesSource?: string;
+          coordinatesSource?:
+            | 'CLIENT_SPECIFIED'
+            | 'RESOLVED_FROM_ADDRESS'
+            | 'SOURCE_UNSPECIFIED';
           /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
           customer: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6116,11 +6362,11 @@ declare namespace gapi.client {
       /** Retrieves a list of buildings for an account. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
@@ -6147,17 +6393,20 @@ declare namespace gapi.client {
       /** Patches a building. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The id of the building to update. */
         buildingId: string;
         /** JSONP */
         callback?: string;
         /** Source from which Building.coordinates are derived. */
-        coordinatesSource?: string;
+        coordinatesSource?:
+          | 'CLIENT_SPECIFIED'
+          | 'RESOLVED_FROM_ADDRESS'
+          | 'SOURCE_UNSPECIFIED';
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
         customer: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6180,17 +6429,20 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** The id of the building to update. */
           buildingId: string;
           /** JSONP */
           callback?: string;
           /** Source from which Building.coordinates are derived. */
-          coordinatesSource?: string;
+          coordinatesSource?:
+            | 'CLIENT_SPECIFIED'
+            | 'RESOLVED_FROM_ADDRESS'
+            | 'SOURCE_UNSPECIFIED';
           /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
           customer: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6213,17 +6465,20 @@ declare namespace gapi.client {
       /** Updates a building. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The id of the building to update. */
         buildingId: string;
         /** JSONP */
         callback?: string;
         /** Source from which Building.coordinates are derived. */
-        coordinatesSource?: string;
+        coordinatesSource?:
+          | 'CLIENT_SPECIFIED'
+          | 'RESOLVED_FROM_ADDRESS'
+          | 'SOURCE_UNSPECIFIED';
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
         customer: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6246,17 +6501,20 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** The id of the building to update. */
           buildingId: string;
           /** JSONP */
           callback?: string;
           /** Source from which Building.coordinates are derived. */
-          coordinatesSource?: string;
+          coordinatesSource?:
+            | 'CLIENT_SPECIFIED'
+            | 'RESOLVED_FROM_ADDRESS'
+            | 'SOURCE_UNSPECIFIED';
           /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
           customer: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6281,11 +6539,11 @@ declare namespace gapi.client {
       /** Deletes a calendar resource. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The unique ID of the calendar resource to delete. */
         calendarResourceId: string;
         /** JSONP */
@@ -6310,11 +6568,11 @@ declare namespace gapi.client {
       /** Retrieves a calendar resource. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The unique ID of the calendar resource to retrieve. */
         calendarResourceId: string;
         /** JSONP */
@@ -6339,11 +6597,11 @@ declare namespace gapi.client {
       /** Inserts a calendar resource. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
@@ -6368,11 +6626,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
@@ -6397,11 +6655,11 @@ declare namespace gapi.client {
       /** Retrieves a list of calendar resources for an account. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
@@ -6432,11 +6690,11 @@ declare namespace gapi.client {
       /** Patches a calendar resource. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The unique ID of the calendar resource to update. */
         calendarResourceId: string;
         /** JSONP */
@@ -6463,11 +6721,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** The unique ID of the calendar resource to update. */
           calendarResourceId: string;
           /** JSONP */
@@ -6494,11 +6752,11 @@ declare namespace gapi.client {
       /** Updates a calendar resource. This method supports patch semantics, meaning you only need to include the fields you wish to update. Fields that are not present in the request will be preserved. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The unique ID of the calendar resource to update. */
         calendarResourceId: string;
         /** JSONP */
@@ -6525,11 +6783,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** The unique ID of the calendar resource to update. */
           calendarResourceId: string;
           /** JSONP */
@@ -6558,11 +6816,11 @@ declare namespace gapi.client {
       /** Deletes a feature. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
@@ -6587,11 +6845,11 @@ declare namespace gapi.client {
       /** Retrieves a feature. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
@@ -6616,11 +6874,11 @@ declare namespace gapi.client {
       /** Inserts a feature. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
@@ -6645,11 +6903,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
@@ -6674,11 +6932,11 @@ declare namespace gapi.client {
       /** Retrieves a list of features for an account. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
@@ -6705,11 +6963,11 @@ declare namespace gapi.client {
       /** Patches a feature. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
@@ -6736,11 +6994,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
@@ -6767,11 +7025,11 @@ declare namespace gapi.client {
       /** Renames a feature. */
       rename(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
@@ -6798,11 +7056,11 @@ declare namespace gapi.client {
       rename(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
@@ -6829,11 +7087,11 @@ declare namespace gapi.client {
       /** Updates a feature. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
@@ -6860,11 +7118,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
@@ -6898,11 +7156,11 @@ declare namespace gapi.client {
       /** Deletes a role assignment. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Immutable ID of the Google Workspace account. */
@@ -6927,11 +7185,11 @@ declare namespace gapi.client {
       /** Retrieves a role assignment. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. In case of a multi-domain account, to fetch all groups for a customer, use this field instead of `domain`. You can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users) resource. You must provide either the `customer` or the `domain` parameter. */
@@ -6956,11 +7214,11 @@ declare namespace gapi.client {
       /** Creates a role assignment. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Immutable ID of the Google Workspace account. */
@@ -6985,11 +7243,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Immutable ID of the Google Workspace account. */
@@ -7014,11 +7272,11 @@ declare namespace gapi.client {
       /** Retrieves a paginated list of all roleAssignments. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. In case of a multi-domain account, to fetch all groups for a customer, use this field instead of `domain`. You can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users) resource. You must provide either the `customer` or the `domain` parameter. */
@@ -7053,11 +7311,11 @@ declare namespace gapi.client {
       /** Deletes a role. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Immutable ID of the Google Workspace account. */
@@ -7082,11 +7340,11 @@ declare namespace gapi.client {
       /** Retrieves a role. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. In case of a multi-domain account, to fetch all groups for a customer, use this field instead of `domain`. You can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users) resource. You must provide either the `customer` or the `domain` parameter. */
@@ -7111,11 +7369,11 @@ declare namespace gapi.client {
       /** Creates a role. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Immutable ID of the Google Workspace account. */
@@ -7140,11 +7398,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Immutable ID of the Google Workspace account. */
@@ -7169,11 +7427,11 @@ declare namespace gapi.client {
       /** Retrieves a paginated list of all the roles in a domain. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. In case of a multi-domain account, to fetch all groups for a customer, use this field instead of `domain`. You can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users) resource. You must provide either the `customer` or the `domain` parameter. */
@@ -7200,11 +7458,11 @@ declare namespace gapi.client {
       /** Patches a role. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Immutable ID of the Google Workspace account. */
@@ -7231,11 +7489,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Immutable ID of the Google Workspace account. */
@@ -7262,11 +7520,11 @@ declare namespace gapi.client {
       /** Updates a role. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Immutable ID of the Google Workspace account. */
@@ -7293,11 +7551,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Immutable ID of the Google Workspace account. */
@@ -7326,11 +7584,11 @@ declare namespace gapi.client {
       /** Deletes a schema. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Immutable ID of the Google Workspace account. */
@@ -7355,11 +7613,11 @@ declare namespace gapi.client {
       /** Retrieves a schema. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. In case of a multi-domain account, to fetch all groups for a customer, use this field instead of `domain`. You can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users) resource. You must provide either the `customer` or the `domain` parameter. */
@@ -7384,11 +7642,11 @@ declare namespace gapi.client {
       /** Creates a schema. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Immutable ID of the Google Workspace account. */
@@ -7413,11 +7671,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Immutable ID of the Google Workspace account. */
@@ -7442,11 +7700,11 @@ declare namespace gapi.client {
       /** Retrieves all schemas for a customer. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. In case of a multi-domain account, to fetch all groups for a customer, use this field instead of `domain`. You can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users) resource. You must provide either the `customer` or the `domain` parameter. */
@@ -7469,11 +7727,11 @@ declare namespace gapi.client {
       /** Patches a schema. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Immutable ID of the Google Workspace account. */
@@ -7500,11 +7758,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Immutable ID of the Google Workspace account. */
@@ -7531,11 +7789,11 @@ declare namespace gapi.client {
       /** Updates a schema. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Immutable ID of the Google Workspace account. */
@@ -7562,11 +7820,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Immutable ID of the Google Workspace account. */
@@ -7595,11 +7853,11 @@ declare namespace gapi.client {
       /** Deletes all access tokens issued by a user for an application. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The Client ID of the application the token is issued to. */
@@ -7624,11 +7882,11 @@ declare namespace gapi.client {
       /** Gets information about an access token issued by a user. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The Client ID of the application the token is issued to. */
@@ -7653,11 +7911,11 @@ declare namespace gapi.client {
       /** Returns the set of tokens specified user has issued to 3rd party applications. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7682,11 +7940,11 @@ declare namespace gapi.client {
       /** Turns off 2-Step Verification for user. */
       turnOff(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7711,13 +7969,13 @@ declare namespace gapi.client {
       /** Removes an alias. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The alias to be removed. */
         alias: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7740,11 +7998,11 @@ declare namespace gapi.client {
       /** Adds an alias. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7769,11 +8027,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7798,15 +8056,15 @@ declare namespace gapi.client {
       /** Lists all aliases for a user. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Events to watch for. */
-        event?: string;
+        event?: 'add' | 'delete';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -7827,15 +8085,15 @@ declare namespace gapi.client {
       /** Watches for changes in users list. */
       watch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Events to watch for. */
-        event?: string;
+        event?: 'add' | 'delete';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -7858,15 +8116,15 @@ declare namespace gapi.client {
       watch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Events to watch for. */
-          event?: string;
+          event?: 'add' | 'delete';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -7891,11 +8149,11 @@ declare namespace gapi.client {
       /** Removes the user's photo. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7918,11 +8176,11 @@ declare namespace gapi.client {
       /** Retrieves the user's photo. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7945,11 +8203,11 @@ declare namespace gapi.client {
       /** Adds a photo for the user. This method supports [patch semantics](https://developers.google.com/workspace/admin/directory/v1/guides/performance#patch). */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7974,11 +8232,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8003,11 +8261,11 @@ declare namespace gapi.client {
       /** Adds a photo for the user. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8032,11 +8290,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8063,11 +8321,11 @@ declare namespace gapi.client {
       /** Create a guest user with access to a [subset of Workspace capabilities](https://support.google.com/a/answer/16558545). This feature is currently in Alpha. Please reach out to support if you are interested in trying this feature. */
       createGuest(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8090,11 +8348,11 @@ declare namespace gapi.client {
       createGuest(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8117,11 +8375,11 @@ declare namespace gapi.client {
       /** Deletes a user. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8144,11 +8402,11 @@ declare namespace gapi.client {
       /** Retrieves a user. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** A comma-separated list of schema names. All fields from these schemas are fetched. This should only be set when `projection=custom`. */
@@ -8162,7 +8420,7 @@ declare namespace gapi.client {
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** What subset of fields to fetch for this user. */
-        projection?: string;
+        projection?: 'basic' | 'custom' | 'full';
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -8172,16 +8430,16 @@ declare namespace gapi.client {
         /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
         userKey: string;
         /** Whether to fetch the administrator-only or domain-wide public view of the user. For more information, see [Retrieve a user as a non-administrator](https://developers.google.com/workspace/admin/directory/v1/guides/manage-users#retrieve_users_non_admin). */
-        viewType?: string;
+        viewType?: 'admin_view' | 'domain_public';
       }): Request<User>;
       /** Creates a user. Mutate calls immediately following user creation might sometimes fail as the user isn't fully created due to propagation delay in our backends. Check the error details for the "User creation is not complete" message to see if this is the case. Retrying the calls after some time can help in this case. If `resolveConflictAccount` is set to `true`, a `202` response code means that a conflicting unmanaged account exists and was invited to join the organization. A `409` response code means that a conflicting account exists so the user wasn't created based on the [handling unmanaged user accounts](https://support.google.com/a/answer/11112794) option selected. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8206,11 +8464,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8235,11 +8493,11 @@ declare namespace gapi.client {
       /** Retrieves a paginated list of either deleted users or all users in a domain. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID for the customer's Google Workspace account. In case of a multi-domain account, to fetch all users for a customer, use this field instead of `domain`. You can also use the `my_customer` alias to represent your account's `customerId`. The `customerId` is also returned as part of the [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users) resource. You must provide either the `customer` or the `domain` parameter. */
@@ -8249,7 +8507,7 @@ declare namespace gapi.client {
         /** The domain name. Use this field to get users from only one domain. To return all domains for a customer account, use the `customer` query parameter instead. Either the `customer` or the `domain` parameter must be provided. */
         domain?: string;
         /** Event on which subscription is intended (if subscribing) */
-        event?: string;
+        event?: 'add' | 'delete' | 'makeAdmin' | 'undelete' | 'update';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -8259,13 +8517,13 @@ declare namespace gapi.client {
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Property to use for sorting results. */
-        orderBy?: string;
+        orderBy?: 'email' | 'familyName' | 'givenName';
         /** Token to specify next page in the list. The page token is only valid for three days. */
         pageToken?: string;
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** What subset of fields to fetch for this user. */
-        projection?: string;
+        projection?: 'basic' | 'custom' | 'full';
         /** Query string for searching user fields. For more information on constructing user queries, see [Search for Users](https://developers.google.com/workspace/admin/directory/v1/guides/search-users). */
         query?: string;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
@@ -8273,22 +8531,22 @@ declare namespace gapi.client {
         /** If set to `true`, retrieves the list of deleted users. (Default: `false`) */
         showDeleted?: string;
         /** Whether to return results in ascending or descending order, ignoring case. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Whether to fetch the administrator-only or domain-wide public view of the user. For more information, see [Retrieve a user as a non-administrator](https://developers.google.com/workspace/admin/directory/v1/guides/manage-users#retrieve_users_non_admin). */
-        viewType?: string;
+        viewType?: 'admin_view' | 'domain_public';
       }): Request<Users>;
       /** Makes a user a super administrator. */
       makeAdmin(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8313,11 +8571,11 @@ declare namespace gapi.client {
       makeAdmin(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8342,11 +8600,11 @@ declare namespace gapi.client {
       /** Updates a user using patch semantics. The update method should be used instead, because it also supports patch semantics and has better performance. If you're mapping an external identity to a Google identity, use the [`update`](https://developers.google.com/workspace/admin/directory/v1/reference/users/update) method instead of the `patch` method. This method is unable to clear fields that contain repeated objects (`addresses`, `phones`, etc). Use the update method instead. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8371,11 +8629,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8400,11 +8658,11 @@ declare namespace gapi.client {
       /** Signs a user out of all web and device sessions and reset their sign-in cookies. User will have to sign in by authenticating again. */
       signOut(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8427,11 +8685,11 @@ declare namespace gapi.client {
       /** Undeletes a deleted user. */
       undelete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8456,11 +8714,11 @@ declare namespace gapi.client {
       undelete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8485,11 +8743,11 @@ declare namespace gapi.client {
       /** Updates a user. This method supports patch semantics, meaning that you only need to include the fields you wish to update. Fields that are not present in the request will be preserved, and fields set to `null` will be cleared. For repeating fields that contain arrays, individual items in the array can't be patched piecemeal; they must be supplied in the request body with the desired values for all items. See the [user accounts guide](https://developers.google.com/workspace/admin/directory/v1/guides/manage-users#update_user) for more information. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8514,11 +8772,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8543,11 +8801,11 @@ declare namespace gapi.client {
       /** Watches for changes in users list. */
       watch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Immutable ID of the Google Workspace account. In case of multi-domain, to fetch all users for a customer, fill this field instead of domain. */
@@ -8557,7 +8815,7 @@ declare namespace gapi.client {
         /** Name of the domain. Fill this field to get users from only this domain. To return all users in a multi-domain fill customer field instead." */
         domain?: string;
         /** Events to watch for. */
-        event?: string;
+        event?: 'add' | 'delete' | 'makeAdmin' | 'undelete' | 'update';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -8567,13 +8825,13 @@ declare namespace gapi.client {
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Column to use for sorting results */
-        orderBy?: string;
+        orderBy?: 'email' | 'familyName' | 'givenName';
         /** Token to specify next page in the list */
         pageToken?: string;
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** What subset of fields to fetch for this user. */
-        projection?: string;
+        projection?: 'basic' | 'custom' | 'full';
         /** Query string search. Contains one or more search clauses, each with a field, operator, and value. For complete documentation, go to [Search for users](https://developers.google.com/workspace/admin/directory/v1/guides/search-users). */
         query?: string;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
@@ -8581,24 +8839,24 @@ declare namespace gapi.client {
         /** If set to true, retrieves the list of deleted users. (Default: false) */
         showDeleted?: string;
         /** Whether to return results in ascending or descending order. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Whether to fetch the administrator-only or domain-wide public view of the user. For more information, see [Retrieve a user as a non-administrator](https://developers.google.com/workspace/admin/directory/v1/guides/manage-users#retrieve_users_non_admin). */
-        viewType?: string;
+        viewType?: 'admin_view' | 'domain_public';
         /** Request body */
         resource: Channel;
       }): Request<Channel>;
       watch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Immutable ID of the Google Workspace account. In case of multi-domain, to fetch all users for a customer, fill this field instead of domain. */
@@ -8608,7 +8866,7 @@ declare namespace gapi.client {
           /** Name of the domain. Fill this field to get users from only this domain. To return all users in a multi-domain fill customer field instead." */
           domain?: string;
           /** Events to watch for. */
-          event?: string;
+          event?: 'add' | 'delete' | 'makeAdmin' | 'undelete' | 'update';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -8618,13 +8876,13 @@ declare namespace gapi.client {
           /** OAuth 2.0 token for the current user. */
           oauth_token?: string;
           /** Column to use for sorting results */
-          orderBy?: string;
+          orderBy?: 'email' | 'familyName' | 'givenName';
           /** Token to specify next page in the list */
           pageToken?: string;
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
           /** What subset of fields to fetch for this user. */
-          projection?: string;
+          projection?: 'basic' | 'custom' | 'full';
           /** Query string search. Contains one or more search clauses, each with a field, operator, and value. For complete documentation, go to [Search for users](https://developers.google.com/workspace/admin/directory/v1/guides/search-users). */
           query?: string;
           /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
@@ -8632,13 +8890,13 @@ declare namespace gapi.client {
           /** If set to true, retrieves the list of deleted users. (Default: false) */
           showDeleted?: string;
           /** Whether to return results in ascending or descending order. */
-          sortOrder?: string;
+          sortOrder?: 'ASCENDING' | 'DESCENDING';
           /** Upload protocol for media (e.g. "raw", "multipart"). */
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
           /** Whether to fetch the administrator-only or domain-wide public view of the user. For more information, see [Retrieve a user as a non-administrator](https://developers.google.com/workspace/admin/directory/v1/guides/manage-users#retrieve_users_non_admin). */
-          viewType?: string;
+          viewType?: 'admin_view' | 'domain_public';
         },
         body: Channel,
       ): Request<Channel>;
@@ -8649,11 +8907,11 @@ declare namespace gapi.client {
       /** Generates new backup verification codes for the user. */
       generate(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8676,11 +8934,11 @@ declare namespace gapi.client {
       /** Invalidates the current backup verification codes for the user. */
       invalidate(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8703,11 +8961,11 @@ declare namespace gapi.client {
       /** Returns the current set of valid backup verification codes for the specified user. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

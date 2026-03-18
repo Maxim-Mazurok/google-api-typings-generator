@@ -49,7 +49,7 @@ declare namespace gapi.client {
       /** The height of the ad slot in pixels. This field will be present only when size type is `PIXEL`. */
       height?: string;
       /** The type of the ad slot size. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'PIXEL' | 'INTERSTITIAL' | 'NATIVE' | 'FLUID';
       /** The width of the ad slot in pixels. This field will be present only when size type is `PIXEL`. */
       width?: string;
     }
@@ -96,11 +96,15 @@ declare namespace gapi.client {
       /** Arbitrary unique identifier provided by the buyer. This field can be used to associate a client with an identifier in the namespace of the buyer, lookup clients by that identifier and verify whether an Authorized Buyers account of the client already exists. If present, must be unique across all the clients. */
       partnerClientId?: string;
       /** Required. The role assigned to the client. Each role implies a set of permissions granted to the client. */
-      role?: string;
+      role?:
+        | 'CLIENT_ROLE_UNSPECIFIED'
+        | 'CLIENT_DEAL_VIEWER'
+        | 'CLIENT_DEAL_NEGOTIATOR'
+        | 'CLIENT_DEAL_APPROVER';
       /** Whether the client will be visible to sellers. */
       sellerVisible?: boolean;
       /** Output only. The state of the client. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'ACTIVE' | 'INACTIVE';
     }
     interface ClientUser {
       /** Required. The client user's email address that has to be unique across all users for the same client. */
@@ -108,7 +112,7 @@ declare namespace gapi.client {
       /** Output only. The resource name of the client user. Format: `buyers/{accountId}/clients/{clientAccountId}/users/{userId}` */
       name?: string;
       /** Output only. The state of the client user. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'INVITED' | 'ACTIVE' | 'INACTIVE';
     }
     interface Contact {
       /** The display_name of the contact. */
@@ -118,17 +122,35 @@ declare namespace gapi.client {
     }
     interface CreativeRequirements {
       /** Output only. The format of the creative, only applicable for programmatic guaranteed and preferred deals. */
-      creativeFormat?: string;
+      creativeFormat?:
+        | 'CREATIVE_FORMAT_UNSPECIFIED'
+        | 'DISPLAY'
+        | 'VIDEO'
+        | 'AUDIO';
       /** Output only. Specifies the creative pre-approval policy. */
-      creativePreApprovalPolicy?: string;
+      creativePreApprovalPolicy?:
+        | 'CREATIVE_PRE_APPROVAL_POLICY_UNSPECIFIED'
+        | 'SELLER_PRE_APPROVAL_REQUIRED'
+        | 'SELLER_PRE_APPROVAL_NOT_REQUIRED';
       /** Output only. Specifies whether the creative is safeFrame compatible. */
-      creativeSafeFrameCompatibility?: string;
+      creativeSafeFrameCompatibility?:
+        | 'CREATIVE_SAFE_FRAME_COMPATIBILITY_UNSPECIFIED'
+        | 'COMPATIBLE'
+        | 'INCOMPATIBLE';
       /** Output only. The max duration of the video creative in milliseconds. only applicable for deals with video creatives. */
       maxAdDurationMs?: string;
       /** Output only. Specifies the creative source for programmatic deals. PUBLISHER means creative is provided by seller and ADVERTISER means creative is provided by the buyer. */
-      programmaticCreativeSource?: string;
+      programmaticCreativeSource?:
+        | 'PROGRAMMATIC_CREATIVE_SOURCE_UNSPECIFIED'
+        | 'ADVERTISER'
+        | 'PUBLISHER';
       /** Output only. Skippable video ads allow viewers to skip ads after 5 seconds. Only applicable for deals with video creatives. */
-      skippableAdType?: string;
+      skippableAdType?:
+        | 'SKIPPABLE_AD_TYPE_UNSPECIFIED'
+        | 'SKIPPABLE'
+        | 'INSTREAM_SELECT'
+        | 'NOT_SKIPPABLE'
+        | 'ANY';
     }
     interface CriteriaTargeting {
       /** A list of numeric IDs to be excluded. */
@@ -138,7 +160,15 @@ declare namespace gapi.client {
     }
     interface DayPart {
       /** Day of week for the period. */
-      dayOfWeek?: string;
+      dayOfWeek?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY';
       /** Hours in 24 hour time between 0 and 24, inclusive. Note: 24 is logically equivalent to 0, but is supported since in some cases there may need to be differentiation made between midnight on one day and midnight on the next day. Accepted values for minutes are [0, 15, 30, 45]. 0 is the only acceptable minute value for hour 24. Seconds and nanos are ignored. */
       endTime?: TimeOfDay;
       /** Hours in 24 hour time between 0 and 24, inclusive. Note: 24 is logically equivalent to 0, but is supported since in some cases there may need to be differentiation made between midnight on one day and midnight on the next day. Accepted values for minutes are [0, 15, 30, 45]. 0 is the only acceptable minute value for hour 24. Seconds and nanos are ignored. */
@@ -148,7 +178,7 @@ declare namespace gapi.client {
       /** The targeted weekdays and times */
       dayParts?: DayPart[];
       /** The time zone type of the day parts */
-      timeZoneType?: string;
+      timeZoneType?: 'TIME_ZONE_TYPE_UNSPECIFIED' | 'SELLER' | 'USER';
     }
     interface DeactivateClientRequest {}
     interface DeactivateClientUserRequest {}
@@ -158,7 +188,10 @@ declare namespace gapi.client {
       /** Output only. Refers to a buyer in Real-time Bidding API's Buyer resource. Format: `buyers/{buyerAccountId}` */
       buyer?: string;
       /** Output only. The buyer permission type of the deal. */
-      buyerPermissionType?: string;
+      buyerPermissionType?:
+        | 'BUYER_PERMISSION_TYPE_UNSPECIFIED'
+        | 'NEGOTIATOR_ONLY'
+        | 'BIDDER';
       /** Output only. Refers to a Client. Format: `buyers/{buyerAccountId}/clients/{clientAccountid}` */
       client?: string;
       /** Output only. The time of the deal creation. */
@@ -166,7 +199,11 @@ declare namespace gapi.client {
       /** Output only. Metadata about the creatives of this deal. */
       creativeRequirements?: CreativeRequirements;
       /** Output only. Type of deal. */
-      dealType?: string;
+      dealType?:
+        | 'DEAL_TYPE_UNSPECIFIED'
+        | 'PREFERRED_DEAL'
+        | 'PRIVATE_AUCTION'
+        | 'PROGRAMMATIC_GUARANTEED';
       /** Output only. Specifies the pacing set by the publisher. */
       deliveryControl?: DeliveryControl;
       /** Output only. Free text description for the deal terms. */
@@ -206,21 +243,40 @@ declare namespace gapi.client {
       /** The reason for the pausing of the deal; empty for active deals. */
       pauseReason?: string;
       /** The party that first paused the deal; unspecified for active deals. */
-      pauseRole?: string;
+      pauseRole?: 'BUYER_SELLER_ROLE_UNSPECIFIED' | 'BUYER' | 'SELLER';
       /** Whether pausing is consented between buyer and seller for the deal. */
       pausingConsented?: boolean;
     }
     interface DeliveryControl {
       /** Output only. Specifies roadblocking in a main companion lineitem. */
-      companionDeliveryType?: string;
+      companionDeliveryType?:
+        | 'COMPANION_DELIVERY_TYPE_UNSPECIFIED'
+        | 'DELIVERY_OPTIONAL'
+        | 'DELIVERY_AT_LEAST_ONE'
+        | 'DELIVERY_ALL';
       /** Output only. Specifies strategy to use for selecting a creative when multiple creatives of the same size are available. */
-      creativeRotationType?: string;
+      creativeRotationType?:
+        | 'CREATIVE_ROTATION_TYPE_UNSPECIFIED'
+        | 'ROTATION_EVEN'
+        | 'ROTATION_OPTIMIZED'
+        | 'ROTATION_MANUAL'
+        | 'ROTATION_SEQUENTIAL';
       /** Output only. Specifies how the impression delivery will be paced. */
-      deliveryRateType?: string;
+      deliveryRateType?:
+        | 'DELIVERY_RATE_TYPE_UNSPECIFIED'
+        | 'EVENLY'
+        | 'FRONT_LOADED'
+        | 'AS_FAST_AS_POSSIBLE';
       /** Output only. Specifies any frequency caps. Cannot be filtered within ListDealsRequest. */
       frequencyCap?: FrequencyCap[];
       /** Output only. Specifies the roadblocking type in display creatives. */
-      roadblockingType?: string;
+      roadblockingType?:
+        | 'ROADBLOCKING_TYPE_UNSPECIFIED'
+        | 'ONLY_ONE'
+        | 'ONE_OR_MORE'
+        | 'AS_MANY_AS_POSSIBLE'
+        | 'ALL_ROADBLOCK'
+        | 'CREATIVE_SET';
     }
     interface Empty {}
     interface FinalizedDeal {
@@ -229,7 +285,12 @@ declare namespace gapi.client {
       /** Information related to deal pausing for the deal. */
       dealPausingInfo?: DealPausingInfo;
       /** Serving status of the deal. */
-      dealServingStatus?: string;
+      dealServingStatus?:
+        | 'DEAL_SERVING_STATUS_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'ENDED'
+        | 'PAUSED_BY_BUYER'
+        | 'PAUSED_BY_SELLER';
       /** The resource name of the finalized deal. Format: `buyers/{accountId}/finalizedDeals/{finalizedDealId}` */
       name?: string;
       /** Whether the Programmatic Guaranteed deal is ready for serving. */
@@ -249,7 +310,16 @@ declare namespace gapi.client {
       /** The amount of time, in the units specified by time_unit_type. Defines the amount of time over which impressions per user are counted and capped. */
       timeUnitsCount?: number;
       /** The time unit. Along with num_time_units defines the amount of time over which impressions per user are counted and capped. */
-      timeUnitType?: string;
+      timeUnitType?:
+        | 'TIME_UNIT_TYPE_UNSPECIFIED'
+        | 'MINUTE'
+        | 'HOUR'
+        | 'DAY'
+        | 'WEEK'
+        | 'MONTH'
+        | 'LIFETIME'
+        | 'POD'
+        | 'STREAM';
     }
     interface InventorySizeTargeting {
       /** A list of inventory sizes to be excluded. */
@@ -259,7 +329,11 @@ declare namespace gapi.client {
     }
     interface InventoryTypeTargeting {
       /** The list of targeted inventory types for the bid request. */
-      inventoryTypes?: string[];
+      inventoryTypes?:
+        | 'INVENTORY_TYPE_UNSPECIFIED'
+        | 'BROWSER'
+        | 'MOBILE_APP'
+        | 'VIDEO_PLAYER'[];
     }
     interface ListAuctionPackagesResponse {
       /** The list of auction packages. */
@@ -351,7 +425,7 @@ declare namespace gapi.client {
       /** Output only. When this note was created. */
       createTime?: string;
       /** Output only. The role who created the note. */
-      creatorRole?: string;
+      creatorRole?: 'BUYER_SELLER_ROLE_UNSPECIFIED' | 'BUYER' | 'SELLER';
       /** The text of the note. Maximum length is 1024 characters. */
       note?: string;
     }
@@ -379,7 +453,7 @@ declare namespace gapi.client {
       /** The actual price with currency specified. */
       amount?: Money;
       /** The pricing type for the deal. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'CPM' | 'CPD';
     }
     interface PrivateAuctionTerms {
       /** The minimum price buyer has to bid to compete in the private auction. */
@@ -403,7 +477,10 @@ declare namespace gapi.client {
       /** For sponsorship deals, this is the percentage of the seller's eligible impressions that the deal will serve until the cap is reached. Valid value is within range 0~100. */
       percentShareOfVoice?: string;
       /** The reservation type for a Programmatic Guaranteed deal. This indicates whether the number of impressions is fixed, or a percent of available impressions. If not specified, the default reservation type is STANDARD. */
-      reservationType?: string;
+      reservationType?:
+        | 'RESERVATION_TYPE_UNSPECIFIED'
+        | 'STANDARD'
+        | 'SPONSORSHIP';
     }
     interface Proposal {
       /** Output only. When the client field is populated, this field refers to the buyer who creates and manages the client buyer and gets billed on behalf of the client buyer; when the buyer field is populated, this field is the same value as buyer. Format : `buyers/{buyerAccountId}` */
@@ -417,19 +494,26 @@ declare namespace gapi.client {
       /** Output only. Refers to a Client. Format: `buyers/{buyerAccountId}/clients/{clientAccountid}` */
       client?: string;
       /** Output only. Type of deal the proposal contains. */
-      dealType?: string;
+      dealType?:
+        | 'DEAL_TYPE_UNSPECIFIED'
+        | 'PREFERRED_DEAL'
+        | 'PRIVATE_AUCTION'
+        | 'PROGRAMMATIC_GUARANTEED';
       /** Output only. The descriptive name for the proposal. Maximum length of 255 unicode characters is allowed. Control characters are not allowed. Buyers cannot update this field. Note: Not to be confused with name, which is a unique identifier of the proposal. */
       displayName?: string;
       /** Output only. True if the proposal was previously finalized and is now being renegotiated. */
       isRenegotiating?: boolean;
       /** Output only. The role of the last user that either updated the proposal or left a comment. */
-      lastUpdaterOrCommentorRole?: string;
+      lastUpdaterOrCommentorRole?:
+        | 'BUYER_SELLER_ROLE_UNSPECIFIED'
+        | 'BUYER'
+        | 'SELLER';
       /** Immutable. The name of the proposal serving as a unique identifier. Format: buyers/{accountId}/proposals/{proposalId} */
       name?: string;
       /** A list of notes from the buyer and the seller attached to this proposal. */
       notes?: Note[];
       /** Output only. Indicates whether the buyer/seller created the proposal. */
-      originatorRole?: string;
+      originatorRole?: 'BUYER_SELLER_ROLE_UNSPECIFIED' | 'BUYER' | 'SELLER';
       /** Whether pausing is allowed for the proposal. This is a negotiable term between buyers and publishers. */
       pausingConsented?: boolean;
       /** Output only. The revision number for the proposal. Each update to the proposal or deal causes the proposal revision number to auto-increment. The buyer keeps track of the last revision number they know of and pass it in when making an update. If the head revision number on the server has since incremented, then an ABORTED error is returned during the update operation to let the buyer know that a subsequent update was made. */
@@ -439,7 +523,13 @@ declare namespace gapi.client {
       /** Output only. Contact information for the seller. */
       sellerContacts?: Contact[];
       /** Output only. Indicates the state of the proposal. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'BUYER_REVIEW_REQUESTED'
+        | 'SELLER_REVIEW_REQUESTED'
+        | 'BUYER_ACCEPTANCE_REQUESTED'
+        | 'FINALIZED'
+        | 'TERMINATED';
       /** Output only. The terms and conditions associated with this proposal. Accepting a proposal implies acceptance of this field. This is created by the seller, the buyer can only view it. */
       termsAndConditions?: string;
       /** Output only. The time when the proposal was last revised. */
@@ -479,7 +569,21 @@ declare namespace gapi.client {
     }
     interface PublisherProfileMobileApplication {
       /** The app store the app belongs to. Can be used to filter the response of the publisherProfiles.list method. */
-      appStore?: string;
+      appStore?:
+        | 'APP_STORE_TYPE_UNSPECIFIED'
+        | 'APPLE_ITUNES'
+        | 'GOOGLE_PLAY'
+        | 'ROKU'
+        | 'AMAZON_FIRE_TV'
+        | 'PLAYSTATION'
+        | 'XBOX'
+        | 'SAMSUNG_TV'
+        | 'AMAZON'
+        | 'OPPO'
+        | 'SAMSUNG'
+        | 'VIVO'
+        | 'XIAOMI'
+        | 'LG_TV';
       /** The external ID for the app from its app store. Can be used to filter the response of the publisherProfiles.list method. */
       externalAppId?: string;
       /** The name of the app. */
@@ -575,19 +679,27 @@ declare namespace gapi.client {
     }
     interface VideoTargeting {
       /** A list of video positions to be excluded. When this field is populated, the targeted_position_types field must be empty. */
-      excludedPositionTypes?: string[];
+      excludedPositionTypes?:
+        | 'POSITION_TYPE_UNSPECIFIED'
+        | 'PREROLL'
+        | 'MIDROLL'
+        | 'POSTROLL'[];
       /** A list of video positions to be included. When this field is populated, the excluded_position_types field must be empty. */
-      targetedPositionTypes?: string[];
+      targetedPositionTypes?:
+        | 'POSITION_TYPE_UNSPECIFIED'
+        | 'PREROLL'
+        | 'MIDROLL'
+        | 'POSTROLL'[];
     }
     interface AuctionPackagesResource {
       /** List the auction packages. Buyers can use the URL path "/v1/buyers/{accountId}/auctionPackages" to list auction packages for the current buyer and its clients. Bidders can use the URL path "/v1/bidders/{accountId}/auctionPackages" to list auction packages for the bidder, its media planners, its buyers, and all their clients. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -620,11 +732,11 @@ declare namespace gapi.client {
       /** Lists finalized deals. Use the URL path "/v1/buyers/{accountId}/finalizedDeals" to list finalized deals for the current buyer and its clients. Bidders can use the URL path "/v1/bidders/{accountId}/finalizedDeals" to list finalized deals for the bidder, its buyers and all their clients. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -655,11 +767,11 @@ declare namespace gapi.client {
       /** Sets the given finalized deal as ready to serve. By default, deals are set as ready to serve as soon as they're finalized. If you want to opt out of the default behavior, and manually indicate that deals are ready to serve, ask your Technical Account Manager to add you to the allowlist. If you choose to use this method, finalized deals belonging to the bidder and its child seats don't start serving until after you call `setReadyToServe`, and after the deals become active. For example, you can use this method to delay receiving bid requests until your creative is ready. In addition, bidders can use the URL path "/v1/bidders/{accountId}/finalizedDeals/{dealId}" to set ready to serve for the finalized deals belong to itself, its child seats and all their clients. This method only applies to programmatic guaranteed deals. */
       setReadyToServe(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Format: `buyers/{accountId}/finalizedDeals/{dealId}` or `bidders/{accountId}/finalizedDeals/{dealId}` */
@@ -684,11 +796,11 @@ declare namespace gapi.client {
       setReadyToServe(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. Format: `buyers/{accountId}/finalizedDeals/{dealId}` or `bidders/{accountId}/finalizedDeals/{dealId}` */
@@ -719,11 +831,11 @@ declare namespace gapi.client {
       /** Gets an auction package given its name. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -746,11 +858,11 @@ declare namespace gapi.client {
       /** List the auction packages. Buyers can use the URL path "/v1/buyers/{accountId}/auctionPackages" to list auction packages for the current buyer and its clients. Bidders can use the URL path "/v1/bidders/{accountId}/auctionPackages" to list auction packages for the bidder, its media planners, its buyers, and all their clients. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -781,11 +893,11 @@ declare namespace gapi.client {
       /** Subscribe to the auction package for the specified buyer. Once subscribed, the bidder will receive a call out for inventory matching the auction package targeting criteria with the auction package deal ID and the specified buyer. */
       subscribe(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -810,11 +922,11 @@ declare namespace gapi.client {
       subscribe(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -839,11 +951,11 @@ declare namespace gapi.client {
       /** Subscribe the specified clients of the buyer to the auction package. If a client in the list does not belong to the buyer, an error response will be returned, and all of the following clients in the list will not be subscribed. Subscribing an already subscribed client will have no effect. */
       subscribeClients(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. Name of the auction package. Format: `buyers/{accountId}/auctionPackages/{auctionPackageId}` */
         auctionPackage: string;
         /** JSONP */
@@ -868,11 +980,11 @@ declare namespace gapi.client {
       subscribeClients(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. Name of the auction package. Format: `buyers/{accountId}/auctionPackages/{auctionPackageId}` */
           auctionPackage: string;
           /** JSONP */
@@ -897,11 +1009,11 @@ declare namespace gapi.client {
       /** Unsubscribe from the auction package for the specified buyer. Once unsubscribed, the bidder will no longer receive a call out for the auction package deal ID and the specified buyer. */
       unsubscribe(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -926,11 +1038,11 @@ declare namespace gapi.client {
       unsubscribe(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -955,11 +1067,11 @@ declare namespace gapi.client {
       /** Unsubscribe from the auction package for the specified clients of the buyer. Unsubscribing a client that is not subscribed will have no effect. */
       unsubscribeClients(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. Name of the auction package. Format: `buyers/{accountId}/auctionPackages/{auctionPackageId}` */
         auctionPackage: string;
         /** JSONP */
@@ -984,11 +1096,11 @@ declare namespace gapi.client {
       unsubscribeClients(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. Name of the auction package. Format: `buyers/{accountId}/auctionPackages/{auctionPackageId}` */
           auctionPackage: string;
           /** JSONP */
@@ -1015,11 +1127,11 @@ declare namespace gapi.client {
       /** Activates an existing client user. The state of the client user will be updated from "INACTIVE" to "ACTIVE". This method has no effect if the client user is already in "ACTIVE" state. An error will be returned if the client user to activate is still in "INVITED" state. */
       activate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1044,11 +1156,11 @@ declare namespace gapi.client {
       activate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1073,11 +1185,11 @@ declare namespace gapi.client {
       /** Creates a new client user in "INVITED" state. An email invitation will be sent to the new user, once accepted the user will become active. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1102,11 +1214,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1131,11 +1243,11 @@ declare namespace gapi.client {
       /** Deactivates an existing client user. The state of the client user will be updated from "ACTIVE" to "INACTIVE". This method has no effect if the client user is already in "INACTIVE" state. An error will be returned if the client user to deactivate is still in "INVITED" state. */
       deactivate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1160,11 +1272,11 @@ declare namespace gapi.client {
       deactivate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1189,11 +1301,11 @@ declare namespace gapi.client {
       /** Deletes an existing client user. The client user will lose access to the Authorized Buyers UI. Note that if a client user is deleted, the user's access to the UI can't be restored unless a new client user is created and activated. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1216,11 +1328,11 @@ declare namespace gapi.client {
       /** Retrieves an existing client user. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1243,11 +1355,11 @@ declare namespace gapi.client {
       /** Lists all client users for a specified client. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1276,11 +1388,11 @@ declare namespace gapi.client {
       /** Activates an existing client. The state of the client will be updated to "ACTIVE". This method has no effect if the client is already in "ACTIVE" state. */
       activate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1305,11 +1417,11 @@ declare namespace gapi.client {
       activate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1334,11 +1446,11 @@ declare namespace gapi.client {
       /** Creates a new client. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1363,11 +1475,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1392,11 +1504,11 @@ declare namespace gapi.client {
       /** Deactivates an existing client. The state of the client will be updated to "INACTIVE". This method has no effect if the client is already in "INACTIVE" state. */
       deactivate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1421,11 +1533,11 @@ declare namespace gapi.client {
       deactivate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1450,11 +1562,11 @@ declare namespace gapi.client {
       /** Gets a client with a given resource name. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1477,11 +1589,11 @@ declare namespace gapi.client {
       /** Lists all the clients for the current buyer. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1510,11 +1622,11 @@ declare namespace gapi.client {
       /** Updates an existing client. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1541,11 +1653,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1575,11 +1687,11 @@ declare namespace gapi.client {
       /** Add creative to be used in the bidding process for a finalized deal. For programmatic guaranteed deals, it's recommended that you associate at least one approved creative with the deal before calling SetReadyToServe, to help reduce the number of bid responses filtered because they don't contain approved creatives. Creatives successfully added to a deal can be found in the Realtime-bidding Creatives API creative.deal_ids. This method only applies to programmatic guaranteed deals. Maximum number of 1000 creatives can be added to a finalized deal. */
       addCreative(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Name of the finalized deal in the format of: `buyers/{accountId}/finalizedDeals/{dealId}` */
@@ -1604,11 +1716,11 @@ declare namespace gapi.client {
       addCreative(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. Name of the finalized deal in the format of: `buyers/{accountId}/finalizedDeals/{dealId}` */
@@ -1633,11 +1745,11 @@ declare namespace gapi.client {
       /** Gets a finalized deal given its name. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1660,11 +1772,11 @@ declare namespace gapi.client {
       /** Lists finalized deals. Use the URL path "/v1/buyers/{accountId}/finalizedDeals" to list finalized deals for the current buyer and its clients. Bidders can use the URL path "/v1/bidders/{accountId}/finalizedDeals" to list finalized deals for the bidder, its buyers and all their clients. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1695,11 +1807,11 @@ declare namespace gapi.client {
       /** Pauses serving of the given finalized deal. This call only pauses the serving status, and does not affect other fields of the finalized deal. Calling this method for an already paused deal has no effect. This method only applies to programmatic guaranteed deals and preferred deals. */
       pause(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1724,11 +1836,11 @@ declare namespace gapi.client {
       pause(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1753,11 +1865,11 @@ declare namespace gapi.client {
       /** Resumes serving of the given finalized deal. Calling this method for an running deal has no effect. If a deal is initially paused by the seller, calling this method will not resume serving of the deal until the seller also resumes the deal. This method only applies to programmatic guaranteed deals and preferred deals. */
       resume(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1782,11 +1894,11 @@ declare namespace gapi.client {
       resume(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1811,11 +1923,11 @@ declare namespace gapi.client {
       /** Sets the given finalized deal as ready to serve. By default, deals are set as ready to serve as soon as they're finalized. If you want to opt out of the default behavior, and manually indicate that deals are ready to serve, ask your Technical Account Manager to add you to the allowlist. If you choose to use this method, finalized deals belonging to the bidder and its child seats don't start serving until after you call `setReadyToServe`, and after the deals become active. For example, you can use this method to delay receiving bid requests until your creative is ready. In addition, bidders can use the URL path "/v1/bidders/{accountId}/finalizedDeals/{dealId}" to set ready to serve for the finalized deals belong to itself, its child seats and all their clients. This method only applies to programmatic guaranteed deals. */
       setReadyToServe(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Format: `buyers/{accountId}/finalizedDeals/{dealId}` or `bidders/{accountId}/finalizedDeals/{dealId}` */
@@ -1840,11 +1952,11 @@ declare namespace gapi.client {
       setReadyToServe(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. Format: `buyers/{accountId}/finalizedDeals/{dealId}` or `bidders/{accountId}/finalizedDeals/{dealId}` */
@@ -1871,11 +1983,11 @@ declare namespace gapi.client {
       /** Batch updates multiple deals in the same proposal. */
       batchUpdate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1900,11 +2012,11 @@ declare namespace gapi.client {
       batchUpdate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1929,11 +2041,11 @@ declare namespace gapi.client {
       /** Gets a deal given its name. The deal is returned at its head revision. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1956,11 +2068,11 @@ declare namespace gapi.client {
       /** Lists all deals in a proposal. To retrieve only the finalized revision deals regardless if a deal is being renegotiated, see the FinalizedDeals resource. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1987,11 +2099,11 @@ declare namespace gapi.client {
       /** Updates the given deal at the buyer known revision number. If the server revision has advanced since the passed-in proposal.proposal_revision an ABORTED error message will be returned. The revision number is incremented by the server whenever the proposal or its constituent deals are updated. Note: The revision number is kept at a proposal level. The buyer of the API is expected to keep track of the revision number after the last update operation and send it in as part of the next update request. This way, if there are further changes on the server (for example, seller making new updates), then the server can detect conflicts and reject the proposed changes. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2018,11 +2130,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2051,11 +2163,11 @@ declare namespace gapi.client {
       /** Accepts the proposal at the given revision number. If the revision number in the request is behind the latest from the server, an error message will be returned. This call updates the Proposal.state from `BUYER_ACCEPTANCE_REQUESTED` to `FINALIZED`; it has no side effect if the Proposal.state is already `FINALIZED` and throws exception if the Proposal.state is not either `BUYER_ACCEPTANCE_REQUESTED` or `FINALIZED`. Accepting a proposal means the buyer understands and accepts the Proposal.terms_and_conditions proposed by the seller. */
       accept(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2080,11 +2192,11 @@ declare namespace gapi.client {
       accept(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2109,11 +2221,11 @@ declare namespace gapi.client {
       /** Creates a note for this proposal and sends to the seller. This method is not supported for proposals with DealType set to 'PRIVATE_AUCTION'. */
       addNote(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2138,11 +2250,11 @@ declare namespace gapi.client {
       addNote(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2167,11 +2279,11 @@ declare namespace gapi.client {
       /** Cancels an ongoing negotiation on a proposal. This does not cancel or end serving for the deals if the proposal has been finalized. If the proposal has not been finalized before, calling this method will set the Proposal.state to `TERMINATED` and increment the Proposal.proposal_revision. If the proposal has been finalized before and is under renegotiation now, calling this method will reset the Proposal.state to `FINALIZED` and increment the Proposal.proposal_revision. This method does not support private auction proposals whose Proposal.deal_type is 'PRIVATE_AUCTION'. */
       cancelNegotiation(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2196,11 +2308,11 @@ declare namespace gapi.client {
       cancelNegotiation(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2225,11 +2337,11 @@ declare namespace gapi.client {
       /** Gets a proposal using its resource name. The proposal is returned at the latest revision. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2252,11 +2364,11 @@ declare namespace gapi.client {
       /** Lists proposals. A filter expression using [Cloud API list filtering syntax](https://developers.google.com/authorized-buyers/apis/guides/list-filters) may be specified to filter the results. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2285,11 +2397,11 @@ declare namespace gapi.client {
       /** Updates the proposal at the given revision number. If the revision number in the request is behind the latest one kept in the server, an error message will be returned. See FieldMask for how to use FieldMask. Only fields specified in the UpdateProposalRequest.update_mask will be updated; Fields noted as 'Immutable' or 'Output only' yet specified in the UpdateProposalRequest.update_mask will be ignored and left unchanged. Updating a private auction proposal is only allowed for buyer private data, all other fields are immutable. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2316,11 +2428,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2347,11 +2459,11 @@ declare namespace gapi.client {
       /** Sends a request for proposal (RFP) to a publisher to initiate the negotiation regarding certain inventory. In the RFP, buyers can specify the deal type, deal terms, start and end dates, targeting, and a message to the publisher. Once the RFP is sent, a proposal in `SELLER_REVIEW_REQUESTED` state will be created and returned in the response. The publisher may review your request and respond with detailed deals in the proposal. */
       sendRfp(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The current buyer who is sending the RFP in the format: `buyers/{accountId}`. */
         buyer: string;
         /** JSONP */
@@ -2376,11 +2488,11 @@ declare namespace gapi.client {
       sendRfp(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. The current buyer who is sending the RFP in the format: `buyers/{accountId}`. */
           buyer: string;
           /** JSONP */
@@ -2408,11 +2520,11 @@ declare namespace gapi.client {
       /** Gets the requested publisher profile by name. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2435,11 +2547,11 @@ declare namespace gapi.client {
       /** Lists publisher profiles. The returned publisher profiles aren't in any defined order. The order of the results might change. A new publisher profile can appear in any place in the list of returned results. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

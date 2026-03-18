@@ -35,7 +35,12 @@ declare namespace gapi.client {
       allowReactivation?: boolean;
     }
     interface ActivationStatus {
-      state?: string;
+      state?:
+        | 'UNKNOWN_STATE'
+        | 'NOT_ACTIVATED'
+        | 'not_activated'
+        | 'ACTIVATED'
+        | 'activated';
     }
     interface AddMessageRequest {
       message?: Message;
@@ -90,11 +95,39 @@ declare namespace gapi.client {
       /** Identifies what kind of resource this is. Value: the fixed string `"walletobjects#barcode"`. */
       kind?: string;
       /** The render encoding for the barcode. When specified, barcode is rendered in the given encoding. Otherwise best known encoding is chosen by Google. */
-      renderEncoding?: string;
+      renderEncoding?: 'RENDER_ENCODING_UNSPECIFIED' | 'UTF_8';
       /** Optional text that will be shown when the barcode is hidden behind a click action. This happens in cases where a pass has Smart Tap enabled. If not specified, a default is chosen by Google. */
       showCodeText?: LocalizedString;
       /** The type of barcode. */
-      type?: string;
+      type?:
+        | 'BARCODE_TYPE_UNSPECIFIED'
+        | 'AZTEC'
+        | 'aztec'
+        | 'CODE_39'
+        | 'code39'
+        | 'CODE_128'
+        | 'code128'
+        | 'CODABAR'
+        | 'codabar'
+        | 'DATA_MATRIX'
+        | 'dataMatrix'
+        | 'EAN_8'
+        | 'ean8'
+        | 'EAN_13'
+        | 'ean13'
+        | 'EAN13'
+        | 'ITF_14'
+        | 'itf14'
+        | 'PDF_417'
+        | 'pdf417'
+        | 'PDF417'
+        | 'QR_CODE'
+        | 'qrCode'
+        | 'qrcode'
+        | 'UPC_A'
+        | 'upcA'
+        | 'TEXT_ONLY'
+        | 'textOnly';
       /** The value encoded in the barcode. */
       value?: string;
     }
@@ -120,7 +153,12 @@ declare namespace gapi.client {
     }
     interface BoardingAndSeatingInfo {
       /** Set this field only if this flight boards through more than one door or bridge and you want to explicitly print the door location on the boarding pass. Most airlines route their passengers to the right door or bridge by refering to doors/bridges by the `seatClass`. In those cases `boardingDoor` should not be set. */
-      boardingDoor?: string;
+      boardingDoor?:
+        | 'BOARDING_DOOR_UNSPECIFIED'
+        | 'FRONT'
+        | 'front'
+        | 'BACK'
+        | 'back';
       /** The value of boarding group (or zone) this passenger shall board with. eg: "B" The label for this value will be determined by the `boardingPolicy` field in the `flightClass` referenced by this object. */
       boardingGroup?: string;
       /** The value of boarding position. eg: "76" */
@@ -140,11 +178,27 @@ declare namespace gapi.client {
     }
     interface BoardingAndSeatingPolicy {
       /** Indicates the policy the airline uses for boarding. If unset, Google will default to `zoneBased`. */
-      boardingPolicy?: string;
+      boardingPolicy?:
+        | 'BOARDING_POLICY_UNSPECIFIED'
+        | 'ZONE_BASED'
+        | 'zoneBased'
+        | 'GROUP_BASED'
+        | 'groupBased'
+        | 'BOARDING_POLICY_OTHER'
+        | 'boardingPolicyOther';
       /** Identifies what kind of resource this is. Value: the fixed string `"walletobjects#boardingAndSeatingPolicy"`. */
       kind?: string;
       /** Seating policy which dictates how we display the seat class. If unset, Google will default to `cabinBased`. */
-      seatClassPolicy?: string;
+      seatClassPolicy?:
+        | 'SEAT_CLASS_POLICY_UNSPECIFIED'
+        | 'CABIN_BASED'
+        | 'cabinBased'
+        | 'CLASS_BASED'
+        | 'classBased'
+        | 'TIER_BASED'
+        | 'tierBased'
+        | 'SEAT_CLASS_POLICY_OTHER'
+        | 'seatClassPolicyOther';
     }
     interface CallbackOptions {
       /** URL for the merchant endpoint that would be called to request updates. The URL should be hosted on HTTPS and robots.txt should allow the URL path to be accessible by UserAgent:Googlebot. Deprecated. */
@@ -220,7 +274,12 @@ declare namespace gapi.client {
       /** Path to the data, set if reference_type is PATH */
       path?: string;
       /** Describes what the field reference contains. */
-      referenceType?: string;
+      referenceType?:
+        | 'PATH'
+        | 'BLOB_REF'
+        | 'INLINE'
+        | 'BIGSTORE_REF'
+        | 'COSMO_BINARY_REFERENCE';
       /** SHA-1 hash for the payload. */
       sha1Hash?: string;
     }
@@ -294,7 +353,14 @@ declare namespace gapi.client {
       /** Information about the ability to signup and add a valuable for this program through a merchant site. Used when MERCHANT_HOSTED_SIGNUP is enabled. */
       merchantSignupInfo?: DiscoverableProgramMerchantSignupInfo;
       /** Visibility state of the discoverable program. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'TRUSTED_TESTERS'
+        | 'trustedTesters'
+        | 'LIVE'
+        | 'live'
+        | 'DISABLED'
+        | 'disabled';
     }
     interface DiscoverableProgramMerchantSigninInfo {
       /** The URL to direct the user to for the merchant's signin site. */
@@ -302,7 +368,20 @@ declare namespace gapi.client {
     }
     interface DiscoverableProgramMerchantSignupInfo {
       /** User data that is sent in a POST request to the signup website URL. This information is encoded and then shared so that the merchant's website can prefill fields used to enroll the user for the discoverable program. */
-      signupSharedDatas?: string[];
+      signupSharedDatas?:
+        | 'SHARED_DATA_TYPE_UNSPECIFIED'
+        | 'FIRST_NAME'
+        | 'LAST_NAME'
+        | 'STREET_ADDRESS'
+        | 'ADDRESS_LINE_1'
+        | 'ADDRESS_LINE_2'
+        | 'ADDRESS_LINE_3'
+        | 'CITY'
+        | 'STATE'
+        | 'ZIPCODE'
+        | 'COUNTRY'
+        | 'EMAIL'
+        | 'PHONE'[];
       /** The URL to direct the user to for the merchant's signup site. */
       signupWebsite?: Uri;
     }
@@ -318,7 +397,12 @@ declare namespace gapi.client {
       /** The date/time when the doors open at the venue. This is an ISO 8601 extended format date/time, with or without an offset. Time may be specified up to nanosecond precision. Offsets may be specified with seconds precision (even though offset seconds is not part of ISO 8601). For example: `1985-04-12T23:20:50.52Z` would be 20 minutes and 50.52 seconds after the 23rd hour of April 12th, 1985 in UTC. `1985-04-12T19:20:50.52-04:00` would be 20 minutes and 50.52 seconds after the 19th hour of April 12th, 1985, 4 hours before UTC (same instant in time as the above example). If the event were in New York, this would be the equivalent of Eastern Daylight Time (EDT). Remember that offset varies in regions that observe Daylight Saving Time (or Summer Time), depending on the time of the year. `1985-04-12T19:20:50.52` would be 20 minutes and 50.52 seconds after the 19th hour of April 12th, 1985 with no offset information. The portion of the date/time without the offset is considered the "local date/time". This should be the local date/time at the venue. For example, if the event occurs at the 20th hour of June 5th, 2018 at the venue, the local date/time portion should be `2018-06-05T20:00:00`. If the local date/time at the venue is 4 hours before UTC, an offset of `-04:00` may be appended. Without offset information, some rich features may not be available. */
       doorsOpen?: string;
       /** The label to use for the doors open value (`doorsOpen`) on the card detail view. Each available option maps to a set of localized strings, so that translations are shown to the user based on their locale. Both `doorsOpenLabel` and `customDoorsOpenLabel` may not be set. If neither is set, the label will default to "Doors Open", localized. If the doors open field is unset, this label will not be used. */
-      doorsOpenLabel?: string;
+      doorsOpenLabel?:
+        | 'DOORS_OPEN_LABEL_UNSPECIFIED'
+        | 'DOORS_OPEN'
+        | 'doorsOpen'
+        | 'GATES_OPEN'
+        | 'gatesOpen';
       /** The date/time when the event ends. If the event spans multiple days, it should be the end date/time on the last day. This is an ISO 8601 extended format date/time, with or without an offset. Time may be specified up to nanosecond precision. Offsets may be specified with seconds precision (even though offset seconds is not part of ISO 8601). For example: `1985-04-12T23:20:50.52Z` would be 20 minutes and 50.52 seconds after the 23rd hour of April 12th, 1985 in UTC. `1985-04-12T19:20:50.52-04:00` would be 20 minutes and 50.52 seconds after the 19th hour of April 12th, 1985, 4 hours before UTC (same instant in time as the above example). If the event were in New York, this would be the equivalent of Eastern Daylight Time (EDT). Remember that offset varies in regions that observe Daylight Saving Time (or Summer Time), depending on the time of the year. `1985-04-12T19:20:50.52` would be 20 minutes and 50.52 seconds after the 19th hour of April 12th, 1985 with no offset information. The portion of the date/time without the offset is considered the "local date/time". This should be the local date/time at the venue. For example, if the event occurs at the 20th hour of June 5th, 2018 at the venue, the local date/time portion should be `2018-06-05T20:00:00`. If the local date/time at the venue is 4 hours before UTC, an offset of `-04:00` may be appended. Without offset information, some rich features may not be available. */
       end?: string;
       /** Identifies what kind of resource this is. Value: the fixed string `"walletobjects#eventDateTime"`. */
@@ -354,7 +438,16 @@ declare namespace gapi.client {
       /** Template information about how the class should be displayed. If unset, Google will fallback to a default set of fields to display. */
       classTemplateInfo?: ClassTemplateInfo;
       /** The label to use for the confirmation code value (`eventTicketObject.reservationInfo.confirmationCode`) on the card detail view. Each available option maps to a set of localized strings, so that translations are shown to the user based on their locale. Both `confirmationCodeLabel` and `customConfirmationCodeLabel` may not be set. If neither is set, the label will default to "Confirmation Code", localized. If the confirmation code field is unset, this label will not be used. */
-      confirmationCodeLabel?: string;
+      confirmationCodeLabel?:
+        | 'CONFIRMATION_CODE_LABEL_UNSPECIFIED'
+        | 'CONFIRMATION_CODE'
+        | 'confirmationCode'
+        | 'CONFIRMATION_NUMBER'
+        | 'confirmationNumber'
+        | 'ORDER_NUMBER'
+        | 'orderNumber'
+        | 'RESERVATION_NUMBER'
+        | 'reservationNumber';
       /** Country code used to display the card's country (when the user is not in that country), as well as to display localized content when content is not available in the user's locale. */
       countryCode?: string;
       /** A custom label to use for the confirmation code value (`eventTicketObject.reservationInfo.confirmationCode`) on the card detail view. This should only be used if the default "Confirmation Code" label or one of the `confirmationCodeLabel` options is not sufficient. Both `confirmationCodeLabel` and `customConfirmationCodeLabel` may not be set. If neither is set, the label will default to "Confirmation Code", localized. If the confirmation code field is unset, this label will not be used. */
@@ -378,7 +471,14 @@ declare namespace gapi.client {
       /** The fine print, terms, or conditions of the ticket. */
       finePrint?: LocalizedString;
       /** The label to use for the gate value (`eventTicketObject.seatInfo.gate`) on the card detail view. Each available option maps to a set of localized strings, so that translations are shown to the user based on their locale. Both `gateLabel` and `customGateLabel` may not be set. If neither is set, the label will default to "Gate", localized. If the gate field is unset, this label will not be used. */
-      gateLabel?: string;
+      gateLabel?:
+        | 'GATE_LABEL_UNSPECIFIED'
+        | 'GATE'
+        | 'gate'
+        | 'DOOR'
+        | 'door'
+        | 'ENTRANCE'
+        | 'entrance';
       /** Optional banner image displayed on the front of the card. If none is present, nothing will be displayed. The image will display at 100% width. */
       heroImage?: Image;
       /** The background color for the card. If not set the dominant color of the hero image is used, and if no hero image is set, the dominant color of the logo is used. The format is #rrggbb where rrggbb is a hex RGB triplet, such as `#ffcc00`. You can also use the shorthand version of the RGB triplet which is #rgb, such as `#fc0`. */
@@ -408,21 +508,44 @@ declare namespace gapi.client {
       /** An array of messages displayed in the app. All users of this object will receive its associated messages. The maximum number of these fields is 10. */
       messages?: Message[];
       /** Identifies whether multiple users and devices will save the same object referencing this class. */
-      multipleDevicesAndHoldersAllowedStatus?: string;
+      multipleDevicesAndHoldersAllowedStatus?:
+        | 'STATUS_UNSPECIFIED'
+        | 'MULTIPLE_HOLDERS'
+        | 'ONE_USER_ALL_DEVICES'
+        | 'ONE_USER_ONE_DEVICE'
+        | 'multipleHolders'
+        | 'oneUserAllDevices'
+        | 'oneUserOneDevice';
       /** Whether or not field updates to this class should trigger notifications. When set to NOTIFY, we will attempt to trigger a field update notification to users. These notifications will only be sent to users if the field is part of an allowlist. If not specified, no notification will be triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request, otherwise a notification will not be triggered. */
-      notifyPreference?: string;
+      notifyPreference?:
+        | 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED'
+        | 'NOTIFY_ON_UPDATE';
       /** Identifies which redemption issuers can redeem the pass over Smart Tap. Redemption issuers are identified by their issuer ID. Redemption issuers must have at least one Smart Tap key configured. The `enableSmartTap` and object level `smartTapRedemptionLevel` fields must also be set up correctly in order for a pass to support Smart Tap. */
       redemptionIssuers?: string[];
       /** The review comments set by the platform when a class is marked `approved` or `rejected`. */
       review?: Review;
       /** Required. The status of the class. This field can be set to `draft` or `underReview` using the insert, patch, or update API calls. Once the review state is changed from `draft` it may not be changed back to `draft`. You should keep this field to `draft` when the class is under development. A `draft` class cannot be used to create any object. You should set this field to `underReview` when you believe the class is ready for use. The platform will automatically set this field to `approved` and it can be immediately used to create or migrate objects. When updating an already `approved` class you should keep setting this field to `underReview`. */
-      reviewStatus?: string;
+      reviewStatus?:
+        | 'REVIEW_STATUS_UNSPECIFIED'
+        | 'UNDER_REVIEW'
+        | 'underReview'
+        | 'APPROVED'
+        | 'approved'
+        | 'REJECTED'
+        | 'rejected'
+        | 'DRAFT'
+        | 'draft';
       /** The label to use for the row value (`eventTicketObject.seatInfo.row`) on the card detail view. Each available option maps to a set of localized strings, so that translations are shown to the user based on their locale. Both `rowLabel` and `customRowLabel` may not be set. If neither is set, the label will default to "Row", localized. If the row field is unset, this label will not be used. */
-      rowLabel?: string;
+      rowLabel?: 'ROW_LABEL_UNSPECIFIED' | 'ROW' | 'row';
       /** The label to use for the seat value (`eventTicketObject.seatInfo.seat`) on the card detail view. Each available option maps to a set of localized strings, so that translations are shown to the user based on their locale. Both `seatLabel` and `customSeatLabel` may not be set. If neither is set, the label will default to "Seat", localized. If the seat field is unset, this label will not be used. */
-      seatLabel?: string;
+      seatLabel?: 'SEAT_LABEL_UNSPECIFIED' | 'SEAT' | 'seat';
       /** The label to use for the section value (`eventTicketObject.seatInfo.section`) on the card detail view. Each available option maps to a set of localized strings, so that translations are shown to the user based on their locale. Both `sectionLabel` and `customSectionLabel` may not be set. If neither is set, the label will default to "Section", localized. If the section field is unset, this label will not be used. */
-      sectionLabel?: string;
+      sectionLabel?:
+        | 'SECTION_LABEL_UNSPECIFIED'
+        | 'SECTION'
+        | 'section'
+        | 'THEATER'
+        | 'theater';
       /** Optional information about the security animation. If this is set a security animation will be rendered on pass details. */
       securityAnimation?: SecurityAnimation;
       /** Text module data. If text module data is also defined on the class, both will be displayed. The maximum number of these fields displayed is 10 from the object and 10 from the class. */
@@ -434,7 +557,10 @@ declare namespace gapi.client {
       /** Deprecated */
       version?: string;
       /** View Unlock Requirement options for the event ticket. */
-      viewUnlockRequirement?: string;
+      viewUnlockRequirement?:
+        | 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED'
+        | 'UNLOCK_NOT_REQUIRED'
+        | 'UNLOCK_REQUIRED_TO_VIEW';
       /** The wide logo of the ticket. When provided, this will be used in place of the logo in the top left of the card view. */
       wideLogo?: Image;
       /** Deprecated. */
@@ -494,7 +620,9 @@ declare namespace gapi.client {
       /** An array of messages displayed in the app. All users of this object will receive its associated messages. The maximum number of these fields is 10. */
       messages?: Message[];
       /** Whether or not field updates to this object should trigger notifications. When set to NOTIFY, we will attempt to trigger a field update notification to users. These notifications will only be sent to users if the field is part of an allowlist. If set to DO_NOT_NOTIFY or NOTIFICATION_SETTINGS_UNSPECIFIED, no notification will be triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request, otherwise a notification will not be triggered. */
-      notifyPreference?: string;
+      notifyPreference?:
+        | 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED'
+        | 'NOTIFY_ON_UPDATE';
       /** Pass constraints for the object. Includes limiting NFC and screenshot behaviors. */
       passConstraints?: PassConstraints;
       /** Reservation details for this ticket. This is expected to be shared amongst all tickets that were purchased in the same order. */
@@ -508,7 +636,16 @@ declare namespace gapi.client {
       /** The value that will be transmitted to a Smart Tap certified terminal over NFC for this object. The class level fields `enableSmartTap` and `redemptionIssuers` must also be set up correctly in order for the pass to support Smart Tap. Only ASCII characters are supported. */
       smartTapRedemptionValue?: string;
       /** Required. The state of the object. This field is used to determine how an object is displayed in the app. For example, an `inactive` object is moved to the "Expired passes" section. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'active'
+        | 'COMPLETED'
+        | 'completed'
+        | 'EXPIRED'
+        | 'expired'
+        | 'INACTIVE'
+        | 'inactive';
       /** Text module data. If text module data is also defined on the class, both will be displayed. The maximum number of these fields displayed is 10 from the object and 10 from the class. */
       textModulesData?: TextModuleData[];
       /** Name of the ticket holder, if the ticket is assigned to a person. E.g. "John Doe" or "Jane Doe". */
@@ -548,7 +685,20 @@ declare namespace gapi.client {
     }
     interface FieldReference {
       /** Only valid if the `fieldPath` references a date field. Chooses how the date field will be formatted and displayed in the UI. */
-      dateFormat?: string;
+      dateFormat?:
+        | 'DATE_FORMAT_UNSPECIFIED'
+        | 'DATE_TIME'
+        | 'dateTime'
+        | 'DATE_ONLY'
+        | 'dateOnly'
+        | 'TIME_ONLY'
+        | 'timeOnly'
+        | 'DATE_TIME_YEAR'
+        | 'dateTimeYear'
+        | 'DATE_YEAR'
+        | 'dateYear'
+        | 'YEAR_MONTH'
+        | 'YEAR_MONTH_DAY';
       /** Path to the field being referenced, prefixed with "object" or "class" and separated with dots. For example, it may be the string "object.purchaseDetails.purchasePrice". */
       fieldPath?: string;
     }
@@ -559,7 +709,14 @@ declare namespace gapi.client {
     interface FirstRowOption {
       /** A reference to the field to be displayed in the first row. */
       fieldOption?: FieldSelector;
-      transitOption?: string;
+      transitOption?:
+        | 'TRANSIT_OPTION_UNSPECIFIED'
+        | 'ORIGIN_AND_DESTINATION_NAMES'
+        | 'originAndDestinationNames'
+        | 'ORIGIN_AND_DESTINATION_CODES'
+        | 'originAndDestinationCodes'
+        | 'ORIGIN_NAME'
+        | 'originName';
     }
     interface FlightCarrier {
       /** A logo for the airline alliance, displayed below the QR code that the passenger scans to board. */
@@ -597,7 +754,20 @@ declare namespace gapi.client {
       /** Required. Information about the flight carrier and number. */
       flightHeader?: FlightHeader;
       /** Status of this flight. If unset, Google will compute status based on data from other sources, such as FlightStats, etc. Note: Google-computed status will not be returned in API responses. */
-      flightStatus?: string;
+      flightStatus?:
+        | 'FLIGHT_STATUS_UNSPECIFIED'
+        | 'SCHEDULED'
+        | 'scheduled'
+        | 'ACTIVE'
+        | 'active'
+        | 'LANDED'
+        | 'landed'
+        | 'CANCELLED'
+        | 'cancelled'
+        | 'REDIRECTED'
+        | 'redirected'
+        | 'DIVERTED'
+        | 'diverted';
       /** Optional banner image displayed on the front of the card. If none is present, nothing will be displayed. The image will display at 100% width. */
       heroImage?: Image;
       /** The background color for the card. If not set the dominant color of the hero image is used, and if no hero image is set, the dominant color of the logo is used. The format is #rrggbb where rrggbb is a hex RGB triplet, such as `#ffcc00`. You can also use the shorthand version of the RGB triplet which is #rgb, such as `#fc0`. */
@@ -639,9 +809,18 @@ declare namespace gapi.client {
       /** An array of messages displayed in the app. All users of this object will receive its associated messages. The maximum number of these fields is 10. */
       messages?: Message[];
       /** Identifies whether multiple users and devices will save the same object referencing this class. */
-      multipleDevicesAndHoldersAllowedStatus?: string;
+      multipleDevicesAndHoldersAllowedStatus?:
+        | 'STATUS_UNSPECIFIED'
+        | 'MULTIPLE_HOLDERS'
+        | 'ONE_USER_ALL_DEVICES'
+        | 'ONE_USER_ONE_DEVICE'
+        | 'multipleHolders'
+        | 'oneUserAllDevices'
+        | 'oneUserOneDevice';
       /** Whether or not field updates to this class should trigger notifications. When set to NOTIFY, we will attempt to trigger a field update notification to users. These notifications will only be sent to users if the field is part of an allowlist. If not specified, no notification will be triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request, otherwise a notification will not be triggered. */
-      notifyPreference?: string;
+      notifyPreference?:
+        | 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED'
+        | 'NOTIFY_ON_UPDATE';
       /** Required. Origin airport. */
       origin?: AirportInfo;
       /** Identifies which redemption issuers can redeem the pass over Smart Tap. Redemption issuers are identified by their issuer ID. Redemption issuers must have at least one Smart Tap key configured. The `enableSmartTap` and object level `smartTapRedemptionLevel` fields must also be set up correctly in order for a pass to support Smart Tap. */
@@ -649,7 +828,16 @@ declare namespace gapi.client {
       /** The review comments set by the platform when a class is marked `approved` or `rejected`. */
       review?: Review;
       /** Required. The status of the class. This field can be set to `draft` or `underReview` using the insert, patch, or update API calls. Once the review state is changed from `draft` it may not be changed back to `draft`. You should keep this field to `draft` when the class is under development. A `draft` class cannot be used to create any object. You should set this field to `underReview` when you believe the class is ready for use. The platform will automatically set this field to `approved` and it can be immediately used to create or migrate objects. When updating an already `approved` class you should keep setting this field to `underReview`. */
-      reviewStatus?: string;
+      reviewStatus?:
+        | 'REVIEW_STATUS_UNSPECIFIED'
+        | 'UNDER_REVIEW'
+        | 'underReview'
+        | 'APPROVED'
+        | 'approved'
+        | 'REJECTED'
+        | 'rejected'
+        | 'DRAFT'
+        | 'draft';
       /** Optional information about the security animation. If this is set a security animation will be rendered on pass details. */
       securityAnimation?: SecurityAnimation;
       /** Text module data. If text module data is also defined on the class, both will be displayed. The maximum number of these fields displayed is 10 from the object and 10 from the class. */
@@ -659,7 +847,10 @@ declare namespace gapi.client {
       /** Deprecated */
       version?: string;
       /** View Unlock Requirement options for the boarding pass. */
-      viewUnlockRequirement?: string;
+      viewUnlockRequirement?:
+        | 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED'
+        | 'UNLOCK_NOT_REQUIRED'
+        | 'UNLOCK_REQUIRED_TO_VIEW';
       /** Deprecated. */
       wordMark?: Image;
     }
@@ -729,7 +920,9 @@ declare namespace gapi.client {
       /** An array of messages displayed in the app. All users of this object will receive its associated messages. The maximum number of these fields is 10. */
       messages?: Message[];
       /** Whether or not field updates to this object should trigger notifications. When set to NOTIFY, we will attempt to trigger a field update notification to users. These notifications will only be sent to users if the field is part of an allowlist. If set to DO_NOT_NOTIFY or NOTIFICATION_SETTINGS_UNSPECIFIED, no notification will be triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request, otherwise a notification will not be triggered. */
-      notifyPreference?: string;
+      notifyPreference?:
+        | 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED'
+        | 'NOTIFY_ON_UPDATE';
       /** Pass constraints for the object. Includes limiting NFC and screenshot behaviors. */
       passConstraints?: PassConstraints;
       /** Required. Passenger name as it would appear on the boarding pass. eg: "Dave M Gahan" or "Gahan/Dave" or "GAHAN/DAVEM" */
@@ -745,7 +938,16 @@ declare namespace gapi.client {
       /** The value that will be transmitted to a Smart Tap certified terminal over NFC for this object. The class level fields `enableSmartTap` and `redemptionIssuers` must also be set up correctly in order for the pass to support Smart Tap. Only ASCII characters are supported. */
       smartTapRedemptionValue?: string;
       /** Required. The state of the object. This field is used to determine how an object is displayed in the app. For example, an `inactive` object is moved to the "Expired passes" section. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'active'
+        | 'COMPLETED'
+        | 'completed'
+        | 'EXPIRED'
+        | 'expired'
+        | 'INACTIVE'
+        | 'inactive';
       /** Text module data. If text module data is also defined on the class, both will be displayed. The maximum number of these fields displayed is 10 from the object and 10 from the class. */
       textModulesData?: TextModuleData[];
       /** The time period this object will be `active` and object can be used. An object's state will be changed to `expired` when this time period has passed. */
@@ -793,7 +995,14 @@ declare namespace gapi.client {
       /** An array of messages displayed in the app. All users of this object will receive its associated messages. The maximum number of these fields is 10. */
       messages?: Message[];
       /** Identifies whether multiple users and devices will save the same object referencing this class. */
-      multipleDevicesAndHoldersAllowedStatus?: string;
+      multipleDevicesAndHoldersAllowedStatus?:
+        | 'STATUS_UNSPECIFIED'
+        | 'MULTIPLE_HOLDERS'
+        | 'ONE_USER_ALL_DEVICES'
+        | 'ONE_USER_ONE_DEVICE'
+        | 'multipleHolders'
+        | 'oneUserAllDevices'
+        | 'oneUserOneDevice';
       /** Identifies which redemption issuers can redeem the pass over Smart Tap. Redemption issuers are identified by their issuer ID. Redemption issuers must have at least one Smart Tap key configured. The `enableSmartTap` and object level `smartTapRedemptionLevel` fields must also be set up correctly in order for a pass to support Smart Tap. */
       redemptionIssuers?: string[];
       /** Optional information about the security animation. If this is set a security animation will be rendered on pass details. */
@@ -803,7 +1012,10 @@ declare namespace gapi.client {
       /** Optional value added module data. Maximum of fifteen on the class. For a pass only fifteen will be displayed, prioritizing those from the object. */
       valueAddedModuleData?: ValueAddedModuleData[];
       /** View Unlock Requirement options for the generic pass. */
-      viewUnlockRequirement?: string;
+      viewUnlockRequirement?:
+        | 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED'
+        | 'UNLOCK_NOT_REQUIRED'
+        | 'UNLOCK_REQUIRED_TO_VIEW';
     }
     interface GenericClassAddMessageResponse {
       /** The updated EventTicketClass resource. */
@@ -825,7 +1037,21 @@ declare namespace gapi.client {
       /** Required. The class associated with this object. The class must be of the same type as this object, must already exist, and must be approved. Class IDs should follow the format `issuerID.identifier` where `issuerID` is issued by Google and `identifier` is chosen by you. */
       classId?: string;
       /** Specify which `GenericType` the card belongs to. */
-      genericType?: string;
+      genericType?:
+        | 'GENERIC_TYPE_UNSPECIFIED'
+        | 'GENERIC_SEASON_PASS'
+        | 'GENERIC_UTILITY_BILLS'
+        | 'GENERIC_PARKING_PASS'
+        | 'GENERIC_VOUCHER'
+        | 'GENERIC_GYM_MEMBERSHIP'
+        | 'GENERIC_LIBRARY_MEMBERSHIP'
+        | 'GENERIC_RESERVATIONS'
+        | 'GENERIC_AUTO_INSURANCE'
+        | 'GENERIC_HOME_INSURANCE'
+        | 'GENERIC_ENTRY_TICKET'
+        | 'GENERIC_RECEIPT'
+        | 'GENERIC_LOYALTY_CARD'
+        | 'GENERIC_OTHER';
       /** Information that controls how passes are grouped together. */
       groupingInfo?: GroupingInfo;
       /** Indicates if the object has users. This field is set by the platform. */
@@ -861,7 +1087,16 @@ declare namespace gapi.client {
       /** The value that will be transmitted to a Smart Tap certified terminal over NFC for this object. The class level fields `enableSmartTap` and `redemptionIssuers` must also be set up correctly in order for the pass to support Smart Tap. Only ASCII characters are supported. */
       smartTapRedemptionValue?: string;
       /** The state of the object. This field is used to determine how an object is displayed in the app. For example, an `inactive` object is moved to the "Expired passes" section. If this is not provided, the object would be considered `ACTIVE`. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'active'
+        | 'COMPLETED'
+        | 'completed'
+        | 'EXPIRED'
+        | 'expired'
+        | 'INACTIVE'
+        | 'inactive';
       /** The title label of the pass, such as location where this pass can be used. Appears right above the title in the title row in the pass detail view. */
       subheader?: LocalizedString;
       /** Text module data. If `textModulesData` is also defined on the class, both will be displayed. The maximum number of these fields displayed is 10 from class and 10 from object. */
@@ -939,9 +1174,18 @@ declare namespace gapi.client {
       /** An array of messages displayed in the app. All users of this object will receive its associated messages. The maximum number of these fields is 10. */
       messages?: Message[];
       /** Identifies whether multiple users and devices will save the same object referencing this class. */
-      multipleDevicesAndHoldersAllowedStatus?: string;
+      multipleDevicesAndHoldersAllowedStatus?:
+        | 'STATUS_UNSPECIFIED'
+        | 'MULTIPLE_HOLDERS'
+        | 'ONE_USER_ALL_DEVICES'
+        | 'ONE_USER_ONE_DEVICE'
+        | 'multipleHolders'
+        | 'oneUserAllDevices'
+        | 'oneUserOneDevice';
       /** Whether or not field updates to this class should trigger notifications. When set to NOTIFY, we will attempt to trigger a field update notification to users. These notifications will only be sent to users if the field is part of an allowlist. If not specified, no notification will be triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request, otherwise a notification will not be triggered. */
-      notifyPreference?: string;
+      notifyPreference?:
+        | 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED'
+        | 'NOTIFY_ON_UPDATE';
       /** The label to display for the PIN, such as "4-digit PIN". */
       pinLabel?: string;
       /** The logo of the gift card program or company. This logo is displayed in both the details and list views of the app. */
@@ -951,7 +1195,16 @@ declare namespace gapi.client {
       /** The review comments set by the platform when a class is marked `approved` or `rejected`. */
       review?: Review;
       /** Required. The status of the class. This field can be set to `draft` or `underReview` using the insert, patch, or update API calls. Once the review state is changed from `draft` it may not be changed back to `draft`. You should keep this field to `draft` when the class is under development. A `draft` class cannot be used to create any object. You should set this field to `underReview` when you believe the class is ready for use. The platform will automatically set this field to `approved` and it can be immediately used to create or migrate objects. When updating an already `approved` class you should keep setting this field to `underReview`. */
-      reviewStatus?: string;
+      reviewStatus?:
+        | 'REVIEW_STATUS_UNSPECIFIED'
+        | 'UNDER_REVIEW'
+        | 'underReview'
+        | 'APPROVED'
+        | 'approved'
+        | 'REJECTED'
+        | 'rejected'
+        | 'DRAFT'
+        | 'draft';
       /** Optional information about the security animation. If this is set a security animation will be rendered on pass details. */
       securityAnimation?: SecurityAnimation;
       /** Text module data. If text module data is also defined on the class, both will be displayed. The maximum number of these fields displayed is 10 from the object and 10 from the class. */
@@ -961,7 +1214,10 @@ declare namespace gapi.client {
       /** Deprecated */
       version?: string;
       /** View Unlock Requirement options for the gift card. */
-      viewUnlockRequirement?: string;
+      viewUnlockRequirement?:
+        | 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED'
+        | 'UNLOCK_NOT_REQUIRED'
+        | 'UNLOCK_REQUIRED_TO_VIEW';
       /** The wide logo of the gift card program or company. When provided, this will be used in place of the program logo in the top left of the card view. */
       wideProgramLogo?: Image;
       /** Deprecated. */
@@ -1023,7 +1279,9 @@ declare namespace gapi.client {
       /** An array of messages displayed in the app. All users of this object will receive its associated messages. The maximum number of these fields is 10. */
       messages?: Message[];
       /** Whether or not field updates to this object should trigger notifications. When set to NOTIFY, we will attempt to trigger a field update notification to users. These notifications will only be sent to users if the field is part of an allowlist. If set to DO_NOT_NOTIFY or NOTIFICATION_SETTINGS_UNSPECIFIED, no notification will be triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request, otherwise a notification will not be triggered. */
-      notifyPreference?: string;
+      notifyPreference?:
+        | 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED'
+        | 'NOTIFY_ON_UPDATE';
       /** Pass constraints for the object. Includes limiting NFC and screenshot behaviors. */
       passConstraints?: PassConstraints;
       /** The card's PIN. */
@@ -1035,7 +1293,16 @@ declare namespace gapi.client {
       /** The value that will be transmitted to a Smart Tap certified terminal over NFC for this object. The class level fields `enableSmartTap` and `redemptionIssuers` must also be set up correctly in order for the pass to support Smart Tap. Only ASCII characters are supported. */
       smartTapRedemptionValue?: string;
       /** Required. The state of the object. This field is used to determine how an object is displayed in the app. For example, an `inactive` object is moved to the "Expired passes" section. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'active'
+        | 'COMPLETED'
+        | 'completed'
+        | 'EXPIRED'
+        | 'expired'
+        | 'INACTIVE'
+        | 'inactive';
       /** Text module data. If text module data is also defined on the class, both will be displayed. The maximum number of these fields displayed is 10 from the object and 10 from the class. */
       textModulesData?: TextModuleData[];
       /** The time period this object will be `active` and object can be used. An object's state will be changed to `expired` when this time period has passed. */
@@ -1119,7 +1386,7 @@ declare namespace gapi.client {
       resources?: Issuer[];
     }
     interface IssuerToUserInfo {
-      action?: string;
+      action?: 'ACTION_UNSPECIFIED' | 'S2AP' | 's2ap' | 'SIGN_UP' | 'signUp';
       signUpInfo?: SignUpInfo;
       /** Currently not used, consider deprecating. */
       url?: string;
@@ -1238,9 +1505,18 @@ declare namespace gapi.client {
       /** An array of messages displayed in the app. All users of this object will receive its associated messages. The maximum number of these fields is 10. */
       messages?: Message[];
       /** Identifies whether multiple users and devices will save the same object referencing this class. */
-      multipleDevicesAndHoldersAllowedStatus?: string;
+      multipleDevicesAndHoldersAllowedStatus?:
+        | 'STATUS_UNSPECIFIED'
+        | 'MULTIPLE_HOLDERS'
+        | 'ONE_USER_ALL_DEVICES'
+        | 'ONE_USER_ONE_DEVICE'
+        | 'multipleHolders'
+        | 'oneUserAllDevices'
+        | 'oneUserOneDevice';
       /** Whether or not field updates to this class should trigger notifications. When set to NOTIFY, we will attempt to trigger a field update notification to users. These notifications will only be sent to users if the field is part of an allowlist. If not specified, no notification will be triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request, otherwise a notification will not be triggered. */
-      notifyPreference?: string;
+      notifyPreference?:
+        | 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED'
+        | 'NOTIFY_ON_UPDATE';
       /** Required. The logo of the loyalty program or company. This logo is displayed in both the details and list views of the app. */
       programLogo?: Image;
       /** Required. The program name, such as "Adam's Apparel". The app may display an ellipsis after the first 20 characters to ensure full string is displayed on smaller screens. */
@@ -1250,7 +1526,16 @@ declare namespace gapi.client {
       /** The review comments set by the platform when a class is marked `approved` or `rejected`. */
       review?: Review;
       /** Required. The status of the class. This field can be set to `draft` or `underReview` using the insert, patch, or update API calls. Once the review state is changed from `draft` it may not be changed back to `draft`. You should keep this field to `draft` when the class is under development. A `draft` class cannot be used to create any object. You should set this field to `underReview` when you believe the class is ready for use. The platform will automatically set this field to `approved` and it can be immediately used to create or migrate objects. When updating an already `approved` class you should keep setting this field to `underReview`. */
-      reviewStatus?: string;
+      reviewStatus?:
+        | 'REVIEW_STATUS_UNSPECIFIED'
+        | 'UNDER_REVIEW'
+        | 'underReview'
+        | 'APPROVED'
+        | 'approved'
+        | 'REJECTED'
+        | 'rejected'
+        | 'DRAFT'
+        | 'draft';
       /** The rewards tier, such as "Gold" or "Platinum." Recommended maximum length is 7 characters to ensure full string is displayed on smaller screens. */
       rewardsTier?: string;
       /** The rewards tier label, such as "Rewards Tier." Recommended maximum length is 9 characters to ensure full string is displayed on smaller screens. */
@@ -1268,7 +1553,10 @@ declare namespace gapi.client {
       /** Deprecated */
       version?: string;
       /** View Unlock Requirement options for the loyalty card. */
-      viewUnlockRequirement?: string;
+      viewUnlockRequirement?:
+        | 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED'
+        | 'UNLOCK_NOT_REQUIRED'
+        | 'UNLOCK_REQUIRED_TO_VIEW';
       /** The wide logo of the loyalty program or company. When provided, this will be used in place of the program logo in the top left of the card view. */
       wideProgramLogo?: Image;
       /** Deprecated. */
@@ -1330,7 +1618,9 @@ declare namespace gapi.client {
       /** An array of messages displayed in the app. All users of this object will receive its associated messages. The maximum number of these fields is 10. */
       messages?: Message[];
       /** Whether or not field updates to this object should trigger notifications. When set to NOTIFY, we will attempt to trigger a field update notification to users. These notifications will only be sent to users if the field is part of an allowlist. If set to DO_NOT_NOTIFY or NOTIFICATION_SETTINGS_UNSPECIFIED, no notification will be triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request, otherwise a notification will not be triggered. */
-      notifyPreference?: string;
+      notifyPreference?:
+        | 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED'
+        | 'NOTIFY_ON_UPDATE';
       /** Pass constraints for the object. Includes limiting NFC and screenshot behaviors. */
       passConstraints?: PassConstraints;
       /** The rotating barcode type and value. */
@@ -1342,7 +1632,16 @@ declare namespace gapi.client {
       /** The value that will be transmitted to a Smart Tap certified terminal over NFC for this object. The class level fields `enableSmartTap` and `redemptionIssuers` must also be set up correctly in order for the pass to support Smart Tap. Only ASCII characters are supported. If this value is not set but the class level fields `enableSmartTap` and `redemptionIssuers` are set up correctly, the `barcode.value` or the `accountId` fields are used as fallback if present. */
       smartTapRedemptionValue?: string;
       /** Required. The state of the object. This field is used to determine how an object is displayed in the app. For example, an `inactive` object is moved to the "Expired passes" section. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'active'
+        | 'COMPLETED'
+        | 'completed'
+        | 'EXPIRED'
+        | 'expired'
+        | 'INACTIVE'
+        | 'inactive';
       /** Text module data. If text module data is also defined on the class, both will be displayed. The maximum number of these fields displayed is 10 from the object and 10 from the class. */
       textModulesData?: TextModuleData[];
       /** The time period this object will be `active` and object can be used. An object's state will be changed to `expired` when this time period has passed. */
@@ -1432,7 +1731,20 @@ declare namespace gapi.client {
       /** Path to the data, set if reference_type is PATH */
       path?: string;
       /** Describes what the field reference contains. */
-      referenceType?: string;
+      referenceType?:
+        | 'PATH'
+        | 'BLOB_REF'
+        | 'INLINE'
+        | 'GET_MEDIA'
+        | 'COMPOSITE_MEDIA'
+        | 'BIGSTORE_REF'
+        | 'DIFF_VERSION_RESPONSE'
+        | 'DIFF_CHECKSUMS_RESPONSE'
+        | 'DIFF_DOWNLOAD_RESPONSE'
+        | 'DIFF_UPLOAD_REQUEST'
+        | 'DIFF_UPLOAD_RESPONSE'
+        | 'COSMO_BINARY_REFERENCE'
+        | 'ARBITRARY_BYTES';
       /** Scotty-provided SHA1 hash for an upload. */
       sha1Hash?: string;
       /** Scotty-provided SHA256 hash for an upload. */
@@ -1452,7 +1764,12 @@ declare namespace gapi.client {
       /** The existence of the final_status field indicates that this is the last call to the agent for this request_id. http://google3/uploader/agent/scotty_agent.proto?l=737&rcl=347601929 */
       finalStatus?: number;
       /** The type of notification received from Scotty. */
-      notificationType?: string;
+      notificationType?:
+        | 'START'
+        | 'PROGRESS'
+        | 'END'
+        | 'RESPONSE_SENT'
+        | 'ERROR';
       /** The physical headers provided by RequestReceivedParameters in Scotty request. type is uploader_service.KeyValuePairs. */
       physicalHeaders?: string;
       /** The Scotty request ID. */
@@ -1486,7 +1803,13 @@ declare namespace gapi.client {
       /** Translated strings for the message header. */
       localizedHeader?: LocalizedString;
       /** The message type. */
-      messageType?: string;
+      messageType?:
+        | 'MESSAGE_TYPE_UNSPECIFIED'
+        | 'TEXT'
+        | 'text'
+        | 'EXPIRATION_NOTIFICATION'
+        | 'expirationNotification'
+        | 'TEXT_AND_NOTIFY';
     }
     interface ModifyLinkedOfferObjects {
       /** The linked offer object ids to add to the object. */
@@ -1580,19 +1903,46 @@ declare namespace gapi.client {
       /** An array of messages displayed in the app. All users of this object will receive its associated messages. The maximum number of these fields is 10. */
       messages?: Message[];
       /** Identifies whether multiple users and devices will save the same object referencing this class. */
-      multipleDevicesAndHoldersAllowedStatus?: string;
+      multipleDevicesAndHoldersAllowedStatus?:
+        | 'STATUS_UNSPECIFIED'
+        | 'MULTIPLE_HOLDERS'
+        | 'ONE_USER_ALL_DEVICES'
+        | 'ONE_USER_ONE_DEVICE'
+        | 'multipleHolders'
+        | 'oneUserAllDevices'
+        | 'oneUserOneDevice';
       /** Whether or not field updates to this class should trigger notifications. When set to NOTIFY, we will attempt to trigger a field update notification to users. These notifications will only be sent to users if the field is part of an allowlist. If not specified, no notification will be triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request, otherwise a notification will not be triggered. */
-      notifyPreference?: string;
+      notifyPreference?:
+        | 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED'
+        | 'NOTIFY_ON_UPDATE';
       /** Required. The offer provider (either the aggregator name or merchant name). Recommended maximum length is 12 characters to ensure full string is displayed on smaller screens. */
       provider?: string;
       /** Required. The redemption channels applicable to this offer. */
-      redemptionChannel?: string;
+      redemptionChannel?:
+        | 'REDEMPTION_CHANNEL_UNSPECIFIED'
+        | 'INSTORE'
+        | 'instore'
+        | 'ONLINE'
+        | 'online'
+        | 'BOTH'
+        | 'both'
+        | 'TEMPORARY_PRICE_REDUCTION'
+        | 'temporaryPriceReduction';
       /** Identifies which redemption issuers can redeem the pass over Smart Tap. Redemption issuers are identified by their issuer ID. Redemption issuers must have at least one Smart Tap key configured. The `enableSmartTap` and object level `smartTapRedemptionLevel` fields must also be set up correctly in order for a pass to support Smart Tap. */
       redemptionIssuers?: string[];
       /** The review comments set by the platform when a class is marked `approved` or `rejected`. */
       review?: Review;
       /** Required. The status of the class. This field can be set to `draft` or The status of the class. This field can be set to `draft` or `underReview` using the insert, patch, or update API calls. Once the review state is changed from `draft` it may not be changed back to `draft`. You should keep this field to `draft` when the class is under development. A `draft` class cannot be used to create any object. You should set this field to `underReview` when you believe the class is ready for use. The platform will automatically set this field to `approved` and it can be immediately used to create or migrate objects. When updating an already `approved` class you should keep setting this field to `underReview`. */
-      reviewStatus?: string;
+      reviewStatus?:
+        | 'REVIEW_STATUS_UNSPECIFIED'
+        | 'UNDER_REVIEW'
+        | 'underReview'
+        | 'APPROVED'
+        | 'approved'
+        | 'REJECTED'
+        | 'rejected'
+        | 'DRAFT'
+        | 'draft';
       /** Optional information about the security animation. If this is set a security animation will be rendered on pass details. */
       securityAnimation?: SecurityAnimation;
       /** A shortened version of the title of the offer, such as "20% off," shown to users as a quick reference to the offer contents. Recommended maximum length is 20 characters. */
@@ -1608,7 +1958,10 @@ declare namespace gapi.client {
       /** Deprecated */
       version?: string;
       /** View Unlock Requirement options for the offer. */
-      viewUnlockRequirement?: string;
+      viewUnlockRequirement?:
+        | 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED'
+        | 'UNLOCK_NOT_REQUIRED'
+        | 'UNLOCK_REQUIRED_TO_VIEW';
       /** The wide title image of the offer. When provided, this will be used in place of the title image in the top left of the card view. */
       wideTitleImage?: Image;
       /** Deprecated. */
@@ -1662,7 +2015,9 @@ declare namespace gapi.client {
       /** An array of messages displayed in the app. All users of this object will receive its associated messages. The maximum number of these fields is 10. */
       messages?: Message[];
       /** Whether or not field updates to this object should trigger notifications. When set to NOTIFY, we will attempt to trigger a field update notification to users. These notifications will only be sent to users if the field is part of an allowlist. If set to DO_NOT_NOTIFY or NOTIFICATION_SETTINGS_UNSPECIFIED, no notification will be triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request, otherwise a notification will not be triggered. */
-      notifyPreference?: string;
+      notifyPreference?:
+        | 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED'
+        | 'NOTIFY_ON_UPDATE';
       /** Pass constraints for the object. Includes limiting NFC and screenshot behaviors. */
       passConstraints?: PassConstraints;
       /** The rotating barcode type and value. */
@@ -1672,7 +2027,16 @@ declare namespace gapi.client {
       /** The value that will be transmitted to a Smart Tap certified terminal over NFC for this object. The class level fields `enableSmartTap` and `redemptionIssuers` must also be set up correctly in order for the pass to support Smart Tap. Only ASCII characters are supported. */
       smartTapRedemptionValue?: string;
       /** Required. The state of the object. This field is used to determine how an object is displayed in the app. For example, an `inactive` object is moved to the "Expired passes" section. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'active'
+        | 'COMPLETED'
+        | 'completed'
+        | 'EXPIRED'
+        | 'expired'
+        | 'INACTIVE'
+        | 'inactive';
       /** Text module data. If text module data is also defined on the class, both will be displayed. The maximum number of these fields displayed is 10 from the object and 10 from the class. */
       textModulesData?: TextModuleData[];
       /** The time period this object will be `active` and object can be used. An object's state will be changed to `expired` when this time period has passed. */
@@ -1702,15 +2066,28 @@ declare namespace gapi.client {
     }
     interface PassConstraints {
       /** The NFC constraints for the pass. */
-      nfcConstraint?: string[];
+      nfcConstraint?:
+        | 'NFC_CONSTRAINT_UNSPECIFIED'
+        | 'BLOCK_PAYMENT'
+        | 'BLOCK_CLOSED_LOOP_TRANSIT'[];
       /** The screenshot eligibility for the pass. */
-      screenshotEligibility?: string;
+      screenshotEligibility?:
+        | 'SCREENSHOT_ELIGIBILITY_UNSPECIFIED'
+        | 'ELIGIBLE'
+        | 'INELIGIBLE';
     }
     interface Permission {
       /** The email address of the user, group, or service account to which this permission refers to. */
       emailAddress?: string;
       /** The role granted by this permission. */
-      role?: string;
+      role?:
+        | 'ROLE_UNSPECIFIED'
+        | 'OWNER'
+        | 'owner'
+        | 'READER'
+        | 'reader'
+        | 'WRITER'
+        | 'writer';
     }
     interface Permissions {
       /** ID of the issuer the list of permissions refer to. */
@@ -1779,19 +2156,47 @@ declare namespace gapi.client {
       /** Input only. NOTE: This feature is only available for the transit vertical. Optional set of initial rotating barcode values. This allows a small subset of barcodes to be included with the object. Further rotating barcode values must be uploaded with the UploadRotatingBarcodeValues endpoint. */
       initialRotatingBarcodeValues?: RotatingBarcodeValues;
       /** The render encoding for the barcode. When specified, barcode is rendered in the given encoding. Otherwise best known encoding is chosen by Google. */
-      renderEncoding?: string;
+      renderEncoding?: 'RENDER_ENCODING_UNSPECIFIED' | 'UTF_8';
       /** Optional text that will be shown when the barcode is hidden behind a click action. This happens in cases where a pass has Smart Tap enabled. If not specified, a default is chosen by Google. */
       showCodeText?: LocalizedString;
       /** Details used to evaluate the {totp_value_n} substitutions. */
       totpDetails?: RotatingBarcodeTotpDetails;
       /** The type of this barcode. */
-      type?: string;
+      type?:
+        | 'BARCODE_TYPE_UNSPECIFIED'
+        | 'AZTEC'
+        | 'aztec'
+        | 'CODE_39'
+        | 'code39'
+        | 'CODE_128'
+        | 'code128'
+        | 'CODABAR'
+        | 'codabar'
+        | 'DATA_MATRIX'
+        | 'dataMatrix'
+        | 'EAN_8'
+        | 'ean8'
+        | 'EAN_13'
+        | 'ean13'
+        | 'EAN13'
+        | 'ITF_14'
+        | 'itf14'
+        | 'PDF_417'
+        | 'pdf417'
+        | 'PDF417'
+        | 'QR_CODE'
+        | 'qrCode'
+        | 'qrcode'
+        | 'UPC_A'
+        | 'upcA'
+        | 'TEXT_ONLY'
+        | 'textOnly';
       /** String encoded barcode value. This string supports the following substitutions: * {totp_value_n}: Replaced with the TOTP value (see TotpDetails.parameters). * {totp_timestamp_millis}: Replaced with the timestamp (millis since epoch) at which the barcode was generated. * {totp_timestamp_seconds}: Replaced with the timestamp (seconds since epoch) at which the barcode was generated. */
       valuePattern?: string;
     }
     interface RotatingBarcodeTotpDetails {
       /** The TOTP algorithm used to generate the OTP. */
-      algorithm?: string;
+      algorithm?: 'TOTP_ALGORITHM_UNSPECIFIED' | 'TOTP_SHA1';
       /** The TOTP parameters for each of the {totp_value_*} substitutions. The TotpParameters at index n is used for the {totp_value_n} substitution. */
       parameters?: RotatingBarcodeTotpDetailsTotpParameters[];
       /** The time interval used for the TOTP value generation, in milliseconds. */
@@ -1817,7 +2222,7 @@ declare namespace gapi.client {
     }
     interface SecurityAnimation {
       /** Type of animation. */
-      animationType?: string;
+      animationType?: 'ANIMATION_UNSPECIFIED' | 'FOIL_SHIMMER' | 'foilShimmer';
     }
     interface SetPassUpdateNoticeRequest {
       /** Required. A fully qualified identifier of the pass that the issuer wants to notify the pass holder(s) about. Formatted as . */
@@ -1852,7 +2257,12 @@ declare namespace gapi.client {
       /** A reference to a field to display. If both `firstValue` and `secondValue` are populated, they will both appear as one item with a slash between them. For example, values A and B would be shown as "A / B". */
       firstValue?: FieldSelector;
       /** A predefined item to display. Only one of `firstValue` or `predefinedItem` may be set. */
-      predefinedItem?: string;
+      predefinedItem?:
+        | 'PREDEFINED_ITEM_UNSPECIFIED'
+        | 'FREQUENT_FLYER_PROGRAM_NAME_AND_NUMBER'
+        | 'frequentFlyerProgramNameAndNumber'
+        | 'FLIGHT_NUMBER_AND_OPERATING_FLIGHT_NUMBER'
+        | 'flightNumberAndOperatingFlightNumber';
       /** A reference to a field to display. This may only be populated if the `firstValue` field is populated. */
       secondValue?: FieldSelector;
     }
@@ -1922,7 +2332,14 @@ declare namespace gapi.client {
       /** A custome fare class to be used if no `fareClass` applies. Both `fareClass` and `customFareClass` may not be set. */
       customFareClass?: LocalizedString;
       /** The fare class of the ticketed seat. */
-      fareClass?: string;
+      fareClass?:
+        | 'FARE_CLASS_UNSPECIFIED'
+        | 'ECONOMY'
+        | 'economy'
+        | 'FIRST'
+        | 'first'
+        | 'BUSINESS'
+        | 'business';
       /** The identifier of where the ticketed seat is located. Eg. "42". If there is no specific identifier, use `seatAssigment` instead. */
       seat?: string;
       /** The passenger's seat assignment. Eg. "no specific seat". To be used when there is no specific identifier to use in `seat`. */
@@ -2020,15 +2437,33 @@ declare namespace gapi.client {
       /** An array of messages displayed in the app. All users of this object will receive its associated messages. The maximum number of these fields is 10. */
       messages?: Message[];
       /** Identifies whether multiple users and devices will save the same object referencing this class. */
-      multipleDevicesAndHoldersAllowedStatus?: string;
+      multipleDevicesAndHoldersAllowedStatus?:
+        | 'STATUS_UNSPECIFIED'
+        | 'MULTIPLE_HOLDERS'
+        | 'ONE_USER_ALL_DEVICES'
+        | 'ONE_USER_ONE_DEVICE'
+        | 'multipleHolders'
+        | 'oneUserAllDevices'
+        | 'oneUserOneDevice';
       /** Whether or not field updates to this class should trigger notifications. When set to NOTIFY, we will attempt to trigger a field update notification to users. These notifications will only be sent to users if the field is part of an allowlist. If set to DO_NOT_NOTIFY or NOTIFICATION_SETTINGS_UNSPECIFIED, no notification will be triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request, otherwise a notification will not be triggered. */
-      notifyPreference?: string;
+      notifyPreference?:
+        | 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED'
+        | 'NOTIFY_ON_UPDATE';
       /** Identifies which redemption issuers can redeem the pass over Smart Tap. Redemption issuers are identified by their issuer ID. Redemption issuers must have at least one Smart Tap key configured. The `enableSmartTap` and object level `smartTapRedemptionLevel` fields must also be set up correctly in order for a pass to support Smart Tap. */
       redemptionIssuers?: string[];
       /** The review comments set by the platform when a class is marked `approved` or `rejected`. */
       review?: Review;
       /** Required. The status of the class. This field can be set to `draft` or `underReview` using the insert, patch, or update API calls. Once the review state is changed from `draft` it may not be changed back to `draft`. You should keep this field to `draft` when the class is under development. A `draft` class cannot be used to create any object. You should set this field to `underReview` when you believe the class is ready for use. The platform will automatically set this field to `approved` and it can be immediately used to create or migrate objects. When updating an already `approved` class you should keep setting this field to `underReview`. */
-      reviewStatus?: string;
+      reviewStatus?:
+        | 'REVIEW_STATUS_UNSPECIFIED'
+        | 'UNDER_REVIEW'
+        | 'underReview'
+        | 'APPROVED'
+        | 'approved'
+        | 'REJECTED'
+        | 'rejected'
+        | 'DRAFT'
+        | 'draft';
       /** Optional information about the security animation. If this is set a security animation will be rendered on pass details. */
       securityAnimation?: SecurityAnimation;
       /** Text module data. If text module data is also defined on the class, both will be displayed. The maximum number of these fields displayed is 10 from the object and 10 from the class. */
@@ -2036,13 +2471,27 @@ declare namespace gapi.client {
       /** The name of the transit operator. */
       transitOperatorName?: LocalizedString;
       /** Required. The type of transit this class represents, such as "bus". */
-      transitType?: string;
+      transitType?:
+        | 'TRANSIT_TYPE_UNSPECIFIED'
+        | 'BUS'
+        | 'bus'
+        | 'RAIL'
+        | 'rail'
+        | 'TRAM'
+        | 'tram'
+        | 'FERRY'
+        | 'ferry'
+        | 'OTHER'
+        | 'other';
       /** Optional value added module data. Maximum of fifteen on the class. For a pass only fifteen will be displayed, prioritizing those from the object. */
       valueAddedModuleData?: ValueAddedModuleData[];
       /** Deprecated */
       version?: string;
       /** View Unlock Requirement options for the transit ticket. */
-      viewUnlockRequirement?: string;
+      viewUnlockRequirement?:
+        | 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED'
+        | 'UNLOCK_NOT_REQUIRED'
+        | 'UNLOCK_REQUIRED_TO_VIEW';
       /** Watermark image to display on the user's device. */
       watermark?: Image;
       /** The wide logo of the ticket. When provided, this will be used in place of the logo in the top left of the card view. */
@@ -2072,7 +2521,14 @@ declare namespace gapi.client {
       /** A copy of the inherited fields of the parent class. These fields are retrieved during a GET. */
       classReference?: TransitClass;
       /** The concession category for the ticket. */
-      concessionCategory?: string;
+      concessionCategory?:
+        | 'CONCESSION_CATEGORY_UNSPECIFIED'
+        | 'ADULT'
+        | 'adult'
+        | 'CHILD'
+        | 'child'
+        | 'SENIOR'
+        | 'senior';
       /** A custom concession category to use when `concessionCategory` does not provide the right option. Both `concessionCategory` and `customConcessionCategory` may not be set. */
       customConcessionCategory?: LocalizedString;
       /** A custom status to use for the ticket status value when `ticketStatus` does not provide the right option. Both `ticketStatus` and `customTicketStatus` may not be set. */
@@ -2108,13 +2564,20 @@ declare namespace gapi.client {
       /** An array of messages displayed in the app. All users of this object will receive its associated messages. The maximum number of these fields is 10. */
       messages?: Message[];
       /** Whether or not field updates to this object should trigger notifications. When set to NOTIFY, we will attempt to trigger a field update notification to users. These notifications will only be sent to users if the field is part of an allowlist. If set to DO_NOT_NOTIFY or NOTIFICATION_SETTINGS_UNSPECIFIED, no notification will be triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request, otherwise a notification will not be triggered. */
-      notifyPreference?: string;
+      notifyPreference?:
+        | 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED'
+        | 'NOTIFY_ON_UPDATE';
       /** Pass constraints for the object. Includes limiting NFC and screenshot behaviors. */
       passConstraints?: PassConstraints;
       /** The name(s) of the passengers the ticket is assigned to. The above `passengerType` field is meant to give Google context on this field. */
       passengerNames?: string;
       /** The number of passengers. */
-      passengerType?: string;
+      passengerType?:
+        | 'PASSENGER_TYPE_UNSPECIFIED'
+        | 'SINGLE_PASSENGER'
+        | 'singlePassenger'
+        | 'MULTIPLE_PASSENGERS'
+        | 'multiplePassengers';
       /** Purchase details for this ticket. */
       purchaseDetails?: PurchaseDetails;
       /** The rotating barcode type and value. */
@@ -2124,7 +2587,16 @@ declare namespace gapi.client {
       /** The value that will be transmitted to a Smart Tap certified terminal over NFC for this object. The class level fields `enableSmartTap` and `redemptionIssuers` must also be set up correctly in order for the pass to support Smart Tap. Only ASCII characters are supported. */
       smartTapRedemptionValue?: string;
       /** Required. The state of the object. This field is used to determine how an object is displayed in the app. For example, an `inactive` object is moved to the "Expired passes" section. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'active'
+        | 'COMPLETED'
+        | 'completed'
+        | 'EXPIRED'
+        | 'expired'
+        | 'INACTIVE'
+        | 'inactive';
       /** Text module data. If text module data is also defined on the class, both will be displayed. The maximum number of these fields displayed is 10 from the object and 10 from the class. */
       textModulesData?: TextModuleData[];
       /** A single ticket leg contains departure and arrival information along with boarding and seating information. If more than one leg is to be specified then use the `ticketLegs` field instead. Both `ticketLeg` and `ticketLegs` may not be set. */
@@ -2136,11 +2608,23 @@ declare namespace gapi.client {
       /** Information about what kind of restrictions there are on using this ticket. For example, which days of the week it must be used, or which routes are allowed to be taken. */
       ticketRestrictions?: TicketRestrictions;
       /** The status of the ticket. For states which affect display, use the `state` field instead. */
-      ticketStatus?: string;
+      ticketStatus?:
+        | 'TICKET_STATUS_UNSPECIFIED'
+        | 'USED'
+        | 'used'
+        | 'REFUNDED'
+        | 'refunded'
+        | 'EXCHANGED'
+        | 'exchanged';
       /** This id is used to group tickets together if the user has saved multiple tickets for the same trip. */
       tripId?: string;
       /** Required. The type of trip this transit object represents. Used to determine the pass title and/or which symbol to use between the origin and destination. */
-      tripType?: string;
+      tripType?:
+        | 'TRIP_TYPE_UNSPECIFIED'
+        | 'ROUND_TRIP'
+        | 'roundTrip'
+        | 'ONE_WAY'
+        | 'oneWay';
       /** The time period this object will be `active` and object can be used. An object's state will be changed to `expired` when this time period has passed. */
       validTimeInterval?: TimeInterval;
       /** Optional value added module data. Maximum of fifteen on the object. For a pass only fifteen will be displayed. */
@@ -2212,11 +2696,11 @@ declare namespace gapi.client {
       /** Adds a message to the event ticket class referenced by the given class ID. */
       addmessage(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2241,11 +2725,11 @@ declare namespace gapi.client {
       addmessage(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2270,11 +2754,11 @@ declare namespace gapi.client {
       /** Returns the event ticket class with the given class ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2297,11 +2781,11 @@ declare namespace gapi.client {
       /** Inserts an event ticket class with the given ID and properties. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2324,11 +2808,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2351,11 +2835,11 @@ declare namespace gapi.client {
       /** Returns a list of all event ticket classes for a given issuer ID. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2382,11 +2866,11 @@ declare namespace gapi.client {
       /** Updates the event ticket class referenced by the given class ID. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2411,11 +2895,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2440,11 +2924,11 @@ declare namespace gapi.client {
       /** Updates the event ticket class referenced by the given class ID. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2469,11 +2953,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2500,11 +2984,11 @@ declare namespace gapi.client {
       /** Adds a message to the event ticket object referenced by the given object ID. */
       addmessage(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2529,11 +3013,11 @@ declare namespace gapi.client {
       addmessage(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2558,11 +3042,11 @@ declare namespace gapi.client {
       /** Returns the event ticket object with the given object ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2585,11 +3069,11 @@ declare namespace gapi.client {
       /** Inserts an event ticket object with the given ID and properties. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2612,11 +3096,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2639,11 +3123,11 @@ declare namespace gapi.client {
       /** Returns a list of all event ticket objects for a given issuer ID. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The ID of the class whose objects will be listed. */
@@ -2670,11 +3154,11 @@ declare namespace gapi.client {
       /** Deprecated: Use Auto Linked Passes instead. Modifies linked offer objects for the event ticket object with the given ID. */
       modifylinkedofferobjects(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2699,11 +3183,11 @@ declare namespace gapi.client {
       modifylinkedofferobjects(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2728,11 +3212,11 @@ declare namespace gapi.client {
       /** Updates the event ticket object referenced by the given object ID. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2757,11 +3241,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2786,11 +3270,11 @@ declare namespace gapi.client {
       /** Updates the event ticket object referenced by the given object ID. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2815,11 +3299,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2846,11 +3330,11 @@ declare namespace gapi.client {
       /** Adds a message to the flight class referenced by the given class ID. */
       addmessage(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2875,11 +3359,11 @@ declare namespace gapi.client {
       addmessage(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2904,11 +3388,11 @@ declare namespace gapi.client {
       /** Returns the flight class with the given class ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2931,11 +3415,11 @@ declare namespace gapi.client {
       /** Inserts an flight class with the given ID and properties. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2958,11 +3442,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2985,11 +3469,11 @@ declare namespace gapi.client {
       /** Returns a list of all flight classes for a given issuer ID. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3016,11 +3500,11 @@ declare namespace gapi.client {
       /** Updates the flight class referenced by the given class ID. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3045,11 +3529,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3074,11 +3558,11 @@ declare namespace gapi.client {
       /** Updates the flight class referenced by the given class ID. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3103,11 +3587,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3134,11 +3618,11 @@ declare namespace gapi.client {
       /** Adds a message to the flight object referenced by the given object ID. */
       addmessage(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3163,11 +3647,11 @@ declare namespace gapi.client {
       addmessage(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3192,11 +3676,11 @@ declare namespace gapi.client {
       /** Returns the flight object with the given object ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3219,11 +3703,11 @@ declare namespace gapi.client {
       /** Inserts an flight object with the given ID and properties. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3246,11 +3730,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3273,11 +3757,11 @@ declare namespace gapi.client {
       /** Returns a list of all flight objects for a given issuer ID. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The ID of the class whose objects will be listed. */
@@ -3304,11 +3788,11 @@ declare namespace gapi.client {
       /** Updates the flight object referenced by the given object ID. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3333,11 +3817,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3362,11 +3846,11 @@ declare namespace gapi.client {
       /** Updates the flight object referenced by the given object ID. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3391,11 +3875,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3422,11 +3906,11 @@ declare namespace gapi.client {
       /** Adds a message to the generic class referenced by the given class ID. */
       addmessage(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3451,11 +3935,11 @@ declare namespace gapi.client {
       addmessage(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3480,11 +3964,11 @@ declare namespace gapi.client {
       /** Returns the generic class with the given class ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3507,11 +3991,11 @@ declare namespace gapi.client {
       /** Inserts a generic class with the given ID and properties. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3534,11 +4018,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3561,11 +4045,11 @@ declare namespace gapi.client {
       /** Returns a list of all generic classes for a given issuer ID. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3592,11 +4076,11 @@ declare namespace gapi.client {
       /** Updates the generic class referenced by the given class ID. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3621,11 +4105,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3650,11 +4134,11 @@ declare namespace gapi.client {
       /** Updates the Generic class referenced by the given class ID. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3679,11 +4163,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3710,11 +4194,11 @@ declare namespace gapi.client {
       /** Adds a message to the generic object referenced by the given object ID. */
       addmessage(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3739,11 +4223,11 @@ declare namespace gapi.client {
       addmessage(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3768,11 +4252,11 @@ declare namespace gapi.client {
       /** Returns the generic object with the given object ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3795,11 +4279,11 @@ declare namespace gapi.client {
       /** Inserts a generic object with the given ID and properties. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3822,11 +4306,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3849,11 +4333,11 @@ declare namespace gapi.client {
       /** Returns a list of all generic objects for a given issuer ID. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The ID of the class whose objects will be listed. */
@@ -3880,11 +4364,11 @@ declare namespace gapi.client {
       /** Updates the generic object referenced by the given object ID. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3909,11 +4393,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3938,11 +4422,11 @@ declare namespace gapi.client {
       /** Updates the generic object referenced by the given object ID. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3967,11 +4451,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3998,11 +4482,11 @@ declare namespace gapi.client {
       /** Adds a message to the gift card class referenced by the given class ID. */
       addmessage(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4027,11 +4511,11 @@ declare namespace gapi.client {
       addmessage(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4056,11 +4540,11 @@ declare namespace gapi.client {
       /** Returns the gift card class with the given class ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4083,11 +4567,11 @@ declare namespace gapi.client {
       /** Inserts an gift card class with the given ID and properties. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4110,11 +4594,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4137,11 +4621,11 @@ declare namespace gapi.client {
       /** Returns a list of all gift card classes for a given issuer ID. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4168,11 +4652,11 @@ declare namespace gapi.client {
       /** Updates the gift card class referenced by the given class ID. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4197,11 +4681,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4226,11 +4710,11 @@ declare namespace gapi.client {
       /** Updates the gift card class referenced by the given class ID. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4255,11 +4739,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4286,11 +4770,11 @@ declare namespace gapi.client {
       /** Adds a message to the gift card object referenced by the given object ID. */
       addmessage(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4315,11 +4799,11 @@ declare namespace gapi.client {
       addmessage(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4344,11 +4828,11 @@ declare namespace gapi.client {
       /** Returns the gift card object with the given object ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4371,11 +4855,11 @@ declare namespace gapi.client {
       /** Inserts an gift card object with the given ID and properties. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4398,11 +4882,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4425,11 +4909,11 @@ declare namespace gapi.client {
       /** Returns a list of all gift card objects for a given issuer ID. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The ID of the class whose objects will be listed. */
@@ -4456,11 +4940,11 @@ declare namespace gapi.client {
       /** Updates the gift card object referenced by the given object ID. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4485,11 +4969,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4514,11 +4998,11 @@ declare namespace gapi.client {
       /** Updates the gift card object referenced by the given object ID. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4543,11 +5027,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4574,11 +5058,11 @@ declare namespace gapi.client {
       /** Returns the issuer with the given issuer ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4601,11 +5085,11 @@ declare namespace gapi.client {
       /** Inserts an issuer with the given ID and properties. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4628,11 +5112,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4655,11 +5139,11 @@ declare namespace gapi.client {
       /** Returns a list of all issuers shared to the caller. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4680,11 +5164,11 @@ declare namespace gapi.client {
       /** Updates the issuer referenced by the given issuer ID. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4709,11 +5193,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4738,11 +5222,11 @@ declare namespace gapi.client {
       /** Updates the issuer referenced by the given issuer ID. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4767,11 +5251,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4798,11 +5282,11 @@ declare namespace gapi.client {
       /** Inserts the resources in the JWT. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4825,11 +5309,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4854,11 +5338,11 @@ declare namespace gapi.client {
       /** Adds a message to the loyalty class referenced by the given class ID. */
       addmessage(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4883,11 +5367,11 @@ declare namespace gapi.client {
       addmessage(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4912,11 +5396,11 @@ declare namespace gapi.client {
       /** Returns the loyalty class with the given class ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4939,11 +5423,11 @@ declare namespace gapi.client {
       /** Inserts an loyalty class with the given ID and properties. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4966,11 +5450,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4993,11 +5477,11 @@ declare namespace gapi.client {
       /** Returns a list of all loyalty classes for a given issuer ID. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5024,11 +5508,11 @@ declare namespace gapi.client {
       /** Updates the loyalty class referenced by the given class ID. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5053,11 +5537,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5082,11 +5566,11 @@ declare namespace gapi.client {
       /** Updates the loyalty class referenced by the given class ID. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5111,11 +5595,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5142,11 +5626,11 @@ declare namespace gapi.client {
       /** Adds a message to the loyalty object referenced by the given object ID. */
       addmessage(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5171,11 +5655,11 @@ declare namespace gapi.client {
       addmessage(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5200,11 +5684,11 @@ declare namespace gapi.client {
       /** Returns the loyalty object with the given object ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5227,11 +5711,11 @@ declare namespace gapi.client {
       /** Inserts an loyalty object with the given ID and properties. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5254,11 +5738,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5281,11 +5765,11 @@ declare namespace gapi.client {
       /** Returns a list of all loyalty objects for a given issuer ID. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The ID of the class whose objects will be listed. */
@@ -5312,11 +5796,11 @@ declare namespace gapi.client {
       /** Deprecated: Use Auto Linked Passes instead. Modifies linked offer objects for the loyalty object with the given ID. */
       modifylinkedofferobjects(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5341,11 +5825,11 @@ declare namespace gapi.client {
       modifylinkedofferobjects(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5370,11 +5854,11 @@ declare namespace gapi.client {
       /** Updates the loyalty object referenced by the given object ID. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5399,11 +5883,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5428,11 +5912,11 @@ declare namespace gapi.client {
       /** Updates the loyalty object referenced by the given object ID. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5457,11 +5941,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5488,11 +5972,11 @@ declare namespace gapi.client {
       /** Downloads rotating barcode values for the transit object referenced by the given object ID. */
       download(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5515,11 +5999,11 @@ declare namespace gapi.client {
       /** Uploads rotating barcode values for the transit object referenced by the given object ID. Note the max upload size is specified in google3/production/config/cdd/apps-upload/customers/payments-consumer-passes/config.gcl and enforced by Scotty. */
       upload(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5544,11 +6028,11 @@ declare namespace gapi.client {
       upload(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5575,11 +6059,11 @@ declare namespace gapi.client {
       /** Adds a message to the offer class referenced by the given class ID. */
       addmessage(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5604,11 +6088,11 @@ declare namespace gapi.client {
       addmessage(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5633,11 +6117,11 @@ declare namespace gapi.client {
       /** Returns the offer class with the given class ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5660,11 +6144,11 @@ declare namespace gapi.client {
       /** Inserts an offer class with the given ID and properties. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5687,11 +6171,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5714,11 +6198,11 @@ declare namespace gapi.client {
       /** Returns a list of all offer classes for a given issuer ID. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5745,11 +6229,11 @@ declare namespace gapi.client {
       /** Updates the offer class referenced by the given class ID. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5774,11 +6258,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5803,11 +6287,11 @@ declare namespace gapi.client {
       /** Updates the offer class referenced by the given class ID. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5832,11 +6316,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5863,11 +6347,11 @@ declare namespace gapi.client {
       /** Adds a message to the offer object referenced by the given object ID. */
       addmessage(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5892,11 +6376,11 @@ declare namespace gapi.client {
       addmessage(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5921,11 +6405,11 @@ declare namespace gapi.client {
       /** Returns the offer object with the given object ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5948,11 +6432,11 @@ declare namespace gapi.client {
       /** Inserts an offer object with the given ID and properties. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5975,11 +6459,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6002,11 +6486,11 @@ declare namespace gapi.client {
       /** Returns a list of all offer objects for a given issuer ID. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The ID of the class whose objects will be listed. */
@@ -6033,11 +6517,11 @@ declare namespace gapi.client {
       /** Updates the offer object referenced by the given object ID. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6062,11 +6546,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6091,11 +6575,11 @@ declare namespace gapi.client {
       /** Updates the offer object referenced by the given object ID. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6120,11 +6604,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6151,11 +6635,11 @@ declare namespace gapi.client {
       /** Returns the permissions for the given issuer id. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6178,11 +6662,11 @@ declare namespace gapi.client {
       /** Updates the permissions for the given issuer. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6207,11 +6691,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6238,11 +6722,11 @@ declare namespace gapi.client {
       /** Inserts the smart tap. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6265,11 +6749,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6294,11 +6778,11 @@ declare namespace gapi.client {
       /** Adds a message to the transit class referenced by the given class ID. */
       addmessage(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6323,11 +6807,11 @@ declare namespace gapi.client {
       addmessage(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6352,11 +6836,11 @@ declare namespace gapi.client {
       /** Returns the transit class with the given class ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6379,11 +6863,11 @@ declare namespace gapi.client {
       /** Inserts a transit class with the given ID and properties. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6406,11 +6890,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6433,11 +6917,11 @@ declare namespace gapi.client {
       /** Returns a list of all transit classes for a given issuer ID. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6464,11 +6948,11 @@ declare namespace gapi.client {
       /** Updates the transit class referenced by the given class ID. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6493,11 +6977,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6522,11 +7006,11 @@ declare namespace gapi.client {
       /** Updates the transit class referenced by the given class ID. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6551,11 +7035,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6582,11 +7066,11 @@ declare namespace gapi.client {
       /** Adds a message to the transit object referenced by the given object ID. */
       addmessage(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6611,11 +7095,11 @@ declare namespace gapi.client {
       addmessage(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6640,11 +7124,11 @@ declare namespace gapi.client {
       /** Returns the transit object with the given object ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6667,11 +7151,11 @@ declare namespace gapi.client {
       /** Inserts an transit object with the given ID and properties. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6694,11 +7178,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6721,11 +7205,11 @@ declare namespace gapi.client {
       /** Returns a list of all transit objects for a given issuer ID. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The ID of the class whose objects will be listed. */
@@ -6752,11 +7236,11 @@ declare namespace gapi.client {
       /** Updates the transit object referenced by the given object ID. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6781,11 +7265,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6810,11 +7294,11 @@ declare namespace gapi.client {
       /** Updates the transit object referenced by the given object ID. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6839,11 +7323,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6870,11 +7354,11 @@ declare namespace gapi.client {
       /** Provide Google with information about awaiting private pass update. This will allow Google to provide the update notification to the device that currently holds this pass. */
       setPassUpdateNotice(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6897,11 +7381,11 @@ declare namespace gapi.client {
       setPassUpdateNotice(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

@@ -32,7 +32,10 @@ declare namespace gapi.client {
       /** Creation timestamp for this notification. Users should _not_ specify it, the field is ignored at the request time. */
       notifyTime?: string;
       /** The URL life cycle event that Google is being notified about. */
-      type?: string;
+      type?:
+        | 'URL_NOTIFICATION_TYPE_UNSPECIFIED'
+        | 'URL_UPDATED'
+        | 'URL_DELETED';
       /** The object of this notification. The URL must be owned by the publisher of this notification and, in case of `URL_UPDATED` notifications, it _must_ be crawlable by Google. */
       url?: string;
     }
@@ -48,11 +51,11 @@ declare namespace gapi.client {
       /** Gets metadata about a Web Document. This method can _only_ be used to query URLs that were previously seen in successful Indexing API notifications. Includes the latest `UrlNotification` received via this API. */
       getMetadata(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -75,11 +78,11 @@ declare namespace gapi.client {
       /** Notifies that a URL has been updated or deleted. */
       publish(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -102,11 +105,11 @@ declare namespace gapi.client {
       publish(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

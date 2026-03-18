@@ -64,7 +64,11 @@ declare namespace gapi.client {
       /** When the AgentInfo is generated. */
       reportTime?: string;
       /** Agent state. */
-      state?: string;
+      state?:
+        | 'AGENT_STATE_UNSPECIFIED'
+        | 'AGENT_STARTING'
+        | 'AGENT_RUNNING'
+        | 'AGENT_STOPPED';
       /** The assigned task group ID. */
       taskGroupId?: string;
       /** Task Info. */
@@ -108,7 +112,11 @@ declare namespace gapi.client {
       /** AgentTaskSpec is the taskSpec representation between Agent and CLH communication. This field will replace the TaskSpec field above in future to have a better separation between user-facaing API and internal API. */
       agentTaskSpec?: AgentTaskSpec;
       /** The intended state of the task. */
-      intendedState?: string;
+      intendedState?:
+        | 'INTENDED_STATE_UNSPECIFIED'
+        | 'ASSIGNED'
+        | 'CANCELLED'
+        | 'DELETED';
       /** The highest barrier reached by all tasks in the task's TaskGroup. */
       reachedBarrier?: string;
       /** Task Spec. This field will be replaced by agent_task_spec below in future. */
@@ -118,7 +126,7 @@ declare namespace gapi.client {
       /** Task name. */
       task?: string;
       /** TaskSource represents the source of the task. */
-      taskSource?: string;
+      taskSource?: 'TASK_SOURCE_UNSPECIFIED' | 'BATCH_INTERNAL' | 'USER';
     }
     interface AgentTaskInfo {
       /** The highest index of a runnable started by the agent for this task. The runnables are indexed from 1. Value 0 is undefined. */
@@ -275,7 +283,13 @@ declare namespace gapi.client {
       /** The minimum CPU platform. See https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform. */
       minCpuPlatform?: string;
       /** The provisioning model. */
-      provisioningModel?: string;
+      provisioningModel?:
+        | 'PROVISIONING_MODEL_UNSPECIFIED'
+        | 'STANDARD'
+        | 'SPOT'
+        | 'PREEMPTIBLE'
+        | 'RESERVATION_BOUND'
+        | 'FLEX_START';
       /** Optional. If not specified (default), VMs will consume any applicable reservation. If "NO_RESERVATION" is specified, VMs will not consume any reservation. Otherwise, if specified, VMs will consume only the specified reservation. */
       reservation?: string;
     }
@@ -297,7 +311,13 @@ declare namespace gapi.client {
       /** The Compute Engine machine type. */
       machineType?: string;
       /** The VM instance provisioning model. */
-      provisioningModel?: string;
+      provisioningModel?:
+        | 'PROVISIONING_MODEL_UNSPECIFIED'
+        | 'STANDARD'
+        | 'SPOT'
+        | 'PREEMPTIBLE'
+        | 'RESERVATION_BOUND'
+        | 'FLEX_START';
       /** The max number of tasks can be assigned to this instance type. */
       taskPack?: string;
     }
@@ -335,7 +355,16 @@ declare namespace gapi.client {
       /** The duration of time that the Job spent in status RUNNING. */
       runDuration?: string;
       /** Job state */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'QUEUED'
+        | 'SCHEDULED'
+        | 'RUNNING'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'DELETION_IN_PROGRESS'
+        | 'CANCELLATION_IN_PROGRESS'
+        | 'CANCELLED';
       /** Job status events */
       statusEvents?: StatusEvent[];
       /** Aggregated task status for each TaskGroup in the Job. The map key is TaskGroup ID. */
@@ -349,7 +378,7 @@ declare namespace gapi.client {
     }
     interface LifecyclePolicy {
       /** Action to execute when ActionCondition is true. When RETRY_TASK is specified, we will retry failed tasks if we notice any exit code match and fail tasks if no match is found. Likewise, when FAIL_TASK is specified, we will fail tasks if we notice any exit code match and retry tasks if no match is found. */
-      action?: string;
+      action?: 'ACTION_UNSPECIFIED' | 'RETRY_TASK' | 'FAIL_TASK';
       /** Conditions that decide why a task failure is dealt with a specific action. */
       actionCondition?: ActionCondition;
     }
@@ -403,17 +432,33 @@ declare namespace gapi.client {
       /** Optional. When `destination` is set to `CLOUD_LOGGING`, you can optionally set this field to configure additional settings for Cloud Logging. */
       cloudLoggingOption?: CloudLoggingOption;
       /** If and where logs should be saved. */
-      destination?: string;
+      destination?: 'DESTINATION_UNSPECIFIED' | 'CLOUD_LOGGING' | 'PATH';
       /** When `destination` is set to `PATH`, you must set this field to the path where you want logs to be saved. This path can point to a local directory on the VM or (if congifured) a directory under the mount path of any Cloud Storage bucket, network file system (NFS), or writable persistent disk that is mounted to the job. For example, if the job has a bucket with `mountPath` set to `/mnt/disks/my-bucket`, you can write logs to the root directory of the `remotePath` of that bucket by setting this field to `/mnt/disks/my-bucket/`. */
       logsPath?: string;
     }
     interface Message {
       /** The new job state. */
-      newJobState?: string;
+      newJobState?:
+        | 'STATE_UNSPECIFIED'
+        | 'QUEUED'
+        | 'SCHEDULED'
+        | 'RUNNING'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'DELETION_IN_PROGRESS'
+        | 'CANCELLATION_IN_PROGRESS'
+        | 'CANCELLED';
       /** The new task state. */
-      newTaskState?: string;
+      newTaskState?:
+        | 'STATE_UNSPECIFIED'
+        | 'PENDING'
+        | 'ASSIGNED'
+        | 'RUNNING'
+        | 'FAILED'
+        | 'SUCCEEDED'
+        | 'UNEXECUTED';
       /** The message type. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'JOB_STATE_CHANGED' | 'TASK_STATE_CHANGED';
     }
     interface NetworkInterface {
       /** The URL of an existing network resource. You can specify the network as a full or partial URL. For example, the following are all valid URLs: * https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network} * projects/{project}/global/networks/{network} * global/networks/{network} */
@@ -535,7 +580,14 @@ declare namespace gapi.client {
       /** Task Execution. This field is only defined for task-level status events where the task fails. */
       taskExecution?: TaskExecution;
       /** Task State. This field is only defined for task-level status events. */
-      taskState?: string;
+      taskState?:
+        | 'STATE_UNSPECIFIED'
+        | 'PENDING'
+        | 'ASSIGNED'
+        | 'RUNNING'
+        | 'FAILED'
+        | 'SUCCEEDED'
+        | 'UNEXECUTED';
       /** Type of the event. */
       type?: string;
     }
@@ -561,7 +613,10 @@ declare namespace gapi.client {
       /** Optional. If not set or set to false, Batch uses the root user to execute runnables. If set to true, Batch runs the runnables using a non-root user. Currently, the non-root user Batch used is generated by OS Login. For more information, see [About OS Login](https://cloud.google.com/compute/docs/oslogin). */
       runAsNonRoot?: boolean;
       /** Scheduling policy for Tasks in the TaskGroup. The default value is AS_SOON_AS_POSSIBLE. */
-      schedulingPolicy?: string;
+      schedulingPolicy?:
+        | 'SCHEDULING_POLICY_UNSPECIFIED'
+        | 'AS_SOON_AS_POSSIBLE'
+        | 'IN_ORDER';
       /** Number of Tasks in the TaskGroup. Default is 1. */
       taskCount?: string;
       /** Max number of tasks that can be run on a VM at the same time. If not specified, the system will decide a value based on available compute resources on a VM and task requirements. */
@@ -597,7 +652,14 @@ declare namespace gapi.client {
     }
     interface TaskStatus {
       /** Task state. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PENDING'
+        | 'ASSIGNED'
+        | 'RUNNING'
+        | 'FAILED'
+        | 'SUCCEEDED'
+        | 'UNEXECUTED';
       /** Detailed info about why the state is reached. */
       statusEvents?: StatusEvent[];
     }
@@ -617,11 +679,11 @@ declare namespace gapi.client {
       /** Return a single Task. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -644,11 +706,11 @@ declare namespace gapi.client {
       /** List Tasks associated with a job. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -682,11 +744,11 @@ declare namespace gapi.client {
       /** Cancel a Job. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -711,11 +773,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -740,11 +802,11 @@ declare namespace gapi.client {
       /** Create a Job. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -773,11 +835,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -806,11 +868,11 @@ declare namespace gapi.client {
       /** Delete a Job. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -837,11 +899,11 @@ declare namespace gapi.client {
       /** Get a Job specified by its resource name. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -864,11 +926,11 @@ declare namespace gapi.client {
       /** List all Jobs for a project within a region. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -902,11 +964,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -931,11 +993,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -960,11 +1022,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -987,11 +1049,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1014,11 +1076,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1051,11 +1113,11 @@ declare namespace gapi.client {
       /** Report agent's state, e.g. agent status and tasks information */
       report(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1080,11 +1142,11 @@ declare namespace gapi.client {
       report(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1111,11 +1173,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1138,11 +1200,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */

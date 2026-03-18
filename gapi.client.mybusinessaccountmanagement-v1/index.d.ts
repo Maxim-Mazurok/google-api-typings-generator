@@ -42,17 +42,38 @@ declare namespace gapi.client {
       /** Output only. Additional info for an organization. This is populated only for an organization account. */
       organizationInfo?: OrganizationInfo;
       /** Output only. Specifies the permission level the user has for this account. */
-      permissionLevel?: string;
+      permissionLevel?:
+        | 'PERMISSION_LEVEL_UNSPECIFIED'
+        | 'OWNER_LEVEL'
+        | 'MEMBER_LEVEL';
       /** Required. Input only. The resource name of the account which will be the primary owner of the account being created. It should be of the form `accounts/{account_id}`. */
       primaryOwner?: string;
       /** Output only. Specifies the AccountRole of this account. */
-      role?: string;
+      role?:
+        | 'ACCOUNT_ROLE_UNSPECIFIED'
+        | 'PRIMARY_OWNER'
+        | 'OWNER'
+        | 'MANAGER'
+        | 'SITE_MANAGER';
       /** Required. Contains the type of account. Accounts of type PERSONAL and ORGANIZATION cannot be created using this API. */
-      type?: string;
+      type?:
+        | 'ACCOUNT_TYPE_UNSPECIFIED'
+        | 'PERSONAL'
+        | 'LOCATION_GROUP'
+        | 'USER_GROUP'
+        | 'ORGANIZATION';
       /** Output only. If verified, future locations that are created are automatically connected to Google Maps, and have Google+ pages created, without requiring moderation. */
-      verificationState?: string;
+      verificationState?:
+        | 'VERIFICATION_STATE_UNSPECIFIED'
+        | 'VERIFIED'
+        | 'UNVERIFIED'
+        | 'VERIFICATION_REQUESTED';
       /** Output only. Indicates whether the account is vetted by Google. A vetted account is able to verify locations via the VETTED_PARTNER method. */
-      vettedState?: string;
+      vettedState?:
+        | 'VETTED_STATE_UNSPECIFIED'
+        | 'NOT_VETTED'
+        | 'VETTED'
+        | 'INVALID';
     }
     interface Admin {
       /** Immutable. The name of the Account resource that this Admin refers to. Used when calling locations.admins.create to invite a LocationGroup as an admin. If both this field and `admin` are set on `CREATE` requests, this field takes precedence and the email address in `admin` will be ignored. Format: `accounts/{account}`. */
@@ -64,7 +85,12 @@ declare namespace gapi.client {
       /** Output only. Indicates whether this admin has a pending invitation for the specified resource. */
       pendingInvitation?: boolean;
       /** Required. Specifies the role that this admin uses with the specified Account or Location. */
-      role?: string;
+      role?:
+        | 'ADMIN_ROLE_UNSPECIFIED'
+        | 'PRIMARY_OWNER'
+        | 'OWNER'
+        | 'MANAGER'
+        | 'SITE_MANAGER';
     }
     interface DeclineInvitationRequest {}
     interface Empty {}
@@ -72,13 +98,21 @@ declare namespace gapi.client {
       /** Required. The resource name for the invitation. `accounts/{account_id}/invitations/{invitation_id}`. */
       name?: string;
       /** Output only. The invited role on the account. */
-      role?: string;
+      role?:
+        | 'ADMIN_ROLE_UNSPECIFIED'
+        | 'PRIMARY_OWNER'
+        | 'OWNER'
+        | 'MANAGER'
+        | 'SITE_MANAGER';
       /** The sparsely populated account this invitation is for. */
       targetAccount?: Account;
       /** The target location this invitation is for. */
       targetLocation?: TargetLocation;
       /** Output only. Specifies which target types should appear in the response. */
-      targetType?: string;
+      targetType?:
+        | 'TARGET_TYPE_UNSPECIFIED'
+        | 'ACCOUNTS_ONLY'
+        | 'LOCATIONS_ONLY';
     }
     interface ListAccountAdminsResponse {
       /** A collection of Admin instances. */
@@ -144,11 +178,11 @@ declare namespace gapi.client {
       /** Invites the specified user to become an administrator for the specified account. The invitee must accept the invitation in order to be granted access to the account. See AcceptInvitation to programmatically accept an invitation. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -173,11 +207,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -202,11 +236,11 @@ declare namespace gapi.client {
       /** Removes the specified admin from the specified account. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -229,11 +263,11 @@ declare namespace gapi.client {
       /** Lists the admins for the specified account. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -256,11 +290,11 @@ declare namespace gapi.client {
       /** Updates the Admin for the specified Account Admin. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -287,11 +321,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -320,11 +354,11 @@ declare namespace gapi.client {
       /** Accepts the specified invitation. */
       accept(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -349,11 +383,11 @@ declare namespace gapi.client {
       accept(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -378,11 +412,11 @@ declare namespace gapi.client {
       /** Declines the specified invitation. */
       decline(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -407,11 +441,11 @@ declare namespace gapi.client {
       decline(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -436,11 +470,11 @@ declare namespace gapi.client {
       /** Lists pending invitations for the specified account. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -467,11 +501,11 @@ declare namespace gapi.client {
       /** Creates an account with the specified name and type under the given parent. - Personal accounts and Organizations cannot be created. - User Groups cannot be created with a Personal account as primary owner. - Location Groups cannot be created with a primary owner of a Personal account if the Personal account is in an Organization. - Location Groups cannot own Location Groups. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -494,11 +528,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -521,11 +555,11 @@ declare namespace gapi.client {
       /** Gets the specified account. Returns `NOT_FOUND` if the account does not exist or if the caller does not have access rights to it. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -548,11 +582,11 @@ declare namespace gapi.client {
       /** Lists all of the accounts for the authenticated user. This includes all accounts that the user owns, as well as any accounts for which the user has management rights. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -581,11 +615,11 @@ declare namespace gapi.client {
       /** Updates the specified business account. Personal accounts cannot be updated using this method. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -614,11 +648,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -651,11 +685,11 @@ declare namespace gapi.client {
       /** Invites the specified user to become an administrator for the specified location. The invitee must accept the invitation in order to be granted access to the location. See AcceptInvitation to programmatically accept an invitation. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -680,11 +714,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -709,11 +743,11 @@ declare namespace gapi.client {
       /** Removes the specified admin as a manager of the specified location. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -736,11 +770,11 @@ declare namespace gapi.client {
       /** Lists all of the admins for the specified location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -763,11 +797,11 @@ declare namespace gapi.client {
       /** Updates the Admin for the specified location. Only the AdminRole of the Admin can be updated. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -794,11 +828,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -827,11 +861,11 @@ declare namespace gapi.client {
       /** Moves a location from an account that the user owns to another account that the same user administers. The user must be an owner of the account the location is currently associated with and must also be at least a manager of the destination account. */
       transfer(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -856,11 +890,11 @@ declare namespace gapi.client {
       transfer(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

@@ -32,7 +32,7 @@ declare namespace gapi.client {
       /** Required. Input document. */
       document?: Document;
       /** The encoding type used by the API to calculate offsets. */
-      encodingType?: string;
+      encodingType?: 'NONE' | 'UTF8' | 'UTF16' | 'UTF32';
     }
     interface AnalyzeEntitiesResponse {
       /** The recognized entities in the input document. */
@@ -44,7 +44,7 @@ declare namespace gapi.client {
       /** Required. Input document. */
       document?: Document;
       /** The encoding type used by the API to calculate offsets. */
-      encodingType?: string;
+      encodingType?: 'NONE' | 'UTF8' | 'UTF16' | 'UTF32';
     }
     interface AnalyzeEntitySentimentResponse {
       /** The recognized entities in the input document with associated sentiments. */
@@ -56,7 +56,7 @@ declare namespace gapi.client {
       /** Required. Input document. */
       document?: Document;
       /** The encoding type used by the API to calculate sentence offsets for the sentence sentiment. */
-      encodingType?: string;
+      encodingType?: 'NONE' | 'UTF8' | 'UTF16' | 'UTF32';
     }
     interface AnalyzeSentimentResponse {
       /** The overall sentiment of the input document. */
@@ -70,7 +70,7 @@ declare namespace gapi.client {
       /** Required. Input document. */
       document?: Document;
       /** The encoding type used by the API to calculate offsets. */
-      encodingType?: string;
+      encodingType?: 'NONE' | 'UTF8' | 'UTF16' | 'UTF32';
     }
     interface AnalyzeSyntaxResponse {
       /** The language of the text, which will be the same as the language specified in the request or, if not specified, the automatically-detected language. See Document.language field for more details. */
@@ -84,7 +84,7 @@ declare namespace gapi.client {
       /** Required. Input document. */
       document?: Document;
       /** The encoding type used by the API to calculate offsets. */
-      encodingType?: string;
+      encodingType?: 'NONE' | 'UTF8' | 'UTF16' | 'UTF32';
       /** Required. The enabled features. */
       features?: AnnotateTextRequestFeatures;
     }
@@ -135,7 +135,10 @@ declare namespace gapi.client {
     interface ClassificationModelOptionsV1Model {}
     interface ClassificationModelOptionsV2Model {
       /** The content categories used for classification. */
-      contentCategoriesVersion?: string;
+      contentCategoriesVersion?:
+        | 'CONTENT_CATEGORIES_VERSION_UNSPECIFIED'
+        | 'V1'
+        | 'V2';
     }
     interface ClassifyTextRequest {
       /** Optional. Model options to use for classification. Defaults to v1 options if not specified. */
@@ -163,9 +166,329 @@ declare namespace gapi.client {
       /** Required. Total seconds of core usage, e.g. 4. */
       coreSec?: string;
       /** Required. Type of cpu, e.g. N2. */
-      cpuType?: string;
+      cpuType?:
+        | 'UNKNOWN_CPU_TYPE'
+        | 'A2'
+        | 'A3'
+        | 'A4'
+        | 'A4X'
+        | 'C2'
+        | 'C2D'
+        | 'CUSTOM'
+        | 'E2'
+        | 'G2'
+        | 'G4'
+        | 'C3'
+        | 'C4'
+        | 'C4A'
+        | 'C4D'
+        | 'N4'
+        | 'N4A'
+        | 'C3D'
+        | 'M2'
+        | 'M1'
+        | 'N1'
+        | 'N2_CUSTOM'
+        | 'N2'
+        | 'N2D';
       /** Required. Machine spec, e.g. N1_STANDARD_4. */
-      machineSpec?: string;
+      machineSpec?:
+        | 'UNKNOWN_MACHINE_SPEC'
+        | 'N1_STANDARD_2'
+        | 'N1_STANDARD_4'
+        | 'N1_STANDARD_8'
+        | 'N1_STANDARD_16'
+        | 'N1_STANDARD_32'
+        | 'N1_STANDARD_64'
+        | 'N1_STANDARD_96'
+        | 'N1_HIGHMEM_2'
+        | 'N1_HIGHMEM_4'
+        | 'N1_HIGHMEM_8'
+        | 'N1_HIGHMEM_16'
+        | 'N1_HIGHMEM_32'
+        | 'N1_HIGHMEM_64'
+        | 'N1_HIGHMEM_96'
+        | 'N1_HIGHCPU_2'
+        | 'N1_HIGHCPU_4'
+        | 'N1_HIGHCPU_8'
+        | 'N1_HIGHCPU_16'
+        | 'N1_HIGHCPU_32'
+        | 'N1_HIGHCPU_64'
+        | 'N1_HIGHCPU_96'
+        | 'A2_HIGHGPU_1G'
+        | 'A2_HIGHGPU_2G'
+        | 'A2_HIGHGPU_4G'
+        | 'A2_HIGHGPU_8G'
+        | 'A2_MEGAGPU_16G'
+        | 'A2_ULTRAGPU_1G'
+        | 'A2_ULTRAGPU_2G'
+        | 'A2_ULTRAGPU_4G'
+        | 'A2_ULTRAGPU_8G'
+        | 'A3_HIGHGPU_1G'
+        | 'A3_HIGHGPU_2G'
+        | 'A3_HIGHGPU_4G'
+        | 'A3_HIGHGPU_8G'
+        | 'A3_MEGAGPU_8G'
+        | 'A3_ULTRAGPU_8G'
+        | 'A3_EDGEGPU_8G'
+        | 'A4_HIGHGPU_8G'
+        | 'A4X_HIGHGPU_4G'
+        | 'E2_STANDARD_2'
+        | 'E2_STANDARD_4'
+        | 'E2_STANDARD_8'
+        | 'E2_STANDARD_16'
+        | 'E2_STANDARD_32'
+        | 'E2_HIGHMEM_2'
+        | 'E2_HIGHMEM_4'
+        | 'E2_HIGHMEM_8'
+        | 'E2_HIGHMEM_16'
+        | 'E2_HIGHCPU_2'
+        | 'E2_HIGHCPU_4'
+        | 'E2_HIGHCPU_8'
+        | 'E2_HIGHCPU_16'
+        | 'E2_HIGHCPU_32'
+        | 'N2_STANDARD_2'
+        | 'N2_STANDARD_4'
+        | 'N2_STANDARD_8'
+        | 'N2_STANDARD_16'
+        | 'N2_STANDARD_32'
+        | 'N2_STANDARD_48'
+        | 'N2_STANDARD_64'
+        | 'N2_STANDARD_80'
+        | 'N2_STANDARD_96'
+        | 'N2_STANDARD_128'
+        | 'N2_HIGHMEM_2'
+        | 'N2_HIGHMEM_4'
+        | 'N2_HIGHMEM_8'
+        | 'N2_HIGHMEM_16'
+        | 'N2_HIGHMEM_32'
+        | 'N2_HIGHMEM_48'
+        | 'N2_HIGHMEM_64'
+        | 'N2_HIGHMEM_80'
+        | 'N2_HIGHMEM_96'
+        | 'N2_HIGHMEM_128'
+        | 'N2_HIGHCPU_2'
+        | 'N2_HIGHCPU_4'
+        | 'N2_HIGHCPU_8'
+        | 'N2_HIGHCPU_16'
+        | 'N2_HIGHCPU_32'
+        | 'N2_HIGHCPU_48'
+        | 'N2_HIGHCPU_64'
+        | 'N2_HIGHCPU_80'
+        | 'N2_HIGHCPU_96'
+        | 'N2D_STANDARD_2'
+        | 'N2D_STANDARD_4'
+        | 'N2D_STANDARD_8'
+        | 'N2D_STANDARD_16'
+        | 'N2D_STANDARD_32'
+        | 'N2D_STANDARD_48'
+        | 'N2D_STANDARD_64'
+        | 'N2D_STANDARD_80'
+        | 'N2D_STANDARD_96'
+        | 'N2D_STANDARD_128'
+        | 'N2D_STANDARD_224'
+        | 'N2D_HIGHMEM_2'
+        | 'N2D_HIGHMEM_4'
+        | 'N2D_HIGHMEM_8'
+        | 'N2D_HIGHMEM_16'
+        | 'N2D_HIGHMEM_32'
+        | 'N2D_HIGHMEM_48'
+        | 'N2D_HIGHMEM_64'
+        | 'N2D_HIGHMEM_80'
+        | 'N2D_HIGHMEM_96'
+        | 'N2D_HIGHCPU_2'
+        | 'N2D_HIGHCPU_4'
+        | 'N2D_HIGHCPU_8'
+        | 'N2D_HIGHCPU_16'
+        | 'N2D_HIGHCPU_32'
+        | 'N2D_HIGHCPU_48'
+        | 'N2D_HIGHCPU_64'
+        | 'N2D_HIGHCPU_80'
+        | 'N2D_HIGHCPU_96'
+        | 'N2D_HIGHCPU_128'
+        | 'N2D_HIGHCPU_224'
+        | 'C2_STANDARD_4'
+        | 'C2_STANDARD_8'
+        | 'C2_STANDARD_16'
+        | 'C2_STANDARD_30'
+        | 'C2_STANDARD_60'
+        | 'C2D_STANDARD_2'
+        | 'C2D_STANDARD_4'
+        | 'C2D_STANDARD_8'
+        | 'C2D_STANDARD_16'
+        | 'C2D_STANDARD_32'
+        | 'C2D_STANDARD_56'
+        | 'C2D_STANDARD_112'
+        | 'C2D_HIGHCPU_2'
+        | 'C2D_HIGHCPU_4'
+        | 'C2D_HIGHCPU_8'
+        | 'C2D_HIGHCPU_16'
+        | 'C2D_HIGHCPU_32'
+        | 'C2D_HIGHCPU_56'
+        | 'C2D_HIGHCPU_112'
+        | 'C2D_HIGHMEM_2'
+        | 'C2D_HIGHMEM_4'
+        | 'C2D_HIGHMEM_8'
+        | 'C2D_HIGHMEM_16'
+        | 'C2D_HIGHMEM_32'
+        | 'C2D_HIGHMEM_56'
+        | 'C2D_HIGHMEM_112'
+        | 'G2_STANDARD_4'
+        | 'G2_STANDARD_8'
+        | 'G2_STANDARD_12'
+        | 'G2_STANDARD_16'
+        | 'G2_STANDARD_24'
+        | 'G2_STANDARD_32'
+        | 'G2_STANDARD_48'
+        | 'G2_STANDARD_96'
+        | 'G4_STANDARD_48'
+        | 'C3_STANDARD_4'
+        | 'C3_STANDARD_8'
+        | 'C3_STANDARD_22'
+        | 'C3_STANDARD_44'
+        | 'C3_STANDARD_88'
+        | 'C3_STANDARD_176'
+        | 'C3_HIGHCPU_4'
+        | 'C3_HIGHCPU_8'
+        | 'C3_HIGHCPU_22'
+        | 'C3_HIGHCPU_44'
+        | 'C3_HIGHCPU_88'
+        | 'C3_HIGHCPU_176'
+        | 'C3_HIGHMEM_4'
+        | 'C3_HIGHMEM_8'
+        | 'C3_HIGHMEM_22'
+        | 'C3_HIGHMEM_44'
+        | 'C3_HIGHMEM_88'
+        | 'C3_HIGHMEM_176'
+        | 'C4_STANDARD_8'
+        | 'C4_STANDARD_16'
+        | 'C4_STANDARD_24'
+        | 'C4_STANDARD_32'
+        | 'C4_STANDARD_48'
+        | 'C4_STANDARD_96'
+        | 'C4_STANDARD_144'
+        | 'C4_STANDARD_192'
+        | 'C4_STANDARD_288'
+        | 'C4_HIGHCPU_8'
+        | 'C4_HIGHCPU_16'
+        | 'C4_HIGHCPU_24'
+        | 'C4_HIGHCPU_32'
+        | 'C4_HIGHCPU_48'
+        | 'C4_HIGHCPU_96'
+        | 'C4_HIGHCPU_144'
+        | 'C4_HIGHCPU_192'
+        | 'C4_HIGHCPU_288'
+        | 'C4_HIGHMEM_8'
+        | 'C4_HIGHMEM_16'
+        | 'C4_HIGHMEM_24'
+        | 'C4_HIGHMEM_32'
+        | 'C4_HIGHMEM_48'
+        | 'C4_HIGHMEM_96'
+        | 'C4_HIGHMEM_144'
+        | 'C4_HIGHMEM_192'
+        | 'C4_HIGHMEM_288'
+        | 'C4A_STANDARD_8'
+        | 'C4A_STANDARD_16'
+        | 'C4A_STANDARD_32'
+        | 'C4A_STANDARD_48'
+        | 'C4A_STANDARD_64'
+        | 'C4A_STANDARD_72'
+        | 'C4A_HIGHCPU_8'
+        | 'C4A_HIGHCPU_16'
+        | 'C4A_HIGHCPU_32'
+        | 'C4A_HIGHCPU_48'
+        | 'C4A_HIGHCPU_64'
+        | 'C4A_HIGHCPU_72'
+        | 'C4A_HIGHMEM_8'
+        | 'C4A_HIGHMEM_16'
+        | 'C4A_HIGHMEM_32'
+        | 'C4A_HIGHMEM_48'
+        | 'C4A_HIGHMEM_64'
+        | 'C4A_HIGHMEM_72'
+        | 'C4D_STANDARD_8'
+        | 'C4D_STANDARD_16'
+        | 'C4D_STANDARD_32'
+        | 'C4D_STANDARD_48'
+        | 'C4D_STANDARD_64'
+        | 'C4D_STANDARD_96'
+        | 'C4D_STANDARD_192'
+        | 'C4D_STANDARD_384'
+        | 'C4D_HIGHCPU_8'
+        | 'C4D_HIGHCPU_16'
+        | 'C4D_HIGHCPU_32'
+        | 'C4D_HIGHCPU_48'
+        | 'C4D_HIGHCPU_64'
+        | 'C4D_HIGHCPU_96'
+        | 'C4D_HIGHCPU_192'
+        | 'C4D_HIGHCPU_384'
+        | 'C4D_HIGHMEM_8'
+        | 'C4D_HIGHMEM_16'
+        | 'C4D_HIGHMEM_32'
+        | 'C4D_HIGHMEM_48'
+        | 'C4D_HIGHMEM_64'
+        | 'C4D_HIGHMEM_96'
+        | 'C4D_HIGHMEM_192'
+        | 'C4D_HIGHMEM_384'
+        | 'N4_STANDARD_2'
+        | 'N4_STANDARD_4'
+        | 'N4_STANDARD_8'
+        | 'N4_STANDARD_16'
+        | 'N4_STANDARD_32'
+        | 'N4_STANDARD_48'
+        | 'N4_STANDARD_64'
+        | 'N4_STANDARD_80'
+        | 'N4_HIGHCPU_2'
+        | 'N4_HIGHCPU_4'
+        | 'N4_HIGHCPU_8'
+        | 'N4_HIGHCPU_16'
+        | 'N4_HIGHCPU_32'
+        | 'N4_HIGHCPU_48'
+        | 'N4_HIGHCPU_64'
+        | 'N4_HIGHCPU_80'
+        | 'N4_HIGHMEM_2'
+        | 'N4_HIGHMEM_4'
+        | 'N4_HIGHMEM_8'
+        | 'N4_HIGHMEM_16'
+        | 'N4_HIGHMEM_32'
+        | 'N4_HIGHMEM_48'
+        | 'N4_HIGHMEM_64'
+        | 'N4_HIGHMEM_80'
+        | 'N4A_STANDARD_8'
+        | 'N4A_STANDARD_16'
+        | 'N4A_STANDARD_32'
+        | 'N4A_STANDARD_48'
+        | 'N4A_STANDARD_64'
+        | 'N4A_HIGHCPU_8'
+        | 'N4A_HIGHCPU_16'
+        | 'N4A_HIGHCPU_32'
+        | 'N4A_HIGHCPU_48'
+        | 'N4A_HIGHCPU_64'
+        | 'N4A_HIGHMEM_8'
+        | 'N4A_HIGHMEM_16'
+        | 'N4A_HIGHMEM_32'
+        | 'N4A_HIGHMEM_48'
+        | 'N4A_HIGHMEM_64'
+        | 'C3D_STANDARD_8'
+        | 'C3D_STANDARD_16'
+        | 'C3D_STANDARD_30'
+        | 'C3D_STANDARD_60'
+        | 'C3D_STANDARD_90'
+        | 'C3D_STANDARD_180'
+        | 'C3D_STANDARD_360'
+        | 'C3D_HIGHCPU_8'
+        | 'C3D_HIGHCPU_16'
+        | 'C3D_HIGHCPU_30'
+        | 'C3D_HIGHCPU_60'
+        | 'C3D_HIGHCPU_90'
+        | 'C3D_HIGHCPU_180'
+        | 'C3D_HIGHCPU_360'
+        | 'C3D_HIGHMEM_8'
+        | 'C3D_HIGHMEM_16'
+        | 'C3D_HIGHMEM_30'
+        | 'C3D_HIGHMEM_60'
+        | 'C3D_HIGHMEM_90'
+        | 'C3D_HIGHMEM_180'
+        | 'C3D_HIGHMEM_360';
       /** Billing tracking labels. They do not contain any user data but only the labels set by Vertex Core Infra itself. Tracking labels' keys are defined with special format: goog-[\p{Ll}\p{N}]+ E.g. "key": "goog-k8s-cluster-name","value": "us-east1-b4rk" */
       trackingLabels?: {[P in string]: string};
     }
@@ -173,17 +496,109 @@ declare namespace gapi.client {
       /** Represents the head of this token in the dependency tree. This is the index of the token which has an arc going to this token. The index is the position of the token in the array of tokens returned by the API method. If this token is a root token, then the `head_token_index` is its own index. */
       headTokenIndex?: number;
       /** The parse label for the token. */
-      label?: string;
+      label?:
+        | 'UNKNOWN'
+        | 'ABBREV'
+        | 'ACOMP'
+        | 'ADVCL'
+        | 'ADVMOD'
+        | 'AMOD'
+        | 'APPOS'
+        | 'ATTR'
+        | 'AUX'
+        | 'AUXPASS'
+        | 'CC'
+        | 'CCOMP'
+        | 'CONJ'
+        | 'CSUBJ'
+        | 'CSUBJPASS'
+        | 'DEP'
+        | 'DET'
+        | 'DISCOURSE'
+        | 'DOBJ'
+        | 'EXPL'
+        | 'GOESWITH'
+        | 'IOBJ'
+        | 'MARK'
+        | 'MWE'
+        | 'MWV'
+        | 'NEG'
+        | 'NN'
+        | 'NPADVMOD'
+        | 'NSUBJ'
+        | 'NSUBJPASS'
+        | 'NUM'
+        | 'NUMBER'
+        | 'P'
+        | 'PARATAXIS'
+        | 'PARTMOD'
+        | 'PCOMP'
+        | 'POBJ'
+        | 'POSS'
+        | 'POSTNEG'
+        | 'PRECOMP'
+        | 'PRECONJ'
+        | 'PREDET'
+        | 'PREF'
+        | 'PREP'
+        | 'PRONL'
+        | 'PRT'
+        | 'PS'
+        | 'QUANTMOD'
+        | 'RCMOD'
+        | 'RCMODREL'
+        | 'RDROP'
+        | 'REF'
+        | 'REMNANT'
+        | 'REPARANDUM'
+        | 'ROOT'
+        | 'SNUM'
+        | 'SUFF'
+        | 'TMOD'
+        | 'TOPIC'
+        | 'VMOD'
+        | 'VOCATIVE'
+        | 'XCOMP'
+        | 'SUFFIX'
+        | 'TITLE'
+        | 'ADVPHMOD'
+        | 'AUXCAUS'
+        | 'AUXVV'
+        | 'DTMOD'
+        | 'FOREIGN'
+        | 'KW'
+        | 'LIST'
+        | 'NOMC'
+        | 'NOMCSUBJ'
+        | 'NOMCSUBJPASS'
+        | 'NUMC'
+        | 'COP'
+        | 'DISLOCATED'
+        | 'ASP'
+        | 'GMOD'
+        | 'GOBJ'
+        | 'INFMOD'
+        | 'MES'
+        | 'NCOMP';
     }
     interface DiskMetric {
       /** Required. Type of Disk, e.g. REGIONAL_SSD. */
-      diskType?: string;
+      diskType?:
+        | 'UNKNOWN_DISK_TYPE'
+        | 'REGIONAL_SSD'
+        | 'REGIONAL_STORAGE'
+        | 'PD_SSD'
+        | 'PD_STANDARD'
+        | 'STORAGE_SNAPSHOT';
       /** Required. Seconds of physical disk usage, e.g. 3600. */
       gibSec?: string;
     }
     interface Document {
       /** Indicates how detected boilerplate(e.g. advertisements, copyright declarations, banners) should be handled for this document. If not specified, boilerplate will be treated the same as content. */
-      boilerplateHandling?: string;
+      boilerplateHandling?:
+        | 'BOILERPLATE_HANDLING_UNSPECIFIED'
+        | 'SKIP_BOILERPLATE'
+        | 'KEEP_BOILERPLATE';
       /** The content of the input in string format. Cloud audit logging exempt since it is based on user data. */
       content?: string;
       /** The Google Cloud Storage URI where the file content is located. This URI must be of the form: gs://bucket_name/object_name. For more details, see https://cloud.google.com/storage/docs/reference-uris. NOTE: Cloud Storage object versioning is not supported. */
@@ -193,7 +608,7 @@ declare namespace gapi.client {
       /** The web URI where the document comes from. This URI is not used for fetching the content, but as a hint for analyzing the document. */
       referenceWebUri?: string;
       /** Required. If the type is not set or is `TYPE_UNSPECIFIED`, returns an `INVALID_ARGUMENT` error. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'PLAIN_TEXT' | 'HTML';
     }
     interface Entity {
       /** The mentions of this entity in the input document. The API currently supports proper noun mentions. */
@@ -207,7 +622,20 @@ declare namespace gapi.client {
       /** For calls to AnalyzeEntitySentiment or if AnnotateTextRequest.Features.extract_entity_sentiment is set to true, this field will contain the aggregate sentiment expressed for this entity in the provided document. */
       sentiment?: Sentiment;
       /** The entity type. */
-      type?: string;
+      type?:
+        | 'UNKNOWN'
+        | 'PERSON'
+        | 'LOCATION'
+        | 'ORGANIZATION'
+        | 'EVENT'
+        | 'WORK_OF_ART'
+        | 'CONSUMER_GOOD'
+        | 'OTHER'
+        | 'PHONE_NUMBER'
+        | 'ADDRESS'
+        | 'DATE'
+        | 'NUMBER'
+        | 'PRICE';
     }
     interface EntityMention {
       /** For calls to AnalyzeEntitySentiment or if AnnotateTextRequest.Features.extract_entity_sentiment is set to true, this field will contain the sentiment expressed for this mention of the entity in the provided document. */
@@ -215,15 +643,326 @@ declare namespace gapi.client {
       /** The mention text. */
       text?: TextSpan;
       /** The type of the entity mention. */
-      type?: string;
+      type?: 'TYPE_UNKNOWN' | 'PROPER' | 'COMMON';
     }
     interface GpuMetric {
       /** Required. Seconds of GPU usage, e.g. 3600. */
       gpuSec?: string;
       /** Required. Type of GPU, e.g. NVIDIA_TESLA_V100. */
-      gpuType?: string;
+      gpuType?:
+        | 'UNKNOWN_GPU_TYPE'
+        | 'NVIDIA_TESLA_A100'
+        | 'NVIDIA_A100_80GB'
+        | 'NVIDIA_B200'
+        | 'NVIDIA_GB200'
+        | 'NVIDIA_TESLA_K80'
+        | 'NVIDIA_L4'
+        | 'NVIDIA_TESLA_P100'
+        | 'NVIDIA_TESLA_P4'
+        | 'NVIDIA_TESLA_T4'
+        | 'NVIDIA_TESLA_V100'
+        | 'NVIDIA_H100_80GB'
+        | 'NVIDIA_H100_MEGA_80GB'
+        | 'NVIDIA_H200_141GB'
+        | 'NVIDIA_RTX_PRO_6000';
       /** Required. Machine spec, e.g. N1_STANDARD_4. */
-      machineSpec?: string;
+      machineSpec?:
+        | 'UNKNOWN_MACHINE_SPEC'
+        | 'N1_STANDARD_2'
+        | 'N1_STANDARD_4'
+        | 'N1_STANDARD_8'
+        | 'N1_STANDARD_16'
+        | 'N1_STANDARD_32'
+        | 'N1_STANDARD_64'
+        | 'N1_STANDARD_96'
+        | 'N1_HIGHMEM_2'
+        | 'N1_HIGHMEM_4'
+        | 'N1_HIGHMEM_8'
+        | 'N1_HIGHMEM_16'
+        | 'N1_HIGHMEM_32'
+        | 'N1_HIGHMEM_64'
+        | 'N1_HIGHMEM_96'
+        | 'N1_HIGHCPU_2'
+        | 'N1_HIGHCPU_4'
+        | 'N1_HIGHCPU_8'
+        | 'N1_HIGHCPU_16'
+        | 'N1_HIGHCPU_32'
+        | 'N1_HIGHCPU_64'
+        | 'N1_HIGHCPU_96'
+        | 'A2_HIGHGPU_1G'
+        | 'A2_HIGHGPU_2G'
+        | 'A2_HIGHGPU_4G'
+        | 'A2_HIGHGPU_8G'
+        | 'A2_MEGAGPU_16G'
+        | 'A2_ULTRAGPU_1G'
+        | 'A2_ULTRAGPU_2G'
+        | 'A2_ULTRAGPU_4G'
+        | 'A2_ULTRAGPU_8G'
+        | 'A3_HIGHGPU_1G'
+        | 'A3_HIGHGPU_2G'
+        | 'A3_HIGHGPU_4G'
+        | 'A3_HIGHGPU_8G'
+        | 'A3_MEGAGPU_8G'
+        | 'A3_ULTRAGPU_8G'
+        | 'A3_EDGEGPU_8G'
+        | 'A4_HIGHGPU_8G'
+        | 'A4X_HIGHGPU_4G'
+        | 'E2_STANDARD_2'
+        | 'E2_STANDARD_4'
+        | 'E2_STANDARD_8'
+        | 'E2_STANDARD_16'
+        | 'E2_STANDARD_32'
+        | 'E2_HIGHMEM_2'
+        | 'E2_HIGHMEM_4'
+        | 'E2_HIGHMEM_8'
+        | 'E2_HIGHMEM_16'
+        | 'E2_HIGHCPU_2'
+        | 'E2_HIGHCPU_4'
+        | 'E2_HIGHCPU_8'
+        | 'E2_HIGHCPU_16'
+        | 'E2_HIGHCPU_32'
+        | 'N2_STANDARD_2'
+        | 'N2_STANDARD_4'
+        | 'N2_STANDARD_8'
+        | 'N2_STANDARD_16'
+        | 'N2_STANDARD_32'
+        | 'N2_STANDARD_48'
+        | 'N2_STANDARD_64'
+        | 'N2_STANDARD_80'
+        | 'N2_STANDARD_96'
+        | 'N2_STANDARD_128'
+        | 'N2_HIGHMEM_2'
+        | 'N2_HIGHMEM_4'
+        | 'N2_HIGHMEM_8'
+        | 'N2_HIGHMEM_16'
+        | 'N2_HIGHMEM_32'
+        | 'N2_HIGHMEM_48'
+        | 'N2_HIGHMEM_64'
+        | 'N2_HIGHMEM_80'
+        | 'N2_HIGHMEM_96'
+        | 'N2_HIGHMEM_128'
+        | 'N2_HIGHCPU_2'
+        | 'N2_HIGHCPU_4'
+        | 'N2_HIGHCPU_8'
+        | 'N2_HIGHCPU_16'
+        | 'N2_HIGHCPU_32'
+        | 'N2_HIGHCPU_48'
+        | 'N2_HIGHCPU_64'
+        | 'N2_HIGHCPU_80'
+        | 'N2_HIGHCPU_96'
+        | 'N2D_STANDARD_2'
+        | 'N2D_STANDARD_4'
+        | 'N2D_STANDARD_8'
+        | 'N2D_STANDARD_16'
+        | 'N2D_STANDARD_32'
+        | 'N2D_STANDARD_48'
+        | 'N2D_STANDARD_64'
+        | 'N2D_STANDARD_80'
+        | 'N2D_STANDARD_96'
+        | 'N2D_STANDARD_128'
+        | 'N2D_STANDARD_224'
+        | 'N2D_HIGHMEM_2'
+        | 'N2D_HIGHMEM_4'
+        | 'N2D_HIGHMEM_8'
+        | 'N2D_HIGHMEM_16'
+        | 'N2D_HIGHMEM_32'
+        | 'N2D_HIGHMEM_48'
+        | 'N2D_HIGHMEM_64'
+        | 'N2D_HIGHMEM_80'
+        | 'N2D_HIGHMEM_96'
+        | 'N2D_HIGHCPU_2'
+        | 'N2D_HIGHCPU_4'
+        | 'N2D_HIGHCPU_8'
+        | 'N2D_HIGHCPU_16'
+        | 'N2D_HIGHCPU_32'
+        | 'N2D_HIGHCPU_48'
+        | 'N2D_HIGHCPU_64'
+        | 'N2D_HIGHCPU_80'
+        | 'N2D_HIGHCPU_96'
+        | 'N2D_HIGHCPU_128'
+        | 'N2D_HIGHCPU_224'
+        | 'C2_STANDARD_4'
+        | 'C2_STANDARD_8'
+        | 'C2_STANDARD_16'
+        | 'C2_STANDARD_30'
+        | 'C2_STANDARD_60'
+        | 'C2D_STANDARD_2'
+        | 'C2D_STANDARD_4'
+        | 'C2D_STANDARD_8'
+        | 'C2D_STANDARD_16'
+        | 'C2D_STANDARD_32'
+        | 'C2D_STANDARD_56'
+        | 'C2D_STANDARD_112'
+        | 'C2D_HIGHCPU_2'
+        | 'C2D_HIGHCPU_4'
+        | 'C2D_HIGHCPU_8'
+        | 'C2D_HIGHCPU_16'
+        | 'C2D_HIGHCPU_32'
+        | 'C2D_HIGHCPU_56'
+        | 'C2D_HIGHCPU_112'
+        | 'C2D_HIGHMEM_2'
+        | 'C2D_HIGHMEM_4'
+        | 'C2D_HIGHMEM_8'
+        | 'C2D_HIGHMEM_16'
+        | 'C2D_HIGHMEM_32'
+        | 'C2D_HIGHMEM_56'
+        | 'C2D_HIGHMEM_112'
+        | 'G2_STANDARD_4'
+        | 'G2_STANDARD_8'
+        | 'G2_STANDARD_12'
+        | 'G2_STANDARD_16'
+        | 'G2_STANDARD_24'
+        | 'G2_STANDARD_32'
+        | 'G2_STANDARD_48'
+        | 'G2_STANDARD_96'
+        | 'G4_STANDARD_48'
+        | 'C3_STANDARD_4'
+        | 'C3_STANDARD_8'
+        | 'C3_STANDARD_22'
+        | 'C3_STANDARD_44'
+        | 'C3_STANDARD_88'
+        | 'C3_STANDARD_176'
+        | 'C3_HIGHCPU_4'
+        | 'C3_HIGHCPU_8'
+        | 'C3_HIGHCPU_22'
+        | 'C3_HIGHCPU_44'
+        | 'C3_HIGHCPU_88'
+        | 'C3_HIGHCPU_176'
+        | 'C3_HIGHMEM_4'
+        | 'C3_HIGHMEM_8'
+        | 'C3_HIGHMEM_22'
+        | 'C3_HIGHMEM_44'
+        | 'C3_HIGHMEM_88'
+        | 'C3_HIGHMEM_176'
+        | 'C4_STANDARD_8'
+        | 'C4_STANDARD_16'
+        | 'C4_STANDARD_24'
+        | 'C4_STANDARD_32'
+        | 'C4_STANDARD_48'
+        | 'C4_STANDARD_96'
+        | 'C4_STANDARD_144'
+        | 'C4_STANDARD_192'
+        | 'C4_STANDARD_288'
+        | 'C4_HIGHCPU_8'
+        | 'C4_HIGHCPU_16'
+        | 'C4_HIGHCPU_24'
+        | 'C4_HIGHCPU_32'
+        | 'C4_HIGHCPU_48'
+        | 'C4_HIGHCPU_96'
+        | 'C4_HIGHCPU_144'
+        | 'C4_HIGHCPU_192'
+        | 'C4_HIGHCPU_288'
+        | 'C4_HIGHMEM_8'
+        | 'C4_HIGHMEM_16'
+        | 'C4_HIGHMEM_24'
+        | 'C4_HIGHMEM_32'
+        | 'C4_HIGHMEM_48'
+        | 'C4_HIGHMEM_96'
+        | 'C4_HIGHMEM_144'
+        | 'C4_HIGHMEM_192'
+        | 'C4_HIGHMEM_288'
+        | 'C4A_STANDARD_8'
+        | 'C4A_STANDARD_16'
+        | 'C4A_STANDARD_32'
+        | 'C4A_STANDARD_48'
+        | 'C4A_STANDARD_64'
+        | 'C4A_STANDARD_72'
+        | 'C4A_HIGHCPU_8'
+        | 'C4A_HIGHCPU_16'
+        | 'C4A_HIGHCPU_32'
+        | 'C4A_HIGHCPU_48'
+        | 'C4A_HIGHCPU_64'
+        | 'C4A_HIGHCPU_72'
+        | 'C4A_HIGHMEM_8'
+        | 'C4A_HIGHMEM_16'
+        | 'C4A_HIGHMEM_32'
+        | 'C4A_HIGHMEM_48'
+        | 'C4A_HIGHMEM_64'
+        | 'C4A_HIGHMEM_72'
+        | 'C4D_STANDARD_8'
+        | 'C4D_STANDARD_16'
+        | 'C4D_STANDARD_32'
+        | 'C4D_STANDARD_48'
+        | 'C4D_STANDARD_64'
+        | 'C4D_STANDARD_96'
+        | 'C4D_STANDARD_192'
+        | 'C4D_STANDARD_384'
+        | 'C4D_HIGHCPU_8'
+        | 'C4D_HIGHCPU_16'
+        | 'C4D_HIGHCPU_32'
+        | 'C4D_HIGHCPU_48'
+        | 'C4D_HIGHCPU_64'
+        | 'C4D_HIGHCPU_96'
+        | 'C4D_HIGHCPU_192'
+        | 'C4D_HIGHCPU_384'
+        | 'C4D_HIGHMEM_8'
+        | 'C4D_HIGHMEM_16'
+        | 'C4D_HIGHMEM_32'
+        | 'C4D_HIGHMEM_48'
+        | 'C4D_HIGHMEM_64'
+        | 'C4D_HIGHMEM_96'
+        | 'C4D_HIGHMEM_192'
+        | 'C4D_HIGHMEM_384'
+        | 'N4_STANDARD_2'
+        | 'N4_STANDARD_4'
+        | 'N4_STANDARD_8'
+        | 'N4_STANDARD_16'
+        | 'N4_STANDARD_32'
+        | 'N4_STANDARD_48'
+        | 'N4_STANDARD_64'
+        | 'N4_STANDARD_80'
+        | 'N4_HIGHCPU_2'
+        | 'N4_HIGHCPU_4'
+        | 'N4_HIGHCPU_8'
+        | 'N4_HIGHCPU_16'
+        | 'N4_HIGHCPU_32'
+        | 'N4_HIGHCPU_48'
+        | 'N4_HIGHCPU_64'
+        | 'N4_HIGHCPU_80'
+        | 'N4_HIGHMEM_2'
+        | 'N4_HIGHMEM_4'
+        | 'N4_HIGHMEM_8'
+        | 'N4_HIGHMEM_16'
+        | 'N4_HIGHMEM_32'
+        | 'N4_HIGHMEM_48'
+        | 'N4_HIGHMEM_64'
+        | 'N4_HIGHMEM_80'
+        | 'N4A_STANDARD_8'
+        | 'N4A_STANDARD_16'
+        | 'N4A_STANDARD_32'
+        | 'N4A_STANDARD_48'
+        | 'N4A_STANDARD_64'
+        | 'N4A_HIGHCPU_8'
+        | 'N4A_HIGHCPU_16'
+        | 'N4A_HIGHCPU_32'
+        | 'N4A_HIGHCPU_48'
+        | 'N4A_HIGHCPU_64'
+        | 'N4A_HIGHMEM_8'
+        | 'N4A_HIGHMEM_16'
+        | 'N4A_HIGHMEM_32'
+        | 'N4A_HIGHMEM_48'
+        | 'N4A_HIGHMEM_64'
+        | 'C3D_STANDARD_8'
+        | 'C3D_STANDARD_16'
+        | 'C3D_STANDARD_30'
+        | 'C3D_STANDARD_60'
+        | 'C3D_STANDARD_90'
+        | 'C3D_STANDARD_180'
+        | 'C3D_STANDARD_360'
+        | 'C3D_HIGHCPU_8'
+        | 'C3D_HIGHCPU_16'
+        | 'C3D_HIGHCPU_30'
+        | 'C3D_HIGHCPU_60'
+        | 'C3D_HIGHCPU_90'
+        | 'C3D_HIGHCPU_180'
+        | 'C3D_HIGHCPU_360'
+        | 'C3D_HIGHMEM_8'
+        | 'C3D_HIGHMEM_16'
+        | 'C3D_HIGHMEM_30'
+        | 'C3D_HIGHMEM_60'
+        | 'C3D_HIGHMEM_90'
+        | 'C3D_HIGHMEM_180'
+        | 'C3D_HIGHMEM_360';
       /** Billing tracking labels. They do not contain any user data but only the labels set by Vertex Core Infra itself. Tracking labels' keys are defined with special format: goog-[\p{Ll}\p{N}]+ E.g. "key": "goog-k8s-cluster-name","value": "us-east1-b4rk" */
       trackingLabels?: {[P in string]: string};
     }
@@ -249,39 +988,419 @@ declare namespace gapi.client {
     }
     interface PartOfSpeech {
       /** The grammatical aspect. */
-      aspect?: string;
+      aspect?: 'ASPECT_UNKNOWN' | 'PERFECTIVE' | 'IMPERFECTIVE' | 'PROGRESSIVE';
       /** The grammatical case. */
-      case?: string;
+      case?:
+        | 'CASE_UNKNOWN'
+        | 'ACCUSATIVE'
+        | 'ADVERBIAL'
+        | 'COMPLEMENTIVE'
+        | 'DATIVE'
+        | 'GENITIVE'
+        | 'INSTRUMENTAL'
+        | 'LOCATIVE'
+        | 'NOMINATIVE'
+        | 'OBLIQUE'
+        | 'PARTITIVE'
+        | 'PREPOSITIONAL'
+        | 'REFLEXIVE_CASE'
+        | 'RELATIVE_CASE'
+        | 'VOCATIVE';
       /** The grammatical form. */
-      form?: string;
+      form?:
+        | 'FORM_UNKNOWN'
+        | 'ADNOMIAL'
+        | 'AUXILIARY'
+        | 'COMPLEMENTIZER'
+        | 'FINAL_ENDING'
+        | 'GERUND'
+        | 'REALIS'
+        | 'IRREALIS'
+        | 'SHORT'
+        | 'LONG'
+        | 'ORDER'
+        | 'SPECIFIC';
       /** The grammatical gender. */
-      gender?: string;
+      gender?: 'GENDER_UNKNOWN' | 'FEMININE' | 'MASCULINE' | 'NEUTER';
       /** The grammatical mood. */
-      mood?: string;
+      mood?:
+        | 'MOOD_UNKNOWN'
+        | 'CONDITIONAL_MOOD'
+        | 'IMPERATIVE'
+        | 'INDICATIVE'
+        | 'INTERROGATIVE'
+        | 'JUSSIVE'
+        | 'SUBJUNCTIVE';
       /** The grammatical number. */
-      number?: string;
+      number?: 'NUMBER_UNKNOWN' | 'SINGULAR' | 'PLURAL' | 'DUAL';
       /** The grammatical person. */
-      person?: string;
+      person?:
+        | 'PERSON_UNKNOWN'
+        | 'FIRST'
+        | 'SECOND'
+        | 'THIRD'
+        | 'REFLEXIVE_PERSON';
       /** The grammatical properness. */
-      proper?: string;
+      proper?: 'PROPER_UNKNOWN' | 'PROPER' | 'NOT_PROPER';
       /** The grammatical reciprocity. */
-      reciprocity?: string;
+      reciprocity?: 'RECIPROCITY_UNKNOWN' | 'RECIPROCAL' | 'NON_RECIPROCAL';
       /** The part of speech tag. */
-      tag?: string;
+      tag?:
+        | 'UNKNOWN'
+        | 'ADJ'
+        | 'ADP'
+        | 'ADV'
+        | 'CONJ'
+        | 'DET'
+        | 'NOUN'
+        | 'NUM'
+        | 'PRON'
+        | 'PRT'
+        | 'PUNCT'
+        | 'VERB'
+        | 'X'
+        | 'AFFIX';
       /** The grammatical tense. */
-      tense?: string;
+      tense?:
+        | 'TENSE_UNKNOWN'
+        | 'CONDITIONAL_TENSE'
+        | 'FUTURE'
+        | 'PAST'
+        | 'PRESENT'
+        | 'IMPERFECT'
+        | 'PLUPERFECT';
       /** The grammatical voice. */
-      voice?: string;
+      voice?: 'VOICE_UNKNOWN' | 'ACTIVE' | 'CAUSATIVE' | 'PASSIVE';
     }
     interface RamMetric {
       /** Required. VM memory in Gigabyte second, e.g. 3600. Using int64 type to match billing metrics definition. */
       gibSec?: string;
       /** Required. Machine spec, e.g. N1_STANDARD_4. */
-      machineSpec?: string;
+      machineSpec?:
+        | 'UNKNOWN_MACHINE_SPEC'
+        | 'N1_STANDARD_2'
+        | 'N1_STANDARD_4'
+        | 'N1_STANDARD_8'
+        | 'N1_STANDARD_16'
+        | 'N1_STANDARD_32'
+        | 'N1_STANDARD_64'
+        | 'N1_STANDARD_96'
+        | 'N1_HIGHMEM_2'
+        | 'N1_HIGHMEM_4'
+        | 'N1_HIGHMEM_8'
+        | 'N1_HIGHMEM_16'
+        | 'N1_HIGHMEM_32'
+        | 'N1_HIGHMEM_64'
+        | 'N1_HIGHMEM_96'
+        | 'N1_HIGHCPU_2'
+        | 'N1_HIGHCPU_4'
+        | 'N1_HIGHCPU_8'
+        | 'N1_HIGHCPU_16'
+        | 'N1_HIGHCPU_32'
+        | 'N1_HIGHCPU_64'
+        | 'N1_HIGHCPU_96'
+        | 'A2_HIGHGPU_1G'
+        | 'A2_HIGHGPU_2G'
+        | 'A2_HIGHGPU_4G'
+        | 'A2_HIGHGPU_8G'
+        | 'A2_MEGAGPU_16G'
+        | 'A2_ULTRAGPU_1G'
+        | 'A2_ULTRAGPU_2G'
+        | 'A2_ULTRAGPU_4G'
+        | 'A2_ULTRAGPU_8G'
+        | 'A3_HIGHGPU_1G'
+        | 'A3_HIGHGPU_2G'
+        | 'A3_HIGHGPU_4G'
+        | 'A3_HIGHGPU_8G'
+        | 'A3_MEGAGPU_8G'
+        | 'A3_ULTRAGPU_8G'
+        | 'A3_EDGEGPU_8G'
+        | 'A4_HIGHGPU_8G'
+        | 'A4X_HIGHGPU_4G'
+        | 'E2_STANDARD_2'
+        | 'E2_STANDARD_4'
+        | 'E2_STANDARD_8'
+        | 'E2_STANDARD_16'
+        | 'E2_STANDARD_32'
+        | 'E2_HIGHMEM_2'
+        | 'E2_HIGHMEM_4'
+        | 'E2_HIGHMEM_8'
+        | 'E2_HIGHMEM_16'
+        | 'E2_HIGHCPU_2'
+        | 'E2_HIGHCPU_4'
+        | 'E2_HIGHCPU_8'
+        | 'E2_HIGHCPU_16'
+        | 'E2_HIGHCPU_32'
+        | 'N2_STANDARD_2'
+        | 'N2_STANDARD_4'
+        | 'N2_STANDARD_8'
+        | 'N2_STANDARD_16'
+        | 'N2_STANDARD_32'
+        | 'N2_STANDARD_48'
+        | 'N2_STANDARD_64'
+        | 'N2_STANDARD_80'
+        | 'N2_STANDARD_96'
+        | 'N2_STANDARD_128'
+        | 'N2_HIGHMEM_2'
+        | 'N2_HIGHMEM_4'
+        | 'N2_HIGHMEM_8'
+        | 'N2_HIGHMEM_16'
+        | 'N2_HIGHMEM_32'
+        | 'N2_HIGHMEM_48'
+        | 'N2_HIGHMEM_64'
+        | 'N2_HIGHMEM_80'
+        | 'N2_HIGHMEM_96'
+        | 'N2_HIGHMEM_128'
+        | 'N2_HIGHCPU_2'
+        | 'N2_HIGHCPU_4'
+        | 'N2_HIGHCPU_8'
+        | 'N2_HIGHCPU_16'
+        | 'N2_HIGHCPU_32'
+        | 'N2_HIGHCPU_48'
+        | 'N2_HIGHCPU_64'
+        | 'N2_HIGHCPU_80'
+        | 'N2_HIGHCPU_96'
+        | 'N2D_STANDARD_2'
+        | 'N2D_STANDARD_4'
+        | 'N2D_STANDARD_8'
+        | 'N2D_STANDARD_16'
+        | 'N2D_STANDARD_32'
+        | 'N2D_STANDARD_48'
+        | 'N2D_STANDARD_64'
+        | 'N2D_STANDARD_80'
+        | 'N2D_STANDARD_96'
+        | 'N2D_STANDARD_128'
+        | 'N2D_STANDARD_224'
+        | 'N2D_HIGHMEM_2'
+        | 'N2D_HIGHMEM_4'
+        | 'N2D_HIGHMEM_8'
+        | 'N2D_HIGHMEM_16'
+        | 'N2D_HIGHMEM_32'
+        | 'N2D_HIGHMEM_48'
+        | 'N2D_HIGHMEM_64'
+        | 'N2D_HIGHMEM_80'
+        | 'N2D_HIGHMEM_96'
+        | 'N2D_HIGHCPU_2'
+        | 'N2D_HIGHCPU_4'
+        | 'N2D_HIGHCPU_8'
+        | 'N2D_HIGHCPU_16'
+        | 'N2D_HIGHCPU_32'
+        | 'N2D_HIGHCPU_48'
+        | 'N2D_HIGHCPU_64'
+        | 'N2D_HIGHCPU_80'
+        | 'N2D_HIGHCPU_96'
+        | 'N2D_HIGHCPU_128'
+        | 'N2D_HIGHCPU_224'
+        | 'C2_STANDARD_4'
+        | 'C2_STANDARD_8'
+        | 'C2_STANDARD_16'
+        | 'C2_STANDARD_30'
+        | 'C2_STANDARD_60'
+        | 'C2D_STANDARD_2'
+        | 'C2D_STANDARD_4'
+        | 'C2D_STANDARD_8'
+        | 'C2D_STANDARD_16'
+        | 'C2D_STANDARD_32'
+        | 'C2D_STANDARD_56'
+        | 'C2D_STANDARD_112'
+        | 'C2D_HIGHCPU_2'
+        | 'C2D_HIGHCPU_4'
+        | 'C2D_HIGHCPU_8'
+        | 'C2D_HIGHCPU_16'
+        | 'C2D_HIGHCPU_32'
+        | 'C2D_HIGHCPU_56'
+        | 'C2D_HIGHCPU_112'
+        | 'C2D_HIGHMEM_2'
+        | 'C2D_HIGHMEM_4'
+        | 'C2D_HIGHMEM_8'
+        | 'C2D_HIGHMEM_16'
+        | 'C2D_HIGHMEM_32'
+        | 'C2D_HIGHMEM_56'
+        | 'C2D_HIGHMEM_112'
+        | 'G2_STANDARD_4'
+        | 'G2_STANDARD_8'
+        | 'G2_STANDARD_12'
+        | 'G2_STANDARD_16'
+        | 'G2_STANDARD_24'
+        | 'G2_STANDARD_32'
+        | 'G2_STANDARD_48'
+        | 'G2_STANDARD_96'
+        | 'G4_STANDARD_48'
+        | 'C3_STANDARD_4'
+        | 'C3_STANDARD_8'
+        | 'C3_STANDARD_22'
+        | 'C3_STANDARD_44'
+        | 'C3_STANDARD_88'
+        | 'C3_STANDARD_176'
+        | 'C3_HIGHCPU_4'
+        | 'C3_HIGHCPU_8'
+        | 'C3_HIGHCPU_22'
+        | 'C3_HIGHCPU_44'
+        | 'C3_HIGHCPU_88'
+        | 'C3_HIGHCPU_176'
+        | 'C3_HIGHMEM_4'
+        | 'C3_HIGHMEM_8'
+        | 'C3_HIGHMEM_22'
+        | 'C3_HIGHMEM_44'
+        | 'C3_HIGHMEM_88'
+        | 'C3_HIGHMEM_176'
+        | 'C4_STANDARD_8'
+        | 'C4_STANDARD_16'
+        | 'C4_STANDARD_24'
+        | 'C4_STANDARD_32'
+        | 'C4_STANDARD_48'
+        | 'C4_STANDARD_96'
+        | 'C4_STANDARD_144'
+        | 'C4_STANDARD_192'
+        | 'C4_STANDARD_288'
+        | 'C4_HIGHCPU_8'
+        | 'C4_HIGHCPU_16'
+        | 'C4_HIGHCPU_24'
+        | 'C4_HIGHCPU_32'
+        | 'C4_HIGHCPU_48'
+        | 'C4_HIGHCPU_96'
+        | 'C4_HIGHCPU_144'
+        | 'C4_HIGHCPU_192'
+        | 'C4_HIGHCPU_288'
+        | 'C4_HIGHMEM_8'
+        | 'C4_HIGHMEM_16'
+        | 'C4_HIGHMEM_24'
+        | 'C4_HIGHMEM_32'
+        | 'C4_HIGHMEM_48'
+        | 'C4_HIGHMEM_96'
+        | 'C4_HIGHMEM_144'
+        | 'C4_HIGHMEM_192'
+        | 'C4_HIGHMEM_288'
+        | 'C4A_STANDARD_8'
+        | 'C4A_STANDARD_16'
+        | 'C4A_STANDARD_32'
+        | 'C4A_STANDARD_48'
+        | 'C4A_STANDARD_64'
+        | 'C4A_STANDARD_72'
+        | 'C4A_HIGHCPU_8'
+        | 'C4A_HIGHCPU_16'
+        | 'C4A_HIGHCPU_32'
+        | 'C4A_HIGHCPU_48'
+        | 'C4A_HIGHCPU_64'
+        | 'C4A_HIGHCPU_72'
+        | 'C4A_HIGHMEM_8'
+        | 'C4A_HIGHMEM_16'
+        | 'C4A_HIGHMEM_32'
+        | 'C4A_HIGHMEM_48'
+        | 'C4A_HIGHMEM_64'
+        | 'C4A_HIGHMEM_72'
+        | 'C4D_STANDARD_8'
+        | 'C4D_STANDARD_16'
+        | 'C4D_STANDARD_32'
+        | 'C4D_STANDARD_48'
+        | 'C4D_STANDARD_64'
+        | 'C4D_STANDARD_96'
+        | 'C4D_STANDARD_192'
+        | 'C4D_STANDARD_384'
+        | 'C4D_HIGHCPU_8'
+        | 'C4D_HIGHCPU_16'
+        | 'C4D_HIGHCPU_32'
+        | 'C4D_HIGHCPU_48'
+        | 'C4D_HIGHCPU_64'
+        | 'C4D_HIGHCPU_96'
+        | 'C4D_HIGHCPU_192'
+        | 'C4D_HIGHCPU_384'
+        | 'C4D_HIGHMEM_8'
+        | 'C4D_HIGHMEM_16'
+        | 'C4D_HIGHMEM_32'
+        | 'C4D_HIGHMEM_48'
+        | 'C4D_HIGHMEM_64'
+        | 'C4D_HIGHMEM_96'
+        | 'C4D_HIGHMEM_192'
+        | 'C4D_HIGHMEM_384'
+        | 'N4_STANDARD_2'
+        | 'N4_STANDARD_4'
+        | 'N4_STANDARD_8'
+        | 'N4_STANDARD_16'
+        | 'N4_STANDARD_32'
+        | 'N4_STANDARD_48'
+        | 'N4_STANDARD_64'
+        | 'N4_STANDARD_80'
+        | 'N4_HIGHCPU_2'
+        | 'N4_HIGHCPU_4'
+        | 'N4_HIGHCPU_8'
+        | 'N4_HIGHCPU_16'
+        | 'N4_HIGHCPU_32'
+        | 'N4_HIGHCPU_48'
+        | 'N4_HIGHCPU_64'
+        | 'N4_HIGHCPU_80'
+        | 'N4_HIGHMEM_2'
+        | 'N4_HIGHMEM_4'
+        | 'N4_HIGHMEM_8'
+        | 'N4_HIGHMEM_16'
+        | 'N4_HIGHMEM_32'
+        | 'N4_HIGHMEM_48'
+        | 'N4_HIGHMEM_64'
+        | 'N4_HIGHMEM_80'
+        | 'N4A_STANDARD_8'
+        | 'N4A_STANDARD_16'
+        | 'N4A_STANDARD_32'
+        | 'N4A_STANDARD_48'
+        | 'N4A_STANDARD_64'
+        | 'N4A_HIGHCPU_8'
+        | 'N4A_HIGHCPU_16'
+        | 'N4A_HIGHCPU_32'
+        | 'N4A_HIGHCPU_48'
+        | 'N4A_HIGHCPU_64'
+        | 'N4A_HIGHMEM_8'
+        | 'N4A_HIGHMEM_16'
+        | 'N4A_HIGHMEM_32'
+        | 'N4A_HIGHMEM_48'
+        | 'N4A_HIGHMEM_64'
+        | 'C3D_STANDARD_8'
+        | 'C3D_STANDARD_16'
+        | 'C3D_STANDARD_30'
+        | 'C3D_STANDARD_60'
+        | 'C3D_STANDARD_90'
+        | 'C3D_STANDARD_180'
+        | 'C3D_STANDARD_360'
+        | 'C3D_HIGHCPU_8'
+        | 'C3D_HIGHCPU_16'
+        | 'C3D_HIGHCPU_30'
+        | 'C3D_HIGHCPU_60'
+        | 'C3D_HIGHCPU_90'
+        | 'C3D_HIGHCPU_180'
+        | 'C3D_HIGHCPU_360'
+        | 'C3D_HIGHMEM_8'
+        | 'C3D_HIGHMEM_16'
+        | 'C3D_HIGHMEM_30'
+        | 'C3D_HIGHMEM_60'
+        | 'C3D_HIGHMEM_90'
+        | 'C3D_HIGHMEM_180'
+        | 'C3D_HIGHMEM_360';
       /** Required. VM memory in gb. */
       memories?: number;
       /** Required. Type of ram. */
-      ramType?: string;
+      ramType?:
+        | 'UNKNOWN_RAM_TYPE'
+        | 'A2'
+        | 'A3'
+        | 'A4'
+        | 'A4X'
+        | 'C2'
+        | 'C2D'
+        | 'CUSTOM'
+        | 'E2'
+        | 'G2'
+        | 'G4'
+        | 'C4'
+        | 'C4A'
+        | 'C4D'
+        | 'N4'
+        | 'N4A'
+        | 'C3D'
+        | 'C3'
+        | 'M2'
+        | 'M1'
+        | 'N1'
+        | 'N2_CUSTOM'
+        | 'N2'
+        | 'N2D';
       /** Billing tracking labels. They do not contain any user data but only the labels set by Vertex Core Infra itself. Tracking labels' keys are defined with special format: goog-[\p{Ll}\p{N}]+ E.g. "key": "goog-k8s-cluster-name","value": "us-east1-b4rk" */
       trackingLabels?: {[P in string]: string};
     }
@@ -325,7 +1444,13 @@ declare namespace gapi.client {
       /** Required. Seconds of TPU usage, e.g. 3600. */
       tpuSec?: string;
       /** Required. Type of TPU, e.g. TPU_V2, TPU_V3_POD. */
-      tpuType?: string;
+      tpuType?:
+        | 'UNKNOWN_TPU_TYPE'
+        | 'TPU_V2_POD'
+        | 'TPU_V2'
+        | 'TPU_V3_POD'
+        | 'TPU_V3'
+        | 'TPU_V5_LITEPOD';
     }
     interface XPSArrayStats {
       commonStats?: XPSCommonStats;
@@ -417,7 +1542,12 @@ declare namespace gapi.client {
     }
     interface XPSColumnSpecForecastingMetadata {
       /** The type of the column for FORECASTING model training purposes. */
-      columnType?: string;
+      columnType?:
+        | 'COLUMN_TYPE_UNSPECIFIED'
+        | 'KEY'
+        | 'KEY_METADATA'
+        | 'TIME_SERIES_AVAILABLE_PAST_ONLY'
+        | 'TIME_SERIES_AVAILABLE_PAST_AND_FUTURE';
     }
     interface XPSCommonStats {
       distinctValueCount?: string;
@@ -479,7 +1609,12 @@ declare namespace gapi.client {
       /** Number of records having errors associated with the enum. */
       count?: number;
       /** Type of the error. */
-      errorType?: string;
+      errorType?:
+        | 'ERROR_TYPE_UNSPECIFIED'
+        | 'UNSUPPORTED_AUDIO_FORMAT'
+        | 'FILE_EXTENSION_MISMATCH_WITH_AUDIO_FORMAT'
+        | 'FILE_TOO_LARGE'
+        | 'MISSING_TRANSCRIPTION';
     }
     interface XPSDataStats {
       /** The statistics for ARRAY DataType. */
@@ -513,13 +1648,24 @@ declare namespace gapi.client {
       /** If type_code == TIMESTAMP then `time_format` provides the format in which that time field is expressed. The time_format must be written in `strftime` syntax. If time_format is not set, then the default format as described on the field is used. */
       timeFormat?: string;
       /** Required. The TypeCode for this type. */
-      typeCode?: string;
+      typeCode?:
+        | 'TYPE_CODE_UNSPECIFIED'
+        | 'FLOAT64'
+        | 'TIMESTAMP'
+        | 'STRING'
+        | 'ARRAY'
+        | 'STRUCT'
+        | 'CATEGORY';
     }
     interface XPSDockerFormat {
       /** Optional. Additional cpu information describing the requirements for the to be exported model files. */
-      cpuArchitecture?: string;
+      cpuArchitecture?:
+        | 'CPU_ARCHITECTURE_UNSPECIFIED'
+        | 'CPU_ARCHITECTURE_X86_64';
       /** Optional. Additional gpu information describing the requirements for the to be exported model files. */
-      gpuArchitecture?: string;
+      gpuArchitecture?:
+        | 'GPU_ARCHITECTURE_UNSPECIFIED'
+        | 'GPU_ARCHITECTURE_NVIDIA';
     }
     interface XPSEdgeTpuTfLiteFormat {}
     interface XPSEvaluationMetrics {
@@ -580,7 +1726,13 @@ declare namespace gapi.client {
     interface XPSFileSpec {
       /** Deprecated. Use file_spec. */
       directoryPath?: string;
-      fileFormat?: string;
+      fileFormat?:
+        | 'FILE_FORMAT_UNKNOWN'
+        | 'FILE_FORMAT_SSTABLE'
+        | 'FILE_FORMAT_TRANSLATION_RKV'
+        | 'FILE_FORMAT_RECORDIO'
+        | 'FILE_FORMAT_RAW_CSV'
+        | 'FILE_FORMAT_RAW_CAPACITOR';
       /** Single file path, or file pattern of format "/path/to/file@shard_count". E.g. /cns/cell-d/somewhere/file@2 is expanded to two files: /cns/cell-d/somewhere/file-00000-of-00002 and /cns/cell-d/somewhere/file-00001-of-00002. */
       fileSpec?: string;
       /** Deprecated. Use file_spec. */
@@ -614,7 +1766,11 @@ declare namespace gapi.client {
       modelArtifactSpec?: XPSImageModelArtifactSpec;
       modelServingSpec?: XPSImageModelServingSpec;
       /** Stop reason for training job, e.g. 'TRAIN_BUDGET_REACHED', 'MODEL_CONVERGED', 'MODEL_EARLY_STOPPED'. */
-      stopReason?: string;
+      stopReason?:
+        | 'TRAIN_STOP_REASON_UNSPECIFIED'
+        | 'TRAIN_STOP_REASON_BUDGET_REACHED'
+        | 'TRAIN_STOP_REASON_MODEL_CONVERGED'
+        | 'TRAIN_STOP_REASON_MODEL_EARLY_STOPPED';
       /** The actual cost to create this model. - For edge type model, the cost is expressed in node hour. - For cloud type model,the cost is expressed in compute hour. - Populated for models created before GA. To be deprecated after GA. */
       trainCostInNodeTime?: string;
       /** The actual training cost, expressed in node seconds. Populated for models trained in node time. */
@@ -647,12 +1803,36 @@ declare namespace gapi.client {
       tfRuntimeVersion?: string;
     }
     interface XPSImageModelServingSpecModelThroughputEstimation {
-      computeEngineAcceleratorType?: string;
+      computeEngineAcceleratorType?:
+        | 'UNSPECIFIED'
+        | 'NVIDIA_TESLA_K80'
+        | 'NVIDIA_TESLA_P100'
+        | 'NVIDIA_TESLA_V100'
+        | 'NVIDIA_TESLA_P4'
+        | 'NVIDIA_TESLA_T4'
+        | 'NVIDIA_TESLA_A100'
+        | 'NVIDIA_A100_80GB'
+        | 'NVIDIA_L4'
+        | 'NVIDIA_H100_80GB'
+        | 'NVIDIA_H100_MEGA_80GB'
+        | 'NVIDIA_H200_141GB'
+        | 'NVIDIA_B200'
+        | 'NVIDIA_GB200'
+        | 'TPU_V2'
+        | 'TPU_V3'
+        | 'TPU_V4_POD'
+        | 'TPU_V5_LITEPOD';
       /** Estimated latency. */
       latencyInMilliseconds?: number;
       /** The approximate qps a deployed node can serve. */
       nodeQps?: number;
-      servomaticPartitionType?: string;
+      servomaticPartitionType?:
+        | 'PARTITION_TYPE_UNSPECIFIED'
+        | 'PARTITION_ZERO'
+        | 'PARTITION_REDUCED_HOMING'
+        | 'PARTITION_JELLYFISH'
+        | 'PARTITION_CPU'
+        | 'PARTITION_CUSTOM_STORAGE_CPU';
     }
     interface XPSImageObjectDetectionEvaluationMetrics {
       /** The single metric for bounding boxes evaluation: the mean_average_precision averaged over all bounding_box_metrics_entries. */
@@ -672,7 +1852,11 @@ declare namespace gapi.client {
       modelArtifactSpec?: XPSImageModelArtifactSpec;
       modelServingSpec?: XPSImageModelServingSpec;
       /** Stop reason for training job, e.g. 'TRAIN_BUDGET_REACHED', 'MODEL_CONVERGED'. */
-      stopReason?: string;
+      stopReason?:
+        | 'TRAIN_STOP_REASON_UNSPECIFIED'
+        | 'TRAIN_STOP_REASON_BUDGET_REACHED'
+        | 'TRAIN_STOP_REASON_MODEL_CONVERGED'
+        | 'TRAIN_STOP_REASON_MODEL_EARLY_STOPPED';
       /** The actual train cost of creating this model, expressed in node seconds, i.e. 3,600 value in this field means 1 node hour. */
       trainCostNodeSeconds?: string;
     }
@@ -703,7 +1887,11 @@ declare namespace gapi.client {
       modelArtifactSpec?: XPSImageModelArtifactSpec;
       modelServingSpec?: XPSImageModelServingSpec;
       /** Stop reason for training job, e.g. 'TRAIN_BUDGET_REACHED', 'MODEL_CONVERGED'. */
-      stopReason?: string;
+      stopReason?:
+        | 'TRAIN_STOP_REASON_UNSPECIFIED'
+        | 'TRAIN_STOP_REASON_BUDGET_REACHED'
+        | 'TRAIN_STOP_REASON_MODEL_CONVERGED'
+        | 'TRAIN_STOP_REASON_MODEL_EARLY_STOPPED';
       /** The actual train cost of creating this model, expressed in node seconds, i.e. 3,600 value in this field means 1 node hour. */
       trainCostNodeSeconds?: string;
     }
@@ -731,7 +1919,14 @@ declare namespace gapi.client {
     }
     interface XPSModelArtifactItem {
       /** The model artifact format. */
-      artifactFormat?: string;
+      artifactFormat?:
+        | 'ARTIFACT_FORMAT_UNSPECIFIED'
+        | 'TF_CHECKPOINT'
+        | 'TF_SAVED_MODEL'
+        | 'TF_LITE'
+        | 'EDGE_TPU_TF_LITE'
+        | 'TF_JS'
+        | 'CORE_ML';
       /** The Google Cloud Storage URI that stores the model binary files. */
       gcsUri?: string;
     }
@@ -778,7 +1973,7 @@ declare namespace gapi.client {
       /** Name of the input tensor for this model. Only needed in train response. */
       inputTensorName?: string;
       /** Modality of the feature. Valid values are: numeric, image. Defaults to numeric. */
-      modality?: string;
+      modality?: 'MODALITY_UNSPECIFIED' | 'NUMERIC' | 'IMAGE' | 'CATEGORICAL';
       /** Visualization configurations for image explanation. */
       visualizationConfig?: XPSVisualization;
     }
@@ -812,7 +2007,12 @@ declare namespace gapi.client {
     }
     interface XPSSpeechEvaluationMetricsSubModelEvaluationMetric {
       /** Type of the biasing model. */
-      biasingModelType?: string;
+      biasingModelType?:
+        | 'BIASING_MODEL_TYPE_UNSPECIFIED'
+        | 'COMMAND_AND_SEARCH'
+        | 'PHONE_CALL'
+        | 'VIDEO'
+        | 'DEFAULT';
       /** If true then it means we have an enhanced version of the biasing models. */
       isEnhancedModel?: boolean;
       numDeletions?: number;
@@ -836,7 +2036,12 @@ declare namespace gapi.client {
     }
     interface XPSSpeechModelSpecSubModelSpec {
       /** Type of the biasing model. */
-      biasingModelType?: string;
+      biasingModelType?:
+        | 'BIASING_MODEL_TYPE_UNSPECIFIED'
+        | 'COMMAND_AND_SEARCH'
+        | 'PHONE_CALL'
+        | 'VIDEO'
+        | 'DEFAULT';
       /** In S3, Recognition ClientContextId.client_id */
       clientId?: string;
       /** In S3, Recognition ClientContextId.context_id */
@@ -1009,7 +2214,12 @@ declare namespace gapi.client {
     }
     interface XPSTablesTrainingOperationMetadata {
       /** Current stage of creating model. */
-      createModelStage?: string;
+      createModelStage?:
+        | 'CREATE_MODEL_STAGE_UNSPECIFIED'
+        | 'DATA_PREPROCESSING'
+        | 'TRAINING'
+        | 'EVALUATING'
+        | 'MODEL_POST_PROCESSING';
       /** The optimization objective for model. */
       optimizationObjective?: string;
       /** This field is for training. When the operation is terminated successfully, AutoML Backend post this field to operation metadata in spanner. If the metadata has no trials returned, the training operation is supposed to be a failure. */
@@ -1036,7 +2246,13 @@ declare namespace gapi.client {
       /** The Cloud Storage resource path to hold online prediction model. */
       onlinePredictionModelGcsUri?: string;
       /** The partition where the model is deployed. Populated by uCAIP BE as part of online PredictRequest. */
-      partition?: string;
+      partition?:
+        | 'PARTITION_TYPE_UNSPECIFIED'
+        | 'PARTITION_ZERO'
+        | 'PARTITION_REDUCED_HOMING'
+        | 'PARTITION_JELLYFISH'
+        | 'PARTITION_CPU'
+        | 'PARTITION_CUSTOM_STORAGE_CPU';
       /** The default model binary file used for serving (e.g. online predict, batch predict) via public Cloud Ai Platform API. */
       servingArtifact?: XPSModelArtifactItem;
       /** The name of servo model. Populated by uCAIP BE as part of online PredictRequest. */
@@ -1044,7 +2260,20 @@ declare namespace gapi.client {
       /** The name of the trained NL submodel. */
       submodelName?: string;
       /** The type of trained NL submodel */
-      submodelType?: string;
+      submodelType?:
+        | 'TEXT_MODEL_TYPE_UNSPECIFIED'
+        | 'TEXT_MODEL_TYPE_DEFAULT'
+        | 'TEXT_MODEL_TYPE_META_ARCHITECT'
+        | 'TEXT_MODEL_TYPE_ATC'
+        | 'TEXT_MODEL_TYPE_CLARA2'
+        | 'TEXT_MODEL_TYPE_CHATBASE'
+        | 'TEXT_MODEL_TYPE_SAFT_SPAN_LABELING'
+        | 'TEXT_MODEL_TYPE_TEXT_EXTRACTION'
+        | 'TEXT_MODEL_TYPE_RELATIONSHIP_EXTRACTION'
+        | 'TEXT_MODEL_TYPE_COMPOSITE'
+        | 'TEXT_MODEL_TYPE_ALL_MODELS'
+        | 'TEXT_MODEL_TYPE_BERT'
+        | 'TEXT_MODEL_TYPE_ENC_PALM';
       /** ## The fields below are only populated under uCAIP request scope. https://cloud.google.com/ml-engine/docs/runtime-version-list */
       tfRuntimeVersion?: string;
       /** The servomatic model version number. Populated by uCAIP BE as part of online PredictRequest. */
@@ -1166,7 +2395,7 @@ declare namespace gapi.client {
     }
     interface XPSTranslationTrainResponse {
       /** Type of the model. */
-      modelType?: string;
+      modelType?: 'MODEL_TYPE_UNSPECIFIED' | 'LEGACY' | 'CURRENT';
     }
     interface XPSTuningTrial {
       /** Model parameters for the trial. */
@@ -1260,7 +2489,11 @@ declare namespace gapi.client {
       /** The number of query examples in error analysis. */
       exampleCount?: number;
       /** The query type used in retrieval. The enum values are frozen in the foreseeable future. */
-      queryType?: string;
+      queryType?:
+        | 'QUERY_TYPE_UNSPECIFIED'
+        | 'QUERY_TYPE_ALL_SIMILAR'
+        | 'QUERY_TYPE_SAME_CLASS_SIMILAR'
+        | 'QUERY_TYPE_SAME_CLASS_DISSIMILAR';
     }
     interface XPSVisionTrainingOperationMetadata {
       /** Aggregated infra usage within certain time period, for billing report purpose if XAI is enable in training request. */
@@ -1272,13 +2505,25 @@ declare namespace gapi.client {
       /** Excludes attributions above the specified percentile from the highlighted areas. Using the clip_percent_upperbound and clip_percent_lowerbound together can be useful for filtering out noise and making it easier to see areas of strong attribution. Defaults to 99.9. */
       clipPercentUpperbound?: number;
       /** The color scheme used for the highlighted areas. Defaults to PINK_GREEN for Integrated Gradients attribution, which shows positive attributions in green and negative in pink. Defaults to VIRIDIS for XRAI attribution, which highlights the most influential regions in yellow and the least influential in blue. */
-      colorMap?: string;
+      colorMap?:
+        | 'COLOR_MAP_UNSPECIFIED'
+        | 'PINK_GREEN'
+        | 'VIRIDIS'
+        | 'RED'
+        | 'GREEN'
+        | 'RED_GREEN'
+        | 'PINK_WHITE_GREEN';
       /** How the original image is displayed in the visualization. Adjusting the overlay can help increase visual clarity if the original image makes it difficult to view the visualization. Defaults to NONE. */
-      overlayType?: string;
+      overlayType?:
+        | 'OVERLAY_TYPE_UNSPECIFIED'
+        | 'NONE'
+        | 'ORIGINAL'
+        | 'GRAYSCALE'
+        | 'MASK_BLACK';
       /** Whether to only highlight pixels with positive contributions, negative or both. Defaults to POSITIVE. */
-      polarity?: string;
+      polarity?: 'POLARITY_UNSPECIFIED' | 'POSITIVE' | 'NEGATIVE' | 'BOTH';
       /** Type of the image visualization. Only applicable to Integrated Gradients attribution. OUTLINES shows regions of attribution, while PIXELS shows per-pixel attribution. Defaults to OUTLINES. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'PIXELS' | 'OUTLINES';
     }
     interface XPSXpsOperationMetadata {
       /** Optional. XPS server can opt to provide example count of the long running operation (e.g. training, data importing, batch prediction). */
@@ -1298,11 +2543,11 @@ declare namespace gapi.client {
       /** Finds named entities (currently proper names and common nouns) in the text along with entity types, salience, mentions for each entity, and other properties. */
       analyzeEntities(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1325,11 +2570,11 @@ declare namespace gapi.client {
       analyzeEntities(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1352,11 +2597,11 @@ declare namespace gapi.client {
       /** Finds entities, similar to AnalyzeEntities in the text and analyzes sentiment associated with each entity and its mentions. */
       analyzeEntitySentiment(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1379,11 +2624,11 @@ declare namespace gapi.client {
       analyzeEntitySentiment(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1406,11 +2651,11 @@ declare namespace gapi.client {
       /** Analyzes the sentiment of the provided text. */
       analyzeSentiment(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1433,11 +2678,11 @@ declare namespace gapi.client {
       analyzeSentiment(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1460,11 +2705,11 @@ declare namespace gapi.client {
       /** Analyzes the syntax of the text and provides sentence boundaries and tokenization along with part of speech tags, dependency trees, and other properties. */
       analyzeSyntax(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1487,11 +2732,11 @@ declare namespace gapi.client {
       analyzeSyntax(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1514,11 +2759,11 @@ declare namespace gapi.client {
       /** A convenience method that provides all syntax, sentiment, entity, and classification features in one call. */
       annotateText(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1541,11 +2786,11 @@ declare namespace gapi.client {
       annotateText(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1568,11 +2813,11 @@ declare namespace gapi.client {
       /** Classifies a document into categories. */
       classifyText(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1595,11 +2840,11 @@ declare namespace gapi.client {
       classifyText(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1622,11 +2867,11 @@ declare namespace gapi.client {
       /** Moderates a document for harmful and sensitive categories. */
       moderateText(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1649,11 +2894,11 @@ declare namespace gapi.client {
       moderateText(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

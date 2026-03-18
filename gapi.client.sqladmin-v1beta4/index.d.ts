@@ -54,7 +54,12 @@ declare namespace gapi.client {
     }
     interface ApiWarning {
       /** Code to uniquely identify the warning type. */
-      code?: string;
+      code?:
+        | 'SQL_API_WARNING_CODE_UNSPECIFIED'
+        | 'REGION_UNREACHABLE'
+        | 'MAX_RESULTS_EXCEEDS_LIMIT'
+        | 'COMPROMISED_CREDENTIALS'
+        | 'INTERNAL_STATE_FAILURE';
       /** The warning message. */
       message?: string;
       /** The region name for REGION_UNREACHABLE warning. */
@@ -72,11 +77,65 @@ declare namespace gapi.client {
       /** Output only. This output contains the following values: start_time: All database writes up to this time are available. end_time: Any database writes after this time aren't available. */
       backupInterval?: Interval;
       /** Output only. Specifies the kind of backup, PHYSICAL or DEFAULT_SNAPSHOT. */
-      backupKind?: string;
+      backupKind?: 'SQL_BACKUP_KIND_UNSPECIFIED' | 'SNAPSHOT' | 'PHYSICAL';
       /** Output only. The mapping to backup run resource used for IAM validations. */
       backupRun?: string;
       /** Output only. The database version of the instance of at the time this backup was made. */
-      databaseVersion?: string;
+      databaseVersion?:
+        | 'SQL_DATABASE_VERSION_UNSPECIFIED'
+        | 'MYSQL_5_1'
+        | 'MYSQL_5_5'
+        | 'MYSQL_5_6'
+        | 'MYSQL_5_7'
+        | 'MYSQL_8_0'
+        | 'MYSQL_8_0_18'
+        | 'MYSQL_8_0_26'
+        | 'MYSQL_8_0_27'
+        | 'MYSQL_8_0_28'
+        | 'MYSQL_8_0_29'
+        | 'MYSQL_8_0_30'
+        | 'MYSQL_8_0_31'
+        | 'MYSQL_8_0_32'
+        | 'MYSQL_8_0_33'
+        | 'MYSQL_8_0_34'
+        | 'MYSQL_8_0_35'
+        | 'MYSQL_8_0_36'
+        | 'MYSQL_8_0_37'
+        | 'MYSQL_8_0_39'
+        | 'MYSQL_8_0_40'
+        | 'MYSQL_8_0_41'
+        | 'MYSQL_8_0_42'
+        | 'MYSQL_8_0_43'
+        | 'MYSQL_8_0_44'
+        | 'MYSQL_8_0_45'
+        | 'MYSQL_8_0_46'
+        | 'MYSQL_8_4'
+        | 'MYSQL_9_7'
+        | 'SQLSERVER_2017_STANDARD'
+        | 'SQLSERVER_2017_ENTERPRISE'
+        | 'SQLSERVER_2017_EXPRESS'
+        | 'SQLSERVER_2017_WEB'
+        | 'POSTGRES_9_6'
+        | 'POSTGRES_10'
+        | 'POSTGRES_11'
+        | 'POSTGRES_12'
+        | 'POSTGRES_13'
+        | 'POSTGRES_14'
+        | 'POSTGRES_15'
+        | 'POSTGRES_16'
+        | 'POSTGRES_17'
+        | 'POSTGRES_18'
+        | 'SQLSERVER_2019_STANDARD'
+        | 'SQLSERVER_2019_ENTERPRISE'
+        | 'SQLSERVER_2019_EXPRESS'
+        | 'SQLSERVER_2019_WEB'
+        | 'SQLSERVER_2022_STANDARD'
+        | 'SQLSERVER_2022_ENTERPRISE'
+        | 'SQLSERVER_2022_EXPRESS'
+        | 'SQLSERVER_2022_WEB'
+        | 'SQLSERVER_2025_STANDARD'
+        | 'SQLSERVER_2025_ENTERPRISE'
+        | 'SQLSERVER_2025_EXPRESS';
       /** The description of this backup. */
       description?: string;
       /** Output only. Information about why the backup operation fails (for example, when the backup state fails). */
@@ -108,19 +167,34 @@ declare namespace gapi.client {
       /** Output only. The URI of this resource. */
       selfLink?: string;
       /** Output only. The state of this backup. */
-      state?: string;
+      state?:
+        | 'SQL_BACKUP_STATE_UNSPECIFIED'
+        | 'ENQUEUED'
+        | 'RUNNING'
+        | 'FAILED'
+        | 'SUCCESSFUL'
+        | 'DELETING'
+        | 'DELETION_FAILED';
       /** Output only. This output contains a backup time zone. If a Cloud SQL for SQL Server instance has a different time zone from the backup's time zone, then the restore to the instance doesn't happen. */
       timeZone?: string;
       /** Input only. The time-to-live (TTL) interval for this resource (in days). For example: ttlDays:7, means 7 days from the current time. The expiration time can't exceed 365 days from the time that the backup is created. */
       ttlDays?: string;
       /** Output only. The type of this backup. The type can be "AUTOMATED", "ON_DEMAND", or “FINAL”. */
-      type?: string;
+      type?:
+        | 'SQL_BACKUP_TYPE_UNSPECIFIED'
+        | 'AUTOMATED'
+        | 'ON_DEMAND'
+        | 'FINAL';
     }
     interface BackupConfiguration {
       /** Backup retention settings. */
       backupRetentionSettings?: BackupRetentionSettings;
       /** Output only. Backup tier that manages the backups for the instance. */
-      backupTier?: string;
+      backupTier?:
+        | 'BACKUP_TIER_UNSPECIFIED'
+        | 'STANDARD'
+        | 'ADVANCED'
+        | 'ENHANCED';
       /** (MySQL only) Whether binary log is enabled. If backup configuration is disabled, binarylog must be disabled as well. */
       binaryLogEnabled?: boolean;
       /** Whether this configuration is enabled. */
@@ -136,7 +210,12 @@ declare namespace gapi.client {
       /** Start time for the daily backup configuration in UTC timezone in the 24 hour format - `HH:MM`. */
       startTime?: string;
       /** Output only. This value contains the storage location of transactional logs for the database for point-in-time recovery. */
-      transactionalLogStorageState?: string;
+      transactionalLogStorageState?:
+        | 'TRANSACTIONAL_LOG_STORAGE_STATE_UNSPECIFIED'
+        | 'DISK'
+        | 'SWITCHING_TO_CLOUD_STORAGE'
+        | 'SWITCHED_TO_CLOUD_STORAGE'
+        | 'CLOUD_STORAGE';
       /** The number of days of transaction logs we retain for point in time restore, from 1-7. */
       transactionLogRetentionDays?: number;
     }
@@ -152,19 +231,73 @@ declare namespace gapi.client {
       /** Backup re-encryption limit */
       backupLimit?: number;
       /** Type of backups users want to re-encrypt. */
-      backupType?: string;
+      backupType?: 'BACKUP_TYPE_UNSPECIFIED' | 'AUTOMATED' | 'ON_DEMAND';
     }
     interface BackupRetentionSettings {
       /** Depending on the value of retention_unit, this is used to determine if a backup needs to be deleted. If retention_unit is 'COUNT', we will retain this many backups. */
       retainedBackups?: number;
       /** The unit that 'retained_backups' represents. */
-      retentionUnit?: string;
+      retentionUnit?: 'RETENTION_UNIT_UNSPECIFIED' | 'COUNT';
     }
     interface BackupRun {
       /** Specifies the kind of backup, PHYSICAL or DEFAULT_SNAPSHOT. */
-      backupKind?: string;
+      backupKind?: 'SQL_BACKUP_KIND_UNSPECIFIED' | 'SNAPSHOT' | 'PHYSICAL';
       /** Output only. The instance database version at the time this backup was made. */
-      databaseVersion?: string;
+      databaseVersion?:
+        | 'SQL_DATABASE_VERSION_UNSPECIFIED'
+        | 'MYSQL_5_1'
+        | 'MYSQL_5_5'
+        | 'MYSQL_5_6'
+        | 'MYSQL_5_7'
+        | 'MYSQL_8_0'
+        | 'MYSQL_8_0_18'
+        | 'MYSQL_8_0_26'
+        | 'MYSQL_8_0_27'
+        | 'MYSQL_8_0_28'
+        | 'MYSQL_8_0_29'
+        | 'MYSQL_8_0_30'
+        | 'MYSQL_8_0_31'
+        | 'MYSQL_8_0_32'
+        | 'MYSQL_8_0_33'
+        | 'MYSQL_8_0_34'
+        | 'MYSQL_8_0_35'
+        | 'MYSQL_8_0_36'
+        | 'MYSQL_8_0_37'
+        | 'MYSQL_8_0_39'
+        | 'MYSQL_8_0_40'
+        | 'MYSQL_8_0_41'
+        | 'MYSQL_8_0_42'
+        | 'MYSQL_8_0_43'
+        | 'MYSQL_8_0_44'
+        | 'MYSQL_8_0_45'
+        | 'MYSQL_8_0_46'
+        | 'MYSQL_8_4'
+        | 'MYSQL_9_7'
+        | 'SQLSERVER_2017_STANDARD'
+        | 'SQLSERVER_2017_ENTERPRISE'
+        | 'SQLSERVER_2017_EXPRESS'
+        | 'SQLSERVER_2017_WEB'
+        | 'POSTGRES_9_6'
+        | 'POSTGRES_10'
+        | 'POSTGRES_11'
+        | 'POSTGRES_12'
+        | 'POSTGRES_13'
+        | 'POSTGRES_14'
+        | 'POSTGRES_15'
+        | 'POSTGRES_16'
+        | 'POSTGRES_17'
+        | 'POSTGRES_18'
+        | 'SQLSERVER_2019_STANDARD'
+        | 'SQLSERVER_2019_ENTERPRISE'
+        | 'SQLSERVER_2019_EXPRESS'
+        | 'SQLSERVER_2019_WEB'
+        | 'SQLSERVER_2022_STANDARD'
+        | 'SQLSERVER_2022_ENTERPRISE'
+        | 'SQLSERVER_2022_EXPRESS'
+        | 'SQLSERVER_2022_WEB'
+        | 'SQLSERVER_2025_STANDARD'
+        | 'SQLSERVER_2025_ENTERPRISE'
+        | 'SQLSERVER_2025_EXPRESS';
       /** The description of this run, only applicable to on-demand backups. */
       description?: string;
       /** Encryption configuration specific to a backup. */
@@ -192,11 +325,21 @@ declare namespace gapi.client {
       /** The time the backup operation actually started in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. */
       startTime?: string;
       /** The status of this run. */
-      status?: string;
+      status?:
+        | 'SQL_BACKUP_RUN_STATUS_UNSPECIFIED'
+        | 'ENQUEUED'
+        | 'OVERDUE'
+        | 'RUNNING'
+        | 'FAILED'
+        | 'SUCCESSFUL'
+        | 'SKIPPED'
+        | 'DELETION_PENDING'
+        | 'DELETION_FAILED'
+        | 'DELETED';
       /** Backup time zone to prevent restores to an instance with a different time zone. Now relevant only for SQL Server. */
       timeZone?: string;
       /** The type of this run; can be either "AUTOMATED" or "ON_DEMAND" or "FINAL". This field defaults to "ON_DEMAND" and is ignored, when specified for insert requests. */
-      type?: string;
+      type?: 'SQL_BACKUP_RUN_TYPE_UNSPECIFIED' | 'AUTOMATED' | 'ON_DEMAND';
       /** The start time of the backup window during which this the backup was attempted in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. */
       windowStartTime?: string;
     }
@@ -274,11 +417,69 @@ declare namespace gapi.client {
     }
     interface ConnectSettings {
       /** `SECOND_GEN`: Cloud SQL database instance. `EXTERNAL`: A database server that is not managed by Google. This property is read-only; use the `tier` property in the `settings` object to determine the database type. */
-      backendType?: string;
+      backendType?:
+        | 'SQL_BACKEND_TYPE_UNSPECIFIED'
+        | 'FIRST_GEN'
+        | 'SECOND_GEN'
+        | 'EXTERNAL';
       /** Custom subject alternative names for the server certificate. */
       customSubjectAlternativeNames?: string[];
       /** The database engine type and version. The `databaseVersion` field cannot be changed after instance creation. MySQL instances: `MYSQL_8_0`, `MYSQL_5_7` (default), or `MYSQL_5_6`. PostgreSQL instances: `POSTGRES_9_6`, `POSTGRES_10`, `POSTGRES_11` or `POSTGRES_12` (default), `POSTGRES_13`, or `POSTGRES_14`. SQL Server instances: `SQLSERVER_2017_STANDARD` (default), `SQLSERVER_2017_ENTERPRISE`, `SQLSERVER_2017_EXPRESS`, `SQLSERVER_2017_WEB`, `SQLSERVER_2019_STANDARD`, `SQLSERVER_2019_ENTERPRISE`, `SQLSERVER_2019_EXPRESS`, or `SQLSERVER_2019_WEB`. */
-      databaseVersion?: string;
+      databaseVersion?:
+        | 'SQL_DATABASE_VERSION_UNSPECIFIED'
+        | 'MYSQL_5_1'
+        | 'MYSQL_5_5'
+        | 'MYSQL_5_6'
+        | 'MYSQL_5_7'
+        | 'MYSQL_8_0'
+        | 'MYSQL_8_0_18'
+        | 'MYSQL_8_0_26'
+        | 'MYSQL_8_0_27'
+        | 'MYSQL_8_0_28'
+        | 'MYSQL_8_0_29'
+        | 'MYSQL_8_0_30'
+        | 'MYSQL_8_0_31'
+        | 'MYSQL_8_0_32'
+        | 'MYSQL_8_0_33'
+        | 'MYSQL_8_0_34'
+        | 'MYSQL_8_0_35'
+        | 'MYSQL_8_0_36'
+        | 'MYSQL_8_0_37'
+        | 'MYSQL_8_0_39'
+        | 'MYSQL_8_0_40'
+        | 'MYSQL_8_0_41'
+        | 'MYSQL_8_0_42'
+        | 'MYSQL_8_0_43'
+        | 'MYSQL_8_0_44'
+        | 'MYSQL_8_0_45'
+        | 'MYSQL_8_0_46'
+        | 'MYSQL_8_4'
+        | 'MYSQL_9_7'
+        | 'SQLSERVER_2017_STANDARD'
+        | 'SQLSERVER_2017_ENTERPRISE'
+        | 'SQLSERVER_2017_EXPRESS'
+        | 'SQLSERVER_2017_WEB'
+        | 'POSTGRES_9_6'
+        | 'POSTGRES_10'
+        | 'POSTGRES_11'
+        | 'POSTGRES_12'
+        | 'POSTGRES_13'
+        | 'POSTGRES_14'
+        | 'POSTGRES_15'
+        | 'POSTGRES_16'
+        | 'POSTGRES_17'
+        | 'POSTGRES_18'
+        | 'SQLSERVER_2019_STANDARD'
+        | 'SQLSERVER_2019_ENTERPRISE'
+        | 'SQLSERVER_2019_EXPRESS'
+        | 'SQLSERVER_2019_WEB'
+        | 'SQLSERVER_2022_STANDARD'
+        | 'SQLSERVER_2022_ENTERPRISE'
+        | 'SQLSERVER_2022_EXPRESS'
+        | 'SQLSERVER_2022_WEB'
+        | 'SQLSERVER_2025_STANDARD'
+        | 'SQLSERVER_2025_ENTERPRISE'
+        | 'SQLSERVER_2025_EXPRESS';
       /** The dns name of the instance. */
       dnsName?: string;
       /** Output only. The list of DNS names used by this instance. */
@@ -288,7 +489,9 @@ declare namespace gapi.client {
       /** This is always `sql#connectSettings`. */
       kind?: string;
       /** Optional. Output only. mdx_protocol_support controls how the client uses metadata exchange when connecting to the instance. The values in the list representing parts of the MDX protocol that are supported by this instance. When the list is empty, the instance does not support MDX, so the client must not send an MDX request. The default is empty. */
-      mdxProtocolSupport?: string[];
+      mdxProtocolSupport?:
+        | 'MDX_PROTOCOL_SUPPORT_UNSPECIFIED'
+        | 'CLIENT_PROTOCOL_TYPE'[];
       /** The number of read pool nodes in a read pool. */
       nodeCount?: number;
       /** Output only. Entries containing information about each read pool node of the read pool. */
@@ -300,7 +503,11 @@ declare namespace gapi.client {
       /** SSL configuration. */
       serverCaCert?: SslCert;
       /** Specify what type of CA is used for the server certificate. */
-      serverCaMode?: string;
+      serverCaMode?:
+        | 'CA_MODE_UNSPECIFIED'
+        | 'GOOGLE_MANAGED_INTERNAL_CA'
+        | 'GOOGLE_MANAGED_CAS_CA'
+        | 'CUSTOMER_MANAGED_CAS_CA';
     }
     interface Database {
       /** The Cloud SQL charset value. */
@@ -331,7 +538,11 @@ declare namespace gapi.client {
       /** Output only. List all maintenance versions applicable on the instance */
       availableMaintenanceVersions?: string[];
       /** The backend type. `SECOND_GEN`: Cloud SQL database instance. `EXTERNAL`: A database server that is not managed by Google. This property is read-only; use the `tier` property in the `settings` object to determine the database type. */
-      backendType?: string;
+      backendType?:
+        | 'SQL_BACKEND_TYPE_UNSPECIFIED'
+        | 'FIRST_GEN'
+        | 'SECOND_GEN'
+        | 'EXTERNAL';
       /** Connection name of the Cloud SQL instance used in connection strings. */
       connectionName?: string;
       /** Output only. The time when the instance was created in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. */
@@ -341,7 +552,61 @@ declare namespace gapi.client {
       /** Output only. Stores the current database version running on the instance including minor version such as `MYSQL_8_0_18`. */
       databaseInstalledVersion?: string;
       /** The database engine type and version. The `databaseVersion` field cannot be changed after instance creation. */
-      databaseVersion?: string;
+      databaseVersion?:
+        | 'SQL_DATABASE_VERSION_UNSPECIFIED'
+        | 'MYSQL_5_1'
+        | 'MYSQL_5_5'
+        | 'MYSQL_5_6'
+        | 'MYSQL_5_7'
+        | 'MYSQL_8_0'
+        | 'MYSQL_8_0_18'
+        | 'MYSQL_8_0_26'
+        | 'MYSQL_8_0_27'
+        | 'MYSQL_8_0_28'
+        | 'MYSQL_8_0_29'
+        | 'MYSQL_8_0_30'
+        | 'MYSQL_8_0_31'
+        | 'MYSQL_8_0_32'
+        | 'MYSQL_8_0_33'
+        | 'MYSQL_8_0_34'
+        | 'MYSQL_8_0_35'
+        | 'MYSQL_8_0_36'
+        | 'MYSQL_8_0_37'
+        | 'MYSQL_8_0_39'
+        | 'MYSQL_8_0_40'
+        | 'MYSQL_8_0_41'
+        | 'MYSQL_8_0_42'
+        | 'MYSQL_8_0_43'
+        | 'MYSQL_8_0_44'
+        | 'MYSQL_8_0_45'
+        | 'MYSQL_8_0_46'
+        | 'MYSQL_8_4'
+        | 'MYSQL_9_7'
+        | 'SQLSERVER_2017_STANDARD'
+        | 'SQLSERVER_2017_ENTERPRISE'
+        | 'SQLSERVER_2017_EXPRESS'
+        | 'SQLSERVER_2017_WEB'
+        | 'POSTGRES_9_6'
+        | 'POSTGRES_10'
+        | 'POSTGRES_11'
+        | 'POSTGRES_12'
+        | 'POSTGRES_13'
+        | 'POSTGRES_14'
+        | 'POSTGRES_15'
+        | 'POSTGRES_16'
+        | 'POSTGRES_17'
+        | 'POSTGRES_18'
+        | 'SQLSERVER_2019_STANDARD'
+        | 'SQLSERVER_2019_ENTERPRISE'
+        | 'SQLSERVER_2019_EXPRESS'
+        | 'SQLSERVER_2019_WEB'
+        | 'SQLSERVER_2022_STANDARD'
+        | 'SQLSERVER_2022_ENTERPRISE'
+        | 'SQLSERVER_2022_EXPRESS'
+        | 'SQLSERVER_2022_WEB'
+        | 'SQLSERVER_2025_STANDARD'
+        | 'SQLSERVER_2025_ENTERPRISE'
+        | 'SQLSERVER_2025_EXPRESS';
       /** Disk encryption configuration specific to an instance. */
       diskEncryptionConfiguration?: DiskEncryptionConfiguration;
       /** Disk encryption status specific to an instance. */
@@ -366,7 +631,12 @@ declare namespace gapi.client {
       /** Input only. Determines whether an in-place major version upgrade of replicas happens when an in-place major version upgrade of a primary instance is initiated. */
       includeReplicasForMajorVersionUpgrade?: boolean;
       /** The instance type. */
-      instanceType?: string;
+      instanceType?:
+        | 'SQL_INSTANCE_TYPE_UNSPECIFIED'
+        | 'CLOUD_SQL_INSTANCE'
+        | 'ON_PREMISES_INSTANCE'
+        | 'READ_REPLICA_INSTANCE'
+        | 'READ_POOL_INSTANCE';
       /** The assigned IP addresses for the instance. */
       ipAddresses?: IpMapping[];
       /** The IPv6 address assigned to the instance. (Deprecated) This property was applicable only to First Generation instances. */
@@ -422,11 +692,28 @@ declare namespace gapi.client {
       /** The user settings. */
       settings?: Settings;
       /** The SQL network architecture for the instance. */
-      sqlNetworkArchitecture?: string;
+      sqlNetworkArchitecture?:
+        | 'SQL_NETWORK_ARCHITECTURE_UNSPECIFIED'
+        | 'NEW_NETWORK_ARCHITECTURE'
+        | 'OLD_NETWORK_ARCHITECTURE';
       /** The current serving state of the Cloud SQL instance. */
-      state?: string;
+      state?:
+        | 'SQL_INSTANCE_STATE_UNSPECIFIED'
+        | 'RUNNABLE'
+        | 'SUSPENDED'
+        | 'PENDING_DELETE'
+        | 'PENDING_CREATE'
+        | 'MAINTENANCE'
+        | 'FAILED'
+        | 'ONLINE_MAINTENANCE'
+        | 'REPAIRING';
       /** If the instance state is SUSPENDED, the reason for the suspension. */
-      suspensionReason?: string[];
+      suspensionReason?:
+        | 'SQL_SUSPENSION_REASON_UNSPECIFIED'
+        | 'BILLING_ISSUE'
+        | 'LEGAL_ISSUE'
+        | 'OPERATIONAL_ISSUE'
+        | 'KMS_KEY_ISSUE'[];
       /** Input only. Whether Cloud SQL is enabled to switch storing point-in-time recovery log files from a data disk to Cloud Storage. */
       switchTransactionLogsToCloudStorageEnabled?: boolean;
       /** Optional. Input only. Immutable. Tag keys and tag values that are bound to this instance. You must represent each item in the map as: `"" : ""`. For example, a single resource can have the following tags: ``` "123/environment": "production", "123/costCenter": "marketing", ``` For more information on tag creation and management, see https://cloud.google.com/resource-manager/docs/tags/tags-overview. */
@@ -506,13 +793,20 @@ declare namespace gapi.client {
     }
     interface DnsNameMapping {
       /** Output only. The connection type of the DNS name. */
-      connectionType?: string;
+      connectionType?:
+        | 'CONNECTION_TYPE_UNSPECIFIED'
+        | 'PUBLIC'
+        | 'PRIVATE_SERVICES_ACCESS'
+        | 'PRIVATE_SERVICE_CONNECT';
       /** Output only. The scope that the DNS name applies to. */
-      dnsScope?: string;
+      dnsScope?: 'DNS_SCOPE_UNSPECIFIED' | 'INSTANCE' | 'CLUSTER';
       /** Output only. The DNS name. */
       name?: string;
       /** Output only. The manager for this DNS record. */
-      recordManager?: string;
+      recordManager?:
+        | 'RECORD_MANAGER_UNSPECIFIED'
+        | 'CUSTOMER'
+        | 'CLOUD_SQL_AUTOMATION';
     }
     interface Empty {}
     interface ExecuteSqlPayload {
@@ -523,7 +817,10 @@ declare namespace gapi.client {
       /** Optional. Name of the database on which the statement will be executed. */
       database?: string;
       /** Optional. Controls how the API should respond when the SQL execution result is incomplete due to the size limit or another error. The default mode is to throw an error. */
-      partialResultMode?: string;
+      partialResultMode?:
+        | 'PARTIAL_RESULT_MODE_UNSPECIFIED'
+        | 'FAIL_PARTIAL_RESULT'
+        | 'ALLOW_PARTIAL_RESULT';
       /** Optional. The maximum number of rows returned per SQL statement. */
       rowLimit?: string;
       /** Required. SQL statements to run on the database. It can be a single statement or a sequence of statements separated by semicolons. */
@@ -535,7 +832,7 @@ declare namespace gapi.client {
       /** Options for exporting BAK files (SQL Server-only) */
       bakExportOptions?: {
         /** Type of this bak file will be export, FULL or DIFF, SQL Server only */
-        bakType?: string;
+        bakType?: 'BAK_TYPE_UNSPECIFIED' | 'FULL' | 'DIFF' | 'TLOG';
         /** Deprecated: copy_only is deprecated. Use differential_base instead */
         copyOnly?: boolean;
         /** Whether or not the backup can be used as a differential base copy_only backup can not be served as differential base */
@@ -565,7 +862,7 @@ declare namespace gapi.client {
       /** Databases to be exported. `MySQL instances:` If `fileType` is `SQL` and no database is specified, all databases are exported, except for the `mysql` system database. If `fileType` is `CSV`, you can specify one database, either by using this property or by using the `csvExportOptions.selectQuery` property, which takes precedence over this property. `PostgreSQL instances:` If you don't specify a database by name, all user databases in the instance are exported. This excludes system databases and Cloud SQL databases used to manage internal operations. Exporting all user databases is only available for directory-formatted parallel export. If `fileType` is `CSV`, this database must match the one specified in the `csvExportOptions.selectQuery` property. `SQL Server instances:` You must specify one database to be exported, and the `fileType` must be `BAK`. */
       databases?: string[];
       /** The file type for the specified uri. */
-      fileType?: string;
+      fileType?: 'SQL_FILE_TYPE_UNSPECIFIED' | 'SQL' | 'CSV' | 'BAK' | 'TDE';
       /** This is always `sql#exportContext`. */
       kind?: string;
       /** Whether to perform a serverless export. */
@@ -629,9 +926,66 @@ declare namespace gapi.client {
       /** For `STRING` flags, a list of strings that the value can be set to. */
       allowedStringValues?: string[];
       /** The database version this flag applies to. Can be MySQL instances: `MYSQL_8_0`, `MYSQL_8_0_18`, `MYSQL_8_0_26`, `MYSQL_5_7`, or `MYSQL_5_6`. PostgreSQL instances: `POSTGRES_9_6`, `POSTGRES_10`, `POSTGRES_11` or `POSTGRES_12`. SQL Server instances: `SQLSERVER_2017_STANDARD`, `SQLSERVER_2017_ENTERPRISE`, `SQLSERVER_2017_EXPRESS`, `SQLSERVER_2017_WEB`, `SQLSERVER_2019_STANDARD`, `SQLSERVER_2019_ENTERPRISE`, `SQLSERVER_2019_EXPRESS`, or `SQLSERVER_2019_WEB`. See [the complete list](/sql/docs/mysql/admin-api/rest/v1/SqlDatabaseVersion). */
-      appliesTo?: string[];
+      appliesTo?:
+        | 'SQL_DATABASE_VERSION_UNSPECIFIED'
+        | 'MYSQL_5_1'
+        | 'MYSQL_5_5'
+        | 'MYSQL_5_6'
+        | 'MYSQL_5_7'
+        | 'MYSQL_8_0'
+        | 'MYSQL_8_0_18'
+        | 'MYSQL_8_0_26'
+        | 'MYSQL_8_0_27'
+        | 'MYSQL_8_0_28'
+        | 'MYSQL_8_0_29'
+        | 'MYSQL_8_0_30'
+        | 'MYSQL_8_0_31'
+        | 'MYSQL_8_0_32'
+        | 'MYSQL_8_0_33'
+        | 'MYSQL_8_0_34'
+        | 'MYSQL_8_0_35'
+        | 'MYSQL_8_0_36'
+        | 'MYSQL_8_0_37'
+        | 'MYSQL_8_0_39'
+        | 'MYSQL_8_0_40'
+        | 'MYSQL_8_0_41'
+        | 'MYSQL_8_0_42'
+        | 'MYSQL_8_0_43'
+        | 'MYSQL_8_0_44'
+        | 'MYSQL_8_0_45'
+        | 'MYSQL_8_0_46'
+        | 'MYSQL_8_4'
+        | 'MYSQL_9_7'
+        | 'SQLSERVER_2017_STANDARD'
+        | 'SQLSERVER_2017_ENTERPRISE'
+        | 'SQLSERVER_2017_EXPRESS'
+        | 'SQLSERVER_2017_WEB'
+        | 'POSTGRES_9_6'
+        | 'POSTGRES_10'
+        | 'POSTGRES_11'
+        | 'POSTGRES_12'
+        | 'POSTGRES_13'
+        | 'POSTGRES_14'
+        | 'POSTGRES_15'
+        | 'POSTGRES_16'
+        | 'POSTGRES_17'
+        | 'POSTGRES_18'
+        | 'SQLSERVER_2019_STANDARD'
+        | 'SQLSERVER_2019_ENTERPRISE'
+        | 'SQLSERVER_2019_EXPRESS'
+        | 'SQLSERVER_2019_WEB'
+        | 'SQLSERVER_2022_STANDARD'
+        | 'SQLSERVER_2022_ENTERPRISE'
+        | 'SQLSERVER_2022_EXPRESS'
+        | 'SQLSERVER_2022_WEB'
+        | 'SQLSERVER_2025_STANDARD'
+        | 'SQLSERVER_2025_ENTERPRISE'
+        | 'SQLSERVER_2025_EXPRESS'[];
       /** Scope of flag. */
-      flagScope?: string;
+      flagScope?:
+        | 'SQL_FLAG_SCOPE_UNSPECIFIED'
+        | 'SQL_FLAG_SCOPE_DATABASE'
+        | 'SQL_FLAG_SCOPE_CONNECTION_POOL';
       /** Whether or not the flag is considered in beta. */
       inBeta?: boolean;
       /** This is always `sql#flag`. */
@@ -649,7 +1003,15 @@ declare namespace gapi.client {
       /** Indicates whether changing this flag will trigger a database restart. Only applicable to Second Generation instances. */
       requiresRestart?: boolean;
       /** The type of the flag. Flags are typed to being `BOOLEAN`, `STRING`, `INTEGER` or `NONE`. `NONE` is used for flags which do not take a value, such as `skip_grant_tables`. */
-      type?: string;
+      type?:
+        | 'SQL_FLAG_TYPE_UNSPECIFIED'
+        | 'BOOLEAN'
+        | 'STRING'
+        | 'INTEGER'
+        | 'NONE'
+        | 'MYSQL_TIMEZONE_OFFSET'
+        | 'FLOAT'
+        | 'REPEATED_STRING';
     }
     interface FlagsListResponse {
       /** List of flags. */
@@ -689,7 +1051,7 @@ declare namespace gapi.client {
       /** Import parameters specific to SQL Server .BAK files */
       bakImportOptions?: {
         /** Type of the bak content, FULL or DIFF. */
-        bakType?: string;
+        bakType?: 'BAK_TYPE_UNSPECIFIED' | 'FULL' | 'DIFF' | 'TLOG';
         encryptionOptions?: {
           /** Path to the Certificate (.cer) in Cloud Storage, in the form `gs://bucketName/fileName`. The instance must have write permissions to the bucket and read access to the file. */
           certPath?: string;
@@ -729,7 +1091,7 @@ declare namespace gapi.client {
       /** The target database for the import. If `fileType` is `SQL`, this field is required only if the import file does not specify a database, and is overridden by any database specification in the import file. For entire instance parallel import operations, the database is overridden by the database name stored in subdirectory name. If `fileType` is `CSV`, one database must be specified. */
       database?: string;
       /** The file type for the specified uri. * `SQL`: The file contains SQL statements. * `CSV`: The file contains CSV data. * `BAK`: The file contains backup data for a SQL Server instance. */
-      fileType?: string;
+      fileType?: 'SQL_FILE_TYPE_UNSPECIFIED' | 'SQL' | 'CSV' | 'BAK' | 'TDE';
       /** The PostgreSQL user for this import operation. PostgreSQL instances only. */
       importUser?: string;
       /** This is always `sql#importContext`. */
@@ -907,13 +1269,24 @@ declare namespace gapi.client {
       /** Use `ssl_mode` instead. Whether SSL/TLS connections over IP are enforced. If set to false, then allow both non-SSL/non-TLS and SSL/TLS connections. For SSL/TLS connections, the client certificate won't be verified. If set to true, then only allow connections encrypted with SSL/TLS and with valid client certificates. If you want to enforce SSL/TLS without enforcing the requirement for valid client certificates, then use the `ssl_mode` flag instead of the legacy `require_ssl` flag. */
       requireSsl?: boolean;
       /** Specify what type of CA is used for the server certificate. */
-      serverCaMode?: string;
+      serverCaMode?:
+        | 'CA_MODE_UNSPECIFIED'
+        | 'GOOGLE_MANAGED_INTERNAL_CA'
+        | 'GOOGLE_MANAGED_CAS_CA'
+        | 'CUSTOMER_MANAGED_CAS_CA';
       /** Optional. The resource name of the server CA pool for an instance with `CUSTOMER_MANAGED_CAS_CA` as the `server_ca_mode`. Format: projects/{PROJECT}/locations/{REGION}/caPools/{CA_POOL_ID} */
       serverCaPool?: string;
       /** Optional. Controls the automatic server certificate rotation feature. This feature is disabled by default. When enabled, the server certificate will be automatically rotated during Cloud SQL scheduled maintenance or self-service maintenance updates up to six months before it expires. This setting can only be set if server_ca_mode is either GOOGLE_MANAGED_CAS_CA or CUSTOMER_MANAGED_CAS_CA. */
-      serverCertificateRotationMode?: string;
+      serverCertificateRotationMode?:
+        | 'SERVER_CERTIFICATE_ROTATION_MODE_UNSPECIFIED'
+        | 'NO_AUTOMATIC_ROTATION'
+        | 'AUTOMATIC_ROTATION_DURING_MAINTENANCE';
       /** Specify how SSL/TLS is enforced in database connections. If you must use the `require_ssl` flag for backward compatibility, then only the following value pairs are valid: For PostgreSQL and MySQL: * `ssl_mode=ALLOW_UNENCRYPTED_AND_ENCRYPTED` and `require_ssl=false` * `ssl_mode=ENCRYPTED_ONLY` and `require_ssl=false` * `ssl_mode=TRUSTED_CLIENT_CERTIFICATE_REQUIRED` and `require_ssl=true` For SQL Server: * `ssl_mode=ALLOW_UNENCRYPTED_AND_ENCRYPTED` and `require_ssl=false` * `ssl_mode=ENCRYPTED_ONLY` and `require_ssl=true` The value of `ssl_mode` has priority over the value of `require_ssl`. For example, for the pair `ssl_mode=ENCRYPTED_ONLY` and `require_ssl=false`, `ssl_mode=ENCRYPTED_ONLY` means accept only SSL connections, while `require_ssl=false` means accept both non-SSL and SSL connections. In this case, MySQL and PostgreSQL databases respect `ssl_mode` and accepts only SSL connections. */
-      sslMode?: string;
+      sslMode?:
+        | 'SSL_MODE_UNSPECIFIED'
+        | 'ALLOW_UNENCRYPTED_AND_ENCRYPTED'
+        | 'ENCRYPTED_ONLY'
+        | 'TRUSTED_CLIENT_CERTIFICATE_REQUIRED';
     }
     interface IpMapping {
       /** The IP address assigned. */
@@ -921,7 +1294,12 @@ declare namespace gapi.client {
       /** The due time for this IP to be retired in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. This field is only available when the IP is scheduled to be retired. */
       timeToRetire?: string;
       /** The type of this IP address. A `PRIMARY` address is a public address that can accept incoming connections. A `PRIVATE` address is a private address that can accept incoming connections. An `OUTGOING` address is the source address of connections originating from the instance, if supported. */
-      type?: string;
+      type?:
+        | 'SQL_IP_ADDRESS_TYPE_UNSPECIFIED'
+        | 'PRIMARY'
+        | 'OUTGOING'
+        | 'PRIVATE'
+        | 'MIGRATED_1ST_GEN';
     }
     interface ListBackupsResponse {
       /** A list of backups. */
@@ -949,7 +1327,11 @@ declare namespace gapi.client {
       /** This is always `sql#maintenanceWindow`. */
       kind?: string;
       /** Maintenance timing settings: `canary`, `stable`, or `week5`. For more information, see [About maintenance on Cloud SQL instances](https://cloud.google.com/sql/docs/mysql/maintenance). */
-      updateTrack?: string;
+      updateTrack?:
+        | 'SQL_UPDATE_TRACK_UNSPECIFIED'
+        | 'canary'
+        | 'stable'
+        | 'week5';
     }
     interface Message {
       /** The full message string. For PostgreSQL, this is a formatted string that may include severity, code, and the notice/warning message. For MySQL, this contains the warning message. */
@@ -1009,7 +1391,11 @@ declare namespace gapi.client {
       /** The reference to Cloud SQL instance if the source is Cloud SQL. */
       sourceInstance?: InstanceReference;
       /** Optional. SslOption for replica connection to the on-premises source. */
-      sslOption?: string;
+      sslOption?:
+        | 'SSL_OPTION_UNSPECIFIED'
+        | 'DISABLE'
+        | 'REQUIRE'
+        | 'VERIFY_CA';
       /** The username for connecting to on-premises instance. */
       username?: string;
     }
@@ -1035,7 +1421,59 @@ declare namespace gapi.client {
       /** An identifier that uniquely identifies the operation. You can use this identifier to retrieve the Operations resource that has information about the operation. */
       name?: string;
       /** The type of the operation. Valid values are: * `CREATE` * `DELETE` * `UPDATE` * `RESTART` * `IMPORT` * `EXPORT` * `BACKUP_VOLUME` * `RESTORE_VOLUME` * `CREATE_USER` * `DELETE_USER` * `CREATE_DATABASE` * `DELETE_DATABASE` */
-      operationType?: string;
+      operationType?:
+        | 'SQL_OPERATION_TYPE_UNSPECIFIED'
+        | 'IMPORT'
+        | 'EXPORT'
+        | 'CREATE'
+        | 'UPDATE'
+        | 'DELETE'
+        | 'RESTART'
+        | 'BACKUP'
+        | 'SNAPSHOT'
+        | 'BACKUP_VOLUME'
+        | 'DELETE_VOLUME'
+        | 'RESTORE_VOLUME'
+        | 'INJECT_USER'
+        | 'CLONE'
+        | 'STOP_REPLICA'
+        | 'START_REPLICA'
+        | 'PROMOTE_REPLICA'
+        | 'CREATE_REPLICA'
+        | 'CREATE_USER'
+        | 'DELETE_USER'
+        | 'UPDATE_USER'
+        | 'CREATE_DATABASE'
+        | 'DELETE_DATABASE'
+        | 'UPDATE_DATABASE'
+        | 'FAILOVER'
+        | 'DELETE_BACKUP'
+        | 'RECREATE_REPLICA'
+        | 'TRUNCATE_LOG'
+        | 'DEMOTE_MASTER'
+        | 'MAINTENANCE'
+        | 'ENABLE_PRIVATE_IP'
+        | 'DEFER_MAINTENANCE'
+        | 'CREATE_CLONE'
+        | 'RESCHEDULE_MAINTENANCE'
+        | 'START_EXTERNAL_SYNC'
+        | 'LOG_CLEANUP'
+        | 'AUTO_RESTART'
+        | 'REENCRYPT'
+        | 'SWITCHOVER'
+        | 'UPDATE_BACKUP'
+        | 'ACQUIRE_SSRS_LEASE'
+        | 'RELEASE_SSRS_LEASE'
+        | 'RECONFIGURE_OLD_PRIMARY'
+        | 'CLUSTER_MAINTENANCE'
+        | 'SELF_SERVICE_MAINTENANCE'
+        | 'SWITCHOVER_TO_REPLICA'
+        | 'MAJOR_VERSION_UPGRADE'
+        | 'ADVANCED_BACKUP'
+        | 'MANAGE_BACKUP'
+        | 'ENHANCED_BACKUP'
+        | 'REPAIR_READ_POOL'
+        | 'CREATE_READ_POOL';
       /** The context for pre-check major version upgrade operation, if applicable. This field is only populated when the operation_type is PRE_CHECK_MAJOR_VERSION_UPGRADE. The PreCheckMajorVersionUpgradeContext message itself contains the details for that pre-check, such as the target database version for the upgrade and the results of the check (including any warnings or errors found). */
       preCheckMajorVersionUpgradeContext?: PreCheckMajorVersionUpgradeContext;
       /** The URI of this resource. */
@@ -1043,7 +1481,11 @@ declare namespace gapi.client {
       /** The time this operation actually started in UTC timezone in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. */
       startTime?: string;
       /** The status of an operation. */
-      status?: string;
+      status?:
+        | 'SQL_OPERATION_STATUS_UNSPECIFIED'
+        | 'PENDING'
+        | 'RUNNING'
+        | 'DONE';
       /** Optional. The sub operation based on the operation type. */
       subOperationType?: SqlSubOperationType;
       /** Name of the resource on which this operation runs. */
@@ -1100,7 +1542,7 @@ declare namespace gapi.client {
     }
     interface PasswordValidationPolicy {
       /** The complexity of the password. */
-      complexity?: string;
+      complexity?: 'COMPLEXITY_UNSPECIFIED' | 'COMPLEXITY_DEFAULT';
       /** This field is deprecated and will be removed in a future version of the API. */
       disallowCompromisedCredentials?: boolean;
       /** Disallow username as a part of the password. */
@@ -1170,7 +1612,16 @@ declare namespace gapi.client {
       /** Output only. The Private Service Connect (PSC) service attachment of the read pool node. */
       pscServiceAttachmentLink?: string;
       /** Output only. The current state of the read pool node. */
-      state?: string;
+      state?:
+        | 'SQL_INSTANCE_STATE_UNSPECIFIED'
+        | 'RUNNABLE'
+        | 'SUSPENDED'
+        | 'PENDING_DELETE'
+        | 'PENDING_CREATE'
+        | 'MAINTENANCE'
+        | 'FAILED'
+        | 'ONLINE_MAINTENANCE'
+        | 'REPAIRING';
     }
     interface PreCheckMajorVersionUpgradeContext {
       /** Optional. This is always `sql#preCheckMajorVersionUpgradeContext`. */
@@ -1178,7 +1629,61 @@ declare namespace gapi.client {
       /** Output only. The responses from the precheck operation. */
       preCheckResponse?: PreCheckResponse[];
       /** Required. The target database version to upgrade to. */
-      targetDatabaseVersion?: string;
+      targetDatabaseVersion?:
+        | 'SQL_DATABASE_VERSION_UNSPECIFIED'
+        | 'MYSQL_5_1'
+        | 'MYSQL_5_5'
+        | 'MYSQL_5_6'
+        | 'MYSQL_5_7'
+        | 'MYSQL_8_0'
+        | 'MYSQL_8_0_18'
+        | 'MYSQL_8_0_26'
+        | 'MYSQL_8_0_27'
+        | 'MYSQL_8_0_28'
+        | 'MYSQL_8_0_29'
+        | 'MYSQL_8_0_30'
+        | 'MYSQL_8_0_31'
+        | 'MYSQL_8_0_32'
+        | 'MYSQL_8_0_33'
+        | 'MYSQL_8_0_34'
+        | 'MYSQL_8_0_35'
+        | 'MYSQL_8_0_36'
+        | 'MYSQL_8_0_37'
+        | 'MYSQL_8_0_39'
+        | 'MYSQL_8_0_40'
+        | 'MYSQL_8_0_41'
+        | 'MYSQL_8_0_42'
+        | 'MYSQL_8_0_43'
+        | 'MYSQL_8_0_44'
+        | 'MYSQL_8_0_45'
+        | 'MYSQL_8_0_46'
+        | 'MYSQL_8_4'
+        | 'MYSQL_9_7'
+        | 'SQLSERVER_2017_STANDARD'
+        | 'SQLSERVER_2017_ENTERPRISE'
+        | 'SQLSERVER_2017_EXPRESS'
+        | 'SQLSERVER_2017_WEB'
+        | 'POSTGRES_9_6'
+        | 'POSTGRES_10'
+        | 'POSTGRES_11'
+        | 'POSTGRES_12'
+        | 'POSTGRES_13'
+        | 'POSTGRES_14'
+        | 'POSTGRES_15'
+        | 'POSTGRES_16'
+        | 'POSTGRES_17'
+        | 'POSTGRES_18'
+        | 'SQLSERVER_2019_STANDARD'
+        | 'SQLSERVER_2019_ENTERPRISE'
+        | 'SQLSERVER_2019_EXPRESS'
+        | 'SQLSERVER_2019_WEB'
+        | 'SQLSERVER_2022_STANDARD'
+        | 'SQLSERVER_2022_ENTERPRISE'
+        | 'SQLSERVER_2022_EXPRESS'
+        | 'SQLSERVER_2022_WEB'
+        | 'SQLSERVER_2025_STANDARD'
+        | 'SQLSERVER_2025_ENTERPRISE'
+        | 'SQLSERVER_2025_EXPRESS';
     }
     interface PreCheckResponse {
       /** The actions that the user needs to take. Use repeated for multiple actions. */
@@ -1186,7 +1691,7 @@ declare namespace gapi.client {
       /** The message to be displayed to the user. */
       message?: string;
       /** The type of message whether it is an info, warning, or error. */
-      messageType?: string;
+      messageType?: 'MESSAGE_TYPE_UNSPECIFIED' | 'INFO' | 'WARNING' | 'ERROR';
     }
     interface PscAutoConnectionConfig {
       /** Optional. The consumer network of this consumer endpoint. This must be a resource path that includes both the host project and the network name. For example, `projects/project1/global/networks/network1`. The consumer host project of this network might be different from the consumer service project. */
@@ -1258,7 +1763,11 @@ declare namespace gapi.client {
     }
     interface Reschedule {
       /** Required. The type of the reschedule. */
-      rescheduleType?: string;
+      rescheduleType?:
+        | 'RESCHEDULE_TYPE_UNSPECIFIED'
+        | 'IMMEDIATE'
+        | 'NEXT_AVAILABLE_WINDOW'
+        | 'SPECIFIC_TIME';
       /** Optional. Timestamp when the maintenance shall be rescheduled to if reschedule_type=SPECIFIC_TIME, in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example `2012-11-15T16:19:00.094Z`. */
       scheduleTime?: string;
     }
@@ -1302,7 +1811,11 @@ declare namespace gapi.client {
       /** Optional. Configures whether the replica is in accelerated mode. This feature is in private preview and requires allowlisting to take effect. */
       acceleratedReplicaMode?: boolean;
       /** The activation policy specifies when the instance is activated; it is applicable only when the instance state is RUNNABLE. Valid values: * `ALWAYS`: The instance is on, and remains so even in the absence of connection requests. * `NEVER`: The instance is off; it is not activated, even if a connection request arrives. */
-      activationPolicy?: string;
+      activationPolicy?:
+        | 'SQL_ACTIVATION_POLICY_UNSPECIFIED'
+        | 'ALWAYS'
+        | 'NEVER'
+        | 'ON_DEMAND';
       /** Active Directory configuration, relevant only for Cloud SQL for SQL Server. */
       activeDirectoryConfig?: SqlActiveDirectoryConfig;
       /** Specifies advanced machine configuration for the instances relevant only for SQL Server. */
@@ -1312,7 +1825,10 @@ declare namespace gapi.client {
       /** Optional. Cloud SQL for MySQL auto-upgrade configuration. When this parameter is set to true, auto-upgrade is enabled for MySQL 8.0 minor versions. The MySQL version must be 8.0.35 or higher. */
       autoUpgradeEnabled?: boolean;
       /** Availability type. Potential values: * `ZONAL`: The instance serves data from only one zone. Outages in that zone affect data accessibility. * `REGIONAL`: The instance can serve data from more than one zone in a region (it is highly available)./ For more information, see [Overview of the High Availability Configuration](https://cloud.google.com/sql/docs/mysql/high-availability). */
-      availabilityType?: string;
+      availabilityType?:
+        | 'SQL_AVAILABILITY_TYPE_UNSPECIFIED'
+        | 'ZONAL'
+        | 'REGIONAL';
       /** The daily backup configuration for the instance. */
       backupConfiguration?: BackupConfiguration;
       /** The name of server Instance collation. */
@@ -1320,11 +1836,17 @@ declare namespace gapi.client {
       /** Optional. The managed connection pooling configuration for the instance. */
       connectionPoolConfig?: ConnectionPoolConfig;
       /** Specifies if connections must use Cloud SQL connectors. Option values include the following: `NOT_REQUIRED` (Cloud SQL instances can be connected without Cloud SQL Connectors) and `REQUIRED` (Only allow connections that use Cloud SQL Connectors) Note that using REQUIRED disables all existing authorized networks. If this field is not specified when creating a new instance, NOT_REQUIRED is used. If this field is not specified when patching or updating an existing instance, it is left unchanged in the instance. */
-      connectorEnforcement?: string;
+      connectorEnforcement?:
+        | 'CONNECTOR_ENFORCEMENT_UNSPECIFIED'
+        | 'NOT_REQUIRED'
+        | 'REQUIRED';
       /** Configuration specific to read replica instances. Indicates whether database flags for crash-safe replication are enabled. This property was only applicable to First Generation instances. */
       crashSafeReplicationEnabled?: boolean;
       /** This parameter controls whether to allow using ExecuteSql API to connect to the instance. Not allowed by default. */
-      dataApiAccess?: string;
+      dataApiAccess?:
+        | 'DATA_API_ACCESS_UNSPECIFIED'
+        | 'DISALLOW_DATA_API'
+        | 'ALLOW_DATA_API';
       /** The database flags passed to the instance at startup. */
       databaseFlags?: DatabaseFlags[];
       /** Configuration specific to read replica instances. Indicates whether replication is enabled or not. WARNING: Changing this restarts the instance. */
@@ -1338,13 +1860,18 @@ declare namespace gapi.client {
       /** The size of data disk, in GB. The data disk size minimum is 10GB. */
       dataDiskSizeGb?: string;
       /** The type of data disk: `PD_SSD` (default) or `PD_HDD`. Not used for First Generation instances. */
-      dataDiskType?: string;
+      dataDiskType?:
+        | 'SQL_DATA_DISK_TYPE_UNSPECIFIED'
+        | 'PD_SSD'
+        | 'PD_HDD'
+        | 'OBSOLETE_LOCAL_SSD'
+        | 'HYPERDISK_BALANCED';
       /** Configuration to protect against accidental instance deletion. */
       deletionProtectionEnabled?: boolean;
       /** Deny maintenance periods */
       denyMaintenancePeriods?: DenyMaintenancePeriod[];
       /** Optional. The edition of the instance. */
-      edition?: string;
+      edition?: 'EDITION_UNSPECIFIED' | 'ENTERPRISE' | 'ENTERPRISE_PLUS';
       /** Optional. By default, Cloud SQL instances have schema extraction disabled for Dataplex. When this parameter is set to true, schema extraction for Dataplex on Cloud SQL instances is activated. */
       enableDataplexIntegration?: boolean;
       /** Optional. When this parameter is set to true, Cloud SQL instances can connect to Vertex AI to pass requests for real-time predictions and insights to the AI. The default value is false. This applies only to Cloud SQL for MySQL and Cloud SQL for PostgreSQL instances. */
@@ -1368,13 +1895,16 @@ declare namespace gapi.client {
       /** Optional. Configuration for Performance Capture, provides diagnostic metrics during high load situations. */
       performanceCaptureConfig?: PerformanceCaptureConfig;
       /** The pricing plan for this instance. This can be either `PER_USE` or `PACKAGE`. Only `PER_USE` is supported for Second Generation instances. */
-      pricingPlan?: string;
+      pricingPlan?: 'SQL_PRICING_PLAN_UNSPECIFIED' | 'PACKAGE' | 'PER_USE';
       /** Optional. The read pool auto-scale configuration for the instance. */
       readPoolAutoScaleConfig?: ReadPoolAutoScaleConfig;
       /** Optional. Configuration value for recreation of replica after certain replication lag. */
       replicationLagMaxSeconds?: number;
       /** The type of replication this instance uses. This can be either `ASYNCHRONOUS` or `SYNCHRONOUS`. (Deprecated) This property was only applicable to First Generation instances. */
-      replicationType?: string;
+      replicationType?:
+        | 'SQL_REPLICATION_TYPE_UNSPECIFIED'
+        | 'SYNCHRONOUS'
+        | 'ASYNCHRONOUS';
       /** Optional. When this parameter is set to true, Cloud SQL retains backups of the instance even after the instance is deleted. The ON_DEMAND backup will be retained until customer deletes the backup or the project. The AUTOMATED backup will be retained based on the backups retention setting. */
       retainBackupsOnDelete?: boolean;
       /** The version of instance settings. This is a required field for update method to make sure concurrent updates are handled properly. During update, use the most recent settingsVersion value for this instance and do not try to update this value. */
@@ -1402,7 +1932,11 @@ declare namespace gapi.client {
       /** This is always sql#activeDirectoryConfig. */
       kind?: string;
       /** Optional. The mode of the Active Directory configuration. */
-      mode?: string;
+      mode?:
+        | 'ACTIVE_DIRECTORY_MODE_UNSPECIFIED'
+        | 'MANAGED_ACTIVE_DIRECTORY'
+        | 'SELF_MANAGED_ACTIVE_DIRECTORY'
+        | 'CUSTOMER_MANAGED_ACTIVE_DIRECTORY';
       /** Optional. The organizational unit distinguished name. This is the full hierarchical path to the organizational unit. */
       organizationalUnit?: string;
     }
@@ -1412,7 +1946,66 @@ declare namespace gapi.client {
       /** Can be `sql#externalSyncSettingError` or `sql#externalSyncSettingWarning`. */
       kind?: string;
       /** Identifies the specific error that occurred. */
-      type?: string;
+      type?:
+        | 'SQL_EXTERNAL_SYNC_SETTING_ERROR_TYPE_UNSPECIFIED'
+        | 'CONNECTION_FAILURE'
+        | 'BINLOG_NOT_ENABLED'
+        | 'INCOMPATIBLE_DATABASE_VERSION'
+        | 'REPLICA_ALREADY_SETUP'
+        | 'INSUFFICIENT_PRIVILEGE'
+        | 'UNSUPPORTED_MIGRATION_TYPE'
+        | 'NO_PGLOGICAL_INSTALLED'
+        | 'PGLOGICAL_NODE_ALREADY_EXISTS'
+        | 'INVALID_WAL_LEVEL'
+        | 'INVALID_SHARED_PRELOAD_LIBRARY'
+        | 'INSUFFICIENT_MAX_REPLICATION_SLOTS'
+        | 'INSUFFICIENT_MAX_WAL_SENDERS'
+        | 'INSUFFICIENT_MAX_WORKER_PROCESSES'
+        | 'UNSUPPORTED_EXTENSIONS'
+        | 'INVALID_RDS_LOGICAL_REPLICATION'
+        | 'INVALID_LOGGING_SETUP'
+        | 'INVALID_DB_PARAM'
+        | 'UNSUPPORTED_GTID_MODE'
+        | 'SQLSERVER_AGENT_NOT_RUNNING'
+        | 'UNSUPPORTED_TABLE_DEFINITION'
+        | 'UNSUPPORTED_DEFINER'
+        | 'SQLSERVER_SERVERNAME_MISMATCH'
+        | 'PRIMARY_ALREADY_SETUP'
+        | 'UNSUPPORTED_BINLOG_FORMAT'
+        | 'BINLOG_RETENTION_SETTING'
+        | 'UNSUPPORTED_STORAGE_ENGINE'
+        | 'LIMITED_SUPPORT_TABLES'
+        | 'EXISTING_DATA_IN_REPLICA'
+        | 'MISSING_OPTIONAL_PRIVILEGES'
+        | 'RISKY_BACKUP_ADMIN_PRIVILEGE'
+        | 'INSUFFICIENT_GCS_PERMISSIONS'
+        | 'INVALID_FILE_INFO'
+        | 'UNSUPPORTED_DATABASE_SETTINGS'
+        | 'MYSQL_PARALLEL_IMPORT_INSUFFICIENT_PRIVILEGE'
+        | 'LOCAL_INFILE_OFF'
+        | 'TURN_ON_PITR_AFTER_PROMOTE'
+        | 'INCOMPATIBLE_DATABASE_MINOR_VERSION'
+        | 'SOURCE_MAX_SUBSCRIPTIONS'
+        | 'UNABLE_TO_VERIFY_DEFINERS'
+        | 'SUBSCRIPTION_CALCULATION_STATUS'
+        | 'PG_SUBSCRIPTION_COUNT'
+        | 'PG_SYNC_PARALLEL_LEVEL'
+        | 'INSUFFICIENT_DISK_SIZE'
+        | 'INSUFFICIENT_MACHINE_TIER'
+        | 'UNSUPPORTED_EXTENSIONS_NOT_MIGRATED'
+        | 'EXTENSIONS_NOT_MIGRATED'
+        | 'PG_CRON_FLAG_ENABLED_IN_REPLICA'
+        | 'EXTENSIONS_NOT_ENABLED_IN_REPLICA'
+        | 'UNSUPPORTED_COLUMNS'
+        | 'USERS_NOT_CREATED_IN_REPLICA'
+        | 'UNSUPPORTED_SYSTEM_OBJECTS'
+        | 'UNSUPPORTED_TABLES_WITH_REPLICA_IDENTITY'
+        | 'SELECTED_OBJECTS_NOT_EXIST_ON_SOURCE'
+        | 'PSC_ONLY_INSTANCE_WITH_NO_NETWORK_ATTACHMENT_URI'
+        | 'SELECTED_OBJECTS_REFERENCE_UNSELECTED_OBJECTS'
+        | 'PROMPT_DELETE_EXISTING'
+        | 'WILL_DELETE_EXISTING'
+        | 'PG_DDL_REPLICATION_INSUFFICIENT_PRIVILEGE';
     }
     interface SqlInstancesAcquireSsrsLeaseResponse {
       /** The unique identifier for this operation. */
@@ -1455,7 +2048,7 @@ declare namespace gapi.client {
     interface SqlInstancesResetReplicaSizeRequest {}
     interface SqlInstancesStartExternalSyncRequest {
       /** Optional. MigrationType configures the migration to use physical files or logical dump files. If not set, then the logical dump file configuration is used. Valid values are `LOGICAL` or `PHYSICAL`. Only applicable to MySQL. */
-      migrationType?: string;
+      migrationType?: 'MIGRATION_TYPE_UNSPECIFIED' | 'LOGICAL' | 'PHYSICAL';
       /** MySQL-specific settings for start external sync. */
       mysqlSyncConfig?: MySqlSyncConfig;
       /** Optional. MySQL only. True if end-user has confirmed that this SES call will wipe replica databases overlapping with the proposed selected_objects. If this field is not set and there are both overlapping and additional databases proposed, an error will be returned. */
@@ -1463,21 +2056,29 @@ declare namespace gapi.client {
       /** Whether to skip the verification step (VESS). */
       skipVerification?: boolean;
       /** External sync mode. */
-      syncMode?: string;
+      syncMode?: 'EXTERNAL_SYNC_MODE_UNSPECIFIED' | 'ONLINE' | 'OFFLINE';
       /** Optional. Parallel level for initial data sync. Currently only applicable for MySQL. */
-      syncParallelLevel?: string;
+      syncParallelLevel?:
+        | 'EXTERNAL_SYNC_PARALLEL_LEVEL_UNSPECIFIED'
+        | 'MIN'
+        | 'OPTIMAL'
+        | 'MAX';
     }
     interface SqlInstancesVerifyExternalSyncSettingsRequest {
       /** Optional. MigrationType configures the migration to use physical files or logical dump files. If not set, then the logical dump file configuration is used. Valid values are `LOGICAL` or `PHYSICAL`. Only applicable to MySQL. */
-      migrationType?: string;
+      migrationType?: 'MIGRATION_TYPE_UNSPECIFIED' | 'LOGICAL' | 'PHYSICAL';
       /** Optional. MySQL-specific settings for start external sync. */
       mysqlSyncConfig?: MySqlSyncConfig;
       /** Optional. Migrate only the specified objects from the source instance. If this field is empty, then migrate all objects. */
       selectedObjects?: ExternalSyncSelectedObject[];
       /** External sync mode */
-      syncMode?: string;
+      syncMode?: 'EXTERNAL_SYNC_MODE_UNSPECIFIED' | 'ONLINE' | 'OFFLINE';
       /** Optional. Parallel level for initial data sync. Only applicable for PostgreSQL. */
-      syncParallelLevel?: string;
+      syncParallelLevel?:
+        | 'EXTERNAL_SYNC_PARALLEL_LEVEL_UNSPECIFIED'
+        | 'MIN'
+        | 'OPTIMAL'
+        | 'MAX';
       /** Flag to enable verifying connection only */
       verifyConnectionOnly?: boolean;
       /** Optional. Flag to verify settings required by replication setup only */
@@ -1495,7 +2096,10 @@ declare namespace gapi.client {
       /** The minimum recommended increase size in GigaBytes This field is consumed by the frontend * Writers: * the proactive database wellness job for OOD. * Readers: */
       sqlMinRecommendedIncreaseSizeGb?: number;
       /** This field represents the state generated by the proactive database wellness job for OutOfDisk issues. * Writers: * the proactive database wellness job for OOD. * Readers: * the proactive database wellness job */
-      sqlOutOfDiskState?: string;
+      sqlOutOfDiskState?:
+        | 'SQL_OUT_OF_DISK_STATE_UNSPECIFIED'
+        | 'NORMAL'
+        | 'SOFT_SHUTDOWN';
     }
     interface SqlScheduledMaintenance {
       canDefer?: boolean;
@@ -1538,7 +2142,12 @@ declare namespace gapi.client {
     }
     interface SqlSubOperationType {
       /** The type of maintenance to be performed on the instance. */
-      maintenanceType?: string;
+      maintenanceType?:
+        | 'SQL_MAINTENANCE_TYPE_UNSPECIFIED'
+        | 'INSTANCE_MAINTENANCE'
+        | 'REPLICA_INCLUDED_MAINTENANCE'
+        | 'INSTANCE_SELF_SERVICE_MAINTENANCE'
+        | 'REPLICA_INCLUDED_SELF_SERVICE_MAINTENANCE';
     }
     interface SslCert {
       /** PEM representation. */
@@ -1640,7 +2249,11 @@ declare namespace gapi.client {
       /** Optional. Role memberships of the user */
       databaseRoles?: string[];
       /** Dual password status for the user. */
-      dualPasswordType?: string;
+      dualPasswordType?:
+        | 'DUAL_PASSWORD_TYPE_UNSPECIFIED'
+        | 'NO_MODIFY_DUAL_PASSWORD'
+        | 'NO_DUAL_PASSWORD'
+        | 'DUAL_PASSWORD';
       /** This field is deprecated and will be removed from a future version of the API. */
       etag?: string;
       /** Optional. The host from which the user can connect. For `insert` operations, host defaults to an empty string. For `update` operations, host is specified as part of the request URL. The host name cannot be updated after insertion. For a MySQL instance, it's required; for a PostgreSQL or SQL Server instance, it's optional. */
@@ -1648,7 +2261,7 @@ declare namespace gapi.client {
       /** Optional. The full email for an IAM user. For normal database users, this will not be filled. Only applicable to MySQL database users. */
       iamEmail?: string;
       /** Indicates if a group is active or inactive for IAM database authentication. */
-      iamStatus?: string;
+      iamStatus?: 'IAM_STATUS_UNSPECIFIED' | 'INACTIVE' | 'ACTIVE';
       /** The name of the Cloud SQL instance. This does not include the project ID. Can be omitted for *update* because it is already specified on the URL. */
       instance?: string;
       /** This is always `sql#user`. */
@@ -1663,7 +2276,14 @@ declare namespace gapi.client {
       project?: string;
       sqlserverUserDetails?: SqlServerUserDetails;
       /** The user type. It determines the method to authenticate the user during login. The default is the database's built-in user type. */
-      type?: string;
+      type?:
+        | 'BUILT_IN'
+        | 'CLOUD_IAM_USER'
+        | 'CLOUD_IAM_SERVICE_ACCOUNT'
+        | 'CLOUD_IAM_GROUP'
+        | 'CLOUD_IAM_GROUP_USER'
+        | 'CLOUD_IAM_GROUP_SERVICE_ACCOUNT'
+        | 'ENTRAID_USER';
     }
     interface UserPasswordValidationPolicy {
       /** Number of failed login attempts allowed before user get locked. */
@@ -1695,11 +2315,11 @@ declare namespace gapi.client {
       /** Deletes the backup taken by a backup run. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1726,11 +2346,11 @@ declare namespace gapi.client {
       /** Retrieves a resource containing information about a backup run. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1757,11 +2377,11 @@ declare namespace gapi.client {
       /** Creates a new backup run on demand. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1788,11 +2408,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1819,11 +2439,11 @@ declare namespace gapi.client {
       /** Lists all backup runs associated with the project or a given instance and configuration in the reverse chronological order of the backup initiation time. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1854,11 +2474,11 @@ declare namespace gapi.client {
       /** Creates a backup for a Cloud SQL instance. This API can be used only to create on-demand backups. */
       createBackup(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1883,11 +2503,11 @@ declare namespace gapi.client {
       createBackup(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1912,11 +2532,11 @@ declare namespace gapi.client {
       /** Deletes the backup. */
       deleteBackup(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1939,11 +2559,11 @@ declare namespace gapi.client {
       /** Retrieves a resource containing information about a backup. */
       getBackup(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1966,11 +2586,11 @@ declare namespace gapi.client {
       /** Lists all backups associated with the project. */
       listBackups(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1999,11 +2619,11 @@ declare namespace gapi.client {
       /** Updates the retention period and the description of the backup. You can use this API to update final backups only. */
       updateBackup(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2030,11 +2650,11 @@ declare namespace gapi.client {
       updateBackup(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2063,11 +2683,11 @@ declare namespace gapi.client {
       /** Generates a short-lived X509 certificate containing the provided public key and signed by a private key specific to the target instance. Users may use the certificate to authenticate as themselves when connecting to the database. */
       generateEphemeralCert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2094,11 +2714,11 @@ declare namespace gapi.client {
       generateEphemeralCert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2125,11 +2745,11 @@ declare namespace gapi.client {
       /** Retrieves connect settings about a Cloud SQL instance. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2158,11 +2778,11 @@ declare namespace gapi.client {
       /** Deletes a database from a Cloud SQL instance. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Name of the database to be deleted in the instance. */
@@ -2189,11 +2809,11 @@ declare namespace gapi.client {
       /** Retrieves a resource containing information about a database inside a Cloud SQL instance. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Name of the database in the instance. */
@@ -2220,11 +2840,11 @@ declare namespace gapi.client {
       /** Inserts a resource containing information about a database inside a Cloud SQL instance. **Note:** You can't modify the default character set and collation. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2251,11 +2871,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2282,11 +2902,11 @@ declare namespace gapi.client {
       /** Lists databases in the specified Cloud SQL instance. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2311,11 +2931,11 @@ declare namespace gapi.client {
       /** Partially updates a resource containing information about a database inside a Cloud SQL instance. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Name of the database to be updated in the instance. */
@@ -2344,11 +2964,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Name of the database to be updated in the instance. */
@@ -2377,11 +2997,11 @@ declare namespace gapi.client {
       /** Updates a resource containing information about a database inside a Cloud SQL instance. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Name of the database to be updated in the instance. */
@@ -2410,11 +3030,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Name of the database to be updated in the instance. */
@@ -2445,11 +3065,11 @@ declare namespace gapi.client {
       /** Lists all available database flags for Cloud SQL instances. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Database type and version you want to retrieve flags for. By default, this method returns flags for all database types and versions. */
@@ -2457,7 +3077,10 @@ declare namespace gapi.client {
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** Optional. Specify the scope of flags to be returned by SqlFlagsListService. Return list of database flags if unspecified. */
-        flagScope?: string;
+        flagScope?:
+          | 'SQL_FLAG_SCOPE_UNSPECIFIED'
+          | 'SQL_FLAG_SCOPE_DATABASE'
+          | 'SQL_FLAG_SCOPE_CONNECTION_POOL';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** OAuth 2.0 token for the current user. */
@@ -2476,11 +3099,11 @@ declare namespace gapi.client {
       /** Acquire a lease for the setup of SQL Server Reporting Services (SSRS). */
       acquireSsrsLease(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2507,11 +3130,11 @@ declare namespace gapi.client {
       acquireSsrsLease(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2538,11 +3161,11 @@ declare namespace gapi.client {
       /** Adds a new Entra ID certificate for the specified instance. If an Entra ID certificate was previously added but never used in a certificate rotation, this operation replaces that version. */
       addEntraIdCertificate(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2567,11 +3190,11 @@ declare namespace gapi.client {
       /** Add a new trusted Certificate Authority (CA) version for the specified instance. Required to prepare for a certificate rotation. If a CA version was previously added but never used in a certificate rotation, this operation replaces that version. There cannot be more than one CA version waiting to be rotated in. For instances that have enabled Certificate Authority Service (CAS) based server CA, use AddServerCertificate to add a new server certificate. */
       addServerCa(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2596,11 +3219,11 @@ declare namespace gapi.client {
       /** Add a new trusted server certificate version for the specified instance using Certificate Authority Service (CAS) server CA. Required to prepare for a certificate rotation. If a server certificate version was previously added but never used in a certificate rotation, this operation replaces that version. There cannot be more than one certificate version waiting to be rotated in. For instances not using CAS server CA, use AddServerCa instead. */
       addServerCertificate(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2625,11 +3248,11 @@ declare namespace gapi.client {
       /** Creates a Cloud SQL instance as a clone of the source instance. Using this operation might cause your instance to restart. */
       clone(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2656,11 +3279,11 @@ declare namespace gapi.client {
       clone(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2687,11 +3310,11 @@ declare namespace gapi.client {
       /** Deletes a Cloud SQL instance. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Flag to opt-in for final backup. By default, it is turned off. */
@@ -2724,11 +3347,11 @@ declare namespace gapi.client {
       /** Demotes an existing standalone instance to be a Cloud SQL read replica for an external database server. */
       demote(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2755,11 +3378,11 @@ declare namespace gapi.client {
       demote(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2786,11 +3409,11 @@ declare namespace gapi.client {
       /** Demotes the stand-alone instance to be a Cloud SQL read replica for an external database server. */
       demoteMaster(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2817,11 +3440,11 @@ declare namespace gapi.client {
       demoteMaster(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2848,11 +3471,11 @@ declare namespace gapi.client {
       /** Execute SQL statements. */
       executeSql(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2879,11 +3502,11 @@ declare namespace gapi.client {
       executeSql(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2910,11 +3533,11 @@ declare namespace gapi.client {
       /** Exports data from a Cloud SQL instance to a Cloud Storage bucket as a SQL dump or CSV file. */
       export(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2941,11 +3564,11 @@ declare namespace gapi.client {
       export(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2972,11 +3595,11 @@ declare namespace gapi.client {
       /** Initiates a manual failover of a high availability (HA) primary instance to a standby instance, which becomes the primary instance. Users are then rerouted to the new primary. For more information, see the [Overview of high availability](https://cloud.google.com/sql/docs/mysql/high-availability) page in the Cloud SQL documentation. If using Legacy HA (MySQL only), this causes the instance to failover to its failover replica instance. */
       failover(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3003,11 +3626,11 @@ declare namespace gapi.client {
       failover(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3034,11 +3657,11 @@ declare namespace gapi.client {
       /** Retrieves a resource containing information about a Cloud SQL instance. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3063,11 +3686,11 @@ declare namespace gapi.client {
       /** Imports data into a Cloud SQL instance from a SQL dump or CSV file in Cloud Storage. */
       import(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3094,11 +3717,11 @@ declare namespace gapi.client {
       import(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3125,11 +3748,11 @@ declare namespace gapi.client {
       /** Creates a new Cloud SQL instance. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3154,11 +3777,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3183,11 +3806,11 @@ declare namespace gapi.client {
       /** Lists instances under a given project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3216,11 +3839,11 @@ declare namespace gapi.client {
       /** Lists all versions of EntraID certificates for the specified instance. There can be up to three sets of certificates listed: the certificate that is currently in use, a future that has been added but not yet used to sign a certificate, and a certificate that has been rotated out. */
       ListEntraIdCertificates(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3245,11 +3868,11 @@ declare namespace gapi.client {
       /** Lists all of the trusted Certificate Authorities (CAs) for the specified instance. There can be up to three CAs listed: the CA that was used to sign the certificate that is currently in use, a CA that has been added but not yet used to sign a certificate, and a CA used to sign a certificate that has previously rotated out. */
       listServerCas(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3274,11 +3897,11 @@ declare namespace gapi.client {
       /** Lists all versions of server certificates and certificate authorities (CAs) for the specified instance. There can be up to three sets of certs listed: the certificate that is currently in use, a future that has been added but not yet used to sign a certificate, and a certificate that has been rotated out. For instances not using Certificate Authority Service (CAS) server CA, use ListServerCas instead. */
       ListServerCertificates(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3303,11 +3926,11 @@ declare namespace gapi.client {
       /** Partially updates settings of a Cloud SQL instance by merging the request with the current configuration. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3334,11 +3957,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3365,11 +3988,11 @@ declare namespace gapi.client {
       /** Point in time restore for an instance managed by Google Cloud Backup and Disaster Recovery. */
       pointInTimeRestore(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3394,11 +4017,11 @@ declare namespace gapi.client {
       pointInTimeRestore(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3423,11 +4046,11 @@ declare namespace gapi.client {
       /** Execute MVU Pre-checks */
       preCheckMajorVersionUpgrade(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3454,11 +4077,11 @@ declare namespace gapi.client {
       preCheckMajorVersionUpgrade(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3485,11 +4108,11 @@ declare namespace gapi.client {
       /** Promotes the read replica instance to be an independent Cloud SQL primary instance. Using this operation might cause your instance to restart. */
       promoteReplica(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Set to true to invoke a replica failover to the DR replica. As part of replica failover, the promote operation attempts to add the original primary instance as a replica of the promoted DR replica when the original primary instance comes back online. If set to false or not specified, then the original primary instance becomes an independent Cloud SQL primary instance. */
@@ -3516,11 +4139,11 @@ declare namespace gapi.client {
       /** Reencrypt CMEK instance with latest key version. */
       reencrypt(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3547,11 +4170,11 @@ declare namespace gapi.client {
       reencrypt(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3578,11 +4201,11 @@ declare namespace gapi.client {
       /** Release a lease for the setup of SQL Server Reporting Services (SSRS). */
       releaseSsrsLease(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3607,11 +4230,11 @@ declare namespace gapi.client {
       /** Deletes all client certificates and generates a new server SSL certificate for the instance. */
       resetSslConfig(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3621,7 +4244,7 @@ declare namespace gapi.client {
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** Optional. Reset SSL mode to use. */
-        mode?: string;
+        mode?: 'RESET_SSL_MODE_UNSPECIFIED' | 'ALL' | 'SYNC_FROM_PRIMARY';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Returns response with indentations and line breaks. */
@@ -3638,11 +4261,11 @@ declare namespace gapi.client {
       /** Restarts a Cloud SQL instance. */
       restart(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3667,11 +4290,11 @@ declare namespace gapi.client {
       /** Restores a backup of a Cloud SQL instance. Using this operation might cause your instance to restart. */
       restoreBackup(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3698,11 +4321,11 @@ declare namespace gapi.client {
       restoreBackup(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3729,11 +4352,11 @@ declare namespace gapi.client {
       /** Rotates the Entra Id certificate version to one previously added with the addEntraIdCertificate method. */
       RotateEntraIdCertificate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3760,11 +4383,11 @@ declare namespace gapi.client {
       RotateEntraIdCertificate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3791,11 +4414,11 @@ declare namespace gapi.client {
       /** Rotates the server certificate to one signed by the Certificate Authority (CA) version previously added with the addServerCA method. For instances that have enabled Certificate Authority Service (CAS) based server CA, use RotateServerCertificate to rotate the server certificate. */
       rotateServerCa(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3822,11 +4445,11 @@ declare namespace gapi.client {
       rotateServerCa(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3853,11 +4476,11 @@ declare namespace gapi.client {
       /** Rotates the server certificate version to one previously added with the addServerCertificate method. For instances not using Certificate Authority Service (CAS) server CA, use RotateServerCa instead. */
       RotateServerCertificate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3884,11 +4507,11 @@ declare namespace gapi.client {
       RotateServerCertificate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3915,11 +4538,11 @@ declare namespace gapi.client {
       /** Starts the replication in the read replica instance. */
       startReplica(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3944,11 +4567,11 @@ declare namespace gapi.client {
       /** Stops the replication in the read replica instance. */
       stopReplica(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3973,11 +4596,11 @@ declare namespace gapi.client {
       /** Switches over from the primary instance to the DR replica instance. */
       switchover(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. (MySQL and PostgreSQL only) Cloud SQL instance operations timeout, which is a sum of all database operations. Default value is 10 minutes and can be modified to a maximum value of 24 hours. */
@@ -4004,11 +4627,11 @@ declare namespace gapi.client {
       /** Truncate MySQL general and slow query log tables MySQL only. */
       truncateLog(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4035,11 +4658,11 @@ declare namespace gapi.client {
       truncateLog(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4066,11 +4689,11 @@ declare namespace gapi.client {
       /** Updates settings of a Cloud SQL instance. Using this operation might cause your instance to restart. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4097,11 +4720,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4130,11 +4753,11 @@ declare namespace gapi.client {
       /** Cancels an instance operation that has been performed on an instance. Ordinarily, this method name should be `CancelSqlOperation`. */
       cancel(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4159,11 +4782,11 @@ declare namespace gapi.client {
       /** Retrieves an instance operation that has been performed on an instance. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4188,11 +4811,11 @@ declare namespace gapi.client {
       /** Lists all instance operations that have been performed on the given Cloud SQL instance in the reverse chronological order of the start time. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4223,11 +4846,11 @@ declare namespace gapi.client {
       /** Get Disk Shrink Config for a given instance. */
       getDiskShrinkConfig(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4252,11 +4875,11 @@ declare namespace gapi.client {
       /** Get Latest Recovery Time for a given instance. */
       getLatestRecoveryTime(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4283,11 +4906,11 @@ declare namespace gapi.client {
       /** Perform Disk Shrink on primary instance. */
       performDiskShrink(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4314,11 +4937,11 @@ declare namespace gapi.client {
       performDiskShrink(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4345,11 +4968,11 @@ declare namespace gapi.client {
       /** Reschedules the maintenance on the given instance. */
       rescheduleMaintenance(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4376,11 +4999,11 @@ declare namespace gapi.client {
       rescheduleMaintenance(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4407,11 +5030,11 @@ declare namespace gapi.client {
       /** Reset Replica Size to primary instance disk size. */
       resetReplicaSize(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4438,11 +5061,11 @@ declare namespace gapi.client {
       resetReplicaSize(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4469,11 +5092,11 @@ declare namespace gapi.client {
       /** Start External primary instance migration. */
       startExternalSync(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4500,11 +5123,11 @@ declare namespace gapi.client {
       startExternalSync(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4531,11 +5154,11 @@ declare namespace gapi.client {
       /** Verify External primary instance external sync settings. */
       verifyExternalSyncSettings(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4562,11 +5185,11 @@ declare namespace gapi.client {
       verifyExternalSyncSettings(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4598,11 +5221,11 @@ declare namespace gapi.client {
       /** Generates a short-lived X509 certificate containing the provided public key and signed by a private key specific to the target instance. Users may use the certificate to authenticate as themselves when connecting to the database. */
       createEphemeral(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4629,11 +5252,11 @@ declare namespace gapi.client {
       createEphemeral(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4660,11 +5283,11 @@ declare namespace gapi.client {
       /** Deletes the SSL certificate. For First Generation instances, the certificate remains valid until the instance is restarted. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4691,11 +5314,11 @@ declare namespace gapi.client {
       /** Retrieves a particular SSL certificate. Does not include the private key (required for usage). The private key must be saved from the response to initial creation. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4722,11 +5345,11 @@ declare namespace gapi.client {
       /** Creates an SSL certificate and returns it along with the private key and server certificate authority. The new certificate will not be usable until the instance is restarted. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4753,11 +5376,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4784,11 +5407,11 @@ declare namespace gapi.client {
       /** Lists all of the current SSL certificates for the instance. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4815,11 +5438,11 @@ declare namespace gapi.client {
       /** Lists all available machine types (tiers) for Cloud SQL, for example, `db-custom-1-3840`. For related information, see [Pricing](/sql/pricing). */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4844,11 +5467,11 @@ declare namespace gapi.client {
       /** Deletes a user from a Cloud SQL instance. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4877,11 +5500,11 @@ declare namespace gapi.client {
       /** Retrieves a resource containing information about a user. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4910,11 +5533,11 @@ declare namespace gapi.client {
       /** Creates a new user in a Cloud SQL instance. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4941,11 +5564,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4972,11 +5595,11 @@ declare namespace gapi.client {
       /** Lists users in the specified Cloud SQL instance. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5001,11 +5624,11 @@ declare namespace gapi.client {
       /** Updates an existing user in a Cloud SQL instance. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. List of database roles to grant to the user. body.database_roles will be ignored for update request. */
@@ -5040,11 +5663,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Optional. List of database roles to grant to the user. body.database_roles will be ignored for update request. */

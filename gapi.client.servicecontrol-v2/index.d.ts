@@ -128,7 +128,12 @@ declare namespace gapi.client {
       /** The required IAM permission. */
       permission?: string;
       /** The type of the permission that was checked. For data access audit logs this corresponds with the permission type that must be enabled in the project/folder/organization IAM policy in order for the log to be written. */
-      permissionType?: string;
+      permissionType?:
+        | 'PERMISSION_TYPE_UNSPECIFIED'
+        | 'ADMIN_READ'
+        | 'ADMIN_WRITE'
+        | 'DATA_READ'
+        | 'DATA_WRITE';
       /** The resource being accessed, as a REST-style or cloud resource string. For example: bigquery.googleapis.com/projects/PROJECTID/datasets/DATASETID or projects/PROJECTID/datasets/DATASETID */
       resource?: string;
       /** Resource attributes used in IAM condition evaluation. This field contains resource attributes like resource type and resource name. To get the whole view of the attributes used in IAM condition evaluation, the user must also look into `AuditLog.request_metadata.request_attributes`. */
@@ -384,7 +389,16 @@ declare namespace gapi.client {
       /** The log entry payload, represented as a protocol buffer that is expressed as a JSON object. The only accepted type currently is AuditLog. */
       protoPayload?: {[P in string]: any};
       /** The severity of the log entry. The default value is `LogSeverity.DEFAULT`. */
-      severity?: string;
+      severity?:
+        | 'DEFAULT'
+        | 'DEBUG'
+        | 'INFO'
+        | 'NOTICE'
+        | 'WARNING'
+        | 'ERROR'
+        | 'CRITICAL'
+        | 'ALERT'
+        | 'EMERGENCY';
       /** Optional. Source code location information associated with the log entry, if any. */
       sourceLocation?: V2LogEntrySourceLocation;
       /** The log entry payload, represented as a structure that is expressed as a JSON object. */
@@ -422,13 +436,13 @@ declare namespace gapi.client {
       /** The parent resource for the resource. */
       parent?: Resource;
       /** The api path the resource event was created in. This should match the source of the `payload` field. For direct integrations with Chemist, this should generally be the RESPONSE. go/resource-event-pipeline-type */
-      path?: string;
+      path?: 'API_PATH_UNSPECIFIED' | 'REQUEST' | 'RESPONSE';
       /** The payload contains metadata associated with the resource event. A ResourceEventPayloadStatus is provided instead if the original payload cannot be returned due to a limitation (e.g. size limit). */
       payload?: {[P in string]: any};
       /** The resource associated with the event. */
       resource?: Resource;
       /** The resource event type determines how the backend service should process the event. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'CREATE' | 'UPDATE' | 'DELETE' | 'UNDELETE';
     }
     interface ViolationInfo {
       /** Optional. Value that is being checked for the policy. This could be in encrypted form (if pii sensitive). This field will only be emitted in LIST_POLICY types */
@@ -440,17 +454,21 @@ declare namespace gapi.client {
       /** Optional. Error message that policy is indicating. */
       errorMessage?: string;
       /** Optional. Indicates the type of the policy. */
-      policyType?: string;
+      policyType?:
+        | 'POLICY_TYPE_UNSPECIFIED'
+        | 'BOOLEAN_CONSTRAINT'
+        | 'LIST_CONSTRAINT'
+        | 'CUSTOM_CONSTRAINT';
     }
     interface ServicesResource {
       /** This method provides admission control for services that are integrated with [Service Infrastructure](https://cloud.google.com/service-infrastructure). It checks whether an operation should be allowed based on the service configuration and relevant policies. It must be called before the operation is executed. For more information, see [Admission Control](https://cloud.google.com/service-infrastructure/docs/admission-control). NOTE: The admission control has an expected policy propagation delay of 60s. The caller **must** not depend on the most recent policy changes. NOTE: The admission control has a hard limit of 1 referenced resources per call. If an operation refers to more than 1 resources, the caller must call the Check method multiple times. This method requires the `servicemanagement.services.check` permission on the specified service. For more information, see [Service Control API Access Control](https://cloud.google.com/service-infrastructure/docs/service-control/access-control). */
       check(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -475,11 +493,11 @@ declare namespace gapi.client {
       check(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -504,11 +522,11 @@ declare namespace gapi.client {
       /** This method provides telemetry reporting for services that are integrated with [Service Infrastructure](https://cloud.google.com/service-infrastructure). It reports a list of operations that have occurred on a service. It must be called after the operations have been executed. For more information, see [Telemetry Reporting](https://cloud.google.com/service-infrastructure/docs/telemetry-reporting). NOTE: The telemetry reporting has a hard limit of 100 operations and 1MB per Report call. This method requires the `servicemanagement.services.report` permission on the specified service. For more information, see [Service Control API Access Control](https://cloud.google.com/service-infrastructure/docs/service-control/access-control). */
       report(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -533,11 +551,11 @@ declare namespace gapi.client {
       report(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

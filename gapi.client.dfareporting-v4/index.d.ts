@@ -28,11 +28,19 @@ declare namespace gapi.client {
       /** Account permissions assigned to this account. */
       accountPermissionIds?: string[];
       /** Profile for this account. This is a read-only field that can be left blank. */
-      accountProfile?: string;
+      accountProfile?: 'ACCOUNT_PROFILE_BASIC' | 'ACCOUNT_PROFILE_STANDARD';
       /** Whether this account is active. */
       active?: boolean;
       /** Maximum number of active ads allowed for this account. */
-      activeAdsLimitTier?: string;
+      activeAdsLimitTier?:
+        | 'ACTIVE_ADS_TIER_40K'
+        | 'ACTIVE_ADS_TIER_75K'
+        | 'ACTIVE_ADS_TIER_100K'
+        | 'ACTIVE_ADS_TIER_200K'
+        | 'ACTIVE_ADS_TIER_300K'
+        | 'ACTIVE_ADS_TIER_500K'
+        | 'ACTIVE_ADS_TIER_750K'
+        | 'ACTIVE_ADS_TIER_1M';
       /** Whether to serve creatives with Active View tags. If disabled, viewability data will not be available for any impressions. */
       activeViewOptOut?: boolean;
       /** User role permissions available to the user roles of this account. */
@@ -70,7 +78,15 @@ declare namespace gapi.client {
       /** Ads that have been activated for the account */
       activeAds?: string;
       /** Maximum number of active ads allowed for the account. */
-      activeAdsLimitTier?: string;
+      activeAdsLimitTier?:
+        | 'ACTIVE_ADS_TIER_40K'
+        | 'ACTIVE_ADS_TIER_75K'
+        | 'ACTIVE_ADS_TIER_100K'
+        | 'ACTIVE_ADS_TIER_200K'
+        | 'ACTIVE_ADS_TIER_300K'
+        | 'ACTIVE_ADS_TIER_500K'
+        | 'ACTIVE_ADS_TIER_750K'
+        | 'ACTIVE_ADS_TIER_1M';
       /** Ads that can be activated for the account. */
       availableAds?: string;
       /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#accountActiveAdSummary". */
@@ -78,13 +94,13 @@ declare namespace gapi.client {
     }
     interface AccountPermission {
       /** Account profiles associated with this account permission. Possible values are: - "ACCOUNT_PROFILE_BASIC" - "ACCOUNT_PROFILE_STANDARD" */
-      accountProfiles?: string[];
+      accountProfiles?: 'ACCOUNT_PROFILE_BASIC' | 'ACCOUNT_PROFILE_STANDARD'[];
       /** ID of this account permission. */
       id?: string;
       /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#accountPermission". */
       kind?: string;
       /** Administrative level required to enable this account permission. */
-      level?: string;
+      level?: 'USER' | 'ADMINISTRATOR';
       /** Name of this account permission. */
       name?: string;
       /** Permission group of this account permission. */
@@ -144,9 +160,16 @@ declare namespace gapi.client {
       /** Subaccount ID of the user profile. This is a read-only field that can be left blank. */
       subaccountId?: string;
       /** Trafficker type of this user profile. This is a read-only field. */
-      traffickerType?: string;
+      traffickerType?:
+        | 'INTERNAL_NON_TRAFFICKER'
+        | 'INTERNAL_TRAFFICKER'
+        | 'EXTERNAL_TRAFFICKER';
       /** User type of the user profile. This is a read-only field that can be left blank. */
-      userAccessType?: string;
+      userAccessType?:
+        | 'NORMAL_USER'
+        | 'SUPER_USER'
+        | 'INTERNAL_ADMINISTRATOR'
+        | 'READ_ONLY_SUPER_USER';
       /** Filter that describes which user roles are visible to the user profile. */
       userRoleFilter?: ObjectFilter;
       /** User role ID of the user profile. This is a required field. */
@@ -192,7 +215,13 @@ declare namespace gapi.client {
       /** Comments for this ad. */
       comments?: string;
       /** Compatibility of this ad. Applicable when type is AD_SERVING_DEFAULT_AD. DISPLAY and DISPLAY_INTERSTITIAL refer to either rendering on desktop or on mobile devices or in mobile apps for regular or interstitial ads, respectively. APP and APP_INTERSTITIAL are only used for existing default ads. New mobile placements must be assigned DISPLAY or DISPLAY_INTERSTITIAL and default ads created for those placements will be limited to those compatibility types. IN_STREAM_VIDEO refers to rendering in-stream video ads developed with the VAST standard. */
-      compatibility?: string;
+      compatibility?:
+        | 'DISPLAY'
+        | 'DISPLAY_INTERSTITIAL'
+        | 'APP'
+        | 'APP_INTERSTITIAL'
+        | 'IN_STREAM_VIDEO'
+        | 'IN_STREAM_AUDIO';
       /** Optional. Contextual keyword targeting information for this ad. */
       contextualKeywordTargeting?: ContextualKeywordTargeting;
       /** Information about the creation of this ad. This is a read-only field. */
@@ -246,7 +275,12 @@ declare namespace gapi.client {
       /** Technology platform targeting information for this ad. This field must be left blank if the ad is using a targeting template. Applicable when type is AD_SERVING_STANDARD_AD. */
       technologyTargeting?: TechnologyTargeting;
       /** Type of ad. This is a required field on insertion. Note that default ads ( AD_SERVING_DEFAULT_AD) cannot be created directly (see Creative resource). */
-      type?: string;
+      type?:
+        | 'AD_SERVING_STANDARD_AD'
+        | 'AD_SERVING_DEFAULT_AD'
+        | 'AD_SERVING_CLICK_TRACKER'
+        | 'AD_SERVING_TRACKING'
+        | 'AD_SERVING_BRAND_SAFE_AD';
     }
     interface AdBlockingConfiguration {
       /** Whether this campaign has enabled ad blocking. When true, ad blocking is enabled for placements in the campaign, but this may be overridden by site and placement settings. When false, ad blocking is disabled for all placements under the campaign, regardless of site and placement settings. */
@@ -264,7 +298,13 @@ declare namespace gapi.client {
       /** Comment for this ad slot. */
       comment?: string;
       /** Ad slot compatibility. DISPLAY and DISPLAY_INTERSTITIAL refer to rendering either on desktop, mobile devices or in mobile apps for regular or interstitial ads respectively. APP and APP_INTERSTITIAL are for rendering in mobile apps. IN_STREAM_VIDEO refers to rendering in in-stream video ads developed with the VAST standard. */
-      compatibility?: string;
+      compatibility?:
+        | 'DISPLAY'
+        | 'DISPLAY_INTERSTITIAL'
+        | 'APP'
+        | 'APP_INTERSTITIAL'
+        | 'IN_STREAM_VIDEO'
+        | 'IN_STREAM_AUDIO';
       /** Height of this ad slot. */
       height?: string;
       /** ID of the placement from an external platform that is linked to this ad slot. */
@@ -272,7 +312,9 @@ declare namespace gapi.client {
       /** Name of this ad slot. */
       name?: string;
       /** Payment source type of this ad slot. */
-      paymentSourceType?: string;
+      paymentSourceType?:
+        | 'PLANNING_PAYMENT_SOURCE_TYPE_AGENCY_PAID'
+        | 'PLANNING_PAYMENT_SOURCE_TYPE_PUBLISHER_PAID';
       /** Primary ad slot of a roadblock inventory item. */
       primary?: boolean;
       /** Width of this ad slot. */
@@ -290,7 +332,9 @@ declare namespace gapi.client {
       /** Default email address used in sender field for tag emails. */
       defaultEmail?: string;
       /** Optional. Whether the advertiser plans to serve EU political ads. */
-      euPoliticalAdsDeclaration?: string;
+      euPoliticalAdsDeclaration?:
+        | 'ADVERTISER_PLANS_TO_SERVE_EU_POLITICAL_ADS'
+        | 'ADVERTISER_DOES_NOT_PLAN_TO_SERVE_EU_POLITICAL_ADS';
       /** Floodlight configuration ID of this advertiser. The floodlight configuration ID will be created automatically, so on insert this field should be left blank. This field can be set to another advertiser's floodlight configuration ID in order to share that advertiser's floodlight configuration with this advertiser, so long as: - This advertiser's original floodlight configuration is not already associated with floodlight activities or floodlight activity groups. - This advertiser's original floodlight configuration is not already shared with another advertiser. */
       floodlightConfigurationId?: string;
       /** Dimension value for the ID of the floodlight configuration. This is a read-only, auto-generated field. */
@@ -308,7 +352,7 @@ declare namespace gapi.client {
       /** Original floodlight configuration before any sharing occurred. Set the floodlightConfigurationId of this advertiser to originalFloodlightConfigurationId to unshare the advertiser's current floodlight configuration. You cannot unshare an advertiser's floodlight configuration if the shared configuration has activities associated with any campaign or placement. */
       originalFloodlightConfigurationId?: string;
       /** Status of this advertiser. */
-      status?: string;
+      status?: 'APPROVED' | 'ON_HOLD';
       /** Subaccount ID of this advertiser.This is a read-only field that can be left blank. */
       subaccountId?: string;
       /** Suspension status of this advertiser. */
@@ -400,7 +444,7 @@ declare namespace gapi.client {
       /** ID of this billing profile. This is a read-only, auto-generated field. */
       id?: string;
       /** Invoice level for this billing profile. Used to group fees into separate invoices by account, advertiser, or campaign. */
-      invoiceLevel?: string;
+      invoiceLevel?: 'ACCOUNT_LEVEL' | 'ADVERTISER_LEVEL' | 'CAMPAIGN_LEVEL';
       /** True if the billing profile is the account default profile. This is a read-only field. */
       isDefault?: boolean;
       /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#billingProfile". */
@@ -416,7 +460,7 @@ declare namespace gapi.client {
       /** The ID of the secondary payment customer the billing profile belongs to. This is a read-only field. */
       secondaryPaymentsCustomerId?: string;
       /** Status of this billing profile.This is a read-only field. */
-      status?: string;
+      status?: 'UNDER_REVIEW' | 'ACTIVE' | 'ARCHIVED';
     }
     interface BillingProfilesListResponse {
       /** Billing profiles collection. */
@@ -442,9 +486,41 @@ declare namespace gapi.client {
       /** Tiered rate of this billing rate. This cannot co-exist with flat rate. */
       tieredRates?: BillingRateTieredRate[];
       /** Type of this billing rate. */
-      type?: string;
+      type?:
+        | 'AD_SERVING'
+        | 'CLICKS'
+        | 'MINIMUM_SERVICE'
+        | 'PATH_TO_CONVERSION'
+        | 'RICH_MEDIA_INPAGE'
+        | 'RICH_MEDIA_EXPANDING'
+        | 'RICH_MEDIA_FLOATING'
+        | 'RICH_MEDIA_VIDEO'
+        | 'RICH_MEDIA_TEASER'
+        | 'RICH_MEDIA_VPAID'
+        | 'INSTREAM_VIDEO'
+        | 'PIXEL'
+        | 'TRACKING'
+        | 'TRAFFICKING_FEATURE'
+        | 'CUSTOM_REPORTS'
+        | 'EXPOSURE_TO_CONVERSION'
+        | 'DATA_TRANSFER'
+        | 'DATA_TRANSFER_SETUP'
+        | 'STARTUP'
+        | 'STATEMENT_OF_WORK'
+        | 'PROVIDED_LIST'
+        | 'PROVIDED_LIST_SETUP'
+        | 'ENHANCED_FORMATS'
+        | 'TRACKING_AD_IMPRESSIONS'
+        | 'TRACKING_AD_CLICKS'
+        | 'NIELSEN_DIGITAL_AD_RATINGS_FEE'
+        | 'INSTREAM_VIDEO_REDIRECT'
+        | 'INSTREAM_VIDEO_VPAID'
+        | 'DISPLAY_AD_SERVING'
+        | 'VIDEO_AD_SERVING'
+        | 'AUDIO_AD_SERVING'
+        | 'ADVANCED_DISPLAY_AD_SERVING';
       /** Unit of measure for this billing rate. */
-      unitOfMeasure?: string;
+      unitOfMeasure?: 'CPM' | 'CPC' | 'EA' | 'P2C';
     }
     interface BillingRatesListResponse {
       /** Billing rates collection. */
@@ -517,7 +593,9 @@ declare namespace gapi.client {
       defaultLandingPageId?: string;
       endDate?: string;
       /** Optional. Whether the campaign has EU political ads. Campaign Manager 360 doesn't allow campaigns with EU political ads to serve in the EU. They can still serve in other regions. */
-      euPoliticalAdsDeclaration?: string;
+      euPoliticalAdsDeclaration?:
+        | 'CONTAINS_EU_POLITICAL_ADS'
+        | 'DOES_NOT_CONTAIN_EU_POLITICAL_ADS';
       /** Overrides that can be used to activate or deactivate advertiser event tags. */
       eventTagOverrides?: EventTagOverride[];
       /** External ID for this campaign. */
@@ -753,7 +831,10 @@ declare namespace gapi.client {
       /** Required. The link to the file of the content source. */
       resourceLink?: string;
       /** Required. The resource type of the content source. */
-      resourceType?: string;
+      resourceType?:
+        | 'RESOURCE_TYPE_UNSPECIFIED'
+        | 'RESOURCE_TYPE_GOOGLE_SPREADSHEET'
+        | 'RESOURCE_TYPE_REMOTE_FILE';
     }
     interface ContentSourceMetaData {
       /** Output only. The charset of the content source. */
@@ -775,7 +856,7 @@ declare namespace gapi.client {
     }
     interface Conversion {
       /** This represents consent for ad user data. */
-      adUserDataConsent?: string;
+      adUserDataConsent?: 'GRANTED' | 'DENIED';
       /** The cart data associated with this conversion. */
       cartData?: CartData;
       /** Whether this particular request may come from a user under the age of 13, under COPPA compliance. */
@@ -823,7 +904,11 @@ declare namespace gapi.client {
     }
     interface ConversionError {
       /** The error code. */
-      code?: string;
+      code?:
+        | 'INVALID_ARGUMENT'
+        | 'INTERNAL'
+        | 'PERMISSION_DENIED'
+        | 'NOT_FOUND';
       /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#conversionError". */
       kind?: string;
       /** A description of the error. */
@@ -905,11 +990,25 @@ declare namespace gapi.client {
       /** Whether the creative is archived. Applicable to all creative types. */
       archived?: boolean;
       /** Type of artwork used for the creative. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA, and all VPAID. */
-      artworkType?: string;
+      artworkType?:
+        | 'ARTWORK_TYPE_FLASH'
+        | 'ARTWORK_TYPE_HTML5'
+        | 'ARTWORK_TYPE_MIXED'
+        | 'ARTWORK_TYPE_IMAGE';
       /** Source application where creative was authored. Presently, only DBM authored creatives will have this field set. Applicable to all creative types. */
-      authoringSource?: string;
+      authoringSource?:
+        | 'CREATIVE_AUTHORING_SOURCE_DCM'
+        | 'CREATIVE_AUTHORING_SOURCE_DBM'
+        | 'CREATIVE_AUTHORING_SOURCE_STUDIO'
+        | 'CREATIVE_AUTHORING_SOURCE_GWD'
+        | 'CREATIVE_AUTHORING_SOURCE_ACS'
+        | 'CREATIVE_AUTHORING_SOURCE_ADOBE'
+        | 'CREATIVE_AUTHORING_SOURCE_TYPEFACE_AI'
+        | 'CREATIVE_AUTHORING_SOURCE_REMBRAND'
+        | 'CREATIVE_AUTHORING_SOURCE_TRACKTO_STUDIO'
+        | 'CREATIVE_AUTHORING_SOURCE_BORNLOGIC';
       /** Authoring tool for HTML5 banner creatives. This is a read-only field. Applicable to the following creative types: HTML5_BANNER. */
-      authoringTool?: string;
+      authoringTool?: 'NINJA' | 'SWIFFY';
       /** Whether images are automatically advanced for image gallery creatives. Applicable to the following creative types: DISPLAY_IMAGE_GALLERY. */
       autoAdvanceImages?: boolean;
       /** The 6-character HTML color code, beginning with #, for the background of the window area where the Flash file is displayed. Default is white. Applicable to the following creative types: FLASH_INPAGE. */
@@ -917,7 +1016,73 @@ declare namespace gapi.client {
       /** Click-through URL for backup image. Applicable to ENHANCED_BANNER when the primary asset type is not HTML_IMAGE. */
       backupImageClickThroughUrl?: CreativeClickThroughUrl;
       /** List of feature dependencies that will cause a backup image to be served if the browser that serves the ad does not support them. Feature dependencies are features that a browser must be able to support in order to render your HTML5 creative asset correctly. This field is initially auto-generated to contain all features detected by Campaign Manager for all the assets of this creative and can then be modified by the client. To reset this field, copy over all the creativeAssets' detected features. Applicable to the following creative types: HTML5_BANNER. Applicable to DISPLAY when the primary asset type is not HTML_IMAGE. */
-      backupImageFeatures?: string[];
+      backupImageFeatures?:
+        | 'CSS_FONT_FACE'
+        | 'CSS_BACKGROUND_SIZE'
+        | 'CSS_BORDER_IMAGE'
+        | 'CSS_BORDER_RADIUS'
+        | 'CSS_BOX_SHADOW'
+        | 'CSS_FLEX_BOX'
+        | 'CSS_HSLA'
+        | 'CSS_MULTIPLE_BGS'
+        | 'CSS_OPACITY'
+        | 'CSS_RGBA'
+        | 'CSS_TEXT_SHADOW'
+        | 'CSS_ANIMATIONS'
+        | 'CSS_COLUMNS'
+        | 'CSS_GENERATED_CONTENT'
+        | 'CSS_GRADIENTS'
+        | 'CSS_REFLECTIONS'
+        | 'CSS_TRANSFORMS'
+        | 'CSS_TRANSFORMS3D'
+        | 'CSS_TRANSITIONS'
+        | 'APPLICATION_CACHE'
+        | 'CANVAS'
+        | 'CANVAS_TEXT'
+        | 'DRAG_AND_DROP'
+        | 'HASH_CHANGE'
+        | 'HISTORY'
+        | 'AUDIO'
+        | 'VIDEO'
+        | 'INDEXED_DB'
+        | 'INPUT_ATTR_AUTOCOMPLETE'
+        | 'INPUT_ATTR_AUTOFOCUS'
+        | 'INPUT_ATTR_LIST'
+        | 'INPUT_ATTR_PLACEHOLDER'
+        | 'INPUT_ATTR_MAX'
+        | 'INPUT_ATTR_MIN'
+        | 'INPUT_ATTR_MULTIPLE'
+        | 'INPUT_ATTR_PATTERN'
+        | 'INPUT_ATTR_REQUIRED'
+        | 'INPUT_ATTR_STEP'
+        | 'INPUT_TYPE_SEARCH'
+        | 'INPUT_TYPE_TEL'
+        | 'INPUT_TYPE_URL'
+        | 'INPUT_TYPE_EMAIL'
+        | 'INPUT_TYPE_DATETIME'
+        | 'INPUT_TYPE_DATE'
+        | 'INPUT_TYPE_MONTH'
+        | 'INPUT_TYPE_WEEK'
+        | 'INPUT_TYPE_TIME'
+        | 'INPUT_TYPE_DATETIME_LOCAL'
+        | 'INPUT_TYPE_NUMBER'
+        | 'INPUT_TYPE_RANGE'
+        | 'INPUT_TYPE_COLOR'
+        | 'LOCAL_STORAGE'
+        | 'POST_MESSAGE'
+        | 'SESSION_STORAGE'
+        | 'WEB_SOCKETS'
+        | 'WEB_SQL_DATABASE'
+        | 'WEB_WORKERS'
+        | 'GEO_LOCATION'
+        | 'INLINE_SVG'
+        | 'SMIL'
+        | 'SVG_HREF'
+        | 'SVG_CLIP_PATHS'
+        | 'TOUCH'
+        | 'WEBGL'
+        | 'SVG_FILTERS'
+        | 'SVG_FE_IMAGE'[];
       /** Reporting label used for HTML5 banner backup image. Applicable to the following creative types: DISPLAY when the primary asset type is not HTML_IMAGE. */
       backupImageReportingLabel?: string;
       /** Target window for backup image. Applicable to the following creative types: FLASH_INPAGE and HTML5_BANNER. Applicable to DISPLAY when the primary asset type is not HTML_IMAGE. */
@@ -929,7 +1094,13 @@ declare namespace gapi.client {
       /** List of companion creatives assigned to an in-Stream video creative. Acceptable values include IDs of existing flash and image creatives. Applicable to the following creative types: all VPAID, all INSTREAM_AUDIO and all INSTREAM_VIDEO with dynamicAssetSelection set to false. */
       companionCreatives?: string[];
       /** Compatibilities associated with this creative. This is a read-only field. DISPLAY and DISPLAY_INTERSTITIAL refer to rendering either on desktop or on mobile devices or in mobile apps for regular or interstitial ads, respectively. APP and APP_INTERSTITIAL are for rendering in mobile apps. Only pre-existing creatives may have these compatibilities since new creatives will either be assigned DISPLAY or DISPLAY_INTERSTITIAL instead. IN_STREAM_VIDEO refers to rendering in in-stream video ads developed with the VAST standard. IN_STREAM_AUDIO refers to rendering in in-stream audio ads developed with the VAST standard. Applicable to all creative types. Acceptable values are: - "APP" - "APP_INTERSTITIAL" - "IN_STREAM_VIDEO" - "IN_STREAM_AUDIO" - "DISPLAY" - "DISPLAY_INTERSTITIAL" */
-      compatibility?: string[];
+      compatibility?:
+        | 'DISPLAY'
+        | 'DISPLAY_INTERSTITIAL'
+        | 'APP'
+        | 'APP_INTERSTITIAL'
+        | 'IN_STREAM_VIDEO'
+        | 'IN_STREAM_AUDIO'[];
       /** Whether Flash assets associated with the creative need to be automatically converted to HTML5. This flag is enabled by default and users can choose to disable it if they don't want the system to generate and use HTML5 asset for this creative. Applicable to the following creative type: FLASH_INPAGE. Applicable to DISPLAY when the primary asset type is not HTML_IMAGE. */
       convertFlashToHtml5?: boolean;
       /** List of counter events configured for the creative. For DISPLAY_IMAGE_GALLERY creatives, these are read-only and auto-generated from clickTags. Applicable to the following creative types: DISPLAY_IMAGE_GALLERY, all RICH_MEDIA, and all VPAID. */
@@ -1013,7 +1184,32 @@ declare namespace gapi.client {
       /** Combined size of all creative assets. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA, and all VPAID. */
       totalFileSize?: string;
       /** Required. Type of this creative. Applicable to all creative types. *Note:* FLASH_INPAGE, HTML5_BANNER, and IMAGE are only used for existing creatives. New creatives should use DISPLAY as a replacement for these types. */
-      type?: string;
+      type?:
+        | 'IMAGE'
+        | 'DISPLAY_REDIRECT'
+        | 'CUSTOM_DISPLAY'
+        | 'INTERNAL_REDIRECT'
+        | 'CUSTOM_DISPLAY_INTERSTITIAL'
+        | 'INTERSTITIAL_INTERNAL_REDIRECT'
+        | 'TRACKING_TEXT'
+        | 'RICH_MEDIA_DISPLAY_BANNER'
+        | 'RICH_MEDIA_INPAGE_FLOATING'
+        | 'RICH_MEDIA_IM_EXPAND'
+        | 'RICH_MEDIA_DISPLAY_EXPANDING'
+        | 'RICH_MEDIA_DISPLAY_INTERSTITIAL'
+        | 'RICH_MEDIA_DISPLAY_MULTI_FLOATING_INTERSTITIAL'
+        | 'RICH_MEDIA_MOBILE_IN_APP'
+        | 'FLASH_INPAGE'
+        | 'INSTREAM_VIDEO'
+        | 'VPAID_LINEAR_VIDEO'
+        | 'VPAID_NON_LINEAR_VIDEO'
+        | 'INSTREAM_VIDEO_REDIRECT'
+        | 'RICH_MEDIA_PEEL_DOWN'
+        | 'HTML5_BANNER'
+        | 'DISPLAY'
+        | 'DISPLAY_IMAGE_GALLERY'
+        | 'BRAND_SAFE_DEFAULT_INSTREAM_VIDEO'
+        | 'INSTREAM_AUDIO';
       /** A Universal Ad ID as per the VAST 4.0 spec. Applicable to the following creative types: INSTREAM_AUDIO and INSTREAM_VIDEO and VPAID. */
       universalAdId?: UniversalAdId;
       /** The version number helps you keep track of multiple versions of your creative in your reports. The version number will always be auto-generated during insert operations to start at 1. For tracking creatives the version cannot be incremented and will always remain at 1. For all other creative types the version can be incremented only by 1 during update operations. In addition, the version will be automatically incremented by 1 when undergoing Rich Media creative merging. Applicable to all creative types. */
@@ -1027,9 +1223,17 @@ declare namespace gapi.client {
       /** Additional sizes associated with this creative asset. HTML5 asset generated by compatible software such as GWD will be able to support more sizes this creative asset can render. */
       additionalSizes?: Size[];
       /** Possible alignments for an asset. This is a read-only field. Applicable to the following creative types: RICH_MEDIA_DISPLAY_MULTI_FLOATING_INTERSTITIAL . */
-      alignment?: string;
+      alignment?:
+        | 'ALIGNMENT_TOP'
+        | 'ALIGNMENT_RIGHT'
+        | 'ALIGNMENT_BOTTOM'
+        | 'ALIGNMENT_LEFT';
       /** Artwork type of rich media creative. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA. */
-      artworkType?: string;
+      artworkType?:
+        | 'ARTWORK_TYPE_FLASH'
+        | 'ARTWORK_TYPE_HTML5'
+        | 'ARTWORK_TYPE_MIXED'
+        | 'ARTWORK_TYPE_IMAGE';
       /** Identifier of this asset. This is the same identifier returned during creative asset insert operation. This is a required field. Applicable to all but the following creative types: all REDIRECT and TRACKING_TEXT. */
       assetIdentifier?: CreativeAssetId;
       /** Audio stream bit rate in kbps. This is a read-only field. Applicable to the following creative types: INSTREAM_AUDIO, INSTREAM_VIDEO and all VPAID. */
@@ -1041,7 +1245,11 @@ declare namespace gapi.client {
       /** Detected bit-rate for audio or video asset. This is a read-only field. Applicable to the following creative types: INSTREAM_AUDIO, INSTREAM_VIDEO and all VPAID. */
       bitRate?: number;
       /** Rich media child asset type. This is a read-only field. Applicable to the following creative types: all VPAID. */
-      childAssetType?: string;
+      childAssetType?:
+        | 'CHILD_ASSET_TYPE_FLASH'
+        | 'CHILD_ASSET_TYPE_VIDEO'
+        | 'CHILD_ASSET_TYPE_IMAGE'
+        | 'CHILD_ASSET_TYPE_DATA';
       /** Size of an asset when collapsed. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA and all VPAID. Additionally, applicable to assets whose displayType is ASSET_DISPLAY_TYPE_EXPANDING or ASSET_DISPLAY_TYPE_PEEL_DOWN. */
       collapsedSize?: Size;
       /** List of companion creatives assigned to an in-stream video creative asset. Acceptable values include IDs of existing flash and image creatives. Applicable to INSTREAM_VIDEO creative type with dynamicAssetSelection set to true. */
@@ -1049,13 +1257,92 @@ declare namespace gapi.client {
       /** Custom start time in seconds for making the asset visible. Applicable to the following creative types: all RICH_MEDIA. Value must be greater than or equal to 0. */
       customStartTimeValue?: number;
       /** List of feature dependencies for the creative asset that are detected by Campaign Manager. Feature dependencies are features that a browser must be able to support in order to render your HTML5 creative correctly. This is a read-only, auto-generated field. Applicable to the following creative types: HTML5_BANNER. Applicable to DISPLAY when the primary asset type is not HTML_IMAGE. */
-      detectedFeatures?: string[];
+      detectedFeatures?:
+        | 'CSS_FONT_FACE'
+        | 'CSS_BACKGROUND_SIZE'
+        | 'CSS_BORDER_IMAGE'
+        | 'CSS_BORDER_RADIUS'
+        | 'CSS_BOX_SHADOW'
+        | 'CSS_FLEX_BOX'
+        | 'CSS_HSLA'
+        | 'CSS_MULTIPLE_BGS'
+        | 'CSS_OPACITY'
+        | 'CSS_RGBA'
+        | 'CSS_TEXT_SHADOW'
+        | 'CSS_ANIMATIONS'
+        | 'CSS_COLUMNS'
+        | 'CSS_GENERATED_CONTENT'
+        | 'CSS_GRADIENTS'
+        | 'CSS_REFLECTIONS'
+        | 'CSS_TRANSFORMS'
+        | 'CSS_TRANSFORMS3D'
+        | 'CSS_TRANSITIONS'
+        | 'APPLICATION_CACHE'
+        | 'CANVAS'
+        | 'CANVAS_TEXT'
+        | 'DRAG_AND_DROP'
+        | 'HASH_CHANGE'
+        | 'HISTORY'
+        | 'AUDIO'
+        | 'VIDEO'
+        | 'INDEXED_DB'
+        | 'INPUT_ATTR_AUTOCOMPLETE'
+        | 'INPUT_ATTR_AUTOFOCUS'
+        | 'INPUT_ATTR_LIST'
+        | 'INPUT_ATTR_PLACEHOLDER'
+        | 'INPUT_ATTR_MAX'
+        | 'INPUT_ATTR_MIN'
+        | 'INPUT_ATTR_MULTIPLE'
+        | 'INPUT_ATTR_PATTERN'
+        | 'INPUT_ATTR_REQUIRED'
+        | 'INPUT_ATTR_STEP'
+        | 'INPUT_TYPE_SEARCH'
+        | 'INPUT_TYPE_TEL'
+        | 'INPUT_TYPE_URL'
+        | 'INPUT_TYPE_EMAIL'
+        | 'INPUT_TYPE_DATETIME'
+        | 'INPUT_TYPE_DATE'
+        | 'INPUT_TYPE_MONTH'
+        | 'INPUT_TYPE_WEEK'
+        | 'INPUT_TYPE_TIME'
+        | 'INPUT_TYPE_DATETIME_LOCAL'
+        | 'INPUT_TYPE_NUMBER'
+        | 'INPUT_TYPE_RANGE'
+        | 'INPUT_TYPE_COLOR'
+        | 'LOCAL_STORAGE'
+        | 'POST_MESSAGE'
+        | 'SESSION_STORAGE'
+        | 'WEB_SOCKETS'
+        | 'WEB_SQL_DATABASE'
+        | 'WEB_WORKERS'
+        | 'GEO_LOCATION'
+        | 'INLINE_SVG'
+        | 'SMIL'
+        | 'SVG_HREF'
+        | 'SVG_CLIP_PATHS'
+        | 'TOUCH'
+        | 'WEBGL'
+        | 'SVG_FILTERS'
+        | 'SVG_FE_IMAGE'[];
       /** Type of rich media asset. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA. */
-      displayType?: string;
+      displayType?:
+        | 'ASSET_DISPLAY_TYPE_INPAGE'
+        | 'ASSET_DISPLAY_TYPE_FLOATING'
+        | 'ASSET_DISPLAY_TYPE_OVERLAY'
+        | 'ASSET_DISPLAY_TYPE_EXPANDING'
+        | 'ASSET_DISPLAY_TYPE_FLASH_IN_FLASH'
+        | 'ASSET_DISPLAY_TYPE_FLASH_IN_FLASH_EXPANDING'
+        | 'ASSET_DISPLAY_TYPE_PEEL_DOWN'
+        | 'ASSET_DISPLAY_TYPE_VPAID_LINEAR'
+        | 'ASSET_DISPLAY_TYPE_VPAID_NON_LINEAR'
+        | 'ASSET_DISPLAY_TYPE_BACKDROP';
       /** Duration in seconds for which an asset will be displayed. Applicable to the following creative types: INSTREAM_AUDIO, INSTREAM_VIDEO and VPAID_LINEAR_VIDEO. Value must be greater than or equal to 1. */
       duration?: number;
       /** Duration type for which an asset will be displayed. Applicable to the following creative types: all RICH_MEDIA. */
-      durationType?: string;
+      durationType?:
+        | 'ASSET_DURATION_TYPE_AUTO'
+        | 'ASSET_DURATION_TYPE_NONE'
+        | 'ASSET_DURATION_TYPE_CUSTOM';
       /** Detected expanded dimension for video asset. This is a read-only field. Applicable to the following creative types: INSTREAM_VIDEO and all VPAID. */
       expandedDimension?: Size;
       /** File size associated with this creative asset. This is a read-only field. Applicable to all but the following creative types: all REDIRECT and TRACKING_TEXT. */
@@ -1081,7 +1368,7 @@ declare namespace gapi.client {
       /** Offset position for an asset in collapsed mode. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA and all VPAID. Additionally, only applicable to assets whose displayType is ASSET_DISPLAY_TYPE_EXPANDING or ASSET_DISPLAY_TYPE_PEEL_DOWN. */
       offset?: OffsetPosition;
       /** Orientation of video asset. This is a read-only, auto-generated field. */
-      orientation?: string;
+      orientation?: 'LANDSCAPE' | 'PORTRAIT' | 'SQUARE';
       /** Whether the backup asset is original or changed by the user in Campaign Manager. Applicable to the following creative types: all RICH_MEDIA. */
       originalBackup?: boolean;
       /** Whether this asset is used as a polite load asset. */
@@ -1089,9 +1376,15 @@ declare namespace gapi.client {
       /** Offset position for an asset. Applicable to the following creative types: all RICH_MEDIA. */
       position?: OffsetPosition;
       /** Offset left unit for an asset. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA. */
-      positionLeftUnit?: string;
+      positionLeftUnit?:
+        | 'OFFSET_UNIT_PIXEL'
+        | 'OFFSET_UNIT_PERCENT'
+        | 'OFFSET_UNIT_PIXEL_FROM_CENTER';
       /** Offset top unit for an asset. This is a read-only field if the asset displayType is ASSET_DISPLAY_TYPE_OVERLAY. Applicable to the following creative types: all RICH_MEDIA. */
-      positionTopUnit?: string;
+      positionTopUnit?:
+        | 'OFFSET_UNIT_PIXEL'
+        | 'OFFSET_UNIT_PERCENT'
+        | 'OFFSET_UNIT_PIXEL_FROM_CENTER';
       /** Progressive URL for video asset. This is a read-only field. Applicable to the following creative types: INSTREAM_VIDEO and all VPAID. */
       progressiveServingUrl?: string;
       /** Whether the asset pushes down other content. Applicable to the following creative types: all RICH_MEDIA. Additionally, only applicable when the asset offsets are 0, the collapsedSize.width matches size.width, and the collapsedSize.height is less than size.height. */
@@ -1099,13 +1392,25 @@ declare namespace gapi.client {
       /** Pushdown duration in seconds for an asset. Applicable to the following creative types: all RICH_MEDIA.Additionally, only applicable when the asset pushdown field is true, the offsets are 0, the collapsedSize.width matches size.width, and the collapsedSize.height is less than size.height. Acceptable values are 0 to 9.99, inclusive. */
       pushdownDuration?: number;
       /** Role of the asset in relation to creative. Applicable to all but the following creative types: all REDIRECT and TRACKING_TEXT. This is a required field. PRIMARY applies to DISPLAY, FLASH_INPAGE, HTML5_BANNER, IMAGE, DISPLAY_IMAGE_GALLERY, all RICH_MEDIA (which may contain multiple primary assets), and all VPAID creatives. BACKUP_IMAGE applies to FLASH_INPAGE, HTML5_BANNER, all RICH_MEDIA, and all VPAID creatives. Applicable to DISPLAY when the primary asset type is not HTML_IMAGE. ADDITIONAL_IMAGE and ADDITIONAL_FLASH apply to FLASH_INPAGE creatives. OTHER refers to assets from sources other than Campaign Manager, such as Studio uploaded assets, applicable to all RICH_MEDIA and all VPAID creatives. PARENT_VIDEO refers to videos uploaded by the user in Campaign Manager and is applicable to INSTREAM_VIDEO and VPAID_LINEAR_VIDEO creatives. TRANSCODED_VIDEO refers to videos transcoded by Campaign Manager from PARENT_VIDEO assets and is applicable to INSTREAM_VIDEO and VPAID_LINEAR_VIDEO creatives. ALTERNATE_VIDEO refers to the Campaign Manager representation of child asset videos from Studio, and is applicable to VPAID_LINEAR_VIDEO creatives. These cannot be added or removed within Campaign Manager. For VPAID_LINEAR_VIDEO creatives, PARENT_VIDEO, TRANSCODED_VIDEO and ALTERNATE_VIDEO assets that are marked active serve as backup in case the VPAID creative cannot be served. Only PARENT_VIDEO assets can be added or removed for an INSTREAM_VIDEO or VPAID_LINEAR_VIDEO creative. PARENT_AUDIO refers to audios uploaded by the user in Campaign Manager and is applicable to INSTREAM_AUDIO creatives. TRANSCODED_AUDIO refers to audios transcoded by Campaign Manager from PARENT_AUDIO assets and is applicable to INSTREAM_AUDIO creatives. */
-      role?: string;
+      role?:
+        | 'PRIMARY'
+        | 'BACKUP_IMAGE'
+        | 'ADDITIONAL_IMAGE'
+        | 'ADDITIONAL_FLASH'
+        | 'PARENT_VIDEO'
+        | 'TRANSCODED_VIDEO'
+        | 'OTHER'
+        | 'ALTERNATE_VIDEO'
+        | 'PARENT_AUDIO'
+        | 'TRANSCODED_AUDIO';
       /** Size associated with this creative asset. This is a required field when applicable; however for IMAGE and FLASH_INPAGE, creatives if left blank, this field will be automatically set using the actual size of the associated image asset. Applicable to the following creative types: DISPLAY_IMAGE_GALLERY, FLASH_INPAGE, HTML5_BANNER, IMAGE, and all RICH_MEDIA. Applicable to DISPLAY when the primary asset type is not HTML_IMAGE. */
       size?: Size;
       /** Whether the asset is SSL-compliant. This is a read-only field. Applicable to all but the following creative types: all REDIRECT and TRACKING_TEXT. */
       sslCompliant?: boolean;
       /** Initial wait time type before making the asset visible. Applicable to the following creative types: all RICH_MEDIA. */
-      startTimeType?: string;
+      startTimeType?:
+        | 'ASSET_START_TIME_TYPE_NONE'
+        | 'ASSET_START_TIME_TYPE_CUSTOM';
       /** Streaming URL for video asset. This is a read-only field. Applicable to the following creative types: INSTREAM_VIDEO and all VPAID. */
       streamingServingUrl?: string;
       /** Whether the asset is transparent. Applicable to the following creative types: all RICH_MEDIA. Additionally, only applicable to HTML5 assets. */
@@ -1113,7 +1418,7 @@ declare namespace gapi.client {
       /** Whether the asset is vertically locked. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA. */
       verticallyLocked?: boolean;
       /** Window mode options for flash assets. Applicable to the following creative types: FLASH_INPAGE, RICH_MEDIA_DISPLAY_EXPANDING, RICH_MEDIA_IM_EXPAND, RICH_MEDIA_DISPLAY_BANNER, and RICH_MEDIA_INPAGE_FLOATING. */
-      windowMode?: string;
+      windowMode?: 'OPAQUE' | 'WINDOW' | 'TRANSPARENT';
       /** zIndex value of an asset. Applicable to the following creative types: all RICH_MEDIA.Additionally, only applicable to assets whose displayType is NOT one of the following types: ASSET_DISPLAY_TYPE_INPAGE or ASSET_DISPLAY_TYPE_OVERLAY. Acceptable values are -999999999 to 999999999, inclusive. */
       zIndex?: number;
       /** File name of zip file. This is a read-only field. Applicable to the following creative types: HTML5_BANNER. */
@@ -1125,7 +1430,7 @@ declare namespace gapi.client {
       /** Name of the creative asset. This is a required field while inserting an asset. After insertion, this assetIdentifier is used to identify the uploaded asset. Characters in the name must be alphanumeric or one of the following: ".-_ ". Spaces are allowed. */
       name?: string;
       /** Type of asset to upload. This is a required field. FLASH and IMAGE are no longer supported for new uploads. All image assets should use HTML_IMAGE. */
-      type?: string;
+      type?: 'IMAGE' | 'FLASH' | 'VIDEO' | 'HTML' | 'HTML_IMAGE' | 'AUDIO';
     }
     interface CreativeAssetMetadata {
       /** ID of the creative asset. This is a required field. */
@@ -1135,7 +1440,73 @@ declare namespace gapi.client {
       /** List of counter events configured for the asset. This is a read-only, auto-generated field and only applicable to a rich media asset. */
       counterCustomEvents?: CreativeCustomEvent[];
       /** List of feature dependencies for the creative asset that are detected by Campaign Manager. Feature dependencies are features that a browser must be able to support in order to render your HTML5 creative correctly. This is a read-only, auto-generated field. */
-      detectedFeatures?: string[];
+      detectedFeatures?:
+        | 'CSS_FONT_FACE'
+        | 'CSS_BACKGROUND_SIZE'
+        | 'CSS_BORDER_IMAGE'
+        | 'CSS_BORDER_RADIUS'
+        | 'CSS_BOX_SHADOW'
+        | 'CSS_FLEX_BOX'
+        | 'CSS_HSLA'
+        | 'CSS_MULTIPLE_BGS'
+        | 'CSS_OPACITY'
+        | 'CSS_RGBA'
+        | 'CSS_TEXT_SHADOW'
+        | 'CSS_ANIMATIONS'
+        | 'CSS_COLUMNS'
+        | 'CSS_GENERATED_CONTENT'
+        | 'CSS_GRADIENTS'
+        | 'CSS_REFLECTIONS'
+        | 'CSS_TRANSFORMS'
+        | 'CSS_TRANSFORMS3D'
+        | 'CSS_TRANSITIONS'
+        | 'APPLICATION_CACHE'
+        | 'CANVAS'
+        | 'CANVAS_TEXT'
+        | 'DRAG_AND_DROP'
+        | 'HASH_CHANGE'
+        | 'HISTORY'
+        | 'AUDIO'
+        | 'VIDEO'
+        | 'INDEXED_DB'
+        | 'INPUT_ATTR_AUTOCOMPLETE'
+        | 'INPUT_ATTR_AUTOFOCUS'
+        | 'INPUT_ATTR_LIST'
+        | 'INPUT_ATTR_PLACEHOLDER'
+        | 'INPUT_ATTR_MAX'
+        | 'INPUT_ATTR_MIN'
+        | 'INPUT_ATTR_MULTIPLE'
+        | 'INPUT_ATTR_PATTERN'
+        | 'INPUT_ATTR_REQUIRED'
+        | 'INPUT_ATTR_STEP'
+        | 'INPUT_TYPE_SEARCH'
+        | 'INPUT_TYPE_TEL'
+        | 'INPUT_TYPE_URL'
+        | 'INPUT_TYPE_EMAIL'
+        | 'INPUT_TYPE_DATETIME'
+        | 'INPUT_TYPE_DATE'
+        | 'INPUT_TYPE_MONTH'
+        | 'INPUT_TYPE_WEEK'
+        | 'INPUT_TYPE_TIME'
+        | 'INPUT_TYPE_DATETIME_LOCAL'
+        | 'INPUT_TYPE_NUMBER'
+        | 'INPUT_TYPE_RANGE'
+        | 'INPUT_TYPE_COLOR'
+        | 'LOCAL_STORAGE'
+        | 'POST_MESSAGE'
+        | 'SESSION_STORAGE'
+        | 'WEB_SOCKETS'
+        | 'WEB_SQL_DATABASE'
+        | 'WEB_WORKERS'
+        | 'GEO_LOCATION'
+        | 'INLINE_SVG'
+        | 'SMIL'
+        | 'SVG_HREF'
+        | 'SVG_CLIP_PATHS'
+        | 'TOUCH'
+        | 'WEBGL'
+        | 'SVG_FILTERS'
+        | 'SVG_FE_IMAGE'[];
       /** List of exit events configured for the asset. This is a read-only, auto-generated field and only applicable to a rich media asset. */
       exitCustomEvents?: CreativeCustomEvent[];
       /** Numeric ID of the asset. This is a read-only, auto-generated field. */
@@ -1149,7 +1520,33 @@ declare namespace gapi.client {
       /** List of timer events configured for the asset. This is a read-only, auto-generated field and only applicable to a rich media asset. */
       timerCustomEvents?: CreativeCustomEvent[];
       /** Rules validated during code generation that generated a warning. This is a read-only, auto-generated field. Possible values are: - "ADMOB_REFERENCED" - "ASSET_FORMAT_UNSUPPORTED_DCM" - "ASSET_INVALID" - "CLICK_TAG_HARD_CODED" - "CLICK_TAG_INVALID" - "CLICK_TAG_IN_GWD" - "CLICK_TAG_MISSING" - "CLICK_TAG_MORE_THAN_ONE" - "CLICK_TAG_NON_TOP_LEVEL" - "COMPONENT_UNSUPPORTED_DCM" - "ENABLER_UNSUPPORTED_METHOD_DCM" - "EXTERNAL_FILE_REFERENCED" - "FILE_DETAIL_EMPTY" - "FILE_TYPE_INVALID" - "GWD_PROPERTIES_INVALID" - "HTML5_FEATURE_UNSUPPORTED" - "LINKED_FILE_NOT_FOUND" - "MAX_FLASH_VERSION_11" - "MRAID_REFERENCED" - "NOT_SSL_COMPLIANT" - "ORPHANED_ASSET" - "PRIMARY_HTML_MISSING" - "SVG_INVALID" - "ZIP_INVALID" */
-      warnedValidationRules?: string[];
+      warnedValidationRules?:
+        | 'CLICK_TAG_NON_TOP_LEVEL'
+        | 'CLICK_TAG_MISSING'
+        | 'CLICK_TAG_MORE_THAN_ONE'
+        | 'CLICK_TAG_INVALID'
+        | 'ORPHANED_ASSET'
+        | 'PRIMARY_HTML_MISSING'
+        | 'EXTERNAL_FILE_REFERENCED'
+        | 'MRAID_REFERENCED'
+        | 'ADMOB_REFERENCED'
+        | 'FILE_TYPE_INVALID'
+        | 'ZIP_INVALID'
+        | 'LINKED_FILE_NOT_FOUND'
+        | 'MAX_FLASH_VERSION_11'
+        | 'NOT_SSL_COMPLIANT'
+        | 'FILE_DETAIL_EMPTY'
+        | 'ASSET_INVALID'
+        | 'GWD_PROPERTIES_INVALID'
+        | 'ENABLER_UNSUPPORTED_METHOD_DCM'
+        | 'ASSET_FORMAT_UNSUPPORTED_DCM'
+        | 'COMPONENT_UNSUPPORTED_DCM'
+        | 'HTML5_FEATURE_UNSUPPORTED'
+        | 'CLICK_TAG_IN_GWD'
+        | 'CLICK_TAG_HARD_CODED'
+        | 'SVG_INVALID'
+        | 'CLICK_TAG_IN_RICH_MEDIA'
+        | 'MISSING_ENABLER_REFERENCE'[];
     }
     interface CreativeAssetSelection {
       /** A creativeAssets[].id. This should refer to one of the parent assets in this creative, and will be served if none of the rules match. This is a required field. */
@@ -1197,11 +1594,18 @@ declare namespace gapi.client {
       /** User-entered name for the event. */
       advertiserCustomEventName?: string;
       /** Type of the event. This is a read-only field. */
-      advertiserCustomEventType?: string;
+      advertiserCustomEventType?:
+        | 'ADVERTISER_EVENT_TIMER'
+        | 'ADVERTISER_EVENT_EXIT'
+        | 'ADVERTISER_EVENT_COUNTER';
       /** Artwork label column, used to link events in Campaign Manager back to events in Studio. This is a required field and should not be modified after insertion. */
       artworkLabel?: string;
       /** Artwork type used by the creative.This is a read-only field. */
-      artworkType?: string;
+      artworkType?:
+        | 'ARTWORK_TYPE_FLASH'
+        | 'ARTWORK_TYPE_HTML5'
+        | 'ARTWORK_TYPE_MIXED'
+        | 'ARTWORK_TYPE_IMAGE';
       /** Exit click-through URL for the event. This field is used only for exit events. */
       exitClickThroughUrl?: CreativeClickThroughUrl;
       /** ID of this event. This is a required field and should not be modified after insertion. */
@@ -1209,7 +1613,12 @@ declare namespace gapi.client {
       /** Properties for rich media popup windows. This field is used only for exit events. */
       popupWindowProperties?: PopupWindowProperties;
       /** Target type used by the event. */
-      targetType?: string;
+      targetType?:
+        | 'TARGET_BLANK'
+        | 'TARGET_TOP'
+        | 'TARGET_SELF'
+        | 'TARGET_PARENT'
+        | 'TARGET_POPUP';
       /** Video reporting ID, used to differentiate multiple videos in a single creative. This is a read-only field. */
       videoReportingId?: string;
     }
@@ -1281,7 +1690,7 @@ declare namespace gapi.client {
       /** ID of the creative group to be assigned. */
       creativeGroupId?: string;
       /** Creative group number of the creative group assignment. */
-      creativeGroupNumber?: string;
+      creativeGroupNumber?: 'CREATIVE_GROUP_ONE' | 'CREATIVE_GROUP_TWO';
     }
     interface CreativeGroupsListResponse {
       /** Creative group collection. */
@@ -1299,7 +1708,12 @@ declare namespace gapi.client {
       /** List of optimization activities associated with this configuration. */
       optimizationActivitys?: OptimizationActivity[];
       /** Optimization model for this configuration. */
-      optimizationModel?: string;
+      optimizationModel?:
+        | 'CLICK'
+        | 'POST_CLICK'
+        | 'POST_IMPRESSION'
+        | 'POST_CLICK_AND_IMPRESSION'
+        | 'VIDEO_COMPLETION';
     }
     interface CreativeRotation {
       /** Creative assignments in this creative rotation. */
@@ -1307,9 +1721,15 @@ declare namespace gapi.client {
       /** Creative optimization configuration that is used by this ad. It should refer to one of the existing optimization configurations in the ad's campaign. If it is unset or set to 0, then the campaign's default optimization configuration will be used for this ad. */
       creativeOptimizationConfigurationId?: string;
       /** Type of creative rotation. Can be used to specify whether to use sequential or random rotation. */
-      type?: string;
+      type?:
+        | 'CREATIVE_ROTATION_TYPE_SEQUENTIAL'
+        | 'CREATIVE_ROTATION_TYPE_RANDOM';
       /** Strategy for calculating weights. Used with CREATIVE_ROTATION_TYPE_RANDOM. */
-      weightCalculationStrategy?: string;
+      weightCalculationStrategy?:
+        | 'WEIGHT_STRATEGY_EQUAL'
+        | 'WEIGHT_STRATEGY_CUSTOM'
+        | 'WEIGHT_STRATEGY_HIGHEST_CTR'
+        | 'WEIGHT_STRATEGY_OPTIMIZED';
     }
     interface CreativesListResponse {
       /** Creative collection. */
@@ -1345,7 +1765,107 @@ declare namespace gapi.client {
       /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#customFloodlightVariable". */
       kind?: string;
       /** The type of custom floodlight variable to supply a value for. These map to the "u[1-100]=" in the tags. */
-      type?: string;
+      type?:
+        | 'U1'
+        | 'U2'
+        | 'U3'
+        | 'U4'
+        | 'U5'
+        | 'U6'
+        | 'U7'
+        | 'U8'
+        | 'U9'
+        | 'U10'
+        | 'U11'
+        | 'U12'
+        | 'U13'
+        | 'U14'
+        | 'U15'
+        | 'U16'
+        | 'U17'
+        | 'U18'
+        | 'U19'
+        | 'U20'
+        | 'U21'
+        | 'U22'
+        | 'U23'
+        | 'U24'
+        | 'U25'
+        | 'U26'
+        | 'U27'
+        | 'U28'
+        | 'U29'
+        | 'U30'
+        | 'U31'
+        | 'U32'
+        | 'U33'
+        | 'U34'
+        | 'U35'
+        | 'U36'
+        | 'U37'
+        | 'U38'
+        | 'U39'
+        | 'U40'
+        | 'U41'
+        | 'U42'
+        | 'U43'
+        | 'U44'
+        | 'U45'
+        | 'U46'
+        | 'U47'
+        | 'U48'
+        | 'U49'
+        | 'U50'
+        | 'U51'
+        | 'U52'
+        | 'U53'
+        | 'U54'
+        | 'U55'
+        | 'U56'
+        | 'U57'
+        | 'U58'
+        | 'U59'
+        | 'U60'
+        | 'U61'
+        | 'U62'
+        | 'U63'
+        | 'U64'
+        | 'U65'
+        | 'U66'
+        | 'U67'
+        | 'U68'
+        | 'U69'
+        | 'U70'
+        | 'U71'
+        | 'U72'
+        | 'U73'
+        | 'U74'
+        | 'U75'
+        | 'U76'
+        | 'U77'
+        | 'U78'
+        | 'U79'
+        | 'U80'
+        | 'U81'
+        | 'U82'
+        | 'U83'
+        | 'U84'
+        | 'U85'
+        | 'U86'
+        | 'U87'
+        | 'U88'
+        | 'U89'
+        | 'U90'
+        | 'U91'
+        | 'U92'
+        | 'U93'
+        | 'U94'
+        | 'U95'
+        | 'U96'
+        | 'U97'
+        | 'U98'
+        | 'U99'
+        | 'U100';
       /** The value of the custom floodlight variable. The length of string must not exceed 100 characters. */
       value?: string;
     }
@@ -1392,12 +1912,36 @@ declare namespace gapi.client {
       /** The kind of resource this is, in this case dfareporting#dateRange. */
       kind?: string;
       /** The date range relative to the date of when the report is run. */
-      relativeDateRange?: string;
+      relativeDateRange?:
+        | 'TODAY'
+        | 'YESTERDAY'
+        | 'WEEK_TO_DATE'
+        | 'MONTH_TO_DATE'
+        | 'QUARTER_TO_DATE'
+        | 'YEAR_TO_DATE'
+        | 'PREVIOUS_WEEK'
+        | 'PREVIOUS_MONTH'
+        | 'PREVIOUS_QUARTER'
+        | 'PREVIOUS_YEAR'
+        | 'LAST_7_DAYS'
+        | 'LAST_30_DAYS'
+        | 'LAST_90_DAYS'
+        | 'LAST_365_DAYS'
+        | 'LAST_24_MONTHS'
+        | 'LAST_14_DAYS'
+        | 'LAST_60_DAYS';
       startDate?: string;
     }
     interface DayPartTargeting {
       /** Days of the week when the ad will serve. Acceptable values are: - "SUNDAY" - "MONDAY" - "TUESDAY" - "WEDNESDAY" - "THURSDAY" - "FRIDAY" - "SATURDAY" */
-      daysOfWeek?: string[];
+      daysOfWeek?:
+        | 'SUNDAY'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'[];
       /** Hours of the day when the ad will serve, where 0 is midnight to 1 AM and 23 is 11 PM to midnight. Can be specified with days of week, in which case the ad would serve during these hours on the specified days. For example if Monday, Wednesday, Friday are the days of week specified and 9-10am, 3-5pm (hours 9, 15, and 16) is specified, the ad would serve Monday, Wednesdays, and Fridays at 9-10am and 3-5pm. Acceptable values are 0 to 23, inclusive. */
       hoursOfDay?: number[];
       /** Whether or not to use the user's local time. If false, the America/New York time zone applies. */
@@ -1429,7 +1973,23 @@ declare namespace gapi.client {
       /** Impression ratio for this ad. This ratio determines how often each ad is served relative to the others. For example, if ad A has an impression ratio of 1 and ad B has an impression ratio of 3, then Campaign Manager will serve ad B three times as often as ad A. Acceptable values are 1 to 10, inclusive. */
       impressionRatio?: string;
       /** Serving priority of an ad, with respect to other ads. The lower the priority number, the greater the priority with which it is served. */
-      priority?: string;
+      priority?:
+        | 'AD_PRIORITY_01'
+        | 'AD_PRIORITY_02'
+        | 'AD_PRIORITY_03'
+        | 'AD_PRIORITY_04'
+        | 'AD_PRIORITY_05'
+        | 'AD_PRIORITY_06'
+        | 'AD_PRIORITY_07'
+        | 'AD_PRIORITY_08'
+        | 'AD_PRIORITY_09'
+        | 'AD_PRIORITY_10'
+        | 'AD_PRIORITY_11'
+        | 'AD_PRIORITY_12'
+        | 'AD_PRIORITY_13'
+        | 'AD_PRIORITY_14'
+        | 'AD_PRIORITY_15'
+        | 'AD_PRIORITY_16';
     }
     interface DependentFieldValue {
       /** Optional. The ID of the element that value's field will match against. */
@@ -1481,7 +2041,7 @@ declare namespace gapi.client {
       /** The kind of resource this is, in this case dfareporting#dimensionValue. */
       kind?: string;
       /** Determines how the 'value' field is matched when filtering. If not specified, defaults to EXACT. If set to WILDCARD_EXPRESSION, '*' is allowed as a placeholder for variable length character sequences, and it can be escaped with a backslash. Note, only paid search dimensions ('dfa:paidSearch*') allow a matchType other than EXACT. */
-      matchType?: string;
+      matchType?: 'EXACT' | 'BEGINS_WITH' | 'CONTAINS' | 'WILDCARD_EXPRESSION';
       /** The value of the dimension. */
       value?: string;
     }
@@ -1511,9 +2071,16 @@ declare namespace gapi.client {
       /** Dimension value for the ID of this directory site. This is a read-only, auto-generated field. */
       idDimensionValue?: DimensionValue;
       /** Tag types for regular placements. Acceptable values are: - "STANDARD" - "IFRAME_JAVASCRIPT_INPAGE" - "INTERNAL_REDIRECT_INPAGE" - "JAVASCRIPT_INPAGE" */
-      inpageTagFormats?: string[];
+      inpageTagFormats?:
+        | 'STANDARD'
+        | 'IFRAME_JAVASCRIPT_INPAGE'
+        | 'INTERNAL_REDIRECT_INPAGE'
+        | 'JAVASCRIPT_INPAGE'[];
       /** Tag types for interstitial placements. Acceptable values are: - "IFRAME_JAVASCRIPT_INTERSTITIAL" - "INTERNAL_REDIRECT_INTERSTITIAL" - "JAVASCRIPT_INTERSTITIAL" */
-      interstitialTagFormats?: string[];
+      interstitialTagFormats?:
+        | 'IFRAME_JAVASCRIPT_INTERSTITIAL'
+        | 'INTERNAL_REDIRECT_INTERSTITIAL'
+        | 'JAVASCRIPT_INTERSTITIAL'[];
       /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#directorySite". */
       kind?: string;
       /** Name of this directory site. */
@@ -1563,7 +2130,7 @@ declare namespace gapi.client {
       /** Output only. The last modified timestamp of the dynamic feed. This is a read-only field. */
       lastModifiedInfo?: LastModifiedInfo;
       /** Output only. The status of the feed. It is a read-only field that depends on the the feed ingestion status. The default value is INACTIVE, and it will be updated to ACTIVE once the feed is ingested successfully. */
-      status?: string;
+      status?: 'STATUS_UNKNOWN' | 'ACTIVE' | 'INACTIVE' | 'DELETED';
       /** Required. Advertiser ID of this dynamic feed. This is a required field. */
       studioAdvertiserId?: string;
     }
@@ -1577,7 +2144,7 @@ declare namespace gapi.client {
       /** Optional. Active version of the dynamic profile. */
       active?: DynamicProfileVersion;
       /** Optional. Archive status of this dynamic profile. */
-      archiveStatus?: string;
+      archiveStatus?: 'ARCHIVE_STATUS_UNKNOWN' | 'UNARCHIVED' | 'ARCHIVED';
       /** Output only. The creation timestamp of the dynamic profile. This is a read-only field. */
       createInfo?: LastModifiedInfo;
       /** Optional. Description of this dynamic profile. */
@@ -1593,7 +2160,7 @@ declare namespace gapi.client {
       /** Required. Identifier. Name of this dynamic profile. This is a required field and must be less than 256 characters long. */
       name?: string;
       /** Optional. Status of this dynamic profile. */
-      status?: string;
+      status?: 'STATUS_UNKNOWN' | 'ACTIVE' | 'INACTIVE' | 'DELETED';
       /** Required. Advertiser ID of this dynamic profile. This is a required field on insertion. */
       studioAdvertiserId?: string;
     }
@@ -1627,9 +2194,18 @@ declare namespace gapi.client {
       /** Optional. The link between an element field ID and a list of user attribute IDs. */
       remarketingValueAttributes?: RemarketingValueAttribute[];
       /** Optional. The rotation type to select from eligible rows. Rotation type only apply when the filtering rule results in more than one eligible rows. */
-      rotationType?: string;
+      rotationType?:
+        | 'ROTATION_TYPE_UNKNOWN'
+        | 'RANDOM'
+        | 'OPTIMIZED'
+        | 'WEIGHTED';
       /** Optional. The type of the rule, the default value is OPEN. */
-      ruleType?: string;
+      ruleType?:
+        | 'RULE_SET_TYPE_UNKNOWN'
+        | 'OPEN'
+        | 'AUTO'
+        | 'CUSTOM'
+        | 'PROXIMITY_TARGETING';
       /** Optional. The field ID for the feed that will be used for weighted rotation, only applicable when rotation type is WEIGHTED. */
       weightFieldId?: number;
     }
@@ -1641,7 +2217,11 @@ declare namespace gapi.client {
       /** ID of the object of this dynamic targeting key. This is a required field. */
       objectId?: string;
       /** Type of the object of this dynamic targeting key. This is a required field. */
-      objectType?: string;
+      objectType?:
+        | 'OBJECT_ADVERTISER'
+        | 'OBJECT_AD'
+        | 'OBJECT_CREATIVE'
+        | 'OBJECT_PLACEMENT';
     }
     interface DynamicTargetingKeysListResponse {
       /** Dynamic targeting key collection. */
@@ -1679,9 +2259,19 @@ declare namespace gapi.client {
       /** The encryption entity ID. This should match the encryption configuration for ad serving or Data Transfer. */
       encryptionEntityId?: string;
       /** The encryption entity type. This should match the encryption configuration for ad serving or Data Transfer. */
-      encryptionEntityType?: string;
+      encryptionEntityType?:
+        | 'ENCRYPTION_ENTITY_TYPE_UNKNOWN'
+        | 'DCM_ACCOUNT'
+        | 'DCM_ADVERTISER'
+        | 'DBM_PARTNER'
+        | 'DBM_ADVERTISER'
+        | 'ADWORDS_CUSTOMER'
+        | 'DFP_NETWORK_CODE';
       /** Describes whether the encrypted cookie was received from ad serving (the %m macro) or from Data Transfer. */
-      encryptionSource?: string;
+      encryptionSource?:
+        | 'ENCRYPTION_SCOPE_UNKNOWN'
+        | 'AD_SERVING'
+        | 'DATA_TRANSFER';
       /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#encryptionInfo". */
       kind?: string;
     }
@@ -1707,17 +2297,20 @@ declare namespace gapi.client {
       /** Name of this event tag. This is a required field and must be less than 256 characters long. */
       name?: string;
       /** Site filter type for this event tag. If no type is specified then the event tag will be applied to all sites. */
-      siteFilterType?: string;
+      siteFilterType?: 'ALLOWLIST' | 'BLOCKLIST';
       /** Filter list of site IDs associated with this event tag. The siteFilterType determines whether this is a allowlist or blocklist filter. */
       siteIds?: string[];
       /** Whether this tag is SSL-compliant or not. This is a read-only field. */
       sslCompliant?: boolean;
       /** Status of this event tag. Must be ENABLED for this event tag to fire. This is a required field. */
-      status?: string;
+      status?: 'ENABLED' | 'DISABLED';
       /** Subaccount ID of this event tag. This is a read-only field that can be left blank. */
       subaccountId?: string;
       /** Event tag type. Can be used to specify whether to use a third-party pixel, a third-party JavaScript URL, or a third-party click-through URL for either impression or click tracking. This is a required field. */
-      type?: string;
+      type?:
+        | 'IMPRESSION_IMAGE_EVENT_TAG'
+        | 'IMPRESSION_JAVASCRIPT_EVENT_TAG'
+        | 'CLICK_THROUGH_EVENT_TAG';
       /** Payload URL for this event tag. The URL on a click-through event tag should have a landing page URL appended to the end of it. This field is required on insertion. */
       url?: string;
       /** Number of times the landing page URL should be URL-escaped before being appended to the click-through event tag URL. Only applies to click-through event tags as specified by the event tag type. */
@@ -1749,7 +2342,41 @@ declare namespace gapi.client {
       /** Optional. Whether the field is required and should not be empty in the feed. Could be set as true when the field type is any of the following: - GPA_SERVED_IMAGE_URL - GPA_SERVED_ASSET_URL - ASSET_LIBRARY_HANDLE - ASSET_LIBRARY_VIDEO_HANDLE - ASSET_LIBRARY_DIRECTORY_HANDLE */
       required?: boolean;
       /** Required. The type of the field. */
-      type?: string;
+      type?:
+        | 'TYPE_UNKNOWN'
+        | 'STRING'
+        | 'LONG'
+        | 'GPA_SERVED_IMAGE_URL'
+        | 'GPA_SERVED_ASSET_URL'
+        | 'COUNTRY_CODE_ISO'
+        | 'FLOAT'
+        | 'CM360_KEYWORD'
+        | 'CM360_SITE_ID'
+        | 'BOOL'
+        | 'EXIT_URL'
+        | 'DATETIME'
+        | 'CM360_CREATIVE_ID'
+        | 'CM360_PLACEMENT_ID'
+        | 'CM360_AD_ID'
+        | 'CM360_ADVERTISER_ID'
+        | 'CM360_CAMPAIGN_ID'
+        | 'CITY'
+        | 'REGION'
+        | 'POSTAL_CODE'
+        | 'METRO'
+        | 'CUSTOM_VALUE'
+        | 'REMARKETING_VALUE'
+        | 'GEO_CANONICAL'
+        | 'WEIGHT'
+        | 'STRING_LIST'
+        | 'CREATIVE_DIMENSION'
+        | 'USERLIST_ID'
+        | 'ASSET_LIBRARY_DIRECTORY_HANDLE'
+        | 'ASSET_LIBRARY_VIDEO_HANDLE'
+        | 'ASSET_LIBRARY_HANDLE'
+        | 'THIRD_PARTY_SERVED_URL'
+        | 'CM360_DYNAMIC_TARGETING_KEY'
+        | 'DV360_LINE_ITEM_ID';
     }
     interface FeedIngestionStatus {
       /** Output only. The ingestion error records of the feed. */
@@ -1757,7 +2384,17 @@ declare namespace gapi.client {
       /** Output only. The ingestion status of the feed. */
       ingestionStatus?: IngestionStatus;
       /** Output only. The processing state of the feed. */
-      state?: string;
+      state?:
+        | 'FEED_PROCESSING_STATE_UNKNOWN'
+        | 'CANCELLED'
+        | 'INGESTING_QUEUED'
+        | 'INGESTING'
+        | 'INGESTED_SUCCESS'
+        | 'INGESTED_FAILURE'
+        | 'REQUEST_TO_PUBLISH'
+        | 'PUBLISHING'
+        | 'PUBLISHED_SUCCESS'
+        | 'PUBLISHED_FAILURE';
     }
     interface FeedSchedule {
       /** Optional. The number of times the feed retransforms within one day. This is a required field if the schedule is enabled. Acceptable values are between 1 to 6, inclusive. */
@@ -1779,7 +2416,49 @@ declare namespace gapi.client {
       /** Output only. The list of values of the field. */
       fieldValues?: string[];
       /** Output only. The ingestion error of the field. */
-      ingestionError?: string;
+      ingestionError?:
+        | 'UNKNOWN_PARSING_ERROR'
+        | 'MISSING_ID'
+        | 'MISSING_REPORTING_LABEL'
+        | 'EMPTY_VALUE'
+        | 'ASSET_DOWNLOAD_ERROR'
+        | 'ID_TOO_LONG'
+        | 'DUPLICATE_ID'
+        | 'PARSING_ERROR'
+        | 'COUNTRY_PARSING_ERROR'
+        | 'LONG_PARSING_ERROR'
+        | 'BOOL_PARSING_ERROR'
+        | 'EXPANDED_URL_PARSING_ERROR'
+        | 'FLOAT_PARSING_ERROR'
+        | 'DATETIME_PARSING_ERROR'
+        | 'INVALID_PREFERENCE_VALUE'
+        | 'GEO_NOT_FOUND_ERROR'
+        | 'GEO_PARSING_ERROR'
+        | 'GEO_PROXIMITY_TARGETING_MULTIPLE_LOCATION_ERROR'
+        | 'POSTAL_CODE_PARSING_ERROR'
+        | 'METRO_CODE_PARSING_ERROR'
+        | 'DATETIME_WITHOUT_TIMEZONE_PARSING_ERROR'
+        | 'WEIGHT_PARSING_ERROR'
+        | 'CREATIVE_DIMENSION_PARSING_ERROR'
+        | 'MULTIVALUE_ID'
+        | 'ENDTIME_BEFORE_STARTTIME'
+        | 'INVALID_ASSET_LIBRARY_HANDLE'
+        | 'INVALID_ASSET_LIBRARY_VIDEO_HANDLE'
+        | 'INVALID_ASSET_LIBRARY_DIRECTORY_HANDLE'
+        | 'DYNAMIC_TARGETING_KEY_NOT_DEFINED_FOR_ADVERTISER'
+        | 'USERLIST_ID_NOT_ACCESSIBLE_FOR_ADVERTISER'
+        | 'ENDTIME_PASSED'
+        | 'ENDTIME_TOO_SOON'
+        | 'TEXT_ASSET_REFERENCE'
+        | 'IMAGE_ASSET_SCS_REFERENCE'
+        | 'AIRPORT_GEO_TARGET'
+        | 'CANONICAL_NAME_QUERY_MISMATCH'
+        | 'NO_DEFAULT_ROW'
+        | 'NO_ACTIVE_DEFAULT_ROW'
+        | 'NO_DEFAULT_ROW_IN_DATE_RANGE'
+        | 'NO_ACTIVE_DEFAULT_ROW_IN_DATE_RANGE'
+        | 'PAYLOAD_LIMIT_EXCEEDED'
+        | 'SSL_NOT_COMPLIANT';
       /** Output only. Incidcates whether the field has error or warning. */
       isError?: boolean;
     }
@@ -1791,13 +2470,23 @@ declare namespace gapi.client {
       /** Optional. The field ID on the left hand side of the expression. */
       fieldId?: number;
       /** Optional. Left hand side of the expression match type. */
-      matchType?: string;
+      matchType?:
+        | 'LHS_MATCH_TYPE_UNKNOWN'
+        | 'EQUALS_OR_UNRESTRICTED'
+        | 'EQUALS'
+        | 'UNRESTRICTED'
+        | 'NOT_EQUALS';
       /** Optional. The request value, only applicable when rhs_value_type is REQUEST. */
       requestValue?: RequestValue;
       /** Optional. The string value, only applicable when rhs_value_type is STRING. */
       stringValue?: string;
       /** Optional. Right hand side of the expression. */
-      valueType?: string;
+      valueType?:
+        | 'RHS_VALUE_TYPE_UNKNOWN'
+        | 'STRING'
+        | 'REQUEST'
+        | 'BOOL'
+        | 'DEPENDENT';
     }
     interface File {
       /** The date range for which the file has report data. The date range will always be the absolute date range for which the report is run. */
@@ -1807,7 +2496,7 @@ declare namespace gapi.client {
       /** The filename of the file. */
       fileName?: string;
       /** The output format of the report. Only available once the file is available. */
-      format?: string;
+      format?: 'CSV' | 'EXCEL';
       /** The unique ID of this report file. */
       id?: string;
       /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#file". */
@@ -1817,7 +2506,12 @@ declare namespace gapi.client {
       /** The ID of the report this file was generated from. */
       reportId?: string;
       /** The status of the report file. */
-      status?: string;
+      status?:
+        | 'PROCESSING'
+        | 'REPORT_AVAILABLE'
+        | 'FAILED'
+        | 'CANCELLED'
+        | 'QUEUED';
       /** The URLs where the completed report file can be downloaded. */
       urls?: {
         /** The URL for downloading the report data through the API. */
@@ -1870,9 +2564,19 @@ declare namespace gapi.client {
       /** Whether the activity is enabled for attribution. */
       attributionEnabled?: boolean;
       /** Code type used for cache busting in the generated tag. Applicable only when floodlightActivityGroupType is COUNTER and countingMethod is STANDARD_COUNTING or UNIQUE_COUNTING. */
-      cacheBustingType?: string;
+      cacheBustingType?:
+        | 'JAVASCRIPT'
+        | 'ACTIVE_SERVER_PAGE'
+        | 'JSP'
+        | 'PHP'
+        | 'COLD_FUSION';
       /** Counting method for conversions for this floodlight activity. This is a required field. */
-      countingMethod?: string;
+      countingMethod?:
+        | 'STANDARD_COUNTING'
+        | 'UNIQUE_COUNTING'
+        | 'SESSION_COUNTING'
+        | 'TRANSACTIONS_COUNTING'
+        | 'ITEMS_SOLD_COUNTING';
       /** Dynamic floodlight tags. */
       defaultTags?: FloodlightActivityDynamicTag[];
       /** URL where this tag will be deployed. If specified, must be less than 256 characters long. */
@@ -1884,13 +2588,13 @@ declare namespace gapi.client {
       /** Tag string of the associated floodlight activity group. This is a read-only field. */
       floodlightActivityGroupTagString?: string;
       /** Type of the associated floodlight activity group. This is a read-only field. */
-      floodlightActivityGroupType?: string;
+      floodlightActivityGroupType?: 'COUNTER' | 'SALE';
       /** Floodlight configuration ID of this floodlight activity. If this field is left blank, the value will be copied over either from the activity group's floodlight configuration or from the existing activity's floodlight configuration. */
       floodlightConfigurationId?: string;
       /** Dimension value for the ID of the floodlight configuration. This is a read-only, auto-generated field. */
       floodlightConfigurationIdDimensionValue?: DimensionValue;
       /** The type of Floodlight tag this activity will generate. This is a required field. */
-      floodlightTagType?: string;
+      floodlightTagType?: 'IFRAME' | 'IMAGE' | 'GLOBAL_SITE_TAG';
       /** ID of this floodlight activity. This is a read-only, auto-generated field. */
       id?: string;
       /** Dimension value for the ID of this floodlight activity. This is a read-only, auto-generated field. */
@@ -1910,15 +2614,119 @@ declare namespace gapi.client {
       /** Whether this floodlight activity must be SSL-compliant. */
       sslRequired?: boolean;
       /** The status of the activity. This can only be set to ACTIVE or ARCHIVED_AND_DISABLED. The ARCHIVED status is no longer supported and cannot be set for Floodlight activities. The DISABLED_POLICY status indicates that a Floodlight activity is violating Google policy. Contact your account manager for more information. */
-      status?: string;
+      status?:
+        | 'ACTIVE'
+        | 'ARCHIVED_AND_DISABLED'
+        | 'ARCHIVED'
+        | 'DISABLED_POLICY';
       /** Subaccount ID of this floodlight activity. This is a read-only field that can be left blank. */
       subaccountId?: string;
       /** Tag format type for the floodlight activity. If left blank, the tag format will default to HTML. */
-      tagFormat?: string;
+      tagFormat?: 'HTML' | 'XHTML';
       /** Value of the cat= parameter in the floodlight tag, which the ad servers use to identify the activity. This is optional: if empty, a new tag string will be generated for you. This string must be 1 to 8 characters long, with valid characters being a-z0-9[ _ ]. This tag string must also be unique among activities of the same activity group. This field is read-only after insertion. */
       tagString?: string;
       /** List of the user-defined variables used by this conversion tag. These map to the "u[1-100]=" in the tags. Each of these can have a user defined type. Acceptable values are U1 to U100, inclusive. */
-      userDefinedVariableTypes?: string[];
+      userDefinedVariableTypes?:
+        | 'U1'
+        | 'U2'
+        | 'U3'
+        | 'U4'
+        | 'U5'
+        | 'U6'
+        | 'U7'
+        | 'U8'
+        | 'U9'
+        | 'U10'
+        | 'U11'
+        | 'U12'
+        | 'U13'
+        | 'U14'
+        | 'U15'
+        | 'U16'
+        | 'U17'
+        | 'U18'
+        | 'U19'
+        | 'U20'
+        | 'U21'
+        | 'U22'
+        | 'U23'
+        | 'U24'
+        | 'U25'
+        | 'U26'
+        | 'U27'
+        | 'U28'
+        | 'U29'
+        | 'U30'
+        | 'U31'
+        | 'U32'
+        | 'U33'
+        | 'U34'
+        | 'U35'
+        | 'U36'
+        | 'U37'
+        | 'U38'
+        | 'U39'
+        | 'U40'
+        | 'U41'
+        | 'U42'
+        | 'U43'
+        | 'U44'
+        | 'U45'
+        | 'U46'
+        | 'U47'
+        | 'U48'
+        | 'U49'
+        | 'U50'
+        | 'U51'
+        | 'U52'
+        | 'U53'
+        | 'U54'
+        | 'U55'
+        | 'U56'
+        | 'U57'
+        | 'U58'
+        | 'U59'
+        | 'U60'
+        | 'U61'
+        | 'U62'
+        | 'U63'
+        | 'U64'
+        | 'U65'
+        | 'U66'
+        | 'U67'
+        | 'U68'
+        | 'U69'
+        | 'U70'
+        | 'U71'
+        | 'U72'
+        | 'U73'
+        | 'U74'
+        | 'U75'
+        | 'U76'
+        | 'U77'
+        | 'U78'
+        | 'U79'
+        | 'U80'
+        | 'U81'
+        | 'U82'
+        | 'U83'
+        | 'U84'
+        | 'U85'
+        | 'U86'
+        | 'U87'
+        | 'U88'
+        | 'U89'
+        | 'U90'
+        | 'U91'
+        | 'U92'
+        | 'U93'
+        | 'U94'
+        | 'U95'
+        | 'U96'
+        | 'U97'
+        | 'U98'
+        | 'U99'
+        | 'U100'[];
     }
     interface FloodlightActivityDynamicTag {
       /** ID of this dynamic tag. This is a read-only, auto-generated field. */
@@ -1952,7 +2760,7 @@ declare namespace gapi.client {
       /** Value of the type= parameter in the floodlight tag, which the ad servers use to identify the activity group that the activity belongs to. This is optional: if empty, a new tag string will be generated for you. This string must be 1 to 8 characters long, with valid characters being a-z0-9[ _ ]. This tag string must also be unique among activity groups of the same floodlight configuration. This field is read-only after insertion. */
       tagString?: string;
       /** Type of the floodlight activity group. This is a required field that is read-only after insertion. */
-      type?: string;
+      type?: 'COUNTER' | 'SALE';
     }
     interface FloodlightActivityGroupsListResponse {
       /** Floodlight activity group collection. */
@@ -1989,7 +2797,7 @@ declare namespace gapi.client {
       customViewabilityMetric?: CustomViewabilityMetric;
       /** Whether the exposure-to-conversion report is enabled. This report shows detailed pathway information on up to 10 of the most recent ad exposures seen by a user before converting. */
       exposureToConversionEnabled?: boolean;
-      firstDayOfWeek?: string;
+      firstDayOfWeek?: 'SUNDAY' | 'MONDAY';
       /** ID of this floodlight configuration. This is a read-only, auto-generated field. */
       id?: string;
       /** Dimension value for the ID of this floodlight configuration. This is a read-only, auto-generated field. */
@@ -2001,7 +2809,10 @@ declare namespace gapi.client {
       /** Lookback window settings for this floodlight configuration. */
       lookbackConfiguration?: LookbackConfiguration;
       /** Types of attribution options for natural search conversions. */
-      naturalSearchConversionAttributionOption?: string;
+      naturalSearchConversionAttributionOption?:
+        | 'EXCLUDE_NATURAL_SEARCH_CONVERSION_ATTRIBUTION'
+        | 'INCLUDE_NATURAL_SEARCH_CONVERSION_ATTRIBUTION'
+        | 'INCLUDE_NATURAL_SEARCH_TIERED_CONVERSION_ATTRIBUTION';
       /** Settings for Campaign Manager Omniture integration. */
       omnitureSettings?: OmnitureSettings;
       /** Subaccount ID of this floodlight configuration. This is a read-only field that can be left blank. */
@@ -2039,7 +2850,7 @@ declare namespace gapi.client {
       /** Distance from the left of the browser.Applicable when positionOption is DISTANCE_FROM_TOP_LEFT_CORNER. */
       left?: number;
       /** Position in the browser where the window will open. */
-      positionOption?: string;
+      positionOption?: 'CENTERED' | 'DISTANCE_FROM_TOP_LEFT_CORNER';
       /** Distance from the top of the browser. Applicable when positionOption is DISTANCE_FROM_TOP_LEFT_CORNER. */
       top?: number;
       /** Height of the window. */
@@ -2119,7 +2930,9 @@ declare namespace gapi.client {
       /** Subaccount ID of this inventory item. */
       subaccountId?: string;
       /** Type of inventory item. */
-      type?: string;
+      type?:
+        | 'PLANNING_PLACEMENT_TYPE_REGULAR'
+        | 'PLANNING_PLACEMENT_TYPE_CREDIT';
     }
     interface InventoryItemsListResponse {
       /** Inventory item collection */
@@ -2141,7 +2954,10 @@ declare namespace gapi.client {
       /** ID of this invoice. */
       id?: string;
       /** The type of invoice document. */
-      invoiceType?: string;
+      invoiceType?:
+        | 'INVOICE_TYPE_UNSPECIFIED'
+        | 'INVOICE_TYPE_CREDIT'
+        | 'INVOICE_TYPE_INVOICE';
       /** The date when the invoice was issued. */
       issueDate?: string;
       /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#invoice". */
@@ -2229,11 +3045,18 @@ declare namespace gapi.client {
       /** Whether to negate the comparison result of this term during rule evaluation. This field is only relevant when type is left unset or set to CUSTOM_VARIABLE_TERM or REFERRER_TERM. */
       negation?: boolean;
       /** Comparison operator of this term. This field is only relevant when type is left unset or set to CUSTOM_VARIABLE_TERM or REFERRER_TERM. */
-      operator?: string;
+      operator?:
+        | 'NUM_EQUALS'
+        | 'NUM_LESS_THAN'
+        | 'NUM_LESS_THAN_EQUAL'
+        | 'NUM_GREATER_THAN'
+        | 'NUM_GREATER_THAN_EQUAL'
+        | 'STRING_EQUALS'
+        | 'STRING_CONTAINS';
       /** ID of the list in question. This field is only relevant when type is set to LIST_MEMBERSHIP_TERM. */
       remarketingListId?: string;
       /** List population term type determines the applicable fields in this object. If left unset or set to CUSTOM_VARIABLE_TERM, then variableName, variableFriendlyName, operator, value, and negation are applicable. If set to LIST_MEMBERSHIP_TERM then remarketingListId and contains are applicable. If set to REFERRER_TERM then operator, value, and negation are applicable. */
-      type?: string;
+      type?: 'CUSTOM_VARIABLE_TERM' | 'LIST_MEMBERSHIP_TERM' | 'REFERRER_TERM';
       /** Literal to compare the variable to. This field is only relevant when type is left unset or set to CUSTOM_VARIABLE_TERM or REFERRER_TERM. */
       value?: string;
       /** Friendly name of this term's variable. This is a read-only, auto-generated field. This field is only relevant when type is left unset or set to CUSTOM_VARIABLE_TERM. */
@@ -2253,27 +3076,70 @@ declare namespace gapi.client {
     }
     interface MeasurementPartnerAdvertiserLink {
       /** Status of the partner link. */
-      linkStatus?: string;
+      linkStatus?:
+        | 'MEASUREMENT_PARTNER_UNLINKED'
+        | 'MEASUREMENT_PARTNER_LINKED'
+        | 'MEASUREMENT_PARTNER_LINK_PENDING'
+        | 'MEASUREMENT_PARTNER_LINK_FAILURE'
+        | 'MEASUREMENT_PARTNER_LINK_OPT_OUT'
+        | 'MEASUREMENT_PARTNER_LINK_OPT_OUT_PENDING'
+        | 'MEASUREMENT_PARTNER_LINK_WRAPPING_PENDING'
+        | 'MEASUREMENT_PARTNER_MODE_CHANGE_PENDING'
+        | 'MEASUREMENT_PARTNER_UNLINK_PENDING';
       /** Measurement partner used for tag wrapping. */
-      measurementPartner?: string;
+      measurementPartner?: 'NONE' | 'INTEGRAL_AD_SCIENCE' | 'DOUBLE_VERIFY';
       /** partner Advertiser Id. */
       partnerAdvertiserId?: string;
     }
     interface MeasurementPartnerCampaignLink {
       /** . */
-      linkStatus?: string;
+      linkStatus?:
+        | 'MEASUREMENT_PARTNER_UNLINKED'
+        | 'MEASUREMENT_PARTNER_LINKED'
+        | 'MEASUREMENT_PARTNER_LINK_PENDING'
+        | 'MEASUREMENT_PARTNER_LINK_FAILURE'
+        | 'MEASUREMENT_PARTNER_LINK_OPT_OUT'
+        | 'MEASUREMENT_PARTNER_LINK_OPT_OUT_PENDING'
+        | 'MEASUREMENT_PARTNER_LINK_WRAPPING_PENDING'
+        | 'MEASUREMENT_PARTNER_MODE_CHANGE_PENDING'
+        | 'MEASUREMENT_PARTNER_UNLINK_PENDING';
       /** Measurement partner used for tag wrapping. */
-      measurementPartner?: string;
+      measurementPartner?: 'NONE' | 'INTEGRAL_AD_SCIENCE' | 'DOUBLE_VERIFY';
       /** Partner campaign ID needed for establishing linking with Measurement partner. */
       partnerCampaignId?: string;
     }
     interface MeasurementPartnerWrappingData {
       /** Placement wrapping status. */
-      linkStatus?: string;
+      linkStatus?:
+        | 'MEASUREMENT_PARTNER_UNLINKED'
+        | 'MEASUREMENT_PARTNER_LINKED'
+        | 'MEASUREMENT_PARTNER_LINK_PENDING'
+        | 'MEASUREMENT_PARTNER_LINK_FAILURE'
+        | 'MEASUREMENT_PARTNER_LINK_OPT_OUT'
+        | 'MEASUREMENT_PARTNER_LINK_OPT_OUT_PENDING'
+        | 'MEASUREMENT_PARTNER_LINK_WRAPPING_PENDING'
+        | 'MEASUREMENT_PARTNER_MODE_CHANGE_PENDING'
+        | 'MEASUREMENT_PARTNER_UNLINK_PENDING';
       /** Measurement partner used for wrapping the placement. */
-      measurementPartner?: string;
+      measurementPartner?: 'NONE' | 'INTEGRAL_AD_SCIENCE' | 'DOUBLE_VERIFY';
       /** Measurement mode for the wrapped placement. */
-      tagWrappingMode?: string;
+      tagWrappingMode?:
+        | 'NONE'
+        | 'BLOCKING'
+        | 'MONITORING'
+        | 'MONITORING_READ_ONLY'
+        | 'VIDEO_PIXEL_MONITORING'
+        | 'TRACKING'
+        | 'VPAID_MONITORING'
+        | 'VPAID_BLOCKING'
+        | 'NON_VPAID_MONITORING'
+        | 'VPAID_ONLY_MONITORING'
+        | 'VPAID_ONLY_BLOCKING'
+        | 'VPAID_ONLY_FILTERING'
+        | 'VPAID_FILTERING'
+        | 'NON_VPAID_FILTERING'
+        | 'BLOCKING_FILTERING_VPAID'
+        | 'BLOCKING_FILTERING_VPAID_ONLY';
       /** Tag provided by the measurement partner during wrapping. */
       wrappedTag?: string;
     }
@@ -2307,7 +3173,18 @@ declare namespace gapi.client {
     }
     interface MobileApp {
       /** Mobile app directory. */
-      directory?: string;
+      directory?:
+        | 'UNKNOWN'
+        | 'APPLE_APP_STORE'
+        | 'GOOGLE_PLAY_STORE'
+        | 'ROKU_APP_STORE'
+        | 'AMAZON_FIRETV_APP_STORE'
+        | 'PLAYSTATION_APP_STORE'
+        | 'APPLE_TV_APP_STORE'
+        | 'XBOX_APP_STORE'
+        | 'SAMSUNG_TV_APP_STORE'
+        | 'ANDROID_TV_APP_STORE'
+        | 'GENERIC_CTV_APP_STORE';
       /** ID of this mobile app. */
       id?: string;
       /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#mobileApp". */
@@ -2367,7 +3244,7 @@ declare namespace gapi.client {
       /** Applicable when status is ASSIGNED. The user has access to objects with these object IDs. */
       objectIds?: string[];
       /** Status of the filter. NONE means the user has access to none of the objects. ALL means the user has access to all objects. ASSIGNED means the user has access to the objects with IDs in the objectIds list. */
-      status?: string;
+      status?: 'NONE' | 'ASSIGNED' | 'ALL';
     }
     interface OfflineUserAddressInfo {
       /** City of the address. */
@@ -2493,7 +3370,10 @@ declare namespace gapi.client {
       /** Title of this contact. */
       contactTitle?: string;
       /** Type of this contact. */
-      contactType?: string;
+      contactType?:
+        | 'PLANNING_ORDER_CONTACT_BUYER_CONTACT'
+        | 'PLANNING_ORDER_CONTACT_BUYER_BILLING_CONTACT'
+        | 'PLANNING_ORDER_CONTACT_SELLER_CONTACT';
       /** ID of the user profile containing the signature that will be embedded into order documents. */
       signatureUserProfileId?: string;
     }
@@ -2521,7 +3401,12 @@ declare namespace gapi.client {
       /** Account ID of this placement. This field can be left blank. */
       accountId?: string;
       /** Whether this placement is active, inactive, archived or permanently archived. */
-      activeStatus?: string;
+      activeStatus?:
+        | 'PLACEMENT_STATUS_UNKNOWN'
+        | 'PLACEMENT_STATUS_ACTIVE'
+        | 'PLACEMENT_STATUS_INACTIVE'
+        | 'PLACEMENT_STATUS_ARCHIVED'
+        | 'PLACEMENT_STATUS_PERMANENTLY_ARCHIVED';
       /** Whether this placement opts out of ad blocking. When true, ad blocking is disabled for this placement. When false, the campaign and site settings take effect. */
       adBlockingOptOut?: boolean;
       /** Additional sizes associated with this placement. When inserting or updating a placement, only the size ID field is used. */
@@ -2541,7 +3426,13 @@ declare namespace gapi.client {
       /** Comments for this placement. */
       comment?: string;
       /** Placement compatibility. DISPLAY and DISPLAY_INTERSTITIAL refer to rendering on desktop, on mobile devices or in mobile apps for regular or interstitial ads respectively. APP and APP_INTERSTITIAL are no longer allowed for new placement insertions. Instead, use DISPLAY or DISPLAY_INTERSTITIAL. IN_STREAM_VIDEO refers to rendering in in-stream video ads developed with the VAST standard. This field is required on insertion. */
-      compatibility?: string;
+      compatibility?:
+        | 'DISPLAY'
+        | 'DISPLAY_INTERSTITIAL'
+        | 'APP'
+        | 'APP_INTERSTITIAL'
+        | 'IN_STREAM_VIDEO'
+        | 'IN_STREAM_AUDIO';
       /** ID of the content category assigned to this placement. */
       contentCategoryId?: string;
       /** Optional. Conversion domain overrides for a placement. */
@@ -2573,7 +3464,7 @@ declare namespace gapi.client {
       /** Whether payment was approved for this placement. This is a read-only field relevant only to publisher-paid placements. */
       paymentApproved?: boolean;
       /** Payment source for this placement. This is a required field that is read-only after insertion. */
-      paymentSource?: string;
+      paymentSource?: 'PLACEMENT_AGENCY_PAID' | 'PLACEMENT_PUBLISHER_PAID';
       /** ID of this placement's group, if applicable. */
       placementGroupId?: string;
       /** Dimension value for the ID of the placement group. This is a read-only, auto-generated field. */
@@ -2597,11 +3488,37 @@ declare namespace gapi.client {
       /** Whether creatives assigned to this placement must be SSL-compliant. */
       sslRequired?: boolean;
       /** Third-party placement status. */
-      status?: string;
+      status?:
+        | 'PENDING_REVIEW'
+        | 'PAYMENT_ACCEPTED'
+        | 'PAYMENT_REJECTED'
+        | 'ACKNOWLEDGE_REJECTION'
+        | 'ACKNOWLEDGE_ACCEPTANCE'
+        | 'DRAFT';
       /** Subaccount ID of this placement. This field can be left blank. */
       subaccountId?: string;
       /** Tag formats to generate for this placement. This field is required on insertion. Acceptable values are: - "PLACEMENT_TAG_STANDARD" - "PLACEMENT_TAG_IFRAME_JAVASCRIPT" - "PLACEMENT_TAG_IFRAME_ILAYER" - "PLACEMENT_TAG_INTERNAL_REDIRECT" - "PLACEMENT_TAG_JAVASCRIPT" - "PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT" - "PLACEMENT_TAG_INTERSTITIAL_INTERNAL_REDIRECT" - "PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT" - "PLACEMENT_TAG_CLICK_COMMANDS" - "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH" - "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_3" - "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_4" - "PLACEMENT_TAG_TRACKING" - "PLACEMENT_TAG_TRACKING_IFRAME" - "PLACEMENT_TAG_TRACKING_JAVASCRIPT" */
-      tagFormats?: string[];
+      tagFormats?:
+        | 'PLACEMENT_TAG_STANDARD'
+        | 'PLACEMENT_TAG_IFRAME_JAVASCRIPT'
+        | 'PLACEMENT_TAG_IFRAME_ILAYER'
+        | 'PLACEMENT_TAG_INTERNAL_REDIRECT'
+        | 'PLACEMENT_TAG_JAVASCRIPT'
+        | 'PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT'
+        | 'PLACEMENT_TAG_INTERSTITIAL_INTERNAL_REDIRECT'
+        | 'PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT'
+        | 'PLACEMENT_TAG_CLICK_COMMANDS'
+        | 'PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH'
+        | 'PLACEMENT_TAG_TRACKING'
+        | 'PLACEMENT_TAG_TRACKING_IFRAME'
+        | 'PLACEMENT_TAG_TRACKING_JAVASCRIPT'
+        | 'PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_3'
+        | 'PLACEMENT_TAG_IFRAME_JAVASCRIPT_LEGACY'
+        | 'PLACEMENT_TAG_JAVASCRIPT_LEGACY'
+        | 'PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT_LEGACY'
+        | 'PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT_LEGACY'
+        | 'PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_4'
+        | 'PLACEMENT_TAG_TRACKING_THIRD_PARTY_MEASUREMENT'[];
       /** Tag settings for this placement. */
       tagSetting?: TagSetting;
       /** Whether Verification and ActiveView are disabled for in-stream video creatives for this placement. The same setting videoActiveViewOptOut exists on the site level -- the opt out occurs if either of these settings are true. These settings are distinct from DirectorySites.settings.activeViewOptOut or Sites.siteSettings.activeViewOptOut which only apply to display ads. However, Accounts.activeViewOptOut opts out both video traffic, as well as display ads, from Verification and ActiveView. */
@@ -2609,7 +3526,7 @@ declare namespace gapi.client {
       /** A collection of settings which affect video creatives served through this placement. Applicable to placements with IN_STREAM_VIDEO compatibility. */
       videoSettings?: VideoSettings;
       /** VPAID adapter setting for this placement. Controls which VPAID format the measurement adapter will use for in-stream video creatives assigned to this placement. *Note:* Flash is no longer supported. This field now defaults to HTML5 when the following values are provided: FLASH, BOTH. */
-      vpaidAdapterChoice?: string;
+      vpaidAdapterChoice?: 'DEFAULT' | 'FLASH' | 'HTML5' | 'BOTH';
       /** Whether this placement opts out of tag wrapping. */
       wrappingOptOut?: boolean;
       /** Optional. YouTube settings for the placement. The placement must be enabled for YouTube to use this field. */
@@ -2632,7 +3549,12 @@ declare namespace gapi.client {
       /** Account ID of this placement group. This is a read-only field that can be left blank. */
       accountId?: string;
       /** Whether this placement group is active, inactive, archived or permanently archived. */
-      activeStatus?: string;
+      activeStatus?:
+        | 'PLACEMENT_STATUS_UNKNOWN'
+        | 'PLACEMENT_STATUS_ACTIVE'
+        | 'PLACEMENT_STATUS_INACTIVE'
+        | 'PLACEMENT_STATUS_ARCHIVED'
+        | 'PLACEMENT_STATUS_PERMANENTLY_ARCHIVED';
       /** Advertiser ID of this placement group. This is a required field on insertion. */
       advertiserId?: string;
       /** Dimension value for the ID of the advertiser. This is a read-only, auto-generated field. */
@@ -2666,7 +3588,7 @@ declare namespace gapi.client {
       /** Name of this placement group. This is a required field and must be less than 256 characters long. */
       name?: string;
       /** Type of this placement group. A package is a simple group of placements that acts as a single pricing point for a group of tags. A roadblock is a group of placements that not only acts as a single pricing point, but also assumes that all the tags in it will be served at the same time. A roadblock requires one of its assigned placements to be marked as primary for reporting. This field is required on insertion. */
-      placementGroupType?: string;
+      placementGroupType?: 'PLACEMENT_PACKAGE' | 'PLACEMENT_ROADBLOCK';
       /** ID of the placement strategy assigned to this placement group. */
       placementStrategyId?: string;
       /** Pricing schedule of this placement group. This field is required on insertion. */
@@ -2752,7 +3674,7 @@ declare namespace gapi.client {
       /** Upper-left corner coordinates of the popup window. Applicable if positionType is COORDINATES. */
       offset?: OffsetPosition;
       /** Popup window position either centered or at specific coordinate. */
-      positionType?: string;
+      positionType?: 'CENTER' | 'COORDINATES';
       /** Whether to display the browser address bar. */
       showAddressBar?: boolean;
       /** Whether to display the browser menu bar. */
@@ -2786,19 +3708,35 @@ declare namespace gapi.client {
     }
     interface Pricing {
       /** Cap cost type of this inventory item. */
-      capCostType?: string;
+      capCostType?:
+        | 'PLANNING_PLACEMENT_CAP_COST_TYPE_NONE'
+        | 'PLANNING_PLACEMENT_CAP_COST_TYPE_MONTHLY'
+        | 'PLANNING_PLACEMENT_CAP_COST_TYPE_CUMULATIVE';
       endDate?: string;
       /** Flights of this inventory item. A flight (a.k.a. pricing period) represents the inventory item pricing information for a specific period of time. */
       flights?: Flight[];
       /** Group type of this inventory item if it represents a placement group. Is null otherwise. There are two type of placement groups: PLANNING_PLACEMENT_GROUP_TYPE_PACKAGE is a simple group of inventory items that acts as a single pricing point for a group of tags. PLANNING_PLACEMENT_GROUP_TYPE_ROADBLOCK is a group of inventory items that not only acts as a single pricing point, but also assumes that all the tags in it will be served at the same time. A roadblock requires one of its assigned inventory items to be marked as primary. */
-      groupType?: string;
+      groupType?:
+        | 'PLANNING_PLACEMENT_GROUP_TYPE_PACKAGE'
+        | 'PLANNING_PLACEMENT_GROUP_TYPE_ROADBLOCK';
       /** Pricing type of this inventory item. */
-      pricingType?: string;
+      pricingType?:
+        | 'PLANNING_PLACEMENT_PRICING_TYPE_IMPRESSIONS'
+        | 'PLANNING_PLACEMENT_PRICING_TYPE_CPM'
+        | 'PLANNING_PLACEMENT_PRICING_TYPE_CLICKS'
+        | 'PLANNING_PLACEMENT_PRICING_TYPE_CPC'
+        | 'PLANNING_PLACEMENT_PRICING_TYPE_CPA'
+        | 'PLANNING_PLACEMENT_PRICING_TYPE_FLAT_RATE_IMPRESSIONS'
+        | 'PLANNING_PLACEMENT_PRICING_TYPE_FLAT_RATE_CLICKS'
+        | 'PLANNING_PLACEMENT_PRICING_TYPE_CPM_ACTIVEVIEW';
       startDate?: string;
     }
     interface PricingSchedule {
       /** Placement cap cost option. */
-      capCostOption?: string;
+      capCostOption?:
+        | 'CAP_COST_NONE'
+        | 'CAP_COST_MONTHLY'
+        | 'CAP_COST_CUMULATIVE';
       endDate?: string;
       /** Whether this placement is flighted. If true, pricing periods will be computed automatically. */
       flighted?: boolean;
@@ -2807,7 +3745,13 @@ declare namespace gapi.client {
       /** Pricing periods for this placement. */
       pricingPeriods?: PricingSchedulePricingPeriod[];
       /** Placement pricing type. This field is required on insertion. */
-      pricingType?: string;
+      pricingType?:
+        | 'PRICING_TYPE_CPM'
+        | 'PRICING_TYPE_CPC'
+        | 'PRICING_TYPE_CPA'
+        | 'PRICING_TYPE_FLAT_RATE_IMPRESSIONS'
+        | 'PRICING_TYPE_FLAT_RATE_CLICKS'
+        | 'PRICING_TYPE_CPM_ACTIVEVIEW';
       startDate?: string;
       testingStartDate?: string;
     }
@@ -2827,9 +3771,18 @@ declare namespace gapi.client {
       /** Advertiser ID of this project. */
       advertiserId?: string;
       /** Audience age group of this project. */
-      audienceAgeGroup?: string;
+      audienceAgeGroup?:
+        | 'PLANNING_AUDIENCE_AGE_18_24'
+        | 'PLANNING_AUDIENCE_AGE_25_34'
+        | 'PLANNING_AUDIENCE_AGE_35_44'
+        | 'PLANNING_AUDIENCE_AGE_45_54'
+        | 'PLANNING_AUDIENCE_AGE_55_64'
+        | 'PLANNING_AUDIENCE_AGE_65_OR_MORE'
+        | 'PLANNING_AUDIENCE_AGE_UNKNOWN';
       /** Audience gender of this project. */
-      audienceGender?: string;
+      audienceGender?:
+        | 'PLANNING_AUDIENCE_GENDER_MALE'
+        | 'PLANNING_AUDIENCE_GENDER_FEMALE';
       /** Budget of this project in the currency specified by the current account. The value stored in this field represents only the non-fractional amount. For example, for USD, the smallest value that can be represented by this field is 1 US dollar. */
       budget?: string;
       /** Client billing code of this project. */
@@ -2877,9 +3830,15 @@ declare namespace gapi.client {
       /** Optional. Field ID in the element. */
       fieldId?: number;
       /** Optional. The radius bucket type of the proximity filter */
-      radiusBucketType?: string;
+      radiusBucketType?:
+        | 'RADIUS_BUCKET_TYPE_UNKNOWN'
+        | 'SMALL'
+        | 'MEDIUM'
+        | 'LARGE'
+        | 'MULTI_REGIONAL'
+        | 'NATIONAL';
       /** Optional. The units of the radius value */
-      radiusUnitType?: string;
+      radiusUnitType?: 'RADIUS_UNIT_TYPE_UNKNOWN' | 'KILOMETERS' | 'MILES';
       /** Optional. Radius length in units defined by radius_units. */
       radiusValue?: number;
     }
@@ -2899,7 +3858,7 @@ declare namespace gapi.client {
     }
     interface Recipient {
       /** The delivery type for the recipient. */
-      deliveryType?: string;
+      deliveryType?: 'LINK' | 'ATTACHMENT';
       /** The email address of the recipient. */
       email?: string;
       /** The kind of resource this is, in this case dfareporting#recipient. */
@@ -2947,7 +3906,18 @@ declare namespace gapi.client {
       /** Number of users currently in the list. This is a read-only field. */
       listSize?: string;
       /** Product from which this remarketing list was originated. */
-      listSource?: string;
+      listSource?:
+        | 'REMARKETING_LIST_SOURCE_OTHER'
+        | 'REMARKETING_LIST_SOURCE_ADX'
+        | 'REMARKETING_LIST_SOURCE_DFP'
+        | 'REMARKETING_LIST_SOURCE_XFP'
+        | 'REMARKETING_LIST_SOURCE_DFA'
+        | 'REMARKETING_LIST_SOURCE_GA'
+        | 'REMARKETING_LIST_SOURCE_YOUTUBE'
+        | 'REMARKETING_LIST_SOURCE_DBM'
+        | 'REMARKETING_LIST_SOURCE_GPLUS'
+        | 'REMARKETING_LIST_SOURCE_DMP'
+        | 'REMARKETING_LIST_SOURCE_PLAY_STORE';
       /** Name of the remarketing list. This is a required field. Must be no greater than 128 characters long. */
       name?: string;
       /** Subaccount ID of this remarketing list. This is a read-only, auto-generated field that is only returned in GET requests. */
@@ -3002,7 +3972,11 @@ declare namespace gapi.client {
         /** The date range this report should be run for. */
         dateRange?: DateRange;
         /** The dimension option. */
-        dimension?: string;
+        dimension?:
+          | 'ADVERTISER'
+          | 'CAMPAIGN'
+          | 'SITE_BY_ADVERTISER'
+          | 'SITE_BY_CAMPAIGN';
         /** The list of filters on which dimensions are filtered. */
         dimensionFilters?: DimensionValue[];
         /** The list of names of metrics the report should include. */
@@ -3028,7 +4002,7 @@ declare namespace gapi.client {
         /** Whether the report should be emailed to the report owner. */
         emailOwner?: boolean;
         /** The type of delivery for the owner to receive, if enabled. */
-        emailOwnerDeliveryType?: string;
+        emailOwnerDeliveryType?: 'LINK' | 'ATTACHMENT';
         /** The message to be sent with each email. */
         message?: string;
         /** The list of recipients to which to email the report. */
@@ -3063,7 +4037,7 @@ declare namespace gapi.client {
         };
       };
       /** The output format of the report. If not specified, default format is "CSV". Note that the actual format in the completed report file might differ if for instance the report's size exceeds the format's capabilities. "CSV" will then be the fallback format. */
-      format?: string;
+      format?: 'CSV' | 'EXCEL';
       /** The unique ID identifying this report resource. */
       id?: string;
       /** The kind of resource this is, in this case dfareporting#report. */
@@ -3143,9 +4117,16 @@ declare namespace gapi.client {
         /** The interval for which the report is repeated. Note: - "DAILY" also requires field "every" to be set. - "WEEKLY" also requires fields "every" and "repeatsOnWeekDays" to be set. - "MONTHLY" also requires fields "every" and "runsOnDayOfMonth" to be set. */
         repeats?: string;
         /** List of week days "WEEKLY" on which scheduled reports should run. */
-        repeatsOnWeekDays?: string[];
+        repeatsOnWeekDays?:
+          | 'SUNDAY'
+          | 'MONDAY'
+          | 'TUESDAY'
+          | 'WEDNESDAY'
+          | 'THURSDAY'
+          | 'FRIDAY'
+          | 'SATURDAY'[];
         /** Enum to define for "MONTHLY" scheduled reports whether reports should be repeated on the same day of the month as "startDate" or the same day of the week of the month. Example: If 'startDate' is Monday, April 2nd 2012 (2012-04-02), "DAY_OF_MONTH" would run subsequent reports on the 2nd of every Month, and "WEEK_OF_MONTH" would run subsequent reports on the first Monday of the month. */
-        runsOnDayOfMonth?: string;
+        runsOnDayOfMonth?: 'DAY_OF_MONTH' | 'WEEK_OF_MONTH';
         startDate?: string;
         /** The timezone when the report will run. */
         timezone?: string;
@@ -3153,7 +4134,13 @@ declare namespace gapi.client {
       /** The subaccount ID to which this report belongs if applicable. */
       subAccountId?: string;
       /** The type of the report. */
-      type?: string;
+      type?:
+        | 'STANDARD'
+        | 'REACH'
+        | 'PATH_TO_CONVERSION'
+        | 'CROSS_DIMENSION_REACH'
+        | 'FLOODLIGHT'
+        | 'CROSS_MEDIA_REACH';
     }
     interface ReportCompatibleFields {
       /** Dimensions which are compatible to be selected in the "dimensionFilters" section of the report. */
@@ -3257,7 +4244,7 @@ declare namespace gapi.client {
       /** Address of this site contact. */
       address?: string;
       /** Site contact type. */
-      contactType?: string;
+      contactType?: 'SALES_PERSON' | 'TRAFFICKER';
       /** Email address of this site contact. This is a required field. */
       email?: string;
       /** First name of this site contact. */
@@ -3283,7 +4270,7 @@ declare namespace gapi.client {
       /** Whether Verification and ActiveView for in-stream video creatives are disabled by default for new placements created under this site. This value will be used to populate the placement.videoActiveViewOptOut field, when no value is specified for the new placement. */
       videoActiveViewOptOutTemplate?: boolean;
       /** Default VPAID adapter setting for new placements created under this site. This value will be used to populate the placements.vpaidAdapterChoice field, when no value is specified for the new placement. Controls which VPAID format the measurement adapter will use for in-stream video creatives assigned to the placement. The publisher's specifications will typically determine this setting. For VPAID creatives, the adapter format will match the VPAID format (HTML5 VPAID creatives use the HTML5 adapter). *Note:* Flash is no longer supported. This field now defaults to HTML5 when the following values are provided: FLASH, BOTH. */
-      vpaidAdapterChoiceTemplate?: string;
+      vpaidAdapterChoiceTemplate?: 'DEFAULT' | 'FLASH' | 'HTML5' | 'BOTH';
     }
     interface SiteSkippableSetting {
       /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#siteSkippableSetting". */
@@ -3319,7 +4306,7 @@ declare namespace gapi.client {
       /** Settings for the OBA icon of video creatives served to this site. This will act as default for new placements created under this site. */
       obaSettings?: ObaIcon;
       /** Orientation of a site template used for video. This will act as default for new placements created under this site. */
-      orientation?: string;
+      orientation?: 'ANY' | 'LANDSCAPE' | 'PORTRAIT';
       /** Publisher specification ID used to identify site-associated publisher requirements and automatically populate transcode settings. If publisher specification ID is specified, it will take precedence over transcode settings. Possible values are: * `1`, Hulu * `2`, NBC * `3`, CBS * `4`, CBS Desktop * `5`, Discovery * `6`, VEVO HD * `7`, VEVO Vertical * `8`, Fox * `9`, CW Network * `10`, Disney * `11`, IGN * `12`, NFL.com * `13`, Turner Broadcasting * `14`, Tubi on Fox * `15`, Hearst Corporation * `16`, Twitch Desktop * `17`, ABC * `18`, Univision * `19`, MLB.com * `20`, MLB.com Mobile * `21`, MLB.com OTT * `22`, Polsat * `23`, TVN * `24`, Mediaset * `25`, Antena 3 * `26`, Mediamond * `27`, Sky Italia * `28`, Tubi on CBS * `29`, Spotify * `30`, Paramount * `31`, Max */
       publisherSpecificationId?: string;
       /** Settings for the skippability of video creatives served to this site. This will act as default for new placements created under this site. */
@@ -3361,7 +4348,7 @@ declare namespace gapi.client {
       /** The name of the dimension. */
       name?: string;
       /** An optional sort order for the dimension column. */
-      sortOrder?: string;
+      sortOrder?: 'ASCENDING' | 'DESCENDING';
     }
     interface StudioCreative {
       /** List of assets associated with this studio creative. It is a required field on insertion. */
@@ -3375,7 +4362,12 @@ declare namespace gapi.client {
       /** Dynamic profile ID of this studio creative. */
       dynamicProfileId?: string;
       /** Format of this studio creative. This is a required field on insertion. */
-      format?: string;
+      format?:
+        | 'UNKNOWN'
+        | 'BANNER'
+        | 'EXPANDING'
+        | 'INTERSTITIAL'
+        | 'VPAID_LINEAR_VIDEO';
       /** Output only. Unique ID of this studio creative. This is a read-only, auto-generated field. */
       id?: string;
       /** The timestamp when the studio creative was last modified. This is a read-only, auto-generated field. */
@@ -3383,7 +4375,13 @@ declare namespace gapi.client {
       /** Identifier. Name of this studio creative. This is a required field on insertion. */
       name?: string;
       /** Output only. Status of this studio creative. It is a read-only field. */
-      status?: string;
+      status?:
+        | 'UNKNOWN_STATUS'
+        | 'IN_DEVELOPMENT'
+        | 'PUBLISHED'
+        | 'QA_REJECTED'
+        | 'QA_APPROVED'
+        | 'TRAFFICKED';
       /** Studio account ID of this creative. This field, if left unset, will be auto-populated. */
       studioAccountId?: string;
       /** Studio advertiser ID of this studio creative. This is a required field on insertion. */
@@ -3409,7 +4407,7 @@ declare namespace gapi.client {
       /** Studio creative ID of this studio creative asset. The asset will be associated to the creative if creative id is set. */
       studioCreativeId?: string;
       /** The type of the studio creative asset. It is a auto-generated, read-only field. */
-      type?: string;
+      type?: 'UNKNOWN_TYPE' | 'HTML' | 'VIDEO' | 'IMAGE' | 'FONT';
       /** The processing data of the studio creative asset. This is a read-only field. */
       videoProcessingData?: VideoProcessingData;
     }
@@ -3451,7 +4449,27 @@ declare namespace gapi.client {
       /** Creative associated with this placement tag. Applicable only when format is PLACEMENT_TAG_TRACKING. */
       creativeId?: string;
       /** TagData tag format of this tag. */
-      format?: string;
+      format?:
+        | 'PLACEMENT_TAG_STANDARD'
+        | 'PLACEMENT_TAG_IFRAME_JAVASCRIPT'
+        | 'PLACEMENT_TAG_IFRAME_ILAYER'
+        | 'PLACEMENT_TAG_INTERNAL_REDIRECT'
+        | 'PLACEMENT_TAG_JAVASCRIPT'
+        | 'PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT'
+        | 'PLACEMENT_TAG_INTERSTITIAL_INTERNAL_REDIRECT'
+        | 'PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT'
+        | 'PLACEMENT_TAG_CLICK_COMMANDS'
+        | 'PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH'
+        | 'PLACEMENT_TAG_TRACKING'
+        | 'PLACEMENT_TAG_TRACKING_IFRAME'
+        | 'PLACEMENT_TAG_TRACKING_JAVASCRIPT'
+        | 'PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_3'
+        | 'PLACEMENT_TAG_IFRAME_JAVASCRIPT_LEGACY'
+        | 'PLACEMENT_TAG_JAVASCRIPT_LEGACY'
+        | 'PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT_LEGACY'
+        | 'PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT_LEGACY'
+        | 'PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_4'
+        | 'PLACEMENT_TAG_TRACKING_THIRD_PARTY_MEASUREMENT';
       /** Tag string for serving an ad. */
       impressionTag?: string;
     }
@@ -3465,7 +4483,10 @@ declare namespace gapi.client {
       /** Optional. Indicates that the unescapedlpurl macro should be included in the tag for the static landing page. New placements will default to the value set on their site. */
       includeUnescapedlpurlMacro?: boolean;
       /** Option specifying how keywords are embedded in ad tags. This setting can be used to specify whether keyword placeholders are inserted in placement tags for this site. Publishers can then add keywords to those placeholders. */
-      keywordOption?: string;
+      keywordOption?:
+        | 'PLACEHOLDER_WITH_LIST_OF_KEYWORDS'
+        | 'IGNORE'
+        | 'GENERATE_SEPARATE_TAG_FOR_EACH_KEYWORD';
     }
     interface TagSettings {
       /** Whether dynamic floodlight tags are enabled. */
@@ -3493,7 +4514,18 @@ declare namespace gapi.client {
       /** Number of users currently in the list. This is a read-only field. */
       listSize?: string;
       /** Product from which this targetable remarketing list was originated. */
-      listSource?: string;
+      listSource?:
+        | 'REMARKETING_LIST_SOURCE_OTHER'
+        | 'REMARKETING_LIST_SOURCE_ADX'
+        | 'REMARKETING_LIST_SOURCE_DFP'
+        | 'REMARKETING_LIST_SOURCE_XFP'
+        | 'REMARKETING_LIST_SOURCE_DFA'
+        | 'REMARKETING_LIST_SOURCE_GA'
+        | 'REMARKETING_LIST_SOURCE_YOUTUBE'
+        | 'REMARKETING_LIST_SOURCE_DBM'
+        | 'REMARKETING_LIST_SOURCE_GPLUS'
+        | 'REMARKETING_LIST_SOURCE_DMP'
+        | 'REMARKETING_LIST_SOURCE_PLAY_STORE';
       /** Name of the targetable remarketing list. Is no greater than 128 characters long. */
       name?: string;
       /** Subaccount ID of this remarketing list. This is a read-only, auto-generated field that is only returned in GET requests. */
@@ -3549,7 +4581,7 @@ declare namespace gapi.client {
       /** User-entered value. */
       customHtml?: string;
       /** Type of browser window for which the backup image of the flash creative can be displayed. */
-      targetWindowOption?: string;
+      targetWindowOption?: 'NEW_WINDOW' | 'CURRENT_WINDOW' | 'CUSTOM';
     }
     interface TechnologyTargeting {
       /** Browsers that this ad targets. For each browser either set browserVersionId or dartId along with the version numbers. If both are specified, only browserVersionId will be used. The other fields are populated automatically when the ad is inserted or updated. */
@@ -3573,7 +4605,26 @@ declare namespace gapi.client {
     }
     interface ThirdPartyTrackingUrl {
       /** Third-party URL type for in-stream video and in-stream audio creatives. */
-      thirdPartyUrlType?: string;
+      thirdPartyUrlType?:
+        | 'IMPRESSION'
+        | 'CLICK_TRACKING'
+        | 'VIDEO_START'
+        | 'VIDEO_FIRST_QUARTILE'
+        | 'VIDEO_MIDPOINT'
+        | 'VIDEO_THIRD_QUARTILE'
+        | 'VIDEO_COMPLETE'
+        | 'VIDEO_MUTE'
+        | 'VIDEO_PAUSE'
+        | 'VIDEO_REWIND'
+        | 'VIDEO_FULLSCREEN'
+        | 'VIDEO_STOP'
+        | 'VIDEO_CUSTOM'
+        | 'SURVEY'
+        | 'RICH_MEDIA_IMPRESSION'
+        | 'RICH_MEDIA_RM_IMPRESSION'
+        | 'RICH_MEDIA_BACKUP_IMPRESSION'
+        | 'VIDEO_SKIP'
+        | 'VIDEO_PROGRESS';
       /** URL for the specified third-party URL type. */
       url?: string;
     }
@@ -3615,11 +4666,22 @@ declare namespace gapi.client {
       /** The start date of the TV campaign, inclusive. A string of the format: "yyyy-MM-dd". */
       startDate?: string;
       /** "CampaignComponentType" of this TV campaign. */
-      type?: string;
+      type?:
+        | 'CAMPAIGN_COMPONENT_TYPE_UNSPECIFIED'
+        | 'COMPANY'
+        | 'BRAND'
+        | 'PRODUCT'
+        | 'CAMPAIGN';
     }
     interface TvCampaignTimepoint {
       /** The date window of the timepoint. */
-      dateWindow?: string;
+      dateWindow?:
+        | 'WEEKS_UNSPECIFIED'
+        | 'DAYS_ONE'
+        | 'WEEKS_ONE'
+        | 'WEEKS_FOUR'
+        | 'WEEKS_EIGHT'
+        | 'WEEKS_TWELVE';
       /** The spend within the time range of the timepoint. */
       spend?: number;
       /** The start date of the timepoint. A string in the format of "yyyy-MM-dd". */
@@ -3627,17 +4689,123 @@ declare namespace gapi.client {
     }
     interface UniversalAdId {
       /** Registry used for the Ad ID value. */
-      registry?: string;
+      registry?:
+        | 'OTHER'
+        | 'AD_ID_OFFICIAL'
+        | 'CLEARCAST'
+        | 'DCM'
+        | 'ARPP'
+        | 'CUSV';
       /** ID value for this creative. Only alphanumeric characters and the following symbols are valid: "_/\-". Maximum length is 64 characters. Read only when registry is DCM. */
       value?: string;
     }
     interface UserDefinedVariableConfiguration {
       /** Data type for the variable. This is a required field. */
-      dataType?: string;
+      dataType?: 'STRING' | 'NUMBER';
       /** User-friendly name for the variable which will appear in reports. This is a required field, must be less than 64 characters long, and cannot contain the following characters: ""<>". */
       reportName?: string;
       /** Variable name in the tag. This is a required field. */
-      variableType?: string;
+      variableType?:
+        | 'U1'
+        | 'U2'
+        | 'U3'
+        | 'U4'
+        | 'U5'
+        | 'U6'
+        | 'U7'
+        | 'U8'
+        | 'U9'
+        | 'U10'
+        | 'U11'
+        | 'U12'
+        | 'U13'
+        | 'U14'
+        | 'U15'
+        | 'U16'
+        | 'U17'
+        | 'U18'
+        | 'U19'
+        | 'U20'
+        | 'U21'
+        | 'U22'
+        | 'U23'
+        | 'U24'
+        | 'U25'
+        | 'U26'
+        | 'U27'
+        | 'U28'
+        | 'U29'
+        | 'U30'
+        | 'U31'
+        | 'U32'
+        | 'U33'
+        | 'U34'
+        | 'U35'
+        | 'U36'
+        | 'U37'
+        | 'U38'
+        | 'U39'
+        | 'U40'
+        | 'U41'
+        | 'U42'
+        | 'U43'
+        | 'U44'
+        | 'U45'
+        | 'U46'
+        | 'U47'
+        | 'U48'
+        | 'U49'
+        | 'U50'
+        | 'U51'
+        | 'U52'
+        | 'U53'
+        | 'U54'
+        | 'U55'
+        | 'U56'
+        | 'U57'
+        | 'U58'
+        | 'U59'
+        | 'U60'
+        | 'U61'
+        | 'U62'
+        | 'U63'
+        | 'U64'
+        | 'U65'
+        | 'U66'
+        | 'U67'
+        | 'U68'
+        | 'U69'
+        | 'U70'
+        | 'U71'
+        | 'U72'
+        | 'U73'
+        | 'U74'
+        | 'U75'
+        | 'U76'
+        | 'U77'
+        | 'U78'
+        | 'U79'
+        | 'U80'
+        | 'U81'
+        | 'U82'
+        | 'U83'
+        | 'U84'
+        | 'U85'
+        | 'U86'
+        | 'U87'
+        | 'U88'
+        | 'U89'
+        | 'U90'
+        | 'U91'
+        | 'U92'
+        | 'U93'
+        | 'U94'
+        | 'U95'
+        | 'U96'
+        | 'U97'
+        | 'U98'
+        | 'U99'
+        | 'U100';
     }
     interface UserIdentifier {
       /** Address information. */
@@ -3693,7 +4861,13 @@ declare namespace gapi.client {
     }
     interface UserRolePermission {
       /** Levels of availability for a user role permission. */
-      availability?: string;
+      availability?:
+        | 'NOT_AVAILABLE_BY_DEFAULT'
+        | 'ACCOUNT_BY_DEFAULT'
+        | 'SUBACCOUNT_AND_ACCOUNT_BY_DEFAULT'
+        | 'ACCOUNT_ALWAYS'
+        | 'SUBACCOUNT_AND_ACCOUNT_ALWAYS'
+        | 'USER_PROFILE_ONLY';
       /** ID of this user role permission. */
       id?: string;
       /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#userRolePermission". */
@@ -3733,7 +4907,7 @@ declare namespace gapi.client {
     }
     interface VideoFormat {
       /** File type of the video format. */
-      fileType?: string;
+      fileType?: 'FLV' | 'THREEGPP' | 'MP4' | 'WEBM' | 'M3U8';
       /** ID of the video format. */
       id?: number;
       /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#videoFormat". */
@@ -3759,7 +4933,7 @@ declare namespace gapi.client {
       /** For a FAILED processing state, the error reason discovered. */
       errorReason?: string;
       /** Output only. The processing state of the studio creative asset. */
-      processingState?: string;
+      processingState?: 'UNKNOWN' | 'PROCESSING' | 'SUCCEEDED' | 'FAILED';
     }
     interface VideoSettings {
       /** Settings for the companion creatives of video creatives served to this placement. */
@@ -3773,7 +4947,7 @@ declare namespace gapi.client {
       /** Settings for the OBA icon of video creatives served to this placement. If this object is provided, the creative-level OBA settings will be overridden. */
       obaSettings?: ObaIcon;
       /** Orientation of a video placement. If this value is set, placement will return assets matching the specified orientation. */
-      orientation?: string;
+      orientation?: 'ANY' | 'LANDSCAPE' | 'PORTRAIT';
       /** Publisher specification ID of a video placement. Possible values are: * `1`, Hulu * `2`, NBC * `3`, CBS * `4`, CBS Desktop * `5`, Discovery * `6`, VEVO HD * `7`, VEVO Vertical * `8`, Fox * `9`, CW Network * `10`, Disney * `11`, IGN * `12`, NFL.com * `13`, Turner Broadcasting * `14`, Tubi on Fox * `15`, Hearst Corporation * `16`, Twitch Desktop * `17`, ABC * `18`, Univision * `19`, MLB.com * `20`, MLB.com Mobile * `21`, MLB.com OTT * `22`, Polsat * `23`, TVN * `24`, Mediaset * `25`, Antena 3 * `26`, Mediamond * `27`, Sky Italia * `28`, Tubi on CBS * `29`, Spotify * `30`, Paramount * `31`, Max */
       publisherSpecificationId?: string;
       /** Settings for the skippability of video creatives served to this placement. If this object is provided, the creative-level skippable settings will be overridden. */
@@ -3787,7 +4961,31 @@ declare namespace gapi.client {
       /** Optional. The business name. */
       businessName?: string;
       /** Optional. The call to actions. Currently only one call to action is supported. */
-      callToActions?: string[];
+      callToActions?:
+        | 'CALL_TO_ACTION_UNKNOWN'
+        | 'CALL_TO_ACTION_LEARN_MORE'
+        | 'CALL_TO_ACTION_GET_QUOTE'
+        | 'CALL_TO_ACTION_APPLY_NOW'
+        | 'CALL_TO_ACTION_SIGN_UP'
+        | 'CALL_TO_ACTION_CONTACT_US'
+        | 'CALL_TO_ACTION_SUBSCRIBE'
+        | 'CALL_TO_ACTION_DOWNLOAD'
+        | 'CALL_TO_ACTION_BOOK_NOW'
+        | 'CALL_TO_ACTION_GET_OFFER'
+        | 'CALL_TO_ACTION_SHOP_NOW'
+        | 'CALL_TO_ACTION_VISIT_STORE'
+        | 'CALL_TO_ACTION_CALL_NOW'
+        | 'CALL_TO_ACTION_VIEW_MENU'
+        | 'CALL_TO_ACTION_TEST_DRIVE'
+        | 'CALL_TO_ACTION_SCHEDULE_NOW'
+        | 'CALL_TO_ACTION_BUY_NOW'
+        | 'CALL_TO_ACTION_DONATE_NOW'
+        | 'CALL_TO_ACTION_ORDER_NOW'
+        | 'CALL_TO_ACTION_PLAY_NOW'
+        | 'CALL_TO_ACTION_SEE_MORE'
+        | 'CALL_TO_ACTION_START_NOW'
+        | 'CALL_TO_ACTION_VISIT_SITE'
+        | 'CALL_TO_ACTION_WATCH_NOW'[];
       /** Optional. The descriptions. Currently only one description is supported. */
       descriptions?: string[];
       /** Optional. The headlines associated with the call to actions. Currently only one headline is supported. */
@@ -3799,11 +4997,11 @@ declare namespace gapi.client {
       /** Gets the account's active ad summary by account ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3830,11 +5028,11 @@ declare namespace gapi.client {
       /** Gets one account permission group by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3859,11 +5057,11 @@ declare namespace gapi.client {
       /** Retrieves the list of account permission groups. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3888,11 +5086,11 @@ declare namespace gapi.client {
       /** Gets one account permission by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3917,11 +5115,11 @@ declare namespace gapi.client {
       /** Retrieves the list of account permissions. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3946,11 +5144,11 @@ declare namespace gapi.client {
       /** Gets one account by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3975,13 +5173,13 @@ declare namespace gapi.client {
       /** Retrieves the list of accounts, possibly filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Select only active accounts. Don't set this field to select both active and non-active accounts. */
         active?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4005,9 +5203,9 @@ declare namespace gapi.client {
         /** Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "account*2015" will return objects with names like "account June 2015", "account April 2015", or simply "account 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "account" will match objects with name "my account", "account 2015", or simply "account". */
         searchString?: string;
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -4016,11 +5214,11 @@ declare namespace gapi.client {
       /** Updates an existing account. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4047,11 +5245,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4078,11 +5276,11 @@ declare namespace gapi.client {
       /** Updates an existing account. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4107,11 +5305,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4138,11 +5336,11 @@ declare namespace gapi.client {
       /** Gets one account user profile by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4167,11 +5365,11 @@ declare namespace gapi.client {
       /** Inserts a new account user profile. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4196,11 +5394,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4225,13 +5423,13 @@ declare namespace gapi.client {
       /** Retrieves a list of account user profiles, possibly filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Select only active user profiles. */
         active?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4255,9 +5453,9 @@ declare namespace gapi.client {
         /** Allows searching for objects by name, ID or email. Wildcards (*) are allowed. For example, "user profile*2015" will return objects with names like "user profile June 2015", "user profile April 2015", or simply "user profile 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "user profile" will match objects with name "my user profile", "user profile 2015", or simply "user profile". */
         searchString?: string;
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Select only user profiles with the specified subaccount ID. */
         subaccountId?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -4270,11 +5468,11 @@ declare namespace gapi.client {
       /** Updates an existing account user profile. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4301,11 +5499,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4332,11 +5530,11 @@ declare namespace gapi.client {
       /** Updates an existing account user profile. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4361,11 +5559,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4392,11 +5590,11 @@ declare namespace gapi.client {
       /** Gets one ad by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4421,11 +5619,11 @@ declare namespace gapi.client {
       /** Inserts a new ad. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4450,11 +5648,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4479,7 +5677,7 @@ declare namespace gapi.client {
       /** Retrieves a list of ads, possibly filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Select only active ads. */
@@ -4487,7 +5685,7 @@ declare namespace gapi.client {
         /** Select only ads with this advertiser ID. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Select only archived ads. */
         archived?: boolean;
         /** Select only ads with these audience segment IDs. */
@@ -4497,7 +5695,13 @@ declare namespace gapi.client {
         /** Select only ads with these campaign IDs. */
         campaignIds?: string | string[];
         /** Select default ads with the specified compatibility. Applicable when type is AD_SERVING_DEFAULT_AD. DISPLAY and DISPLAY_INTERSTITIAL refer to rendering either on desktop or on mobile devices for regular or interstitial ads, respectively. APP and APP_INTERSTITIAL are for rendering in mobile apps. IN_STREAM_VIDEO refers to rendering an in-stream video ads developed with the VAST standard. */
-        compatibility?: string;
+        compatibility?:
+          | 'DISPLAY'
+          | 'DISPLAY_INTERSTITIAL'
+          | 'APP'
+          | 'APP_INTERSTITIAL'
+          | 'IN_STREAM_VIDEO'
+          | 'IN_STREAM_AUDIO';
         /** Select only ads with these creative IDs assigned. */
         creativeIds?: string | string[];
         /** Select only ads with these creative optimization configuration IDs. */
@@ -4535,15 +5739,27 @@ declare namespace gapi.client {
         /** Select only ads with these size IDs. */
         sizeIds?: string | string[];
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Select only ads that are SSL-compliant. */
         sslCompliant?: boolean;
         /** Select only ads that require SSL. */
         sslRequired?: boolean;
         /** Select only ads with these types. */
-        type?: string | string[];
+        type?:
+          | 'AD_SERVING_STANDARD_AD'
+          | 'AD_SERVING_DEFAULT_AD'
+          | 'AD_SERVING_CLICK_TRACKER'
+          | 'AD_SERVING_TRACKING'
+          | 'AD_SERVING_BRAND_SAFE_AD'
+          | (
+              | 'AD_SERVING_STANDARD_AD'
+              | 'AD_SERVING_DEFAULT_AD'
+              | 'AD_SERVING_CLICK_TRACKER'
+              | 'AD_SERVING_TRACKING'
+              | 'AD_SERVING_BRAND_SAFE_AD'
+            )[];
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -4552,11 +5768,11 @@ declare namespace gapi.client {
       /** Updates an existing ad. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4583,11 +5799,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4614,11 +5830,11 @@ declare namespace gapi.client {
       /** Updates an existing ad. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4643,11 +5859,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4674,11 +5890,11 @@ declare namespace gapi.client {
       /** Deletes an existing advertiser group. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4703,11 +5919,11 @@ declare namespace gapi.client {
       /** Gets one advertiser group by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4732,11 +5948,11 @@ declare namespace gapi.client {
       /** Inserts a new advertiser group. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4761,11 +5977,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4790,11 +6006,11 @@ declare namespace gapi.client {
       /** Retrieves a list of advertiser groups, possibly filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4818,9 +6034,9 @@ declare namespace gapi.client {
         /** Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "advertiser*2015" will return objects with names like "advertiser group June 2015", "advertiser group April 2015", or simply "advertiser group 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "advertisergroup" will match objects with name "my advertisergroup", "advertisergroup 2015", or simply "advertisergroup". */
         searchString?: string;
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -4829,11 +6045,11 @@ declare namespace gapi.client {
       /** Updates an existing advertiser group. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4860,11 +6076,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4891,11 +6107,11 @@ declare namespace gapi.client {
       /** Updates an existing advertiser group. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4920,11 +6136,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4951,13 +6167,13 @@ declare namespace gapi.client {
       /** Retrieves a list of invoices for a particular issue month. The api only works if the billing profile invoice level is set to either advertiser or campaign non-consolidated invoice level. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Advertiser ID of this invoice. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4988,11 +6204,11 @@ declare namespace gapi.client {
       /** Gets one landing page by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5017,11 +6233,11 @@ declare namespace gapi.client {
       /** Inserts a new landing page. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5046,11 +6262,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5075,13 +6291,13 @@ declare namespace gapi.client {
       /** Retrieves a list of landing pages. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Select only landing pages that belong to these advertisers. */
         advertiserIds?: string | string[];
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Select only archived landing pages. Don't set this field to select both archived and non-archived landing pages. */
         archived?: boolean;
         /** JSONP */
@@ -5109,9 +6325,9 @@ declare namespace gapi.client {
         /** Allows searching for landing pages by name or ID. Wildcards (*) are allowed. For example, "landingpage*2017" will return landing pages with names like "landingpage July 2017", "landingpage March 2017", or simply "landingpage 2017". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "landingpage" will match campaigns with name "my landingpage", "landingpage 2015", or simply "landingpage". */
         searchString?: string;
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Select only landing pages that belong to this subaccount. */
         subaccountId?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -5122,11 +6338,11 @@ declare namespace gapi.client {
       /** Updates an existing landing page. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5153,11 +6369,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5184,11 +6400,11 @@ declare namespace gapi.client {
       /** Updates an existing landing page. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5213,11 +6429,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5244,11 +6460,11 @@ declare namespace gapi.client {
       /** Gets one advertiser by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5273,11 +6489,11 @@ declare namespace gapi.client {
       /** Inserts a new advertiser. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5302,11 +6518,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5331,13 +6547,13 @@ declare namespace gapi.client {
       /** Retrieves a list of advertisers, possibly filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Select only advertisers with these advertiser group IDs. */
         advertiserGroupIds?: string | string[];
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5367,11 +6583,11 @@ declare namespace gapi.client {
         /** Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "advertiser*2015" will return objects with names like "advertiser June 2015", "advertiser April 2015", or simply "advertiser 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "advertiser" will match objects with name "my advertiser", "advertiser 2015", or simply "advertiser" . */
         searchString?: string;
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Select only advertisers with the specified status. */
-        status?: string;
+        status?: 'APPROVED' | 'ON_HOLD';
         /** Select only advertisers with these subaccount IDs. */
         subaccountId?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -5382,11 +6598,11 @@ declare namespace gapi.client {
       /** Updates an existing advertiser. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5413,11 +6629,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5444,11 +6660,11 @@ declare namespace gapi.client {
       /** Updates an existing advertiser. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5473,11 +6689,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5504,11 +6720,11 @@ declare namespace gapi.client {
       /** Inserts a new billing assignment and returns the new assignment. Only one of advertiser_id or campaign_id is support per request. If the new assignment has no effect (assigning a campaign to the parent advertiser billing profile or assigning an advertiser to the account billing profile), no assignment will be returned. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Billing profile ID of this billing assignment. */
         billingProfileId: string;
         /** JSONP */
@@ -5535,11 +6751,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Billing profile ID of this billing assignment. */
           billingProfileId: string;
           /** JSONP */
@@ -5566,11 +6782,11 @@ declare namespace gapi.client {
       /** Retrieves a list of billing assignments. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Billing profile ID of this billing assignment. */
         billingProfileId: string;
         /** JSONP */
@@ -5597,11 +6813,11 @@ declare namespace gapi.client {
       /** Gets one billing profile by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5626,11 +6842,11 @@ declare namespace gapi.client {
       /** Retrieves a list of billing profiles, possibly filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Select only billing profile with currency. */
@@ -5658,11 +6874,15 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Select only billing profile with the specified status. */
-        status?: string | string[];
+        status?:
+          | 'UNDER_REVIEW'
+          | 'ACTIVE'
+          | 'ARCHIVED'
+          | ('UNDER_REVIEW' | 'ACTIVE' | 'ARCHIVED')[];
         /** Select only billing profile with the specified subaccount.When only_suggestion is true, only a single subaccount_id is supported. */
         subaccountIds?: string | string[];
         /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -5673,11 +6893,11 @@ declare namespace gapi.client {
       /** Updates an existing billing profile. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5702,11 +6922,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5733,11 +6953,11 @@ declare namespace gapi.client {
       /** Retrieves a list of billing rates. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Billing profile ID of this billing rate. */
         billingProfileId: string;
         /** JSONP */
@@ -5764,11 +6984,11 @@ declare namespace gapi.client {
       /** Retrieves a list of browsers. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5793,11 +7013,11 @@ declare namespace gapi.client {
       /** Associates a creative with the specified campaign. This method creates a default ad with dimensions matching the creative in the campaign if such a default ad does not exist already. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Campaign ID in this association. */
@@ -5824,11 +7044,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Campaign ID in this association. */
@@ -5855,11 +7075,11 @@ declare namespace gapi.client {
       /** Retrieves the list of creative IDs associated with the specified campaign. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Campaign ID in this association. */
@@ -5881,7 +7101,7 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -5892,11 +7112,11 @@ declare namespace gapi.client {
       /** Gets one campaign by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5921,11 +7141,11 @@ declare namespace gapi.client {
       /** Inserts a new campaign. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5950,11 +7170,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5979,7 +7199,7 @@ declare namespace gapi.client {
       /** Retrieves a list of campaigns, possibly filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Select only campaigns whose advertisers belong to these advertiser groups. */
@@ -5987,7 +7207,7 @@ declare namespace gapi.client {
         /** Select only campaigns that belong to these advertisers. */
         advertiserIds?: string | string[];
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Select only archived campaigns. Don't set this field to select both archived and non-archived campaigns. */
         archived?: boolean;
         /** Select only campaigns that have at least one optimization activity. */
@@ -6019,9 +7239,9 @@ declare namespace gapi.client {
         /** Allows searching for campaigns by name or ID. Wildcards (*) are allowed. For example, "campaign*2015" will return campaigns with names like "campaign June 2015", "campaign April 2015", or simply "campaign 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "campaign" will match campaigns with name "my campaign", "campaign 2015", or simply "campaign". */
         searchString?: string;
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Select only campaigns that belong to this subaccount. */
         subaccountId?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -6032,11 +7252,11 @@ declare namespace gapi.client {
       /** Updates an existing campaign. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6063,11 +7283,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6094,11 +7314,11 @@ declare namespace gapi.client {
       /** Updates an existing campaign. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6123,11 +7343,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6154,11 +7374,11 @@ declare namespace gapi.client {
       /** Gets one change log by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6183,13 +7403,30 @@ declare namespace gapi.client {
       /** Retrieves a list of change logs. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Select only change logs with the specified action. */
-        action?: string;
+        action?:
+          | 'ACTION_CREATE'
+          | 'ACTION_UPDATE'
+          | 'ACTION_DELETE'
+          | 'ACTION_ENABLE'
+          | 'ACTION_DISABLE'
+          | 'ACTION_ADD'
+          | 'ACTION_REMOVE'
+          | 'ACTION_MARK_AS_DEFAULT'
+          | 'ACTION_ASSOCIATE'
+          | 'ACTION_ASSIGN'
+          | 'ACTION_UNASSIGN'
+          | 'ACTION_SEND'
+          | 'ACTION_LINK'
+          | 'ACTION_UNLINK'
+          | 'ACTION_PUSH'
+          | 'ACTION_EMAIL_TAGS'
+          | 'ACTION_SHARE';
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6209,7 +7446,50 @@ declare namespace gapi.client {
         /** Select only change logs with these object IDs. */
         objectIds?: string | string[];
         /** Select only change logs with the specified object type. */
-        objectType?: string;
+        objectType?:
+          | 'OBJECT_ADVERTISER'
+          | 'OBJECT_FLOODLIGHT_CONFIGURATION'
+          | 'OBJECT_AD'
+          | 'OBJECT_FLOODLIGHT_ACTVITY'
+          | 'OBJECT_CAMPAIGN'
+          | 'OBJECT_FLOODLIGHT_ACTIVITY_GROUP'
+          | 'OBJECT_CREATIVE'
+          | 'OBJECT_PLACEMENT'
+          | 'OBJECT_DFA_SITE'
+          | 'OBJECT_USER_ROLE'
+          | 'OBJECT_USER_PROFILE'
+          | 'OBJECT_ADVERTISER_GROUP'
+          | 'OBJECT_ACCOUNT'
+          | 'OBJECT_SUBACCOUNT'
+          | 'OBJECT_RICHMEDIA_CREATIVE'
+          | 'OBJECT_INSTREAM_CREATIVE'
+          | 'OBJECT_MEDIA_ORDER'
+          | 'OBJECT_CONTENT_CATEGORY'
+          | 'OBJECT_PLACEMENT_STRATEGY'
+          | 'OBJECT_SD_SITE'
+          | 'OBJECT_SIZE'
+          | 'OBJECT_CREATIVE_GROUP'
+          | 'OBJECT_CREATIVE_ASSET'
+          | 'OBJECT_USER_PROFILE_FILTER'
+          | 'OBJECT_LANDING_PAGE'
+          | 'OBJECT_CREATIVE_FIELD'
+          | 'OBJECT_REMARKETING_LIST'
+          | 'OBJECT_PROVIDED_LIST_CLIENT'
+          | 'OBJECT_EVENT_TAG'
+          | 'OBJECT_CREATIVE_BUNDLE'
+          | 'OBJECT_BILLING_ACCOUNT_GROUP'
+          | 'OBJECT_BILLING_FEATURE'
+          | 'OBJECT_RATE_CARD'
+          | 'OBJECT_ACCOUNT_BILLING_FEATURE'
+          | 'OBJECT_BILLING_MINIMUM_FEE'
+          | 'OBJECT_BILLING_PROFILE'
+          | 'OBJECT_PLAYSTORE_LINK'
+          | 'OBJECT_TARGETING_TEMPLATE'
+          | 'OBJECT_SEARCH_LIFT_STUDY'
+          | 'OBJECT_FLOODLIGHT_DV360_LINK'
+          | 'OBJECT_ADVERTISER_CUSTOMER_LINK'
+          | 'OBJECT_CONVERSION_DOMAIN'
+          | 'OBJECT_ACCOUNT_CONVERSION_DOMAIN';
         /** Value of the nextPageToken from the previous result page. */
         pageToken?: string;
         /** Returns response with indentations and line breaks. */
@@ -6232,11 +7512,11 @@ declare namespace gapi.client {
       /** Retrieves a list of cities, possibly filtered. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Select only cities from these countries. */
@@ -6269,11 +7549,11 @@ declare namespace gapi.client {
       /** Gets one connection type by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6298,11 +7578,11 @@ declare namespace gapi.client {
       /** Retrieves a list of connection types. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6327,11 +7607,11 @@ declare namespace gapi.client {
       /** Deletes an existing content category. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6356,11 +7636,11 @@ declare namespace gapi.client {
       /** Gets one content category by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6385,11 +7665,11 @@ declare namespace gapi.client {
       /** Inserts a new content category. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6414,11 +7694,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6443,11 +7723,11 @@ declare namespace gapi.client {
       /** Retrieves a list of content categories, possibly filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6471,9 +7751,9 @@ declare namespace gapi.client {
         /** Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "contentcategory*2015" will return objects with names like "contentcategory June 2015", "contentcategory April 2015", or simply "contentcategory 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "contentcategory" will match objects with name "my contentcategory", "contentcategory 2015", or simply "contentcategory". */
         searchString?: string;
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -6482,11 +7762,11 @@ declare namespace gapi.client {
       /** Updates an existing content category. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6513,11 +7793,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6544,11 +7824,11 @@ declare namespace gapi.client {
       /** Updates an existing content category. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6573,11 +7853,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6604,11 +7884,11 @@ declare namespace gapi.client {
       /** Inserts conversions. */
       batchinsert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6633,11 +7913,11 @@ declare namespace gapi.client {
       batchinsert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6662,11 +7942,11 @@ declare namespace gapi.client {
       /** Updates existing conversions. */
       batchupdate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6691,11 +7971,11 @@ declare namespace gapi.client {
       batchupdate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6722,11 +8002,11 @@ declare namespace gapi.client {
       /** Gets one country by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Country DART ID. */
@@ -6751,11 +8031,11 @@ declare namespace gapi.client {
       /** Retrieves a list of countries. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6780,13 +8060,13 @@ declare namespace gapi.client {
       /** Inserts a new creative asset. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Advertiser ID of this creative. This is a required field. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6811,13 +8091,13 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Advertiser ID of this creative. This is a required field. */
           advertiserId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6844,11 +8124,11 @@ declare namespace gapi.client {
       /** Deletes an existing creative field. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6873,11 +8153,11 @@ declare namespace gapi.client {
       /** Gets one creative field by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6902,11 +8182,11 @@ declare namespace gapi.client {
       /** Inserts a new creative field. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6931,11 +8211,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6960,13 +8240,13 @@ declare namespace gapi.client {
       /** Retrieves a list of creative fields, possibly filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Select only creative fields that belong to these advertisers. */
         advertiserIds?: string | string[];
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6990,9 +8270,9 @@ declare namespace gapi.client {
         /** Allows searching for creative fields by name or ID. Wildcards (*) are allowed. For example, "creativefield*2015" will return creative fields with names like "creativefield June 2015", "creativefield April 2015", or simply "creativefield 2015". Most of the searches also add wild-cards implicitly at the start and the end of the search string. For example, a search string of "creativefield" will match creative fields with the name "my creativefield", "creativefield 2015", or simply "creativefield". */
         searchString?: string;
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -7001,11 +8281,11 @@ declare namespace gapi.client {
       /** Updates an existing creative field. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7032,11 +8312,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7063,11 +8343,11 @@ declare namespace gapi.client {
       /** Updates an existing creative field. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7092,11 +8372,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7123,11 +8403,11 @@ declare namespace gapi.client {
       /** Deletes an existing creative field value. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Creative field ID for this creative field value. */
@@ -7154,11 +8434,11 @@ declare namespace gapi.client {
       /** Gets one creative field value by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Creative field ID for this creative field value. */
@@ -7185,11 +8465,11 @@ declare namespace gapi.client {
       /** Inserts a new creative field value. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Creative field ID for this creative field value. */
@@ -7216,11 +8496,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Creative field ID for this creative field value. */
@@ -7247,11 +8527,11 @@ declare namespace gapi.client {
       /** Retrieves a list of creative field values, possibly filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Creative field ID for this creative field value. */
@@ -7277,9 +8557,9 @@ declare namespace gapi.client {
         /** Allows searching for creative field values by their values. Wildcards (e.g. *) are not allowed. */
         searchString?: string;
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'VALUE';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -7288,11 +8568,11 @@ declare namespace gapi.client {
       /** Updates an existing creative field value. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** CreativeField ID. */
@@ -7321,11 +8601,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** CreativeField ID. */
@@ -7354,11 +8634,11 @@ declare namespace gapi.client {
       /** Updates an existing creative field value. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Creative field ID for this creative field value. */
@@ -7385,11 +8665,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Creative field ID for this creative field value. */
@@ -7418,11 +8698,11 @@ declare namespace gapi.client {
       /** Gets one creative group by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7447,11 +8727,11 @@ declare namespace gapi.client {
       /** Inserts a new creative group. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7476,11 +8756,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7505,13 +8785,13 @@ declare namespace gapi.client {
       /** Retrieves a list of creative groups, possibly filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Select only creative groups that belong to these advertisers. */
         advertiserIds?: string | string[];
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7537,9 +8817,9 @@ declare namespace gapi.client {
         /** Allows searching for creative groups by name or ID. Wildcards (*) are allowed. For example, "creativegroup*2015" will return creative groups with names like "creativegroup June 2015", "creativegroup April 2015", or simply "creativegroup 2015". Most of the searches also add wild-cards implicitly at the start and the end of the search string. For example, a search string of "creativegroup" will match creative groups with the name "my creativegroup", "creativegroup 2015", or simply "creativegroup". */
         searchString?: string;
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -7548,11 +8828,11 @@ declare namespace gapi.client {
       /** Updates an existing creative group. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7579,11 +8859,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7610,11 +8890,11 @@ declare namespace gapi.client {
       /** Updates an existing creative group. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7639,11 +8919,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7670,11 +8950,11 @@ declare namespace gapi.client {
       /** Gets one creative by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7699,11 +8979,11 @@ declare namespace gapi.client {
       /** Inserts a new creative. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7728,11 +9008,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7757,7 +9037,7 @@ declare namespace gapi.client {
       /** Retrieves a list of creatives, possibly filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Select only active creatives. Leave blank to select active and inactive creatives. */
@@ -7765,7 +9045,7 @@ declare namespace gapi.client {
         /** Select only creatives with this advertiser ID. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Select only archived creatives. Leave blank to select archived and unarchived creatives. */
         archived?: boolean;
         /** JSONP */
@@ -7801,13 +9081,65 @@ declare namespace gapi.client {
         /** Select only creatives with these size IDs. */
         sizeIds?: string | string[];
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Select only creatives corresponding to this Studio creative ID. */
         studioCreativeId?: string;
         /** Select only creatives with these creative types. */
-        types?: string | string[];
+        types?:
+          | 'IMAGE'
+          | 'DISPLAY_REDIRECT'
+          | 'CUSTOM_DISPLAY'
+          | 'INTERNAL_REDIRECT'
+          | 'CUSTOM_DISPLAY_INTERSTITIAL'
+          | 'INTERSTITIAL_INTERNAL_REDIRECT'
+          | 'TRACKING_TEXT'
+          | 'RICH_MEDIA_DISPLAY_BANNER'
+          | 'RICH_MEDIA_INPAGE_FLOATING'
+          | 'RICH_MEDIA_IM_EXPAND'
+          | 'RICH_MEDIA_DISPLAY_EXPANDING'
+          | 'RICH_MEDIA_DISPLAY_INTERSTITIAL'
+          | 'RICH_MEDIA_DISPLAY_MULTI_FLOATING_INTERSTITIAL'
+          | 'RICH_MEDIA_MOBILE_IN_APP'
+          | 'FLASH_INPAGE'
+          | 'INSTREAM_VIDEO'
+          | 'VPAID_LINEAR_VIDEO'
+          | 'VPAID_NON_LINEAR_VIDEO'
+          | 'INSTREAM_VIDEO_REDIRECT'
+          | 'RICH_MEDIA_PEEL_DOWN'
+          | 'HTML5_BANNER'
+          | 'DISPLAY'
+          | 'DISPLAY_IMAGE_GALLERY'
+          | 'BRAND_SAFE_DEFAULT_INSTREAM_VIDEO'
+          | 'INSTREAM_AUDIO'
+          | (
+              | 'IMAGE'
+              | 'DISPLAY_REDIRECT'
+              | 'CUSTOM_DISPLAY'
+              | 'INTERNAL_REDIRECT'
+              | 'CUSTOM_DISPLAY_INTERSTITIAL'
+              | 'INTERSTITIAL_INTERNAL_REDIRECT'
+              | 'TRACKING_TEXT'
+              | 'RICH_MEDIA_DISPLAY_BANNER'
+              | 'RICH_MEDIA_INPAGE_FLOATING'
+              | 'RICH_MEDIA_IM_EXPAND'
+              | 'RICH_MEDIA_DISPLAY_EXPANDING'
+              | 'RICH_MEDIA_DISPLAY_INTERSTITIAL'
+              | 'RICH_MEDIA_DISPLAY_MULTI_FLOATING_INTERSTITIAL'
+              | 'RICH_MEDIA_MOBILE_IN_APP'
+              | 'FLASH_INPAGE'
+              | 'INSTREAM_VIDEO'
+              | 'VPAID_LINEAR_VIDEO'
+              | 'VPAID_NON_LINEAR_VIDEO'
+              | 'INSTREAM_VIDEO_REDIRECT'
+              | 'RICH_MEDIA_PEEL_DOWN'
+              | 'HTML5_BANNER'
+              | 'DISPLAY'
+              | 'DISPLAY_IMAGE_GALLERY'
+              | 'BRAND_SAFE_DEFAULT_INSTREAM_VIDEO'
+              | 'INSTREAM_AUDIO'
+            )[];
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -7816,11 +9148,11 @@ declare namespace gapi.client {
       /** Updates an existing creative. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7847,11 +9179,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7878,11 +9210,11 @@ declare namespace gapi.client {
       /** Updates an existing creative. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7907,11 +9239,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7938,11 +9270,11 @@ declare namespace gapi.client {
       /** Retrieves list of report dimension values for a list of filters. */
       query(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7971,11 +9303,11 @@ declare namespace gapi.client {
       query(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8006,11 +9338,11 @@ declare namespace gapi.client {
       /** Gets one directory site by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8035,11 +9367,11 @@ declare namespace gapi.client {
       /** Inserts a new directory site. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8064,11 +9396,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8093,7 +9425,7 @@ declare namespace gapi.client {
       /** Retrieves a list of directory sites, possibly filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** This search filter is no longer supported and will have no effect on the results returned. */
         acceptsInStreamVideoPlacements?: boolean;
         /** This search filter is no longer supported and will have no effect on the results returned. */
@@ -8105,7 +9437,7 @@ declare namespace gapi.client {
         /** Select only active directory sites. Leave blank to retrieve both active and inactive directory sites. */
         active?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Select only directory sites with this Ad Manager network code. */
@@ -8131,9 +9463,9 @@ declare namespace gapi.client {
         /** Allows searching for objects by name, ID or URL. Wildcards (*) are allowed. For example, "directory site*2015" will return objects with names like "directory site June 2015", "directory site April 2015", or simply "directory site 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "directory site" will match objects with name "my directory site", "directory site 2015" or simply, "directory site". */
         searchString?: string;
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -8144,11 +9476,11 @@ declare namespace gapi.client {
       /** Gets a dynamic feed by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Dynamic feed ID. */
@@ -8171,11 +9503,11 @@ declare namespace gapi.client {
       /** Inserts a new dynamic feed. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8198,11 +9530,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8225,11 +9557,11 @@ declare namespace gapi.client {
       /** Retransforms a dynamic feed. Only draft feeds can be retransformed (i.e. the feed has not been published). */
       retransform(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Dynamic feed ID. */
@@ -8252,11 +9584,11 @@ declare namespace gapi.client {
       /** Updates a new dynamic feed. For draft feeds, only Element can be updated. For published feeds, only FeedSchedule can be updated. Other fields will be ignored. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8279,11 +9611,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8308,11 +9640,11 @@ declare namespace gapi.client {
       /** Generates code for a dynamic profile, which will need unescaping. */
       generateCode(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Dynamic profile ID. */
@@ -8335,11 +9667,11 @@ declare namespace gapi.client {
       /** Gets a dynamic profile by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Dynamic profile ID. */
@@ -8362,11 +9694,11 @@ declare namespace gapi.client {
       /** Inserts a new dynamic profile. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8389,11 +9721,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8416,11 +9748,11 @@ declare namespace gapi.client {
       /** Publish for a dynamic profile. */
       publish(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Dynamic profile ID. */
@@ -8443,11 +9775,11 @@ declare namespace gapi.client {
       /** Updates an existing dynamic profile. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8470,11 +9802,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8499,11 +9831,11 @@ declare namespace gapi.client {
       /** Deletes an existing dynamic targeting key. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8517,7 +9849,11 @@ declare namespace gapi.client {
         /** ID of the object of this dynamic targeting key. This is a required field. */
         objectId: string;
         /** Required. Type of the object of this dynamic targeting key. This is a required field. */
-        objectType: string;
+        objectType:
+          | 'OBJECT_ADVERTISER'
+          | 'OBJECT_AD'
+          | 'OBJECT_CREATIVE'
+          | 'OBJECT_PLACEMENT';
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** User profile ID associated with this request. */
@@ -8532,11 +9868,11 @@ declare namespace gapi.client {
       /** Inserts a new dynamic targeting key. Keys must be created at the advertiser level before being assigned to the advertiser's ads, creatives, or placements. There is a maximum of 1000 keys per advertiser, out of which a maximum of 20 keys can be assigned per ad, creative, or placement. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8561,11 +9897,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8590,13 +9926,13 @@ declare namespace gapi.client {
       /** Retrieves a list of dynamic targeting keys. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Select only dynamic targeting keys whose object has this advertiser ID. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8610,7 +9946,11 @@ declare namespace gapi.client {
         /** Select only dynamic targeting keys with this object ID. */
         objectId?: string;
         /** Select only dynamic targeting keys with this object type. */
-        objectType?: string;
+        objectType?:
+          | 'OBJECT_ADVERTISER'
+          | 'OBJECT_AD'
+          | 'OBJECT_CREATIVE'
+          | 'OBJECT_PLACEMENT';
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** User profile ID associated with this request. */
@@ -8627,11 +9967,11 @@ declare namespace gapi.client {
       /** Deletes an existing event tag. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8656,11 +9996,11 @@ declare namespace gapi.client {
       /** Gets one event tag by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8685,11 +10025,11 @@ declare namespace gapi.client {
       /** Inserts a new event tag. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8714,11 +10054,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8743,7 +10083,7 @@ declare namespace gapi.client {
       /** Retrieves a list of event tags, possibly filtered. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Select only event tags that belong to this ad. */
@@ -8751,7 +10091,7 @@ declare namespace gapi.client {
         /** Select only event tags that belong to this advertiser. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Select only event tags that belong to this campaign. */
@@ -8761,7 +10101,15 @@ declare namespace gapi.client {
         /** Select only enabled event tags. What is considered enabled or disabled depends on the definitionsOnly parameter. When definitionsOnly is set to true, only the specified advertiser or campaign's event tags' enabledByDefault field is examined. When definitionsOnly is set to false, the specified ad or specified campaign's parent advertiser's or parent campaign's event tags' enabledByDefault and status fields are examined as well. */
         enabled?: boolean;
         /** Select only event tags with the specified event tag types. Event tag types can be used to specify whether to use a third-party pixel, a third-party JavaScript URL, or a third-party click-through URL for either impression or click tracking. */
-        eventTagTypes?: string | string[];
+        eventTagTypes?:
+          | 'IMPRESSION_IMAGE_EVENT_TAG'
+          | 'IMPRESSION_JAVASCRIPT_EVENT_TAG'
+          | 'CLICK_THROUGH_EVENT_TAG'
+          | (
+              | 'IMPRESSION_IMAGE_EVENT_TAG'
+              | 'IMPRESSION_JAVASCRIPT_EVENT_TAG'
+              | 'CLICK_THROUGH_EVENT_TAG'
+            )[];
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** Select only event tags with these IDs. */
@@ -8779,9 +10127,9 @@ declare namespace gapi.client {
         /** Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "eventtag*2015" will return objects with names like "eventtag June 2015", "eventtag April 2015", or simply "eventtag 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "eventtag" will match objects with name "my eventtag", "eventtag 2015", or simply "eventtag". */
         searchString?: string;
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -8790,11 +10138,11 @@ declare namespace gapi.client {
       /** Updates an existing event tag. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8821,11 +10169,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8852,11 +10200,11 @@ declare namespace gapi.client {
       /** Updates an existing event tag. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8881,11 +10229,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8912,11 +10260,11 @@ declare namespace gapi.client {
       /** Retrieves a report file by its report ID and file ID. This method supports media download. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8941,11 +10289,11 @@ declare namespace gapi.client {
       /** Lists files for a user profile. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8965,11 +10313,11 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** The scope that defines which results are returned. */
-        scope?: string;
+        scope?: 'ALL' | 'MINE' | 'SHARED_WITH_ME';
         /** The field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'LAST_MODIFIED_TIME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -8980,11 +10328,11 @@ declare namespace gapi.client {
       /** Deletes an existing floodlight activity. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9009,11 +10357,11 @@ declare namespace gapi.client {
       /** Generates a tag for a floodlight activity. */
       generatetag(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9038,11 +10386,11 @@ declare namespace gapi.client {
       /** Gets one floodlight activity by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9067,11 +10415,11 @@ declare namespace gapi.client {
       /** Inserts a new floodlight activity. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9096,11 +10444,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9125,13 +10473,13 @@ declare namespace gapi.client {
       /** Retrieves a list of floodlight activities, possibly filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Select only floodlight activities for the specified advertiser ID. Must specify either ids, advertiserId, or floodlightConfigurationId for a non-empty result. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9143,7 +10491,7 @@ declare namespace gapi.client {
         /** Select only floodlight activities with the specified floodlight activity group tag string. */
         floodlightActivityGroupTagString?: string;
         /** Select only floodlight activities with the specified floodlight activity group type. */
-        floodlightActivityGroupType?: string;
+        floodlightActivityGroupType?: 'COUNTER' | 'SALE';
         /** Select only floodlight activities for the specified floodlight configuration ID. Must specify either ids, advertiserId, or floodlightConfigurationId for a non-empty result. */
         floodlightConfigurationId?: string;
         /** Select only floodlight activities with the specified IDs. Must specify either ids, advertiserId, or floodlightConfigurationId for a non-empty result. */
@@ -9165,9 +10513,9 @@ declare namespace gapi.client {
         /** Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "floodlightactivity*2015" will return objects with names like "floodlightactivity June 2015", "floodlightactivity April 2015", or simply "floodlightactivity 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "floodlightactivity" will match objects with name "my floodlightactivity activity", "floodlightactivity 2015", or simply "floodlightactivity". */
         searchString?: string;
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Select only floodlight activities with the specified tag string. */
         tagString?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -9178,11 +10526,11 @@ declare namespace gapi.client {
       /** Updates an existing floodlight activity. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9209,11 +10557,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9240,11 +10588,11 @@ declare namespace gapi.client {
       /** Updates an existing floodlight activity. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9269,11 +10617,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9300,11 +10648,11 @@ declare namespace gapi.client {
       /** Gets one floodlight activity group by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9329,11 +10677,11 @@ declare namespace gapi.client {
       /** Inserts a new floodlight activity group. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9358,11 +10706,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9387,13 +10735,13 @@ declare namespace gapi.client {
       /** Retrieves a list of floodlight activity groups, possibly filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Select only floodlight activity groups with the specified advertiser ID. Must specify either advertiserId or floodlightConfigurationId for a non-empty result. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9419,11 +10767,11 @@ declare namespace gapi.client {
         /** Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "floodlightactivitygroup*2015" will return objects with names like "floodlightactivitygroup June 2015", "floodlightactivitygroup April 2015", or simply "floodlightactivitygroup 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "floodlightactivitygroup" will match objects with name "my floodlightactivitygroup activity", "floodlightactivitygroup 2015", or simply "floodlightactivitygroup". */
         searchString?: string;
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Select only floodlight activity groups with the specified floodlight activity group type. */
-        type?: string;
+        type?: 'COUNTER' | 'SALE';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -9432,11 +10780,11 @@ declare namespace gapi.client {
       /** Updates an existing floodlight activity group. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9463,11 +10811,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9494,11 +10842,11 @@ declare namespace gapi.client {
       /** Updates an existing floodlight activity group. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9523,11 +10871,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9554,11 +10902,11 @@ declare namespace gapi.client {
       /** Gets one floodlight configuration by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9583,11 +10931,11 @@ declare namespace gapi.client {
       /** Retrieves a list of floodlight configurations, possibly filtered. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9612,11 +10960,11 @@ declare namespace gapi.client {
       /** Updates an existing floodlight configuration. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9643,11 +10991,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9674,11 +11022,11 @@ declare namespace gapi.client {
       /** Updates an existing floodlight configuration. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9703,11 +11051,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9734,11 +11082,11 @@ declare namespace gapi.client {
       /** Gets one inventory item by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9765,11 +11113,11 @@ declare namespace gapi.client {
       /** Retrieves a list of inventory items, possibly filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9799,11 +11147,13 @@ declare namespace gapi.client {
         /** Select only inventory items that are associated with these sites. */
         siteId?: string | string[];
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Select only inventory items with this type. */
-        type?: string;
+        type?:
+          | 'PLANNING_PLACEMENT_TYPE_REGULAR'
+          | 'PLANNING_PLACEMENT_TYPE_CREDIT';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -9814,11 +11164,11 @@ declare namespace gapi.client {
       /** Retrieves a list of languages. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9843,11 +11193,11 @@ declare namespace gapi.client {
       /** Retrieves a list of metros. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9872,11 +11222,11 @@ declare namespace gapi.client {
       /** Gets one mobile app by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9901,15 +11251,39 @@ declare namespace gapi.client {
       /** Retrieves list of available mobile apps. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Select only apps from these directories. */
-        directories?: string | string[];
+        directories?:
+          | 'UNKNOWN'
+          | 'APPLE_APP_STORE'
+          | 'GOOGLE_PLAY_STORE'
+          | 'ROKU_APP_STORE'
+          | 'AMAZON_FIRETV_APP_STORE'
+          | 'PLAYSTATION_APP_STORE'
+          | 'APPLE_TV_APP_STORE'
+          | 'XBOX_APP_STORE'
+          | 'SAMSUNG_TV_APP_STORE'
+          | 'ANDROID_TV_APP_STORE'
+          | 'GENERIC_CTV_APP_STORE'
+          | (
+              | 'UNKNOWN'
+              | 'APPLE_APP_STORE'
+              | 'GOOGLE_PLAY_STORE'
+              | 'ROKU_APP_STORE'
+              | 'AMAZON_FIRETV_APP_STORE'
+              | 'PLAYSTATION_APP_STORE'
+              | 'APPLE_TV_APP_STORE'
+              | 'XBOX_APP_STORE'
+              | 'SAMSUNG_TV_APP_STORE'
+              | 'ANDROID_TV_APP_STORE'
+              | 'GENERIC_CTV_APP_STORE'
+            )[];
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** Select only apps with these IDs. */
@@ -9940,11 +11314,11 @@ declare namespace gapi.client {
       /** Gets one mobile carrier by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9969,11 +11343,11 @@ declare namespace gapi.client {
       /** Retrieves a list of mobile carriers. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9998,11 +11372,11 @@ declare namespace gapi.client {
       /** Gets one operating system by DART ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Operating system DART ID. */
@@ -10027,11 +11401,11 @@ declare namespace gapi.client {
       /** Retrieves a list of operating systems. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10056,11 +11430,11 @@ declare namespace gapi.client {
       /** Gets one operating system version by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10085,11 +11459,11 @@ declare namespace gapi.client {
       /** Retrieves a list of operating system versions. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10114,11 +11488,11 @@ declare namespace gapi.client {
       /** Gets one order by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10145,11 +11519,11 @@ declare namespace gapi.client {
       /** Retrieves a list of orders, possibly filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10177,9 +11551,9 @@ declare namespace gapi.client {
         /** Select only orders that are associated with these site IDs. */
         siteId?: string | string[];
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -10190,11 +11564,11 @@ declare namespace gapi.client {
       /** Gets one placement group by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10219,11 +11593,11 @@ declare namespace gapi.client {
       /** Inserts a new placement group. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10248,11 +11622,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10277,15 +11651,27 @@ declare namespace gapi.client {
       /** Retrieves a list of placement groups, possibly filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Select only placements with these active statuses. */
-        activeStatus?: string | string[];
+        activeStatus?:
+          | 'PLACEMENT_STATUS_UNKNOWN'
+          | 'PLACEMENT_STATUS_ACTIVE'
+          | 'PLACEMENT_STATUS_INACTIVE'
+          | 'PLACEMENT_STATUS_ARCHIVED'
+          | 'PLACEMENT_STATUS_PERMANENTLY_ARCHIVED'
+          | (
+              | 'PLACEMENT_STATUS_UNKNOWN'
+              | 'PLACEMENT_STATUS_ACTIVE'
+              | 'PLACEMENT_STATUS_INACTIVE'
+              | 'PLACEMENT_STATUS_ARCHIVED'
+              | 'PLACEMENT_STATUS_PERMANENTLY_ARCHIVED'
+            )[];
         /** Select only placement groups that belong to these advertisers. */
         advertiserIds?: string | string[];
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Select only placement groups that belong to these campaigns. */
@@ -10315,13 +11701,27 @@ declare namespace gapi.client {
         /** Value of the nextPageToken from the previous result page. */
         pageToken?: string;
         /** Select only placement groups belonging with this group type. A package is a simple group of placements that acts as a single pricing point for a group of tags. A roadblock is a group of placements that not only acts as a single pricing point but also assumes that all the tags in it will be served at the same time. A roadblock requires one of its assigned placements to be marked as primary for reporting. */
-        placementGroupType?: string;
+        placementGroupType?: 'PLACEMENT_PACKAGE' | 'PLACEMENT_ROADBLOCK';
         /** Select only placement groups that are associated with these placement strategies. */
         placementStrategyIds?: string | string[];
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Select only placement groups with these pricing types. */
-        pricingTypes?: string | string[];
+        pricingTypes?:
+          | 'PRICING_TYPE_CPM'
+          | 'PRICING_TYPE_CPC'
+          | 'PRICING_TYPE_CPA'
+          | 'PRICING_TYPE_FLAT_RATE_IMPRESSIONS'
+          | 'PRICING_TYPE_FLAT_RATE_CLICKS'
+          | 'PRICING_TYPE_CPM_ACTIVEVIEW'
+          | (
+              | 'PRICING_TYPE_CPM'
+              | 'PRICING_TYPE_CPC'
+              | 'PRICING_TYPE_CPA'
+              | 'PRICING_TYPE_FLAT_RATE_IMPRESSIONS'
+              | 'PRICING_TYPE_FLAT_RATE_CLICKS'
+              | 'PRICING_TYPE_CPM_ACTIVEVIEW'
+            )[];
         /** User profile ID associated with this request. */
         profileId: string;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
@@ -10331,9 +11731,9 @@ declare namespace gapi.client {
         /** Select only placement groups that are associated with these sites. */
         siteIds?: string | string[];
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -10342,11 +11742,11 @@ declare namespace gapi.client {
       /** Updates an existing placement group. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10373,11 +11773,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10404,11 +11804,11 @@ declare namespace gapi.client {
       /** Updates an existing placement group. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10433,11 +11833,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10464,11 +11864,11 @@ declare namespace gapi.client {
       /** Generates tags for a placement. */
       generatetags(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Generate placements belonging to this campaign. This is a required field. */
@@ -10488,7 +11888,49 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Tag formats to generate for these placements. *Note:* PLACEMENT_TAG_STANDARD can only be generated for 1x1 placements. */
-        tagFormats?: string | string[];
+        tagFormats?:
+          | 'PLACEMENT_TAG_STANDARD'
+          | 'PLACEMENT_TAG_IFRAME_JAVASCRIPT'
+          | 'PLACEMENT_TAG_IFRAME_ILAYER'
+          | 'PLACEMENT_TAG_INTERNAL_REDIRECT'
+          | 'PLACEMENT_TAG_JAVASCRIPT'
+          | 'PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT'
+          | 'PLACEMENT_TAG_INTERSTITIAL_INTERNAL_REDIRECT'
+          | 'PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT'
+          | 'PLACEMENT_TAG_CLICK_COMMANDS'
+          | 'PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH'
+          | 'PLACEMENT_TAG_TRACKING'
+          | 'PLACEMENT_TAG_TRACKING_IFRAME'
+          | 'PLACEMENT_TAG_TRACKING_JAVASCRIPT'
+          | 'PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_3'
+          | 'PLACEMENT_TAG_IFRAME_JAVASCRIPT_LEGACY'
+          | 'PLACEMENT_TAG_JAVASCRIPT_LEGACY'
+          | 'PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT_LEGACY'
+          | 'PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT_LEGACY'
+          | 'PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_4'
+          | 'PLACEMENT_TAG_TRACKING_THIRD_PARTY_MEASUREMENT'
+          | (
+              | 'PLACEMENT_TAG_STANDARD'
+              | 'PLACEMENT_TAG_IFRAME_JAVASCRIPT'
+              | 'PLACEMENT_TAG_IFRAME_ILAYER'
+              | 'PLACEMENT_TAG_INTERNAL_REDIRECT'
+              | 'PLACEMENT_TAG_JAVASCRIPT'
+              | 'PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT'
+              | 'PLACEMENT_TAG_INTERSTITIAL_INTERNAL_REDIRECT'
+              | 'PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT'
+              | 'PLACEMENT_TAG_CLICK_COMMANDS'
+              | 'PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH'
+              | 'PLACEMENT_TAG_TRACKING'
+              | 'PLACEMENT_TAG_TRACKING_IFRAME'
+              | 'PLACEMENT_TAG_TRACKING_JAVASCRIPT'
+              | 'PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_3'
+              | 'PLACEMENT_TAG_IFRAME_JAVASCRIPT_LEGACY'
+              | 'PLACEMENT_TAG_JAVASCRIPT_LEGACY'
+              | 'PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT_LEGACY'
+              | 'PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT_LEGACY'
+              | 'PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_4'
+              | 'PLACEMENT_TAG_TRACKING_THIRD_PARTY_MEASUREMENT'
+            )[];
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -10497,11 +11939,11 @@ declare namespace gapi.client {
       /** Gets one placement by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10526,11 +11968,11 @@ declare namespace gapi.client {
       /** Inserts a new placement. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10555,11 +11997,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10584,21 +12026,47 @@ declare namespace gapi.client {
       /** Retrieves a list of placements, possibly filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Select only placements with these active statuses. */
-        activeStatus?: string | string[];
+        activeStatus?:
+          | 'PLACEMENT_STATUS_UNKNOWN'
+          | 'PLACEMENT_STATUS_ACTIVE'
+          | 'PLACEMENT_STATUS_INACTIVE'
+          | 'PLACEMENT_STATUS_ARCHIVED'
+          | 'PLACEMENT_STATUS_PERMANENTLY_ARCHIVED'
+          | (
+              | 'PLACEMENT_STATUS_UNKNOWN'
+              | 'PLACEMENT_STATUS_ACTIVE'
+              | 'PLACEMENT_STATUS_INACTIVE'
+              | 'PLACEMENT_STATUS_ARCHIVED'
+              | 'PLACEMENT_STATUS_PERMANENTLY_ARCHIVED'
+            )[];
         /** Select only placements that belong to these advertisers. */
         advertiserIds?: string | string[];
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Select only placements that belong to these campaigns. */
         campaignIds?: string | string[];
         /** Select only placements that are associated with these compatibilities. DISPLAY and DISPLAY_INTERSTITIAL refer to rendering either on desktop or on mobile devices for regular or interstitial ads respectively. APP and APP_INTERSTITIAL are for rendering in mobile apps. IN_STREAM_VIDEO refers to rendering in in-stream video ads developed with the VAST standard. */
-        compatibilities?: string | string[];
+        compatibilities?:
+          | 'DISPLAY'
+          | 'DISPLAY_INTERSTITIAL'
+          | 'APP'
+          | 'APP_INTERSTITIAL'
+          | 'IN_STREAM_VIDEO'
+          | 'IN_STREAM_AUDIO'
+          | (
+              | 'DISPLAY'
+              | 'DISPLAY_INTERSTITIAL'
+              | 'APP'
+              | 'APP_INTERSTITIAL'
+              | 'IN_STREAM_VIDEO'
+              | 'IN_STREAM_AUDIO'
+            )[];
         /** Select only placements that are associated with these content categories. */
         contentCategoryIds?: string | string[];
         /** Select only placements that are associated with these directory sites. */
@@ -10626,13 +12094,27 @@ declare namespace gapi.client {
         /** Value of the nextPageToken from the previous result page. */
         pageToken?: string;
         /** Select only placements with this payment source. */
-        paymentSource?: string;
+        paymentSource?: 'PLACEMENT_AGENCY_PAID' | 'PLACEMENT_PUBLISHER_PAID';
         /** Select only placements that are associated with these placement strategies. */
         placementStrategyIds?: string | string[];
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Select only placements with these pricing types. */
-        pricingTypes?: string | string[];
+        pricingTypes?:
+          | 'PRICING_TYPE_CPM'
+          | 'PRICING_TYPE_CPC'
+          | 'PRICING_TYPE_CPA'
+          | 'PRICING_TYPE_FLAT_RATE_IMPRESSIONS'
+          | 'PRICING_TYPE_FLAT_RATE_CLICKS'
+          | 'PRICING_TYPE_CPM_ACTIVEVIEW'
+          | (
+              | 'PRICING_TYPE_CPM'
+              | 'PRICING_TYPE_CPC'
+              | 'PRICING_TYPE_CPA'
+              | 'PRICING_TYPE_FLAT_RATE_IMPRESSIONS'
+              | 'PRICING_TYPE_FLAT_RATE_CLICKS'
+              | 'PRICING_TYPE_CPM_ACTIVEVIEW'
+            )[];
         /** User profile ID associated with this request. */
         profileId: string;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
@@ -10644,9 +12126,9 @@ declare namespace gapi.client {
         /** Select only placements that are associated with these sizes. */
         sizeIds?: string | string[];
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -10655,11 +12137,11 @@ declare namespace gapi.client {
       /** Updates an existing placement. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10686,11 +12168,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10717,11 +12199,11 @@ declare namespace gapi.client {
       /** Updates an existing placement. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10746,11 +12228,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10777,11 +12259,11 @@ declare namespace gapi.client {
       /** Deletes an existing placement strategy. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10806,11 +12288,11 @@ declare namespace gapi.client {
       /** Gets one placement strategy by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10835,11 +12317,11 @@ declare namespace gapi.client {
       /** Inserts a new placement strategy. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10864,11 +12346,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10893,11 +12375,11 @@ declare namespace gapi.client {
       /** Retrieves a list of placement strategies, possibly filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10921,9 +12403,9 @@ declare namespace gapi.client {
         /** Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "placementstrategy*2015" will return objects with names like "placementstrategy June 2015", "placementstrategy April 2015", or simply "placementstrategy 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "placementstrategy" will match objects with name "my placementstrategy", "placementstrategy 2015", or simply "placementstrategy". */
         searchString?: string;
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -10932,11 +12414,11 @@ declare namespace gapi.client {
       /** Updates an existing placement strategy. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10963,11 +12445,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10994,11 +12476,11 @@ declare namespace gapi.client {
       /** Updates an existing placement strategy. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11023,11 +12505,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11054,11 +12536,11 @@ declare namespace gapi.client {
       /** Gets one platform type by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11083,11 +12565,11 @@ declare namespace gapi.client {
       /** Retrieves a list of platform types. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11112,11 +12594,11 @@ declare namespace gapi.client {
       /** Gets one postal code by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Postal code ID. */
@@ -11141,11 +12623,11 @@ declare namespace gapi.client {
       /** Retrieves a list of postal codes. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11170,11 +12652,11 @@ declare namespace gapi.client {
       /** Gets one project by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11199,13 +12681,13 @@ declare namespace gapi.client {
       /** Retrieves a list of projects, possibly filtered. This method supports paging . */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Select only projects with these advertiser IDs. */
         advertiserIds?: string | string[];
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11229,9 +12711,9 @@ declare namespace gapi.client {
         /** Allows searching for projects by name or ID. Wildcards (*) are allowed. For example, "project*2015" will return projects with names like "project June 2015", "project April 2015", or simply "project 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "project" will match projects with name "my project", "project 2015", or simply "project". */
         searchString?: string;
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -11242,11 +12724,11 @@ declare namespace gapi.client {
       /** Retrieves a list of regions. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11271,11 +12753,11 @@ declare namespace gapi.client {
       /** Gets one remarketing list by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11300,11 +12782,11 @@ declare namespace gapi.client {
       /** Inserts a new remarketing list. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11329,11 +12811,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11358,7 +12840,7 @@ declare namespace gapi.client {
       /** Retrieves a list of remarketing lists, possibly filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Select only active or only inactive remarketing lists. */
@@ -11366,7 +12848,7 @@ declare namespace gapi.client {
         /** Required. Select only remarketing lists owned by this advertiser. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11390,9 +12872,9 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -11401,11 +12883,11 @@ declare namespace gapi.client {
       /** Updates an existing remarketing list. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11432,11 +12914,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11463,11 +12945,11 @@ declare namespace gapi.client {
       /** Updates an existing remarketing list. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11492,11 +12974,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11523,11 +13005,11 @@ declare namespace gapi.client {
       /** Gets one remarketing list share by remarketing list ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11552,11 +13034,11 @@ declare namespace gapi.client {
       /** Updates an existing remarketing list share. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11583,11 +13065,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11614,11 +13096,11 @@ declare namespace gapi.client {
       /** Updates an existing remarketing list share. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11643,11 +13125,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11674,11 +13156,11 @@ declare namespace gapi.client {
       /** Returns the fields that are compatible to be selected in the respective sections of a report criteria, given the fields already selected in the input report and user permissions. */
       query(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11703,11 +13185,11 @@ declare namespace gapi.client {
       query(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11734,11 +13216,11 @@ declare namespace gapi.client {
       /** Retrieves a report file by its report ID and file ID. This method supports media download. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11765,11 +13247,11 @@ declare namespace gapi.client {
       /** Lists files for a report. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11791,9 +13273,9 @@ declare namespace gapi.client {
         /** The ID of the parent report. */
         reportId: string;
         /** The field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'LAST_MODIFIED_TIME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -11804,11 +13286,11 @@ declare namespace gapi.client {
       /** Deletes a report by its ID. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11833,11 +13315,11 @@ declare namespace gapi.client {
       /** Retrieves a report by its ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11862,11 +13344,11 @@ declare namespace gapi.client {
       /** Creates a report. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11891,11 +13373,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11920,11 +13402,11 @@ declare namespace gapi.client {
       /** Retrieves list of reports. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11944,11 +13426,11 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** The scope that defines which results are returned. */
-        scope?: string;
+        scope?: 'ALL' | 'MINE';
         /** The field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'LAST_MODIFIED_TIME' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -11957,11 +13439,11 @@ declare namespace gapi.client {
       /** Updates an existing report. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11988,11 +13470,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -12019,11 +13501,11 @@ declare namespace gapi.client {
       /** Runs a report. */
       run(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12050,11 +13532,11 @@ declare namespace gapi.client {
       /** Updates a report. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12081,11 +13563,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -12116,11 +13598,11 @@ declare namespace gapi.client {
       /** Gets one site by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12145,11 +13627,11 @@ declare namespace gapi.client {
       /** Inserts a new site. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12174,11 +13656,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -12203,7 +13685,7 @@ declare namespace gapi.client {
       /** Retrieves a list of sites, possibly filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** This search filter is no longer supported and will have no effect on the results returned. */
         acceptsInStreamVideoPlacements?: boolean;
         /** This search filter is no longer supported and will have no effect on the results returned. */
@@ -12215,7 +13697,7 @@ declare namespace gapi.client {
         /** Select only AdWords sites. */
         adWordsSite?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Select only approved sites. */
         approved?: boolean;
         /** JSONP */
@@ -12245,9 +13727,9 @@ declare namespace gapi.client {
         /** Allows searching for objects by name, ID or keyName. Wildcards (*) are allowed. For example, "site*2015" will return objects with names like "site June 2015", "site April 2015", or simply "site 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "site" will match objects with name "my site", "site 2015", or simply "site". */
         searchString?: string;
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Select only sites with this subaccount ID. */
         subaccountId?: string;
         /** Select only sites that have not been mapped to a directory site. */
@@ -12260,11 +13742,11 @@ declare namespace gapi.client {
       /** Updates an existing site. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12291,11 +13773,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -12322,11 +13804,11 @@ declare namespace gapi.client {
       /** Updates an existing site. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12351,11 +13833,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -12382,11 +13864,11 @@ declare namespace gapi.client {
       /** Gets one size by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12411,11 +13893,11 @@ declare namespace gapi.client {
       /** Inserts a new size. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12440,11 +13922,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -12469,11 +13951,11 @@ declare namespace gapi.client {
       /** Retrieves a list of sizes, possibly filtered. Retrieved sizes are globally unique and may include values not currently in use by your account. Due to this, the list of sizes returned by this method may differ from the list seen in the Trafficking UI. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12506,11 +13988,11 @@ declare namespace gapi.client {
       /** Inserts a new studio creative asset. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12533,11 +14015,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -12562,11 +14044,11 @@ declare namespace gapi.client {
       /** Gets a studio creative by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12589,11 +14071,11 @@ declare namespace gapi.client {
       /** Inserts a new studio creative. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12616,11 +14098,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -12643,11 +14125,11 @@ declare namespace gapi.client {
       /** Publish for a studio creative. */
       publish(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12672,11 +14154,11 @@ declare namespace gapi.client {
       /** Gets one subaccount by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12701,11 +14183,11 @@ declare namespace gapi.client {
       /** Inserts a new subaccount. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12730,11 +14212,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -12759,11 +14241,11 @@ declare namespace gapi.client {
       /** Gets a list of subaccounts, possibly filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12787,9 +14269,9 @@ declare namespace gapi.client {
         /** Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "subaccount*2015" will return objects with names like "subaccount June 2015", "subaccount April 2015", or simply "subaccount 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "subaccount" will match objects with name "my subaccount", "subaccount 2015", or simply "subaccount" . */
         searchString?: string;
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -12798,11 +14280,11 @@ declare namespace gapi.client {
       /** Updates an existing subaccount. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12829,11 +14311,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -12860,11 +14342,11 @@ declare namespace gapi.client {
       /** Updates an existing subaccount. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12889,11 +14371,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -12920,11 +14402,11 @@ declare namespace gapi.client {
       /** Gets one remarketing list by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12949,7 +14431,7 @@ declare namespace gapi.client {
       /** Retrieves a list of targetable remarketing lists, possibly filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Select only active or only inactive targetable remarketing lists. */
@@ -12957,7 +14439,7 @@ declare namespace gapi.client {
         /** Required. Select only targetable remarketing lists targetable by these advertisers. */
         advertiserId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12979,9 +14461,9 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -12992,11 +14474,11 @@ declare namespace gapi.client {
       /** Gets one targeting template by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13021,11 +14503,11 @@ declare namespace gapi.client {
       /** Inserts a new targeting template. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13050,11 +14532,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13079,13 +14561,13 @@ declare namespace gapi.client {
       /** Retrieves a list of targeting templates, optionally filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Select only targeting templates with this advertiser ID. */
         advertiserId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13109,9 +14591,9 @@ declare namespace gapi.client {
         /** Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "template*2015" will return objects with names like "template June 2015", "template April 2015", or simply "template 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "template" will match objects with name "my template", "template 2015", or simply "template". */
         searchString?: string;
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -13120,11 +14602,11 @@ declare namespace gapi.client {
       /** Updates an existing targeting template. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13151,11 +14633,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13182,11 +14664,11 @@ declare namespace gapi.client {
       /** Updates an existing targeting template. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13211,11 +14693,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13242,13 +14724,13 @@ declare namespace gapi.client {
       /** Gets one TvCampaignDetail by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. Account ID associated with this request. */
         accountId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13275,13 +14757,13 @@ declare namespace gapi.client {
       /** Retrieves a list of TV campaign summaries. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. Account ID associated with this request. */
         accountId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13308,11 +14790,11 @@ declare namespace gapi.client {
       /** Gets one user profile by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13335,11 +14817,11 @@ declare namespace gapi.client {
       /** Retrieves list of user profiles for a user. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13362,11 +14844,11 @@ declare namespace gapi.client {
       /** Gets one user role permission group by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13391,11 +14873,11 @@ declare namespace gapi.client {
       /** Gets a list of all supported user role permission groups. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13420,11 +14902,11 @@ declare namespace gapi.client {
       /** Gets one user role permission by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13449,11 +14931,11 @@ declare namespace gapi.client {
       /** Gets a list of user role permissions, possibly filtered. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13480,11 +14962,11 @@ declare namespace gapi.client {
       /** Deletes an existing user role. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13509,11 +14991,11 @@ declare namespace gapi.client {
       /** Gets one user role by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13538,11 +15020,11 @@ declare namespace gapi.client {
       /** Inserts a new user role. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13567,11 +15049,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13596,13 +15078,13 @@ declare namespace gapi.client {
       /** Retrieves a list of user roles, possibly filtered. This method supports paging. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Select only account level user roles not associated with any specific subaccount. */
         accountUserRoleOnly?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13626,9 +15108,9 @@ declare namespace gapi.client {
         /** Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "userrole*2015" will return objects with names like "userrole June 2015", "userrole April 2015", or simply "userrole 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "userrole" will match objects with name "my userrole", "userrole 2015", or simply "userrole". */
         searchString?: string;
         /** Field by which to sort the list. */
-        sortField?: string;
+        sortField?: 'ID' | 'NAME';
         /** Order of sorted results. */
-        sortOrder?: string;
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
         /** Select only user roles that belong to this subaccount. */
         subaccountId?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -13639,11 +15121,11 @@ declare namespace gapi.client {
       /** Updates an existing user role. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13670,11 +15152,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13701,11 +15183,11 @@ declare namespace gapi.client {
       /** Updates an existing user role. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13730,11 +15212,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13761,11 +15243,11 @@ declare namespace gapi.client {
       /** Gets one video format by ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13790,11 +15272,11 @@ declare namespace gapi.client {
       /** Lists available video formats. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

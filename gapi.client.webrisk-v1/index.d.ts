@@ -36,7 +36,7 @@ declare namespace gapi.client {
       /** A set of entries to remove from a local threat type's list. This field may be empty. */
       removals?: GoogleCloudWebriskV1ThreatEntryRemovals;
       /** The type of response. This may indicate that an action must be taken by the client when the response is received. */
-      responseType?: string;
+      responseType?: 'RESPONSE_TYPE_UNSPECIFIED' | 'DIFF' | 'RESET';
     }
     interface GoogleCloudWebriskV1ComputeThreatListDiffResponseChecksum {
       /** The SHA256 hash of the client state; that is, of the sorted list of all hashes present in the database. */
@@ -74,7 +74,12 @@ declare namespace gapi.client {
       /** A 32 byte SHA256 hash. This field is in binary format. For JSON requests, hashes are base64-encoded. */
       hash?: string;
       /** The ThreatList this threat belongs to. This must contain at least one entry. */
-      threatTypes?: string[];
+      threatTypes?:
+        | 'THREAT_TYPE_UNSPECIFIED'
+        | 'MALWARE'
+        | 'SOCIAL_ENGINEERING'
+        | 'UNWANTED_SOFTWARE'
+        | 'SOCIAL_ENGINEERING_EXTENDED_COVERAGE'[];
     }
     interface GoogleCloudWebriskV1SearchUrisResponse {
       /** The threat list matches. This might be empty if the URI is on no list. */
@@ -84,7 +89,12 @@ declare namespace gapi.client {
       /** The cache lifetime for the returned match. Clients must not cache this response past this timestamp to avoid false positives. */
       expireTime?: string;
       /** The ThreatList this threat belongs to. */
-      threatTypes?: string[];
+      threatTypes?:
+        | 'THREAT_TYPE_UNSPECIFIED'
+        | 'MALWARE'
+        | 'SOCIAL_ENGINEERING'
+        | 'UNWANTED_SOFTWARE'
+        | 'SOCIAL_ENGINEERING_EXTENDED_COVERAGE'[];
     }
     interface GoogleCloudWebriskV1Submission {
       /** Required. The URI that is being reported for malicious content to be analyzed. */
@@ -136,11 +146,11 @@ declare namespace gapi.client {
       /** Gets the full hashes that match the requested hash prefix. This is used after a hash prefix is looked up in a threatList and there is a match. The client side threatList only holds partial hashes so the client must query this method to determine if there is a full hash match of a threat. */
       search(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -156,7 +166,19 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Required. The ThreatLists to search in. Multiple ThreatLists may be specified. */
-        threatTypes?: string | string[];
+        threatTypes?:
+          | 'THREAT_TYPE_UNSPECIFIED'
+          | 'MALWARE'
+          | 'SOCIAL_ENGINEERING'
+          | 'UNWANTED_SOFTWARE'
+          | 'SOCIAL_ENGINEERING_EXTENDED_COVERAGE'
+          | (
+              | 'THREAT_TYPE_UNSPECIFIED'
+              | 'MALWARE'
+              | 'SOCIAL_ENGINEERING'
+              | 'UNWANTED_SOFTWARE'
+              | 'SOCIAL_ENGINEERING_EXTENDED_COVERAGE'
+            )[];
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -167,11 +189,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -196,11 +218,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -225,11 +247,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -252,11 +274,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -279,11 +301,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -316,11 +338,11 @@ declare namespace gapi.client {
       /** Creates a Submission of a URI suspected of containing phishing content to be reviewed. If the result verifies the existence of malicious phishing content, the site will be added to the [Google's Social Engineering lists](https://support.google.com/webmasters/answer/6350487/) in order to protect users that could get exposed to this threat in the future. Only allowlisted projects can use this method during Early Access. Please reach out to Sales or your customer engineer to obtain access. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -345,11 +367,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -380,11 +402,11 @@ declare namespace gapi.client {
       /** Gets the most recent threat list diffs. These diffs should be applied to a local database of hashes to keep it up-to-date. If the local database is empty or excessively out-of-date, a complete snapshot of the database will be returned. This Method only updates a single ThreatList at a time. To update multiple ThreatList databases, this method needs to be called once for each list. */
       computeDiff(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Sets the maximum number of entries that the client is willing to have in the local database. This should be a power of 2 between 2**10 and 2**20. If zero, no database size limit is set. */
@@ -392,7 +414,11 @@ declare namespace gapi.client {
         /** The maximum size in number of entries. The diff will not contain more entries than this value. This should be a power of 2 between 2**10 and 2**20. If zero, no diff size limit is set. */
         'constraints.maxDiffEntries'?: number;
         /** The compression types supported by the client. */
-        'constraints.supportedCompressions'?: string | string[];
+        'constraints.supportedCompressions'?:
+          | 'COMPRESSION_TYPE_UNSPECIFIED'
+          | 'RAW'
+          | 'RICE'
+          | ('COMPRESSION_TYPE_UNSPECIFIED' | 'RAW' | 'RICE')[];
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -404,7 +430,12 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Required. The threat list to update. Only a single ThreatType should be specified per request. If you want to handle multiple ThreatTypes, you must make one request per ThreatType. */
-        threatType?: string;
+        threatType?:
+          | 'THREAT_TYPE_UNSPECIFIED'
+          | 'MALWARE'
+          | 'SOCIAL_ENGINEERING'
+          | 'UNWANTED_SOFTWARE'
+          | 'SOCIAL_ENGINEERING_EXTENDED_COVERAGE';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -417,11 +448,11 @@ declare namespace gapi.client {
       /** This method is used to check whether a URI is on a given threatList. Multiple threatLists may be searched in a single query. The response will list all requested threatLists the URI was found to match. If the URI is not found on any of the requested ThreatList an empty response will be returned. */
       search(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -435,7 +466,19 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Required. The ThreatLists to search in. Multiple ThreatLists may be specified. */
-        threatTypes?: string | string[];
+        threatTypes?:
+          | 'THREAT_TYPE_UNSPECIFIED'
+          | 'MALWARE'
+          | 'SOCIAL_ENGINEERING'
+          | 'UNWANTED_SOFTWARE'
+          | 'SOCIAL_ENGINEERING_EXTENDED_COVERAGE'
+          | (
+              | 'THREAT_TYPE_UNSPECIFIED'
+              | 'MALWARE'
+              | 'SOCIAL_ENGINEERING'
+              | 'UNWANTED_SOFTWARE'
+              | 'SOCIAL_ENGINEERING_EXTENDED_COVERAGE'
+            )[];
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */

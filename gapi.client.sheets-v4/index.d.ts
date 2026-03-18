@@ -124,7 +124,7 @@ declare namespace gapi.client {
     }
     interface AppendDimensionRequest {
       /** Whether rows or columns should be appended. */
-      dimension?: string;
+      dimension?: 'DIMENSION_UNSPECIFIED' | 'ROWS' | 'COLUMNS';
       /** The number of rows or columns to append. */
       length?: number;
       /** The sheet to append rows or columns to. */
@@ -184,7 +184,10 @@ declare namespace gapi.client {
     }
     interface BaselineValueFormat {
       /** The comparison type of key value with baseline value. */
-      comparisonType?: string;
+      comparisonType?:
+        | 'COMPARISON_TYPE_UNDEFINED'
+        | 'ABSOLUTE_DIFFERENCE'
+        | 'PERCENTAGE_DIFFERENCE';
       /** Description which is appended after the baseline value. This field is optional. */
       description?: string;
       /** Color to be used, in case baseline value represents a negative change for key value. This field is optional. Deprecated: Use negative_color_style. */
@@ -204,7 +207,11 @@ declare namespace gapi.client {
       /** The format of the title. Only valid if the axis is not associated with the domain. The link field is not supported. */
       format?: TextFormat;
       /** The position of this axis. */
-      position?: string;
+      position?:
+        | 'BASIC_CHART_AXIS_POSITION_UNSPECIFIED'
+        | 'BOTTOM_AXIS'
+        | 'LEFT_AXIS'
+        | 'RIGHT_AXIS';
       /** The title of this axis. If set, this overrides any title inferred from headers of the data. */
       title?: string;
       /** The axis title text position. */
@@ -234,17 +241,40 @@ declare namespace gapi.client {
       /** Style override settings for series data points. */
       styleOverrides?: BasicSeriesDataPointStyleOverride[];
       /** The minor axis that will specify the range of values for this series. For example, if charting stocks over time, the "Volume" series may want to be pinned to the right with the prices pinned to the left, because the scale of trading volume is different than the scale of prices. It is an error to specify an axis that isn't a valid minor axis for the chart's type. */
-      targetAxis?: string;
+      targetAxis?:
+        | 'BASIC_CHART_AXIS_POSITION_UNSPECIFIED'
+        | 'BOTTOM_AXIS'
+        | 'LEFT_AXIS'
+        | 'RIGHT_AXIS';
       /** The type of this series. Valid only if the chartType is COMBO. Different types will change the way the series is visualized. Only LINE, AREA, and COLUMN are supported. */
-      type?: string;
+      type?:
+        | 'BASIC_CHART_TYPE_UNSPECIFIED'
+        | 'BAR'
+        | 'LINE'
+        | 'AREA'
+        | 'COLUMN'
+        | 'SCATTER'
+        | 'COMBO'
+        | 'STEPPED_AREA';
     }
     interface BasicChartSpec {
       /** The axis on the chart. */
       axis?: BasicChartAxis[];
       /** The type of the chart. */
-      chartType?: string;
+      chartType?:
+        | 'BASIC_CHART_TYPE_UNSPECIFIED'
+        | 'BAR'
+        | 'LINE'
+        | 'AREA'
+        | 'COLUMN'
+        | 'SCATTER'
+        | 'COMBO'
+        | 'STEPPED_AREA';
       /** The behavior of tooltips and data highlighting when hovering on data and chart area. */
-      compareMode?: string;
+      compareMode?:
+        | 'BASIC_CHART_COMPARE_MODE_UNSPECIFIED'
+        | 'DATUM'
+        | 'CATEGORY';
       /** The domain of data this is charting. Only a single domain is supported. */
       domains?: BasicChartDomain[];
       /** The number of rows or columns in the data that are "headers". If not set, Google Sheets will guess how many rows are headers based on the data. (Note that BasicChartAxis.title may override the axis title inferred from the header values.) */
@@ -252,13 +282,23 @@ declare namespace gapi.client {
       /** If some values in a series are missing, gaps may appear in the chart (e.g, segments of lines in a line chart will be missing). To eliminate these gaps set this to true. Applies to Line, Area, and Combo charts. */
       interpolateNulls?: boolean;
       /** The position of the chart legend. */
-      legendPosition?: string;
+      legendPosition?:
+        | 'BASIC_CHART_LEGEND_POSITION_UNSPECIFIED'
+        | 'BOTTOM_LEGEND'
+        | 'LEFT_LEGEND'
+        | 'RIGHT_LEGEND'
+        | 'TOP_LEGEND'
+        | 'NO_LEGEND';
       /** Gets whether all lines should be rendered smooth or straight by default. Applies to Line charts. */
       lineSmoothing?: boolean;
       /** The data this chart is visualizing. */
       series?: BasicChartSeries[];
       /** The stacked type for charts that support vertical stacking. Applies to Area, Bar, Column, Combo, and Stepped Area charts. */
-      stackedType?: string;
+      stackedType?:
+        | 'BASIC_CHART_STACKED_TYPE_UNSPECIFIED'
+        | 'NOT_STACKED'
+        | 'STACKED'
+        | 'PERCENT_STACKED';
       /** True to make the chart 3D. Applies to Bar and Column charts. */
       threeDimensional?: boolean;
       /** Controls whether to display additional data labels on stacked charts which sum the total value of all stacked values at each value along the domain axis. These data labels can only be set when chart_type is one of AREA, BAR, COLUMN, COMBO or STEPPED_AREA and stacked_type is either STACKED or PERCENT_STACKED. In addition, for COMBO, this will only be supported if there is only one type of stackable series type or one type has more series than the others and each of the other types have no more than one series. For example, if a chart has two stacked bar series and one area series, the total data labels will be supported. If it has three bar series and two area series, total data labels are not allowed. Neither CUSTOM nor placement can be set on the total_data_label. */
@@ -310,11 +350,11 @@ declare namespace gapi.client {
       /** The data filters used to match the ranges of values to retrieve. Ranges that match any of the specified data filters are included in the response. */
       dataFilters?: DataFilter[];
       /** How dates, times, and durations should be represented in the output. This is ignored if value_render_option is FORMATTED_VALUE. The default dateTime render option is SERIAL_NUMBER. */
-      dateTimeRenderOption?: string;
+      dateTimeRenderOption?: 'SERIAL_NUMBER' | 'FORMATTED_STRING';
       /** The major dimension that results should use. For example, if the spreadsheet data is: `A1=1,B1=2,A2=3,B2=4`, then a request that selects that range and sets `majorDimension=ROWS` returns `[[1,2],[3,4]]`, whereas a request that sets `majorDimension=COLUMNS` returns `[[1,3],[2,4]]`. */
-      majorDimension?: string;
+      majorDimension?: 'DIMENSION_UNSPECIFIED' | 'ROWS' | 'COLUMNS';
       /** How values should be represented in the output. The default render option is FORMATTED_VALUE. */
-      valueRenderOption?: string;
+      valueRenderOption?: 'FORMATTED_VALUE' | 'UNFORMATTED_VALUE' | 'FORMULA';
     }
     interface BatchGetValuesByDataFilterResponse {
       /** The ID of the spreadsheet the data was retrieved from. */
@@ -352,11 +392,17 @@ declare namespace gapi.client {
       /** Determines if the update response should include the values of the cells that were updated. By default, responses do not include the updated values. The `updatedData` field within each of the BatchUpdateValuesResponse.responses contains the updated values. If the range to write was larger than the range actually written, the response includes all values in the requested range (excluding trailing empty rows and columns). */
       includeValuesInResponse?: boolean;
       /** Determines how dates, times, and durations in the response should be rendered. This is ignored if response_value_render_option is FORMATTED_VALUE. The default dateTime render option is SERIAL_NUMBER. */
-      responseDateTimeRenderOption?: string;
+      responseDateTimeRenderOption?: 'SERIAL_NUMBER' | 'FORMATTED_STRING';
       /** Determines how values in the response should be rendered. The default render option is FORMATTED_VALUE. */
-      responseValueRenderOption?: string;
+      responseValueRenderOption?:
+        | 'FORMATTED_VALUE'
+        | 'UNFORMATTED_VALUE'
+        | 'FORMULA';
       /** How the input data should be interpreted. */
-      valueInputOption?: string;
+      valueInputOption?:
+        | 'INPUT_VALUE_OPTION_UNSPECIFIED'
+        | 'RAW'
+        | 'USER_ENTERED';
     }
     interface BatchUpdateValuesByDataFilterResponse {
       /** The response for each range updated. */
@@ -378,11 +424,17 @@ declare namespace gapi.client {
       /** Determines if the update response should include the values of the cells that were updated. By default, responses do not include the updated values. The `updatedData` field within each of the BatchUpdateValuesResponse.responses contains the updated values. If the range to write was larger than the range actually written, the response includes all values in the requested range (excluding trailing empty rows and columns). */
       includeValuesInResponse?: boolean;
       /** Determines how dates, times, and durations in the response should be rendered. This is ignored if response_value_render_option is FORMATTED_VALUE. The default dateTime render option is SERIAL_NUMBER. */
-      responseDateTimeRenderOption?: string;
+      responseDateTimeRenderOption?: 'SERIAL_NUMBER' | 'FORMATTED_STRING';
       /** Determines how values in the response should be rendered. The default render option is FORMATTED_VALUE. */
-      responseValueRenderOption?: string;
+      responseValueRenderOption?:
+        | 'FORMATTED_VALUE'
+        | 'UNFORMATTED_VALUE'
+        | 'FORMULA';
       /** How the input data should be interpreted. */
-      valueInputOption?: string;
+      valueInputOption?:
+        | 'INPUT_VALUE_OPTION_UNSPECIFIED'
+        | 'RAW'
+        | 'USER_ENTERED';
     }
     interface BatchUpdateValuesResponse {
       /** One UpdateValuesResponse per requested range, in the same order as the requests appeared. */
@@ -420,7 +472,40 @@ declare namespace gapi.client {
     }
     interface BooleanCondition {
       /** The type of condition. */
-      type?: string;
+      type?:
+        | 'CONDITION_TYPE_UNSPECIFIED'
+        | 'NUMBER_GREATER'
+        | 'NUMBER_GREATER_THAN_EQ'
+        | 'NUMBER_LESS'
+        | 'NUMBER_LESS_THAN_EQ'
+        | 'NUMBER_EQ'
+        | 'NUMBER_NOT_EQ'
+        | 'NUMBER_BETWEEN'
+        | 'NUMBER_NOT_BETWEEN'
+        | 'TEXT_CONTAINS'
+        | 'TEXT_NOT_CONTAINS'
+        | 'TEXT_STARTS_WITH'
+        | 'TEXT_ENDS_WITH'
+        | 'TEXT_EQ'
+        | 'TEXT_IS_EMAIL'
+        | 'TEXT_IS_URL'
+        | 'DATE_EQ'
+        | 'DATE_BEFORE'
+        | 'DATE_AFTER'
+        | 'DATE_ON_OR_BEFORE'
+        | 'DATE_ON_OR_AFTER'
+        | 'DATE_BETWEEN'
+        | 'DATE_NOT_BETWEEN'
+        | 'DATE_IS_VALID'
+        | 'ONE_OF_RANGE'
+        | 'ONE_OF_LIST'
+        | 'BLANK'
+        | 'NOT_BLANK'
+        | 'CUSTOM_FORMULA'
+        | 'BOOLEAN'
+        | 'TEXT_NOT_EQ'
+        | 'DATE_NOT_EQ'
+        | 'FILTER_EXPRESSION';
       /** The values of the condition. The number of supported values depends on the condition type. Some support zero values, others one or two values, and ConditionType.ONE_OF_LIST supports an arbitrary number of values. */
       values?: ConditionValue[];
     }
@@ -436,7 +521,15 @@ declare namespace gapi.client {
       /** The color of the border. If color is also set, this field takes precedence. */
       colorStyle?: ColorStyle;
       /** The style of the border. */
-      style?: string;
+      style?:
+        | 'STYLE_UNSPECIFIED'
+        | 'DOTTED'
+        | 'DASHED'
+        | 'SOLID'
+        | 'SOLID_MEDIUM'
+        | 'SOLID_THICK'
+        | 'NONE'
+        | 'DOUBLE';
       /** The width of the border, in pixels. Deprecated; the width is determined by the "style" field. */
       width?: number;
     }
@@ -472,7 +565,14 @@ declare namespace gapi.client {
       /** The data containing the bubble group IDs. All bubbles with the same group ID are drawn in the same color. If bubble_sizes is specified then this field must also be specified but may contain blank values. This field is optional. */
       groupIds?: ChartData;
       /** Where the legend of the chart should be drawn. */
-      legendPosition?: string;
+      legendPosition?:
+        | 'BUBBLE_CHART_LEGEND_POSITION_UNSPECIFIED'
+        | 'BOTTOM_LEGEND'
+        | 'LEFT_LEGEND'
+        | 'RIGHT_LEGEND'
+        | 'TOP_LEGEND'
+        | 'NO_LEGEND'
+        | 'INSIDE_LEGEND';
       /** The data containing the bubble y-values. These values locate the bubbles in the chart vertically. */
       series?: ChartData;
     }
@@ -556,23 +656,42 @@ declare namespace gapi.client {
       /** The borders of the cell. */
       borders?: Borders;
       /** The horizontal alignment of the value in the cell. */
-      horizontalAlignment?: string;
+      horizontalAlignment?:
+        | 'HORIZONTAL_ALIGN_UNSPECIFIED'
+        | 'LEFT'
+        | 'CENTER'
+        | 'RIGHT';
       /** If one exists, how a hyperlink should be displayed in the cell. */
-      hyperlinkDisplayType?: string;
+      hyperlinkDisplayType?:
+        | 'HYPERLINK_DISPLAY_TYPE_UNSPECIFIED'
+        | 'LINKED'
+        | 'PLAIN_TEXT';
       /** A format describing how number values should be represented to the user. */
       numberFormat?: NumberFormat;
       /** The padding of the cell. */
       padding?: Padding;
       /** The direction of the text in the cell. */
-      textDirection?: string;
+      textDirection?:
+        | 'TEXT_DIRECTION_UNSPECIFIED'
+        | 'LEFT_TO_RIGHT'
+        | 'RIGHT_TO_LEFT';
       /** The format of the text in the cell (unless overridden by a format run). Setting a cell-level link here clears the cell's existing links. Setting the link field in a TextFormatRun takes precedence over the cell-level link. */
       textFormat?: TextFormat;
       /** The rotation applied to text in the cell. */
       textRotation?: TextRotation;
       /** The vertical alignment of the value in the cell. */
-      verticalAlignment?: string;
+      verticalAlignment?:
+        | 'VERTICAL_ALIGN_UNSPECIFIED'
+        | 'TOP'
+        | 'MIDDLE'
+        | 'BOTTOM';
       /** The wrap strategy for the value in the cell. */
-      wrapStrategy?: string;
+      wrapStrategy?:
+        | 'WRAP_STRATEGY_UNSPECIFIED'
+        | 'OVERFLOW_CELL'
+        | 'LEGACY_WRAP'
+        | 'CLIP'
+        | 'WRAP';
     }
     interface ChartAxisViewWindowOptions {
       /** The maximum numeric value to be shown in this view window. If unset, will automatically determine a maximum value that looks good for the data. */
@@ -580,7 +699,11 @@ declare namespace gapi.client {
       /** The minimum numeric value to be shown in this view window. If unset, will automatically determine a minimum value that looks good for the data. */
       viewWindowMin?: number;
       /** The view window's mode. */
-      viewWindowMode?: string;
+      viewWindowMode?:
+        | 'DEFAULT_VIEW_WINDOW_MODE'
+        | 'VIEW_WINDOW_MODE_UNSUPPORTED'
+        | 'EXPLICIT'
+        | 'PRETTY';
     }
     interface ChartCustomNumberFormatOptions {
       /** Custom prefix to be prepended to the chart attribute. This field is optional. */
@@ -590,7 +713,14 @@ declare namespace gapi.client {
     }
     interface ChartData {
       /** The aggregation type for the series of a data source chart. Only supported for data source charts. */
-      aggregateType?: string;
+      aggregateType?:
+        | 'CHART_AGGREGATE_TYPE_UNSPECIFIED'
+        | 'AVERAGE'
+        | 'COUNT'
+        | 'MAX'
+        | 'MEDIAN'
+        | 'MIN'
+        | 'SUM';
       /** The reference to the data source column that the data reads from. */
       columnReference?: DataSourceColumnReference;
       /** The rule to group the data by if the ChartData backs the domain of a data source chart. Only supported for data source charts. */
@@ -600,7 +730,23 @@ declare namespace gapi.client {
     }
     interface ChartDateTimeRule {
       /** The type of date-time grouping to apply. */
-      type?: string;
+      type?:
+        | 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED'
+        | 'SECOND'
+        | 'MINUTE'
+        | 'HOUR'
+        | 'HOUR_MINUTE'
+        | 'HOUR_MINUTE_AMPM'
+        | 'DAY_OF_WEEK'
+        | 'DAY_OF_YEAR'
+        | 'DAY_OF_MONTH'
+        | 'DAY_MONTH'
+        | 'MONTH'
+        | 'QUARTER'
+        | 'YEAR'
+        | 'YEAR_MONTH'
+        | 'YEAR_QUARTER'
+        | 'YEAR_MONTH_DAY';
     }
     interface ChartGroupRule {
       /** A ChartDateTimeRule. */
@@ -640,7 +786,12 @@ declare namespace gapi.client {
       /** The name of the font to use by default for all chart text (e.g. title, axis labels, legend). If a font is specified for a specific part of the chart it will override this font name. */
       fontName?: string;
       /** Determines how the charts will use hidden rows or columns. */
-      hiddenDimensionStrategy?: string;
+      hiddenDimensionStrategy?:
+        | 'CHART_HIDDEN_DIMENSION_STRATEGY_UNSPECIFIED'
+        | 'SKIP_HIDDEN_ROWS_AND_COLUMNS'
+        | 'SKIP_HIDDEN_ROWS'
+        | 'SKIP_HIDDEN_COLUMNS'
+        | 'SHOW_ALL';
       /** A histogram chart specification. */
       histogramChart?: HistogramChartSpec;
       /** True to make a chart fill the entire space in which it's rendered with minimum padding. False to use the default padding. (Not applicable to Geo and Org charts.) */
@@ -707,7 +858,17 @@ declare namespace gapi.client {
       /** RGB color. The [`alpha`](https://developers.google.com/workspace/sheets/api/reference/rest/v4/spreadsheets/other#Color.FIELDS.alpha) value in the [`Color`](https://developers.google.com/workspace/sheets/api/reference/rest/v4/spreadsheets/other#color) object isn't generally supported. */
       rgbColor?: Color;
       /** Theme color. */
-      themeColor?: string;
+      themeColor?:
+        | 'THEME_COLOR_TYPE_UNSPECIFIED'
+        | 'TEXT'
+        | 'BACKGROUND'
+        | 'ACCENT1'
+        | 'ACCENT2'
+        | 'ACCENT3'
+        | 'ACCENT4'
+        | 'ACCENT5'
+        | 'ACCENT6'
+        | 'LINK';
     }
     interface ConditionalFormatRule {
       /** The formatting is either "on" or "off" according to the rule. */
@@ -719,7 +880,14 @@ declare namespace gapi.client {
     }
     interface ConditionValue {
       /** A relative date (based on the current date). Valid only if the type is DATE_BEFORE, DATE_AFTER, DATE_ON_OR_BEFORE or DATE_ON_OR_AFTER. Relative dates are not supported in data validation. They are supported only in conditional formatting and conditional filters. */
-      relativeDate?: string;
+      relativeDate?:
+        | 'RELATIVE_DATE_UNSPECIFIED'
+        | 'PAST_YEAR'
+        | 'PAST_MONTH'
+        | 'PAST_WEEK'
+        | 'YESTERDAY'
+        | 'TODAY'
+        | 'TOMORROW';
       /** A value the condition is based on. The value is parsed as if the user typed into a cell. Formulas are supported (and must begin with an `=` or a '+'). */
       userEnteredValue?: string;
     }
@@ -727,9 +895,16 @@ declare namespace gapi.client {
       /** The location to paste to. If the range covers a span that's a multiple of the source's height or width, then the data will be repeated to fill in the destination range. If the range is smaller than the source range, the entire source data will still be copied (beyond the end of the destination range). */
       destination?: GridRange;
       /** How that data should be oriented when pasting. */
-      pasteOrientation?: string;
+      pasteOrientation?: 'NORMAL' | 'TRANSPOSE';
       /** What kind of data to paste. */
-      pasteType?: string;
+      pasteType?:
+        | 'PASTE_NORMAL'
+        | 'PASTE_VALUES'
+        | 'PASTE_FORMAT'
+        | 'PASTE_NO_BORDERS'
+        | 'PASTE_FORMULA'
+        | 'PASTE_DATA_VALIDATION'
+        | 'PASTE_CONDITIONAL_FORMATTING';
       /** The source range to copy. */
       source?: GridRange;
     }
@@ -749,19 +924,52 @@ declare namespace gapi.client {
       /** The top-left coordinate where the data should be pasted. */
       destination?: GridCoordinate;
       /** What kind of data to paste. All the source data will be cut, regardless of what is pasted. */
-      pasteType?: string;
+      pasteType?:
+        | 'PASTE_NORMAL'
+        | 'PASTE_VALUES'
+        | 'PASTE_FORMAT'
+        | 'PASTE_NO_BORDERS'
+        | 'PASTE_FORMULA'
+        | 'PASTE_DATA_VALIDATION'
+        | 'PASTE_CONDITIONAL_FORMATTING';
       /** The source data to cut. */
       source?: GridRange;
     }
     interface DataExecutionStatus {
       /** The error code. */
-      errorCode?: string;
+      errorCode?:
+        | 'DATA_EXECUTION_ERROR_CODE_UNSPECIFIED'
+        | 'TIMED_OUT'
+        | 'TOO_MANY_ROWS'
+        | 'TOO_MANY_COLUMNS'
+        | 'TOO_MANY_CELLS'
+        | 'ENGINE'
+        | 'PARAMETER_INVALID'
+        | 'UNSUPPORTED_DATA_TYPE'
+        | 'DUPLICATE_COLUMN_NAMES'
+        | 'INTERRUPTED'
+        | 'CONCURRENT_QUERY'
+        | 'OTHER'
+        | 'TOO_MANY_CHARS_PER_CELL'
+        | 'DATA_NOT_FOUND'
+        | 'PERMISSION_DENIED'
+        | 'MISSING_COLUMN_ALIAS'
+        | 'OBJECT_NOT_FOUND'
+        | 'OBJECT_IN_ERROR_STATE'
+        | 'OBJECT_SPEC_INVALID'
+        | 'DATA_EXECUTION_CANCELLED';
       /** The error message, which may be empty. */
       errorMessage?: string;
       /** Gets the time the data last successfully refreshed. */
       lastRefreshTime?: string;
       /** The state of the data execution. */
-      state?: string;
+      state?:
+        | 'DATA_EXECUTION_STATE_UNSPECIFIED'
+        | 'NOT_STARTED'
+        | 'RUNNING'
+        | 'CANCELLING'
+        | 'SUCCEEDED'
+        | 'FAILED';
     }
     interface DataFilter {
       /** Selects data that matches the specified A1 range. */
@@ -775,7 +983,7 @@ declare namespace gapi.client {
       /** The data filter describing the location of the values in the spreadsheet. */
       dataFilter?: DataFilter;
       /** The major dimension of the values. */
-      majorDimension?: string;
+      majorDimension?: 'DIMENSION_UNSPECIFIED' | 'ROWS' | 'COLUMNS';
       /** The data to be written. If the provided values exceed any of the ranges matched by the data filter then the request fails. If the provided values are less than the matched ranges only the specified values are written, existing values in the matched ranges remain unaffected. */
       values?: any[][];
     }
@@ -783,11 +991,20 @@ declare namespace gapi.client {
       /** Data to use for custom labels. Only used if type is set to CUSTOM. This data must be the same length as the series or other element this data label is applied to. In addition, if the series is split into multiple source ranges, this source data must come from the next column in the source data. For example, if the series is B2:B4,E6:E8 then this data must come from C2:C4,F6:F8. */
       customLabelData?: ChartData;
       /** The placement of the data label relative to the labeled data. */
-      placement?: string;
+      placement?:
+        | 'DATA_LABEL_PLACEMENT_UNSPECIFIED'
+        | 'CENTER'
+        | 'LEFT'
+        | 'RIGHT'
+        | 'ABOVE'
+        | 'BELOW'
+        | 'INSIDE_END'
+        | 'INSIDE_BASE'
+        | 'OUTSIDE_END';
       /** The text format used for the data label. The link field is not supported. */
       textFormat?: TextFormat;
       /** The type of the data label. */
-      type?: string;
+      type?: 'DATA_LABEL_TYPE_UNSPECIFIED' | 'NONE' | 'DATA' | 'CUSTOM';
     }
     interface DataSource {
       /** All calculated columns in the data source. */
@@ -865,13 +1082,23 @@ declare namespace gapi.client {
       /** Output only. The time interval of the next run. */
       nextRun?: Interval;
       /** The scope of the refresh. Must be ALL_DATA_SOURCES. */
-      refreshScope?: string;
+      refreshScope?:
+        | 'DATA_SOURCE_REFRESH_SCOPE_UNSPECIFIED'
+        | 'ALL_DATA_SOURCES';
       /** Weekly refresh schedule. */
       weeklySchedule?: DataSourceRefreshWeeklySchedule;
     }
     interface DataSourceRefreshWeeklySchedule {
       /** Days of the week to refresh. At least one day must be specified. */
-      daysOfWeek?: string[];
+      daysOfWeek?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY'[];
       /** The start time of a time interval in which a data source refresh is scheduled. Only `hours` part is used. The time interval size defaults to that in the Sheets editor. */
       startTime?: TimeOfDay;
     }
@@ -901,7 +1128,10 @@ declare namespace gapi.client {
       /** Columns selected for the data source table. The column_selection_type must be SELECTED. */
       columns?: DataSourceColumnReference[];
       /** The type to select columns for the data source table. Defaults to SELECTED. */
-      columnSelectionType?: string;
+      columnSelectionType?:
+        | 'DATA_SOURCE_TABLE_COLUMN_SELECTION_TYPE_UNSPECIFIED'
+        | 'SELECTED'
+        | 'SYNC_ALL';
       /** Output only. The data execution status. */
       dataExecutionStatus?: DataExecutionStatus;
       /** The ID of the data source the data source table is associated with. */
@@ -925,7 +1155,23 @@ declare namespace gapi.client {
     }
     interface DateTimeRule {
       /** The type of date-time grouping to apply. */
-      type?: string;
+      type?:
+        | 'DATE_TIME_RULE_TYPE_UNSPECIFIED'
+        | 'SECOND'
+        | 'MINUTE'
+        | 'HOUR'
+        | 'HOUR_MINUTE'
+        | 'HOUR_MINUTE_AMPM'
+        | 'DAY_OF_WEEK'
+        | 'DAY_OF_YEAR'
+        | 'DAY_OF_MONTH'
+        | 'DAY_MONTH'
+        | 'MONTH'
+        | 'QUARTER'
+        | 'YEAR'
+        | 'YEAR_MONTH'
+        | 'YEAR_QUARTER'
+        | 'YEAR_MONTH_DAY';
     }
     interface DeleteBandingRequest {
       /** The ID of the banded range to delete. */
@@ -995,7 +1241,7 @@ declare namespace gapi.client {
       /** The range of cells to delete. */
       range?: GridRange;
       /** The dimension from which deleted cells will be replaced with. If ROWS, existing cells will be shifted upward to replace the deleted cells. If COLUMNS, existing cells will be shifted left to replace the deleted cells. */
-      shiftDimension?: string;
+      shiftDimension?: 'DIMENSION_UNSPECIFIED' | 'ROWS' | 'COLUMNS';
     }
     interface DeleteSheetRequest {
       /** The ID of the sheet to delete. If the sheet is of DATA_SOURCE type, the associated DataSource is also deleted. */
@@ -1015,13 +1261,21 @@ declare namespace gapi.client {
       /** Data associated with the metadata's key. */
       metadataValue?: string;
       /** The metadata visibility. Developer metadata must always have visibility specified. */
-      visibility?: string;
+      visibility?:
+        | 'DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED'
+        | 'DOCUMENT'
+        | 'PROJECT';
     }
     interface DeveloperMetadataLocation {
       /** Represents the row or column when metadata is associated with a dimension. The specified DimensionRange must represent a single row or column. It cannot be unbounded or span multiple rows or columns. */
       dimensionRange?: DimensionRange;
       /** The type of location this object represents. This field is read-only. */
-      locationType?: string;
+      locationType?:
+        | 'DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED'
+        | 'ROW'
+        | 'COLUMN'
+        | 'SHEET'
+        | 'SPREADSHEET';
       /** The ID of the sheet when metadata is associated with an entire sheet. */
       sheetId?: number;
       /** True when metadata is associated with an entire spreadsheet. */
@@ -1029,9 +1283,17 @@ declare namespace gapi.client {
     }
     interface DeveloperMetadataLookup {
       /** Determines how this lookup matches the location. If this field is specified as EXACT, only developer metadata associated on the exact location specified is matched. If this field is specified to INTERSECTING, developer metadata associated on intersecting locations is also matched. If left unspecified, this field assumes a default value of INTERSECTING. If this field is specified, a metadataLocation must also be specified. */
-      locationMatchingStrategy?: string;
+      locationMatchingStrategy?:
+        | 'DEVELOPER_METADATA_LOCATION_MATCHING_STRATEGY_UNSPECIFIED'
+        | 'EXACT_LOCATION'
+        | 'INTERSECTING_LOCATION';
       /** Limits the selected developer metadata to those entries which are associated with locations of the specified type. For example, when this field is specified as ROW this lookup only considers developer metadata associated on rows. If the field is left unspecified, all location types are considered. This field cannot be specified as SPREADSHEET when the locationMatchingStrategy is specified as INTERSECTING or when the metadataLocation is specified as a non-spreadsheet location. Spreadsheet metadata cannot intersect any other developer metadata location. This field also must be left unspecified when the locationMatchingStrategy is specified as EXACT. */
-      locationType?: string;
+      locationType?:
+        | 'DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED'
+        | 'ROW'
+        | 'COLUMN'
+        | 'SHEET'
+        | 'SPREADSHEET';
       /** Limits the selected developer metadata to that which has a matching DeveloperMetadata.metadata_id. */
       metadataId?: number;
       /** Limits the selected developer metadata to that which has a matching DeveloperMetadata.metadata_key. */
@@ -1041,7 +1303,10 @@ declare namespace gapi.client {
       /** Limits the selected developer metadata to that which has a matching DeveloperMetadata.metadata_value. */
       metadataValue?: string;
       /** Limits the selected developer metadata to that which has a matching DeveloperMetadata.visibility. If left unspecified, all developer metadata visible to the requesting project is considered. */
-      visibility?: string;
+      visibility?:
+        | 'DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED'
+        | 'DOCUMENT'
+        | 'PROJECT';
     }
     interface DimensionGroup {
       /** This field is true if this group is collapsed. A collapsed group remains collapsed if an overlapping group at a shallower depth is expanded. A true value does not imply that all dimensions within the group are hidden, since a dimension's visibility can change independently from this group property. However, when this property is updated, all dimensions within it are set to hidden if this field is true, or set to visible if this field is false. */
@@ -1065,7 +1330,7 @@ declare namespace gapi.client {
     }
     interface DimensionRange {
       /** The dimension of the span. */
-      dimension?: string;
+      dimension?: 'DIMENSION_UNSPECIFIED' | 'ROWS' | 'COLUMNS';
       /** The end (exclusive) of the span, or not set if unbounded. */
       endIndex?: number;
       /** The sheet this span is on. */
@@ -1131,7 +1396,17 @@ declare namespace gapi.client {
       /** A message with more information about the error (in the spreadsheet's locale). */
       message?: string;
       /** The type of error. */
-      type?: string;
+      type?:
+        | 'ERROR_TYPE_UNSPECIFIED'
+        | 'ERROR'
+        | 'NULL_VALUE'
+        | 'DIVIDE_BY_ZERO'
+        | 'VALUE'
+        | 'REF'
+        | 'NAME'
+        | 'NUM'
+        | 'N_A'
+        | 'LOADING';
     }
     interface ExtendedValue {
       /** Represents a boolean value. */
@@ -1285,7 +1560,14 @@ declare namespace gapi.client {
       /** By default the bucket size (the range of values stacked in a single column) is chosen automatically, but it may be overridden here. E.g., A bucket size of 1.5 results in buckets from 0 - 1.5, 1.5 - 3.0, etc. Cannot be negative. This field is optional. */
       bucketSize?: number;
       /** The position of the chart legend. */
-      legendPosition?: string;
+      legendPosition?:
+        | 'HISTOGRAM_CHART_LEGEND_POSITION_UNSPECIFIED'
+        | 'BOTTOM_LEGEND'
+        | 'LEFT_LEGEND'
+        | 'RIGHT_LEGEND'
+        | 'TOP_LEGEND'
+        | 'NO_LEGEND'
+        | 'INSIDE_LEGEND';
       /** The outlier percentile is used to ensure that outliers do not adversely affect the calculation of bucket sizes. For example, setting an outlier percentile of 0.05 indicates that the top and bottom 5% of values when calculating buckets. The values are still included in the chart, they will be added to the first or last buckets instead of their own buckets. Must be between 0.0 and 0.5. */
       outlierPercentile?: number;
       /** The series for a histogram may be either a single series of values to be bucketed or multiple series, each of the same length, containing the name of the series followed by the values to be bucketed for that series. */
@@ -1319,7 +1601,7 @@ declare namespace gapi.client {
       /** The range to insert new cells into. The range is constrained to the current sheet boundaries. */
       range?: GridRange;
       /** The dimension which will be shifted when inserting cells. If ROWS, existing cells will be shifted down. If COLUMNS, existing cells will be shifted right. */
-      shiftDimension?: string;
+      shiftDimension?: 'DIMENSION_UNSPECIFIED' | 'ROWS' | 'COLUMNS';
     }
     interface InterpolationPoint {
       /** The color this interpolation point should use. Deprecated: Use color_style. */
@@ -1327,7 +1609,13 @@ declare namespace gapi.client {
       /** The color this interpolation point should use. If color is also set, this field takes precedence. */
       colorStyle?: ColorStyle;
       /** How the value should be interpreted. */
-      type?: string;
+      type?:
+        | 'INTERPOLATION_POINT_TYPE_UNSPECIFIED'
+        | 'MIN'
+        | 'MAX'
+        | 'NUMBER'
+        | 'PERCENT'
+        | 'PERCENTILE';
       /** The value this interpolation point uses. May be a formula. Unused if type is MIN or MAX. */
       value?: string;
     }
@@ -1351,7 +1639,16 @@ declare namespace gapi.client {
     }
     interface LineStyle {
       /** The dash type of the line. */
-      type?: string;
+      type?:
+        | 'LINE_DASH_TYPE_UNSPECIFIED'
+        | 'INVISIBLE'
+        | 'CUSTOM'
+        | 'SOLID'
+        | 'DOTTED'
+        | 'MEDIUM_DASHED'
+        | 'MEDIUM_DASHED_DOTTED'
+        | 'LONG_DASHED'
+        | 'LONG_DASHED_DOTTED';
       /** The thickness of the line, in px. */
       width?: number;
     }
@@ -1391,7 +1688,7 @@ declare namespace gapi.client {
     }
     interface MergeCellsRequest {
       /** How the cells should be merged. */
-      mergeType?: string;
+      mergeType?: 'MERGE_ALL' | 'MERGE_COLUMNS' | 'MERGE_ROWS';
       /** The range of cells to merge. */
       range?: GridRange;
     }
@@ -1413,7 +1710,16 @@ declare namespace gapi.client {
       /** Pattern string used for formatting. If not set, a default pattern based on the spreadsheet's locale will be used if necessary for the given type. See the [Date and Number Formats guide](https://developers.google.com/workspace/sheets/api/guides/formats) for more information about the supported patterns. */
       pattern?: string;
       /** The type of the number format. When writing, this field must be set. */
-      type?: string;
+      type?:
+        | 'NUMBER_FORMAT_TYPE_UNSPECIFIED'
+        | 'TEXT'
+        | 'NUMBER'
+        | 'PERCENT'
+        | 'CURRENCY'
+        | 'DATE'
+        | 'TIME'
+        | 'DATE_TIME'
+        | 'SCIENTIFIC';
     }
     interface OrgChartSpec {
       /** The data containing the labels for all the nodes in the chart. Labels must be unique. */
@@ -1423,7 +1729,11 @@ declare namespace gapi.client {
       /** The color of the org chart nodes. If node_color is also set, this field takes precedence. */
       nodeColorStyle?: ColorStyle;
       /** The size of the org chart nodes. */
-      nodeSize?: string;
+      nodeSize?:
+        | 'ORG_CHART_LABEL_SIZE_UNSPECIFIED'
+        | 'SMALL'
+        | 'MEDIUM'
+        | 'LARGE';
       /** The data containing the label of the parent for the corresponding node. A blank value indicates that the node has no parent and is a top-level node. This field is optional. */
       parentLabels?: ChartData;
       /** The color of the selected org chart nodes. Deprecated: Use selected_node_color_style. */
@@ -1465,11 +1775,22 @@ declare namespace gapi.client {
       /** True if the data is HTML. */
       html?: boolean;
       /** How the data should be pasted. */
-      type?: string;
+      type?:
+        | 'PASTE_NORMAL'
+        | 'PASTE_VALUES'
+        | 'PASTE_FORMAT'
+        | 'PASTE_NO_BORDERS'
+        | 'PASTE_FORMULA'
+        | 'PASTE_DATA_VALIDATION'
+        | 'PASTE_CONDITIONAL_FORMATTING';
     }
     interface PersonProperties {
       /** Optional. The display format of the person chip. If not set, the default display format is used. */
-      displayFormat?: string;
+      displayFormat?:
+        | 'DISPLAY_FORMAT_UNSPECIFIED'
+        | 'DEFAULT'
+        | 'LAST_NAME_COMMA_FIRST_NAME'
+        | 'EMAIL';
       /** Required. The email address linked to this person. This field is always present. */
       email?: string;
     }
@@ -1477,7 +1798,14 @@ declare namespace gapi.client {
       /** The data that covers the domain of the pie chart. */
       domain?: ChartData;
       /** Where the legend of the pie chart should be drawn. */
-      legendPosition?: string;
+      legendPosition?:
+        | 'PIE_CHART_LEGEND_POSITION_UNSPECIFIED'
+        | 'BOTTOM_LEGEND'
+        | 'LEFT_LEGEND'
+        | 'RIGHT_LEGEND'
+        | 'TOP_LEGEND'
+        | 'NO_LEGEND'
+        | 'LABELED_LEGEND';
       /** The size of the hole in the pie chart. */
       pieHole?: number;
       /** The data that covers the one and only series of the pie chart. */
@@ -1515,7 +1843,7 @@ declare namespace gapi.client {
       /** True if the pivot table should include the totals for this grouping. */
       showTotals?: boolean;
       /** The order the values in this group should be sorted. */
-      sortOrder?: string;
+      sortOrder?: 'SORT_ORDER_UNSPECIFIED' | 'ASCENDING' | 'DESCENDING';
       /** The column offset of the source range that this grouping is based on. For example, if the source was `C10:E15`, a `sourceColumnOffset` of `0` means this group refers to column `C`, whereas the offset `1` would refer to column `D`. */
       sourceColumnOffset?: number;
       /** The bucket of the opposite pivot group to sort by. If not specified, sorting is alphabetical by this group's values. */
@@ -1565,13 +1893,17 @@ declare namespace gapi.client {
       /** The range the pivot table is reading data from. */
       source?: GridRange;
       /** Whether values should be listed horizontally (as columns) or vertically (as rows). */
-      valueLayout?: string;
+      valueLayout?: 'HORIZONTAL' | 'VERTICAL';
       /** A list of values to include in the pivot table. */
       values?: PivotValue[];
     }
     interface PivotValue {
       /** If specified, indicates that pivot values should be displayed as the result of a calculation with another pivot value. For example, if calculated_display_type is specified as PERCENT_OF_GRAND_TOTAL, all the pivot values are displayed as the percentage of the grand total. In the Sheets editor, this is referred to as "Show As" in the value section of a pivot table. */
-      calculatedDisplayType?: string;
+      calculatedDisplayType?:
+        | 'PIVOT_VALUE_CALCULATED_DISPLAY_TYPE_UNSPECIFIED'
+        | 'PERCENT_OF_ROW_TOTAL'
+        | 'PERCENT_OF_COLUMN_TOTAL'
+        | 'PERCENT_OF_GRAND_TOTAL';
       /** The reference to the data source column that this value reads from. */
       dataSourceColumnReference?: DataSourceColumnReference;
       /** A custom formula to calculate the value. The formula must start with an `=` character. */
@@ -1581,11 +1913,36 @@ declare namespace gapi.client {
       /** The column offset of the source range that this value reads from. For example, if the source was `C10:E15`, a `sourceColumnOffset` of `0` means this value refers to column `C`, whereas the offset `1` would refer to column `D`. */
       sourceColumnOffset?: number;
       /** A function to summarize the value. If formula is set, the only supported values are SUM and CUSTOM. If sourceColumnOffset is set, then `CUSTOM` is not supported. */
-      summarizeFunction?: string;
+      summarizeFunction?:
+        | 'PIVOT_STANDARD_VALUE_FUNCTION_UNSPECIFIED'
+        | 'SUM'
+        | 'COUNTA'
+        | 'COUNT'
+        | 'COUNTUNIQUE'
+        | 'AVERAGE'
+        | 'MAX'
+        | 'MIN'
+        | 'MEDIAN'
+        | 'PRODUCT'
+        | 'STDEV'
+        | 'STDEVP'
+        | 'VAR'
+        | 'VARP'
+        | 'CUSTOM'
+        | 'NONE';
     }
     interface PointStyle {
       /** The point shape. If empty or unspecified, a default shape is used. */
-      shape?: string;
+      shape?:
+        | 'POINT_SHAPE_UNSPECIFIED'
+        | 'CIRCLE'
+        | 'DIAMOND'
+        | 'HEXAGON'
+        | 'PENTAGON'
+        | 'SQUARE'
+        | 'STAR'
+        | 'TRIANGLE'
+        | 'X_MARK';
       /** The point size. If empty, a default size is used. */
       size?: number;
     }
@@ -1615,9 +1972,18 @@ declare namespace gapi.client {
     }
     interface RefreshCancellationStatus {
       /** The error code. */
-      errorCode?: string;
+      errorCode?:
+        | 'REFRESH_CANCELLATION_ERROR_CODE_UNSPECIFIED'
+        | 'EXECUTION_NOT_FOUND'
+        | 'CANCEL_PERMISSION_DENIED'
+        | 'QUERY_EXECUTION_COMPLETED'
+        | 'CONCURRENT_CANCELLATION'
+        | 'CANCEL_OTHER_ERROR';
       /** The state of a call to cancel a refresh in Sheets. */
-      state?: string;
+      state?:
+        | 'REFRESH_CANCELLATION_STATE_UNSPECIFIED'
+        | 'CANCEL_SUCCEEDED'
+        | 'CANCEL_FAILED';
     }
     interface RefreshDataSourceObjectExecutionStatus {
       /** The data execution status. */
@@ -1851,7 +2217,14 @@ declare namespace gapi.client {
     }
     interface ScorecardChartSpec {
       /** The aggregation type for key and baseline chart data in scorecard chart. This field is not supported for data source charts. Use the ChartData.aggregateType field of the key_value_data or baseline_value_data instead for data source charts. This field is optional. */
-      aggregateType?: string;
+      aggregateType?:
+        | 'CHART_AGGREGATE_TYPE_UNSPECIFIED'
+        | 'AVERAGE'
+        | 'COUNT'
+        | 'MAX'
+        | 'MEDIAN'
+        | 'MIN'
+        | 'SUM';
       /** The data for scorecard baseline value. This field is optional. */
       baselineValueData?: ChartData;
       /** Formatting options for baseline value. This field is needed only if baseline_value_data is specified. */
@@ -1863,7 +2236,10 @@ declare namespace gapi.client {
       /** Formatting options for key value. */
       keyValueFormat?: KeyValueFormat;
       /** The number format source used in the scorecard chart. This field is optional. */
-      numberFormatSource?: string;
+      numberFormatSource?:
+        | 'CHART_NUMBER_FORMAT_SOURCE_UNDEFINED'
+        | 'FROM_DATA'
+        | 'CUSTOM';
       /** Value to scale scorecard key and baseline value. For example, a factor of 10 can be used to divide all values in the chart by 10. This field is optional. */
       scaleFactor?: number;
     }
@@ -1931,7 +2307,7 @@ declare namespace gapi.client {
       /** The ID of the sheet. Must be non-negative. This field cannot be changed once set. */
       sheetId?: number;
       /** The type of sheet. Defaults to GRID. This field cannot be changed once set. */
-      sheetType?: string;
+      sheetType?: 'SHEET_TYPE_UNSPECIFIED' | 'GRID' | 'OBJECT' | 'DATA_SOURCE';
       /** The color of the tab in the UI. Deprecated: Use tab_color_style. */
       tabColor?: Color;
       /** The color of the tab in the UI. If tab_color is also set, this field takes precedence. */
@@ -1961,7 +2337,11 @@ declare namespace gapi.client {
       /** The filtering criteria of the slicer. */
       filterCriteria?: FilterCriteria;
       /** The horizontal alignment of title in the slicer. If unspecified, defaults to `LEFT` */
-      horizontalAlignment?: string;
+      horizontalAlignment?:
+        | 'HORIZONTAL_ALIGN_UNSPECIFIED'
+        | 'LEFT'
+        | 'CENTER'
+        | 'RIGHT';
       /** The text format of title in the slicer. The link field is not supported. */
       textFormat?: TextFormat;
       /** The title of the slicer. */
@@ -1987,11 +2367,11 @@ declare namespace gapi.client {
       /** The foreground color to sort by; cells with this foreground color are sorted to the top. Mutually exclusive with background_color, and must be an RGB-type color. If foreground_color is also set, this field takes precedence. */
       foregroundColorStyle?: ColorStyle;
       /** The order data should be sorted. */
-      sortOrder?: string;
+      sortOrder?: 'SORT_ORDER_UNSPECIFIED' | 'ASCENDING' | 'DESCENDING';
     }
     interface SourceAndDestination {
       /** The dimension that data should be filled into. */
-      dimension?: string;
+      dimension?: 'DIMENSION_UNSPECIFIED' | 'ROWS' | 'COLUMNS';
       /** The number of rows or columns that data should be filled into. Positive numbers expand beyond the last row or last column of the source. Negative numbers expand before the first row or first column of the source. */
       fillLength?: number;
       /** The location of the data to use as the source of the autofill. */
@@ -2017,7 +2397,11 @@ declare namespace gapi.client {
     }
     interface SpreadsheetProperties {
       /** The amount of time to wait before volatile functions are recalculated. */
-      autoRecalc?: string;
+      autoRecalc?:
+        | 'RECALCULATION_INTERVAL_UNSPECIFIED'
+        | 'ON_CHANGE'
+        | 'MINUTE'
+        | 'HOUR';
       /** The default format of all cells in the spreadsheet. CellData.effectiveFormat will not be set if the cell's format is equal to this default format. This field is read-only. */
       defaultFormat?: CellFormat;
       /** Whether to allow external URL access for image and import functions. Read only when true. When false, you can set to true. This value will be bypassed and always return true if the admin has enabled the [allowlisting feature](https://support.google.com/a?p=url_allowlist). */
@@ -2061,7 +2445,22 @@ declare namespace gapi.client {
       /** The column name. */
       columnName?: string;
       /** The column type. */
-      columnType?: string;
+      columnType?:
+        | 'COLUMN_TYPE_UNSPECIFIED'
+        | 'DOUBLE'
+        | 'CURRENCY'
+        | 'PERCENT'
+        | 'DATE'
+        | 'TIME'
+        | 'DATE_TIME'
+        | 'TEXT'
+        | 'BOOLEAN'
+        | 'DROPDOWN'
+        | 'FILES_CHIP'
+        | 'PEOPLE_CHIP'
+        | 'FINANCE_CHIP'
+        | 'PLACE_CHIP'
+        | 'RATINGS_CHIP';
       /** The column data validation rule. Only set for dropdown column type. */
       dataValidationRule?: TableColumnDataValidationRule;
     }
@@ -2103,7 +2502,11 @@ declare namespace gapi.client {
     }
     interface TextPosition {
       /** Horizontal alignment setting for the piece of text. */
-      horizontalAlignment?: string;
+      horizontalAlignment?:
+        | 'HORIZONTAL_ALIGN_UNSPECIFIED'
+        | 'LEFT'
+        | 'CENTER'
+        | 'RIGHT';
     }
     interface TextRotation {
       /** The angle between the standard orientation and the desired orientation. Measured in degrees. Valid values are between -90 and 90. Positive angles are angled upwards, negative are angled downwards. Note: For LTR text direction positive angles are in the counterclockwise direction, whereas for RTL they are in the clockwise direction */
@@ -2115,7 +2518,14 @@ declare namespace gapi.client {
       /** The delimiter to use. Used only if delimiterType is CUSTOM. */
       delimiter?: string;
       /** The delimiter type to use. */
-      delimiterType?: string;
+      delimiterType?:
+        | 'DELIMITER_TYPE_UNSPECIFIED'
+        | 'COMMA'
+        | 'SEMICOLON'
+        | 'PERIOD'
+        | 'SPACE'
+        | 'CUSTOM'
+        | 'AUTODETECT';
       /** The source data range. This must span exactly one column. */
       source?: GridRange;
     }
@@ -2123,7 +2533,17 @@ declare namespace gapi.client {
       /** The concrete color corresponding to the theme color type. */
       color?: ColorStyle;
       /** The type of the spreadsheet theme color. */
-      colorType?: string;
+      colorType?:
+        | 'THEME_COLOR_TYPE_UNSPECIFIED'
+        | 'TEXT'
+        | 'BACKGROUND'
+        | 'ACCENT1'
+        | 'ACCENT2'
+        | 'ACCENT3'
+        | 'ACCENT4'
+        | 'ACCENT5'
+        | 'ACCENT6'
+        | 'LINK';
     }
     interface TimeOfDay {
       /** Hours of a day in 24 hour format. Must be greater than or equal to 0 and typically must be less than or equal to 23. An API may choose to allow the value "24:00:00" for scenarios like business closing time. */
@@ -2385,7 +2805,7 @@ declare namespace gapi.client {
     }
     interface ValueRange {
       /** The major dimension of the values. For output, if the spreadsheet data is: `A1=1,B1=2,A2=3,B2=4`, then requesting `range=A1:B2,majorDimension=ROWS` will return `[[1,2],[3,4]]`, whereas requesting `range=A1:B2,majorDimension=COLUMNS` will return `[[1,3],[2,4]]`. For input, with `range=A1:B2,majorDimension=ROWS` then `[[1,2],[3,4]]` will set `A1=1,B1=2,A2=3,B2=4`. With `range=A1:B2,majorDimension=COLUMNS` then `[[1,2],[3,4]]` will set `A1=1,B1=3,A2=2,B2=4`. When writing, if this field is not set, it defaults to ROWS. */
-      majorDimension?: string;
+      majorDimension?: 'DIMENSION_UNSPECIFIED' | 'ROWS' | 'COLUMNS';
       /** The range the values cover, in [A1 notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell). For output, this range indicates the entire requested range, even though the values will exclude trailing rows and columns. When appending values, this field represents the range to search for a table, after which values will be appended. */
       range?: string;
       /** The data that was read or to be written. This is an array of arrays, the outer array representing all the data and each inner array representing a major dimension. Each item in the inner array corresponds with one cell. For output, empty trailing rows and columns will not be included. For input, supported value types are: bool, string, and double. Null values will be skipped. To set a cell to an empty value, set the string value to an empty string. */
@@ -2441,7 +2861,10 @@ declare namespace gapi.client {
       /** The data this waterfall chart is visualizing. */
       series?: WaterfallChartSeries[];
       /** The stacked type. */
-      stackedType?: string;
+      stackedType?:
+        | 'WATERFALL_STACKED_TYPE_UNSPECIFIED'
+        | 'STACKED'
+        | 'SEQUENTIAL';
       /** Controls whether to display additional data labels on stacked charts which sum the total value of all stacked values at each value along the domain axis. stacked_type must be STACKED and neither CUSTOM nor placement can be set on the total_data_label. */
       totalDataLabel?: DataLabel;
     }
@@ -2449,11 +2872,11 @@ declare namespace gapi.client {
       /** Returns the developer metadata with the specified ID. The caller must specify the spreadsheet ID and the developer metadata's unique metadataId. For more information, see [Read, write, and search metadata](https://developers.google.com/workspace/sheets/api/guides/metadata). */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2478,11 +2901,11 @@ declare namespace gapi.client {
       /** Returns all developer metadata matching the specified DataFilter. For more information, see [Read, write, and search metadata](https://developers.google.com/workspace/sheets/api/guides/metadata). If the provided DataFilter represents a DeveloperMetadataLookup object, this will return all DeveloperMetadata entries selected by it. If the DataFilter represents a location in a spreadsheet, this will return all developer metadata associated with locations intersecting that region. */
       search(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2507,11 +2930,11 @@ declare namespace gapi.client {
       search(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2538,11 +2961,11 @@ declare namespace gapi.client {
       /** Copies a single sheet from a spreadsheet to another spreadsheet. Returns the properties of the newly created sheet. */
       copyTo(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2569,11 +2992,11 @@ declare namespace gapi.client {
       copyTo(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2602,11 +3025,11 @@ declare namespace gapi.client {
       /** Appends values to a spreadsheet. The input range is used to search for existing data and find a "table" within that range. Values will be appended to the next row of the table, starting with the first column of the table. See the [guide](https://developers.google.com/workspace/sheets/api/guides/values#appending_values) and [sample code](https://developers.google.com/workspace/sheets/api/samples/writing#append_values) for specific details of how tables are detected and data is appended. The caller must specify the spreadsheet ID, range, and a valueInputOption. The `valueInputOption` only controls how the input data will be added to the sheet (column-wise or row-wise), it does not influence what cell the data starts being written to. */
       append(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2614,7 +3037,7 @@ declare namespace gapi.client {
         /** Determines if the update response should include the values of the cells that were appended. By default, responses do not include the updated values. */
         includeValuesInResponse?: boolean;
         /** How the input data should be inserted. */
-        insertDataOption?: string;
+        insertDataOption?: 'OVERWRITE' | 'INSERT_ROWS';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** OAuth 2.0 token for the current user. */
@@ -2626,9 +3049,12 @@ declare namespace gapi.client {
         /** The [A1 notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell) of a range to search for a logical table of data. Values are appended after the last row of the table. */
         range: string;
         /** Determines how dates, times, and durations in the response should be rendered. This is ignored if response_value_render_option is FORMATTED_VALUE. The default dateTime render option is SERIAL_NUMBER. */
-        responseDateTimeRenderOption?: string;
+        responseDateTimeRenderOption?: 'SERIAL_NUMBER' | 'FORMATTED_STRING';
         /** Determines how values in the response should be rendered. The default render option is FORMATTED_VALUE. */
-        responseValueRenderOption?: string;
+        responseValueRenderOption?:
+          | 'FORMATTED_VALUE'
+          | 'UNFORMATTED_VALUE'
+          | 'FORMULA';
         /** The ID of the spreadsheet to update. */
         spreadsheetId: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -2636,18 +3062,21 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** How the input data should be interpreted. */
-        valueInputOption?: string;
+        valueInputOption?:
+          | 'INPUT_VALUE_OPTION_UNSPECIFIED'
+          | 'RAW'
+          | 'USER_ENTERED';
         /** Request body */
         resource: ValueRange;
       }): client.Request<AppendValuesResponse>;
       append(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2655,7 +3084,7 @@ declare namespace gapi.client {
           /** Determines if the update response should include the values of the cells that were appended. By default, responses do not include the updated values. */
           includeValuesInResponse?: boolean;
           /** How the input data should be inserted. */
-          insertDataOption?: string;
+          insertDataOption?: 'OVERWRITE' | 'INSERT_ROWS';
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
           key?: string;
           /** OAuth 2.0 token for the current user. */
@@ -2667,9 +3096,12 @@ declare namespace gapi.client {
           /** The [A1 notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell) of a range to search for a logical table of data. Values are appended after the last row of the table. */
           range: string;
           /** Determines how dates, times, and durations in the response should be rendered. This is ignored if response_value_render_option is FORMATTED_VALUE. The default dateTime render option is SERIAL_NUMBER. */
-          responseDateTimeRenderOption?: string;
+          responseDateTimeRenderOption?: 'SERIAL_NUMBER' | 'FORMATTED_STRING';
           /** Determines how values in the response should be rendered. The default render option is FORMATTED_VALUE. */
-          responseValueRenderOption?: string;
+          responseValueRenderOption?:
+            | 'FORMATTED_VALUE'
+            | 'UNFORMATTED_VALUE'
+            | 'FORMULA';
           /** The ID of the spreadsheet to update. */
           spreadsheetId: string;
           /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -2677,18 +3109,21 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
           /** How the input data should be interpreted. */
-          valueInputOption?: string;
+          valueInputOption?:
+            | 'INPUT_VALUE_OPTION_UNSPECIFIED'
+            | 'RAW'
+            | 'USER_ENTERED';
         },
         body: ValueRange,
       ): client.Request<AppendValuesResponse>;
       /** Clears one or more ranges of values from a spreadsheet. The caller must specify the spreadsheet ID and one or more ranges. Only values are cleared -- all other properties of the cell (such as formatting and data validation) are kept. */
       batchClear(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2713,11 +3148,11 @@ declare namespace gapi.client {
       batchClear(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2742,11 +3177,11 @@ declare namespace gapi.client {
       /** Clears one or more ranges of values from a spreadsheet. For more information, see [Read, write, and search metadata](https://developers.google.com/workspace/sheets/api/guides/metadata). The caller must specify the spreadsheet ID and one or more DataFilters. Ranges matching any of the specified data filters will be cleared. Only values are cleared -- all other properties of the cell (such as formatting, data validation, etc.) are kept. */
       batchClearByDataFilter(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2771,11 +3206,11 @@ declare namespace gapi.client {
       batchClearByDataFilter(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2800,21 +3235,21 @@ declare namespace gapi.client {
       /** Returns one or more ranges of values from a spreadsheet. The caller must specify the spreadsheet ID and one or more ranges. */
       batchGet(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** How dates, times, and durations should be represented in the output. This is ignored if value_render_option is FORMATTED_VALUE. The default dateTime render option is SERIAL_NUMBER. */
-        dateTimeRenderOption?: string;
+        dateTimeRenderOption?: 'SERIAL_NUMBER' | 'FORMATTED_STRING';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** The major dimension that results should use. For example, if the spreadsheet data is: `A1=1,B1=2,A2=3,B2=4`, then requesting `ranges=["A1:B2"],majorDimension=ROWS` returns `[[1,2],[3,4]]`, whereas requesting `ranges=["A1:B2"],majorDimension=COLUMNS` returns `[[1,3],[2,4]]`. */
-        majorDimension?: string;
+        majorDimension?: 'DIMENSION_UNSPECIFIED' | 'ROWS' | 'COLUMNS';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Returns response with indentations and line breaks. */
@@ -2830,16 +3265,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** How values should be represented in the output. The default render option is ValueRenderOption.FORMATTED_VALUE. */
-        valueRenderOption?: string;
+        valueRenderOption?: 'FORMATTED_VALUE' | 'UNFORMATTED_VALUE' | 'FORMULA';
       }): client.Request<BatchGetValuesResponse>;
       /** Returns one or more ranges of values that match the specified data filters. For more information, see [Read, write, and search metadata](https://developers.google.com/workspace/sheets/api/guides/metadata). The caller must specify the spreadsheet ID and one or more DataFilters. Ranges that match any of the data filters in the request will be returned. */
       batchGetByDataFilter(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2864,11 +3299,11 @@ declare namespace gapi.client {
       batchGetByDataFilter(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2893,11 +3328,11 @@ declare namespace gapi.client {
       /** Sets values in one or more ranges of a spreadsheet. The caller must specify the spreadsheet ID, a valueInputOption, and one or more ValueRanges. */
       batchUpdate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2922,11 +3357,11 @@ declare namespace gapi.client {
       batchUpdate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2951,11 +3386,11 @@ declare namespace gapi.client {
       /** Sets values in one or more ranges of a spreadsheet. For more information, see [Read, write, and search metadata](https://developers.google.com/workspace/sheets/api/guides/metadata). The caller must specify the spreadsheet ID, a valueInputOption, and one or more DataFilterValueRanges. */
       batchUpdateByDataFilter(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2980,11 +3415,11 @@ declare namespace gapi.client {
       batchUpdateByDataFilter(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3009,11 +3444,11 @@ declare namespace gapi.client {
       /** Clears values from a spreadsheet. The caller must specify the spreadsheet ID and range. Only values are cleared -- all other properties of the cell (such as formatting, data validation, etc..) are kept. */
       clear(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3040,11 +3475,11 @@ declare namespace gapi.client {
       clear(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3071,21 +3506,21 @@ declare namespace gapi.client {
       /** Returns a range of values from a spreadsheet. The caller must specify the spreadsheet ID and a range. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** How dates, times, and durations should be represented in the output. This is ignored if value_render_option is FORMATTED_VALUE. The default dateTime render option is SERIAL_NUMBER. */
-        dateTimeRenderOption?: string;
+        dateTimeRenderOption?: 'SERIAL_NUMBER' | 'FORMATTED_STRING';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** The major dimension that results should use. For example, if the spreadsheet data in Sheet1 is: `A1=1,B1=2,A2=3,B2=4`, then requesting `range=Sheet1!A1:B2?majorDimension=ROWS` returns `[[1,2],[3,4]]`, whereas requesting `range=Sheet1!A1:B2?majorDimension=COLUMNS` returns `[[1,3],[2,4]]`. */
-        majorDimension?: string;
+        majorDimension?: 'DIMENSION_UNSPECIFIED' | 'ROWS' | 'COLUMNS';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Returns response with indentations and line breaks. */
@@ -3101,16 +3536,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** How values should be represented in the output. The default render option is FORMATTED_VALUE. */
-        valueRenderOption?: string;
+        valueRenderOption?: 'FORMATTED_VALUE' | 'UNFORMATTED_VALUE' | 'FORMULA';
       }): client.Request<ValueRange>;
       /** Sets values in a range of a spreadsheet. The caller must specify the spreadsheet ID, range, and a valueInputOption. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3128,9 +3563,12 @@ declare namespace gapi.client {
         /** The [A1 notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell) of the values to update. */
         range: string;
         /** Determines how dates, times, and durations in the response should be rendered. This is ignored if response_value_render_option is FORMATTED_VALUE. The default dateTime render option is SERIAL_NUMBER. */
-        responseDateTimeRenderOption?: string;
+        responseDateTimeRenderOption?: 'SERIAL_NUMBER' | 'FORMATTED_STRING';
         /** Determines how values in the response should be rendered. The default render option is FORMATTED_VALUE. */
-        responseValueRenderOption?: string;
+        responseValueRenderOption?:
+          | 'FORMATTED_VALUE'
+          | 'UNFORMATTED_VALUE'
+          | 'FORMULA';
         /** The ID of the spreadsheet to update. */
         spreadsheetId: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -3138,18 +3576,21 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** How the input data should be interpreted. */
-        valueInputOption?: string;
+        valueInputOption?:
+          | 'INPUT_VALUE_OPTION_UNSPECIFIED'
+          | 'RAW'
+          | 'USER_ENTERED';
         /** Request body */
         resource: ValueRange;
       }): client.Request<UpdateValuesResponse>;
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3167,9 +3608,12 @@ declare namespace gapi.client {
           /** The [A1 notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell) of the values to update. */
           range: string;
           /** Determines how dates, times, and durations in the response should be rendered. This is ignored if response_value_render_option is FORMATTED_VALUE. The default dateTime render option is SERIAL_NUMBER. */
-          responseDateTimeRenderOption?: string;
+          responseDateTimeRenderOption?: 'SERIAL_NUMBER' | 'FORMATTED_STRING';
           /** Determines how values in the response should be rendered. The default render option is FORMATTED_VALUE. */
-          responseValueRenderOption?: string;
+          responseValueRenderOption?:
+            | 'FORMATTED_VALUE'
+            | 'UNFORMATTED_VALUE'
+            | 'FORMULA';
           /** The ID of the spreadsheet to update. */
           spreadsheetId: string;
           /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -3177,7 +3621,10 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
           /** How the input data should be interpreted. */
-          valueInputOption?: string;
+          valueInputOption?:
+            | 'INPUT_VALUE_OPTION_UNSPECIFIED'
+            | 'RAW'
+            | 'USER_ENTERED';
         },
         body: ValueRange,
       ): client.Request<UpdateValuesResponse>;
@@ -3186,11 +3633,11 @@ declare namespace gapi.client {
       /** Applies one or more updates to the spreadsheet. Each request is validated before being applied. If any request is not valid then the entire request will fail and nothing will be applied. Some requests have replies to give you some information about how they are applied. The replies will mirror the requests. For example, if you applied 4 updates and the 3rd one had a reply, then the response will have 2 empty replies, the actual reply, and another empty reply, in that order. Due to the collaborative nature of spreadsheets, it is not guaranteed that the spreadsheet will reflect exactly your changes after this completes, however it is guaranteed that the updates in the request will be applied together atomically. Your changes may be altered with respect to collaborator changes. If there are no collaborators, the spreadsheet should reflect your changes. */
       batchUpdate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3215,11 +3662,11 @@ declare namespace gapi.client {
       batchUpdate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3244,11 +3691,11 @@ declare namespace gapi.client {
       /** Creates a spreadsheet, returning the newly created spreadsheet. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3271,11 +3718,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3298,11 +3745,11 @@ declare namespace gapi.client {
       /** Returns the spreadsheet at the given ID. The caller must specify the spreadsheet ID. By default, data within grids is not returned. You can include grid data in one of 2 ways: * Specify a [field mask](https://developers.google.com/workspace/sheets/api/guides/field-masks) listing your desired fields using the `fields` URL parameter in HTTP * Set the includeGridData URL parameter to true. If a field mask is set, the `includeGridData` parameter is ignored For large spreadsheets, as a best practice, retrieve only the specific spreadsheet fields that you want. To retrieve only subsets of spreadsheet data, use the ranges URL parameter. Ranges are specified using [A1 notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell). You can define a single cell (for example, `A1`) or multiple cells (for example, `A1:D5`). You can also get cells from other sheets within the same spreadsheet (for example, `Sheet2!A1:C4`) or retrieve multiple ranges at once (for example, `?ranges=A1:D5&ranges=Sheet2!A1:C4`). Limiting the range returns only the portions of the spreadsheet that intersect the requested ranges. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** True if tables should be excluded in the banded ranges. False if not set. */
@@ -3331,11 +3778,11 @@ declare namespace gapi.client {
       /** Returns the spreadsheet at the given ID. The caller must specify the spreadsheet ID. For more information, see [Read, write, and search metadata](https://developers.google.com/workspace/sheets/api/guides/metadata). This method differs from GetSpreadsheet in that it allows selecting which subsets of spreadsheet data to return by specifying a dataFilters parameter. Multiple DataFilters can be specified. Specifying one or more data filters returns the portions of the spreadsheet that intersect ranges matched by any of the filters. By default, data within grids is not returned. You can include grid data in one of two ways: * Specify a [field mask](https://developers.google.com/workspace/sheets/api/guides/field-masks) listing your desired fields using the `fields` URL parameter in HTTP. * Set the includeGridData parameter to `true`. If a field mask is set, the `includeGridData` parameter is ignored. For large spreadsheets, as a best practice, retrieve only the specific spreadsheet fields that you want. */
       getByDataFilter(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3360,11 +3807,11 @@ declare namespace gapi.client {
       getByDataFilter(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

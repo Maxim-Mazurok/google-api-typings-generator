@@ -28,11 +28,44 @@ declare namespace gapi.client {
       /** The alignment_period specifies a time interval, in seconds, that is used to divide the data in all the time series into consistent blocks of time. This will be done before the per-series aligner can be applied to the data.The value must be at least 60 seconds. If a per-series aligner other than ALIGN_NONE is specified, this field is required or an error is returned. If no per-series aligner is specified, or the aligner ALIGN_NONE is specified, then this field is ignored.The maximum value of the alignment_period is 2 years, or 104 weeks. */
       alignmentPeriod?: string;
       /** The reduction operation to be used to combine time series into a single time series, where the value of each data point in the resulting series is a function of all the already aligned values in the input time series.Not all reducer operations can be applied to all time series. The valid choices depend on the metric_kind and the value_type of the original time series. Reduction can yield a time series with a different metric_kind or value_type than the input time series.Time series data must first be aligned (see per_series_aligner) in order to perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner must be specified, and must not be ALIGN_NONE. An alignment_period must also be specified; otherwise, an error is returned. */
-      crossSeriesReducer?: string;
+      crossSeriesReducer?:
+        | 'REDUCE_NONE'
+        | 'REDUCE_MEAN'
+        | 'REDUCE_MIN'
+        | 'REDUCE_MAX'
+        | 'REDUCE_SUM'
+        | 'REDUCE_STDDEV'
+        | 'REDUCE_COUNT'
+        | 'REDUCE_COUNT_TRUE'
+        | 'REDUCE_COUNT_FALSE'
+        | 'REDUCE_FRACTION_TRUE'
+        | 'REDUCE_PERCENTILE_99'
+        | 'REDUCE_PERCENTILE_95'
+        | 'REDUCE_PERCENTILE_50'
+        | 'REDUCE_PERCENTILE_05';
       /** The set of fields to preserve when cross_series_reducer is specified. The group_by_fields determine how the time series are partitioned into subsets prior to applying the aggregation operation. Each subset contains time series that have the same value for each of the grouping fields. Each individual time series is a member of exactly one subset. The cross_series_reducer is applied to each subset of time series. It is not possible to reduce across different resource types, so this field implicitly contains resource.type. Fields not specified in group_by_fields are aggregated away. If group_by_fields is not specified and all the time series have the same resource type, then the time series are aggregated into a single output time series. If cross_series_reducer is not defined, this field is ignored. */
       groupByFields?: string[];
       /** An Aligner describes how to bring the data points in a single time series into temporal alignment. Except for ALIGN_NONE, all alignments cause all the data points in an alignment_period to be mathematically grouped together, resulting in a single data point for each alignment_period with end timestamp at the end of the period.Not all alignment operations may be applied to all time series. The valid choices depend on the metric_kind and value_type of the original time series. Alignment can change the metric_kind or the value_type of the time series.Time series data must be aligned in order to perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner must be specified and not equal to ALIGN_NONE and alignment_period must be specified; otherwise, an error is returned. */
-      perSeriesAligner?: string;
+      perSeriesAligner?:
+        | 'ALIGN_NONE'
+        | 'ALIGN_DELTA'
+        | 'ALIGN_RATE'
+        | 'ALIGN_INTERPOLATE'
+        | 'ALIGN_NEXT_OLDER'
+        | 'ALIGN_MIN'
+        | 'ALIGN_MAX'
+        | 'ALIGN_MEAN'
+        | 'ALIGN_COUNT'
+        | 'ALIGN_SUM'
+        | 'ALIGN_STDDEV'
+        | 'ALIGN_COUNT_TRUE'
+        | 'ALIGN_COUNT_FALSE'
+        | 'ALIGN_FRACTION_TRUE'
+        | 'ALIGN_PERCENTILE_99'
+        | 'ALIGN_PERCENTILE_95'
+        | 'ALIGN_PERCENTILE_50'
+        | 'ALIGN_PERCENTILE_05'
+        | 'ALIGN_PERCENT_CHANGE';
     }
     interface AggregationFunction {
       /** Optional. Parameters applied to the aggregation function. Only used for functions that require them. */
@@ -48,7 +81,7 @@ declare namespace gapi.client {
       /** The label of the axis. */
       label?: string;
       /** The axis scale. By default, a linear scale is used. */
-      scale?: string;
+      scale?: 'SCALE_UNSPECIFIED' | 'LINEAR' | 'LOG10';
     }
     interface Breakdown {
       /** Required. The Aggregation function is applied across all data in each breakdown created. */
@@ -58,13 +91,17 @@ declare namespace gapi.client {
       /** Required. A limit to the number of breakdowns. If set to zero then all possible breakdowns are applied. The list of breakdowns is dependent on the value of the sort_order field. */
       limit?: number;
       /** Required. The sort order is applied to the values of the breakdown column. */
-      sortOrder?: string;
+      sortOrder?:
+        | 'SORT_ORDER_UNSPECIFIED'
+        | 'SORT_ORDER_NONE'
+        | 'SORT_ORDER_ASCENDING'
+        | 'SORT_ORDER_DESCENDING';
     }
     interface ChartOptions {
       /** Preview: Configures whether the charted values are shown on the horizontal or vertical axis. By default, values are represented the vertical axis. This is a preview feature and may be subject to change before final release. */
       displayHorizontal?: boolean;
       /** The chart mode. */
-      mode?: string;
+      mode?: 'MODE_UNSPECIFIED' | 'COLOR' | 'X_RAY' | 'STATS';
     }
     interface CollapsibleGroup {
       /** The collapsed state of the widget on first page load. */
@@ -82,7 +119,7 @@ declare namespace gapi.client {
     }
     interface ColumnSettings {
       /** Optional. Whether the column should be left / middle / right aligned */
-      alignment?: string;
+      alignment?: 'CELL_ALIGNMENT_UNSPECIFIED' | 'LEFT' | 'CENTER' | 'RIGHT';
       /** Required. The id of the column. */
       column?: string;
       /** Optional. Display name of the column */
@@ -96,7 +133,11 @@ declare namespace gapi.client {
       /** Optional. Column name to sort data by */
       column?: string;
       /** Optional. A sorting direction that determines ascending or descending order. This is a legacy field kept for backwards compatibility with table. */
-      direction?: string;
+      direction?:
+        | 'SORT_ORDER_UNSPECIFIED'
+        | 'SORT_ORDER_NONE'
+        | 'SORT_ORDER_ASCENDING'
+        | 'SORT_ORDER_DESCENDING';
     }
     interface Dashboard {
       /** Configuration for event annotations to display on this dashboard. */
@@ -128,7 +169,14 @@ declare namespace gapi.client {
     }
     interface DashboardFilter {
       /** The specified filter type */
-      filterType?: string;
+      filterType?:
+        | 'FILTER_TYPE_UNSPECIFIED'
+        | 'RESOURCE_LABEL'
+        | 'METRIC_LABEL'
+        | 'USER_METADATA_LABEL'
+        | 'SYSTEM_METADATA_LABEL'
+        | 'GROUP'
+        | 'VALUE_ONLY';
       /** Optional. The key for the label. This must be omitted if the filter_type is VALUE_ONLY but is required otherwise. */
       labelKey?: string;
       /** A list of possible string values for the filter */
@@ -142,7 +190,7 @@ declare namespace gapi.client {
       /** A query to run to fetch possible values for the filter. Only OpsAnalyticsQueries are supported */
       timeSeriesQuery?: TimeSeriesQuery;
       /** The type of the filter value. If value_type is not provided, it will be inferred from the default_value. If neither value_type nor default_value is provided, value_type will be set to STRING by default. */
-      valueType?: string;
+      valueType?: 'VALUE_TYPE_UNSPECIFIED' | 'STRING' | 'STRING_ARRAY';
     }
     interface DataSet {
       /** Optional. The collection of breakdowns to be applied to the dataset. */
@@ -156,11 +204,16 @@ declare namespace gapi.client {
       /** Optional. The lower bound on data point frequency for this data set, implemented by specifying the minimum alignment period to use in a time series query For example, if the data is published once every 10 minutes, the min_alignment_period should be at least 10 minutes. It would not make sense to fetch and align data at one minute intervals. */
       minAlignmentPeriod?: string;
       /** How this data should be plotted on the chart. */
-      plotType?: string;
+      plotType?:
+        | 'PLOT_TYPE_UNSPECIFIED'
+        | 'LINE'
+        | 'STACKED_AREA'
+        | 'STACKED_BAR'
+        | 'HEATMAP';
       /** Optional. A collection of sort options, affects the order of the data and legend. */
       sort?: ColumnSortingOptions[];
       /** Optional. The target axis to use for plotting the metric. */
-      targetAxis?: string;
+      targetAxis?: 'TARGET_AXIS_UNSPECIFIED' | 'Y1' | 'Y2';
       /** Required. Fields for querying time series data from the Stackdriver metrics API. */
       timeSeriesQuery?: TimeSeriesQuery;
     }
@@ -178,7 +231,11 @@ declare namespace gapi.client {
       /** The column name to sort on for binning. This column can be the same column as this dimension or any other column used as a measure in the results. If sort_order is set to NONE, then this value is not used. */
       sortColumn?: string;
       /** The sort order applied to the sort column. */
-      sortOrder?: string;
+      sortOrder?:
+        | 'SORT_ORDER_UNSPECIFIED'
+        | 'SORT_ORDER_NONE'
+        | 'SORT_ORDER_ASCENDING'
+        | 'SORT_ORDER_DESCENDING';
       /** time_bin_size is used when the data type of the specified dimension is a time type and the bin size is determined by a time duration. If column_type is DATE, this must be a whole value multiple of 1 day. If column_type is TIME, this must be less than or equal to 24 hours. */
       timeBinSize?: string;
     }
@@ -201,7 +258,32 @@ declare namespace gapi.client {
       /** Whether or not to show the events on the dashboard by default */
       enabled?: boolean;
       /** The type of event to display. */
-      eventType?: string;
+      eventType?:
+        | 'EVENT_TYPE_UNSPECIFIED'
+        | 'GKE_WORKLOAD_DEPLOYMENT'
+        | 'GKE_POD_CRASH'
+        | 'GKE_POD_UNSCHEDULABLE'
+        | 'GKE_CONTAINER_CREATION_FAILED'
+        | 'GKE_CLUSTER_CREATE_DELETE'
+        | 'GKE_CLUSTER_UPDATE'
+        | 'GKE_NODE_POOL_UPDATE'
+        | 'GKE_CLUSTER_AUTOSCALER'
+        | 'GKE_POD_AUTOSCALER'
+        | 'VM_TERMINATION'
+        | 'VM_GUEST_OS_ERROR'
+        | 'VM_START_FAILED'
+        | 'MIG_UPDATE'
+        | 'MIG_AUTOSCALER'
+        | 'CLOUD_RUN_DEPLOYMENT'
+        | 'CLOUD_SQL_FAILOVER'
+        | 'CLOUD_SQL_START_STOP'
+        | 'CLOUD_SQL_STORAGE'
+        | 'UPTIME_CHECK_FAILURE'
+        | 'CLOUD_ALERTING_ALERT'
+        | 'SERVICE_HEALTH_INCIDENT'
+        | 'SAP_BACKINT'
+        | 'SAP_AVAILABILITY'
+        | 'SAP_OPERATIONS';
       /** string filtering the events - event dependant. Example values: "resource.labels.pod_name = 'pod-1'" "protoPayload.authenticationInfo.principalEmail='user@example.com'" */
       filter?: string;
       /** Per annotation level override for the names of logging resources to search for events. Currently only projects are supported. If both this field and the per annotation field is empty, it will default to the host project. Limit: 50 projects. For example: “projects/another-project-id” */
@@ -209,13 +291,36 @@ declare namespace gapi.client {
     }
     interface Field {
       /** The field cardinality. */
-      cardinality?: string;
+      cardinality?:
+        | 'CARDINALITY_UNKNOWN'
+        | 'CARDINALITY_OPTIONAL'
+        | 'CARDINALITY_REQUIRED'
+        | 'CARDINALITY_REPEATED';
       /** The string value of the default value of this field. Proto2 syntax only. */
       defaultValue?: string;
       /** The field JSON name. */
       jsonName?: string;
       /** The field type. */
-      kind?: string;
+      kind?:
+        | 'TYPE_UNKNOWN'
+        | 'TYPE_DOUBLE'
+        | 'TYPE_FLOAT'
+        | 'TYPE_INT64'
+        | 'TYPE_UINT64'
+        | 'TYPE_INT32'
+        | 'TYPE_FIXED64'
+        | 'TYPE_FIXED32'
+        | 'TYPE_BOOL'
+        | 'TYPE_STRING'
+        | 'TYPE_GROUP'
+        | 'TYPE_MESSAGE'
+        | 'TYPE_BYTES'
+        | 'TYPE_UINT32'
+        | 'TYPE_ENUM'
+        | 'TYPE_SFIXED32'
+        | 'TYPE_SFIXED64'
+        | 'TYPE_SINT32'
+        | 'TYPE_SINT64';
       /** The field name. */
       name?: string;
       /** The field number. */
@@ -333,7 +438,12 @@ declare namespace gapi.client {
       /** The time when the batch request was received. */
       createTime?: string;
       /** Current state of the batch operation. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATED'
+        | 'RUNNING'
+        | 'DONE'
+        | 'CANCELLED';
       /** The time when the operation result was last updated. */
       updateTime?: string;
     }
@@ -355,17 +465,23 @@ declare namespace gapi.client {
     }
     interface PickTimeSeriesFilter {
       /** How to use the ranking to select time series that pass through the filter. */
-      direction?: string;
+      direction?: 'DIRECTION_UNSPECIFIED' | 'TOP' | 'BOTTOM';
       /** Select the top N streams/time series within this time interval */
       interval?: Interval;
       /** How many time series to allow to pass through the filter. */
       numTimeSeries?: number;
       /** ranking_method is applied to each time series independently to produce the value which will be used to compare the time series to other time series. */
-      rankingMethod?: string;
+      rankingMethod?:
+        | 'METHOD_UNSPECIFIED'
+        | 'METHOD_MEAN'
+        | 'METHOD_MAX'
+        | 'METHOD_MIN'
+        | 'METHOD_SUM'
+        | 'METHOD_LATEST';
     }
     interface PieChart {
       /** Required. Indicates the visualization type for the PieChart. */
-      chartType?: string;
+      chartType?: 'PIE_CHART_TYPE_UNSPECIFIED' | 'PIE' | 'DONUT';
       /** Required. The queries for the chart's data. */
       dataSets?: PieChartDataSet[];
       /** Optional. Indicates whether or not the pie chart should show slices' labels */
@@ -467,7 +583,7 @@ declare namespace gapi.client {
     }
     interface SingleViewGroup {
       /** Optional. Determines how the widget selector will be displayed. */
-      displayType?: string;
+      displayType?: 'DISPLAY_TYPE_UNSPECIFIED' | 'DROPDOWN' | 'TAB';
     }
     interface SourceContext {
       /** The path-qualified name of the .proto file that contained the associated protobuf element. For example: "google/protobuf/source_context.proto". */
@@ -481,13 +597,16 @@ declare namespace gapi.client {
       /** The lower bound on data point frequency in the chart implemented by specifying the minimum alignment period to use in a time series query. For example, if the data is published once every 10 minutes it would not make sense to fetch and align data at one minute intervals. This field is optional and exists only as a hint. */
       minAlignmentPeriod?: string;
       /** Required. The type of sparkchart to show in this chartView. */
-      sparkChartType?: string;
+      sparkChartType?:
+        | 'SPARK_CHART_TYPE_UNSPECIFIED'
+        | 'SPARK_LINE'
+        | 'SPARK_BAR';
     }
     interface StatisticalTimeSeriesFilter {
       /** How many time series to output. */
       numTimeSeries?: number;
       /** rankingMethod is applied to a set of time series, and then the produced value for each individual time series is used to compare a given time series to others. These are methods that cannot be applied stream-by-stream, but rather require the full context of a request to evaluate time series. */
-      rankingMethod?: string;
+      rankingMethod?: 'METHOD_UNSPECIFIED' | 'METHOD_CLUSTER_OUTLIER';
     }
     interface Status {
       /** The status code, which should be an enum value of google.rpc.Code. */
@@ -517,7 +636,7 @@ declare namespace gapi.client {
     }
     interface TemplateVariableCondition {
       /** Comparator to use to evaluate whether the value of the template variable matches the template_variable_value. For example, if the comparator is REGEX_FULL_MATCH, template_variable_value would contain a regex that is matched against the value of the template variable. */
-      comparator?: string;
+      comparator?: 'COMPARATOR_UNSPECIFIED' | 'REGEX_FULL_MATCH';
       /** The template variable whose value is evaluated. */
       templateVariable?: string;
       /** The value to compare the template variable to. For example, if the comparator is REGEX_FULL_MATCH, this field should contain a regex. */
@@ -527,7 +646,7 @@ declare namespace gapi.client {
       /** The text content to be displayed. */
       content?: string;
       /** How the text content is formatted. */
-      format?: string;
+      format?: 'FORMAT_UNSPECIFIED' | 'MARKDOWN' | 'RAW';
       /** How the text is styled */
       style?: TextStyle;
     }
@@ -535,27 +654,60 @@ declare namespace gapi.client {
       /** The background color as a hex string. "#RRGGBB" or "#RGB" */
       backgroundColor?: string;
       /** Font sizes for both the title and content. The title will still be larger relative to the content. */
-      fontSize?: string;
+      fontSize?:
+        | 'FONT_SIZE_UNSPECIFIED'
+        | 'FS_EXTRA_SMALL'
+        | 'FS_SMALL'
+        | 'FS_MEDIUM'
+        | 'FS_LARGE'
+        | 'FS_EXTRA_LARGE';
       /** The horizontal alignment of both the title and content */
-      horizontalAlignment?: string;
+      horizontalAlignment?:
+        | 'HORIZONTAL_ALIGNMENT_UNSPECIFIED'
+        | 'H_LEFT'
+        | 'H_CENTER'
+        | 'H_RIGHT';
       /** The amount of padding around the widget */
-      padding?: string;
+      padding?:
+        | 'PADDING_SIZE_UNSPECIFIED'
+        | 'P_EXTRA_SMALL'
+        | 'P_SMALL'
+        | 'P_MEDIUM'
+        | 'P_LARGE'
+        | 'P_EXTRA_LARGE';
       /** The pointer location for this widget (also sometimes called a "tail") */
-      pointerLocation?: string;
+      pointerLocation?:
+        | 'POINTER_LOCATION_UNSPECIFIED'
+        | 'PL_TOP'
+        | 'PL_RIGHT'
+        | 'PL_BOTTOM'
+        | 'PL_LEFT'
+        | 'PL_TOP_LEFT'
+        | 'PL_TOP_RIGHT'
+        | 'PL_RIGHT_TOP'
+        | 'PL_RIGHT_BOTTOM'
+        | 'PL_BOTTOM_RIGHT'
+        | 'PL_BOTTOM_LEFT'
+        | 'PL_LEFT_BOTTOM'
+        | 'PL_LEFT_TOP';
       /** The text color as a hex string. "#RRGGBB" or "#RGB" */
       textColor?: string;
       /** The vertical alignment of both the title and content */
-      verticalAlignment?: string;
+      verticalAlignment?:
+        | 'VERTICAL_ALIGNMENT_UNSPECIFIED'
+        | 'V_TOP'
+        | 'V_CENTER'
+        | 'V_BOTTOM';
     }
     interface Threshold {
       /** The state color for this threshold. Color is not allowed in a XyChart. */
-      color?: string;
+      color?: 'COLOR_UNSPECIFIED' | 'YELLOW' | 'RED';
       /** The direction for the current threshold. Direction is not allowed in a XyChart. */
-      direction?: string;
+      direction?: 'DIRECTION_UNSPECIFIED' | 'ABOVE' | 'BELOW';
       /** A label for the threshold. */
       label?: string;
       /** The target axis to use for plotting the threshold. Target axis is not allowed in a Scorecard. */
-      targetAxis?: string;
+      targetAxis?: 'TARGET_AXIS_UNSPECIFIED' | 'Y1' | 'Y2';
       /** The value of the threshold. The value should be defined in the native scale of the metric. */
       value?: number;
     }
@@ -617,7 +769,10 @@ declare namespace gapi.client {
       /** Required. The data displayed in this table. */
       dataSets?: TableDataSet[];
       /** Optional. Store rendering strategy */
-      metricVisualization?: string;
+      metricVisualization?:
+        | 'METRIC_VISUALIZATION_UNSPECIFIED'
+        | 'NUMBER'
+        | 'BAR';
     }
     interface Treemap {
       /** Required. The collection of datasets used to construct and populate the treemap. For the rendered treemap rectangles: Color is determined by the aggregated value for each grouping. Size is proportional to the count of time series aggregated within that rectangle's segment. */
@@ -647,7 +802,7 @@ declare namespace gapi.client {
       /** The source context. */
       sourceContext?: SourceContext;
       /** The source syntax. */
-      syntax?: string;
+      syntax?: 'SYNTAX_PROTO2' | 'SYNTAX_PROTO3' | 'SYNTAX_EDITIONS';
     }
     interface VisibilityCondition {
       /** A condition whose evaluation is based on the value of a template variable. */
@@ -711,11 +866,11 @@ declare namespace gapi.client {
       /** Adds a MonitoredProject with the given project ID to the specified Metrics Scope. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -740,11 +895,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -769,11 +924,11 @@ declare namespace gapi.client {
       /** Deletes a MonitoredProject from the specified Metrics Scope. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -798,11 +953,11 @@ declare namespace gapi.client {
       /** Returns a specific Metrics Scope, including the list of projects monitored by the specified Metrics Scope. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -825,11 +980,11 @@ declare namespace gapi.client {
       /** Returns a list of every Metrics Scope that a specific MonitoredProject has been added to. The metrics scope representing the specified monitored project will always be the first entry in the response. */
       listMetricsScopesByMonitoredProject(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -861,11 +1016,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -890,11 +1045,11 @@ declare namespace gapi.client {
       /** Creates a new custom dashboard. For examples on how you can use this API to create dashboards, see Managing dashboards by API (https://cloud.google.com/monitoring/dashboards/api-dashboard). This method requires the monitoring.dashboards.create permission on the specified project. For more information about permissions, see Cloud Identity and Access Management (https://cloud.google.com/iam). */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -921,11 +1076,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -952,11 +1107,11 @@ declare namespace gapi.client {
       /** Deletes an existing custom dashboard.This method requires the monitoring.dashboards.delete permission on the specified dashboard. For more information, see Cloud Identity and Access Management (https://cloud.google.com/iam). */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -979,11 +1134,11 @@ declare namespace gapi.client {
       /** Fetches a specific dashboard.This method requires the monitoring.dashboards.get permission on the specified dashboard. For more information, see Cloud Identity and Access Management (https://cloud.google.com/iam). */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1006,11 +1161,11 @@ declare namespace gapi.client {
       /** Lists the existing dashboards.This method requires the monitoring.dashboards.list permission on the specified project. For more information, see Cloud Identity and Access Management (https://cloud.google.com/iam). */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1037,11 +1192,11 @@ declare namespace gapi.client {
       /** Replaces an existing custom dashboard with a new definition.This method requires the monitoring.dashboards.update permission on the specified dashboard. For more information, see Cloud Identity and Access Management (https://cloud.google.com/iam). */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1068,11 +1223,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1101,11 +1256,11 @@ declare namespace gapi.client {
       /** Lists possible values for a given label name. */
       values(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The end time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. */
@@ -1140,11 +1295,11 @@ declare namespace gapi.client {
       /** Lists metadata for metrics. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1175,11 +1330,11 @@ declare namespace gapi.client {
       /** Lists labels for metrics. */
       labels(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1206,11 +1361,11 @@ declare namespace gapi.client {
       labels(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1237,11 +1392,11 @@ declare namespace gapi.client {
       /** Evaluate a PromQL query at a single point in time. */
       query(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1268,11 +1423,11 @@ declare namespace gapi.client {
       query(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1299,11 +1454,11 @@ declare namespace gapi.client {
       /** Lists exemplars relevant to a given PromQL query, */
       query_exemplars(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1330,11 +1485,11 @@ declare namespace gapi.client {
       query_exemplars(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1361,11 +1516,11 @@ declare namespace gapi.client {
       /** Evaluate a PromQL query with start, end time range. */
       query_range(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1392,11 +1547,11 @@ declare namespace gapi.client {
       query_range(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1423,11 +1578,11 @@ declare namespace gapi.client {
       /** Lists metadata for metrics. */
       series(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1454,11 +1609,11 @@ declare namespace gapi.client {
       series(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

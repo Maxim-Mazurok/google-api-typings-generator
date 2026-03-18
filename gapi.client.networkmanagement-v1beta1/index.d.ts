@@ -30,7 +30,51 @@ declare namespace gapi.client {
   namespace networkmanagement {
     interface AbortInfo {
       /** Causes that the analysis is aborted. */
-      cause?: string;
+      cause?:
+        | 'CAUSE_UNSPECIFIED'
+        | 'UNKNOWN_NETWORK'
+        | 'UNKNOWN_PROJECT'
+        | 'NO_EXTERNAL_IP'
+        | 'UNINTENDED_DESTINATION'
+        | 'SOURCE_ENDPOINT_NOT_FOUND'
+        | 'MISMATCHED_SOURCE_NETWORK'
+        | 'DESTINATION_ENDPOINT_NOT_FOUND'
+        | 'MISMATCHED_DESTINATION_NETWORK'
+        | 'UNKNOWN_IP'
+        | 'GOOGLE_MANAGED_SERVICE_UNKNOWN_IP'
+        | 'SOURCE_IP_ADDRESS_NOT_IN_SOURCE_NETWORK'
+        | 'PERMISSION_DENIED'
+        | 'PERMISSION_DENIED_NO_CLOUD_NAT_CONFIGS'
+        | 'PERMISSION_DENIED_NO_NEG_ENDPOINT_CONFIGS'
+        | 'PERMISSION_DENIED_NO_CLOUD_ROUTER_CONFIGS'
+        | 'NO_SOURCE_LOCATION'
+        | 'NO_SOURCE_GCP_NETWORK_LOCATION'
+        | 'NO_SOURCE_NON_GCP_NETWORK_LOCATION'
+        | 'NO_SOURCE_INTERNET_LOCATION'
+        | 'INVALID_ARGUMENT'
+        | 'TRACE_TOO_LONG'
+        | 'INTERNAL_ERROR'
+        | 'UNSUPPORTED'
+        | 'MISMATCHED_IP_VERSION'
+        | 'GKE_KONNECTIVITY_PROXY_UNSUPPORTED'
+        | 'RESOURCE_CONFIG_NOT_FOUND'
+        | 'VM_INSTANCE_CONFIG_NOT_FOUND'
+        | 'NETWORK_CONFIG_NOT_FOUND'
+        | 'FIREWALL_CONFIG_NOT_FOUND'
+        | 'ROUTE_CONFIG_NOT_FOUND'
+        | 'GOOGLE_MANAGED_SERVICE_AMBIGUOUS_PSC_ENDPOINT'
+        | 'GOOGLE_MANAGED_SERVICE_AMBIGUOUS_ENDPOINT'
+        | 'SOURCE_PSC_CLOUD_SQL_UNSUPPORTED'
+        | 'SOURCE_EXTERNAL_CLOUD_SQL_UNSUPPORTED'
+        | 'SOURCE_REDIS_CLUSTER_UNSUPPORTED'
+        | 'SOURCE_REDIS_INSTANCE_UNSUPPORTED'
+        | 'SOURCE_FORWARDING_RULE_UNSUPPORTED'
+        | 'NON_ROUTABLE_IP_ADDRESS'
+        | 'UNKNOWN_ISSUE_IN_GOOGLE_MANAGED_PROJECT'
+        | 'UNSUPPORTED_GOOGLE_MANAGED_PROJECT_CONFIG'
+        | 'NO_SERVERLESS_IP_RANGES'
+        | 'IP_VERSION_PROTOCOL_MISMATCH'
+        | 'GKE_POD_UNKNOWN_ENDPOINT_LOCATION';
       /** IP address that caused the abort. */
       ipAddress?: string;
       /** List of project IDs the user specified in the request but lacks access to. In this case, analysis is aborted with the PERMISSION_DENIED cause. */
@@ -62,7 +106,11 @@ declare namespace gapi.client {
       /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
       exemptedMembers?: string[];
       /** The log type that this config enables. */
-      logType?: string;
+      logType?:
+        | 'LOG_TYPE_UNSPECIFIED'
+        | 'ADMIN_READ'
+        | 'DATA_WRITE'
+        | 'DATA_READ';
     }
     interface Binding {
       /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
@@ -151,7 +199,13 @@ declare namespace gapi.client {
     }
     interface DeliverInfo {
       /** Recognized type of a Google Service the packet is delivered to (if applicable). */
-      googleServiceType?: string;
+      googleServiceType?:
+        | 'GOOGLE_SERVICE_TYPE_UNSPECIFIED'
+        | 'IAP'
+        | 'GFE_PROXY_OR_HEALTH_CHECK_PROBER'
+        | 'CLOUD_DNS'
+        | 'PRIVATE_GOOGLE_ACCESS'
+        | 'SERVERLESS_VPC_ACCESS';
       /** IP address of the target (if applicable). */
       ipAddress?: string;
       /** PSC Google API target the packet is delivered to (if applicable). */
@@ -161,7 +215,26 @@ declare namespace gapi.client {
       /** Name of the Cloud Storage Bucket the packet is delivered to (if applicable). */
       storageBucket?: string;
       /** Target type where the packet is delivered to. */
-      target?: string;
+      target?:
+        | 'TARGET_UNSPECIFIED'
+        | 'INSTANCE'
+        | 'INTERNET'
+        | 'GOOGLE_API'
+        | 'GKE_MASTER'
+        | 'CLOUD_SQL_INSTANCE'
+        | 'PSC_PUBLISHED_SERVICE'
+        | 'PSC_GOOGLE_API'
+        | 'PSC_VPC_SC'
+        | 'SERVERLESS_NEG'
+        | 'STORAGE_BUCKET'
+        | 'PRIVATE_NETWORK'
+        | 'CLOUD_FUNCTION'
+        | 'APP_ENGINE_VERSION'
+        | 'CLOUD_RUN_REVISION'
+        | 'GOOGLE_MANAGED_SERVICE'
+        | 'REDIS_INSTANCE'
+        | 'REDIS_CLUSTER'
+        | 'GKE_POD';
     }
     interface DirectVpcEgressConnectionInfo {
       /** URI of direct access network. */
@@ -177,7 +250,112 @@ declare namespace gapi.client {
     }
     interface DropInfo {
       /** Cause that the packet is dropped. */
-      cause?: string;
+      cause?:
+        | 'CAUSE_UNSPECIFIED'
+        | 'UNKNOWN_EXTERNAL_ADDRESS'
+        | 'FOREIGN_IP_DISALLOWED'
+        | 'FIREWALL_RULE'
+        | 'NO_ROUTE'
+        | 'ROUTE_BLACKHOLE'
+        | 'ROUTE_WRONG_NETWORK'
+        | 'ROUTE_NEXT_HOP_IP_ADDRESS_NOT_RESOLVED'
+        | 'ROUTE_NEXT_HOP_RESOURCE_NOT_FOUND'
+        | 'ROUTE_NEXT_HOP_INSTANCE_WRONG_NETWORK'
+        | 'ROUTE_NEXT_HOP_INSTANCE_NON_PRIMARY_IP'
+        | 'ROUTE_NEXT_HOP_FORWARDING_RULE_IP_MISMATCH'
+        | 'ROUTE_NEXT_HOP_VPN_TUNNEL_NOT_ESTABLISHED'
+        | 'ROUTE_NEXT_HOP_FORWARDING_RULE_TYPE_INVALID'
+        | 'NO_ROUTE_FROM_INTERNET_TO_PRIVATE_IPV6_ADDRESS'
+        | 'NO_ROUTE_FROM_INTERNET_TO_PRIVATE_IPV4_ADDRESS'
+        | 'NO_ROUTE_FROM_EXTERNAL_IPV6_SOURCE_TO_PRIVATE_IPV6_ADDRESS'
+        | 'VPN_TUNNEL_LOCAL_SELECTOR_MISMATCH'
+        | 'VPN_TUNNEL_REMOTE_SELECTOR_MISMATCH'
+        | 'PRIVATE_TRAFFIC_TO_INTERNET'
+        | 'PRIVATE_GOOGLE_ACCESS_DISALLOWED'
+        | 'PRIVATE_GOOGLE_ACCESS_VIA_VPN_TUNNEL_UNSUPPORTED'
+        | 'NO_EXTERNAL_ADDRESS'
+        | 'UNKNOWN_INTERNAL_ADDRESS'
+        | 'FORWARDING_RULE_MISMATCH'
+        | 'FORWARDING_RULE_NO_INSTANCES'
+        | 'FIREWALL_BLOCKING_LOAD_BALANCER_BACKEND_HEALTH_CHECK'
+        | 'INGRESS_FIREWALL_TAGS_UNSUPPORTED_BY_DIRECT_VPC_EGRESS'
+        | 'INSTANCE_NOT_RUNNING'
+        | 'GKE_CLUSTER_NOT_RUNNING'
+        | 'GKE_POD_NOT_RUNNING'
+        | 'CLOUD_SQL_INSTANCE_NOT_RUNNING'
+        | 'REDIS_INSTANCE_NOT_RUNNING'
+        | 'REDIS_CLUSTER_NOT_RUNNING'
+        | 'TRAFFIC_TYPE_BLOCKED'
+        | 'GKE_MASTER_UNAUTHORIZED_ACCESS'
+        | 'CLOUD_SQL_INSTANCE_UNAUTHORIZED_ACCESS'
+        | 'DROPPED_INSIDE_GKE_SERVICE'
+        | 'DROPPED_INSIDE_CLOUD_SQL_SERVICE'
+        | 'GOOGLE_MANAGED_SERVICE_NO_PEERING'
+        | 'GOOGLE_MANAGED_SERVICE_NO_PSC_ENDPOINT'
+        | 'GKE_PSC_ENDPOINT_MISSING'
+        | 'CLOUD_SQL_INSTANCE_NO_IP_ADDRESS'
+        | 'GKE_CONTROL_PLANE_REGION_MISMATCH'
+        | 'PUBLIC_GKE_CONTROL_PLANE_TO_PRIVATE_DESTINATION'
+        | 'GKE_CONTROL_PLANE_NO_ROUTE'
+        | 'CLOUD_SQL_INSTANCE_NOT_CONFIGURED_FOR_EXTERNAL_TRAFFIC'
+        | 'PUBLIC_CLOUD_SQL_INSTANCE_TO_PRIVATE_DESTINATION'
+        | 'CLOUD_SQL_INSTANCE_NO_ROUTE'
+        | 'CLOUD_SQL_CONNECTOR_REQUIRED'
+        | 'CLOUD_FUNCTION_NOT_ACTIVE'
+        | 'VPC_CONNECTOR_NOT_SET'
+        | 'VPC_CONNECTOR_NOT_RUNNING'
+        | 'VPC_CONNECTOR_SERVERLESS_TRAFFIC_BLOCKED'
+        | 'VPC_CONNECTOR_HEALTH_CHECK_TRAFFIC_BLOCKED'
+        | 'FORWARDING_RULE_REGION_MISMATCH'
+        | 'PSC_CONNECTION_NOT_ACCEPTED'
+        | 'PSC_ENDPOINT_ACCESSED_FROM_PEERED_NETWORK'
+        | 'PSC_NEG_PRODUCER_ENDPOINT_NO_GLOBAL_ACCESS'
+        | 'PSC_NEG_PRODUCER_FORWARDING_RULE_MULTIPLE_PORTS'
+        | 'CLOUD_SQL_PSC_NEG_UNSUPPORTED'
+        | 'NO_NAT_SUBNETS_FOR_PSC_SERVICE_ATTACHMENT'
+        | 'PSC_TRANSITIVITY_NOT_PROPAGATED'
+        | 'HYBRID_NEG_NON_DYNAMIC_ROUTE_MATCHED'
+        | 'HYBRID_NEG_NON_LOCAL_DYNAMIC_ROUTE_MATCHED'
+        | 'CLOUD_RUN_REVISION_NOT_READY'
+        | 'DROPPED_INSIDE_PSC_SERVICE_PRODUCER'
+        | 'LOAD_BALANCER_HAS_NO_PROXY_SUBNET'
+        | 'CLOUD_NAT_NO_ADDRESSES'
+        | 'ROUTING_LOOP'
+        | 'DROPPED_INSIDE_GOOGLE_MANAGED_SERVICE'
+        | 'LOAD_BALANCER_BACKEND_INVALID_NETWORK'
+        | 'BACKEND_SERVICE_NAMED_PORT_NOT_DEFINED'
+        | 'DESTINATION_IS_PRIVATE_NAT_IP_RANGE'
+        | 'DROPPED_INSIDE_REDIS_INSTANCE_SERVICE'
+        | 'REDIS_INSTANCE_UNSUPPORTED_PORT'
+        | 'REDIS_INSTANCE_CONNECTING_FROM_PUPI_ADDRESS'
+        | 'REDIS_INSTANCE_NO_ROUTE_TO_DESTINATION_NETWORK'
+        | 'REDIS_INSTANCE_NO_EXTERNAL_IP'
+        | 'REDIS_INSTANCE_UNSUPPORTED_PROTOCOL'
+        | 'DROPPED_INSIDE_REDIS_CLUSTER_SERVICE'
+        | 'REDIS_CLUSTER_UNSUPPORTED_PORT'
+        | 'REDIS_CLUSTER_NO_EXTERNAL_IP'
+        | 'REDIS_CLUSTER_UNSUPPORTED_PROTOCOL'
+        | 'NO_ADVERTISED_ROUTE_TO_GCP_DESTINATION'
+        | 'NO_TRAFFIC_SELECTOR_TO_GCP_DESTINATION'
+        | 'NO_KNOWN_ROUTE_FROM_PEERED_NETWORK_TO_DESTINATION'
+        | 'PRIVATE_NAT_TO_PSC_ENDPOINT_UNSUPPORTED'
+        | 'PSC_PORT_MAPPING_PORT_MISMATCH'
+        | 'PSC_PORT_MAPPING_WITHOUT_PSC_CONNECTION_UNSUPPORTED'
+        | 'UNSUPPORTED_ROUTE_MATCHED_FOR_NAT64_DESTINATION'
+        | 'TRAFFIC_FROM_HYBRID_ENDPOINT_TO_INTERNET_DISALLOWED'
+        | 'NO_MATCHING_NAT64_GATEWAY'
+        | 'NO_CONFIGURED_PRIVATE_NAT64_RULE'
+        | 'LOAD_BALANCER_BACKEND_IP_VERSION_MISMATCH'
+        | 'NO_KNOWN_ROUTE_FROM_NCC_NETWORK_TO_DESTINATION'
+        | 'CLOUD_NAT_PROTOCOL_UNSUPPORTED'
+        | 'L2_INTERCONNECT_UNSUPPORTED_PROTOCOL'
+        | 'L2_INTERCONNECT_UNSUPPORTED_PORT'
+        | 'L2_INTERCONNECT_DESTINATION_IP_MISMATCH'
+        | 'NCC_ROUTE_WITHIN_HYBRID_SUBNET_UNSUPPORTED'
+        | 'HYBRID_SUBNET_REGION_MISMATCH'
+        | 'HYBRID_SUBNET_NO_ROUTE'
+        | 'GKE_NETWORK_POLICY'
+        | 'NO_VALID_ROUTE_FROM_GOOGLE_MANAGED_NETWORK_TO_DESTINATION';
       /** Geolocation (region code) of the destination IP address (if relevant). */
       destinationGeolocationCode?: string;
       /** Destination IP address of the dropped packet (if relevant). */
@@ -197,9 +375,19 @@ declare namespace gapi.client {
     }
     interface EffectiveVpcFlowLogsConfig {
       /** The aggregation interval for the logs. Default value is INTERVAL_5_SEC. */
-      aggregationInterval?: string;
+      aggregationInterval?:
+        | 'AGGREGATION_INTERVAL_UNSPECIFIED'
+        | 'INTERVAL_5_SEC'
+        | 'INTERVAL_30_SEC'
+        | 'INTERVAL_1_MIN'
+        | 'INTERVAL_5_MIN'
+        | 'INTERVAL_10_MIN'
+        | 'INTERVAL_15_MIN';
       /** Determines whether to include cross project annotations in the logs. This field is available only for organization configurations. If not specified in org configs will be set to CROSS_PROJECT_METADATA_ENABLED. */
-      crossProjectMetadata?: string;
+      crossProjectMetadata?:
+        | 'CROSS_PROJECT_METADATA_UNSPECIFIED'
+        | 'CROSS_PROJECT_METADATA_ENABLED'
+        | 'CROSS_PROJECT_METADATA_DISABLED';
       /** Export filter used to define which VPC Flow Logs should be logged. */
       filterExpr?: string;
       /** The value of the field must be in (0, 1]. The sampling rate of VPC Flow Logs where 1.0 means all collected logs are reported. Setting the sampling rate to 0.0 is not allowed. If you want to disable VPC Flow Logs, use the state field instead. Default value is 1.0. */
@@ -207,7 +395,11 @@ declare namespace gapi.client {
       /** Traffic will be logged from the Interconnect Attachment. Format: projects/{project_id}/regions/{region}/interconnectAttachments/{name} */
       interconnectAttachment?: string;
       /** Configures whether all, none or a subset of metadata fields should be added to the reported VPC flow logs. Default value is INCLUDE_ALL_METADATA. */
-      metadata?: string;
+      metadata?:
+        | 'METADATA_UNSPECIFIED'
+        | 'INCLUDE_ALL_METADATA'
+        | 'EXCLUDE_ALL_METADATA'
+        | 'CUSTOM_METADATA';
       /** Custom metadata fields to include in the reported VPC flow logs. Can only be specified if "metadata" was set to CUSTOM_METADATA. */
       metadataFields?: string[];
       /** Unique name of the configuration. The name can have one of the following forms: - For project-level configurations: `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}` - For organization-level configurations: `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}` - For a Compute config, the name will be the path of the subnet: `projects/{project_id}/regions/{region}/subnetworks/{subnet_id}` */
@@ -215,9 +407,16 @@ declare namespace gapi.client {
       /** Traffic will be logged from VMs, VPN tunnels and Interconnect Attachments within the network. Format: projects/{project_id}/global/networks/{name} */
       network?: string;
       /** Specifies the scope of the config (e.g., SUBNET, NETWORK, ORGANIZATION..). */
-      scope?: string;
+      scope?:
+        | 'SCOPE_UNSPECIFIED'
+        | 'SUBNET'
+        | 'COMPUTE_API_SUBNET'
+        | 'NETWORK'
+        | 'VPN_TUNNEL'
+        | 'INTERCONNECT_ATTACHMENT'
+        | 'ORGANIZATION';
       /** The state of the VPC Flow Log configuration. Default value is ENABLED. When creating a new configuration, it must be enabled. Setting state=DISABLED will pause the log generation for this config. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'ENABLED' | 'DISABLED';
       /** Traffic will be logged from VMs within the subnetwork. Format: projects/{project_id}/regions/{region}/subnetworks/{name} */
       subnet?: string;
       /** Traffic will be logged from the VPN Tunnel. Format: projects/{project_id}/regions/{region}/vpnTunnels/{name} */
@@ -236,7 +435,12 @@ declare namespace gapi.client {
       /** A forwarding rule and its corresponding IP address represent the frontend configuration of a Google Cloud load balancer. Forwarding rules are also used for protocol forwarding, Private Service Connect and other network services to provide forwarding information in the control plane. Applicable only to destination endpoint. Format: `projects/{project}/global/forwardingRules/{id}` or `projects/{project}/regions/{region}/forwardingRules/{id}` */
       forwardingRule?: string;
       /** Output only. Specifies the type of the target of the forwarding rule. */
-      forwardingRuleTarget?: string;
+      forwardingRuleTarget?:
+        | 'FORWARDING_RULE_TARGET_UNSPECIFIED'
+        | 'INSTANCE'
+        | 'LOAD_BALANCER'
+        | 'VPN_GATEWAY'
+        | 'PSC';
       /** DNS endpoint of [Google Kubernetes Engine cluster control plane](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture). Requires gke_master_cluster to be set, can't be used simultaneoulsly with ip_address or network. Applicable only to destination endpoint. */
       fqdn?: string;
       /** A cluster URI for [Google Kubernetes Engine cluster control plane](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture). */
@@ -250,11 +454,26 @@ declare namespace gapi.client {
       /** Output only. ID of the load balancer the forwarding rule points to. Empty for forwarding rules not related to load balancers. */
       loadBalancerId?: string;
       /** Output only. Type of the load balancer the forwarding rule points to. */
-      loadBalancerType?: string;
+      loadBalancerType?:
+        | 'LOAD_BALANCER_TYPE_UNSPECIFIED'
+        | 'HTTPS_ADVANCED_LOAD_BALANCER'
+        | 'HTTPS_LOAD_BALANCER'
+        | 'REGIONAL_HTTPS_LOAD_BALANCER'
+        | 'INTERNAL_HTTPS_LOAD_BALANCER'
+        | 'SSL_PROXY_LOAD_BALANCER'
+        | 'TCP_PROXY_LOAD_BALANCER'
+        | 'INTERNAL_TCP_PROXY_LOAD_BALANCER'
+        | 'NETWORK_LOAD_BALANCER'
+        | 'LEGACY_NETWORK_LOAD_BALANCER'
+        | 'TCP_UDP_INTERNAL_LOAD_BALANCER';
       /** A VPC network URI. For source endpoints, used according to the `network_type`. For destination endpoints, used only when the source is an external IP address endpoint, and the destination is an internal IP address endpoint. */
       network?: string;
       /** For source endpoints, type of the network where the endpoint is located. Not relevant for destination endpoints. */
-      networkType?: string;
+      networkType?:
+        | 'NETWORK_TYPE_UNSPECIFIED'
+        | 'GCP_NETWORK'
+        | 'NON_GCP_NETWORK'
+        | 'INTERNET';
       /** The IP protocol port of the endpoint. Only applicable when protocol is TCP or UDP. */
       port?: number;
       /** For source endpoints, endpoint project ID. Used according to the `network_type`. Not relevant for destination endpoints. */
@@ -300,7 +519,19 @@ declare namespace gapi.client {
       /** The display name of the firewall rule. This field might be empty for firewall policy rules. */
       displayName?: string;
       /** The firewall rule's type. */
-      firewallRuleType?: string;
+      firewallRuleType?:
+        | 'FIREWALL_RULE_TYPE_UNSPECIFIED'
+        | 'HIERARCHICAL_FIREWALL_POLICY_RULE'
+        | 'VPC_FIREWALL_RULE'
+        | 'IMPLIED_VPC_FIREWALL_RULE'
+        | 'SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE'
+        | 'NETWORK_FIREWALL_POLICY_RULE'
+        | 'NETWORK_REGIONAL_FIREWALL_POLICY_RULE'
+        | 'SYSTEM_NETWORK_FIREWALL_POLICY_RULE'
+        | 'SYSTEM_REGIONAL_NETWORK_FIREWALL_POLICY_RULE'
+        | 'UNSUPPORTED_FIREWALL_POLICY_RULE'
+        | 'TRACKING_STATE'
+        | 'ANALYSIS_SKIPPED';
       /** The URI of the VPC network that the firewall rule is associated with. This field is not applicable to hierarchical firewall policy rules. */
       networkUri?: string;
       /** The name of the firewall policy that this rule is associated with. This field is not applicable to VPC firewall rules and implied VPC firewall rules. */
@@ -316,7 +547,10 @@ declare namespace gapi.client {
       /** The target tags defined by the VPC firewall rule. This field is not applicable to firewall policy rules. */
       targetTags?: string[];
       /** Target type of the firewall rule. */
-      targetType?: string;
+      targetType?:
+        | 'TARGET_TYPE_UNSPECIFIED'
+        | 'INSTANCES'
+        | 'INTERNAL_MANAGED_LB';
       /** The URI of the firewall rule. This field is not applicable to implied VPC firewall rules. */
       uri?: string;
     }
@@ -326,7 +560,18 @@ declare namespace gapi.client {
       /** URI of the resource that the packet is forwarded to. */
       resourceUri?: string;
       /** Target type where this packet is forwarded to. */
-      target?: string;
+      target?:
+        | 'TARGET_UNSPECIFIED'
+        | 'PEERING_VPC'
+        | 'VPN_GATEWAY'
+        | 'INTERCONNECT'
+        | 'GKE_MASTER'
+        | 'IMPORTED_CUSTOM_ROUTE_NEXT_HOP'
+        | 'CLOUD_SQL_INSTANCE'
+        | 'ANOTHER_PROJECT'
+        | 'NCC_HUB'
+        | 'ROUTER_APPLIANCE'
+        | 'SECURE_WEB_PROXY_GATEWAY';
     }
     interface ForwardingRuleInfo {
       /** Name of the forwarding rule. */
@@ -376,7 +621,13 @@ declare namespace gapi.client {
     }
     interface GkeNetworkPolicySkippedInfo {
       /** Reason why Network Policy evaluation was skipped. */
-      reason?: string;
+      reason?:
+        | 'REASON_UNSPECIFIED'
+        | 'NETWORK_POLICY_DISABLED'
+        | 'INGRESS_SOURCE_ON_SAME_NODE'
+        | 'EGRESS_FROM_NODE_NETWORK_NAMESPACE_POD'
+        | 'NETWORK_POLICY_NOT_APPLIED_TO_RESPONSE_TRAFFIC'
+        | 'NETWORK_POLICY_ANALYSIS_UNSUPPORTED';
     }
     interface GkePodInfo {
       /** IP address of a GKE Pod. If the Pod is dual-stack, this is the IP address relevant to the trace. */
@@ -388,7 +639,15 @@ declare namespace gapi.client {
     }
     interface GoogleServiceInfo {
       /** Recognized type of a Google Service. */
-      googleServiceType?: string;
+      googleServiceType?:
+        | 'GOOGLE_SERVICE_TYPE_UNSPECIFIED'
+        | 'IAP'
+        | 'GFE_PROXY_OR_HEALTH_CHECK_PROBER'
+        | 'CLOUD_DNS'
+        | 'GOOGLE_API'
+        | 'GOOGLE_API_PSC'
+        | 'GOOGLE_API_VPC_SC'
+        | 'SERVERLESS_VPC_ACCESS';
       /** Source IP address. */
       sourceIp?: string;
     }
@@ -420,7 +679,7 @@ declare namespace gapi.client {
       /** Service account authorized for the instance. */
       serviceAccount?: string;
       /** The status of the instance. */
-      status?: string;
+      status?: 'STATUS_UNSPECIFIED' | 'RUNNING' | 'NOT_RUNNING';
       /** URI of a Compute Engine instance. */
       uri?: string;
     }
@@ -436,7 +695,12 @@ declare namespace gapi.client {
       /** Name of a Google Cloud region where the Interconnect attachment is configured. */
       region?: string;
       /** The type of interconnect attachment this is. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'DEDICATED'
+        | 'PARTNER'
+        | 'PARTNER_PROVIDER'
+        | 'L2_DEDICATED';
       /** URI of an Interconnect attachment. */
       uri?: string;
     }
@@ -444,7 +708,15 @@ declare namespace gapi.client {
       /** The matched non-masquerade IP range. Only set if reason is DESTINATION_IP_IN_CONFIGURED_NON_MASQUERADE_RANGE or DESTINATION_IP_IN_DEFAULT_NON_MASQUERADE_RANGE. */
       nonMasqueradeRange?: string;
       /** Reason why IP masquerading was not applied. */
-      reason?: string;
+      reason?:
+        | 'REASON_UNSPECIFIED'
+        | 'DESTINATION_IP_IN_CONFIGURED_NON_MASQUERADE_RANGE'
+        | 'DESTINATION_IP_IN_DEFAULT_NON_MASQUERADE_RANGE'
+        | 'DESTINATION_ON_SAME_NODE'
+        | 'DEFAULT_SNAT_DISABLED'
+        | 'NO_MASQUERADING_FOR_IPV6'
+        | 'POD_USES_NODE_NETWORK_NAMESPACE'
+        | 'NO_MASQUERADING_FOR_RETURN_PACKET';
     }
     interface LatencyDistribution {
       /** Representative latency percentiles. */
@@ -494,7 +766,10 @@ declare namespace gapi.client {
       /** A list of firewall rule URIs blocking probes from health check IP ranges. */
       healthCheckBlockingFirewallRules?: string[];
       /** State of the health check firewall configuration. */
-      healthCheckFirewallState?: string;
+      healthCheckFirewallState?:
+        | 'HEALTH_CHECK_FIREWALL_STATE_UNSPECIFIED'
+        | 'CONFIGURED'
+        | 'MISCONFIGURED';
       /** URI of a Compute Engine instance or network endpoint. */
       uri?: string;
     }
@@ -504,7 +779,12 @@ declare namespace gapi.client {
       /** URI of the backend service this backend belongs to (if applicable). */
       backendServiceUri?: string;
       /** Output only. Health check firewalls configuration state for the backend. This is a result of the static firewall analysis (verifying that health check traffic from required IP ranges to the backend is allowed or not). The backend might still be unhealthy even if these firewalls are configured. Please refer to the documentation for more information: https://cloud.google.com/load-balancing/docs/firewall-rules */
-      healthCheckFirewallsConfigState?: string;
+      healthCheckFirewallsConfigState?:
+        | 'HEALTH_CHECK_FIREWALLS_CONFIG_STATE_UNSPECIFIED'
+        | 'FIREWALLS_CONFIGURED'
+        | 'FIREWALLS_PARTIALLY_CONFIGURED'
+        | 'FIREWALLS_NOT_CONFIGURED'
+        | 'FIREWALLS_UNSUPPORTED';
       /** URI of the health check attached to this backend (if applicable). */
       healthCheckUri?: string;
       /** URI of the instance group this backend belongs to (if applicable). */
@@ -524,13 +804,23 @@ declare namespace gapi.client {
       /** Information for the loadbalancer backends. */
       backends?: LoadBalancerBackend[];
       /** Type of load balancer's backend configuration. */
-      backendType?: string;
+      backendType?:
+        | 'BACKEND_TYPE_UNSPECIFIED'
+        | 'BACKEND_SERVICE'
+        | 'TARGET_POOL'
+        | 'TARGET_INSTANCE';
       /** Backend configuration URI. */
       backendUri?: string;
       /** URI of the health check for the load balancer. Deprecated and no longer populated as different load balancer backends might have different health checks. */
       healthCheckUri?: string;
       /** Type of the load balancer. */
-      loadBalancerType?: string;
+      loadBalancerType?:
+        | 'LOAD_BALANCER_TYPE_UNSPECIFIED'
+        | 'INTERNAL_TCP_UDP'
+        | 'NETWORK_TCP_UDP'
+        | 'HTTP_PROXY'
+        | 'TCP_PROXY'
+        | 'SSL_PROXY';
     }
     interface Location {
       /** The friendly name for this location, typically a nearby city name. For example, "Tokyo". */
@@ -546,7 +836,13 @@ declare namespace gapi.client {
     }
     interface NatInfo {
       /** Type of Cloud NAT gateway. Only valid when `type` is CLOUD_NAT. */
-      cloudNatGatewayType?: string;
+      cloudNatGatewayType?:
+        | 'CLOUD_NAT_GATEWAY_TYPE_UNSPECIFIED'
+        | 'PUBLIC_NAT44'
+        | 'PUBLIC_NAT64'
+        | 'PRIVATE_NAT_NCC'
+        | 'PRIVATE_NAT_HYBRID'
+        | 'PRIVATE_NAT64';
       /** The name of Cloud NAT Gateway. Only valid when type is CLOUD_NAT. */
       natGatewayName?: string;
       /** URI of the network where NAT translation takes place. */
@@ -572,7 +868,13 @@ declare namespace gapi.client {
       /** Uri of the Cloud Router. Only valid when type is CLOUD_NAT. */
       routerUri?: string;
       /** Type of NAT. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'INTERNAL_TO_EXTERNAL'
+        | 'EXTERNAL_TO_INTERNAL'
+        | 'CLOUD_NAT'
+        | 'PRIVATE_SERVICE_CONNECT'
+        | 'GKE_POD_IP_MASQUERADING';
     }
     interface NetworkInfo {
       /** Name of a Compute Engine network. */
@@ -630,7 +932,10 @@ declare namespace gapi.client {
     }
     interface ProbingDetails {
       /** The reason probing was aborted. */
-      abortCause?: string;
+      abortCause?:
+        | 'PROBING_ABORT_CAUSE_UNSPECIFIED'
+        | 'PERMISSION_DENIED'
+        | 'NO_SOURCE_LOCATION';
       /** The EdgeLocation from which a packet, destined to the internet, will egress the Google network. This will only be populated for a connectivity test which has an internet destination address. The absence of this field *must not* be used as an indication that the destination is part of the Google network. */
       destinationEgressLocation?: EdgeLocation;
       /** Probing results for all edge devices. */
@@ -644,7 +949,12 @@ declare namespace gapi.client {
       /** Latency as measured by active probing in one direction: from the source to the destination endpoint. */
       probingLatency?: LatencyDistribution;
       /** The overall result of active probing. */
-      result?: string;
+      result?:
+        | 'PROBING_RESULT_UNSPECIFIED'
+        | 'REACHABLE'
+        | 'UNREACHABLE'
+        | 'REACHABILITY_INCONSISTENT'
+        | 'UNDETERMINED';
       /** Number of probes sent. */
       sentProbeCount?: number;
       /** Number of probes that reached the destination. */
@@ -688,7 +998,12 @@ declare namespace gapi.client {
       /** The details of a failure or a cancellation of reachability analysis. */
       error?: Status;
       /** The overall result of the test's configuration analysis. */
-      result?: string;
+      result?:
+        | 'RESULT_UNSPECIFIED'
+        | 'REACHABLE'
+        | 'UNREACHABLE'
+        | 'AMBIGUOUS'
+        | 'UNDETERMINED';
       /** Result may contain a list of traces if a test has multiple possible paths in the network, such as when destination endpoint is a load balancer with multiple backends. */
       traces?: Trace[];
       /** The time of the configuration analysis. */
@@ -749,7 +1064,21 @@ declare namespace gapi.client {
       /** URI of a VPC network where the next hop resource is located. */
       nextHopNetworkUri?: string;
       /** Type of next hop. */
-      nextHopType?: string;
+      nextHopType?:
+        | 'NEXT_HOP_TYPE_UNSPECIFIED'
+        | 'NEXT_HOP_IP'
+        | 'NEXT_HOP_INSTANCE'
+        | 'NEXT_HOP_NETWORK'
+        | 'NEXT_HOP_PEERING'
+        | 'NEXT_HOP_INTERCONNECT'
+        | 'NEXT_HOP_VPN_TUNNEL'
+        | 'NEXT_HOP_VPN_GATEWAY'
+        | 'NEXT_HOP_INTERNET_GATEWAY'
+        | 'NEXT_HOP_BLACKHOLE'
+        | 'NEXT_HOP_ILB'
+        | 'NEXT_HOP_ROUTER_APPLIANCE'
+        | 'NEXT_HOP_NCC_HUB'
+        | 'SECURE_WEB_PROXY_GATEWAY';
       /** URI of the next hop resource. */
       nextHopUri?: string;
       /** For PEERING_SUBNET, PEERING_STATIC and PEERING_DYNAMIC routes, the name of the originating SUBNET/STATIC/DYNAMIC route. */
@@ -763,9 +1092,18 @@ declare namespace gapi.client {
       /** Region of the route. DYNAMIC, PEERING_DYNAMIC, POLICY_BASED and ADVERTISED routes only. If set for POLICY_BASED route, this is a region of VLAN attachments for Cloud Interconnect the route applies to. */
       region?: string;
       /** Indicates where route is applicable. Deprecated, routes with NCC_HUB scope are not included in the trace in new tests. */
-      routeScope?: string;
+      routeScope?: 'ROUTE_SCOPE_UNSPECIFIED' | 'NETWORK' | 'NCC_HUB';
       /** Type of route. */
-      routeType?: string;
+      routeType?:
+        | 'ROUTE_TYPE_UNSPECIFIED'
+        | 'SUBNET'
+        | 'STATIC'
+        | 'DYNAMIC'
+        | 'PEERING_SUBNET'
+        | 'PEERING_STATIC'
+        | 'PEERING_DYNAMIC'
+        | 'POLICY_BASED'
+        | 'ADVERTISED';
       /** Source IP address range of the route. POLICY_BASED routes only. */
       srcIpRange?: string;
       /** Source port ranges of the route. POLICY_BASED routes only. */
@@ -803,7 +1141,12 @@ declare namespace gapi.client {
       /** Latency as measured by active probing in one direction: from the source to the destination endpoint. */
       probingLatency?: LatencyDistribution;
       /** The overall result of active probing for this egress device. */
-      result?: string;
+      result?:
+        | 'PROBING_RESULT_UNSPECIFIED'
+        | 'REACHABLE'
+        | 'UNREACHABLE'
+        | 'REACHABILITY_INCONSISTENT'
+        | 'UNDETERMINED';
       /** Number of probes sent. */
       sentProbeCount?: number;
       /** Number of probes that reached the destination. */
@@ -889,7 +1232,53 @@ declare namespace gapi.client {
       /** Display information of a Serverless network endpoint group backend. Used only for return traces. */
       serverlessNeg?: ServerlessNegInfo;
       /** Each step is in one of the pre-defined states. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'START_FROM_INSTANCE'
+        | 'START_FROM_INTERNET'
+        | 'START_FROM_GOOGLE_SERVICE'
+        | 'START_FROM_PRIVATE_NETWORK'
+        | 'START_FROM_GKE_MASTER'
+        | 'START_FROM_CLOUD_SQL_INSTANCE'
+        | 'START_FROM_GKE_POD'
+        | 'START_FROM_REDIS_INSTANCE'
+        | 'START_FROM_REDIS_CLUSTER'
+        | 'START_FROM_CLOUD_FUNCTION'
+        | 'START_FROM_APP_ENGINE_VERSION'
+        | 'START_FROM_CLOUD_RUN_REVISION'
+        | 'START_FROM_STORAGE_BUCKET'
+        | 'START_FROM_PSC_PUBLISHED_SERVICE'
+        | 'START_FROM_SERVERLESS_NEG'
+        | 'APPLY_INGRESS_FIREWALL_RULE'
+        | 'APPLY_EGRESS_FIREWALL_RULE'
+        | 'APPLY_ROUTE'
+        | 'APPLY_FORWARDING_RULE'
+        | 'ANALYZE_LOAD_BALANCER_BACKEND'
+        | 'SPOOFING_APPROVED'
+        | 'ARRIVE_AT_INSTANCE'
+        | 'ARRIVE_AT_INTERNAL_LOAD_BALANCER'
+        | 'ARRIVE_AT_EXTERNAL_LOAD_BALANCER'
+        | 'ARRIVE_AT_HYBRID_SUBNET'
+        | 'ARRIVE_AT_VPN_GATEWAY'
+        | 'ARRIVE_AT_VPN_TUNNEL'
+        | 'ARRIVE_AT_INTERCONNECT_ATTACHMENT'
+        | 'ARRIVE_AT_VPC_CONNECTOR'
+        | 'ARRIVE_AT_GKE_POD'
+        | 'DIRECT_VPC_EGRESS_CONNECTION'
+        | 'SERVERLESS_EXTERNAL_CONNECTION'
+        | 'NGFW_PACKET_INSPECTION'
+        | 'NAT'
+        | 'SKIP_GKE_POD_IP_MASQUERADING'
+        | 'SKIP_GKE_INGRESS_NETWORK_POLICY'
+        | 'SKIP_GKE_EGRESS_NETWORK_POLICY'
+        | 'APPLY_INGRESS_GKE_NETWORK_POLICY'
+        | 'APPLY_EGRESS_GKE_NETWORK_POLICY'
+        | 'PROXY_CONNECTION'
+        | 'DELIVER'
+        | 'DROP'
+        | 'FORWARD'
+        | 'ABORT'
+        | 'VIEWER_PERMISSION_MISSING';
       /** Display information of a Storage Bucket. Used only for return traces. */
       storageBucket?: StorageBucketInfo;
       /** Display information of a VPC connector. */
@@ -929,11 +1318,21 @@ declare namespace gapi.client {
     }
     interface VpcFlowLogsConfig {
       /** Optional. The aggregation interval for the logs. Default value is INTERVAL_5_SEC. */
-      aggregationInterval?: string;
+      aggregationInterval?:
+        | 'AGGREGATION_INTERVAL_UNSPECIFIED'
+        | 'INTERVAL_5_SEC'
+        | 'INTERVAL_30_SEC'
+        | 'INTERVAL_1_MIN'
+        | 'INTERVAL_5_MIN'
+        | 'INTERVAL_10_MIN'
+        | 'INTERVAL_15_MIN';
       /** Output only. The time the config was created. */
       createTime?: string;
       /** Optional. Determines whether to include cross project annotations in the logs. This field is available only for organization configurations. If not specified in org configs will be set to CROSS_PROJECT_METADATA_ENABLED. */
-      crossProjectMetadata?: string;
+      crossProjectMetadata?:
+        | 'CROSS_PROJECT_METADATA_UNSPECIFIED'
+        | 'CROSS_PROJECT_METADATA_ENABLED'
+        | 'CROSS_PROJECT_METADATA_DISABLED';
       /** Optional. The user-supplied description of the VPC Flow Logs configuration. Maximum of 512 characters. */
       description?: string;
       /** Optional. Export filter used to define which VPC Flow Logs should be logged. */
@@ -945,7 +1344,11 @@ declare namespace gapi.client {
       /** Optional. Resource labels to represent user-provided metadata. */
       labels?: {[P in string]: string};
       /** Optional. Configures whether all, none or a subset of metadata fields should be added to the reported VPC flow logs. Default value is INCLUDE_ALL_METADATA. */
-      metadata?: string;
+      metadata?:
+        | 'METADATA_UNSPECIFIED'
+        | 'INCLUDE_ALL_METADATA'
+        | 'EXCLUDE_ALL_METADATA'
+        | 'CUSTOM_METADATA';
       /** Optional. Custom metadata fields to include in the reported VPC flow logs. Can only be specified if "metadata" was set to CUSTOM_METADATA. */
       metadataFields?: string[];
       /** Identifier. Unique name of the configuration. The name can have one of the following forms: - For project-level configurations: `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}` - For organization-level configurations: `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}` */
@@ -953,11 +1356,14 @@ declare namespace gapi.client {
       /** Traffic will be logged from VMs, VPN tunnels and Interconnect Attachments within the network. Format: projects/{project_id}/global/networks/{name} */
       network?: string;
       /** Optional. The state of the VPC Flow Log configuration. Default value is ENABLED. When creating a new configuration, it must be enabled. Setting state=DISABLED will pause the log generation for this config. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'ENABLED' | 'DISABLED';
       /** Traffic will be logged from VMs within the subnetwork. Format: projects/{project_id}/regions/{region}/subnetworks/{name} */
       subnet?: string;
       /** Output only. Describes the state of the configured target resource for diagnostic purposes. */
-      targetResourceState?: string;
+      targetResourceState?:
+        | 'TARGET_RESOURCE_STATE_UNSPECIFIED'
+        | 'TARGET_RESOURCE_EXISTS'
+        | 'TARGET_RESOURCE_DOES_NOT_EXIST';
       /** Output only. The time the config was updated. */
       updateTime?: string;
       /** Traffic will be logged from the VPN Tunnel. Format: projects/{project_id}/regions/{region}/vpnTunnels/{name} */
@@ -989,7 +1395,11 @@ declare namespace gapi.client {
       /** Remote VPN gateway's IP address. */
       remoteGatewayIp?: string;
       /** Type of the routing policy. */
-      routingType?: string;
+      routingType?:
+        | 'ROUTING_TYPE_UNSPECIFIED'
+        | 'ROUTE_BASED'
+        | 'POLICY_BASED'
+        | 'DYNAMIC';
       /** URI of the VPN gateway at local end of the tunnel. */
       sourceGateway?: string;
       /** Local VPN gateway's IP address. */
@@ -1001,11 +1411,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1030,11 +1440,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1059,11 +1469,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1086,11 +1496,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1113,11 +1523,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1153,11 +1563,11 @@ declare namespace gapi.client {
       /** Creates a new `VpcFlowLogsConfig`. If a configuration with the exact same settings already exists (even if the ID is different), the creation fails. Notes: 1. Creating a configuration with `state=DISABLED` will fail 2. The following fields are not considered as settings for the purpose of the check mentioned above, therefore - creating another configuration with the same fields but different values for the following fields will fail as well: * name * create_time * update_time * labels * description */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1184,11 +1594,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1215,11 +1625,11 @@ declare namespace gapi.client {
       /** Deletes a specific `VpcFlowLogsConfig`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1242,11 +1652,11 @@ declare namespace gapi.client {
       /** Gets the details of a specific `VpcFlowLogsConfig`. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1269,11 +1679,11 @@ declare namespace gapi.client {
       /** Lists all `VpcFlowLogsConfigs` in a given organization. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1304,11 +1714,11 @@ declare namespace gapi.client {
       /** Updates an existing `VpcFlowLogsConfig`. If a configuration with the exact same settings already exists (even if the ID is different), the creation fails. Notes: 1. Updating a configuration with `state=DISABLED` will fail 2. The following fields are not considered as settings for the purpose of the check mentioned above, therefore - updating another configuration with the same fields but different values for the following fields will fail as well: * name * create_time * update_time * labels * description */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1335,11 +1745,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1368,11 +1778,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1395,11 +1805,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */
@@ -1437,11 +1847,11 @@ declare namespace gapi.client {
       /** Creates a new Connectivity Test. After you create a test, the reachability analysis is performed as part of the long running operation, which completes when the analysis completes. If the endpoint specifications in `ConnectivityTest` are invalid (for example, containing non-existent resources in the network, or you don't have read permissions to the network configurations of listed projects), then the reachability result returns a value of `UNKNOWN`. If the endpoint specifications in `ConnectivityTest` are incomplete, the reachability result returns a value of AMBIGUOUS. For more information, see the Connectivity Test documentation. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1468,11 +1878,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1499,11 +1909,11 @@ declare namespace gapi.client {
       /** Deletes a specific `ConnectivityTest`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1526,11 +1936,11 @@ declare namespace gapi.client {
       /** Gets the details of a specific Connectivity Test. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1553,11 +1963,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1582,11 +1992,11 @@ declare namespace gapi.client {
       /** Lists all Connectivity Tests owned by a project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1617,11 +2027,11 @@ declare namespace gapi.client {
       /** Updates the configuration of an existing `ConnectivityTest`. After you update a test, the reachability analysis is performed as part of the long running operation, which completes when the analysis completes. The Reachability state in the test resource is updated with the new result. If the endpoint specifications in `ConnectivityTest` are invalid (for example, they contain non-existent resources in the network, or the user does not have read permissions to the network configurations of listed projects), then the reachability result returns a value of UNKNOWN. If the endpoint specifications in `ConnectivityTest` are incomplete, the reachability result returns a value of `AMBIGUOUS`. See the documentation in `ConnectivityTest` for more details. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1648,11 +2058,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1679,11 +2089,11 @@ declare namespace gapi.client {
       /** Rerun an existing `ConnectivityTest`. After the user triggers the rerun, the reachability analysis is performed as part of the long running operation, which completes when the analysis completes. Even though the test configuration remains the same, the reachability result may change due to underlying network configuration changes. If the endpoint specifications in `ConnectivityTest` become invalid (for example, specified resources are deleted in the network, or you lost read permissions to the network configurations of listed projects), then the reachability result returns a value of `UNKNOWN`. */
       rerun(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1708,11 +2118,11 @@ declare namespace gapi.client {
       rerun(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1738,11 +2148,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1768,11 +2178,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1799,11 +2209,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1828,11 +2238,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1857,11 +2267,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1884,11 +2294,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1911,11 +2321,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1952,11 +2362,11 @@ declare namespace gapi.client {
       /** Creates a new `VpcFlowLogsConfig`. If a configuration with the exact same settings already exists (even if the ID is different), the creation fails. Notes: 1. Creating a configuration with `state=DISABLED` will fail 2. The following fields are not considered as settings for the purpose of the check mentioned above, therefore - creating another configuration with the same fields but different values for the following fields will fail as well: * name * create_time * update_time * labels * description */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1983,11 +2393,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2014,11 +2424,11 @@ declare namespace gapi.client {
       /** Deletes a specific `VpcFlowLogsConfig`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2041,11 +2451,11 @@ declare namespace gapi.client {
       /** Gets the details of a specific `VpcFlowLogsConfig`. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2068,11 +2478,11 @@ declare namespace gapi.client {
       /** Lists all `VpcFlowLogsConfigs` in a given project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2103,11 +2513,11 @@ declare namespace gapi.client {
       /** Updates an existing `VpcFlowLogsConfig`. If a configuration with the exact same settings already exists (even if the ID is different), the creation fails. Notes: 1. Updating a configuration with `state=DISABLED` will fail 2. The following fields are not considered as settings for the purpose of the check mentioned above, therefore - updating another configuration with the same fields but different values for the following fields will fail as well: * name * create_time * update_time * labels * description */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2134,11 +2544,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2165,11 +2575,11 @@ declare namespace gapi.client {
       /** QueryOrgVpcFlowLogsConfigs returns a list of all organization-level VPC Flow Logs configurations applicable to the specified project. */
       queryOrgVpcFlowLogsConfigs(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2198,11 +2608,11 @@ declare namespace gapi.client {
       /** ShowEffectiveFlowLogsConfigs returns a list of all VPC Flow Logs configurations applicable to a specified resource. */
       showEffectiveFlowLogsConfigs(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2235,11 +2645,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2262,11 +2672,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */

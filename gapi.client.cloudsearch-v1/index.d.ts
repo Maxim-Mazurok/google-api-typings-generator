@@ -42,7 +42,14 @@ declare namespace gapi.client {
     }
     interface BackgroundColoredText {
       /** [Optional] Color of the background. The text color can change depending on the selected background color, and the client does not have control over this. If missing, the background will be WHITE. */
-      backgroundColor?: string;
+      backgroundColor?:
+        | 'UNKNOWN_COLOR'
+        | 'WHITE'
+        | 'YELLOW'
+        | 'ORANGE'
+        | 'GREEN'
+        | 'BLUE'
+        | 'GREY';
       /** [Required] The text to display. */
       text?: string;
     }
@@ -60,7 +67,7 @@ declare namespace gapi.client {
     }
     interface CompositeFilter {
       /** The logic operator of the sub filter. */
-      logicOperator?: string;
+      logicOperator?: 'AND' | 'OR' | 'NOT';
       /** Sub filters. */
       subFilters?: Filter[];
     }
@@ -76,7 +83,7 @@ declare namespace gapi.client {
     }
     interface Context {
       /** [Optional] App where the card should be shown. If missing, the card will be shown in TOPAZ. */
-      app?: string[];
+      app?: 'UNKNOWN_APP' | 'TOPAZ' | 'MOMA'[];
       /** [Optional] Day of week when the card should be shown, where 0 is Monday. */
       dayOfWeek?: number[];
       /** [Optional] Date (in seconds since epoch) when the card should stop being shown. If missing, end_date_sec will be set to Jan 1st, 2100. */
@@ -94,9 +101,19 @@ declare namespace gapi.client {
       /** [Optional] Start time in seconds, within a day, when the card should be shown if it's within [start_date_sec, end_date_sec]. If 0, the card will be shown from 12:00am on. */
       startDayOffsetSec?: string;
       /** [Optional] Surface where the card should be shown in. If missing, the card will be shown in any surface. */
-      surface?: string[];
+      surface?:
+        | 'UNKNOWN_SURFACE'
+        | 'DESKTOP'
+        | 'ANDROID'
+        | 'IOS'
+        | 'MOBILE'
+        | 'ANY'[];
       /** [Required] Type of the card (homepage, Answer or RHS). */
-      type?: string[];
+      type?:
+        | 'UNKNOWN_CARD_TYPE'
+        | 'HOMEPAGE_CARD'
+        | 'ANSWER_CARD'
+        | 'RHS_CARD'[];
     }
     interface ContextAttribute {
       /** The name of the attribute. It should not be empty. The maximum length is 32 characters. The name must start with a letter and can only contain letters (A-Z, a-z) or numbers (0-9). The name will be normalized (lower-cased) before being matched. */
@@ -226,16 +243,37 @@ declare namespace gapi.client {
       values?: number[];
     }
     interface DriveFollowUpRestrict {
-      type?: string;
+      type?: 'UNSPECIFIED' | 'FOLLOWUP_SUGGESTIONS' | 'FOLLOWUP_ACTION_ITEMS';
     }
     interface DriveLocationRestrict {
-      type?: string;
+      type?: 'UNSPECIFIED' | 'TRASHED' | 'STARRED';
     }
     interface DriveMimeTypeRestrict {
-      type?: string;
+      type?:
+        | 'UNSPECIFIED'
+        | 'PDF'
+        | 'DOCUMENT'
+        | 'PRESENTATION'
+        | 'SPREADSHEET'
+        | 'FORM'
+        | 'DRAWING'
+        | 'SCRIPT'
+        | 'MAP'
+        | 'IMAGE'
+        | 'AUDIO'
+        | 'VIDEO'
+        | 'FOLDER'
+        | 'ARCHIVE'
+        | 'SITE';
     }
     interface DriveTimeSpanRestrict {
-      type?: string;
+      type?:
+        | 'UNSPECIFIED'
+        | 'TODAY'
+        | 'YESTERDAY'
+        | 'LAST_7_DAYS'
+        | 'LAST_30_DAYS'
+        | 'LAST_90_DAYS';
     }
     interface EmailAddress {
       /** If the value of type is custom, this property contains the custom type string. */
@@ -259,17 +297,24 @@ declare namespace gapi.client {
       phoneNumber?: string;
       /** Phone number URL */
       phoneUrl?: SafeUrlProto;
-      type?: string;
+      type?: 'UNKNOWN' | 'MOBILE' | 'OFFICE' | 'OTHER';
     }
     interface EnterpriseTopazSidekickAgendaEntry {
       /** URL of the agenda item. */
       agendaItemUrl?: string;
       /** The chronology from the present. */
-      chronology?: string;
+      chronology?:
+        | 'STALE'
+        | 'ALL_DAY'
+        | 'PAST'
+        | 'RECENTLY_PAST'
+        | 'PRESENT'
+        | 'NEAR_FUTURE'
+        | 'FUTURE';
       /** Person who created the event. */
       creator?: EnterpriseTopazSidekickPerson;
       /** Attendance status for the current user making the request. This is a convenience data member in order to avoid figuring out the same by iterating the invitee list above on the caller side. */
-      currentUserAttendingStatus?: string;
+      currentUserAttendingStatus?: 'AWAITING' | 'YES' | 'NO' | 'MAYBE';
       /** Description of the agenda item (i.e., typically, summary in calendar event). */
       description?: string;
       /** Items related to the current AgendaEntry. E.g., related drive/mail/groups documents. */
@@ -330,7 +375,7 @@ declare namespace gapi.client {
       /** Localized free text that describes the dates represented by the card. Currently, the card will only represent a single day. */
       date?: string;
       /** Represents restrictions applied to the events requested in the user's query. */
-      eventsRestrict?: string;
+      eventsRestrict?: 'NONE' | 'NEXT_MEETING';
     }
     interface EnterpriseTopazSidekickAgendaItem {
       conflictedGroup?: EnterpriseTopazSidekickConflictingEventsCardProto;
@@ -341,7 +386,15 @@ declare namespace gapi.client {
       /** Answers that have a corresponding label. */
       labeledAnswer?: EnterpriseTopazSidekickAnswerAnswerListLabeledAnswer[];
       /** Answer type. */
-      type?: string;
+      type?:
+        | 'UNKNOWN'
+        | 'PERSON_ADDRESS'
+        | 'PERSON_BIRTHDAY'
+        | 'PERSON_DEPARTMENT'
+        | 'PERSON_DESK_LOCATION'
+        | 'PERSON_EMAIL'
+        | 'PERSON_JOB_TITLE'
+        | 'PERSON_PHONE';
     }
     interface EnterpriseTopazSidekickAnswerAnswerListLabeledAnswer {
       /** The free text answer. */
@@ -355,7 +408,7 @@ declare namespace gapi.client {
     }
     interface EnterpriseTopazSidekickAnswerSuggestedQueryCategory {
       /** The query list category. */
-      category?: string;
+      category?: 'UNKNOWN' | 'CALENDAR' | 'DOCUMENT' | 'PEOPLE';
       /** Whether this category is enabled. */
       isEnabled?: boolean;
       /** List of suggested queries to show the user. */
@@ -367,7 +420,38 @@ declare namespace gapi.client {
       /** Card metadata such as chronology and render mode of the card. */
       cardMetadata?: EnterpriseTopazSidekickCardMetadata;
       /** Card type. */
-      cardType?: string;
+      cardType?:
+        | 'UNKNOWN_TYPE'
+        | 'AGENDA'
+        | 'CHANGELISTS'
+        | 'CONFLICTING_MEETINGS'
+        | 'CREATE_NOTES_FOR_MEETING'
+        | 'CREATE_NOTES_FOR_MEETING_REQUEST'
+        | 'CUSTOMER_NEWS'
+        | 'FIND_MEETING_TIME'
+        | 'NEXT_MEETING'
+        | 'PERSONALIZED_DOCS'
+        | 'TRENDING_DOCS'
+        | 'UPCOMING_TRIP'
+        | 'SUMMARY'
+        | 'MEETINGS'
+        | 'HOMEPAGE'
+        | 'SHARE_MEETING_DOCS'
+        | 'DISCOVER_PEOPLE'
+        | 'HOMEPAGE_V3'
+        | 'AGENDA_GROUP'
+        | 'WORK_IN_PROGRESS'
+        | 'GET_AND_KEEP_AHEAD'
+        | 'GENERIC_ANSWER_CARD'
+        | 'THIRD_PARTY_ANSWER_CARD'
+        | 'DOMAIN_TRENDING_DOCS'
+        | 'TEAM_TRENDING_DOCS'
+        | 'DOCUMENT_LIST_ANSWER_CARD'
+        | 'SUGGESTED_QUERY_ANSWER_CARD'
+        | 'PERSON_ANSWER_CARD'
+        | 'RELATED_PEOPLE_ANSWER_CARD'
+        | 'PERSON_KNOWLEDGE_CARD'
+        | 'PEOPLE_SEARCH_PROMOTION_CARD';
       /** Conflicting events card. */
       conflictingMeetingsCard?: EnterpriseTopazSidekickConflictingEventsCardProto;
       /** Answer card for documents that are applicable to the current query. */
@@ -411,11 +495,17 @@ declare namespace gapi.client {
     }
     interface EnterpriseTopazSidekickCardMetadata {
       /** Declares a preference for how this card should be packed in MSCR. All cards in a response must correspond to a single category. As a result, cards may be dropped from the response if this field is set. Any card that does not match the category of the card with the highest priority in the response will be dropped. */
-      cardCategory?: string;
+      cardCategory?: 'DEFAULT' | 'ANSWER' | 'KNOWLEDGE' | 'HOMEPAGE';
       /** An ID to identify the card and match actions to it. Be thoughtful of new card IDs since actions will be associated to that ID. E.g., if two card IDs collide, the system will think that the actions have been applied to the same card. Similarly, if EAS can return multiple cards of the same type (e.g., Meetings), ensure that the card_id identifies a given instance of the card so that, e.g., dismissals only affect the dismissed card as opposed to affecting all meeting cards. */
       cardId?: string;
       /** Chronology. */
-      chronology?: string;
+      chronology?:
+        | 'UNKNOWN'
+        | 'PAST'
+        | 'RECENTLY_PAST'
+        | 'PRESENT'
+        | 'NEAR_FUTURE'
+        | 'FUTURE';
       /** Debug info (only reported if request's debug_level > 0). */
       debugInfo?: string;
       /** Information about the NLP done to get the card. */
@@ -423,7 +513,7 @@ declare namespace gapi.client {
       /** Ranking params. */
       rankingParams?: EnterpriseTopazSidekickRankingParams;
       /** Render mode. */
-      renderMode?: string;
+      renderMode?: 'UNKNOWN_RENDER' | 'COLLAPSED' | 'EXPANDED';
     }
     interface EnterpriseTopazSidekickCommonDebugInfo {
       /** Debug message. */
@@ -431,7 +521,7 @@ declare namespace gapi.client {
     }
     interface EnterpriseTopazSidekickCommonDocument {
       /** Access type, i.e., whether the user has access to the document or not. */
-      accessType?: string;
+      accessType?: 'UNKNOWN_ACCESS' | 'ALLOWED' | 'NOT_ALLOWED';
       /** Information for debugging. */
       debugInfo?: EnterpriseTopazSidekickCommonDebugInfo;
       /** Document id. */
@@ -445,9 +535,27 @@ declare namespace gapi.client {
       /** MIME type */
       mimeType?: string;
       /** Document provenance. */
-      provenance?: string;
+      provenance?:
+        | 'UNKNOWN_PROVENANCE'
+        | 'CALENDAR_DESCRIPTION'
+        | 'CALENDAR_ATTACHMENT'
+        | 'MINED'
+        | 'CALENDAR_ASSIST_ATTACHMENT';
       /** Justification of why this document is being returned. */
-      reason?: string;
+      reason?:
+        | 'UNKNOWN'
+        | 'TRENDING_IN_COLLABORATORS'
+        | 'TRENDING_IN_DOMAIN'
+        | 'FREQUENTLY_VIEWED'
+        | 'FREQUENTLY_EDITED'
+        | 'NEW_UPDATES'
+        | 'NEW_COMMENTS'
+        | 'EVENT_DESCRIPTION'
+        | 'EVENT_ATTACHMENT'
+        | 'EVENT_METADATA_ATTACHMENT'
+        | 'MINED_DOCUMENT'
+        | 'NEW_MENTIONS'
+        | 'NEW_SHARES';
       /** A sampling of the text from the document. */
       snippet?: string;
       /** Thumbnail URL. */
@@ -455,7 +563,36 @@ declare namespace gapi.client {
       /** Title of the document. */
       title?: string;
       /** Type of the document. */
-      type?: string;
+      type?:
+        | 'UNKNOWN'
+        | 'DOCUMENT'
+        | 'PRESENTATION'
+        | 'SPREADSHEET'
+        | 'PDF'
+        | 'IMAGE'
+        | 'BINARY_BLOB'
+        | 'FUSION_TABLE'
+        | 'FOLDER'
+        | 'DRAWING'
+        | 'VIDEO'
+        | 'FORM'
+        | 'LINK_URL'
+        | 'LINK_GO'
+        | 'LINK_GOO_GL'
+        | 'LINK_BIT_LY'
+        | 'LINK_GMAIL'
+        | 'LINK_MAILTO'
+        | 'VIDEO_YOUTUBE'
+        | 'VIDEO_LIVE'
+        | 'GROUPS'
+        | 'NEWS'
+        | 'SITES'
+        | 'HANGOUT'
+        | 'AUDIO'
+        | 'MS_WORD'
+        | 'MS_POWERPOINT'
+        | 'MS_EXCEL'
+        | 'MS_OUTLOOK';
       /** Absolute URL of the document. */
       url?: string;
     }
@@ -477,13 +614,33 @@ declare namespace gapi.client {
       /** The owner of the document. */
       owner?: EnterpriseTopazSidekickCommonPerson;
       /** ACL scope of the document which identifies the sharing status of the doc (e.g., limited, shared with link, team drive, ...). */
-      scope?: string;
+      scope?:
+        | 'UNKNOWN_DOCUMENT_SCOPE'
+        | 'LIMITED'
+        | 'DASHER_DOMAIN_WITH_LINK'
+        | 'DASHER_DOMAIN'
+        | 'PUBLIC_WITH_LINK'
+        | 'PUBLIC'
+        | 'TEAM_DRIVE';
     }
     interface EnterpriseTopazSidekickCommonDocumentJustification {
       /** A locale aware message that explains why this document was selected. */
       justification?: string;
       /** Reason on why the document is selected. Populate for trending documents. */
-      reason?: string;
+      reason?:
+        | 'UNKNOWN'
+        | 'TRENDING_IN_COLLABORATORS'
+        | 'TRENDING_IN_DOMAIN'
+        | 'FREQUENTLY_VIEWED'
+        | 'FREQUENTLY_EDITED'
+        | 'NEW_UPDATES'
+        | 'NEW_COMMENTS'
+        | 'EVENT_DESCRIPTION'
+        | 'EVENT_ATTACHMENT'
+        | 'EVENT_METADATA_ATTACHMENT'
+        | 'MINED_DOCUMENT'
+        | 'NEW_MENTIONS'
+        | 'NEW_SHARES';
     }
     interface EnterpriseTopazSidekickCommonPerson {
       /** The birthday. */
@@ -531,7 +688,7 @@ declare namespace gapi.client {
     }
     interface EnterpriseTopazSidekickDocumentGroup {
       /** Document group type */
-      groupType?: string;
+      groupType?: 'UNKNOWN_TYPE' | 'ALL';
       /** The list of corresponding documents. */
       personalizedDocument?: EnterpriseTopazSidekickCommonDocument[];
     }
@@ -539,14 +696,30 @@ declare namespace gapi.client {
       documents?: EnterpriseTopazSidekickDocumentPerCategoryListDocumentPerCategoryListEntry[];
       /** Localized message explaining how the documents were derived (e.g. from the last 30 days activity). This field is optional. */
       helpMessage?: string;
-      listType?: string;
+      listType?:
+        | 'UNKNOWN_LIST_TYPE'
+        | 'MENTIONS'
+        | 'SHARES'
+        | 'NEEDS_ATTENTION'
+        | 'VIEWS'
+        | 'EDITS';
       /** Description of the types of documents present in the list. */
       listTypeDescription?: string;
       /** Response message in case no documents are present in the card. */
       responseMessage?: string;
     }
     interface EnterpriseTopazSidekickDocumentPerCategoryListDocumentPerCategoryListEntry {
-      category?: string;
+      category?:
+        | 'UNKNOWN_DOCUMENT'
+        | 'ACTIONABLE'
+        | 'VIEWED'
+        | 'REPLIED'
+        | 'MENTION_VIEWED'
+        | 'MENTION_REPLIED'
+        | 'MENTION_NOT_VIEWED'
+        | 'SHARED_AND_VIEWED'
+        | 'SHARED_NOT_VIEWED'
+        | 'EDITED';
       document?: EnterpriseTopazSidekickCommonDocument;
       /** Reason this document was selected. */
       rationale?: string;
@@ -598,7 +771,7 @@ declare namespace gapi.client {
       /** The event to request meeting notes creation */
       event?: EnterpriseTopazSidekickAgendaEntry;
       /** The reason why create-meeting-notes failed. */
-      reason?: string;
+      reason?: 'NONE' | 'NOT_OWNER' | 'UNKNOWN';
     }
     interface EnterpriseTopazSidekickMeetingNotesCardProto {
       /** The event to request meeting notes creation. */
@@ -612,7 +785,7 @@ declare namespace gapi.client {
     }
     interface EnterpriseTopazSidekickMeetingNotesCardRequest {
       /** Who are the meeting notes created for. */
-      canCreateFor?: string[];
+      canCreateFor?: 'UNKNOWN' | 'MYSELF' | 'ALL_ATTENDEES'[];
       /** The error and reason if known error occured. */
       error?: EnterpriseTopazSidekickMeetingNotesCardError;
       /** The event to request meeting notes creation */
@@ -648,7 +821,11 @@ declare namespace gapi.client {
       /** The header to display for the card. */
       header?: EnterpriseTopazSidekickPeopleAnswerPeopleAnswerCardHeader;
       /** The response status. */
-      responseStatus?: string;
+      responseStatus?:
+        | 'UNKNOWN'
+        | 'SUCCESS'
+        | 'MISSING_PERSON'
+        | 'MISSING_DATA';
       /** Localized user friendly message to display to the user in the case of missing data or an error. */
       statusMessage?: string;
       /** The profile of the person that was the subject of the query. */
@@ -662,9 +839,13 @@ declare namespace gapi.client {
       /** A list of people that are related to the query subject. */
       relatedPeople?: EnterpriseTopazSidekickCommonPerson[];
       /** Defines the type of relation the list of people have with the subject of the card. */
-      relationType?: string;
+      relationType?: 'UNKNOWN' | 'DIRECT_REPORTS' | 'MANAGER' | 'PEERS';
       /** The response status. */
-      responseStatus?: string;
+      responseStatus?:
+        | 'UNKNOWN'
+        | 'SUCCESS'
+        | 'MISSING_PERSON'
+        | 'MISSING_DATA';
       /** Localized user friendly message to display to the user in the case of missing data or an error. */
       statusMessage?: string;
       /** The profile of the person that was the subject of the query. */
@@ -676,9 +857,9 @@ declare namespace gapi.client {
     }
     interface EnterpriseTopazSidekickPerson {
       /** The level of affinity this person has with the requesting user. */
-      affinityLevel?: string;
+      affinityLevel?: 'UNKNOWN' | 'LOW' | 'MEDIUM' | 'HIGH';
       /** Attendance status of the person when included in a meeting event. */
-      attendingStatus?: string;
+      attendingStatus?: 'AWAITING' | 'YES' | 'NO' | 'MAYBE';
       /** Email. */
       email?: string;
       /** Gaia id. */
@@ -705,13 +886,19 @@ declare namespace gapi.client {
       /** Related people. */
       relatedPerson?: EnterpriseTopazSidekickCommonPerson[];
       /** Relation type. */
-      relation?: string;
+      relation?: 'UNKNOWN' | 'MANAGER' | 'DIRECT_REPORT';
     }
     interface EnterpriseTopazSidekickRankingParams {
       /** The end-time that this object will expect to occur. If the type is marked as FIXED, then this end-time will persist after bidding. If the type is marked as FLEXIBLE, this field is NOT expected to be filled and will be filled in after it has won a bid. Expected to be set when type is set to FIXED. */
       endTimeMs?: string;
       /** The priority to determine between objects that have the same start_time_ms The lower-value of priority == ranked higher. Max-priority = 0. Expected to be set for all types. */
-      priority?: string;
+      priority?:
+        | 'UNKNOWN'
+        | 'CRITICAL'
+        | 'IMPORTANT'
+        | 'HIGH'
+        | 'NORMAL'
+        | 'BEST_EFFORT';
       /** The score of the card to be used to break priority-ties */
       score?: number;
       /** The span that this card will take in the stream Expected to be set when type is set to FLEXIBLE. */
@@ -719,7 +906,7 @@ declare namespace gapi.client {
       /** The start-time that this object will bid-for If the type is marked as FIXED, then this start-time will persist after bidding. If the type is marked as FLEXIBLE, then it will occur at the given time or sometime after the requested time. Expected to be set for all types. */
       startTimeMs?: string;
       /** The packing type of this object. */
-      type?: string;
+      type?: 'FIXED' | 'FLEXIBLE';
     }
     interface EnterpriseTopazSidekickRecentDocumentsCardProto {
       document?: EnterpriseTopazSidekickCommonDocument[];
@@ -760,7 +947,7 @@ declare namespace gapi.client {
       /** If set, describes how the enum should be used as a search operator. */
       operatorOptions?: EnumOperatorOptions;
       /** Used to specify the ordered ranking for the enumeration that determines how the integer values provided in the possible EnumValuePairs are used to rank results. If specified, integer values must be provided for all possible EnumValuePair values given for this property. Can only be used if isRepeatable is false. */
-      orderedRanking?: string;
+      orderedRanking?: 'NO_ORDER' | 'ASCENDING' | 'DESCENDING';
       /** The list of possible values for the enumeration property. All EnumValuePairs must provide a string value. If you specify an integer value for one EnumValuePair, then all possible EnumValuePairs must provide an integer value. Both the string value and integer value must be unique over all possible values. Once set, possible values cannot be removed or modified. If you supply an ordered ranking and think you might insert additional enum values in the future, leave gaps in the initial integer values to allow adding a value in between previously registered values. The maximum number of elements is 100. */
       possibleValues?: EnumValuePair[];
     }
@@ -910,7 +1097,7 @@ declare namespace gapi.client {
       /** The name of the item. Format: datasources/{source_id}/items/{item_id} */
       item?: Item;
       /** Required. The RequestMode for this request. */
-      mode?: string;
+      mode?: 'UNSPECIFIED' | 'SYNCHRONOUS' | 'ASYNCHRONOUS';
     }
     interface InitializeCustomerRequest {}
     interface IntegerFacetingOptions {
@@ -935,7 +1122,7 @@ declare namespace gapi.client {
       /** If set, describes how the integer should be used as a search operator. */
       operatorOptions?: IntegerOperatorOptions;
       /** Used to specify the ordered ranking for the integer. Can only be used if isRepeatable is false. */
-      orderedRanking?: string;
+      orderedRanking?: 'NO_ORDER' | 'ASCENDING' | 'DESCENDING';
     }
     interface IntegerValues {
       values?: string[];
@@ -945,7 +1132,7 @@ declare namespace gapi.client {
       interactionTime?: string;
       /** The user that acted on the item. */
       principal?: Principal;
-      type?: string;
+      type?: 'UNSPECIFIED' | 'VIEW' | 'EDIT';
     }
     interface Item {
       /** Access control list for this item. */
@@ -953,7 +1140,11 @@ declare namespace gapi.client {
       /** Item content to be indexed and made text searchable. */
       content?: ItemContent;
       /** The type for this item. */
-      itemType?: string;
+      itemType?:
+        | 'UNSPECIFIED'
+        | 'CONTENT_ITEM'
+        | 'CONTAINER_ITEM'
+        | 'VIRTUAL_CONTAINER_ITEM';
       /** The metadata information. */
       metadata?: ItemMetadata;
       /** The name of the Item. Format: datasources/{source_id}/items/{item_id} This is a required field. The maximum length is 1536 characters. */
@@ -971,7 +1162,11 @@ declare namespace gapi.client {
     }
     interface ItemAcl {
       /** Sets the type of access rules to apply when an item inherits its ACL from a parent. This should always be set in tandem with the inheritAclFrom field. Also, when the inheritAclFrom field is set, this field should be set to a valid AclInheritanceType. */
-      aclInheritanceType?: string;
+      aclInheritanceType?:
+        | 'NOT_APPLICABLE'
+        | 'CHILD_OVERRIDE'
+        | 'PARENT_OVERRIDE'
+        | 'BOTH_PERMIT';
       /** List of principals who are explicitly denied access to the item in search results. While principals are denied access by default, use denied readers to handle exceptions and override the list allowed readers. The maximum number of elements is 100. */
       deniedReaders?: Principal[];
       /** The name of the item to inherit the Access Permission List (ACL) from. Note: ACL inheritance *only* provides access permissions to child items and does not define structural relationships, nor does it provide convenient ways to delete large groups of items. Deleting an ACL parent from the index only alters the access permissions of child items that reference the parent in the inheritAclFrom field. The item is still in the index, but may not visible in search results. By contrast, deletion of a container item also deletes all items that reference the container via the containerName field. The maximum length for this field is 1536 characters. */
@@ -984,7 +1179,7 @@ declare namespace gapi.client {
     interface ItemContent {
       /** Upload reference ID of a previously uploaded content via write method. */
       contentDataRef?: UploadItemRef;
-      contentFormat?: string;
+      contentFormat?: 'UNSPECIFIED' | 'HTML' | 'TEXT' | 'RAW';
       /** Hashing info calculated and provided by the API client for content. Can be used with the items.push method to calculate modified state. The maximum length is 2048 characters. */
       hash?: string;
       /** Content that is supplied inlined within the update method. The maximum length is 102400 bytes (100 KiB). */
@@ -996,7 +1191,12 @@ declare namespace gapi.client {
       /** Number of items matching the status code for which billing is done. This excludes virtual container items from the total count. This count would not be applicable for items with ERROR or NEW_ITEM status code. */
       indexedItemsCount?: string;
       /** Status of the items. */
-      statusCode?: string;
+      statusCode?:
+        | 'CODE_UNSPECIFIED'
+        | 'ERROR'
+        | 'MODIFIED'
+        | 'NEW_ITEM'
+        | 'ACCEPTED';
     }
     interface ItemMetadata {
       /** The name of the container for this item. Deletion of the container item leads to automatic deletion of this item. Note: ACLs are not inherited from a container item. To provide ACL inheritance for an item, use the inheritAclFrom field. The maximum length is 1536 characters. */
@@ -1028,7 +1228,12 @@ declare namespace gapi.client {
     }
     interface ItemStatus {
       /** Status code. */
-      code?: string;
+      code?:
+        | 'CODE_UNSPECIFIED'
+        | 'ERROR'
+        | 'MODIFIED'
+        | 'NEW_ITEM'
+        | 'ACCEPTED';
       /** Error details in case the item is in ERROR state. */
       processingErrors?: ProcessingError[];
       /** Repository error reported by connector. */
@@ -1217,7 +1422,11 @@ declare namespace gapi.client {
       admins?: PersonCore[];
       /** People the profile owner is an admin to. Note that not all fields of these PersonCores will be set, in particular, relationships will be empty. */
       adminTo?: PersonCore[];
-      availabilityStatus?: string;
+      availabilityStatus?:
+        | 'UNKNOWN'
+        | 'OUT_OF_OFFICE'
+        | 'OUTSIDE_WORKING_HOURS'
+        | 'AVAILABLE';
       /** Person birthday. */
       birthday?: Date;
       /** The URL to open the profile owner's primary calendar. */
@@ -1282,7 +1491,7 @@ declare namespace gapi.client {
     interface PhoneNumber {
       /** The phone number of the person. */
       phoneNumber?: string;
-      type?: string;
+      type?: 'OTHER' | 'MOBILE' | 'OFFICE';
     }
     interface Photo {
       /** The URL of the photo. */
@@ -1298,7 +1507,12 @@ declare namespace gapi.client {
       /** Queue name to fetch items from. If unspecified, PollItems will fetch from 'default' queue. The maximum length is 100 characters. */
       queue?: string;
       /** Limit the items polled to the ones with these statuses. */
-      statusCodes?: string[];
+      statusCodes?:
+        | 'CODE_UNSPECIFIED'
+        | 'ERROR'
+        | 'MODIFIED'
+        | 'NEW_ITEM'
+        | 'ACCEPTED'[];
     }
     interface PollItemsResponse {
       /** Set of items from the queue available for connector to process. These items have the following subset of fields populated: version metadata.hash structured_data.hash content.hash payload status queue */
@@ -1314,7 +1528,12 @@ declare namespace gapi.client {
     }
     interface ProcessingError {
       /** Error code indicating the nature of the error. */
-      code?: string;
+      code?:
+        | 'PROCESSING_ERROR_CODE_UNSPECIFIED'
+        | 'MALFORMED_REQUEST'
+        | 'UNSUPPORTED_CONTENT_FORMAT'
+        | 'INDIRECT_BROKEN_ACL'
+        | 'ACL_CYCLE';
       /** The description of the error. */
       errorMessage?: string;
       /** In case the item fields are invalid, this field contains the details about the validation errors. */
@@ -1365,7 +1584,12 @@ declare namespace gapi.client {
       /** Structured data hash of the item according to the repository. If specified, this is used to determine how to modify this item's status. Setting this field and the type field results in argument error. The maximum length is 2048 characters. */
       structuredDataHash?: string;
       /** The type of the push operation that defines the push behavior. */
-      type?: string;
+      type?:
+        | 'UNSPECIFIED'
+        | 'MODIFIED'
+        | 'NOT_MODIFIED'
+        | 'REPOSITORY_ERROR'
+        | 'REQUEUE';
     }
     interface PushItemRequest {
       /** The name of connector making this call. Format: datasources/{source_id}/connectors/{ID} */
@@ -1385,7 +1609,7 @@ declare namespace gapi.client {
       statusCode?: number;
     }
     interface QueryInterpretation {
-      interpretationType?: string;
+      interpretationType?: 'NONE' | 'BLEND' | 'REPLACE';
       /** The interpretation of the query used in search. For example, queries with natural language intent like "email from john" will be interpreted as "from:john source:mail". This field will not be filled when the reason is NOT_ENOUGH_RESULTS_FOUND_FOR_USER_QUERY. */
       interpretedQuery?: string;
       /** The actual number of results returned by the interpreted query. */
@@ -1393,7 +1617,10 @@ declare namespace gapi.client {
       /** The estimated number of results returned by the interpreted query. */
       interpretedQueryEstimatedResultCount?: string;
       /** The reason for interpretation of the query. This field will not be UNSPECIFIED if the interpretation type is not NONE. */
-      reason?: string;
+      reason?:
+        | 'UNSPECIFIED'
+        | 'QUERY_HAS_NATURAL_LANGUAGE_INTENT'
+        | 'NOT_ENOUGH_RESULTS_FOUND_FOR_USER_QUERY';
     }
     interface QueryInterpretationConfig {
       /** Set this flag to disable supplemental results retrieval, setting a flag here will not retrieve supplemental results for queries associated with a given search application. If this flag is set to True, it will take precedence over the option set at Query level. For the default value of False, query level flag will set the correct interpretation for supplemental results. */
@@ -1437,7 +1664,16 @@ declare namespace gapi.client {
       /** The name of the operator. */
       operatorName?: string;
       /** The type of the operator. */
-      type?: string;
+      type?:
+        | 'UNKNOWN'
+        | 'INTEGER'
+        | 'DOUBLE'
+        | 'TIMESTAMP'
+        | 'BOOLEAN'
+        | 'ENUM'
+        | 'DATE'
+        | 'TEXT'
+        | 'HTML';
     }
     interface QuerySource {
       /** Display name of the data source. */
@@ -1463,7 +1699,17 @@ declare namespace gapi.client {
       /** Error codes. Matches the definition of HTTP status codes. */
       httpStatusCode?: number;
       /** The type of error. */
-      type?: string;
+      type?:
+        | 'UNKNOWN'
+        | 'NETWORK_ERROR'
+        | 'DNS_ERROR'
+        | 'CONNECTION_ERROR'
+        | 'AUTHENTICATION_ERROR'
+        | 'AUTHORIZATION_ERROR'
+        | 'SERVER_ERROR'
+        | 'QUOTA_EXCEEDED'
+        | 'SERVICE_UNAVAILABLE'
+        | 'CLIENT_ERROR';
     }
     interface RequestOptions {
       /** Debug options of the request */
@@ -1519,7 +1765,7 @@ declare namespace gapi.client {
     }
     interface RetrievalImportance {
       /** Indicates the ranking importance given to property when it is matched during retrieval. Once set, the token importance of a property cannot be changed. */
-      importance?: string;
+      importance?: 'DEFAULT' | 'HIGHEST' | 'HIGH' | 'LOW' | 'NONE';
     }
     interface SafeHtmlProto {
       /** IMPORTANT: Never set or read this field, even from tests, it is private. See documentation at the top of .proto file for programming language packages with which to create or read this message. */
@@ -1670,13 +1916,22 @@ declare namespace gapi.client {
       /** The name of the operator corresponding to the field to sort on. The corresponding property must be marked as sortable. */
       operatorName?: string;
       /** Ascending is the default sort order */
-      sortOrder?: string;
+      sortOrder?: 'ASCENDING' | 'DESCENDING';
     }
     interface Source {
       /** Source name for content indexed by the Indexing API. */
       name?: string;
       /** Predefined content source for Google Apps. */
-      predefinedSource?: string;
+      predefinedSource?:
+        | 'NONE'
+        | 'QUERY_HISTORY'
+        | 'PERSON'
+        | 'GOOGLE_DRIVE'
+        | 'GOOGLE_GMAIL'
+        | 'GOOGLE_SITES'
+        | 'GOOGLE_GROUPS'
+        | 'GOOGLE_CALENDAR'
+        | 'GOOGLE_KEEP';
     }
     interface SourceConfig {
       /** The crowding configuration for the source. */
@@ -1704,7 +1959,7 @@ declare namespace gapi.client {
     }
     interface SourceScoringConfig {
       /** Importance of the source. */
-      sourceImportance?: string;
+      sourceImportance?: 'DEFAULT' | 'LOW' | 'HIGH';
     }
     interface SpellResult {
       /** The suggested spelling of the query. */
@@ -1712,7 +1967,10 @@ declare namespace gapi.client {
       /** The sanitized HTML representing the spell corrected query that can be used in the UI. This usually has language-specific tags to mark up parts of the query that are spell checked. */
       suggestedQueryHtml?: SafeHtmlProto;
       /** Suggestion triggered for the current query. */
-      suggestionType?: string;
+      suggestionType?:
+        | 'SUGGESTION_TYPE_UNSPECIFIED'
+        | 'NON_EMPTY_RESULTS_SPELL_SUGGESTION'
+        | 'ZERO_RESULTS_FULL_PAGE_REPLACEMENT';
     }
     interface StartUploadItemRequest {
       /** The name of connector making this call. Format: datasources/{source_id}/connectors/{ID} */
@@ -1807,7 +2065,13 @@ declare namespace gapi.client {
       /** The resource name for an external user. */
       externalIdentity?: Principal;
       /** The resolution status for the external identity. */
-      resolutionStatusCode?: string;
+      resolutionStatusCode?:
+        | 'CODE_UNSPECIFIED'
+        | 'NOT_FOUND'
+        | 'IDENTITY_SOURCE_NOT_FOUND'
+        | 'IDENTITY_SOURCE_MISCONFIGURED'
+        | 'TOO_MANY_MAPPINGS_FOUND'
+        | 'INTERNAL_ERROR';
     }
     interface UnreserveItemsRequest {
       /** The name of connector making this call. Format: datasources/{source_id}/connectors/{ID} */
@@ -1862,11 +2126,11 @@ declare namespace gapi.client {
       /** List all unmapped identities for a specific item. **Note:** This API requires an admin account to execute. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field. */
@@ -1897,11 +2161,11 @@ declare namespace gapi.client {
       /** Checks whether an item is accessible by specified principal. Principal must be a user; groups and domain values aren't supported. **Note:** This API requires an admin account to execute. */
       checkAccess(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field. */
@@ -1928,11 +2192,11 @@ declare namespace gapi.client {
       checkAccess(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field. */
@@ -1959,11 +2223,11 @@ declare namespace gapi.client {
       /** Fetches the item whose viewUrl exactly matches that of the URL provided in the request. **Note:** This API requires an admin account to execute. */
       searchByViewUrl(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1988,11 +2252,11 @@ declare namespace gapi.client {
       searchByViewUrl(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2023,11 +2287,11 @@ declare namespace gapi.client {
       /** Lists names of items associated with an unmapped identity. **Note:** This API requires an admin account to execute. */
       listForunmappedidentity(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field. */
@@ -2060,11 +2324,11 @@ declare namespace gapi.client {
       /** Lists unmapped user identities for an identity source. **Note:** This API requires an admin account to execute. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field. */
@@ -2086,7 +2350,13 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Limit users selection to this status. */
-        resolutionStatusCode?: string;
+        resolutionStatusCode?:
+          | 'CODE_UNSPECIFIED'
+          | 'NOT_FOUND'
+          | 'IDENTITY_SOURCE_NOT_FOUND'
+          | 'IDENTITY_SOURCE_MISCONFIGURED'
+          | 'TOO_MANY_MAPPINGS_FOUND'
+          | 'INTERNAL_ERROR';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -2105,11 +2375,11 @@ declare namespace gapi.client {
       /** Deletes Item resource for the specified resource name. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The name of connector making this call. Format: datasources/{source_id}/connectors/{ID} */
@@ -2121,7 +2391,7 @@ declare namespace gapi.client {
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** Required. The RequestMode for this request. */
-        mode?: string;
+        mode?: 'UNSPECIFIED' | 'SYNCHRONOUS' | 'ASYNCHRONOUS';
         /** Required. The name of the item to delete. Format: datasources/{source_id}/items/{item_id} */
         name: string;
         /** OAuth 2.0 token for the current user. */
@@ -2140,11 +2410,11 @@ declare namespace gapi.client {
       /** Deletes all items in a queue. This method is useful for deleting stale items. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source. */
       deleteQueueItems(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2169,11 +2439,11 @@ declare namespace gapi.client {
       deleteQueueItems(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2198,11 +2468,11 @@ declare namespace gapi.client {
       /** Gets Item resource by item name. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The name of connector making this call. Format: datasources/{source_id}/connectors/{ID} */
@@ -2229,11 +2499,11 @@ declare namespace gapi.client {
       /** Updates Item ACL, metadata, and content. It will insert the Item if it does not exist. This method does not support partial updates. Fields with no provided values are cleared out in the Cloud Search index. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source. */
       index(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2258,11 +2528,11 @@ declare namespace gapi.client {
       index(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2287,11 +2557,11 @@ declare namespace gapi.client {
       /** Lists all or a subset of Item resources. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** When set to true, the indexing system only populates the following fields: name, version, queue. metadata.hash, metadata.title, metadata.sourceRepositoryURL, metadata.objectType, metadata.createTime, metadata.updateTime, metadata.contentLanguage, metadata.mimeType, structured_data.hash, content.hash, itemType, itemStatus.code, itemStatus.processingError.code, itemStatus.repositoryError.type, If this value is false, then all the fields are populated in Item. */
         brief?: boolean;
         /** JSONP */
@@ -2324,11 +2594,11 @@ declare namespace gapi.client {
       /** Polls for unreserved items from the indexing queue and marks a set as reserved, starting with items that have the oldest timestamp from the highest priority ItemStatus. The priority order is as follows: ERROR MODIFIED NEW_ITEM ACCEPTED Reserving items ensures that polling from other threads cannot create overlapping sets. After handling the reserved items, the client should put items back into the unreserved state, either by calling index, or by calling push with the type REQUEUE. Items automatically become available (unreserved) after 4 hours even if no update or push method is called. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source. */
       poll(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2353,11 +2623,11 @@ declare namespace gapi.client {
       poll(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2382,11 +2652,11 @@ declare namespace gapi.client {
       /** Pushes an item onto a queue for later polling and updating. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source. */
       push(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2411,11 +2681,11 @@ declare namespace gapi.client {
       push(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2440,11 +2710,11 @@ declare namespace gapi.client {
       /** Unreserves all items from a queue, making them all eligible to be polled. This method is useful for resetting the indexing queue after a connector has been restarted. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source. */
       unreserve(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2469,11 +2739,11 @@ declare namespace gapi.client {
       unreserve(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2498,11 +2768,11 @@ declare namespace gapi.client {
       /** Creates an upload session for uploading item content. For items smaller than 100 KB, it's easier to embed the content inline within an index request. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source. */
       upload(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2527,11 +2797,11 @@ declare namespace gapi.client {
       upload(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2558,11 +2828,11 @@ declare namespace gapi.client {
       /** Deletes the schema of a data source. **Note:** This API requires an admin or service account to execute. */
       deleteSchema(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field. */
@@ -2587,11 +2857,11 @@ declare namespace gapi.client {
       /** Gets the schema of a data source. **Note:** This API requires an admin or service account to execute. */
       getSchema(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field. */
@@ -2616,11 +2886,11 @@ declare namespace gapi.client {
       /** Updates the schema of a data source. This method does not perform incremental updates to the schema. Instead, this method updates the schema by overwriting the entire schema. **Note:** This API requires an admin or service account to execute. */
       updateSchema(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2645,11 +2915,11 @@ declare namespace gapi.client {
       updateSchema(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2680,11 +2950,11 @@ declare namespace gapi.client {
       /** Uploads media for indexing. The upload endpoint supports direct and resumable upload protocols and is intended for large items that can not be [inlined during index requests](https://developers.google.com/workspace/cloud-search/docs/reference/rest/v1/indexing.datasources.items#itemcontent). To index large content: 1. Call indexing.datasources.items.upload with the item name to begin an upload session and retrieve the UploadItemRef. 1. Call media.upload to upload the content, as a streaming request, using the same resource name from the UploadItemRef from step 1. 1. Call indexing.datasources.items.index to index the item. Populate the [ItemContent](/cloud-search/docs/reference/rest/v1/indexing.datasources.items#ItemContent) with the UploadItemRef from step 1. For additional information, see [Create a content connector using the REST API](https://developers.google.com/workspace/cloud-search/docs/guides/content-connector#rest). **Note:** This API requires a service account to execute. */
       upload(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2709,11 +2979,11 @@ declare namespace gapi.client {
       upload(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2740,11 +3010,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2777,11 +3047,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2807,11 +3077,11 @@ declare namespace gapi.client {
       /** Returns list of sources that user can use for Search and Suggest APIs. **Note:** This API requires a standard end user account to execute. A service account can't perform Query API requests directly; to use a service account to perform queries, set up [Google Workspace domain-wide delegation of authority](https://developers.google.com/workspace/cloud-search/docs/guides/delegation/). */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2844,11 +3114,11 @@ declare namespace gapi.client {
       /** Provides functionality to remove logged activity for a user. Currently to be used only for Chat 1p clients **Note:** This API requires a standard end user account to execute. A service account can't perform Remove Activity requests directly; to use a service account to perform queries, set up [Google Workspace domain-wide delegation of authority](https://developers.google.com/workspace/cloud-search/docs/guides/delegation/). */
       removeActivity(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2871,11 +3141,11 @@ declare namespace gapi.client {
       removeActivity(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2898,11 +3168,11 @@ declare namespace gapi.client {
       /** The Cloud Search Query API provides the search method, which returns the most relevant results from a user query. The results can come from Google Workspace apps, such as Gmail or Google Drive, or they can come from data that you have indexed from a third party. **Note:** This API requires a standard end user account to execute. A service account can't perform Query API requests directly; to use a service account to perform queries, set up [Google Workspace domain-wide delegation of authority](https://developers.google.com/workspace/cloud-search/docs/guides/delegation/). */
       search(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2925,11 +3195,11 @@ declare namespace gapi.client {
       search(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2952,11 +3222,11 @@ declare namespace gapi.client {
       /** Provides suggestions for autocompleting the query. **Note:** This API requires a standard end user account to execute. A service account can't perform Query API requests directly; to use a service account to perform queries, set up [Google Workspace domain-wide delegation of authority](https://developers.google.com/workspace/cloud-search/docs/guides/delegation/). */
       suggest(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2979,11 +3249,11 @@ declare namespace gapi.client {
       suggest(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3009,11 +3279,11 @@ declare namespace gapi.client {
       /** Creates a datasource. **Note:** This API requires an admin account to execute. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3036,11 +3306,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3063,11 +3333,11 @@ declare namespace gapi.client {
       /** Deletes a datasource. **Note:** This API requires an admin account to execute. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field. */
@@ -3092,11 +3362,11 @@ declare namespace gapi.client {
       /** Gets a datasource. **Note:** This API requires an admin account to execute. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field. */
@@ -3121,11 +3391,11 @@ declare namespace gapi.client {
       /** Lists datasources. **Note:** This API requires an admin account to execute. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field. */
@@ -3152,11 +3422,11 @@ declare namespace gapi.client {
       /** Updates a datasource. **Note:** This API requires an admin account to execute. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field. */
@@ -3185,11 +3455,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field. */
@@ -3218,11 +3488,11 @@ declare namespace gapi.client {
       /** Updates a datasource. **Note:** This API requires an admin account to execute. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3247,11 +3517,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3278,11 +3548,11 @@ declare namespace gapi.client {
       /** Creates a search application. **Note:** This API requires an admin account to execute. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3305,11 +3575,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3332,11 +3602,11 @@ declare namespace gapi.client {
       /** Deletes a search application. **Note:** This API requires an admin account to execute. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field. */
@@ -3361,11 +3631,11 @@ declare namespace gapi.client {
       /** Gets the specified search application. **Note:** This API requires an admin account to execute. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field. */
@@ -3390,11 +3660,11 @@ declare namespace gapi.client {
       /** Lists all search applications. **Note:** This API requires an admin account to execute. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field. */
@@ -3421,11 +3691,11 @@ declare namespace gapi.client {
       /** Updates a search application. **Note:** This API requires an admin account to execute. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3452,11 +3722,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3483,11 +3753,11 @@ declare namespace gapi.client {
       /** Resets a search application to default settings. This will return an empty response. **Note:** This API requires an admin account to execute. */
       reset(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3512,11 +3782,11 @@ declare namespace gapi.client {
       reset(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3541,11 +3811,11 @@ declare namespace gapi.client {
       /** Updates a search application. **Note:** This API requires an admin account to execute. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3572,11 +3842,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3605,11 +3875,11 @@ declare namespace gapi.client {
       /** Get customer settings. **Note:** This API requires an admin account to execute. */
       getCustomer(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3630,11 +3900,11 @@ declare namespace gapi.client {
       /** Update customer settings. **Note:** This API requires an admin account to execute. */
       updateCustomer(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3659,11 +3929,11 @@ declare namespace gapi.client {
       updateCustomer(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3692,11 +3962,11 @@ declare namespace gapi.client {
       /** Gets indexed item statistics for a single data source. **Note:** This API requires a standard end user account to execute. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3736,11 +4006,11 @@ declare namespace gapi.client {
       /** Get the query statistics for search application. **Note:** This API requires a standard end user account to execute. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3780,11 +4050,11 @@ declare namespace gapi.client {
       /** Get the # of search sessions, % of successful sessions with a click query statistics for search application. **Note:** This API requires a standard end user account to execute. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3824,11 +4094,11 @@ declare namespace gapi.client {
       /** Get the users statistics for search application. **Note:** This API requires a standard end user account to execute. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3868,11 +4138,11 @@ declare namespace gapi.client {
       /** Gets indexed item statistics aggreggated across all data sources. This API only returns statistics for previous dates; it doesn't return statistics for the current day. **Note:** This API requires a standard end user account to execute. */
       getIndex(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3905,11 +4175,11 @@ declare namespace gapi.client {
       /** Get the query statistics for customer. **Note:** This API requires a standard end user account to execute. */
       getQuery(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3942,11 +4212,11 @@ declare namespace gapi.client {
       /** Get search application stats for customer. **Note:** This API requires a standard end user account to execute. */
       getSearchapplication(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Day of month. Must be from 1 to 31 and valid for the year and month. */
@@ -3979,11 +4249,11 @@ declare namespace gapi.client {
       /** Get the # of search sessions, % of successful sessions with a click query statistics for customer. **Note:** This API requires a standard end user account to execute. */
       getSession(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4016,11 +4286,11 @@ declare namespace gapi.client {
       /** Get the users statistics for customer. **Note:** This API requires a standard end user account to execute. */
       getUser(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4059,11 +4329,11 @@ declare namespace gapi.client {
       /** Enables `third party` support in Google Cloud Search. **Note:** This API requires an admin account to execute. */
       initializeCustomer(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4086,11 +4356,11 @@ declare namespace gapi.client {
       initializeCustomer(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

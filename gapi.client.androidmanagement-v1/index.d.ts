@@ -37,23 +37,47 @@ declare namespace gapi.client {
       /** Required. The activation code for the eSIM profile. */
       activationCode?: string;
       /** Required. The activation state of the eSIM profile once it is downloaded. */
-      activationState?: string;
+      activationState?:
+        | 'ACTIVATION_STATE_UNSPECIFIED'
+        | 'ACTIVATED'
+        | 'NOT_ACTIVATED';
     }
     interface AdvancedSecurityOverrides {
       /** Controls Common Criteria Mode—security standards defined in the Common Criteria for Information Technology Security Evaluation (https://www.commoncriteriaportal.org/) (CC). Enabling Common Criteria Mode increases certain security components on a device, see CommonCriteriaMode for details.Warning: Common Criteria Mode enforces a strict security model typically only required for IT products used in national security systems and other highly sensitive organizations. Standard device use may be affected. Only enabled if required. If Common Criteria Mode is turned off after being enabled previously, all user-configured Wi-Fi networks may be lost and any enterprise-configured Wi-Fi networks that require user input may need to be reconfigured. */
-      commonCriteriaMode?: string;
+      commonCriteriaMode?:
+        | 'COMMON_CRITERIA_MODE_UNSPECIFIED'
+        | 'COMMON_CRITERIA_MODE_DISABLED'
+        | 'COMMON_CRITERIA_MODE_ENABLED';
       /** Optional. Controls whether content protection, which scans for deceptive apps, is enabled. This is supported on Android 15 and above. */
-      contentProtectionPolicy?: string;
+      contentProtectionPolicy?:
+        | 'CONTENT_PROTECTION_POLICY_UNSPECIFIED'
+        | 'CONTENT_PROTECTION_DISABLED'
+        | 'CONTENT_PROTECTION_ENFORCED'
+        | 'CONTENT_PROTECTION_USER_CHOICE';
       /** Controls access to developer settings: developer options and safe boot. Replaces safeBootDisabled (deprecated) and debuggingFeaturesAllowed (deprecated). On personally-owned devices with a work profile, setting this policy will not disable safe boot. In this case, a NonComplianceDetail with MANAGEMENT_MODE is reported. */
-      developerSettings?: string;
+      developerSettings?:
+        | 'DEVELOPER_SETTINGS_UNSPECIFIED'
+        | 'DEVELOPER_SETTINGS_DISABLED'
+        | 'DEVELOPER_SETTINGS_ALLOWED';
       /** Whether Google Play Protect verification (https://support.google.com/accounts/answer/2812853) is enforced. Replaces ensureVerifyAppsEnabled (deprecated). */
-      googlePlayProtectVerifyApps?: string;
+      googlePlayProtectVerifyApps?:
+        | 'GOOGLE_PLAY_PROTECT_VERIFY_APPS_UNSPECIFIED'
+        | 'VERIFY_APPS_ENFORCED'
+        | 'VERIFY_APPS_USER_CHOICE';
       /** Optional. Controls Memory Tagging Extension (MTE) (https://source.android.com/docs/security/test/memory-safety/arm-mte) on the device. The device needs to be rebooted to apply changes to the MTE policy. On Android 15 and above, a NonComplianceDetail with PENDING is reported if the policy change is pending a device reboot. */
-      mtePolicy?: string;
+      mtePolicy?:
+        | 'MTE_POLICY_UNSPECIFIED'
+        | 'MTE_USER_CHOICE'
+        | 'MTE_ENFORCED'
+        | 'MTE_DISABLED';
       /** Personal apps that can read work profile notifications using a NotificationListenerService (https://developer.android.com/reference/android/service/notification/NotificationListenerService). By default, no personal apps (aside from system apps) can read work notifications. Each value in the list must be a package name. */
       personalAppsThatCanReadWorkNotifications?: string[];
       /** The policy for untrusted apps (apps from unknown sources) enforced on the device. Replaces install_unknown_sources_allowed (deprecated). */
-      untrustedAppsPolicy?: string;
+      untrustedAppsPolicy?:
+        | 'UNTRUSTED_APPS_POLICY_UNSPECIFIED'
+        | 'DISALLOW_INSTALL'
+        | 'ALLOW_INSTALL_IN_PERSONAL_PROFILE_ONLY'
+        | 'ALLOW_INSTALL_DEVICE_WIDE';
     }
     interface AlwaysOnVpnPackage {
       /** Disallows networking when the VPN is not connected. */
@@ -69,17 +93,45 @@ declare namespace gapi.client {
       /** Optional. APN settings for override APNs. There must not be any conflict between any of APN settings provided, otherwise the policy will be rejected. Two ApnSettings are considered to conflict when all of the following fields match on both: numericOperatorId, apn, proxyAddress, proxyPort, mmsProxyAddress, mmsProxyPort, mmsc, mvnoType, protocol, roamingProtocol. If some of the APN settings result in non-compliance of INVALID_VALUE , they will be ignored. This can be set on fully managed devices on Android 10 and above. This can also be set on work profiles on Android 13 and above and only with ApnSetting's with ENTERPRISE APN type. A NonComplianceDetail with API_LEVEL is reported if the Android version is less than 10. A NonComplianceDetail with MANAGEMENT_MODE is reported for work profiles on Android versions less than 13. */
       apnSettings?: ApnSetting[];
       /** Optional. Whether override APNs are disabled or enabled. See DevicePolicyManager.setOverrideApnsEnabled (https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setOverrideApnsEnabled) for more details. */
-      overrideApns?: string;
+      overrideApns?:
+        | 'OVERRIDE_APNS_UNSPECIFIED'
+        | 'OVERRIDE_APNS_DISABLED'
+        | 'OVERRIDE_APNS_ENABLED';
     }
     interface ApnSetting {
       /** Optional. Whether User Plane resources have to be activated during every transition from CM-IDLE mode to CM-CONNECTED state for this APN. See 3GPP TS 23.501 section 5.6.13. */
-      alwaysOnSetting?: string;
+      alwaysOnSetting?:
+        | 'ALWAYS_ON_SETTING_UNSPECIFIED'
+        | 'NOT_ALWAYS_ON'
+        | 'ALWAYS_ON';
       /** Required. Name of the APN. Policy will be rejected if this field is empty. */
       apn?: string;
       /** Required. Usage categories for the APN. Policy will be rejected if this field is empty or contains APN_TYPE_UNSPECIFIED or duplicates. Multiple APN types can be set on fully managed devices. ENTERPRISE is the only allowed APN type on work profiles. A NonComplianceDetail with MANAGEMENT_MODE is reported for any other value on work profiles. APN types that are not supported on the device or management mode will be ignored. If this results in the empty list, the APN setting will be ignored, because apnTypes is a required field. A NonComplianceDetail with INVALID_VALUE is reported if none of the APN types are supported on the device or management mode. */
-      apnTypes?: string[];
+      apnTypes?:
+        | 'APN_TYPE_UNSPECIFIED'
+        | 'ENTERPRISE'
+        | 'BIP'
+        | 'CBS'
+        | 'DEFAULT'
+        | 'DUN'
+        | 'EMERGENCY'
+        | 'FOTA'
+        | 'HIPRI'
+        | 'IA'
+        | 'IMS'
+        | 'MCX'
+        | 'MMS'
+        | 'RCS'
+        | 'SUPL'
+        | 'VSIM'
+        | 'XCAP'[];
       /** Optional. Authentication type of the APN. */
-      authType?: string;
+      authType?:
+        | 'AUTH_TYPE_UNSPECIFIED'
+        | 'NONE'
+        | 'PAP'
+        | 'CHAP'
+        | 'PAP_OR_CHAP';
       /** Optional. Carrier ID for the APN. A value of 0 (default) means not set and negative values are rejected. */
       carrierId?: number;
       /** Required. Human-readable name that describes the APN. Policy will be rejected if this field is empty. */
@@ -95,27 +147,58 @@ declare namespace gapi.client {
       /** Optional. The MTU (Maximum Transmission Unit) size of the IPv6 mobile interface to which the APN connected. A value of 0 (default) means not set and negative values are rejected. Supported on Android 13 and above. A NonComplianceDetail with API_LEVEL is reported if the Android version is less than 13. */
       mtuV6?: number;
       /** Optional. MVNO match type for the APN. */
-      mvnoType?: string;
+      mvnoType?: 'MVNO_TYPE_UNSPECIFIED' | 'GID' | 'ICCID' | 'IMSI' | 'SPN';
       /** Optional. Radio technologies (network types) the APN may use. Policy will be rejected if this field contains NETWORK_TYPE_UNSPECIFIED or duplicates. */
-      networkTypes?: string[];
+      networkTypes?:
+        | 'NETWORK_TYPE_UNSPECIFIED'
+        | 'EDGE'
+        | 'GPRS'
+        | 'GSM'
+        | 'HSDPA'
+        | 'HSPA'
+        | 'HSPAP'
+        | 'HSUPA'
+        | 'IWLAN'
+        | 'LTE'
+        | 'NR'
+        | 'TD_SCDMA'
+        | 'UMTS'[];
       /** Optional. The numeric operator ID of the APN. Numeric operator ID is defined as MCC (Mobile Country Code) + MNC (Mobile Network Code). */
       numericOperatorId?: string;
       /** Optional. APN password of the APN. */
       password?: string;
       /** Optional. The protocol to use to connect to this APN. */
-      protocol?: string;
+      protocol?:
+        | 'PROTOCOL_UNSPECIFIED'
+        | 'IP'
+        | 'IPV4V6'
+        | 'IPV6'
+        | 'NON_IP'
+        | 'PPP'
+        | 'UNSTRUCTURED';
       /** Optional. The proxy address of the APN. */
       proxyAddress?: string;
       /** Optional. The proxy port of the APN. A value of 0 (default) means not set and negative values are rejected. */
       proxyPort?: number;
       /** Optional. The protocol to use to connect to this APN while the device is roaming. */
-      roamingProtocol?: string;
+      roamingProtocol?:
+        | 'PROTOCOL_UNSPECIFIED'
+        | 'IP'
+        | 'IPV4V6'
+        | 'IPV6'
+        | 'NON_IP'
+        | 'PPP'
+        | 'UNSTRUCTURED';
       /** Optional. APN username of the APN. */
       username?: string;
     }
     interface Application {
       /** Whether this app is free, free with in-app purchases, or paid. If the pricing is unspecified, this means the app is not generally available anymore (even though it might still be available to people who own it). */
-      appPricing?: string;
+      appPricing?:
+        | 'APP_PRICING_UNSPECIFIED'
+        | 'FREE'
+        | 'FREE_WITH_IN_APP_PURCHASE'
+        | 'PAID';
       /** Application tracks visible to the enterprise. */
       appTracks?: AppTrackInfo[];
       /** Versions currently available for this app. */
@@ -127,13 +210,23 @@ declare namespace gapi.client {
       /** The app category (e.g. RACING, SOCIAL, etc.) */
       category?: string;
       /** The content rating for this app. */
-      contentRating?: string;
+      contentRating?:
+        | 'CONTENT_RATING_UNSPECIFIED'
+        | 'THREE_YEARS'
+        | 'SEVEN_YEARS'
+        | 'TWELVE_YEARS'
+        | 'SIXTEEN_YEARS'
+        | 'EIGHTEEN_YEARS';
       /** The localized promotional description, if available. */
       description?: string;
       /** How and to whom the package is made available. */
-      distributionChannel?: string;
+      distributionChannel?:
+        | 'DISTRIBUTION_CHANNEL_UNSPECIFIED'
+        | 'PUBLIC_GOOGLE_HOSTED'
+        | 'PRIVATE_GOOGLE_HOSTED'
+        | 'PRIVATE_SELF_HOSTED';
       /** Noteworthy features (if any) of this app. */
-      features?: string[];
+      features?: 'APP_FEATURE_UNSPECIFIED' | 'VPN_APP'[];
       /** Full app description, if available. */
       fullDescription?: string;
       /** A link to an image that can be used as an icon for the app. This image is suitable for use up to a pixel size of 512 x 512. */
@@ -163,7 +256,16 @@ declare namespace gapi.client {
       /** The creation time of the event. */
       createTime?: string;
       /** App event type. */
-      eventType?: string;
+      eventType?:
+        | 'APPLICATION_EVENT_TYPE_UNSPECIFIED'
+        | 'INSTALLED'
+        | 'CHANGED'
+        | 'DATA_CLEARED'
+        | 'REMOVED'
+        | 'REPLACED'
+        | 'RESTARTED'
+        | 'PINNED'
+        | 'UNPINNED';
     }
     interface ApplicationPermission {
       /** A longer description of the permission, providing more detail on what it affects. Localized. */
@@ -177,19 +279,45 @@ declare namespace gapi.client {
       /** List of the app’s track IDs that a device belonging to the enterprise can access. If the list contains multiple track IDs, devices receive the latest version among all accessible tracks. If the list contains no track IDs, devices only have access to the app’s production track. More details about each track are available in AppTrackInfo. */
       accessibleTrackIds?: string[];
       /** Specifies whether the app is allowed networking when the VPN is not connected and alwaysOnVpnPackage.lockdownEnabled is enabled. If set to VPN_LOCKDOWN_ENFORCED, the app is not allowed networking, and if set to VPN_LOCKDOWN_EXEMPTION, the app is allowed networking. Only supported on devices running Android 10 and above. If this is not supported by the device, the device will contain a NonComplianceDetail with non_compliance_reason set to API_LEVEL and a fieldPath. If this is not applicable to the app, the device will contain a NonComplianceDetail with non_compliance_reason set to UNSUPPORTED and a fieldPath. The fieldPath is set to applications[i].alwaysOnVpnLockdownExemption, where i is the index of the package in the applications policy. */
-      alwaysOnVpnLockdownExemption?: string;
+      alwaysOnVpnLockdownExemption?:
+        | 'ALWAYS_ON_VPN_LOCKDOWN_EXEMPTION_UNSPECIFIED'
+        | 'VPN_LOCKDOWN_ENFORCED'
+        | 'VPN_LOCKDOWN_EXEMPTION';
       /** Controls the auto-update mode for the app. */
-      autoUpdateMode?: string;
+      autoUpdateMode?:
+        | 'AUTO_UPDATE_MODE_UNSPECIFIED'
+        | 'AUTO_UPDATE_DEFAULT'
+        | 'AUTO_UPDATE_POSTPONED'
+        | 'AUTO_UPDATE_HIGH_PRIORITY';
       /** Controls whether the app can communicate with itself across a device’s work and personal profiles, subject to user consent. */
-      connectedWorkAndPersonalApp?: string;
+      connectedWorkAndPersonalApp?:
+        | 'CONNECTED_WORK_AND_PERSONAL_APP_UNSPECIFIED'
+        | 'CONNECTED_WORK_AND_PERSONAL_APP_DISALLOWED'
+        | 'CONNECTED_WORK_AND_PERSONAL_APP_ALLOWED';
       /** Optional. Whether the app is allowed to act as a credential provider on Android 14 and above. */
-      credentialProviderPolicy?: string;
+      credentialProviderPolicy?:
+        | 'CREDENTIAL_PROVIDER_POLICY_UNSPECIFIED'
+        | 'CREDENTIAL_PROVIDER_ALLOWED';
       /** Optional. Configuration for this custom app.install_type must be set to CUSTOM for this to be set. */
       customAppConfig?: CustomAppConfig;
       /** The default policy for all permissions requested by the app. If specified, this overrides the policy-level default_permission_policy which applies to all apps. It does not override the permission_grants which applies to all apps. */
-      defaultPermissionPolicy?: string;
+      defaultPermissionPolicy?:
+        | 'PERMISSION_POLICY_UNSPECIFIED'
+        | 'PROMPT'
+        | 'GRANT'
+        | 'DENY';
       /** The scopes delegated to the app from Android Device Policy. These provide additional privileges for the applications they are applied to. */
-      delegatedScopes?: string[];
+      delegatedScopes?:
+        | 'DELEGATED_SCOPE_UNSPECIFIED'
+        | 'CERT_INSTALL'
+        | 'MANAGED_CONFIGURATIONS'
+        | 'BLOCK_UNINSTALL'
+        | 'PERMISSION_GRANT'
+        | 'PACKAGE_ACCESS'
+        | 'ENABLE_SYSTEM_APP'
+        | 'NETWORK_ACTIVITY_LOGS'
+        | 'SECURITY_LOGS'
+        | 'CERT_SELECTION'[];
       /** Whether the app is disabled. When disabled, the app data is still preserved. */
       disabled?: boolean;
       /** Configuration to enable this app as an extension app, with the capability of interacting with Android Device Policy offline.This field can be set for at most one app. If there is any app with COMPANION_APP role, this field cannot be set.The signing key certificate fingerprint of the app on the device must match one of the entries in ApplicationPolicy.signingKeyCerts or ExtensionConfig.signingKeyFingerprintsSha256 (deprecated) or the signing key certificate fingerprints obtained from Play Store for the app to be able to communicate with Android Device Policy. If the app is not on Play Store and if ApplicationPolicy.signingKeyCerts and ExtensionConfig.signingKeyFingerprintsSha256 (deprecated) are not set, a NonComplianceDetail with INVALID_VALUE is reported. */
@@ -199,7 +327,15 @@ declare namespace gapi.client {
       /** Optional. Amongst apps with installType set to: FORCE_INSTALLED PREINSTALLEDthis controls the relative priority of installation. A value of 0 (default) means this app has no priority over other apps. For values between 1 and 10,000, a lower value means a higher priority. Values outside of the range 0 to 10,000 inclusive are rejected. */
       installPriority?: number;
       /** The type of installation to perform. */
-      installType?: string;
+      installType?:
+        | 'INSTALL_TYPE_UNSPECIFIED'
+        | 'PREINSTALLED'
+        | 'FORCE_INSTALLED'
+        | 'BLOCKED'
+        | 'AVAILABLE'
+        | 'REQUIRED_FOR_SETUP'
+        | 'KIOSK'
+        | 'CUSTOM';
       /** Whether the app is allowed to lock itself in full-screen mode. DEPRECATED. Use InstallType KIOSK or kioskCustomLauncherEnabled to configure a dedicated device. */
       lockTaskAllowed?: boolean;
       /** Managed configuration applied to the app. The format for the configuration is dictated by the ManagedProperty values supported by the app. Each field name in the managed configuration must match the key field of the ManagedProperty. The field value must be compatible with the type of the ManagedProperty: *type* *JSON value* BOOL true or false STRING string INTEGER number CHOICE string MULTISELECT array of strings HIDDEN string BUNDLE_ARRAY array of objects Note: string values cannot be longer than 65535 characters. */
@@ -213,15 +349,28 @@ declare namespace gapi.client {
       /** Explicit permission grants or denials for the app. These values override the default_permission_policy and permission_grants which apply to all apps. */
       permissionGrants?: PermissionGrant[];
       /** Optional. ID of the preferential network the application uses. There must be a configuration for the specified network ID in preferentialNetworkServiceConfigs. If set to PREFERENTIAL_NETWORK_ID_UNSPECIFIED, the application will use the default network ID specified in defaultPreferentialNetworkId. See the documentation of defaultPreferentialNetworkId for the list of apps excluded from this defaulting. This applies on both work profiles and fully managed devices on Android 13 and above. */
-      preferentialNetworkId?: string;
+      preferentialNetworkId?:
+        | 'PREFERENTIAL_NETWORK_ID_UNSPECIFIED'
+        | 'NO_PREFERENTIAL_NETWORK'
+        | 'PREFERENTIAL_NETWORK_ID_ONE'
+        | 'PREFERENTIAL_NETWORK_ID_TWO'
+        | 'PREFERENTIAL_NETWORK_ID_THREE'
+        | 'PREFERENTIAL_NETWORK_ID_FOUR'
+        | 'PREFERENTIAL_NETWORK_ID_FIVE';
       /** Optional. Roles the app has.Apps having certain roles can be exempted from power and background execution restrictions, suspension and hibernation on Android 14 and above. The user control can also be disallowed for apps with certain roles on Android 11 and above. Refer to the documentation of each RoleType for more details.The app is notified about the roles that are set for it if the app has a notification receiver service with . The app is notified whenever its roles are updated or after the app is installed when it has nonempty list of roles. The app can use this notification to bootstrap itself after the installation. See Integrate with the AMAPI SDK (https://developers.google.com/android/management/sdk-integration) and Manage app roles (https://developers.google.com/android/management/app-roles) guides for more details on the requirements for the service.For the exemptions to be applied and the app to be notified about the roles, the signing key certificate fingerprint of the app on the device must match one of the signing key certificate fingerprints obtained from Play Store or one of the entries in ApplicationPolicy.signingKeyCerts. Otherwise, a NonComplianceDetail with APP_SIGNING_CERT_MISMATCH is reported.There must not be duplicate roles with the same roleType. Multiple apps cannot hold a role with the same roleType. A role with type ROLE_TYPE_UNSPECIFIED is not allowed. */
       roles?: Role[];
       /** Optional. Signing key certificates of the app.This field is required in the following cases: The app has installType set to CUSTOM (i.e. a custom app). The app has roles set to a nonempty list and the app does not exist on the Play Store. The app has extensionConfig set (i.e. an extension app) but ExtensionConfig.signingKeyFingerprintsSha256 (deprecated) is not set and the app does not exist on the Play Store.If this field is not set for a custom app, the policy is rejected. If it is not set when required for a non-custom app, a NonComplianceDetail with INVALID_VALUE is reported.For other cases, this field is optional and the signing key certificates obtained from Play Store are used.See following policy settings to see how this field is used: choosePrivateKeyRules ApplicationPolicy.InstallType.CUSTOM ApplicationPolicy.extensionConfig ApplicationPolicy.roles */
       signingKeyCerts?: ApplicationSigningKeyCert[];
       /** Optional. Specifies whether user control is permitted for the app. User control includes user actions like force-stopping and clearing app data. Certain types of apps have special treatment, see USER_CONTROL_SETTINGS_UNSPECIFIED and USER_CONTROL_ALLOWED for more details. */
-      userControlSettings?: string;
+      userControlSettings?:
+        | 'USER_CONTROL_SETTINGS_UNSPECIFIED'
+        | 'USER_CONTROL_ALLOWED'
+        | 'USER_CONTROL_DISALLOWED';
       /** Specifies whether the app installed in the work profile is allowed to add widgets to the home screen. */
-      workProfileWidgets?: string;
+      workProfileWidgets?:
+        | 'WORK_PROFILE_WIDGETS_UNSPECIFIED'
+        | 'WORK_PROFILE_WIDGETS_ALLOWED'
+        | 'WORK_PROFILE_WIDGETS_DISALLOWED';
     }
     interface ApplicationPolicyChange {
       /** If ApplicationPolicy.packageName matches an existing ApplicationPolicy object within the Policy being modified, then that object will be updated. Otherwise, it will be added to the end of the Policy.applications. */
@@ -231,7 +380,12 @@ declare namespace gapi.client {
     }
     interface ApplicationReport {
       /** The source of the package. */
-      applicationSource?: string;
+      applicationSource?:
+        | 'APPLICATION_SOURCE_UNSPECIFIED'
+        | 'SYSTEM_APP_FACTORY_VERSION'
+        | 'SYSTEM_APP_UPDATED_VERSION'
+        | 'INSTALLED_FROM_PLAY_STORE'
+        | 'CUSTOM';
       /** The display name of the app. */
       displayName?: string;
       /** The list of app events which have occurred in the last 30 hours. */
@@ -247,9 +401,12 @@ declare namespace gapi.client {
       /** The SHA-1 hash of each android.content.pm.Signature (https://developer.android.com/reference/android/content/pm/Signature.html) associated with the app package. Each byte of each hash value is represented as a two-digit hexadecimal number. */
       signingKeyCertFingerprints?: string[];
       /** Application state. */
-      state?: string;
+      state?: 'APPLICATION_STATE_UNSPECIFIED' | 'REMOVED' | 'INSTALLED';
       /** Whether the app is user facing. */
-      userFacingType?: string;
+      userFacingType?:
+        | 'USER_FACING_TYPE_UNSPECIFIED'
+        | 'NOT_USER_FACING'
+        | 'USER_FACING';
       /** The app version code, which can be used to determine whether one version is more recent than another. */
       versionCode?: number;
       /** The app version as displayed to the user. */
@@ -305,7 +462,10 @@ declare namespace gapi.client {
       /** User ID of the admin app from the which the change was requested. */
       adminUserId?: number;
       /** Whether the backup service is enabled */
-      backupServiceState?: string;
+      backupServiceState?:
+        | 'BACKUP_SERVICE_STATE_UNSPECIFIED'
+        | 'BACKUP_SERVICE_DISABLED'
+        | 'BACKUP_SERVICE_ENABLED';
     }
     interface BatchUsageLogEvents {
       /** If present, the name of the device in the form ‘enterprises/{enterpriseId}/devices/{deviceId}’ */
@@ -321,7 +481,10 @@ declare namespace gapi.client {
       /** Number of days the policy is non-compliant before the device or work profile is blocked. To block access immediately, set to 0. blockAfterDays must be less than wipeAfterDays. */
       blockAfterDays?: number;
       /** Specifies the scope of this BlockAction. Only applicable to devices that are company-owned. */
-      blockScope?: string;
+      blockScope?:
+        | 'BLOCK_SCOPE_UNSPECIFIED'
+        | 'BLOCK_SCOPE_WORK_PROFILE'
+        | 'BLOCK_SCOPE_DEVICE';
     }
     interface CertAuthorityInstalledEvent {
       /** Subject of the certificate. */
@@ -371,7 +534,13 @@ declare namespace gapi.client {
       /** The duration for which the command is valid. The command will expire if not executed by the device during this time. The default duration if unspecified is ten minutes. There is no maximum duration. */
       duration?: string;
       /** If the command failed, an error code explaining the failure. This is not set when the command is cancelled by the caller. For reasoning about command errors, prefer fields in the following order (most preferred first): 1. Command-specific fields like clearAppsDataStatus, startLostModeStatus, or similar, if they exist. 2. This field, if set. 3. The generic error field in the Operation that wraps the command. */
-      errorCode?: string;
+      errorCode?:
+        | 'COMMAND_ERROR_CODE_UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'API_LEVEL'
+        | 'MANAGEMENT_MODE'
+        | 'INVALID_VALUE'
+        | 'UNSUPPORTED';
       /** Output only. Status of an ADD_ESIM or REMOVE_ESIM command. */
       esimStatus?: EsimCommandStatus;
       /** For commands of type RESET_PASSWORD, optionally specifies the new password. Note: The new password must be at least 6 characters long if it is numeric in case of Android 14 devices. Else the command will fail with INVALID_VALUE. */
@@ -383,7 +552,11 @@ declare namespace gapi.client {
       /** Output only. Status of the REQUEST_DEVICE_INFO command. */
       requestDeviceInfoStatus?: RequestDeviceInfoStatus;
       /** For commands of type RESET_PASSWORD, optionally specifies flags. */
-      resetPasswordFlags?: string[];
+      resetPasswordFlags?:
+        | 'RESET_PASSWORD_FLAG_UNSPECIFIED'
+        | 'REQUIRE_ENTRY'
+        | 'DO_NOT_ASK_CREDENTIALS_ON_BOOT'
+        | 'LOCK_NOW'[];
       /** Parameters for the START_LOST_MODE command to put the device into lost mode. See StartLostModeParams. If this is set, then it is suggested that type should not be set. In this case, the server automatically sets it to START_LOST_MODE. It is also acceptable to explicitly set type to START_LOST_MODE. */
       startLostModeParams?: StartLostModeParams;
       /** Output only. Status of the START_LOST_MODE command to put the device into lost mode. See StartLostModeStatus. */
@@ -393,7 +566,19 @@ declare namespace gapi.client {
       /** Output only. Status of the STOP_LOST_MODE command to take the device out of lost mode. See StopLostModeStatus. */
       stopLostModeStatus?: StopLostModeStatus;
       /** The type of the command. */
-      type?: string;
+      type?:
+        | 'COMMAND_TYPE_UNSPECIFIED'
+        | 'LOCK'
+        | 'RESET_PASSWORD'
+        | 'REBOOT'
+        | 'RELINQUISH_OWNERSHIP'
+        | 'CLEAR_APP_DATA'
+        | 'START_LOST_MODE'
+        | 'STOP_LOST_MODE'
+        | 'ADD_ESIM'
+        | 'REMOVE_ESIM'
+        | 'REQUEST_DEVICE_INFO'
+        | 'WIPE';
       /** The resource name of the user that owns the device in the form enterprises/{enterpriseId}/users/{userId}. This is automatically generated by the server based on the device the command is sent to. */
       userName?: string;
       /** Optional. Parameters for the WIPE command to wipe the device. If this is set, then it is suggested that type should not be set. In this case, the server automatically sets it to WIPE. It is also acceptable to explicitly set type to WIPE. */
@@ -401,9 +586,17 @@ declare namespace gapi.client {
     }
     interface CommonCriteriaModeInfo {
       /** Whether Common Criteria Mode is enabled. */
-      commonCriteriaModeStatus?: string;
+      commonCriteriaModeStatus?:
+        | 'COMMON_CRITERIA_MODE_STATUS_UNKNOWN'
+        | 'COMMON_CRITERIA_MODE_DISABLED'
+        | 'COMMON_CRITERIA_MODE_ENABLED';
       /** Output only. The status of policy signature verification. */
-      policySignatureVerificationStatus?: string;
+      policySignatureVerificationStatus?:
+        | 'POLICY_SIGNATURE_VERIFICATION_STATUS_UNSPECIFIED'
+        | 'POLICY_SIGNATURE_VERIFICATION_DISABLED'
+        | 'POLICY_SIGNATURE_VERIFICATION_SUCCEEDED'
+        | 'POLICY_SIGNATURE_VERIFICATION_NOT_SUPPORTED'
+        | 'POLICY_SIGNATURE_VERIFICATION_FAILED';
     }
     interface ComplianceRule {
       /** A condition which is satisfied if the Android Framework API level on the device doesn't meet a minimum requirement. */
@@ -449,17 +642,34 @@ declare namespace gapi.client {
     }
     interface CrossProfilePolicies {
       /** Optional. Controls whether personal profile apps can invoke app functions exposed by apps in the work profile. */
-      crossProfileAppFunctions?: string;
+      crossProfileAppFunctions?:
+        | 'CROSS_PROFILE_APP_FUNCTIONS_UNSPECIFIED'
+        | 'CROSS_PROFILE_APP_FUNCTIONS_DISALLOWED'
+        | 'CROSS_PROFILE_APP_FUNCTIONS_ALLOWED';
       /** Whether text copied from one profile (personal or work) can be pasted in the other profile. */
-      crossProfileCopyPaste?: string;
+      crossProfileCopyPaste?:
+        | 'CROSS_PROFILE_COPY_PASTE_UNSPECIFIED'
+        | 'COPY_FROM_WORK_TO_PERSONAL_DISALLOWED'
+        | 'CROSS_PROFILE_COPY_PASTE_ALLOWED';
       /** Whether data from one profile (personal or work) can be shared with apps in the other profile. Specifically controls simple data sharing via intents. Management of other cross-profile communication channels, such as contact search, copy/paste, or connected work & personal apps, are configured separately. */
-      crossProfileDataSharing?: string;
+      crossProfileDataSharing?:
+        | 'CROSS_PROFILE_DATA_SHARING_UNSPECIFIED'
+        | 'CROSS_PROFILE_DATA_SHARING_DISALLOWED'
+        | 'DATA_SHARING_FROM_WORK_TO_PERSONAL_DISALLOWED'
+        | 'CROSS_PROFILE_DATA_SHARING_ALLOWED';
       /** List of apps which are excluded from the ShowWorkContactsInPersonalProfile setting. For this to be set, ShowWorkContactsInPersonalProfile must be set to one of the following values: SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_ALLOWED. In this case, these exemptions act as a blocklist. SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED. In this case, these exemptions act as an allowlist. SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED_EXCEPT_SYSTEM. In this case, these exemptions act as an allowlist, in addition to the already allowlisted system apps.Supported on Android 14 and above. A NonComplianceDetail with API_LEVEL is reported if the Android version is less than 14. */
       exemptionsToShowWorkContactsInPersonalProfile?: PackageNameList;
       /** Whether personal apps can access contacts stored in the work profile.See also exemptions_to_show_work_contacts_in_personal_profile. */
-      showWorkContactsInPersonalProfile?: string;
+      showWorkContactsInPersonalProfile?:
+        | 'SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_UNSPECIFIED'
+        | 'SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED'
+        | 'SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_ALLOWED'
+        | 'SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED_EXCEPT_SYSTEM';
       /** Specifies the default behaviour for work profile widgets. If the policy does not specify work_profile_widgets for a specific application, it will behave according to the value specified here. */
-      workProfileWidgetsDefault?: string;
+      workProfileWidgetsDefault?:
+        | 'WORK_PROFILE_WIDGETS_DEFAULT_UNSPECIFIED'
+        | 'WORK_PROFILE_WIDGETS_DEFAULT_ALLOWED'
+        | 'WORK_PROFILE_WIDGETS_DEFAULT_DISALLOWED';
     }
     interface CryptoSelfTestCompletedEvent {
       /** Whether the test succeeded. */
@@ -467,7 +677,10 @@ declare namespace gapi.client {
     }
     interface CustomAppConfig {
       /** Optional. User uninstall settings of the custom app. */
-      userUninstallSettings?: string;
+      userUninstallSettings?:
+        | 'USER_UNINSTALL_SETTINGS_UNSPECIFIED'
+        | 'DISALLOW_UNINSTALL_BY_USER'
+        | 'ALLOW_UNINSTALL_BY_USER';
     }
     interface Date {
       /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
@@ -483,13 +696,26 @@ declare namespace gapi.client {
     }
     interface DefaultApplicationContext {
       /** Output only. The scope of non-compliant default application setting. */
-      defaultApplicationScope?: string;
+      defaultApplicationScope?:
+        | 'DEFAULT_APPLICATION_SCOPE_UNSPECIFIED'
+        | 'SCOPE_FULLY_MANAGED'
+        | 'SCOPE_WORK_PROFILE'
+        | 'SCOPE_PERSONAL_PROFILE';
     }
     interface DefaultApplicationInfo {
       /** Output only. Details on the default application setting attempts, in the same order as listed in defaultApplications. */
       defaultApplicationSettingAttempts?: DefaultApplicationSettingAttempt[];
       /** Output only. The default application type. */
-      defaultApplicationType?: string;
+      defaultApplicationType?:
+        | 'DEFAULT_APPLICATION_TYPE_UNSPECIFIED'
+        | 'DEFAULT_ASSISTANT'
+        | 'DEFAULT_BROWSER'
+        | 'DEFAULT_CALL_REDIRECTION'
+        | 'DEFAULT_CALL_SCREENING'
+        | 'DEFAULT_DIALER'
+        | 'DEFAULT_HOME'
+        | 'DEFAULT_SMS'
+        | 'DEFAULT_WALLET';
       /** Output only. The package name of the current default application. */
       packageName?: string;
     }
@@ -497,13 +723,31 @@ declare namespace gapi.client {
       /** Required. The list of applications that can be set as the default app for a given type. This list must not be empty or contain duplicates. The first app in the list that is installed and qualified for the defaultApplicationType (e.g. SMS app for DEFAULT_SMS) is set as the default app. The signing key certificate fingerprint of the app on the device must also match one of the signing key certificate fingerprints obtained from Play Store or one of the entries in ApplicationPolicy.signingKeyCerts in order to be set as the default.If the defaultApplicationScopes contains SCOPE_FULLY_MANAGED or SCOPE_WORK_PROFILE, the app must have an entry in applications with installType set to a value other than BLOCKED.A NonComplianceDetail with APP_NOT_INSTALLED reason and DEFAULT_APPLICATION_SETTING_FAILED_FOR_SCOPE specific reason is reported if none of the apps in the list are installed. A NonComplianceDetail with INVALID_VALUE reason and DEFAULT_APPLICATION_SETTING_FAILED_FOR_SCOPE specific reason is reported if at least one app is installed but the policy fails to apply due to other reasons (e.g. the app is not of the right type).When applying to SCOPE_PERSONAL_PROFILE on a company-owned device with a work profile, only pre-installed system apps can be set as the default. A NonComplianceDetail with INVALID_VALUE reason and DEFAULT_APPLICATION_SETTING_FAILED_FOR_SCOPE specific reason is reported if the policy fails to apply to the personal profile. */
       defaultApplications?: DefaultApplication[];
       /** Required. The scopes to which the policy should be applied. This list must not be empty or contain duplicates.A NonComplianceDetail with MANAGEMENT_MODE reason and DEFAULT_APPLICATION_SETTING_UNSUPPORTED_SCOPES specific reason is reported if none of the specified scopes can be applied to the management mode (e.g. a fully managed device receives a policy with only SCOPE_PERSONAL_PROFILE in the list). */
-      defaultApplicationScopes?: string[];
+      defaultApplicationScopes?:
+        | 'DEFAULT_APPLICATION_SCOPE_UNSPECIFIED'
+        | 'SCOPE_FULLY_MANAGED'
+        | 'SCOPE_WORK_PROFILE'
+        | 'SCOPE_PERSONAL_PROFILE'[];
       /** Required. The app type to set the default application. */
-      defaultApplicationType?: string;
+      defaultApplicationType?:
+        | 'DEFAULT_APPLICATION_TYPE_UNSPECIFIED'
+        | 'DEFAULT_ASSISTANT'
+        | 'DEFAULT_BROWSER'
+        | 'DEFAULT_CALL_REDIRECTION'
+        | 'DEFAULT_CALL_SCREENING'
+        | 'DEFAULT_DIALER'
+        | 'DEFAULT_HOME'
+        | 'DEFAULT_SMS'
+        | 'DEFAULT_WALLET';
     }
     interface DefaultApplicationSettingAttempt {
       /** Output only. The outcome of setting the app as the default. */
-      attemptOutcome?: string;
+      attemptOutcome?:
+        | 'ATTEMPT_OUTCOME_UNSPECIFIED'
+        | 'SUCCESS'
+        | 'APP_NOT_INSTALLED'
+        | 'APP_SIGNING_CERT_MISMATCH'
+        | 'OTHER_FAILURE';
       /** Output only. The package name of the attempted application. */
       packageName?: string;
     }
@@ -519,7 +763,15 @@ declare namespace gapi.client {
       /** The version of the policy currently applied to the device. */
       appliedPolicyVersion?: string;
       /** The state currently applied to the device. */
-      appliedState?: string;
+      appliedState?:
+        | 'DEVICE_STATE_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'DISABLED'
+        | 'DELETED'
+        | 'PROVISIONING'
+        | 'LOST'
+        | 'PREPARING_FOR_MIGRATION'
+        | 'DEACTIVATED_BY_DEVICE_FINANCE';
       /** Information about Common Criteria Mode—security standards defined in the Common Criteria for Information Technology Security Evaluation (https://www.commoncriteriaportal.org/) (CC).This information is only available if statusReportingSettings.commonCriteriaModeEnabled is true in the device's policy the device is company-owned. */
       commonCriteriaModeInfo?: CommonCriteriaModeInfo;
       /** Output only. The default application information for the DefaultApplicationType. This information is only available if defaultApplicationInfoReportingEnabled is true in the device's policy. Available on Android 16 and above.All app types are reported on fully managed devices. DEFAULT_BROWSER, DEFAULT_CALL_REDIRECTION, DEFAULT_CALL_SCREENING and DEFAULT_DIALER types are reported for the work profiles on company-owned devices with a work profile and personally-owned devices. DEFAULT_WALLET is also reported for company-owned devices with a work profile, but will only include work profile information. */
@@ -549,7 +801,10 @@ declare namespace gapi.client {
       /** The last time the device sent a status report. */
       lastStatusReportTime?: string;
       /** The type of management mode Android Device Policy takes on the device. This influences which policy settings are supported. */
-      managementMode?: string;
+      managementMode?:
+        | 'MANAGEMENT_MODE_UNSPECIFIED'
+        | 'DEVICE_OWNER'
+        | 'PROFILE_OWNER';
       /** Events related to memory and storage measurements in chronological order. This information is only available if memoryInfoEnabled is true in the device's policy.Events are retained for a certain period of time and old events are deleted. */
       memoryEvents?: MemoryEvent[];
       /** Memory information: contains information about device memory and storage. */
@@ -561,7 +816,10 @@ declare namespace gapi.client {
       /** Details about policy settings that the device is not compliant with. */
       nonComplianceDetails?: NonComplianceDetail[];
       /** Ownership of the managed device. */
-      ownership?: string;
+      ownership?:
+        | 'OWNERSHIP_UNSPECIFIED'
+        | 'COMPANY_OWNED'
+        | 'PERSONALLY_OWNED';
       /** Whether the device is compliant with its policy. */
       policyCompliant?: boolean;
       /** The name of the policy applied to the device, in the form enterprises/{enterpriseId}/policies/{policyId}. If not specified, the policy_name for the device's user is applied. This field can be modified by a patch request. You can specify only the policyId when calling enterprises.devices.patch, as long as the policyId doesn’t contain any slashes. The rest of the policy name is inferred. */
@@ -575,7 +833,15 @@ declare namespace gapi.client {
       /** Detailed information about the device software. This information is only available if softwareInfoEnabled is true in the device's policy. */
       softwareInfo?: SoftwareInfo;
       /** The state to be applied to the device. This field can be modified by a patch request. Note that when calling enterprises.devices.patch, ACTIVE and DISABLED are the only allowable values. To enter the device into a DELETED state, call enterprises.devices.delete. */
-      state?: string;
+      state?:
+        | 'DEVICE_STATE_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'DISABLED'
+        | 'DELETED'
+        | 'PROVISIONING'
+        | 'LOST'
+        | 'PREPARING_FOR_MIGRATION'
+        | 'DEACTIVATED_BY_DEVICE_FINANCE';
       /** Map of selected system properties name and value related to the device. This information is only available if systemPropertiesEnabled is true in the device's policy. */
       systemProperties?: {[P in string]: string};
       /** The user who owns the device. */
@@ -587,19 +853,37 @@ declare namespace gapi.client {
       /** Optional. Access Point Name (APN) policy. Configuration for Access Point Names (APNs) which may override any other APNs on the device. See OVERRIDE_APNS_ENABLED and overrideApns for details. */
       apnPolicy?: ApnPolicy;
       /** Optional. Controls whether Bluetooth sharing is allowed. */
-      bluetoothSharing?: string;
+      bluetoothSharing?:
+        | 'BLUETOOTH_SHARING_UNSPECIFIED'
+        | 'BLUETOOTH_SHARING_ALLOWED'
+        | 'BLUETOOTH_SHARING_DISALLOWED';
       /** Controls Wi-Fi configuring privileges. Based on the option set, user will have either full or limited or no control in configuring Wi-Fi networks. */
-      configureWifi?: string;
+      configureWifi?:
+        | 'CONFIGURE_WIFI_UNSPECIFIED'
+        | 'ALLOW_CONFIGURING_WIFI'
+        | 'DISALLOW_ADD_WIFI_CONFIG'
+        | 'DISALLOW_CONFIGURING_WIFI';
       /** Optional. Preferential network service configuration. Setting this field will override preferentialNetworkService. This can be set on both work profiles and fully managed devices on Android 13 and above. See 5G network slicing (https://developers.google.com/android/management/5g-network-slicing) guide for more details. */
       preferentialNetworkServiceSettings?: PreferentialNetworkServiceSettings;
       /** Optional. The global private DNS settings. */
       privateDnsSettings?: PrivateDnsSettings;
       /** Controls tethering settings. Based on the value set, the user is partially or fully disallowed from using different forms of tethering. */
-      tetheringSettings?: string;
+      tetheringSettings?:
+        | 'TETHERING_SETTINGS_UNSPECIFIED'
+        | 'ALLOW_ALL_TETHERING'
+        | 'DISALLOW_WIFI_TETHERING'
+        | 'DISALLOW_ALL_TETHERING';
       /** Controls what files and/or data can be transferred via USB. Supported only on company-owned devices. */
-      usbDataAccess?: string;
+      usbDataAccess?:
+        | 'USB_DATA_ACCESS_UNSPECIFIED'
+        | 'ALLOW_USB_DATA_TRANSFER'
+        | 'DISALLOW_USB_FILE_TRANSFER'
+        | 'DISALLOW_USB_DATA_TRANSFER';
       /** Controls configuring and using Wi-Fi direct settings. Supported on company-owned devices running Android 13 and above. */
-      wifiDirectSettings?: string;
+      wifiDirectSettings?:
+        | 'WIFI_DIRECT_SETTINGS_UNSPECIFIED'
+        | 'ALLOW_WIFI_DIRECT'
+        | 'DISALLOW_WIFI_DIRECT';
       /** Optional. Wi-Fi roaming policy. */
       wifiRoamingPolicy?: WifiRoamingPolicy;
       /** Restrictions on which Wi-Fi SSIDs the device can connect to. Note that this does not affect which networks can be configured on the device. Supported on company-owned devices running Android 13 and above. */
@@ -607,17 +891,38 @@ declare namespace gapi.client {
     }
     interface DeviceRadioState {
       /** Controls whether airplane mode can be toggled by the user or not. */
-      airplaneModeState?: string;
+      airplaneModeState?:
+        | 'AIRPLANE_MODE_STATE_UNSPECIFIED'
+        | 'AIRPLANE_MODE_USER_CHOICE'
+        | 'AIRPLANE_MODE_DISABLED';
       /** Controls whether cellular 2G setting can be toggled by the user or not. */
-      cellularTwoGState?: string;
+      cellularTwoGState?:
+        | 'CELLULAR_TWO_G_STATE_UNSPECIFIED'
+        | 'CELLULAR_TWO_G_USER_CHOICE'
+        | 'CELLULAR_TWO_G_DISABLED';
       /** The minimum required security level of Wi-Fi networks that the device can connect to. */
-      minimumWifiSecurityLevel?: string;
+      minimumWifiSecurityLevel?:
+        | 'MINIMUM_WIFI_SECURITY_LEVEL_UNSPECIFIED'
+        | 'OPEN_NETWORK_SECURITY'
+        | 'PERSONAL_NETWORK_SECURITY'
+        | 'ENTERPRISE_NETWORK_SECURITY'
+        | 'ENTERPRISE_BIT192_NETWORK_SECURITY';
       /** Controls the state of the ultra wideband setting and whether the user can toggle it on or off. */
-      ultraWidebandState?: string;
+      ultraWidebandState?:
+        | 'ULTRA_WIDEBAND_STATE_UNSPECIFIED'
+        | 'ULTRA_WIDEBAND_USER_CHOICE'
+        | 'ULTRA_WIDEBAND_DISABLED';
       /** Optional. Controls whether the user is allowed to add eSIM profiles. */
-      userInitiatedAddEsimSettings?: string;
+      userInitiatedAddEsimSettings?:
+        | 'USER_INITIATED_ADD_ESIM_SETTINGS_UNSPECIFIED'
+        | 'USER_INITIATED_ADD_ESIM_ALLOWED'
+        | 'USER_INITIATED_ADD_ESIM_DISALLOWED';
       /** Controls current state of Wi-Fi and if user can change its state. */
-      wifiState?: string;
+      wifiState?:
+        | 'WIFI_STATE_UNSPECIFIED'
+        | 'WIFI_STATE_USER_CHOICE'
+        | 'WIFI_ENABLED'
+        | 'WIFI_DISABLED';
     }
     interface DeviceSettings {
       /** Whether ADB (https://developer.android.com/studio/command-line/adb.html) is enabled on the device. */
@@ -625,7 +930,14 @@ declare namespace gapi.client {
       /** Whether developer mode is enabled on the device. */
       developmentSettingsEnabled?: boolean;
       /** Encryption status from DevicePolicyManager. */
-      encryptionStatus?: string;
+      encryptionStatus?:
+        | 'ENCRYPTION_STATUS_UNSPECIFIED'
+        | 'UNSUPPORTED'
+        | 'INACTIVE'
+        | 'ACTIVATING'
+        | 'ACTIVE'
+        | 'ACTIVE_DEFAULT_KEY'
+        | 'ACTIVE_PER_USER';
       /** Whether the device is secured with PIN/password. */
       isDeviceSecure?: boolean;
       /** Whether the storage encryption is enabled. */
@@ -647,7 +959,7 @@ declare namespace gapi.client {
       /** Refresh rate of the display in frames per second. */
       refreshRate?: number;
       /** State of the display. */
-      state?: string;
+      state?: 'DISPLAY_STATE_UNSPECIFIED' | 'OFF' | 'ON' | 'DOZE' | 'SUSPENDED';
       /** Display width in pixels. */
       width?: number;
     }
@@ -687,7 +999,11 @@ declare namespace gapi.client {
       /** Optional, arbitrary data associated with the enrollment token. This could contain, for example, the ID of an org unit the device is assigned to after enrollment. After a device enrolls with the token, this data will be exposed in the enrollment_token_data field of the Device resource. The data must be 1024 characters or less; otherwise, the creation request will fail. */
       additionalData?: string;
       /** Controls whether personal usage is allowed on a device provisioned with this enrollment token.For company-owned devices: Enabling personal usage allows the user to set up a work profile on the device. Disabling personal usage requires the user provision the device as a fully managed device.For personally-owned devices: Enabling personal usage allows the user to set up a work profile on the device. Disabling personal usage will prevent the device from provisioning. Personal usage cannot be disabled on personally-owned device. */
-      allowPersonalUsage?: string;
+      allowPersonalUsage?:
+        | 'ALLOW_PERSONAL_USAGE_UNSPECIFIED'
+        | 'PERSONAL_USAGE_ALLOWED'
+        | 'PERSONAL_USAGE_DISALLOWED'
+        | 'PERSONAL_USAGE_DISALLOWED_USERLESS';
       /** The length of time the enrollment token is valid, ranging from 1 minute to Durations.MAX_VALUE (https://developers.google.com/protocol-buffers/docs/reference/java/com/google/protobuf/util/Durations.html#MAX_VALUE), approximately 10,000 years. If not specified, the default duration is 1 hour. Please note that if requested duration causes the resulting expiration_timestamp to exceed Timestamps.MAX_VALUE (https://developers.google.com/protocol-buffers/docs/reference/java/com/google/protobuf/util/Timestamps.html#MAX_VALUE), then expiration_timestamp is coerced to Timestamps.MAX_VALUE. */
       duration?: string;
       /** The expiration time of the token. This is a read-only field generated by the server. */
@@ -711,19 +1027,35 @@ declare namespace gapi.client {
       /** The enterprise contact info of an EMM-managed enterprise. */
       contactInfo?: ContactInfo;
       /** The types of Google Pub/Sub notifications enabled for the enterprise. */
-      enabledNotificationTypes?: string[];
+      enabledNotificationTypes?:
+        | 'NOTIFICATION_TYPE_UNSPECIFIED'
+        | 'ENROLLMENT'
+        | 'COMPLIANCE_REPORT'
+        | 'STATUS_REPORT'
+        | 'COMMAND'
+        | 'USAGE_LOGS'
+        | 'ENTERPRISE_UPGRADE'[];
       /** The name of the enterprise displayed to users. This field has a maximum length of 100 characters. */
       enterpriseDisplayName?: string;
       /** Output only. The type of the enterprise. */
-      enterpriseType?: string;
+      enterpriseType?:
+        | 'ENTERPRISE_TYPE_UNSPECIFIED'
+        | 'MANAGED_GOOGLE_DOMAIN'
+        | 'MANAGED_GOOGLE_PLAY_ACCOUNTS_ENTERPRISE';
       /** Settings for Google-provided user authentication. */
       googleAuthenticationSettings?: GoogleAuthenticationSettings;
       /** An image displayed as a logo during device provisioning. Supported types are: image/bmp, image/gif, image/x-ico, image/jpeg, image/png, image/webp, image/vnd.wap.wbmp, image/x-adobe-dng. */
       logo?: ExternalData;
       /** Output only. The type of managed Google domain. */
-      managedGoogleDomainType?: string;
+      managedGoogleDomainType?:
+        | 'MANAGED_GOOGLE_DOMAIN_TYPE_UNSPECIFIED'
+        | 'TYPE_TEAM'
+        | 'TYPE_DOMAIN';
       /** Output only. The type of a managed Google Play Accounts enterprise. */
-      managedGooglePlayAccountsEnterpriseType?: string;
+      managedGooglePlayAccountsEnterpriseType?:
+        | 'MANAGED_GOOGLE_PLAY_ACCOUNTS_ENTERPRISE_TYPE_UNSPECIFIED'
+        | 'CUSTOMER_MANAGED'
+        | 'EMM_MANAGED';
       /** The name of the enterprise which is generated by the server during creation, in the form enterprises/{enterpriseId}. */
       name?: string;
       /** A color in RGB format that indicates the predominant color to display in the device management app UI. The color components are stored as follows: (red << 16) | (green << 8) | blue, where the value of each component is between 0 and 255, inclusive. */
@@ -739,7 +1071,7 @@ declare namespace gapi.client {
       /** The name of upgraded enterprise in the format "enterprises/{enterprise}" */
       enterprise?: string;
       /** Output only. The upgrade state of the enterprise. */
-      upgradeState?: string;
+      upgradeState?: 'UPGRADE_STATE_UNSPECIFIED' | 'UPGRADE_STATE_SUCCEEDED';
     }
     interface EsimCommandStatus {
       /** Output only. Information about the eSIM added or removed. This is populated only when the eSIM operation status is SUCCESS. */
@@ -747,7 +1079,16 @@ declare namespace gapi.client {
       /** Output only. Details of the error if the status is set to INTERNAL_ERROR. */
       internalErrorDetails?: InternalErrorDetails;
       /** Output only. Status of an ADD_ESIM or REMOVE_ESIM command. */
-      status?: string;
+      status?:
+        | 'STATUS_UNSPECIFIED'
+        | 'SUCCESS'
+        | 'IN_PROGRESS'
+        | 'PENDING_USER_ACTION'
+        | 'ERROR_SETUP_IN_PROGRESS'
+        | 'ERROR_USER_DENIED'
+        | 'INTERNAL_ERROR'
+        | 'ERROR_ICC_ID_NOT_FOUND'
+        | 'ERROR_MULTIPLE_ACTIVE_ESIMS_NO_AVAILABLE_SLOT';
     }
     interface EsimInfo {
       /** Output only. ICC ID of the eSIM. */
@@ -795,7 +1136,10 @@ declare namespace gapi.client {
     }
     interface GoogleAuthenticationSettings {
       /** Output only. Whether users need to be authenticated by Google during the enrollment process. IT admin can specify if Google authentication is enabled for the enterprise for knowledge worker devices. This value can be set only via the Google Admin Console. Google authentication can be used with signin_url In the case where Google authentication is required and a signin_url is specified, Google authentication will be launched before signin_url. This value is overridden by EnrollmentToken.googleAuthenticationOptions and SigninDetail.googleAuthenticationOptions, if they are set. */
-      googleAuthenticationRequired?: string;
+      googleAuthenticationRequired?:
+        | 'GOOGLE_AUTHENTICATION_REQUIRED_UNSPECIFIED'
+        | 'NOT_REQUIRED'
+        | 'REQUIRED';
     }
     interface HardwareInfo {
       /** Battery shutdown temperature thresholds in Celsius for each battery on the device. */
@@ -849,21 +1193,61 @@ declare namespace gapi.client {
     }
     interface InstallConstraint {
       /** Optional. Charging constraint. */
-      chargingConstraint?: string;
+      chargingConstraint?:
+        | 'CHARGING_CONSTRAINT_UNSPECIFIED'
+        | 'CHARGING_NOT_REQUIRED'
+        | 'INSTALL_ONLY_WHEN_CHARGING';
       /** Optional. Device idle constraint. */
-      deviceIdleConstraint?: string;
+      deviceIdleConstraint?:
+        | 'DEVICE_IDLE_CONSTRAINT_UNSPECIFIED'
+        | 'DEVICE_IDLE_NOT_REQUIRED'
+        | 'INSTALL_ONLY_WHEN_DEVICE_IDLE';
       /** Optional. Network type constraint. */
-      networkTypeConstraint?: string;
+      networkTypeConstraint?:
+        | 'NETWORK_TYPE_CONSTRAINT_UNSPECIFIED'
+        | 'INSTALL_ON_ANY_NETWORK'
+        | 'INSTALL_ONLY_ON_UNMETERED_NETWORK';
     }
     interface InternalErrorDetails {
       /** Output only. Integer representation of the error code as specified here (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#EXTRA_EMBEDDED_SUBSCRIPTION_DETAILED_CODE). See also, OPERATION_SMDX_SUBJECT_REASON_CODE. See error_code_detail for more details. */
       errorCode?: string;
       /** Output only. The error code detail corresponding to the error_code. */
-      errorCodeDetail?: string;
+      errorCodeDetail?:
+        | 'ERROR_CODE_DETAIL_UNSPECIFIED'
+        | 'ERROR_TIME_OUT'
+        | 'ERROR_EUICC_MISSING'
+        | 'ERROR_UNSUPPORTED_VERSION'
+        | 'ERROR_ADDRESS_MISSING'
+        | 'ERROR_INVALID_CONFIRMATION_CODE'
+        | 'ERROR_CERTIFICATE_ERROR'
+        | 'ERROR_NO_PROFILES_AVAILABLE'
+        | 'ERROR_CONNECTION_ERROR'
+        | 'ERROR_INVALID_RESPONSE'
+        | 'ERROR_CARRIER_LOCKED'
+        | 'ERROR_DISALLOWED_BY_PPR'
+        | 'ERROR_INVALID_ACTIVATION_CODE'
+        | 'ERROR_INCOMPATIBLE_CARRIER'
+        | 'ERROR_OPERATION_BUSY'
+        | 'ERROR_INSTALL_PROFILE'
+        | 'ERROR_EUICC_INSUFFICIENT_MEMORY'
+        | 'ERROR_INVALID_PORT'
+        | 'ERROR_SIM_MISSING';
       /** Output only. Integer representation of the operation code as specified here (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#EXTRA_EMBEDDED_SUBSCRIPTION_DETAILED_CODE). See operation_code_detail for more details. */
       operationCode?: string;
       /** Output only. The operation code detail corresponding to the operation_code. */
-      operationCodeDetail?: string;
+      operationCodeDetail?:
+        | 'OPERATION_CODE_DETAIL_UNSPECIFIED'
+        | 'OPERATION_SYSTEM'
+        | 'OPERATION_SIM_SLOT'
+        | 'OPERATION_EUICC_CARD'
+        | 'OPERATION_SMDX'
+        | 'OPERATION_SWITCH'
+        | 'OPERATION_DOWNLOAD'
+        | 'OPERATION_METADATA'
+        | 'OPERATION_EUICC_GSMA'
+        | 'OPERATION_APDU'
+        | 'OPERATION_SMDX_SUBJECT_REASON_CODE'
+        | 'OPERATION_HTTP';
     }
     interface IssueCommandResponse {}
     interface KeyDestructionEvent {
@@ -886,7 +1270,7 @@ declare namespace gapi.client {
       /** Optionally, a free-form message string to explain the app state. If the state was triggered by a particular value (e.g. a managed configuration value), it should be included in the message. */
       message?: string;
       /** The severity of the app state. */
-      severity?: string;
+      severity?: 'SEVERITY_UNSPECIFIED' | 'INFO' | 'ERROR';
     }
     interface KeyGeneratedEvent {
       /** UID of the application which generated the key. */
@@ -920,15 +1304,32 @@ declare namespace gapi.client {
     }
     interface KioskCustomization {
       /** Specifies whether the Settings app is allowed in kiosk mode. */
-      deviceSettings?: string;
+      deviceSettings?:
+        | 'DEVICE_SETTINGS_UNSPECIFIED'
+        | 'SETTINGS_ACCESS_ALLOWED'
+        | 'SETTINGS_ACCESS_BLOCKED';
       /** Sets the behavior of a device in kiosk mode when a user presses and holds (long-presses) the Power button. */
-      powerButtonActions?: string;
+      powerButtonActions?:
+        | 'POWER_BUTTON_ACTIONS_UNSPECIFIED'
+        | 'POWER_BUTTON_AVAILABLE'
+        | 'POWER_BUTTON_BLOCKED';
       /** Specifies whether system info and notifications are disabled in kiosk mode. */
-      statusBar?: string;
+      statusBar?:
+        | 'STATUS_BAR_UNSPECIFIED'
+        | 'NOTIFICATIONS_AND_SYSTEM_INFO_ENABLED'
+        | 'NOTIFICATIONS_AND_SYSTEM_INFO_DISABLED'
+        | 'SYSTEM_INFO_ONLY';
       /** Specifies whether system error dialogs for crashed or unresponsive apps are blocked in kiosk mode. When blocked, the system will force-stop the app as if the user chooses the "close app" option on the UI. */
-      systemErrorWarnings?: string;
+      systemErrorWarnings?:
+        | 'SYSTEM_ERROR_WARNINGS_UNSPECIFIED'
+        | 'ERROR_AND_WARNINGS_ENABLED'
+        | 'ERROR_AND_WARNINGS_MUTED';
       /** Specifies which navigation features are enabled (e.g. Home, Overview buttons) in kiosk mode. */
-      systemNavigation?: string;
+      systemNavigation?:
+        | 'SYSTEM_NAVIGATION_UNSPECIFIED'
+        | 'NAVIGATION_ENABLED'
+        | 'NAVIGATION_DISABLED'
+        | 'HOME_BUTTON_ONLY';
     }
     interface LaunchAppAction {
       /** Package name of app to be launched */
@@ -1014,7 +1415,16 @@ declare namespace gapi.client {
       /** The name of the property. Localized. */
       title?: string;
       /** The type of the property. */
-      type?: string;
+      type?:
+        | 'MANAGED_PROPERTY_TYPE_UNSPECIFIED'
+        | 'BOOL'
+        | 'STRING'
+        | 'INTEGER'
+        | 'CHOICE'
+        | 'MULTISELECT'
+        | 'HIDDEN'
+        | 'BUNDLE'
+        | 'BUNDLE_ARRAY';
     }
     interface ManagedPropertyEntry {
       /** The human-readable name of the value. Localized. */
@@ -1040,7 +1450,13 @@ declare namespace gapi.client {
       /** The creation time of the event. */
       createTime?: string;
       /** Event type. */
-      eventType?: string;
+      eventType?:
+        | 'MEMORY_EVENT_TYPE_UNSPECIFIED'
+        | 'RAM_MEASURED'
+        | 'INTERNAL_STORAGE_MEASURED'
+        | 'EXTERNAL_STORAGE_DETECTED'
+        | 'EXTERNAL_STORAGE_REMOVED'
+        | 'EXTERNAL_STORAGE_MEASURED';
     }
     interface MemoryInfo {
       /** Total internal storage on device in bytes. */
@@ -1060,7 +1476,11 @@ declare namespace gapi.client {
       /** Immutable. The time when this migration token expires. This can be at most seven days from the time of creation. The migration token is deleted seven days after it expires. */
       expireTime?: string;
       /** Required. Immutable. The management mode of the device or profile being migrated. */
-      managementMode?: string;
+      managementMode?:
+        | 'MANAGEMENT_MODE_UNSPECIFIED'
+        | 'WORK_PROFILE_PERSONALLY_OWNED'
+        | 'WORK_PROFILE_COMPANY_OWNED'
+        | 'FULLY_MANAGED';
       /** Output only. The name of the migration token, which is generated by the server during creation, in the form enterprises/{enterprise}/migrationTokens/{migration_token}. */
       name?: string;
       /** Required. Immutable. The name of the policy initially applied to the enrolled device, in the form enterprises/{enterprise}/policies/{policy}. */
@@ -1098,9 +1518,36 @@ declare namespace gapi.client {
       /** For settings with nested fields, if a particular nested field is out of compliance, this specifies the full path to the offending field. The path is formatted in the same way the policy JSON field would be referenced in JavaScript, that is: 1) For object-typed fields, the field name is followed by a dot then by a subfield name. 2) For array-typed fields, the field name is followed by the array index enclosed in brackets. For example, to indicate a problem with the url field in the externalData field in the 3rd application, the path would be applications[2].externalData.url */
       fieldPath?: string;
       /** If package_name is set and the non-compliance reason is APP_NOT_INSTALLED or APP_NOT_UPDATED, the detailed reason the app can't be installed or updated. */
-      installationFailureReason?: string;
+      installationFailureReason?:
+        | 'INSTALLATION_FAILURE_REASON_UNSPECIFIED'
+        | 'INSTALLATION_FAILURE_REASON_UNKNOWN'
+        | 'IN_PROGRESS'
+        | 'NOT_FOUND'
+        | 'NOT_COMPATIBLE_WITH_DEVICE'
+        | 'NOT_APPROVED'
+        | 'PERMISSIONS_NOT_ACCEPTED'
+        | 'NOT_AVAILABLE_IN_COUNTRY'
+        | 'NO_LICENSES_REMAINING'
+        | 'NOT_ENROLLED'
+        | 'USER_INVALID'
+        | 'NETWORK_ERROR_UNRELIABLE_CONNECTION'
+        | 'INSUFFICIENT_STORAGE';
       /** The reason the device is not in compliance with the setting. */
-      nonComplianceReason?: string;
+      nonComplianceReason?:
+        | 'NON_COMPLIANCE_REASON_UNSPECIFIED'
+        | 'API_LEVEL'
+        | 'MANAGEMENT_MODE'
+        | 'USER_ACTION'
+        | 'INVALID_VALUE'
+        | 'APP_NOT_INSTALLED'
+        | 'UNSUPPORTED'
+        | 'APP_INSTALLED'
+        | 'PENDING'
+        | 'APP_INCOMPATIBLE'
+        | 'APP_NOT_UPDATED'
+        | 'DEVICE_INCOMPATIBLE'
+        | 'APP_SIGNING_CERT_MISMATCH'
+        | 'PROJECT_NOT_PERMITTED';
       /** The package name indicating which app is out of compliance, if applicable. */
       packageName?: string;
       /** The name of the policy setting. This is the JSON field name of a top-level Policy field. */
@@ -1108,11 +1555,40 @@ declare namespace gapi.client {
       /** Additional context for specific_non_compliance_reason. */
       specificNonComplianceContext?: SpecificNonComplianceContext;
       /** The policy-specific reason the device is not in compliance with the setting. */
-      specificNonComplianceReason?: string;
+      specificNonComplianceReason?:
+        | 'SPECIFIC_NON_COMPLIANCE_REASON_UNSPECIFIED'
+        | 'PASSWORD_POLICIES_USER_CREDENTIALS_CONFIRMATION_REQUIRED'
+        | 'PASSWORD_POLICIES_PASSWORD_EXPIRED'
+        | 'PASSWORD_POLICIES_PASSWORD_NOT_SUFFICIENT'
+        | 'ONC_WIFI_INVALID_VALUE'
+        | 'ONC_WIFI_API_LEVEL'
+        | 'ONC_WIFI_INVALID_ENTERPRISE_CONFIG'
+        | 'ONC_WIFI_USER_SHOULD_REMOVE_NETWORK'
+        | 'ONC_WIFI_KEY_PAIR_ALIAS_NOT_CORRESPONDING_TO_EXISTING_KEY'
+        | 'PERMISSIBLE_USAGE_RESTRICTION'
+        | 'REQUIRED_ACCOUNT_NOT_IN_ENTERPRISE'
+        | 'NEW_ACCOUNT_NOT_IN_ENTERPRISE'
+        | 'DEFAULT_APPLICATION_SETTING_UNSUPPORTED_SCOPES'
+        | 'DEFAULT_APPLICATION_SETTING_FAILED_FOR_SCOPE'
+        | 'PRIVATE_DNS_HOST_NOT_SERVING';
     }
     interface NonComplianceDetailCondition {
       /** The reason the device is not in compliance with the setting. If not set, then this condition matches any reason. */
-      nonComplianceReason?: string;
+      nonComplianceReason?:
+        | 'NON_COMPLIANCE_REASON_UNSPECIFIED'
+        | 'API_LEVEL'
+        | 'MANAGEMENT_MODE'
+        | 'USER_ACTION'
+        | 'INVALID_VALUE'
+        | 'APP_NOT_INSTALLED'
+        | 'UNSUPPORTED'
+        | 'APP_INSTALLED'
+        | 'PENDING'
+        | 'APP_INCOMPATIBLE'
+        | 'APP_NOT_UPDATED'
+        | 'DEVICE_INCOMPATIBLE'
+        | 'APP_SIGNING_CERT_MISMATCH'
+        | 'PROJECT_NOT_PERMITTED';
       /** The package name of the app that's out of compliance. If not set, then this condition matches any package name. */
       packageName?: string;
       /** The name of the policy setting. This is the JSON field name of a top-level Policy field. If not set, then this condition matches any setting name. */
@@ -1143,9 +1619,17 @@ declare namespace gapi.client {
     interface OsShutdownEvent {}
     interface OsStartupEvent {
       /** Verified Boot state. */
-      verifiedBootState?: string;
+      verifiedBootState?:
+        | 'VERIFIED_BOOT_STATE_UNSPECIFIED'
+        | 'GREEN'
+        | 'YELLOW'
+        | 'ORANGE';
       /** dm-verity mode. */
-      verityMode?: string;
+      verityMode?:
+        | 'DM_VERITY_MODE_UNSPECIFIED'
+        | 'ENFORCING'
+        | 'IO_ERROR'
+        | 'DISABLED';
     }
     interface PackageNameList {
       /** A list of package names. */
@@ -1153,7 +1637,10 @@ declare namespace gapi.client {
     }
     interface PasswordPoliciesContext {
       /** The scope of non-compliant password. */
-      passwordPolicyScope?: string;
+      passwordPolicyScope?:
+        | 'SCOPE_UNSPECIFIED'
+        | 'SCOPE_DEVICE'
+        | 'SCOPE_PROFILE';
     }
     interface PasswordRequirements {
       /** Number of incorrect device-unlock passwords that can be entered before a device is wiped. A value of 0 means there is no restriction. */
@@ -1177,23 +1664,45 @@ declare namespace gapi.client {
       /** Minimum number of upper case letters required in the password. Only enforced when password_quality is COMPLEX. */
       passwordMinimumUpperCase?: number;
       /** The required password quality. */
-      passwordQuality?: string;
+      passwordQuality?:
+        | 'PASSWORD_QUALITY_UNSPECIFIED'
+        | 'BIOMETRIC_WEAK'
+        | 'SOMETHING'
+        | 'NUMERIC'
+        | 'NUMERIC_COMPLEX'
+        | 'ALPHABETIC'
+        | 'ALPHANUMERIC'
+        | 'COMPLEX'
+        | 'COMPLEXITY_LOW'
+        | 'COMPLEXITY_MEDIUM'
+        | 'COMPLEXITY_HIGH';
       /** The scope that the password requirement applies to. */
-      passwordScope?: string;
+      passwordScope?: 'SCOPE_UNSPECIFIED' | 'SCOPE_DEVICE' | 'SCOPE_PROFILE';
       /** The length of time after a device or work profile is unlocked using a strong form of authentication (password, PIN, pattern) that it can be unlocked using any other authentication method (e.g. fingerprint, trust agents, face). After the specified time period elapses, only strong forms of authentication can be used to unlock the device or work profile. */
-      requirePasswordUnlock?: string;
+      requirePasswordUnlock?:
+        | 'REQUIRE_PASSWORD_UNLOCK_UNSPECIFIED'
+        | 'USE_DEFAULT_DEVICE_TIMEOUT'
+        | 'REQUIRE_EVERY_DAY';
       /** Controls whether a unified lock is allowed for the device and the work profile, on devices running Android 9 and above with a work profile. This can be set only if password_scope is set to SCOPE_PROFILE, the policy will be rejected otherwise. If user has not set a separate work lock and this field is set to REQUIRE_SEPARATE_WORK_LOCK, a NonComplianceDetail is reported with nonComplianceReason set to USER_ACTION. */
-      unifiedLockSettings?: string;
+      unifiedLockSettings?:
+        | 'UNIFIED_LOCK_SETTINGS_UNSPECIFIED'
+        | 'ALLOW_UNIFIED_WORK_AND_PERSONAL_LOCK'
+        | 'REQUIRE_SEPARATE_WORK_LOCK';
     }
     interface PerAppResult {
       /** The result of an attempt to clear the data of a single app. */
-      clearingResult?: string;
+      clearingResult?:
+        | 'CLEARING_RESULT_UNSPECIFIED'
+        | 'SUCCESS'
+        | 'APP_NOT_FOUND'
+        | 'APP_PROTECTED'
+        | 'API_LEVEL';
     }
     interface PermissionGrant {
       /** The Android permission or group, e.g. android.permission.READ_CALENDAR or android.permission_group.CALENDAR. */
       permission?: string;
       /** The policy for granting the permission. */
-      policy?: string;
+      policy?: 'PERMISSION_POLICY_UNSPECIFIED' | 'PROMPT' | 'GRANT' | 'DENY';
     }
     interface PersistentPreferredActivity {
       /** The intent actions to match in the filter. If any actions are included in the filter, then an intent's action must be one of those values for it to match. If no actions are included, the intent action is ignored. */
@@ -1205,7 +1714,7 @@ declare namespace gapi.client {
     }
     interface PersonalApplicationPolicy {
       /** The type of installation to perform. */
-      installType?: string;
+      installType?: 'INSTALL_TYPE_UNSPECIFIED' | 'BLOCKED' | 'AVAILABLE';
       /** The package name of the application. */
       packageName?: string;
     }
@@ -1213,7 +1722,10 @@ declare namespace gapi.client {
       /** Account types that can't be managed by the user. */
       accountTypesWithManagementDisabled?: string[];
       /** Optional. Whether bluetooth sharing is allowed. */
-      bluetoothSharing?: string;
+      bluetoothSharing?:
+        | 'BLUETOOTH_SHARING_UNSPECIFIED'
+        | 'BLUETOOTH_SHARING_ALLOWED'
+        | 'BLUETOOTH_SHARING_DISALLOWED';
       /** If true, the camera is disabled on the personal profile. */
       cameraDisabled?: boolean;
       /** Controls how long the work profile can stay off. The minimum duration must be at least 3 days. Other details are as follows: - If the duration is set to 0, the feature is turned off. - If the duration is set to a value smaller than the minimum duration, the feature returns an error. *Note:* If you want to avoid personal profiles being suspended during long periods of off-time, you can temporarily set a large value for this parameter. */
@@ -1221,9 +1733,16 @@ declare namespace gapi.client {
       /** Policy applied to applications in the personal profile. */
       personalApplications?: PersonalApplicationPolicy[];
       /** Used together with personalApplications to control how apps in the personal profile are allowed or blocked. */
-      personalPlayStoreMode?: string;
+      personalPlayStoreMode?:
+        | 'PLAY_STORE_MODE_UNSPECIFIED'
+        | 'BLACKLIST'
+        | 'BLOCKLIST'
+        | 'ALLOWLIST';
       /** Optional. Controls whether a private space is allowed on the device. */
-      privateSpacePolicy?: string;
+      privateSpacePolicy?:
+        | 'PRIVATE_SPACE_POLICY_UNSPECIFIED'
+        | 'PRIVATE_SPACE_ALLOWED'
+        | 'PRIVATE_SPACE_DISALLOWED';
       /** If true, screen capture is disabled for all users. This also blocks Circle to Search (https://support.google.com/android/answer/14508957). */
       screenCaptureDisabled?: boolean;
     }
@@ -1239,17 +1758,34 @@ declare namespace gapi.client {
       /** Configuration for an always-on VPN connection. Use with vpn_config_disabled to prevent modification of this setting. */
       alwaysOnVpnPackage?: AlwaysOnVpnPackage;
       /** This setting is not supported. Any value is ignored. */
-      androidDevicePolicyTracks?: string[];
+      androidDevicePolicyTracks?:
+        | 'APP_TRACK_UNSPECIFIED'
+        | 'PRODUCTION'
+        | 'BETA'[];
       /** Recommended alternative: autoUpdateMode which is set per app, provides greater flexibility around update frequency.When autoUpdateMode is set to AUTO_UPDATE_POSTPONED or AUTO_UPDATE_HIGH_PRIORITY, this field has no effect.The app auto update policy, which controls when automatic app updates can be applied. */
-      appAutoUpdatePolicy?: string;
+      appAutoUpdatePolicy?:
+        | 'APP_AUTO_UPDATE_POLICY_UNSPECIFIED'
+        | 'CHOICE_TO_THE_USER'
+        | 'NEVER'
+        | 'WIFI_ONLY'
+        | 'ALWAYS';
       /** Optional. Controls whether apps on the device for fully managed devices or in the work profile for devices with work profiles are allowed to expose app functions. */
-      appFunctions?: string;
+      appFunctions?:
+        | 'APP_FUNCTIONS_UNSPECIFIED'
+        | 'APP_FUNCTIONS_DISALLOWED'
+        | 'APP_FUNCTIONS_ALLOWED';
       /** Policy applied to apps. This can have at most 3,000 elements. */
       applications?: ApplicationPolicy[];
       /** Optional. Controls whether AssistContent (https://developer.android.com/reference/android/app/assist/AssistContent) is allowed to be sent to a privileged app such as an assistant app. AssistContent includes screenshots and information about an app, such as package name. This is supported on Android 15 and above. */
-      assistContentPolicy?: string;
+      assistContentPolicy?:
+        | 'ASSIST_CONTENT_POLICY_UNSPECIFIED'
+        | 'ASSIST_CONTENT_DISALLOWED'
+        | 'ASSIST_CONTENT_ALLOWED';
       /** Whether auto date, time, and time zone are enabled on a company-owned device. If this is set, then autoTimeRequired is ignored. */
-      autoDateAndTimeZone?: string;
+      autoDateAndTimeZone?:
+        | 'AUTO_DATE_AND_TIME_ZONE_UNSPECIFIED'
+        | 'AUTO_DATE_AND_TIME_ZONE_USER_CHOICE'
+        | 'AUTO_DATE_AND_TIME_ZONE_ENFORCED';
       /** Whether auto time is required, which prevents the user from manually setting the date and time. If autoDateAndTimeZone is set, this field is ignored. */
       autoTimeRequired?: boolean;
       /** This field has no effect. */
@@ -1261,7 +1797,11 @@ declare namespace gapi.client {
       /** Whether bluetooth is disabled. Prefer this setting over bluetooth_config_disabled because bluetooth_config_disabled can be bypassed by the user. */
       bluetoothDisabled?: boolean;
       /** Controls the use of the camera and whether the user has access to the camera access toggle. */
-      cameraAccess?: string;
+      cameraAccess?:
+        | 'CAMERA_ACCESS_UNSPECIFIED'
+        | 'CAMERA_ACCESS_USER_CHOICE'
+        | 'CAMERA_ACCESS_DISABLED'
+        | 'CAMERA_ACCESS_ENFORCED';
       /** If camera_access is set to any value other than CAMERA_ACCESS_UNSPECIFIED, this has no effect. Otherwise this field controls whether cameras are disabled: If true, all cameras are disabled, otherwise they are available. For fully managed devices this field applies for all apps on the device. For work profiles, this field applies only to apps in the work profile, and the camera access of apps outside the work profile is unaffected. */
       cameraDisabled?: boolean;
       /** Whether configuring cell broadcast is disabled. */
@@ -1273,7 +1813,10 @@ declare namespace gapi.client {
       /** Whether creating windows besides app windows is disabled. */
       createWindowsDisabled?: boolean;
       /** Controls which apps are allowed to act as credential providers on Android 14 and above. These apps store credentials, see this (https://developer.android.com/training/sign-in/passkeys) and this (https://developer.android.com/reference/androidx/credentials/CredentialManager) for details. See also credentialProviderPolicy. */
-      credentialProviderPolicyDefault?: string;
+      credentialProviderPolicyDefault?:
+        | 'CREDENTIAL_PROVIDER_POLICY_DEFAULT_UNSPECIFIED'
+        | 'CREDENTIAL_PROVIDER_DEFAULT_DISALLOWED'
+        | 'CREDENTIAL_PROVIDER_DEFAULT_DISALLOWED_EXCEPT_SYSTEM';
       /** Whether configuring user credentials is disabled. */
       credentialsConfigDisabled?: boolean;
       /** Cross-profile policies applied on the device. */
@@ -1285,7 +1828,11 @@ declare namespace gapi.client {
       /** Optional. The default application setting for supported types. If the default application is successfully set for at least one app type on a profile, users are prevented from changing any default applications on that profile.Only one DefaultApplicationSetting is allowed for each DefaultApplicationType.See Default application settings (https://developers.google.com/android/management/default-application-settings) guide for more details. */
       defaultApplicationSettings?: DefaultApplicationSetting[];
       /** The default permission policy for runtime permission requests. */
-      defaultPermissionPolicy?: string;
+      defaultPermissionPolicy?:
+        | 'PERMISSION_POLICY_UNSPECIFIED'
+        | 'PROMPT'
+        | 'GRANT'
+        | 'DENY';
       /** Covers controls for device connectivity such as Wi-Fi, USB data access, keyboard/mouse connections, and more. */
       deviceConnectivityManagement?: DeviceConnectivityManagement;
       /** The device owner information to be shown on the lock screen. */
@@ -1295,11 +1842,17 @@ declare namespace gapi.client {
       /** Optional. Controls for the display settings. */
       displaySettings?: DisplaySettings;
       /** Whether encryption is enabled */
-      encryptionPolicy?: string;
+      encryptionPolicy?:
+        | 'ENCRYPTION_POLICY_UNSPECIFIED'
+        | 'ENABLED_WITHOUT_PASSWORD'
+        | 'ENABLED_WITH_PASSWORD';
       /** Whether app verification is force-enabled. */
       ensureVerifyAppsEnabled?: boolean;
       /** Optional. Controls whether the enterpriseDisplayName is visible on the device (e.g. lock screen message on company-owned devices). */
-      enterpriseDisplayNameVisibility?: string;
+      enterpriseDisplayNameVisibility?:
+        | 'ENTERPRISE_DISPLAY_NAME_VISIBILITY_UNSPECIFIED'
+        | 'ENTERPRISE_DISPLAY_NAME_VISIBLE'
+        | 'ENTERPRISE_DISPLAY_NAME_HIDDEN';
       /** Whether factory resetting from settings is disabled. */
       factoryResetDisabled?: boolean;
       /** Email addresses of device administrators for factory reset protection. When the device is factory reset, it will require one of these admins to log in with the Google account email and password to unlock the device. If no admins are specified, the device won't provide factory reset protection. */
@@ -1313,19 +1866,43 @@ declare namespace gapi.client {
       /** If true, this disables the Lock Screen (https://source.android.com/docs/core/display/multi_display/lock-screen) for primary and/or secondary displays. This policy is supported only in dedicated device management mode. */
       keyguardDisabled?: boolean;
       /** Disabled keyguard customizations, such as widgets. */
-      keyguardDisabledFeatures?: string[];
+      keyguardDisabledFeatures?:
+        | 'KEYGUARD_DISABLED_FEATURE_UNSPECIFIED'
+        | 'CAMERA'
+        | 'NOTIFICATIONS'
+        | 'UNREDACTED_NOTIFICATIONS'
+        | 'TRUST_AGENTS'
+        | 'DISABLE_FINGERPRINT'
+        | 'DISABLE_REMOTE_INPUT'
+        | 'FACE'
+        | 'IRIS'
+        | 'BIOMETRICS'
+        | 'SHORTCUTS'
+        | 'ALL_FEATURES'[];
       /** Settings controlling the behavior of a device in kiosk mode. To enable kiosk mode, set kioskCustomLauncherEnabled to true or specify an app in the policy with installType KIOSK. */
       kioskCustomization?: KioskCustomization;
       /** Whether the kiosk custom launcher is enabled. This replaces the home screen with a launcher that locks down the device to the apps installed via the applications setting. Apps appear on a single page in alphabetical order. Use kioskCustomization to further configure the kiosk device behavior. */
       kioskCustomLauncherEnabled?: boolean;
       /** The degree of location detection enabled. */
-      locationMode?: string;
+      locationMode?:
+        | 'LOCATION_MODE_UNSPECIFIED'
+        | 'HIGH_ACCURACY'
+        | 'SENSORS_ONLY'
+        | 'BATTERY_SAVING'
+        | 'OFF'
+        | 'LOCATION_USER_CHOICE'
+        | 'LOCATION_ENFORCED'
+        | 'LOCATION_DISABLED';
       /** A message displayed to the user in the device administators settings screen. */
       longSupportMessage?: UserFacingMessage;
       /** Maximum time in milliseconds for user activity until the device locks. A value of 0 means there is no restriction. */
       maximumTimeToLock?: string;
       /** Controls the use of the microphone and whether the user has access to the microphone access toggle. This applies only on fully managed devices. */
-      microphoneAccess?: string;
+      microphoneAccess?:
+        | 'MICROPHONE_ACCESS_UNSPECIFIED'
+        | 'MICROPHONE_ACCESS_USER_CHOICE'
+        | 'MICROPHONE_ACCESS_DISABLED'
+        | 'MICROPHONE_ACCESS_ENFORCED';
       /** The minimum allowed Android API level. */
       minimumApiLevel?: number;
       /** Whether configuring mobile networks is disabled. */
@@ -1363,13 +1940,19 @@ declare namespace gapi.client {
       /** Policies managing personal usage on a company-owned device. */
       personalUsagePolicies?: PersonalUsagePolicies;
       /** This mode controls which apps are available to the user in the Play Store and the behavior on the device when apps are removed from the policy. */
-      playStoreMode?: string;
+      playStoreMode?: 'PLAY_STORE_MODE_UNSPECIFIED' | 'WHITELIST' | 'BLACKLIST';
       /** Rules that define the behavior when a particular policy can not be applied on device */
       policyEnforcementRules?: PolicyEnforcementRule[];
       /** Controls whether preferential network service is enabled on the work profile or on fully managed devices. For example, an organization may have an agreement with a carrier that all of the work data from its employees' devices will be sent via a network service dedicated for enterprise use. An example of a supported preferential network service is the enterprise slice on 5G networks. This policy has no effect if preferentialNetworkServiceSettings or ApplicationPolicy.preferentialNetworkId is set on devices running Android 13 or above. */
-      preferentialNetworkService?: string;
+      preferentialNetworkService?:
+        | 'PREFERENTIAL_NETWORK_SERVICE_UNSPECIFIED'
+        | 'PREFERENTIAL_NETWORK_SERVICE_DISABLED'
+        | 'PREFERENTIAL_NETWORK_SERVICE_ENABLED';
       /** Optional. Controls whether printing is allowed. This is supported on devices running Android 9 and above. . */
-      printingPolicy?: string;
+      printingPolicy?:
+        | 'PRINTING_POLICY_UNSPECIFIED'
+        | 'PRINTING_DISALLOWED'
+        | 'PRINTING_ALLOWED';
       /** Allows showing UI on a device for a user to choose a private key alias if there are no matching rules in ChoosePrivateKeyRules. For devices below Android P, setting this may leave enterprise keys vulnerable. This value will have no effect if any application has CERT_SELECTION delegation scope. */
       privateKeySelectionEnabled?: boolean;
       /** The network-independent global HTTP proxy. Typically proxies should be configured per-network in open_network_configuration. However for unusual configurations like general internal filtering a global HTTP proxy may be useful. If the proxy is not accessible, network access may break. The global proxy is only a recommendation and some apps may ignore it. */
@@ -1399,7 +1982,11 @@ declare namespace gapi.client {
       /** Status reporting settings */
       statusReportingSettings?: StatusReportingSettings;
       /** The battery plugged in modes for which the device stays on. When using this setting, it is recommended to clear maximum_time_to_lock so that the device doesn't lock itself while it stays on. */
-      stayOnPluggedModes?: string[];
+      stayOnPluggedModes?:
+        | 'BATTERY_PLUGGED_MODE_UNSPECIFIED'
+        | 'AC'
+        | 'USB'
+        | 'WIRELESS'[];
       /** The system update policy, which controls how OS updates are applied. If the update type is WINDOWED, the update window will automatically apply to Play app updates as well.Note: Google Play system updates (https://source.android.com/docs/core/ota/modular-system) (also called Mainline updates) are automatically downloaded and require a device reboot to be installed. Refer to the mainline section in Manage system updates (https://developer.android.com/work/dpc/system-updates#mainline) for further details. */
       systemUpdate?: SystemUpdate;
       /** Whether configuring tethering and portable hotspots is disabled. If tetheringSettings is set to anything other than TETHERING_SETTINGS_UNSPECIFIED, this setting is ignored. */
@@ -1423,7 +2010,7 @@ declare namespace gapi.client {
       /** This is deprecated. */
       wifiConfigsLockdownEnabled?: boolean;
       /** Optional. Wipe flags to indicate what data is wiped when a device or profile wipe is triggered due to any reason (for example, non-compliance). This does not apply to the enterprises.devices.delete method. . This list must not have duplicates. */
-      wipeDataFlags?: string[];
+      wipeDataFlags?: 'WIPE_DATA_FLAG_UNSPECIFIED' | 'WIPE_ESIMS'[];
       /** Optional. Controls the work account setup configuration, such as details of whether a Google authenticated account is required. */
       workAccountSetupConfig?: WorkAccountSetupConfig;
     }
@@ -1439,7 +2026,11 @@ declare namespace gapi.client {
       /** Corresponding admin-facing advice to mitigate this security risk and improve the security posture of the device. */
       advice?: UserFacingMessage[];
       /** A specific security risk that negatively affects the security posture of the device. */
-      securityRisk?: string;
+      securityRisk?:
+        | 'SECURITY_RISK_UNSPECIFIED'
+        | 'UNKNOWN_OS'
+        | 'COMPROMISED_OS'
+        | 'HARDWARE_BACKED_EVALUATION_FAILED';
     }
     interface PowerManagementEvent {
       /** For BATTERY_LEVEL_COLLECTED events, the battery level as a percentage. */
@@ -1447,19 +2038,47 @@ declare namespace gapi.client {
       /** The creation time of the event. */
       createTime?: string;
       /** Event type. */
-      eventType?: string;
+      eventType?:
+        | 'POWER_MANAGEMENT_EVENT_TYPE_UNSPECIFIED'
+        | 'BATTERY_LEVEL_COLLECTED'
+        | 'POWER_CONNECTED'
+        | 'POWER_DISCONNECTED'
+        | 'BATTERY_LOW'
+        | 'BATTERY_OKAY'
+        | 'BOOT_COMPLETED'
+        | 'SHUTDOWN';
     }
     interface PreferentialNetworkServiceConfig {
       /** Optional. Whether fallback to the device-wide default network is allowed. If this is set to FALLBACK_TO_DEFAULT_CONNECTION_ALLOWED, then nonMatchingNetworks must not be set to NON_MATCHING_NETWORKS_DISALLOWED, the policy will be rejected otherwise. Note: If this is set to FALLBACK_TO_DEFAULT_CONNECTION_DISALLOWED, applications are not able to access the internet if the 5G slice is not available. */
-      fallbackToDefaultConnection?: string;
+      fallbackToDefaultConnection?:
+        | 'FALLBACK_TO_DEFAULT_CONNECTION_UNSPECIFIED'
+        | 'FALLBACK_TO_DEFAULT_CONNECTION_ALLOWED'
+        | 'FALLBACK_TO_DEFAULT_CONNECTION_DISALLOWED';
       /** Optional. Whether apps this configuration applies to are blocked from using networks other than the preferential service. If this is set to NON_MATCHING_NETWORKS_DISALLOWED, then fallbackToDefaultConnection must be set to FALLBACK_TO_DEFAULT_CONNECTION_DISALLOWED. */
-      nonMatchingNetworks?: string;
+      nonMatchingNetworks?:
+        | 'NON_MATCHING_NETWORKS_UNSPECIFIED'
+        | 'NON_MATCHING_NETWORKS_ALLOWED'
+        | 'NON_MATCHING_NETWORKS_DISALLOWED';
       /** Required. Preferential network identifier. This must not be set to NO_PREFERENTIAL_NETWORK or PREFERENTIAL_NETWORK_ID_UNSPECIFIED, the policy will be rejected otherwise. */
-      preferentialNetworkId?: string;
+      preferentialNetworkId?:
+        | 'PREFERENTIAL_NETWORK_ID_UNSPECIFIED'
+        | 'NO_PREFERENTIAL_NETWORK'
+        | 'PREFERENTIAL_NETWORK_ID_ONE'
+        | 'PREFERENTIAL_NETWORK_ID_TWO'
+        | 'PREFERENTIAL_NETWORK_ID_THREE'
+        | 'PREFERENTIAL_NETWORK_ID_FOUR'
+        | 'PREFERENTIAL_NETWORK_ID_FIVE';
     }
     interface PreferentialNetworkServiceSettings {
       /** Required. Default preferential network ID for the applications that are not in applications or if ApplicationPolicy.preferentialNetworkId is set to PREFERENTIAL_NETWORK_ID_UNSPECIFIED. There must be a configuration for the specified network ID in preferentialNetworkServiceConfigs, unless this is set to NO_PREFERENTIAL_NETWORK. If set to PREFERENTIAL_NETWORK_ID_UNSPECIFIED or unset, this defaults to NO_PREFERENTIAL_NETWORK. Note: If the default preferential network is misconfigured, applications with no ApplicationPolicy.preferentialNetworkId set are not able to access the internet. This setting does not apply to the following critical apps: com.google.android.apps.work.clouddpc com.google.android.gmsApplicationPolicy.preferentialNetworkId can still be used to configure the preferential network for them. */
-      defaultPreferentialNetworkId?: string;
+      defaultPreferentialNetworkId?:
+        | 'PREFERENTIAL_NETWORK_ID_UNSPECIFIED'
+        | 'NO_PREFERENTIAL_NETWORK'
+        | 'PREFERENTIAL_NETWORK_ID_ONE'
+        | 'PREFERENTIAL_NETWORK_ID_TWO'
+        | 'PREFERENTIAL_NETWORK_ID_THREE'
+        | 'PREFERENTIAL_NETWORK_ID_FOUR'
+        | 'PREFERENTIAL_NETWORK_ID_FIVE';
       /** Required. Preferential network service configurations which enables having multiple enterprise slices. There must not be multiple configurations with the same preferentialNetworkId. If a configuration is not referenced by any application by setting ApplicationPolicy.preferentialNetworkId or by setting defaultPreferentialNetworkId, it will be ignored. For devices on 4G networks, enterprise APN needs to be configured additionally to set up data call for preferential network service. These APNs can be added using apnPolicy. */
       preferentialNetworkServiceConfigs?: PreferentialNetworkServiceConfig[];
     }
@@ -1467,7 +2086,11 @@ declare namespace gapi.client {
       /** Optional. The hostname of the DNS server. This must be set if and only if private_dns_mode is set to PRIVATE_DNS_SPECIFIED_HOST. Supported on Android 10 and above on fully managed devices. A NonComplianceDetail with MANAGEMENT_MODE is reported on other management modes. A NonComplianceDetail with API_LEVEL is reported if the Android version is less than 10. A NonComplianceDetail with PENDING is reported if the device is not connected to a network. A NonComplianceDetail with nonComplianceReason INVALID_VALUE and specificNonComplianceReason PRIVATE_DNS_HOST_NOT_SERVING is reported if the specified host is not a DNS server or not supported on Android. A NonComplianceDetail with INVALID_VALUE is reported if applying this setting fails for any other reason. */
       privateDnsHost?: string;
       /** Optional. The configuration mode for device's global private DNS settings. If this is set to PRIVATE_DNS_SPECIFIED_HOST, then private_dns_host must be set. */
-      privateDnsMode?: string;
+      privateDnsMode?:
+        | 'PRIVATE_DNS_MODE_UNSPECIFIED'
+        | 'PRIVATE_DNS_USER_CHOICE'
+        | 'PRIVATE_DNS_AUTOMATIC'
+        | 'PRIVATE_DNS_SPECIFIED_HOST';
     }
     interface ProvisioningInfo {
       /** The API level of the Android platform version running on the device. */
@@ -1481,7 +2104,10 @@ declare namespace gapi.client {
       /** For corporate-owned devices, IMEI number of the GSM device. For example, A1000031212. */
       imei?: string;
       /** The management mode of the device or profile. */
-      managementMode?: string;
+      managementMode?:
+        | 'MANAGEMENT_MODE_UNSPECIFIED'
+        | 'DEVICE_OWNER'
+        | 'PROFILE_OWNER';
       /** For corporate-owned devices, MEID number of the CDMA device. For example, A00000292788E1. */
       meid?: string;
       /** The model of the device. For example, Asus Nexus 7. */
@@ -1489,7 +2115,10 @@ declare namespace gapi.client {
       /** The name of this resource in the form provisioningInfo/{provisioning_info}. */
       name?: string;
       /** Ownership of the managed device. */
-      ownership?: string;
+      ownership?:
+        | 'OWNERSHIP_UNSPECIFIED'
+        | 'COMPANY_OWNED'
+        | 'PERSONALLY_OWNED';
       /** For corporate-owned devices, The device serial number. */
       serialNumber?: string;
     }
@@ -1525,33 +2154,54 @@ declare namespace gapi.client {
     }
     interface RequestDeviceInfoParams {
       /** Required. Type of device information to be requested. */
-      deviceInfo?: string;
+      deviceInfo?: 'DEVICE_INFO_UNSPECIFIED' | 'EID';
     }
     interface RequestDeviceInfoStatus {
       /** Information related to the EIDs of the device. */
       eidInfo?: EidInfo;
       /** Output only. Status of a REQUEST_DEVICE_INFO command. */
-      status?: string;
+      status?:
+        | 'STATUS_UNSPECIFIED'
+        | 'SUCCEEDED'
+        | 'PENDING_USER_ACTION'
+        | 'USER_DECLINED'
+        | 'UNSUPPORTED';
     }
     interface Role {
       /** Required. The type of the role an app can have. */
-      roleType?: string;
+      roleType?:
+        | 'ROLE_TYPE_UNSPECIFIED'
+        | 'COMPANION_APP'
+        | 'KIOSK'
+        | 'MOBILE_THREAT_DEFENSE_ENDPOINT_DETECTION_RESPONSE'
+        | 'SYSTEM_HEALTH_MONITORING';
     }
     interface ScreenBrightnessSettings {
       /** Optional. The screen brightness between 1 and 255 where 1 is the lowest and 255 is the highest brightness. A value of 0 (default) means no screen brightness set. Any other value is rejected. screenBrightnessMode must be either BRIGHTNESS_AUTOMATIC or BRIGHTNESS_FIXED to set this. Supported on Android 9 and above on fully managed devices. A NonComplianceDetail with API_LEVEL is reported if the Android version is less than 9. Supported on work profiles on company-owned devices on Android 15 and above. */
       screenBrightness?: number;
       /** Optional. Controls the screen brightness mode. */
-      screenBrightnessMode?: string;
+      screenBrightnessMode?:
+        | 'SCREEN_BRIGHTNESS_MODE_UNSPECIFIED'
+        | 'BRIGHTNESS_USER_CHOICE'
+        | 'BRIGHTNESS_AUTOMATIC'
+        | 'BRIGHTNESS_FIXED';
     }
     interface ScreenTimeoutSettings {
       /** Optional. Controls the screen timeout duration. The screen timeout duration must be greater than 0, otherwise it is rejected. Additionally, it should not be greater than maximumTimeToLock, otherwise the screen timeout is set to maximumTimeToLock and a NonComplianceDetail with INVALID_VALUE reason and SCREEN_TIMEOUT_GREATER_THAN_MAXIMUM_TIME_TO_LOCK specific reason is reported. If the screen timeout is less than a certain lower bound, it is set to the lower bound. The lower bound may vary across devices. If this is set, screenTimeoutMode must be SCREEN_TIMEOUT_ENFORCED. Supported on Android 9 and above on fully managed devices. A NonComplianceDetail with API_LEVEL is reported if the Android version is less than 9. Supported on work profiles on company-owned devices on Android 15 and above. */
       screenTimeout?: string;
       /** Optional. Controls whether the user is allowed to configure the screen timeout. */
-      screenTimeoutMode?: string;
+      screenTimeoutMode?:
+        | 'SCREEN_TIMEOUT_MODE_UNSPECIFIED'
+        | 'SCREEN_TIMEOUT_USER_CHOICE'
+        | 'SCREEN_TIMEOUT_ENFORCED';
     }
     interface SecurityPosture {
       /** Device's security posture value. */
-      devicePosture?: string;
+      devicePosture?:
+        | 'POSTURE_UNSPECIFIED'
+        | 'SECURE'
+        | 'AT_RISK'
+        | 'POTENTIALLY_COMPROMISED';
       /** Additional details regarding the security posture of the device. */
       postureDetails?: PostureDetail[];
     }
@@ -1565,9 +2215,16 @@ declare namespace gapi.client {
     }
     interface SigninDetail {
       /** Controls whether personal usage is allowed on a device provisioned with this enrollment token.For company-owned devices: Enabling personal usage allows the user to set up a work profile on the device. Disabling personal usage requires the user provision the device as a fully managed device.For personally-owned devices: Enabling personal usage allows the user to set up a work profile on the device. Disabling personal usage will prevent the device from provisioning. Personal usage cannot be disabled on personally-owned device. */
-      allowPersonalUsage?: string;
+      allowPersonalUsage?:
+        | 'ALLOW_PERSONAL_USAGE_UNSPECIFIED'
+        | 'PERSONAL_USAGE_ALLOWED'
+        | 'PERSONAL_USAGE_DISALLOWED'
+        | 'PERSONAL_USAGE_DISALLOWED_USERLESS';
       /** Optional. Whether the sign-in URL should be used by default for the enterprise. The SigninDetail with defaultStatus set to SIGNIN_DETAIL_IS_DEFAULT is used for Google account enrollment method. Only one of an enterprise's signinDetails can have defaultStatus set to SIGNIN_DETAIL_IS_DEFAULT. If an Enterprise has at least one signinDetails and none of them have defaultStatus set to SIGNIN_DETAIL_IS_DEFAULT then the first one from the list is selected and has set defaultStatus to SIGNIN_DETAIL_IS_DEFAULT. If no signinDetails specified for the Enterprise then the Google Account device enrollment will fail. */
-      defaultStatus?: string;
+      defaultStatus?:
+        | 'SIGNIN_DETAIL_DEFAULT_STATUS_UNSPECIFIED'
+        | 'SIGNIN_DETAIL_IS_DEFAULT'
+        | 'SIGNIN_DETAIL_IS_NOT_DEFAULT';
       /** A JSON string whose UTF-8 representation can be used to generate a QR code to enroll a device with this enrollment token. To enroll a device using NFC, the NFC record must contain a serialized java.util.Properties representation of the properties in the JSON. This is a read-only field generated by the server. */
       qrCode?: string;
       /** An enterprise wide enrollment token used to trigger custom sign-in flow. This is a read-only field generated by the server. */
@@ -1629,7 +2286,12 @@ declare namespace gapi.client {
     }
     interface StartLostModeStatus {
       /** The status. See StartLostModeStatus. */
-      status?: string;
+      status?:
+        | 'STATUS_UNSPECIFIED'
+        | 'SUCCESS'
+        | 'RESET_PASSWORD_RECENTLY'
+        | 'USER_EXIT_LOST_MODE_RECENTLY'
+        | 'ALREADY_IN_LOST_MODE';
     }
     interface Status {
       /** The status code, which should be an enum value of google.rpc.Code. */
@@ -1668,11 +2330,11 @@ declare namespace gapi.client {
     interface StopLostModeParams {}
     interface StopLostModeStatus {
       /** The status. See StopLostModeStatus. */
-      status?: string;
+      status?: 'STATUS_UNSPECIFIED' | 'SUCCESS' | 'NOT_IN_LOST_MODE';
     }
     interface StopLostModeUserAttemptEvent {
       /** The status of the attempt to stop lost mode. */
-      status?: string;
+      status?: 'STATUS_UNSPECIFIED' | 'ATTEMPT_SUCCEEDED' | 'ATTEMPT_FAILED';
     }
     interface SystemUpdate {
       /** If the type is WINDOWED, the end of the maintenance window, measured as the number of minutes after midnight in device's local time. This value must be between 0 and 1439, inclusive. If this value is less than start_minutes, then the maintenance window spans midnight. If the maintenance window specified is smaller than 30 minutes, the actual window is extended to 30 minutes beyond the start time. */
@@ -1682,21 +2344,36 @@ declare namespace gapi.client {
       /** If the type is WINDOWED, the start of the maintenance window, measured as the number of minutes after midnight in the device's local time. This value must be between 0 and 1439, inclusive. */
       startMinutes?: number;
       /** The type of system update to configure. */
-      type?: string;
+      type?:
+        | 'SYSTEM_UPDATE_TYPE_UNSPECIFIED'
+        | 'AUTOMATIC'
+        | 'WINDOWED'
+        | 'POSTPONE';
     }
     interface SystemUpdateInfo {
       /** The time when the update was first available. A zero value indicates that this field is not set. This field is set only if an update is available (that is, updateStatus is neither UPDATE_STATUS_UNKNOWN nor UP_TO_DATE). */
       updateReceivedTime?: string;
       /** The status of an update: whether an update exists and what type it is. */
-      updateStatus?: string;
+      updateStatus?:
+        | 'UPDATE_STATUS_UNKNOWN'
+        | 'UP_TO_DATE'
+        | 'UNKNOWN_UPDATE_AVAILABLE'
+        | 'SECURITY_UPDATE_AVAILABLE'
+        | 'OS_UPDATE_AVAILABLE';
     }
     interface TelephonyInfo {
       /** Output only. Activation state of the SIM card on the device. This is applicable for eSIMs only. This is supported on all devices for Android 15 and above. This is always ACTIVATION_STATE_UNSPECIFIED for physical SIMs and for devices below Android 15. */
-      activationState?: string;
+      activationState?:
+        | 'ACTIVATION_STATE_UNSPECIFIED'
+        | 'ACTIVATED'
+        | 'NOT_ACTIVATED';
       /** The carrier name associated with this SIM card. */
       carrierName?: string;
       /** Output only. The configuration mode of the SIM card on the device. This is applicable for eSIMs only. This is supported on all devices for Android 15 and above. This is always CONFIG_MODE_UNSPECIFIED for physical SIMs and for devices below Android 15. */
-      configMode?: string;
+      configMode?:
+        | 'CONFIG_MODE_UNSPECIFIED'
+        | 'ADMIN_CONFIGURED'
+        | 'USER_CONFIGURED';
       /** Output only. The ICCID associated with this SIM card. */
       iccId?: string;
       /** The phone number associated with this SIM card. */
@@ -1710,9 +2387,15 @@ declare namespace gapi.client {
     }
     interface UsageLog {
       /** Specifies which log types are enabled. Note that users will receive on-device messaging when usage logging is enabled. */
-      enabledLogTypes?: string[];
+      enabledLogTypes?:
+        | 'LOG_TYPE_UNSPECIFIED'
+        | 'SECURITY_LOGS'
+        | 'NETWORK_ACTIVITY_LOGS'[];
       /** Specifies which of the enabled log types can be uploaded over mobile data. By default logs are queued for upload when the device connects to WiFi. */
-      uploadOnCellularAllowed?: string[];
+      uploadOnCellularAllowed?:
+        | 'LOG_TYPE_UNSPECIFIED'
+        | 'SECURITY_LOGS'
+        | 'NETWORK_ACTIVITY_LOGS'[];
     }
     interface UsageLogEvent {
       /** A shell command was issued over ADB via “adb shell command”. Part of SECURITY_LOGS. */
@@ -1742,7 +2425,40 @@ declare namespace gapi.client {
       /** Device timestamp when the event was logged. */
       eventTime?: string;
       /** The particular usage log event type that was reported on the device. Use this to determine which event field to access. */
-      eventType?: string;
+      eventType?:
+        | 'EVENT_TYPE_UNSPECIFIED'
+        | 'ADB_SHELL_COMMAND'
+        | 'ADB_SHELL_INTERACTIVE'
+        | 'APP_PROCESS_START'
+        | 'KEYGUARD_DISMISSED'
+        | 'KEYGUARD_DISMISS_AUTH_ATTEMPT'
+        | 'KEYGUARD_SECURED'
+        | 'FILE_PULLED'
+        | 'FILE_PUSHED'
+        | 'CERT_AUTHORITY_INSTALLED'
+        | 'CERT_AUTHORITY_REMOVED'
+        | 'CERT_VALIDATION_FAILURE'
+        | 'CRYPTO_SELF_TEST_COMPLETED'
+        | 'KEY_DESTRUCTION'
+        | 'KEY_GENERATED'
+        | 'KEY_IMPORT'
+        | 'KEY_INTEGRITY_VIOLATION'
+        | 'LOGGING_STARTED'
+        | 'LOGGING_STOPPED'
+        | 'LOG_BUFFER_SIZE_CRITICAL'
+        | 'MEDIA_MOUNT'
+        | 'MEDIA_UNMOUNT'
+        | 'OS_SHUTDOWN'
+        | 'OS_STARTUP'
+        | 'REMOTE_LOCK'
+        | 'WIPE_FAILURE'
+        | 'CONNECT'
+        | 'DNS'
+        | 'STOP_LOST_MODE_USER_ATTEMPT'
+        | 'LOST_MODE_OUTGOING_PHONE_CALL'
+        | 'LOST_MODE_LOCATION'
+        | 'ENROLLMENT_COMPLETE'
+        | 'BACKUP_SERVICE_TOGGLED';
       /** A file was downloaded from the device. Part of SECURITY_LOGS. */
       filePulledEvent?: FilePulledEvent;
       /** A file was uploaded onto the device. Part of SECURITY_LOGS. */
@@ -1798,7 +2514,11 @@ declare namespace gapi.client {
     }
     interface WebApp {
       /** The display mode of the web app. */
-      displayMode?: string;
+      displayMode?:
+        | 'DISPLAY_MODE_UNSPECIFIED'
+        | 'MINIMAL_UI'
+        | 'STANDALONE'
+        | 'FULL_SCREEN';
       /** A list of icons for the web app. Must have at least one element. */
       icons?: WebAppIcon[];
       /** The name of the web app, which is generated by the server during creation in the form enterprises/{enterpriseId}/webApps/{packageName}. */
@@ -1816,13 +2536,20 @@ declare namespace gapi.client {
     }
     interface WebToken {
       /** The features to enable. Use this if you want to control exactly which feature(s) will be activated; leave empty to allow all features.Restrictions / things to note: - If no features are listed here, all features are enabled — this is the default behavior where you give access to all features to your admins. - This must not contain any FEATURE_UNSPECIFIED values. - Repeated values are ignored */
-      enabledFeatures?: string[];
+      enabledFeatures?:
+        | 'FEATURE_UNSPECIFIED'
+        | 'PLAY_SEARCH'
+        | 'PRIVATE_APPS'
+        | 'WEB_APPS'
+        | 'STORE_BUILDER'
+        | 'MANAGED_CONFIGURATIONS'
+        | 'ZERO_TOUCH_CUSTOMER_MANAGEMENT'[];
       /** The name of the web token, which is generated by the server during creation in the form enterprises/{enterpriseId}/webTokens/{webTokenId}. */
       name?: string;
       /** The URL of the parent frame hosting the iframe with the embedded UI. To prevent XSS, the iframe may not be hosted at other URLs. The URL must use the https scheme. */
       parentFrameUrl?: string;
       /** Permissions available to an admin in the embedded UI. An admin must have all of these permissions in order to view the UI. This field is deprecated. */
-      permissions?: string[];
+      permissions?: 'WEB_TOKEN_PERMISSION_UNSPECIFIED' | 'APPROVE_APPS'[];
       /** The token value which is used in the hosting page to generate the iframe with the embedded UI. This is a read-only field generated by the server. */
       value?: string;
     }
@@ -1832,7 +2559,11 @@ declare namespace gapi.client {
     }
     interface WifiRoamingSetting {
       /** Required. Wi-Fi roaming mode for the specified SSID. */
-      wifiRoamingMode?: string;
+      wifiRoamingMode?:
+        | 'WIFI_ROAMING_MODE_UNSPECIFIED'
+        | 'WIFI_ROAMING_DISABLED'
+        | 'WIFI_ROAMING_DEFAULT'
+        | 'WIFI_ROAMING_AGGRESSIVE';
       /** Required. SSID of the Wi-Fi network. */
       wifiSsid?: string;
     }
@@ -1842,7 +2573,10 @@ declare namespace gapi.client {
     }
     interface WifiSsidPolicy {
       /** Type of the Wi-Fi SSID policy to be applied. */
-      wifiSsidPolicyType?: string;
+      wifiSsidPolicyType?:
+        | 'WIFI_SSID_POLICY_TYPE_UNSPECIFIED'
+        | 'WIFI_SSID_DENYLIST'
+        | 'WIFI_SSID_ALLOWLIST';
       /** Optional. List of Wi-Fi SSIDs that should be applied in the policy. This field must be non-empty when WifiSsidPolicyType is set to WIFI_SSID_ALLOWLIST. If this is set to a non-empty list, then a NonComplianceDetail detail with API_LEVEL is reported if the Android version is less than 13 and a NonComplianceDetail with MANAGEMENT_MODE is reported for non-company-owned devices. */
       wifiSsids?: WifiSsid[];
     }
@@ -1855,13 +2589,20 @@ declare namespace gapi.client {
     interface WipeFailureEvent {}
     interface WipeParams {
       /** Optional. Flags to determine what data to wipe. */
-      wipeDataFlags?: string[];
+      wipeDataFlags?:
+        | 'WIPE_DATA_FLAG_UNSPECIFIED'
+        | 'PRESERVE_RESET_PROTECTION_DATA'
+        | 'WIPE_EXTERNAL_STORAGE'
+        | 'WIPE_ESIMS'[];
       /** Optional. A short message displayed to the user before wiping the work profile on personal devices. This has no effect on company owned devices. The maximum message length is 200 characters. */
       wipeReason?: UserFacingMessage;
     }
     interface WorkAccountSetupConfig {
       /** Optional. The authentication type of the user on the device. */
-      authenticationType?: string;
+      authenticationType?:
+        | 'AUTHENTICATION_TYPE_UNSPECIFIED'
+        | 'AUTHENTICATION_TYPE_NOT_ENFORCED'
+        | 'GOOGLE_AUTHENTICATED';
       /** Optional. The specific google work account email address to be added. This field is only relevant if authenticationType is GOOGLE_AUTHENTICATED. This must be an enterprise account and not a consumer account. Once set and a Google authenticated account is added to the device, changing this field will have no effect, and thus recommended to be set only once. */
       requiredAccountEmail?: string;
     }
@@ -1869,11 +2610,11 @@ declare namespace gapi.client {
       /** Gets info about an application. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1900,11 +2641,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED. */
       cancel(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1927,11 +2668,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1954,11 +2695,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1991,11 +2732,11 @@ declare namespace gapi.client {
       /** Deletes a device. This operation attempts to wipe the device but this is not guaranteed to succeed if the device is offline for an extended period. Deleted devices do not show up in enterprises.devices.list calls and a 404 is returned from enterprises.devices.get. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2015,18 +2756,28 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Optional flags that control the device wiping behavior. */
-        wipeDataFlags?: string | string[];
+        wipeDataFlags?:
+          | 'WIPE_DATA_FLAG_UNSPECIFIED'
+          | 'PRESERVE_RESET_PROTECTION_DATA'
+          | 'WIPE_EXTERNAL_STORAGE'
+          | 'WIPE_ESIMS'
+          | (
+              | 'WIPE_DATA_FLAG_UNSPECIFIED'
+              | 'PRESERVE_RESET_PROTECTION_DATA'
+              | 'WIPE_EXTERNAL_STORAGE'
+              | 'WIPE_ESIMS'
+            )[];
         /** Optional. A short message displayed to the user before wiping the work profile on personal devices. This has no effect on company owned devices. The maximum message length is 200 characters. */
         wipeReasonMessage?: string;
       }): Request<{}>;
       /** Gets a device. Deleted devices will respond with a 404 error. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2049,11 +2800,11 @@ declare namespace gapi.client {
       /** Issues a command to a device. The Operation resource returned contains a Command in its metadata field. Use the get operation method to get the status of the command. */
       issueCommand(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2078,11 +2829,11 @@ declare namespace gapi.client {
       issueCommand(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2107,11 +2858,11 @@ declare namespace gapi.client {
       /** Lists devices for a given enterprise. Deleted devices are not returned in the response. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2138,11 +2889,11 @@ declare namespace gapi.client {
       /** Updates a device. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2169,11 +2920,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2203,11 +2954,11 @@ declare namespace gapi.client {
       /** Creates an enrollment token for a given enterprise. It's up to the caller's responsibility to manage the lifecycle of newly created tokens and deleting them when they're not intended to be used anymore. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2232,11 +2983,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2261,11 +3012,11 @@ declare namespace gapi.client {
       /** Deletes an enrollment token. This operation invalidates the token, preventing its future use. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2288,11 +3039,11 @@ declare namespace gapi.client {
       /** Gets an active, unexpired enrollment token. A partial view of the enrollment token is returned. Only the following fields are populated: name, expirationTimestamp, allowPersonalUsage, value, qrCode. This method is meant to help manage active enrollment tokens lifecycle. For security reasons, it's recommended to delete active enrollment tokens as soon as they're not intended to be used anymore. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2315,11 +3066,11 @@ declare namespace gapi.client {
       /** Lists active, unexpired enrollment tokens for a given enterprise. The list items contain only a partial view of EnrollmentToken object. Only the following fields are populated: name, expirationTimestamp, allowPersonalUsage, value, qrCode. This method is meant to help manage active enrollment tokens lifecycle. For security reasons, it's recommended to delete active enrollment tokens as soon as they're not intended to be used anymore. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2348,11 +3099,11 @@ declare namespace gapi.client {
       /** Creates a migration token, to migrate an existing device from being managed by the EMM's Device Policy Controller (DPC) to being managed by the Android Management API. See the guide (https://developers.google.com/android/management/dpc-migration) for more details. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2377,11 +3128,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2406,11 +3157,11 @@ declare namespace gapi.client {
       /** Gets a migration token. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2433,11 +3184,11 @@ declare namespace gapi.client {
       /** Lists migration tokens. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2466,11 +3217,11 @@ declare namespace gapi.client {
       /** Deletes a policy. This operation is only permitted if no devices are currently referencing the policy. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2493,11 +3244,11 @@ declare namespace gapi.client {
       /** Gets a policy. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2520,11 +3271,11 @@ declare namespace gapi.client {
       /** Lists policies for a given enterprise. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2551,11 +3302,11 @@ declare namespace gapi.client {
       /** Updates or creates applications in a policy. */
       modifyPolicyApplications(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2580,11 +3331,11 @@ declare namespace gapi.client {
       modifyPolicyApplications(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2609,11 +3360,11 @@ declare namespace gapi.client {
       /** Updates or creates a policy. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2640,11 +3391,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2671,11 +3422,11 @@ declare namespace gapi.client {
       /** Removes applications in a policy. */
       removePolicyApplications(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2700,11 +3451,11 @@ declare namespace gapi.client {
       removePolicyApplications(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2731,11 +3482,11 @@ declare namespace gapi.client {
       /** Creates a web app. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2760,11 +3511,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2789,11 +3540,11 @@ declare namespace gapi.client {
       /** Deletes a web app. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2816,11 +3567,11 @@ declare namespace gapi.client {
       /** Gets a web app. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2843,11 +3594,11 @@ declare namespace gapi.client {
       /** Lists web apps for a given enterprise. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2874,11 +3625,11 @@ declare namespace gapi.client {
       /** Updates a web app. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2905,11 +3656,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2938,11 +3689,11 @@ declare namespace gapi.client {
       /** Creates a web token to access an embeddable managed Google Play web UI for a given enterprise. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2967,11 +3718,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2998,13 +3749,13 @@ declare namespace gapi.client {
       /** Creates an enterprise. This is the last step in the enterprise signup flow. See also: SigninDetail */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Whether the enterprise admin has seen and agreed to the managed Google Play Agreement (https://www.android.com/enterprise/terms/). Do not set this field for any customer-managed enterprise (https://developers.google.com/android/management/create-enterprise#customer-managed_enterprises). Set this to field to true for all EMM-managed enterprises (https://developers.google.com/android/management/create-enterprise#emm-managed_enterprises). */
         agreementAccepted?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The enterprise token appended to the callback URL. Set this when creating a customer-managed enterprise (https://developers.google.com/android/management/create-enterprise#customer-managed_enterprises) and not when creating a deprecated EMM-managed enterprise (https://developers.google.com/android/management/create-enterprise#emm-managed_enterprises). */
@@ -3033,13 +3784,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Whether the enterprise admin has seen and agreed to the managed Google Play Agreement (https://www.android.com/enterprise/terms/). Do not set this field for any customer-managed enterprise (https://developers.google.com/android/management/create-enterprise#customer-managed_enterprises). Set this to field to true for all EMM-managed enterprises (https://developers.google.com/android/management/create-enterprise#emm-managed_enterprises). */
           agreementAccepted?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The enterprise token appended to the callback URL. Set this when creating a customer-managed enterprise (https://developers.google.com/android/management/create-enterprise#customer-managed_enterprises) and not when creating a deprecated EMM-managed enterprise (https://developers.google.com/android/management/create-enterprise#emm-managed_enterprises). */
@@ -3068,11 +3819,11 @@ declare namespace gapi.client {
       /** Permanently deletes an enterprise and all accounts and data associated with it. Warning: this will result in a cascaded deletion of all AM API devices associated with the deleted enterprise. Only available for EMM-managed enterprises. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3095,11 +3846,11 @@ declare namespace gapi.client {
       /** Generates an enterprise upgrade URL to upgrade an existing managed Google Play Accounts enterprise to a managed Google domain. See the guide (https://developers.google.com/android/management/upgrade-an-enterprise) for more details. */
       generateEnterpriseUpgradeUrl(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3124,11 +3875,11 @@ declare namespace gapi.client {
       generateEnterpriseUpgradeUrl(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3153,11 +3904,11 @@ declare namespace gapi.client {
       /** Gets an enterprise. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3180,11 +3931,11 @@ declare namespace gapi.client {
       /** Lists EMM-managed enterprises. Only BASIC fields are returned. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3208,16 +3959,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Specifies which Enterprise fields to return. This method only supports BASIC. */
-        view?: string;
+        view?: 'ENTERPRISE_VIEW_UNSPECIFIED' | 'BASIC';
       }): Request<ListEnterprisesResponse>;
       /** Updates an enterprise. See also: SigninDetail */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3244,11 +3995,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3284,11 +4035,11 @@ declare namespace gapi.client {
       /** Get the device provisioning information by the identifier provided in the sign-in url. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3313,7 +4064,7 @@ declare namespace gapi.client {
       /** Creates an enterprise signup URL. */
       create(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Optional. Email address used to prefill the admin field of the enterprise signup form. This value is a hint only and can be altered by the user. If allowedDomains is non-empty then this must belong to one of the allowedDomains. */
@@ -3321,7 +4072,7 @@ declare namespace gapi.client {
         /** Optional. A list of domains that are permitted for the admin email. The IT admin cannot enter an email address with a domain name that is not in this list. Subdomains of domains in this list are not allowed but can be allowed by adding a second entry which has *. prefixed to the domain name (e.g. *.example.com). If the field is not present or is an empty list then the IT admin is free to use any valid domain name. Personal email domains are always allowed, but will result in the creation of a managed Google Play Accounts enterprise. */
         allowedDomains?: string | string[];
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The callback URL that the admin will be redirected to after successfully creating an enterprise. Before redirecting there the system will add a query parameter to this URL named enterpriseToken which will contain an opaque token to be used for the create enterprise request. The URL will be parsed then reformatted in order to add the enterpriseToken parameter, so there may be some minor formatting changes. */

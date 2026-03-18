@@ -42,7 +42,11 @@ declare namespace gapi.client {
       /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
       exemptedMembers?: string[];
       /** The log type that this config enables. */
-      logType?: string;
+      logType?:
+        | 'LOG_TYPE_UNSPECIFIED'
+        | 'ADMIN_READ'
+        | 'DATA_WRITE'
+        | 'DATA_READ';
     }
     interface AutoMigrationConfig {
       /** Optional. Whether the auto migration is enabled for the project. */
@@ -79,7 +83,15 @@ declare namespace gapi.client {
       /** Output only. Location of artifacts from a DeleteDeployment operation. */
       deleteResults?: ApplyResults;
       /** Output only. Error code describing errors that may have occurred. */
-      errorCode?: string;
+      errorCode?:
+        | 'ERROR_CODE_UNSPECIFIED'
+        | 'REVISION_FAILED'
+        | 'CLOUD_BUILD_PERMISSION_DENIED'
+        | 'DELETE_BUILD_API_FAILED'
+        | 'DELETE_BUILD_RUN_FAILED'
+        | 'BUCKET_CREATION_PERMISSION_DENIED'
+        | 'BUCKET_CREATION_FAILED'
+        | 'EXTERNAL_VALUE_SOURCE_IMPORT_FAILED';
       /** Output only. Location of Terraform error logs in Google Cloud Storage. Format: `gs://{bucket}/{object}`. */
       errorLogs?: string;
       /** By default, Infra Manager will return a failure when Terraform encounters a 409 code (resource conflict error) during actuation. If this flag is set to true, Infra Manager will instead attempt to automatically import the resource into the Terraform state (for supported resource types) and continue actuation. Not all resource types are supported, refer to documentation. */
@@ -89,17 +101,32 @@ declare namespace gapi.client {
       /** Output only. Revision name that was most recently applied. Format: `projects/{project}/locations/{location}/deployments/{deployment}/ revisions/{revision}` */
       latestRevision?: string;
       /** Output only. Current lock state of the deployment. */
-      lockState?: string;
+      lockState?:
+        | 'LOCK_STATE_UNSPECIFIED'
+        | 'LOCKED'
+        | 'UNLOCKED'
+        | 'LOCKING'
+        | 'UNLOCKING'
+        | 'LOCK_FAILED'
+        | 'UNLOCK_FAILED';
       /** Identifier. Resource name of the deployment. Format: `projects/{project}/locations/{location}/deployments/{deployment}` */
       name?: string;
       /** Optional. This field specifies the provider configurations. */
       providerConfig?: ProviderConfig;
       /** Optional. Input to control quota checks for resources in terraform configuration files. There are limited resources on which quota validation applies. */
-      quotaValidation?: string;
+      quotaValidation?: 'QUOTA_VALIDATION_UNSPECIFIED' | 'ENABLED' | 'ENFORCED';
       /** Required. User-specified Service Account (SA) credentials to be used when actuating resources. Format: `projects/{projectID}/serviceAccounts/{serviceAccount}` */
       serviceAccount?: string;
       /** Output only. Current state of the deployment. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'ACTIVE'
+        | 'UPDATING'
+        | 'DELETING'
+        | 'FAILED'
+        | 'SUSPENDED'
+        | 'DELETED';
       /** Output only. Additional information regarding the current state. */
       stateDetail?: string;
       /** A blueprint described using Terraform's HashiCorp Configuration Language as a root module. */
@@ -123,7 +150,20 @@ declare namespace gapi.client {
       /** Output only. Location of Deployment operations logs in `gs://{bucket}/{object}` format. */
       logs?: string;
       /** The current step the deployment operation is running. */
-      step?: string;
+      step?:
+        | 'DEPLOYMENT_STEP_UNSPECIFIED'
+        | 'PREPARING_STORAGE_BUCKET'
+        | 'DOWNLOADING_BLUEPRINT'
+        | 'RUNNING_TF_INIT'
+        | 'RUNNING_TF_PLAN'
+        | 'RUNNING_TF_APPLY'
+        | 'RUNNING_TF_DESTROY'
+        | 'RUNNING_TF_VALIDATE'
+        | 'UNLOCKING_DEPLOYMENT'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'VALIDATING_REPOSITORY'
+        | 'RUNNING_QUOTA_VALIDATION';
     }
     interface Empty {}
     interface ExportDeploymentStatefileRequest {
@@ -309,7 +349,15 @@ declare namespace gapi.client {
       /** Optional. Optional deployment reference. If specified, the preview will be performed using the provided deployment's current state and use any relevant fields from the deployment unless explicitly specified in the preview create request. */
       deployment?: string;
       /** Output only. Code describing any errors that may have occurred. */
-      errorCode?: string;
+      errorCode?:
+        | 'ERROR_CODE_UNSPECIFIED'
+        | 'CLOUD_BUILD_PERMISSION_DENIED'
+        | 'BUCKET_CREATION_PERMISSION_DENIED'
+        | 'BUCKET_CREATION_FAILED'
+        | 'DEPLOYMENT_LOCK_ACQUIRE_FAILED'
+        | 'PREVIEW_BUILD_API_FAILED'
+        | 'PREVIEW_BUILD_RUN_FAILED'
+        | 'EXTERNAL_VALUE_SOURCE_IMPORT_FAILED';
       /** Output only. Link to tf-error.ndjson file, which contains the full list of the errors encountered during a Terraform preview. Format: `gs://{bucket}/{object}`. */
       errorLogs?: string;
       /** Output only. Additional information regarding the current state. */
@@ -323,13 +371,21 @@ declare namespace gapi.client {
       /** Output only. Artifacts from preview. */
       previewArtifacts?: PreviewArtifacts;
       /** Optional. Current mode of preview. */
-      previewMode?: string;
+      previewMode?: 'PREVIEW_MODE_UNSPECIFIED' | 'DEFAULT' | 'DELETE';
       /** Optional. This field specifies the provider configurations. */
       providerConfig?: ProviderConfig;
       /** Required. User-specified Service Account (SA) credentials to be used when previewing resources. Format: `projects/{projectID}/serviceAccounts/{serviceAccount}` */
       serviceAccount?: string;
       /** Output only. Current state of the preview. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'SUCCEEDED'
+        | 'APPLYING'
+        | 'STALE'
+        | 'DELETING'
+        | 'FAILED'
+        | 'DELETED';
       /** The terraform blueprint to preview. */
       terraformBlueprint?: TerraformBlueprint;
       /** Output only. Summary of errors encountered during Terraform preview. It has a size limit of 10, i.e. only top 10 errors will be summarized here. */
@@ -355,7 +411,18 @@ declare namespace gapi.client {
       /** Artifacts from preview. */
       previewArtifacts?: PreviewArtifacts;
       /** The current step the preview operation is running. */
-      step?: string;
+      step?:
+        | 'PREVIEW_STEP_UNSPECIFIED'
+        | 'PREPARING_STORAGE_BUCKET'
+        | 'DOWNLOADING_BLUEPRINT'
+        | 'RUNNING_TF_INIT'
+        | 'RUNNING_TF_PLAN'
+        | 'FETCHING_DEPLOYMENT'
+        | 'LOCKING_DEPLOYMENT'
+        | 'UNLOCKING_DEPLOYMENT'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'VALIDATING_REPOSITORY';
     }
     interface PreviewResult {
       /** Output only. Plan binary signed URL */
@@ -389,17 +456,28 @@ declare namespace gapi.client {
     }
     interface ProviderConfig {
       /** Optional. ProviderSource specifies the source type of the provider. */
-      sourceType?: string;
+      sourceType?: 'PROVIDER_SOURCE_UNSPECIFIED' | 'SERVICE_MAINTAINED';
     }
     interface Resource {
       /** Output only. Map of Cloud Asset Inventory (CAI) type to CAI info (e.g. CAI ID). CAI type format follows https://cloud.google.com/asset-inventory/docs/supported-asset-types */
       caiAssets?: {[P in string]: ResourceCAIInfo};
       /** Output only. Intent of the resource. */
-      intent?: string;
+      intent?:
+        | 'INTENT_UNSPECIFIED'
+        | 'CREATE'
+        | 'UPDATE'
+        | 'DELETE'
+        | 'RECREATE'
+        | 'UNCHANGED';
       /** Output only. Resource name. Format: `projects/{project}/locations/{location}/deployments/{deployment}/revisions/{revision}/resources/{resource}` */
       name?: string;
       /** Output only. Current state of the resource. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PLANNED'
+        | 'IN_PROGRESS'
+        | 'RECONCILED'
+        | 'FAILED';
       /** Output only. Terraform-specific info if this resource was created using Terraform. */
       terraformInfo?: ResourceTerraformInfo;
     }
@@ -409,7 +487,13 @@ declare namespace gapi.client {
     }
     interface ResourceChange {
       /** Output only. The intent of the resource change. */
-      intent?: string;
+      intent?:
+        | 'INTENT_UNSPECIFIED'
+        | 'CREATE'
+        | 'UPDATE'
+        | 'DELETE'
+        | 'RECREATE'
+        | 'UNCHANGED';
       /** Identifier. The name of the resource change. Format: 'projects/{project_id}/locations/{location}/previews/{preview}/resourceChanges/{resource_change}'. */
       name?: string;
       /** Output only. The property changes of the resource change. */
@@ -457,7 +541,7 @@ declare namespace gapi.client {
     }
     interface Revision {
       /** Output only. The action which created this revision */
-      action?: string;
+      action?: 'ACTION_UNSPECIFIED' | 'CREATE' | 'UPDATE' | 'DELETE';
       /** Output only. Outputs and artifacts from applying a deployment. */
       applyResults?: ApplyResults;
       /** Output only. Cloud Build instance UUID associated with this revision. */
@@ -465,7 +549,13 @@ declare namespace gapi.client {
       /** Output only. Time when the revision was created. */
       createTime?: string;
       /** Output only. Code describing any errors that may have occurred. */
-      errorCode?: string;
+      errorCode?:
+        | 'ERROR_CODE_UNSPECIFIED'
+        | 'CLOUD_BUILD_PERMISSION_DENIED'
+        | 'APPLY_BUILD_API_FAILED'
+        | 'APPLY_BUILD_RUN_FAILED'
+        | 'QUOTA_VALIDATION_FAILED'
+        | 'EXTERNAL_VALUE_SOURCE_IMPORT_FAILED';
       /** Output only. Location of Terraform error logs in Google Cloud Storage. Format: `gs://{bucket}/{object}`. */
       errorLogs?: string;
       /** Output only. By default, Infra Manager will return a failure when Terraform encounters a 409 code (resource conflict error) during actuation. If this flag is set to true, Infra Manager will instead attempt to automatically import the resource into the Terraform state (for supported resource types) and continue actuation. Not all resource types are supported, refer to documentation. */
@@ -477,13 +567,13 @@ declare namespace gapi.client {
       /** Output only. This field specifies the provider configurations. */
       providerConfig?: ProviderConfig;
       /** Optional. Input to control quota checks for resources in terraform configuration files. There are limited resources on which quota validation applies. */
-      quotaValidation?: string;
+      quotaValidation?: 'QUOTA_VALIDATION_UNSPECIFIED' | 'ENABLED' | 'ENFORCED';
       /** Output only. Cloud Storage path containing quota validation results. This field is set when a user sets Deployment.quota_validation field to ENABLED or ENFORCED. Format: `gs://{bucket}/{object}`. */
       quotaValidationResults?: string;
       /** Output only. User-specified Service Account (SA) to be used as credential to manage resources. Format: `projects/{projectID}/serviceAccounts/{serviceAccount}` */
       serviceAccount?: string;
       /** Output only. Current state of the revision. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'APPLYING' | 'APPLIED' | 'FAILED';
       /** Output only. Additional info regarding the current state. */
       stateDetail?: string;
       /** Output only. A blueprint described using Terraform's HashiCorp Configuration Language as a root module. */
@@ -553,7 +643,7 @@ declare namespace gapi.client {
       /** Output only. When the version is obsolete. */
       obsoleteTime?: string;
       /** Output only. The state of the version, ACTIVE, DEPRECATED or OBSOLETE. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'ACTIVE' | 'DEPRECATED' | 'OBSOLETE';
       /** Output only. When the version is supported. */
       supportTime?: string;
     }
@@ -573,11 +663,11 @@ declare namespace gapi.client {
       /** Gets details about a Resource deployed by Infra Manager. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -600,11 +690,11 @@ declare namespace gapi.client {
       /** Lists Resources in a given revision. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -637,11 +727,11 @@ declare namespace gapi.client {
       /** Exports Terraform state file from a given revision. */
       exportState(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -666,11 +756,11 @@ declare namespace gapi.client {
       exportState(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -695,11 +785,11 @@ declare namespace gapi.client {
       /** Gets details about a Revision. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -722,11 +812,11 @@ declare namespace gapi.client {
       /** Lists Revisions of a deployment. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -760,11 +850,11 @@ declare namespace gapi.client {
       /** Creates a Deployment. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The Deployment ID. */
@@ -793,11 +883,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The Deployment ID. */
@@ -826,15 +916,15 @@ declare namespace gapi.client {
       /** Deletes a Deployment. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Policy on how resources actuated by the deployment should be deleted. If unspecified, the default behavior is to delete the underlying resources. */
-        deletePolicy?: string;
+        deletePolicy?: 'DELETE_POLICY_UNSPECIFIED' | 'DELETE' | 'ABANDON';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** Optional. If set to true, any revisions for this deployment will also be deleted. (Otherwise, the request will only work if the deployment has no revisions.) */
@@ -859,11 +949,11 @@ declare namespace gapi.client {
       /** Deletes Terraform state file in a given deployment. */
       deleteState(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -888,11 +978,11 @@ declare namespace gapi.client {
       deleteState(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -917,11 +1007,11 @@ declare namespace gapi.client {
       /** Exports the lock info on a locked deployment. */
       exportLock(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -944,11 +1034,11 @@ declare namespace gapi.client {
       /** Exports Terraform state file from a given deployment. */
       exportState(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -973,11 +1063,11 @@ declare namespace gapi.client {
       exportState(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1002,11 +1092,11 @@ declare namespace gapi.client {
       /** Gets details about a Deployment. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1029,11 +1119,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1058,11 +1148,11 @@ declare namespace gapi.client {
       /** Imports Terraform state file in a given deployment. The state file does not take effect until the Deployment has been unlocked. */
       importState(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1087,11 +1177,11 @@ declare namespace gapi.client {
       importState(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1116,11 +1206,11 @@ declare namespace gapi.client {
       /** Lists Deployments in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1151,11 +1241,11 @@ declare namespace gapi.client {
       /** Locks a deployment. */
       lock(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1180,11 +1270,11 @@ declare namespace gapi.client {
       lock(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1209,11 +1299,11 @@ declare namespace gapi.client {
       /** Updates a Deployment. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1242,11 +1332,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1276,11 +1366,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1306,11 +1396,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1335,11 +1425,11 @@ declare namespace gapi.client {
       /** Unlocks a locked deployment. */
       unlock(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1364,11 +1454,11 @@ declare namespace gapi.client {
       unlock(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1396,11 +1486,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1425,11 +1515,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1454,11 +1544,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1481,11 +1571,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1508,11 +1598,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1545,11 +1635,11 @@ declare namespace gapi.client {
       /** Get a ResourceChange for a given preview. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1572,11 +1662,11 @@ declare namespace gapi.client {
       /** Lists ResourceChanges for a given preview. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1609,11 +1699,11 @@ declare namespace gapi.client {
       /** Get a ResourceDrift for a given preview. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1636,11 +1726,11 @@ declare namespace gapi.client {
       /** List ResourceDrifts for a given preview. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1673,11 +1763,11 @@ declare namespace gapi.client {
       /** Creates a Preview. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1706,11 +1796,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1739,11 +1829,11 @@ declare namespace gapi.client {
       /** Deletes a Preview. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1768,11 +1858,11 @@ declare namespace gapi.client {
       /** Export Preview results. */
       export(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1797,11 +1887,11 @@ declare namespace gapi.client {
       export(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1826,11 +1916,11 @@ declare namespace gapi.client {
       /** Gets details about a Preview. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1853,11 +1943,11 @@ declare namespace gapi.client {
       /** Lists Previews in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1892,11 +1982,11 @@ declare namespace gapi.client {
       /** Gets details about a TerraformVersion. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1919,11 +2009,11 @@ declare namespace gapi.client {
       /** Lists TerraformVersions in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1956,11 +2046,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1983,11 +2073,11 @@ declare namespace gapi.client {
       /** Get the AutoMigrationConfig for a given project and location. */
       getAutoMigrationConfig(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2010,11 +2100,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */
@@ -2045,11 +2135,11 @@ declare namespace gapi.client {
       /** Updates the AutoMigrationConfig for a given project and location. */
       updateAutoMigrationConfig(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2076,11 +2166,11 @@ declare namespace gapi.client {
       updateAutoMigrationConfig(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

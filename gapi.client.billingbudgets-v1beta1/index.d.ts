@@ -53,7 +53,10 @@ declare namespace gapi.client {
       etag?: string;
       /** Output only. Resource name of the budget. The resource name implies the scope of a budget. Values are of the form `billingAccounts/{billingAccountId}/budgets/{budgetId}`. */
       name?: string;
-      ownershipScope?: string;
+      ownershipScope?:
+        | 'OWNERSHIP_SCOPE_UNSPECIFIED'
+        | 'ALL_USERS'
+        | 'BILLING_ACCOUNT';
       /** Optional. Rules that trigger alerts (notifications of thresholds being crossed) when spend exceeds the specified percentages of the budget. Optional for `pubsubTopic` notifications. Required if using email notifications. */
       thresholdRules?: GoogleCloudBillingBudgetsV1beta1ThresholdRule[];
     }
@@ -75,11 +78,19 @@ declare namespace gapi.client {
     }
     interface GoogleCloudBillingBudgetsV1beta1Filter {
       /** Optional. Specifies to track usage for recurring calendar period. For example, assume that CalendarPeriod.QUARTER is set. The budget will track usage from April 1 to June 30, when the current calendar month is April, May, June. After that, it will track usage from July 1 to September 30 when the current calendar month is July, August, September, so on. */
-      calendarPeriod?: string;
+      calendarPeriod?:
+        | 'CALENDAR_PERIOD_UNSPECIFIED'
+        | 'MONTH'
+        | 'QUARTER'
+        | 'YEAR';
       /** Optional. If Filter.credit_types_treatment is INCLUDE_SPECIFIED_CREDITS, this is a list of credit types to be subtracted from gross cost to determine the spend for threshold calculations. See [a list of acceptable credit type values](https://cloud.google.com/billing/docs/how-to/export-data-bigquery-tables#credits-type). If Filter.credit_types_treatment is **not** INCLUDE_SPECIFIED_CREDITS, this field must be empty. */
       creditTypes?: string[];
       /** Optional. If not set, default behavior is `INCLUDE_ALL_CREDITS`. */
-      creditTypesTreatment?: string;
+      creditTypesTreatment?:
+        | 'CREDIT_TYPES_TREATMENT_UNSPECIFIED'
+        | 'INCLUDE_ALL_CREDITS'
+        | 'EXCLUDE_ALL_CREDITS'
+        | 'INCLUDE_SPECIFIED_CREDITS';
       /** Optional. Specifies to track usage from any start date (required) to any end date (optional). This time period is static, it does not recur. */
       customPeriod?: GoogleCloudBillingBudgetsV1beta1CustomPeriod;
       /** Optional. A single label and value pair specifying that usage from only this set of labeled resources should be included in the budget. If omitted, the report will include all labeled and unlabeled usage. An object containing a single `"key": value` pair. Example: `{ "name": "wrench" }`. _Currently, multiple entries or multiple values per entry are not allowed._ */
@@ -102,7 +113,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudBillingBudgetsV1beta1ThresholdRule {
       /** Optional. The type of basis used to determine if spend has passed the threshold. Behavior defaults to CURRENT_SPEND if not set. */
-      spendBasis?: string;
+      spendBasis?: 'BASIS_UNSPECIFIED' | 'CURRENT_SPEND' | 'FORECASTED_SPEND';
       /** Required. Send an alert when this threshold is exceeded. This is a 1.0-based percentage, so 0.5 = 50%. Validation: non-negative number. */
       thresholdPercent?: number;
     }
@@ -133,11 +144,11 @@ declare namespace gapi.client {
       /** Creates a new budget. See [Quotas and limits](https://cloud.google.com/billing/quotas) for more information on the limits of the number of budgets you can create. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -162,11 +173,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -191,11 +202,11 @@ declare namespace gapi.client {
       /** Deletes a budget. Returns successfully if already deleted. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -218,11 +229,11 @@ declare namespace gapi.client {
       /** Returns a budget. WARNING: There are some fields exposed on the Google Cloud Console that aren't available on this API. When reading from the API, you will not see these fields in the return value, though they may have been set in the Cloud Console. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -245,11 +256,11 @@ declare namespace gapi.client {
       /** Returns a list of budgets for a billing account. WARNING: There are some fields exposed on the Google Cloud Console that aren't available on this API. When reading from the API, you will not see these fields in the return value, though they may have been set in the Cloud Console. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -278,11 +289,11 @@ declare namespace gapi.client {
       /** Updates a budget and returns the updated budget. WARNING: There are some fields exposed on the Google Cloud Console that aren't available on this API. Budget fields that are not exposed in this API will not be changed by this method. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -307,11 +318,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

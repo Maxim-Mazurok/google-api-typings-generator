@@ -36,7 +36,7 @@ declare namespace gapi.client {
       /** Required. Specifies a unique string that identifies the agent pool. Format: `projects/{project_id}/agentPools/{agent_pool_id}` */
       name?: string;
       /** Output only. Specifies the state of the AgentPool. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'CREATING' | 'CREATED' | 'DELETING';
     }
     interface AwsAccessKey {
       /** Required. AWS access key ID. */
@@ -116,7 +116,24 @@ declare namespace gapi.client {
     }
     interface ErrorSummary {
       /** Required. */
-      errorCode?: string;
+      errorCode?:
+        | 'OK'
+        | 'CANCELLED'
+        | 'UNKNOWN'
+        | 'INVALID_ARGUMENT'
+        | 'DEADLINE_EXCEEDED'
+        | 'NOT_FOUND'
+        | 'ALREADY_EXISTS'
+        | 'PERMISSION_DENIED'
+        | 'UNAUTHENTICATED'
+        | 'RESOURCE_EXHAUSTED'
+        | 'FAILED_PRECONDITION'
+        | 'ABORTED'
+        | 'OUT_OF_RANGE'
+        | 'UNIMPLEMENTED'
+        | 'INTERNAL'
+        | 'UNAVAILABLE'
+        | 'DATA_LOSS';
       /** Required. Count of this type of error. */
       errorCount?: string;
       /** Error samples. At most 5 error log entries are recorded for a given error code for a single transfer operation. */
@@ -182,35 +199,62 @@ declare namespace gapi.client {
       /** For PosixFilesystem transfers, enables [file system transfer logs](https://cloud.google.com/storage-transfer/docs/on-prem-transfer-log-format) instead of, or in addition to, Cloud Logging. This option ignores [LoggableAction] and [LoggableActionState]. If these are set, Cloud Logging will also be enabled for this transfer. */
       enableOnpremGcsTransferLogs?: boolean;
       /** Specifies the actions to be logged. If empty, no logs are generated. */
-      logActions?: string[];
+      logActions?: 'LOGGABLE_ACTION_UNSPECIFIED' | 'FIND' | 'DELETE' | 'COPY'[];
       /** States in which `log_actions` are logged. If empty, no logs are generated. */
-      logActionStates?: string[];
+      logActionStates?:
+        | 'LOGGABLE_ACTION_STATE_UNSPECIFIED'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'SKIPPED'[];
     }
     interface MetadataOptions {
       /** Specifies how each object's ACLs should be preserved for transfers between Google Cloud Storage buckets. If unspecified, the default behavior is the same as ACL_DESTINATION_BUCKET_DEFAULT. */
-      acl?: string;
+      acl?:
+        | 'ACL_UNSPECIFIED'
+        | 'ACL_DESTINATION_BUCKET_DEFAULT'
+        | 'ACL_PRESERVE';
       /** Specifies how each file's POSIX group ID (GID) attribute should be handled by the transfer. By default, GID is not preserved. Only applicable to transfers involving POSIX file systems, and ignored for other transfers. */
-      gid?: string;
+      gid?: 'GID_UNSPECIFIED' | 'GID_SKIP' | 'GID_NUMBER';
       /** Specifies how each object's Cloud KMS customer-managed encryption key (CMEK) is preserved for transfers between Google Cloud Storage buckets. If unspecified, the default behavior is the same as KMS_KEY_DESTINATION_BUCKET_DEFAULT. */
-      kmsKey?: string;
+      kmsKey?:
+        | 'KMS_KEY_UNSPECIFIED'
+        | 'KMS_KEY_DESTINATION_BUCKET_DEFAULT'
+        | 'KMS_KEY_PRESERVE';
       /** Specifies how each file's mode attribute should be handled by the transfer. By default, mode is not preserved. Only applicable to transfers involving POSIX file systems, and ignored for other transfers. */
-      mode?: string;
+      mode?: 'MODE_UNSPECIFIED' | 'MODE_SKIP' | 'MODE_PRESERVE';
       /** Specifies the storage class to set on objects being transferred to Google Cloud Storage buckets. If unspecified, the default behavior is the same as STORAGE_CLASS_DESTINATION_BUCKET_DEFAULT. */
-      storageClass?: string;
+      storageClass?:
+        | 'STORAGE_CLASS_UNSPECIFIED'
+        | 'STORAGE_CLASS_DESTINATION_BUCKET_DEFAULT'
+        | 'STORAGE_CLASS_PRESERVE'
+        | 'STORAGE_CLASS_STANDARD'
+        | 'STORAGE_CLASS_NEARLINE'
+        | 'STORAGE_CLASS_COLDLINE'
+        | 'STORAGE_CLASS_ARCHIVE';
       /** Specifies how symlinks should be handled by the transfer. By default, symlinks are not preserved. Only applicable to transfers involving POSIX file systems, and ignored for other transfers. */
-      symlink?: string;
+      symlink?: 'SYMLINK_UNSPECIFIED' | 'SYMLINK_SKIP' | 'SYMLINK_PRESERVE';
       /** Specifies how each object's temporary hold status should be preserved for transfers between Google Cloud Storage buckets. If unspecified, the default behavior is the same as TEMPORARY_HOLD_PRESERVE. */
-      temporaryHold?: string;
+      temporaryHold?:
+        | 'TEMPORARY_HOLD_UNSPECIFIED'
+        | 'TEMPORARY_HOLD_SKIP'
+        | 'TEMPORARY_HOLD_PRESERVE';
       /** Specifies how each object's `timeCreated` metadata is preserved for transfers. If unspecified, the default behavior is the same as TIME_CREATED_SKIP. This behavior is supported for transfers to Cloud Storage buckets from Cloud Storage, Amazon S3, S3-compatible storage, and Azure sources. */
-      timeCreated?: string;
+      timeCreated?:
+        | 'TIME_CREATED_UNSPECIFIED'
+        | 'TIME_CREATED_SKIP'
+        | 'TIME_CREATED_PRESERVE_AS_CUSTOM_TIME';
       /** Specifies how each file's POSIX user ID (UID) attribute should be handled by the transfer. By default, UID is not preserved. Only applicable to transfers involving POSIX file systems, and ignored for other transfers. */
-      uid?: string;
+      uid?: 'UID_UNSPECIFIED' | 'UID_SKIP' | 'UID_NUMBER';
     }
     interface NotificationConfig {
       /** Event types for which a notification is desired. If empty, send notifications for all event types. */
-      eventTypes?: string[];
+      eventTypes?:
+        | 'EVENT_TYPE_UNSPECIFIED'
+        | 'TRANSFER_OPERATION_SUCCESS'
+        | 'TRANSFER_OPERATION_FAILED'
+        | 'TRANSFER_OPERATION_ABORTED'[];
       /** Required. The desired format of the notification message payloads. */
-      payloadFormat?: string;
+      payloadFormat?: 'PAYLOAD_FORMAT_UNSPECIFIED' | 'NONE' | 'JSON';
       /** Required. The `Topic.name` of the Pub/Sub topic to which to publish notifications. Must be of the format: `projects/{project}/topics/{topic}`. Not matching this format results in an INVALID_ARGUMENT error. */
       pubsubTopic?: string;
     }
@@ -264,13 +308,22 @@ declare namespace gapi.client {
     }
     interface S3CompatibleMetadata {
       /** Specifies the authentication and authorization method used by the storage service. When not specified, Transfer Service will attempt to determine right auth method to use. */
-      authMethod?: string;
+      authMethod?:
+        | 'AUTH_METHOD_UNSPECIFIED'
+        | 'AUTH_METHOD_AWS_SIGNATURE_V4'
+        | 'AUTH_METHOD_AWS_SIGNATURE_V2';
       /** The Listing API to use for discovering objects. When not specified, Transfer Service will attempt to determine the right API to use. */
-      listApi?: string;
+      listApi?: 'LIST_API_UNSPECIFIED' | 'LIST_OBJECTS_V2' | 'LIST_OBJECTS';
       /** Specifies the network protocol of the agent. When not specified, the default value of NetworkProtocol NETWORK_PROTOCOL_HTTPS is used. */
-      protocol?: string;
+      protocol?:
+        | 'NETWORK_PROTOCOL_UNSPECIFIED'
+        | 'NETWORK_PROTOCOL_HTTPS'
+        | 'NETWORK_PROTOCOL_HTTP';
       /** Specifies the API request model used to call the storage service. When not specified, the default value of RequestModel REQUEST_MODEL_VIRTUAL_HOSTED_STYLE is used. */
-      requestModel?: string;
+      requestModel?:
+        | 'REQUEST_MODEL_UNSPECIFIED'
+        | 'REQUEST_MODEL_VIRTUAL_HOSTED_STYLE'
+        | 'REQUEST_MODEL_PATH_STYLE';
     }
     interface Schedule {
       /** The time in UTC that no further transfer operations are scheduled. Combined with schedule_end_date, `end_time_of_day` specifies the end date and time for starting new transfer operations. This field must be greater than or equal to the timestamp corresponding to the combination of schedule_start_date and start_time_of_day, and is subject to the following: * If `end_time_of_day` is not set and `schedule_end_date` is set, then a default value of `23:59:59` is used for `end_time_of_day`. * If `end_time_of_day` is set and `schedule_end_date` is not set, then INVALID_ARGUMENT is returned. */
@@ -378,7 +431,7 @@ declare namespace gapi.client {
       /** Optional. The user-managed service account to which to delegate service agent permissions. You can grant Cloud Storage bucket permissions to this service account instead of to the Transfer Service service agent. Either the service account email (`SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com`) or the unique ID (`123456789012345678901`) are accepted. See https://docs.cloud.google.com/storage-transfer/docs/delegate-service-agent-permissions for required permissions. */
       serviceAccount?: string;
       /** Status of the job. This value MUST be specified for `CreateTransferJobRequests`. **Note:** The effect of the new job status takes place during a subsequent job run. For example, if you change the job status from ENABLED to DISABLED, and an operation spawned by the transfer is running, the status change would not affect the current operation. */
-      status?: string;
+      status?: 'STATUS_UNSPECIFIED' | 'ENABLED' | 'DISABLED' | 'DELETED';
       /** Transfer specification. */
       transferSpec?: TransferSpec;
     }
@@ -404,7 +457,15 @@ declare namespace gapi.client {
       /** Start time of this transfer execution. */
       startTime?: string;
       /** Status of the transfer operation. */
-      status?: string;
+      status?:
+        | 'STATUS_UNSPECIFIED'
+        | 'IN_PROGRESS'
+        | 'PAUSED'
+        | 'SUCCESS'
+        | 'FAILED'
+        | 'ABORTED'
+        | 'QUEUED'
+        | 'SUSPENDING';
       /** The name of the transfer job that triggers this transfer operation. */
       transferJobName?: string;
       /** Transfer specification. */
@@ -420,7 +481,11 @@ declare namespace gapi.client {
       /** When to overwrite objects that already exist in the sink. The default is that only objects that are different from the source are overwritten. If true, all objects in the sink whose name matches an object in the source are overwritten with the source object. */
       overwriteObjectsAlreadyExistingInSink?: boolean;
       /** When to overwrite objects that already exist in the sink. If not set, overwrite behavior is determined by overwrite_objects_already_existing_in_sink. */
-      overwriteWhen?: string;
+      overwriteWhen?:
+        | 'OVERWRITE_WHEN_UNSPECIFIED'
+        | 'DIFFERENT'
+        | 'NEVER'
+        | 'ALWAYS';
     }
     interface TransferSpec {
       /** Optional. An AWS S3 compatible data source. */
@@ -466,11 +531,11 @@ declare namespace gapi.client {
       /** Returns the Google service account that is used by Storage Transfer Service to access buckets in the project where transfers run or in other projects. Each Google service account is associated with one Google Cloud project. Users should add this service account to the Google Cloud Storage bucket ACLs to grant access to Storage Transfer Service. This service account is created and owned by Storage Transfer Service and can only be used by Storage Transfer Service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -495,13 +560,13 @@ declare namespace gapi.client {
       /** Creates an agent pool resource. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The ID of the agent pool to create. The `agent_pool_id` must meet the following requirements: * Length of 128 characters or less. * Not start with the string `goog`. * Start with a lowercase ASCII character, followed by: * Zero or more: lowercase Latin alphabet characters, numerals, hyphens (`-`), periods (`.`), underscores (`_`), or tildes (`~`). * One or more numerals or lowercase ASCII characters. As expressed by the regular expression: `^(?!goog)[a-z]([a-z0-9-._~]*[a-z0-9])?$`. */
         agentPoolId?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -526,13 +591,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Required. The ID of the agent pool to create. The `agent_pool_id` must meet the following requirements: * Length of 128 characters or less. * Not start with the string `goog`. * Start with a lowercase ASCII character, followed by: * Zero or more: lowercase Latin alphabet characters, numerals, hyphens (`-`), periods (`.`), underscores (`_`), or tildes (`~`). * One or more numerals or lowercase ASCII characters. As expressed by the regular expression: `^(?!goog)[a-z]([a-z0-9-._~]*[a-z0-9])?$`. */
           agentPoolId?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -557,11 +622,11 @@ declare namespace gapi.client {
       /** Deletes an agent pool. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -584,11 +649,11 @@ declare namespace gapi.client {
       /** Gets an agent pool. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -611,11 +676,11 @@ declare namespace gapi.client {
       /** Lists agent pools. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -644,11 +709,11 @@ declare namespace gapi.client {
       /** Updates an existing agent pool resource. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -675,11 +740,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -711,11 +776,11 @@ declare namespace gapi.client {
       /** Creates a transfer job that runs periodically. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -738,11 +803,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -765,11 +830,11 @@ declare namespace gapi.client {
       /** Deletes a transfer job. Deleting a transfer job sets its status to DELETED. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -794,11 +859,11 @@ declare namespace gapi.client {
       /** Gets a transfer job. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -823,11 +888,11 @@ declare namespace gapi.client {
       /** Lists transfer jobs. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -854,11 +919,11 @@ declare namespace gapi.client {
       /** Updates a transfer job. Updating a job's transfer spec does not affect transfer operations that are running already. **Note:** The job's status field can be modified using this RPC (for example, to set a job's status to DELETED, DISABLED, or ENABLED). */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -883,11 +948,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -912,11 +977,11 @@ declare namespace gapi.client {
       /** Starts a new operation for the specified transfer job. A `TransferJob` has a maximum of one active `TransferOperation`. If this method is called while a `TransferOperation` is active, an error is returned. */
       run(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -941,11 +1006,11 @@ declare namespace gapi.client {
       run(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -972,11 +1037,11 @@ declare namespace gapi.client {
       /** Cancels a transfer. Use the transferOperations.get method to check if the cancellation succeeded or if the operation completed despite the `cancel` request. When you cancel an operation, the currently running transfer is interrupted. For recurring transfer jobs, the next instance of the transfer job will still run. For example, if your job is configured to run every day at 1pm and you cancel Monday's operation at 1:05pm, Monday's transfer will stop. However, a transfer job will still be attempted on Tuesday. This applies only to currently running operations. If an operation is not currently running, `cancel` does nothing. *Caution:* Canceling a transfer job can leave your data in an unknown state. We recommend that you restore the state at both the destination and the source after the `cancel` request completes so that your data is in a consistent state. When you cancel a job, the next job computes a delta of files and may repair any inconsistent state. For instance, if you run a job every day, and today's job found 10 new files and transferred five files before you canceled the job, tomorrow's transfer operation will compute a new delta with the five files that were not copied today plus any new files discovered tomorrow. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1001,11 +1066,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1030,11 +1095,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1057,11 +1122,11 @@ declare namespace gapi.client {
       /** Lists transfer operations. Operations are ordered by their creation time in reverse chronological order. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1092,11 +1157,11 @@ declare namespace gapi.client {
       /** Pauses a transfer operation. */
       pause(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1121,11 +1186,11 @@ declare namespace gapi.client {
       pause(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1150,11 +1215,11 @@ declare namespace gapi.client {
       /** Resumes a transfer operation that is paused. */
       resume(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1179,11 +1244,11 @@ declare namespace gapi.client {
       resume(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

@@ -36,7 +36,13 @@ declare namespace gapi.client {
     }
     interface AlloyDbSettings {
       /** Optional. The database engine major version. This is an optional field. If a database version is not supplied at cluster creation time, then a default database version will be used. */
-      databaseVersion?: string;
+      databaseVersion?:
+        | 'DATABASE_VERSION_UNSPECIFIED'
+        | 'POSTGRES_14'
+        | 'POSTGRES_15'
+        | 'POSTGRES_16'
+        | 'POSTGRES_17'
+        | 'POSTGRES_18';
       /** Optional. The encryption config can be specified to encrypt the data disks and other persistent data resources of a cluster with a customer-managed encryption key (CMEK). When this field is not specified, the cluster will then use default encryption scheme to protect the user data. */
       encryptionConfig?: EncryptionConfig;
       /** Required. Input only. Initial user to setup during cluster creation. Required. */
@@ -82,7 +88,11 @@ declare namespace gapi.client {
       /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
       exemptedMembers?: string[];
       /** The log type that this config enables. */
-      logType?: string;
+      logType?:
+        | 'LOG_TYPE_UNSPECIFIED'
+        | 'ADMIN_READ'
+        | 'DATA_WRITE'
+        | 'DATA_READ';
     }
     interface AuthorizedNetwork {
       /** Optional. CIDR range for one authorzied network of the instance. */
@@ -94,7 +104,10 @@ declare namespace gapi.client {
       /** Output only. Job completion comment, such as how many entities were seeded, how many warnings were found during conversion, and similar information. */
       completionComment?: string;
       /** Output only. Job completion state, i.e. the final state after the job completed. */
-      completionState?: string;
+      completionState?:
+        | 'JOB_COMPLETION_STATE_UNSPECIFIED'
+        | 'SUCCEEDED'
+        | 'FAILED';
       /** Output only. Convert job details. */
       convertJobDetails?: ConvertJobDetails;
       /** The timestamp when the background job was finished. */
@@ -104,7 +117,12 @@ declare namespace gapi.client {
       /** Output only. Import rules job details. */
       importRulesJobDetails?: ImportRulesJobDetails;
       /** The type of job that was executed. */
-      jobType?: string;
+      jobType?:
+        | 'BACKGROUND_JOB_TYPE_UNSPECIFIED'
+        | 'BACKGROUND_JOB_TYPE_SOURCE_SEED'
+        | 'BACKGROUND_JOB_TYPE_CONVERT'
+        | 'BACKGROUND_JOB_TYPE_APPLY_DESTINATION'
+        | 'BACKGROUND_JOB_TYPE_IMPORT_RULES_FILE';
       /** Output only. Whether the client requested the conversion workspace to be committed after a successful completion of the job. */
       requestAutocommit?: boolean;
       /** Output only. Seed job details. */
@@ -145,11 +163,17 @@ declare namespace gapi.client {
     }
     interface CloudSqlSettings {
       /** The activation policy specifies when the instance is activated; it is applicable only when the instance state is 'RUNNABLE'. Valid values: 'ALWAYS': The instance is on, and remains so even in the absence of connection requests. `NEVER`: The instance is off; it is not activated, even if a connection request arrives. */
-      activationPolicy?: string;
+      activationPolicy?:
+        | 'SQL_ACTIVATION_POLICY_UNSPECIFIED'
+        | 'ALWAYS'
+        | 'NEVER';
       /** [default: ON] If you enable this setting, Cloud SQL checks your available storage every 30 seconds. If the available storage falls below a threshold size, Cloud SQL automatically adds additional storage capacity. If the available storage repeatedly falls below the threshold size, Cloud SQL continues to add storage until it reaches the maximum of 30 TB. */
       autoStorageIncrease?: boolean;
       /** Optional. Availability type. Potential values: * `ZONAL`: The instance serves data from only one zone. Outages in that zone affect data availability. * `REGIONAL`: The instance can serve data from more than one zone in a region (it is highly available). */
-      availabilityType?: string;
+      availabilityType?:
+        | 'SQL_AVAILABILITY_TYPE_UNSPECIFIED'
+        | 'ZONAL'
+        | 'REGIONAL';
       /** The KMS key name used for the csql instance. */
       cmekKeyName?: string;
       /** The Cloud SQL default instance level collation. */
@@ -157,7 +181,32 @@ declare namespace gapi.client {
       /** The database flags passed to the Cloud SQL instance at startup. An object containing a list of "key": value pairs. Example: { "name": "wrench", "mass": "1.3kg", "count": "3" }. */
       databaseFlags?: {[P in string]: string};
       /** The database engine type and version. Deprecated. Use database_version_name instead. */
-      databaseVersion?: string;
+      databaseVersion?:
+        | 'SQL_DATABASE_VERSION_UNSPECIFIED'
+        | 'MYSQL_5_6'
+        | 'MYSQL_5_7'
+        | 'MYSQL_8_0'
+        | 'MYSQL_8_0_18'
+        | 'MYSQL_8_0_26'
+        | 'MYSQL_8_0_27'
+        | 'MYSQL_8_0_28'
+        | 'MYSQL_8_0_30'
+        | 'MYSQL_8_0_31'
+        | 'MYSQL_8_0_32'
+        | 'MYSQL_8_0_33'
+        | 'MYSQL_8_0_34'
+        | 'MYSQL_8_0_35'
+        | 'MYSQL_8_0_36'
+        | 'MYSQL_8_0_37'
+        | 'MYSQL_8_4'
+        | 'POSTGRES_9_6'
+        | 'POSTGRES_11'
+        | 'POSTGRES_10'
+        | 'POSTGRES_12'
+        | 'POSTGRES_13'
+        | 'POSTGRES_14'
+        | 'POSTGRES_15'
+        | 'POSTGRES_16';
       /** Optional. The database engine type and version name. */
       databaseVersionName?: string;
       /** Optional. Data cache is an optional feature available for Cloud SQL for MySQL Enterprise Plus edition only. For more information on data cache, see [Data cache overview](https://cloud.google.com/sql/help/mysql-data-cache) in Cloud SQL documentation. */
@@ -169,9 +218,13 @@ declare namespace gapi.client {
       /** The storage capacity available to the database, in GB. The minimum (and default) size is 10GB. */
       dataDiskSizeGb?: string;
       /** The type of storage: `PD_SSD` (default) or `PD_HDD` or `HYPERDISK_BALANCED`. */
-      dataDiskType?: string;
+      dataDiskType?:
+        | 'SQL_DATA_DISK_TYPE_UNSPECIFIED'
+        | 'PD_SSD'
+        | 'PD_HDD'
+        | 'HYPERDISK_BALANCED';
       /** Optional. The edition of the given Cloud SQL instance. */
-      edition?: string;
+      edition?: 'EDITION_UNSPECIFIED' | 'ENTERPRISE' | 'ENTERPRISE_PLUS';
       /** The settings for IP Management. This allows to enable or disable the instance IP and manage which external networks can connect to the instance. The IPv4 address cannot be disabled. */
       ipConfig?: SqlIpConfig;
       /** Input only. Initial root password. */
@@ -267,9 +320,15 @@ declare namespace gapi.client {
       /** A PostgreSQL database connection profile. */
       postgresql?: PostgreSqlConnectionProfile;
       /** The database provider. */
-      provider?: string;
+      provider?:
+        | 'DATABASE_PROVIDER_UNSPECIFIED'
+        | 'CLOUDSQL'
+        | 'RDS'
+        | 'AURORA'
+        | 'ALLOYDB'
+        | 'AZURE_DATABASE';
       /** Optional. The connection profile role. */
-      role?: string;
+      role?: 'ROLE_UNSPECIFIED' | 'SOURCE' | 'DESTINATION';
       /** Output only. Reserved for future use. */
       satisfiesPzi?: boolean;
       /** Output only. Reserved for future use. */
@@ -277,7 +336,15 @@ declare namespace gapi.client {
       /** Connection profile for a SQL Server data source. */
       sqlserver?: SqlServerConnectionProfile;
       /** The current connection profile state (e.g. DRAFT, READY, or FAILED). */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'DRAFT'
+        | 'CREATING'
+        | 'READY'
+        | 'UPDATING'
+        | 'DELETING'
+        | 'DELETED'
+        | 'FAILED';
       /** Output only. The timestamp when the resource was last updated. A timestamp in RFC3339 UTC "Zulu" format, accurate to nanoseconds. Example: "2014-10-02T15:01:23.045123456Z". */
       updateTime?: string;
     }
@@ -303,7 +370,13 @@ declare namespace gapi.client {
       /** Required. The destination engine details. */
       destination?: DatabaseEngineInfo;
       /** Optional. The provider for the destination database. */
-      destinationProvider?: string;
+      destinationProvider?:
+        | 'DATABASE_PROVIDER_UNSPECIFIED'
+        | 'CLOUDSQL'
+        | 'RDS'
+        | 'AURORA'
+        | 'ALLOYDB'
+        | 'AZURE_DATABASE';
       /** Optional. The display name for the workspace. */
       displayName?: string;
       /** Optional. A generic list of settings for the workspace. The settings are database pair dependant and can indicate default behavior for the mapping rules engine or turn on or off specific features. Such examples can be: convert_foreign_key_to_interleave=true, skip_triggers=false, ignore_non_table_synonyms=true */
@@ -319,7 +392,13 @@ declare namespace gapi.client {
       /** Required. The source engine details. */
       source?: DatabaseEngineInfo;
       /** Optional. The provider for the source database. */
-      sourceProvider?: string;
+      sourceProvider?:
+        | 'DATABASE_PROVIDER_UNSPECIFIED'
+        | 'CLOUDSQL'
+        | 'RDS'
+        | 'AURORA'
+        | 'ALLOYDB'
+        | 'AZURE_DATABASE';
       /** Output only. The timestamp when the workspace resource was last updated. */
       updateTime?: string;
     }
@@ -347,7 +426,12 @@ declare namespace gapi.client {
     }
     interface DatabaseEngineInfo {
       /** Required. Engine type. */
-      engine?: string;
+      engine?:
+        | 'DATABASE_ENGINE_UNSPECIFIED'
+        | 'MYSQL'
+        | 'POSTGRESQL'
+        | 'SQLSERVER'
+        | 'ORACLE';
       /** Required. Engine version, for example "12.c.1". */
       version?: string;
     }
@@ -361,7 +445,23 @@ declare namespace gapi.client {
       /** Details about the entity DDL script. Multiple DDL scripts are provided for child entities such as a table entity will have one DDL for the table with additional DDLs for each index, constraint and such. */
       entityDdl?: EntityDdl[];
       /** The type of the database entity (table, view, index, ...). */
-      entityType?: string;
+      entityType?:
+        | 'DATABASE_ENTITY_TYPE_UNSPECIFIED'
+        | 'DATABASE_ENTITY_TYPE_SCHEMA'
+        | 'DATABASE_ENTITY_TYPE_TABLE'
+        | 'DATABASE_ENTITY_TYPE_COLUMN'
+        | 'DATABASE_ENTITY_TYPE_CONSTRAINT'
+        | 'DATABASE_ENTITY_TYPE_INDEX'
+        | 'DATABASE_ENTITY_TYPE_TRIGGER'
+        | 'DATABASE_ENTITY_TYPE_VIEW'
+        | 'DATABASE_ENTITY_TYPE_SEQUENCE'
+        | 'DATABASE_ENTITY_TYPE_STORED_PROCEDURE'
+        | 'DATABASE_ENTITY_TYPE_FUNCTION'
+        | 'DATABASE_ENTITY_TYPE_SYNONYM'
+        | 'DATABASE_ENTITY_TYPE_DATABASE_PACKAGE'
+        | 'DATABASE_ENTITY_TYPE_UDT'
+        | 'DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW'
+        | 'DATABASE_ENTITY_TYPE_DATABASE';
       /** Details about the various issues found for the entity. */
       issues?: EntityIssue[];
       /** Details about entity mappings. For source tree entities, this holds the draft entities which were generated by the mapping rules. For draft tree entities, this holds the source entities which were converted to form the draft entity. Destination entities will have no mapping details. */
@@ -383,7 +483,7 @@ declare namespace gapi.client {
       /** Table. */
       table?: TableEntity;
       /** The type of tree the entity belongs to. */
-      tree?: string;
+      tree?: 'TREE_TYPE_UNSPECIFIED' | 'SOURCE' | 'DRAFT' | 'DESTINATION';
       /** UDT. */
       udt?: UDTEntity;
       /** View. */
@@ -395,9 +495,20 @@ declare namespace gapi.client {
     }
     interface DatabaseType {
       /** The database engine. */
-      engine?: string;
+      engine?:
+        | 'DATABASE_ENGINE_UNSPECIFIED'
+        | 'MYSQL'
+        | 'POSTGRESQL'
+        | 'SQLSERVER'
+        | 'ORACLE';
       /** The database provider. */
-      provider?: string;
+      provider?:
+        | 'DATABASE_PROVIDER_UNSPECIFIED'
+        | 'CLOUDSQL'
+        | 'RDS'
+        | 'AURORA'
+        | 'ALLOYDB'
+        | 'AZURE_DATABASE';
     }
     interface DataCacheConfig {
       /** Optional. Whether data cache is enabled for the instance. */
@@ -424,7 +535,12 @@ declare namespace gapi.client {
       /** Required. Double compare value to be used */
       value?: number;
       /** Required. Relation between source value and compare value */
-      valueComparison?: string;
+      valueComparison?:
+        | 'VALUE_COMPARISON_UNSPECIFIED'
+        | 'VALUE_COMPARISON_IF_VALUE_SMALLER_THAN'
+        | 'VALUE_COMPARISON_IF_VALUE_SMALLER_EQUAL_THAN'
+        | 'VALUE_COMPARISON_IF_VALUE_LARGER_THAN'
+        | 'VALUE_COMPARISON_IF_VALUE_LARGER_EQUAL_THAN';
     }
     interface DumpFlag {
       /** The name of the flag */
@@ -445,15 +561,41 @@ declare namespace gapi.client {
       /** The actual ddl code. */
       ddl?: string;
       /** The DDL Kind selected for apply, or UNSPECIFIED if the entity wasn't converted yet. */
-      ddlKind?: string;
+      ddlKind?:
+        | 'DDL_KIND_UNSPECIFIED'
+        | 'SOURCE'
+        | 'DETERMINISTIC'
+        | 'AI'
+        | 'USER_EDIT';
       /** Type of DDL (Create, Alter). */
       ddlType?: string;
       /** If ddl_kind is USER_EDIT, this holds the DDL kind of the original content - DETERMINISTIC or AI. Otherwise, this is DDL_KIND_UNSPECIFIED. */
-      editedDdlKind?: string;
+      editedDdlKind?:
+        | 'DDL_KIND_UNSPECIFIED'
+        | 'SOURCE'
+        | 'DETERMINISTIC'
+        | 'AI'
+        | 'USER_EDIT';
       /** The name of the database entity the ddl refers to. */
       entity?: string;
       /** The entity type (if the DDL is for a sub entity). */
-      entityType?: string;
+      entityType?:
+        | 'DATABASE_ENTITY_TYPE_UNSPECIFIED'
+        | 'DATABASE_ENTITY_TYPE_SCHEMA'
+        | 'DATABASE_ENTITY_TYPE_TABLE'
+        | 'DATABASE_ENTITY_TYPE_COLUMN'
+        | 'DATABASE_ENTITY_TYPE_CONSTRAINT'
+        | 'DATABASE_ENTITY_TYPE_INDEX'
+        | 'DATABASE_ENTITY_TYPE_TRIGGER'
+        | 'DATABASE_ENTITY_TYPE_VIEW'
+        | 'DATABASE_ENTITY_TYPE_SEQUENCE'
+        | 'DATABASE_ENTITY_TYPE_STORED_PROCEDURE'
+        | 'DATABASE_ENTITY_TYPE_FUNCTION'
+        | 'DATABASE_ENTITY_TYPE_SYNONYM'
+        | 'DATABASE_ENTITY_TYPE_DATABASE_PACKAGE'
+        | 'DATABASE_ENTITY_TYPE_UDT'
+        | 'DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW'
+        | 'DATABASE_ENTITY_TYPE_DATABASE';
       /** EntityIssues found for this ddl. */
       issueId?: string[];
     }
@@ -463,7 +605,23 @@ declare namespace gapi.client {
       /** The ddl which caused the issue, if relevant. */
       ddl?: string;
       /** The entity type (if the DDL is for a sub entity). */
-      entityType?: string;
+      entityType?:
+        | 'DATABASE_ENTITY_TYPE_UNSPECIFIED'
+        | 'DATABASE_ENTITY_TYPE_SCHEMA'
+        | 'DATABASE_ENTITY_TYPE_TABLE'
+        | 'DATABASE_ENTITY_TYPE_COLUMN'
+        | 'DATABASE_ENTITY_TYPE_CONSTRAINT'
+        | 'DATABASE_ENTITY_TYPE_INDEX'
+        | 'DATABASE_ENTITY_TYPE_TRIGGER'
+        | 'DATABASE_ENTITY_TYPE_VIEW'
+        | 'DATABASE_ENTITY_TYPE_SEQUENCE'
+        | 'DATABASE_ENTITY_TYPE_STORED_PROCEDURE'
+        | 'DATABASE_ENTITY_TYPE_FUNCTION'
+        | 'DATABASE_ENTITY_TYPE_SYNONYM'
+        | 'DATABASE_ENTITY_TYPE_DATABASE_PACKAGE'
+        | 'DATABASE_ENTITY_TYPE_UDT'
+        | 'DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW'
+        | 'DATABASE_ENTITY_TYPE_DATABASE';
       /** Unique Issue ID. */
       id?: string;
       /** Issue detailed message */
@@ -471,21 +629,61 @@ declare namespace gapi.client {
       /** The position of the issue found, if relevant. */
       position?: Position;
       /** Severity of the issue */
-      severity?: string;
+      severity?:
+        | 'ISSUE_SEVERITY_UNSPECIFIED'
+        | 'ISSUE_SEVERITY_INFO'
+        | 'ISSUE_SEVERITY_WARNING'
+        | 'ISSUE_SEVERITY_ERROR';
       /** The type of the issue. */
-      type?: string;
+      type?:
+        | 'ISSUE_TYPE_UNSPECIFIED'
+        | 'ISSUE_TYPE_DDL'
+        | 'ISSUE_TYPE_APPLY'
+        | 'ISSUE_TYPE_CONVERT';
     }
     interface EntityMapping {
       /** Target entity full name. The draft entity can also include a column, index or constraint using the same naming notation schema.table.column. */
       draftEntity?: string;
       /** Type of draft entity. */
-      draftType?: string;
+      draftType?:
+        | 'DATABASE_ENTITY_TYPE_UNSPECIFIED'
+        | 'DATABASE_ENTITY_TYPE_SCHEMA'
+        | 'DATABASE_ENTITY_TYPE_TABLE'
+        | 'DATABASE_ENTITY_TYPE_COLUMN'
+        | 'DATABASE_ENTITY_TYPE_CONSTRAINT'
+        | 'DATABASE_ENTITY_TYPE_INDEX'
+        | 'DATABASE_ENTITY_TYPE_TRIGGER'
+        | 'DATABASE_ENTITY_TYPE_VIEW'
+        | 'DATABASE_ENTITY_TYPE_SEQUENCE'
+        | 'DATABASE_ENTITY_TYPE_STORED_PROCEDURE'
+        | 'DATABASE_ENTITY_TYPE_FUNCTION'
+        | 'DATABASE_ENTITY_TYPE_SYNONYM'
+        | 'DATABASE_ENTITY_TYPE_DATABASE_PACKAGE'
+        | 'DATABASE_ENTITY_TYPE_UDT'
+        | 'DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW'
+        | 'DATABASE_ENTITY_TYPE_DATABASE';
       /** Entity mapping log entries. Multiple rules can be effective and contribute changes to a converted entity, such as a rule can handle the entity name, another rule can handle an entity type. In addition, rules which did not change the entity are also logged along with the reason preventing them to do so. */
       mappingLog?: EntityMappingLogEntry[];
       /** Source entity full name. The source entity can also be a column, index or constraint using the same naming notation schema.table.column. */
       sourceEntity?: string;
       /** Type of source entity. */
-      sourceType?: string;
+      sourceType?:
+        | 'DATABASE_ENTITY_TYPE_UNSPECIFIED'
+        | 'DATABASE_ENTITY_TYPE_SCHEMA'
+        | 'DATABASE_ENTITY_TYPE_TABLE'
+        | 'DATABASE_ENTITY_TYPE_COLUMN'
+        | 'DATABASE_ENTITY_TYPE_CONSTRAINT'
+        | 'DATABASE_ENTITY_TYPE_INDEX'
+        | 'DATABASE_ENTITY_TYPE_TRIGGER'
+        | 'DATABASE_ENTITY_TYPE_VIEW'
+        | 'DATABASE_ENTITY_TYPE_SEQUENCE'
+        | 'DATABASE_ENTITY_TYPE_STORED_PROCEDURE'
+        | 'DATABASE_ENTITY_TYPE_FUNCTION'
+        | 'DATABASE_ENTITY_TYPE_SYNONYM'
+        | 'DATABASE_ENTITY_TYPE_DATABASE_PACKAGE'
+        | 'DATABASE_ENTITY_TYPE_UDT'
+        | 'DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW'
+        | 'DATABASE_ENTITY_TYPE_DATABASE';
     }
     interface EntityMappingLogEntry {
       /** Comment. */
@@ -609,11 +807,17 @@ declare namespace gapi.client {
       /** Required. One or more rules files. */
       rulesFiles?: RulesFile[];
       /** Required. The format of the rules content file. */
-      rulesFormat?: string;
+      rulesFormat?:
+        | 'IMPORT_RULES_FILE_FORMAT_UNSPECIFIED'
+        | 'IMPORT_RULES_FILE_FORMAT_HARBOUR_BRIDGE_SESSION_FILE'
+        | 'IMPORT_RULES_FILE_FORMAT_ORATOPG_CONFIG_FILE';
     }
     interface ImportRulesJobDetails {
       /** Output only. The requested file format. */
-      fileFormat?: string;
+      fileFormat?:
+        | 'IMPORT_RULES_FILE_FORMAT_UNSPECIFIED'
+        | 'IMPORT_RULES_FILE_FORMAT_HARBOUR_BRIDGE_SESSION_FILE'
+        | 'IMPORT_RULES_FILE_FORMAT_ORATOPG_CONFIG_FILE';
       /** Output only. File names used for the import rules job. */
       files?: string[];
     }
@@ -643,7 +847,12 @@ declare namespace gapi.client {
       /** Required. Integer compare value to be used */
       value?: string;
       /** Required. Relation between source value and compare value */
-      valueComparison?: string;
+      valueComparison?:
+        | 'VALUE_COMPARISON_UNSPECIFIED'
+        | 'VALUE_COMPARISON_IF_VALUE_SMALLER_THAN'
+        | 'VALUE_COMPARISON_IF_VALUE_SMALLER_EQUAL_THAN'
+        | 'VALUE_COMPARISON_IF_VALUE_LARGER_THAN'
+        | 'VALUE_COMPARISON_IF_VALUE_LARGER_EQUAL_THAN';
     }
     interface Link {
       /** Describes what the link offers. */
@@ -770,7 +979,23 @@ declare namespace gapi.client {
       /** Required. The order in which the rule is applied. Lower order rules are applied before higher value rules so they may end up being overridden. */
       ruleOrder?: string;
       /** Required. The rule scope */
-      ruleScope?: string;
+      ruleScope?:
+        | 'DATABASE_ENTITY_TYPE_UNSPECIFIED'
+        | 'DATABASE_ENTITY_TYPE_SCHEMA'
+        | 'DATABASE_ENTITY_TYPE_TABLE'
+        | 'DATABASE_ENTITY_TYPE_COLUMN'
+        | 'DATABASE_ENTITY_TYPE_CONSTRAINT'
+        | 'DATABASE_ENTITY_TYPE_INDEX'
+        | 'DATABASE_ENTITY_TYPE_TRIGGER'
+        | 'DATABASE_ENTITY_TYPE_VIEW'
+        | 'DATABASE_ENTITY_TYPE_SEQUENCE'
+        | 'DATABASE_ENTITY_TYPE_STORED_PROCEDURE'
+        | 'DATABASE_ENTITY_TYPE_FUNCTION'
+        | 'DATABASE_ENTITY_TYPE_SYNONYM'
+        | 'DATABASE_ENTITY_TYPE_DATABASE_PACKAGE'
+        | 'DATABASE_ENTITY_TYPE_UDT'
+        | 'DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW'
+        | 'DATABASE_ENTITY_TYPE_DATABASE';
       /** Optional. Rule to specify the primary key for a table */
       setTablePrimaryKey?: SetTablePrimaryKey;
       /** Optional. Rule to specify how a single column is converted. */
@@ -782,7 +1007,7 @@ declare namespace gapi.client {
       /** Optional. Rule to change the sql code for an entity, for example, function, procedure. */
       sourceSqlChange?: SourceSqlChange;
       /** Optional. The mapping rule state */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'ENABLED' | 'DISABLED' | 'DELETED';
     }
     interface MappingRuleFilter {
       /** Optional. The rule should be applied to specific entities defined by their fully qualified names. */
@@ -822,7 +1047,7 @@ declare namespace gapi.client {
       /** The path to the dump file in Google Cloud Storage, in the format: (gs://[BUCKET_NAME]/[OBJECT_NAME]). This field and the "dump_flags" field are mutually exclusive. */
       dumpPath?: string;
       /** Optional. The type of the data dump. Supported for MySQL to CloudSQL for MySQL migrations only. */
-      dumpType?: string;
+      dumpType?: 'DUMP_TYPE_UNSPECIFIED' | 'LOGICAL' | 'PHYSICAL';
       /** Output only. The duration of the migration job (in seconds). A duration in seconds with up to nine fractional digits, terminated by 's'. Example: "3.5s". */
       duration?: string;
       /** Output only. If the migration job is completed, the time when it was completed. */
@@ -844,11 +1069,18 @@ declare namespace gapi.client {
       /** Optional. Data dump parallelism settings used by the migration. */
       performanceConfig?: PerformanceConfig;
       /** Output only. The current migration job phase. */
-      phase?: string;
+      phase?:
+        | 'PHASE_UNSPECIFIED'
+        | 'FULL_DUMP'
+        | 'CDC'
+        | 'PROMOTE_IN_PROGRESS'
+        | 'WAITING_FOR_SOURCE_WRITES_TO_STOP'
+        | 'PREPARING_THE_DUMP'
+        | 'READY_FOR_PROMOTE';
       /** Configuration for heterogeneous failback migrations from **PostgreSQL to SQL Server**. */
       postgresToSqlserverConfig?: PostgresToSqlServerConfig;
       /** Output only. Migration job mode. Migration jobs can be standard forward jobs or failback migration jobs. */
-      purpose?: string;
+      purpose?: 'PURPOSE_UNSPECIFIED' | 'MIGRATE' | 'FAILBACK';
       /** The details needed to communicate to the source over Reverse SSH tunnel connectivity. */
       reverseSshConnectivity?: ReverseSshConnectivity;
       /** Output only. Reserved for future use. */
@@ -864,11 +1096,27 @@ declare namespace gapi.client {
       /** Configuration for heterogeneous **SQL Server to Cloud SQL for PostgreSQL** migrations. */
       sqlserverToPostgresConfig?: SqlServerToPostgresConfig;
       /** The current migration job state. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'MAINTENANCE'
+        | 'DRAFT'
+        | 'CREATING'
+        | 'NOT_STARTED'
+        | 'RUNNING'
+        | 'FAILED'
+        | 'COMPLETED'
+        | 'DELETING'
+        | 'STOPPING'
+        | 'STOPPED'
+        | 'DELETED'
+        | 'UPDATING'
+        | 'STARTING'
+        | 'RESTARTING'
+        | 'RESUMING';
       /** static ip connectivity data (default, no additional details needed). */
       staticIpConnectivity?: any;
       /** Required. The migration job type. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'ONE_TIME' | 'CONTINUOUS';
       /** Output only. The timestamp when the migration job resource was last updated. A timestamp in RFC3339 UTC "Zulu" format, accurate to nanoseconds. Example: "2014-10-02T15:01:23.045123456Z". */
       updateTime?: string;
       /** The details of the VPC network that the source database is located in. */
@@ -884,11 +1132,28 @@ declare namespace gapi.client {
       /** The object's name. */
       name?: string;
       /** Output only. The phase of the migration job object. */
-      phase?: string;
+      phase?:
+        | 'PHASE_UNSPECIFIED'
+        | 'FULL_DUMP'
+        | 'CDC'
+        | 'READY_FOR_PROMOTE'
+        | 'PROMOTE_IN_PROGRESS'
+        | 'PROMOTED'
+        | 'DIFF_BACKUP';
       /** The object identifier in the data source. */
       sourceObject?: SourceObjectIdentifier;
       /** The state of the migration job object. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'NOT_STARTED'
+        | 'RUNNING'
+        | 'STOPPING'
+        | 'STOPPED'
+        | 'RESTARTING'
+        | 'FAILED'
+        | 'REMOVING'
+        | 'NOT_SELECTED'
+        | 'COMPLETED';
       /** Output only. The last update time of the migration job object. */
       updateTime?: string;
     }
@@ -898,7 +1163,37 @@ declare namespace gapi.client {
     }
     interface MigrationJobVerificationError {
       /** Output only. An instance of ErrorCode specifying the error that occurred. */
-      errorCode?: string;
+      errorCode?:
+        | 'ERROR_CODE_UNSPECIFIED'
+        | 'CONNECTION_FAILURE'
+        | 'AUTHENTICATION_FAILURE'
+        | 'INVALID_CONNECTION_PROFILE_CONFIG'
+        | 'VERSION_INCOMPATIBILITY'
+        | 'CONNECTION_PROFILE_TYPES_INCOMPATIBILITY'
+        | 'NO_PGLOGICAL_INSTALLED'
+        | 'PGLOGICAL_NODE_ALREADY_EXISTS'
+        | 'INVALID_WAL_LEVEL'
+        | 'INVALID_SHARED_PRELOAD_LIBRARY'
+        | 'INSUFFICIENT_MAX_REPLICATION_SLOTS'
+        | 'INSUFFICIENT_MAX_WAL_SENDERS'
+        | 'INSUFFICIENT_MAX_WORKER_PROCESSES'
+        | 'UNSUPPORTED_EXTENSIONS'
+        | 'UNSUPPORTED_MIGRATION_TYPE'
+        | 'INVALID_RDS_LOGICAL_REPLICATION'
+        | 'UNSUPPORTED_GTID_MODE'
+        | 'UNSUPPORTED_TABLE_DEFINITION'
+        | 'UNSUPPORTED_DEFINER'
+        | 'CANT_RESTART_RUNNING_MIGRATION'
+        | 'SOURCE_ALREADY_SETUP'
+        | 'TABLES_WITH_LIMITED_SUPPORT'
+        | 'UNSUPPORTED_DATABASE_LOCALE'
+        | 'UNSUPPORTED_DATABASE_FDW_CONFIG'
+        | 'ERROR_RDBMS'
+        | 'SOURCE_SIZE_EXCEEDS_THRESHOLD'
+        | 'EXISTING_CONFLICTING_DATABASES'
+        | 'PARALLEL_IMPORT_INSUFFICIENT_PRIVILEGE'
+        | 'EXISTING_DATA'
+        | 'SOURCE_MAX_SUBSCRIPTIONS';
       /** Output only. A specific detailed error message, if supplied by the engine. */
       errorDetailMessage?: string;
       /** Output only. A formatted message with further details about the error and a CTA. */
@@ -928,7 +1223,12 @@ declare namespace gapi.client {
       /** Optional. The pattern used to generate the new entity's name. This pattern must include the characters '{name}', which will be replaced with the name of the original entity. For example, the pattern 't_{name}' for an entity name jobs would be converted to 't_jobs'. If unspecified, the default value for this field is '{name}' */
       newNamePattern?: string;
       /** Optional. Additional transformation that can be done on the source entity name before it is being used by the new_name_pattern, for example lower case. If no transformation is desired, use NO_TRANSFORMATION */
-      sourceNameTransformation?: string;
+      sourceNameTransformation?:
+        | 'ENTITY_NAME_TRANSFORMATION_UNSPECIFIED'
+        | 'ENTITY_NAME_TRANSFORMATION_NO_TRANSFORMATION'
+        | 'ENTITY_NAME_TRANSFORMATION_LOWER_CASE'
+        | 'ENTITY_NAME_TRANSFORMATION_UPPER_CASE'
+        | 'ENTITY_NAME_TRANSFORMATION_CAPITALIZED_CASE';
     }
     interface MySqlConnectionProfile {
       /** If the source is a Cloud SQL database, use this field to provide the Cloud SQL instance ID of the source. */
@@ -1029,7 +1329,11 @@ declare namespace gapi.client {
     }
     interface PerformanceConfig {
       /** Initial dump parallelism level. */
-      dumpParallelLevel?: string;
+      dumpParallelLevel?:
+        | 'DUMP_PARALLEL_LEVEL_UNSPECIFIED'
+        | 'MIN'
+        | 'OPTIMAL'
+        | 'MAX';
     }
     interface Policy {
       /** Specifies cloud audit logging configuration for this policy. */
@@ -1069,7 +1373,10 @@ declare namespace gapi.client {
       /** Required. The IP or hostname of the source PostgreSQL database. */
       host?: string;
       /** Output only. If the source is a Cloud SQL database, this field indicates the network architecture it's associated with. */
-      networkArchitecture?: string;
+      networkArchitecture?:
+        | 'NETWORK_ARCHITECTURE_UNSPECIFIED'
+        | 'NETWORK_ARCHITECTURE_OLD_CSQL_PRODUCER'
+        | 'NETWORK_ARCHITECTURE_NEW_CSQL_PRODUCER';
       /** Required. Input only. The password for the user that Database Migration Service will be using to connect to the database. This field is not returned on request, and the value is encrypted when stored in Database Migration Service. */
       password?: string;
       /** Output only. Indicates If this connection profile password is stored. */
@@ -1143,7 +1450,14 @@ declare namespace gapi.client {
       /** Output only. Reserved for future use. */
       satisfiesPzs?: boolean;
       /** Output only. The state of the private connection. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'CREATED'
+        | 'FAILED'
+        | 'DELETING'
+        | 'FAILED_TO_DELETE'
+        | 'DELETED';
       /** Output only. The last update time of the resource. */
       updateTime?: string;
       /** VPC peering configuration. */
@@ -1332,7 +1646,11 @@ declare namespace gapi.client {
     }
     interface SourceNumericFilter {
       /** Required. Enum to set the option defining the datatypes numeric filter has to be applied to */
-      numericFilterOption?: string;
+      numericFilterOption?:
+        | 'NUMERIC_FILTER_OPTION_UNSPECIFIED'
+        | 'NUMERIC_FILTER_OPTION_ALL'
+        | 'NUMERIC_FILTER_OPTION_LIMIT'
+        | 'NUMERIC_FILTER_OPTION_LIMITLESS';
       /** Optional. The filter will match columns with precision smaller than or equal to this number. */
       sourceMaxPrecisionFilter?: number;
       /** Optional. The filter will match columns with scale smaller than or equal to this number. */
@@ -1354,13 +1672,20 @@ declare namespace gapi.client {
       /** Optional. The table name. This will be required only if the object is a level below database or schema. */
       table?: string;
       /** Required. The type of the migration job object. */
-      type?: string;
+      type?:
+        | 'MIGRATION_JOB_OBJECT_TYPE_UNSPECIFIED'
+        | 'DATABASE'
+        | 'SCHEMA'
+        | 'TABLE';
     }
     interface SourceObjectsConfig {
       /** Optional. The list of the objects to be migrated. */
       objectConfigs?: SourceObjectConfig[];
       /** Optional. The objects selection type of the migration job. */
-      objectsSelectionType?: string;
+      objectsSelectionType?:
+        | 'OBJECTS_SELECTION_TYPE_UNSPECIFIED'
+        | 'ALL_OBJECTS'
+        | 'SPECIFIED_OBJECTS';
     }
     interface SourceSqlChange {
       /** Required. Sql code for source (stored procedure, function, trigger or view) */
@@ -1500,7 +1825,12 @@ declare namespace gapi.client {
       /** Optional. SSL flags used for establishing SSL connection to the source database. Only source specific flags are supported. An object containing a list of "key": "value" pairs. Example: { "server_certificate_hostname": "server.com"}. */
       sslFlags?: {[P in string]: string};
       /** Optional. The ssl config type according to 'client_key', 'client_certificate' and 'ca_certificate'. */
-      type?: string;
+      type?:
+        | 'SSL_TYPE_UNSPECIFIED'
+        | 'SERVER_ONLY'
+        | 'SERVER_CLIENT'
+        | 'REQUIRED'
+        | 'NONE';
     }
     interface StartMigrationJobRequest {
       /** Optional. Start the migration job without running prior configuration verification. Defaults to `false`. */
@@ -1529,7 +1859,23 @@ declare namespace gapi.client {
       /** The name of the entity for which the synonym is being created (the source). */
       sourceEntity?: string;
       /** The type of the entity for which the synonym is being created (usually a table or a sequence). */
-      sourceType?: string;
+      sourceType?:
+        | 'DATABASE_ENTITY_TYPE_UNSPECIFIED'
+        | 'DATABASE_ENTITY_TYPE_SCHEMA'
+        | 'DATABASE_ENTITY_TYPE_TABLE'
+        | 'DATABASE_ENTITY_TYPE_COLUMN'
+        | 'DATABASE_ENTITY_TYPE_CONSTRAINT'
+        | 'DATABASE_ENTITY_TYPE_INDEX'
+        | 'DATABASE_ENTITY_TYPE_TRIGGER'
+        | 'DATABASE_ENTITY_TYPE_VIEW'
+        | 'DATABASE_ENTITY_TYPE_SEQUENCE'
+        | 'DATABASE_ENTITY_TYPE_STORED_PROCEDURE'
+        | 'DATABASE_ENTITY_TYPE_FUNCTION'
+        | 'DATABASE_ENTITY_TYPE_SYNONYM'
+        | 'DATABASE_ENTITY_TYPE_DATABASE_PACKAGE'
+        | 'DATABASE_ENTITY_TYPE_UDT'
+        | 'DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW'
+        | 'DATABASE_ENTITY_TYPE_DATABASE';
     }
     interface TableEntity {
       /** Table columns. */
@@ -1589,7 +1935,10 @@ declare namespace gapi.client {
       /** Required. Whether to ignore case when filtering by values. Defaults to false */
       ignoreCase?: boolean;
       /** Required. Indicates whether the filter matches rows with values that are present in the list or those with values not present in it. */
-      valuePresentList?: string;
+      valuePresentList?:
+        | 'VALUE_PRESENT_IN_LIST_UNSPECIFIED'
+        | 'VALUE_PRESENT_IN_LIST_IF_VALUE_LIST'
+        | 'VALUE_PRESENT_IN_LIST_IF_VALUE_NOT_LIST';
       /** Required. The list to be used to filter by */
       values?: string[];
     }
@@ -1655,11 +2004,11 @@ declare namespace gapi.client {
       /** Creates a new connection profile in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The connection profile identifier. */
@@ -1692,11 +2041,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The connection profile identifier. */
@@ -1729,11 +2078,11 @@ declare namespace gapi.client {
       /** Deletes a single Database Migration Service connection profile. A connection profile can only be deleted if it is not in use by any active migration jobs. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1760,11 +2109,11 @@ declare namespace gapi.client {
       /** Gets details of a single connection profile. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1787,11 +2136,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1816,11 +2165,11 @@ declare namespace gapi.client {
       /** Retrieves a list of all connection profiles in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1851,11 +2200,11 @@ declare namespace gapi.client {
       /** Update the configuration of a single connection profile. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1888,11 +2237,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1926,11 +2275,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1956,11 +2305,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1987,11 +2336,11 @@ declare namespace gapi.client {
       /** Creates a new mapping rule for a given conversion workspace. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2020,11 +2369,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2053,11 +2402,11 @@ declare namespace gapi.client {
       /** Deletes a single mapping rule. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2082,11 +2431,11 @@ declare namespace gapi.client {
       /** Gets the details of a mapping rule. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2109,11 +2458,11 @@ declare namespace gapi.client {
       /** Imports the mapping rules for a given conversion workspace. Supports various formats of external rules files. */
       import(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2138,11 +2487,11 @@ declare namespace gapi.client {
       import(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2167,11 +2516,11 @@ declare namespace gapi.client {
       /** Lists the mapping rules for a specific conversion workspace. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2200,11 +2549,11 @@ declare namespace gapi.client {
       /** Applies draft tree onto a specific destination database. */
       apply(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2229,11 +2578,11 @@ declare namespace gapi.client {
       apply(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2258,11 +2607,11 @@ declare namespace gapi.client {
       /** Marks all the data in the conversion workspace as committed. */
       commit(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2287,11 +2636,11 @@ declare namespace gapi.client {
       commit(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2316,11 +2665,11 @@ declare namespace gapi.client {
       /** Creates a draft tree schema for the destination database. */
       convert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2345,11 +2694,11 @@ declare namespace gapi.client {
       convert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2374,11 +2723,11 @@ declare namespace gapi.client {
       /** Creates a new conversion workspace in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID of the conversion workspace to create. */
@@ -2407,11 +2756,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID of the conversion workspace to create. */
@@ -2440,11 +2789,11 @@ declare namespace gapi.client {
       /** Deletes a single conversion workspace. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2471,11 +2820,11 @@ declare namespace gapi.client {
       /** Retrieves a list of committed revisions of a specific conversion workspace. */
       describeConversionWorkspaceRevisions(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Optional filter to request a specific commit ID. */
@@ -2500,11 +2849,11 @@ declare namespace gapi.client {
       /** Describes the database entities tree for a specific conversion workspace and a specific tree type. Database entities are not resources like conversion workspaces or mapping rules, and they can't be created, updated or deleted. Instead, they are simple data objects describing the structure of the client database. */
       describeDatabaseEntities(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Request a specific commit ID. If not specified, the entities from the latest commit are returned. */
@@ -2528,7 +2877,11 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Required. The tree to fetch. */
-        tree?: string;
+        tree?:
+          | 'DB_TREE_TYPE_UNSPECIFIED'
+          | 'SOURCE_TREE'
+          | 'DRAFT_TREE'
+          | 'DESTINATION_TREE';
         /** Optional. Whether to retrieve the latest committed version of the entities or the latest version. This field is ignored if a specific commit_id is specified. */
         uncommitted?: boolean;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -2536,16 +2889,21 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Optional. Results view based on AIP-157 */
-        view?: string;
+        view?:
+          | 'DATABASE_ENTITY_VIEW_UNSPECIFIED'
+          | 'DATABASE_ENTITY_VIEW_BASIC'
+          | 'DATABASE_ENTITY_VIEW_FULL'
+          | 'DATABASE_ENTITY_VIEW_ROOT_SUMMARY'
+          | 'DATABASE_ENTITY_VIEW_FULL_COMPACT';
       }): Request<DescribeDatabaseEntitiesResponse>;
       /** Gets details of a single conversion workspace. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2568,11 +2926,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2597,11 +2955,11 @@ declare namespace gapi.client {
       /** Lists conversion workspaces in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2630,11 +2988,11 @@ declare namespace gapi.client {
       /** Updates the parameters of a single conversion workspace. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2663,11 +3021,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2696,11 +3054,11 @@ declare namespace gapi.client {
       /** Rolls back a conversion workspace to the last committed snapshot. */
       rollback(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2725,11 +3083,11 @@ declare namespace gapi.client {
       rollback(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2754,11 +3112,11 @@ declare namespace gapi.client {
       /** Searches/lists the background jobs for a specific conversion workspace. The background jobs are not resources like conversion workspaces or mapping rules, and they can't be created, updated or deleted. Instead, they are a way to expose the data plane jobs log. */
       searchBackgroundJobs(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. If provided, only returns jobs that completed until (not including) the given timestamp. */
@@ -2787,11 +3145,11 @@ declare namespace gapi.client {
       /** Imports a snapshot of the source database into the conversion workspace. */
       seed(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2816,11 +3174,11 @@ declare namespace gapi.client {
       seed(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2846,11 +3204,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2876,11 +3234,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2908,11 +3266,11 @@ declare namespace gapi.client {
       /** Use this method to get details about a migration job object. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2935,11 +3293,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2964,11 +3322,11 @@ declare namespace gapi.client {
       /** Use this method to list the objects of a specific migration job. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2995,11 +3353,11 @@ declare namespace gapi.client {
       /** Use this method to look up a migration job object by its source object identifier. */
       lookup(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3024,11 +3382,11 @@ declare namespace gapi.client {
       lookup(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3054,11 +3412,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3084,11 +3442,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3115,11 +3473,11 @@ declare namespace gapi.client {
       /** Creates a new migration job in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3148,11 +3506,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3181,11 +3539,11 @@ declare namespace gapi.client {
       /** Deletes a single migration job. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3212,11 +3570,11 @@ declare namespace gapi.client {
       /** Demotes the destination database to become a read replica of the source. This is applicable for the following migrations: 1. MySQL to Cloud SQL for MySQL 2. PostgreSQL to Cloud SQL for PostgreSQL 3. PostgreSQL to AlloyDB for PostgreSQL. */
       demoteDestination(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3241,11 +3599,11 @@ declare namespace gapi.client {
       demoteDestination(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3270,11 +3628,11 @@ declare namespace gapi.client {
       /** Retrieves objects from the source database that can be selected for data migration. This is applicable for the following migrations: 1. PostgreSQL to Cloud SQL for PostgreSQL 2. PostgreSQL to AlloyDB for PostgreSQL. */
       fetchSourceObjects(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3297,11 +3655,11 @@ declare namespace gapi.client {
       /** Generate a SSH configuration script to configure the reverse SSH connectivity. */
       generateSshScript(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3326,11 +3684,11 @@ declare namespace gapi.client {
       generateSshScript(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3355,11 +3713,11 @@ declare namespace gapi.client {
       /** Generate a TCP Proxy configuration script to configure a cloud-hosted VM running a TCP Proxy. */
       generateTcpProxyScript(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3384,11 +3742,11 @@ declare namespace gapi.client {
       generateTcpProxyScript(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3413,11 +3771,11 @@ declare namespace gapi.client {
       /** Gets details of a single migration job. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3440,11 +3798,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3469,11 +3827,11 @@ declare namespace gapi.client {
       /** Lists migration jobs in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3504,11 +3862,11 @@ declare namespace gapi.client {
       /** Updates the parameters of a single migration job. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3537,11 +3895,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3570,11 +3928,11 @@ declare namespace gapi.client {
       /** Promote a migration job, stopping replication to the destination and promoting the destination to be a standalone database. */
       promote(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3599,11 +3957,11 @@ declare namespace gapi.client {
       promote(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3628,11 +3986,11 @@ declare namespace gapi.client {
       /** Restart a stopped or failed migration job, resetting the destination instance to its original state and starting the migration process from scratch. */
       restart(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3657,11 +4015,11 @@ declare namespace gapi.client {
       restart(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3686,11 +4044,11 @@ declare namespace gapi.client {
       /** Resume a migration job that is currently stopped and is resumable (was stopped during CDC phase). */
       resume(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3715,11 +4073,11 @@ declare namespace gapi.client {
       resume(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3745,11 +4103,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3774,11 +4132,11 @@ declare namespace gapi.client {
       /** Start an already created migration job. */
       start(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3803,11 +4161,11 @@ declare namespace gapi.client {
       start(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3832,11 +4190,11 @@ declare namespace gapi.client {
       /** Stops a running migration job. */
       stop(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3861,11 +4219,11 @@ declare namespace gapi.client {
       stop(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3891,11 +4249,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3920,11 +4278,11 @@ declare namespace gapi.client {
       /** Verify a migration job, making sure the destination can reach the source and that all configuration and prerequisites are met. */
       verify(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3949,11 +4307,11 @@ declare namespace gapi.client {
       verify(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3981,11 +4339,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4010,11 +4368,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4039,11 +4397,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4066,11 +4424,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4093,11 +4451,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4130,11 +4488,11 @@ declare namespace gapi.client {
       /** Creates a new private connection in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4167,11 +4525,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4204,11 +4562,11 @@ declare namespace gapi.client {
       /** Deletes a single Database Migration Service private connection. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4233,11 +4591,11 @@ declare namespace gapi.client {
       /** Gets details of a single private connection. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4260,11 +4618,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4289,11 +4647,11 @@ declare namespace gapi.client {
       /** Retrieves a list of private connections in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4325,11 +4683,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4355,11 +4713,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4386,11 +4744,11 @@ declare namespace gapi.client {
       /** Fetches a set of static IP addresses that need to be allowlisted by the customer when using the static-IP connectivity method. */
       fetchStaticIps(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4417,11 +4775,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4444,11 +4802,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */

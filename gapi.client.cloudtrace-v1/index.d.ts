@@ -47,7 +47,7 @@ declare namespace gapi.client {
       /** End time of the span in seconds and nanoseconds from the UNIX epoch. */
       endTime?: string;
       /** Distinguishes between spans generated in a particular context. For example, two spans with the same name may be distinguished using `RPC_CLIENT` and `RPC_SERVER` to identify queueing latency associated with the span. */
-      kind?: string;
+      kind?: 'SPAN_KIND_UNSPECIFIED' | 'RPC_SERVER' | 'RPC_CLIENT';
       /** Collection of labels associated with the span. Label keys must be less than 128 bytes. Label values must be less than 16 KiB. Some keys might have predefined meaning, and you can also create your own. For more information, see [Cloud Trace labels](https://cloud.google.com/trace/docs/trace-labels). */
       labels?: {[P in string]: string};
       /** Name of the span. Must be less than 128 bytes. The span name is sanitized and displayed in the Trace tool in the Google Cloud Platform Console. The name may be a method name or some other per-call site name. For the same executable and the same call point, a best practice is to use a consistent name, which makes it easier to correlate cross-trace spans. */
@@ -63,11 +63,11 @@ declare namespace gapi.client {
       /** Gets a single trace by its ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -92,11 +92,11 @@ declare namespace gapi.client {
       /** Returns a list of traces that match the specified filter conditions. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** End of the time interval (inclusive) during which the trace data was collected from the application. */
@@ -128,18 +128,18 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Optional. Type of data returned for traces in the list. Default is `MINIMAL`. */
-        view?: string;
+        view?: 'VIEW_TYPE_UNSPECIFIED' | 'MINIMAL' | 'ROOTSPAN' | 'COMPLETE';
       }): Request<ListTracesResponse>;
     }
     interface ProjectsResource {
       /** Sends trace spans to Cloud Trace. Spans cannot be updated. If the trace ID and span ID already exist, an additional copy of the span will be stored. */
       patchTraces(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -164,11 +164,11 @@ declare namespace gapi.client {
       patchTraces(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

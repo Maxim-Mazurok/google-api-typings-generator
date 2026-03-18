@@ -983,11 +983,11 @@ declare namespace gapi.client {
       /** Retrieves volumes in a specific bookshelf for the specified user. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1022,11 +1022,11 @@ declare namespace gapi.client {
       /** Retrieves metadata for a specific bookshelf for the specified user. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1053,11 +1053,11 @@ declare namespace gapi.client {
       /** Retrieves a list of public bookshelves for the specified user. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1085,11 +1085,11 @@ declare namespace gapi.client {
       /** Add a user-upload volume and triggers processing. */
       addBook(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** A drive document id. The upload_client_token must not be set. */
@@ -1118,11 +1118,11 @@ declare namespace gapi.client {
       /** Remove the book and its contents */
       deleteBook(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1145,11 +1145,11 @@ declare namespace gapi.client {
       /** Updates a user-upload volume. */
       updateBook(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1172,11 +1172,11 @@ declare namespace gapi.client {
       updateBook(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1201,11 +1201,11 @@ declare namespace gapi.client {
       /** Returns a list of offline dictionary metadata available */
       listOfflineMetadata(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The device/version ID from which to request the data. */
@@ -1230,11 +1230,11 @@ declare namespace gapi.client {
       /** Gets information regarding the family that the user is part of. */
       getFamilyInfo(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1257,11 +1257,11 @@ declare namespace gapi.client {
       /** Initiates sharing of the content with the user's family. Empty response indicates success. */
       share(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The docid to share. */
@@ -1288,11 +1288,11 @@ declare namespace gapi.client {
       /** Initiates revoking content that has already been shared with the user's family. Empty response indicates success. */
       unshare(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The docid to unshare. */
@@ -1321,13 +1321,13 @@ declare namespace gapi.client {
       /** Gets the annotation data. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** For the dictionary layer. Whether or not to allow web definitions. */
         allowWebDefinitions?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The ID of the annotation data to retrieve. */
         annotationDataId: string;
         /** JSONP */
@@ -1366,11 +1366,11 @@ declare namespace gapi.client {
       /** Gets the annotation data for a volume and layer. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The list of Annotation Data Ids to retrieve. Pagination is ignored if this is set. */
         annotationDataId?: string | string[];
         /** JSONP */
@@ -1419,11 +1419,11 @@ declare namespace gapi.client {
       /** Gets the volume annotation. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The ID of the volume annotation to retrieve. */
         annotationId: string;
         /** JSONP */
@@ -1454,11 +1454,11 @@ declare namespace gapi.client {
       /** Gets the volume annotations for a volume and layer. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The content version for the requested volume. */
@@ -1511,11 +1511,11 @@ declare namespace gapi.client {
       /** Gets the layer summary for a volume. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The content version for the requested volume. */
@@ -1544,11 +1544,11 @@ declare namespace gapi.client {
       /** List the layer summaries for a volume. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The content version for the requested volume. */
@@ -1583,11 +1583,11 @@ declare namespace gapi.client {
       /** Gets the current settings for the user. */
       getUserSettings(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Unused. Added only to workaround TEX mandatory request template requirement */
@@ -1610,11 +1610,11 @@ declare namespace gapi.client {
       /** Release downloaded content access restriction. */
       releaseDownloadAccess(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The device/version ID from which to release the restriction. */
@@ -1643,11 +1643,11 @@ declare namespace gapi.client {
       /** Request concurrent and download access restrictions. */
       requestAccess(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The device/version ID from which to request the restrictions. */
@@ -1657,7 +1657,11 @@ declare namespace gapi.client {
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** The type of access license to request. If not specified, the default is BOTH. */
-        licenseTypes?: string;
+        licenseTypes?:
+          | 'LICENSE_TYPES_UNDEFINED'
+          | 'BOTH'
+          | 'CONCURRENT'
+          | 'DOWNLOAD';
         /** ISO-639-1, ISO-3166-1 codes for message localization, i.e. en_US. */
         locale?: string;
         /** The client nonce value. */
@@ -1680,17 +1684,20 @@ declare namespace gapi.client {
       /** Request downloaded content access for specified volumes on the My eBooks shelf. */
       syncVolumeLicenses(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The device/version ID from which to release the restriction. */
         cpksver: string;
         /** List of features supported by the client, i.e., 'RENTALS' */
-        features?: string | string[];
+        features?:
+          | 'FEATURES_UNDEFINED'
+          | 'RENTALS'
+          | ('FEATURES_UNDEFINED' | 'RENTALS')[];
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** Set to true to include non-comics series. Defaults to false. */
@@ -1721,11 +1728,11 @@ declare namespace gapi.client {
       /** Sets the settings for the user. If a sub-object is specified, it will overwrite the existing sub-object stored in the server. Unspecified sub-objects will retain the existing value. */
       updateUserSettings(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1748,11 +1755,11 @@ declare namespace gapi.client {
       updateUserSettings(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1777,11 +1784,11 @@ declare namespace gapi.client {
       /** Deletes an annotation. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The ID for the annotation to delete. */
         annotationId: string;
         /** JSONP */
@@ -1806,11 +1813,11 @@ declare namespace gapi.client {
       /** Inserts a new annotation. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The ID for the annotation to insert. */
         annotationId?: string;
         /** JSONP */
@@ -1841,11 +1848,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** The ID for the annotation to insert. */
           annotationId?: string;
           /** JSONP */
@@ -1876,11 +1883,11 @@ declare namespace gapi.client {
       /** Retrieves a list of annotations, possibly filtered. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The content version for the requested volume. */
@@ -1921,11 +1928,11 @@ declare namespace gapi.client {
       /** Gets the summary of specified layers. */
       summary(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1952,11 +1959,11 @@ declare namespace gapi.client {
       /** Updates an existing annotation. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The ID for the annotation to update. */
         annotationId: string;
         /** JSONP */
@@ -1983,11 +1990,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** The ID for the annotation to update. */
           annotationId: string;
           /** JSONP */
@@ -2016,11 +2023,11 @@ declare namespace gapi.client {
       /** Gets volume information for volumes on a bookshelf. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** ISO-3166-1 code to override the IP-based location. */
@@ -2036,7 +2043,7 @@ declare namespace gapi.client {
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Restrict information returned to a set of selected fields. */
-        projection?: string;
+        projection?: 'PROJECTION_UNDEFINED' | 'FULL' | 'LITE';
         /** Full-text search query string in this bookshelf. */
         q?: string;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
@@ -2059,11 +2066,11 @@ declare namespace gapi.client {
       /** Adds a volume to a bookshelf. */
       addVolume(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2077,7 +2084,7 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** The reason for which the book is added to the library. */
-        reason?: string;
+        reason?: 'REASON_UNDEFINED' | 'IOS_PREX' | 'IOS_SEARCH' | 'ONBOARDING';
         /** ID of bookshelf to which to add a volume. */
         shelf: string;
         /** String to identify the originator of this request. */
@@ -2092,11 +2099,11 @@ declare namespace gapi.client {
       /** Clears all volumes from a bookshelf. */
       clearVolumes(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2121,11 +2128,11 @@ declare namespace gapi.client {
       /** Retrieves metadata for a specific bookshelf belonging to the authenticated user. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2150,11 +2157,11 @@ declare namespace gapi.client {
       /** Retrieves a list of bookshelves belonging to the authenticated user. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2177,11 +2184,11 @@ declare namespace gapi.client {
       /** Moves a volume within a bookshelf. */
       moveVolume(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2210,11 +2217,11 @@ declare namespace gapi.client {
       /** Removes a volume from a bookshelf. */
       removeVolume(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2228,7 +2235,7 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** The reason for which the book is removed from the library. */
-        reason?: string;
+        reason?: 'REASON_UNDEFINED' | 'ONBOARDING';
         /** ID of bookshelf from which to remove a volume. */
         shelf: string;
         /** String to identify the originator of this request. */
@@ -2246,11 +2253,11 @@ declare namespace gapi.client {
       /** Retrieves my reading position information for a volume. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Volume content version for which this reading position is requested. */
@@ -2277,13 +2284,20 @@ declare namespace gapi.client {
       /** Sets my reading position information for a volume. */
       setPosition(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Action that caused this reading position to be set. */
-        action?: string;
+        action?:
+          | 'ACTION_UNDEFINED'
+          | 'bookmark'
+          | 'chapter'
+          | 'next-page'
+          | 'prev-page'
+          | 'scroll'
+          | 'search';
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Volume content version for which this reading position applies. */
@@ -2323,11 +2337,11 @@ declare namespace gapi.client {
       /** Returns notification details for a given notification id. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2356,11 +2370,11 @@ declare namespace gapi.client {
       /** List categories for onboarding experience. */
       listCategories(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2383,11 +2397,11 @@ declare namespace gapi.client {
       /** List available volumes under categories for onboarding experience. */
       listCategoryVolumes(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** List of category ids requested. */
@@ -2399,7 +2413,10 @@ declare namespace gapi.client {
         /** ISO-639-1 language and ISO-3166-1 country code. Default is en-US if unset. */
         locale?: string;
         /** The maximum allowed maturity rating of returned volumes. Books with a higher maturity rating are filtered out. */
-        maxAllowedMaturityRating?: string;
+        maxAllowedMaturityRating?:
+          | 'MAX_ALLOWED_MATURITY_RATING_UNDEFINED'
+          | 'MATURE'
+          | 'not-mature';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Number of maximum results per page to be included in the response. */
@@ -2420,11 +2437,11 @@ declare namespace gapi.client {
       /** Returns a stream of personalized book clusters */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2434,7 +2451,10 @@ declare namespace gapi.client {
         /** ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating recommendations. */
         locale?: string;
         /** The maximum allowed maturity rating of returned recommendations. Books with a higher maturity rating are filtered out. */
-        maxAllowedMaturityRating?: string;
+        maxAllowedMaturityRating?:
+          | 'MAX_ALLOWED_MATURITY_RATING_UNDEFINED'
+          | 'MATURE'
+          | 'not-mature';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Returns response with indentations and line breaks. */
@@ -2453,11 +2473,11 @@ declare namespace gapi.client {
       /** Accepts the promo offer. */
       accept(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** device android_id */
         androidId?: string;
         /** JSONP */
@@ -2493,11 +2513,11 @@ declare namespace gapi.client {
       /** Marks the promo offer as dismissed. */
       dismiss(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** device android_id */
         androidId?: string;
         /** JSONP */
@@ -2532,11 +2552,11 @@ declare namespace gapi.client {
       /** Returns a list of promo offers available to the user */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** device android_id */
         androidId?: string;
         /** JSONP */
@@ -2571,11 +2591,11 @@ declare namespace gapi.client {
       /** Returns Series membership data given the series id. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2604,11 +2624,11 @@ declare namespace gapi.client {
       /** Returns Series metadata for the given series ids. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2634,13 +2654,17 @@ declare namespace gapi.client {
       /** Return a list of associated books. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Association type. */
-        association?: string;
+        association?:
+          | 'ASSOCIATION_UNDEFINED'
+          | 'end-of-sample'
+          | 'end-of-volume'
+          | 'related-for-play';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2650,7 +2674,10 @@ declare namespace gapi.client {
         /** ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating recommendations. */
         locale?: string;
         /** The maximum allowed maturity rating of returned recommendations. Books with a higher maturity rating are filtered out. */
-        maxAllowedMaturityRating?: string;
+        maxAllowedMaturityRating?:
+          | 'MAX_ALLOWED_MATURITY_RATING_UNDEFINED'
+          | 'MATURE'
+          | 'not-mature';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Returns response with indentations and line breaks. */
@@ -2671,13 +2698,33 @@ declare namespace gapi.client {
       /** Return a list of books in My Library. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** How the book was acquired */
-        acquireMethod?: string | string[];
+        acquireMethod?:
+          | 'ACQUIRE_METHOD_UNDEFINED'
+          | 'FAMILY_SHARED'
+          | 'PREORDERED'
+          | 'PREVIOUSLY_RENTED'
+          | 'PUBLIC_DOMAIN'
+          | 'PURCHASED'
+          | 'RENTED'
+          | 'SAMPLE'
+          | 'UPLOADED'
+          | (
+              | 'ACQUIRE_METHOD_UNDEFINED'
+              | 'FAMILY_SHARED'
+              | 'PREORDERED'
+              | 'PREVIOUSLY_RENTED'
+              | 'PUBLIC_DOMAIN'
+              | 'PURCHASED'
+              | 'RENTED'
+              | 'SAMPLE'
+              | 'UPLOADED'
+            )[];
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** ISO-3166-1 code to override the IP-based location. */
@@ -2695,7 +2742,17 @@ declare namespace gapi.client {
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** The processing state of the user uploaded volumes to be returned. Applicable only if the UPLOADED is specified in the acquireMethod. */
-        processingState?: string | string[];
+        processingState?:
+          | 'PROCESSING_STATE_UNDEFINED'
+          | 'COMPLETED_FAILED'
+          | 'COMPLETED_SUCCESS'
+          | 'RUNNING'
+          | (
+              | 'PROCESSING_STATE_UNDEFINED'
+              | 'COMPLETED_FAILED'
+              | 'COMPLETED_SUCCESS'
+              | 'RUNNING'
+            )[];
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** String to identify the originator of this request. */
@@ -2712,11 +2769,11 @@ declare namespace gapi.client {
       /** Return a list of recommended books for the current user. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2726,7 +2783,10 @@ declare namespace gapi.client {
         /** ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating recommendations. */
         locale?: string;
         /** The maximum allowed maturity rating of returned recommendations. Books with a higher maturity rating are filtered out. */
-        maxAllowedMaturityRating?: string;
+        maxAllowedMaturityRating?:
+          | 'MAX_ALLOWED_MATURITY_RATING_UNDEFINED'
+          | 'MATURE'
+          | 'not-mature';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Returns response with indentations and line breaks. */
@@ -2743,11 +2803,11 @@ declare namespace gapi.client {
       /** Rate a recommended book for the current user. */
       rate(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2763,7 +2823,7 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Rating to be given to the volume. */
-        rating: string;
+        rating: 'RATING_UNDEFINED' | 'HAVE_IT' | 'NOT_INTERESTED';
         /** String to identify the originator of this request. */
         source?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -2778,11 +2838,11 @@ declare namespace gapi.client {
       /** Return a list of books uploaded by the current user. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2798,7 +2858,17 @@ declare namespace gapi.client {
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** The processing state of the user uploaded volumes to be returned. */
-        processingState?: string | string[];
+        processingState?:
+          | 'PROCESSING_STATE_UNDEFINED'
+          | 'COMPLETED_FAILED'
+          | 'COMPLETED_SUCCESS'
+          | 'RUNNING'
+          | (
+              | 'PROCESSING_STATE_UNDEFINED'
+              | 'COMPLETED_FAILED'
+              | 'COMPLETED_SUCCESS'
+              | 'RUNNING'
+            )[];
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** String to identify the originator of this request. */
@@ -2817,11 +2887,11 @@ declare namespace gapi.client {
       /** Gets volume information for a single volume. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** ISO-3166-1 code to override the IP-based location. */
@@ -2839,7 +2909,7 @@ declare namespace gapi.client {
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Restrict information returned to a set of selected fields. */
-        projection?: string;
+        projection?: 'PROJECTION_UNDEFINED' | 'FULL' | 'LITE';
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** string to identify the originator of this request. */
@@ -2855,41 +2925,53 @@ declare namespace gapi.client {
       /** Performs a book search. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Restrict to volumes by download availability. */
-        download?: string;
+        download?: 'DOWNLOAD_UNDEFINED' | 'EPUB';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** Filter search results. */
-        filter?: string;
+        filter?:
+          | 'FILTER_UNDEFINED'
+          | 'ebooks'
+          | 'free-ebooks'
+          | 'full'
+          | 'paid-ebooks'
+          | 'partial';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** Restrict results to books with this language code. */
         langRestrict?: string;
         /** Restrict search to this user's library. */
-        libraryRestrict?: string;
+        libraryRestrict?:
+          | 'LIBRARY_RESTRICT_UNDEFINED'
+          | 'my-library'
+          | 'no-restrict';
         /** The maximum allowed maturity rating of returned recommendations. Books with a higher maturity rating are filtered out. */
-        maxAllowedMaturityRating?: string;
+        maxAllowedMaturityRating?:
+          | 'MAX_ALLOWED_MATURITY_RATING_UNDEFINED'
+          | 'MATURE'
+          | 'not-mature';
         /** Maximum number of results to return. */
         maxResults?: number;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Sort search results. */
-        orderBy?: string;
+        orderBy?: 'ORDER_BY_UNDEFINED' | 'newest' | 'relevance';
         /** Restrict and brand results for partner ID. */
         partner?: string;
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Restrict to books or magazines. */
-        printType?: string;
+        printType?: 'PRINT_TYPE_UNDEFINED' | 'ALL' | 'BOOKS' | 'MAGAZINES';
         /** Restrict information returned to a set of selected fields. */
-        projection?: string;
+        projection?: 'PROJECTION_UNDEFINED' | 'FULL' | 'LITE';
         /** Full-text search query string. */
         q: string;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */

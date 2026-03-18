@@ -110,14 +110,14 @@ declare namespace gapi.client {
           /** Server-determined value that indicates the time from which configuration was enforced and effective. This value is in RFC 3339 format. */
           effectiveTime?: string;
           /** Restriction mode for Customer-Managed Encryption Keys. Defaults to NotRestricted. */
-          restrictionMode?: string;
+          restrictionMode?: 'NotRestricted' | 'FullyRestricted';
         };
         /** If set, the new objects created in this bucket must comply with this enforcement config. Changing this has no effect on existing objects; it applies to new objects only. If omitted, the new objects are allowed to be encrypted with Customer Supplied Encryption type by default. */
         customerSuppliedEncryptionEnforcementConfig?: {
           /** Server-determined value that indicates the time from which configuration was enforced and effective. This value is in RFC 3339 format. */
           effectiveTime?: string;
           /** Restriction mode for Customer-Supplied Encryption Keys. Defaults to NotRestricted. */
-          restrictionMode?: string;
+          restrictionMode?: 'NotRestricted' | 'FullyRestricted';
         };
         /** A Cloud KMS key that will be used to encrypt objects inserted into this bucket, if no encryption method is specified. */
         defaultKmsKeyName?: string;
@@ -126,7 +126,7 @@ declare namespace gapi.client {
           /** Server-determined value that indicates the time from which configuration was enforced and effective. This value is in RFC 3339 format. */
           effectiveTime?: string;
           /** Restriction mode for Google-Managed Encryption Keys. Defaults to NotRestricted. */
-          restrictionMode?: string;
+          restrictionMode?: 'NotRestricted' | 'FullyRestricted';
         };
       };
       /** HTTP 1.1 Entity tag for the bucket. */
@@ -872,7 +872,7 @@ declare namespace gapi.client {
       /** Disables an Anywhere Cache instance. */
       disable(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** The ID of requested Anywhere Cache instance. */
         anywhereCacheId: string;
         /** Name of the parent bucket. */
@@ -895,7 +895,7 @@ declare namespace gapi.client {
       /** Returns the metadata of an Anywhere Cache instance. */
       get(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** The ID of requested Anywhere Cache instance. */
         anywhereCacheId: string;
         /** Name of the parent bucket. */
@@ -918,7 +918,7 @@ declare namespace gapi.client {
       /** Creates an Anywhere Cache instance. */
       insert(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the parent bucket. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -941,7 +941,7 @@ declare namespace gapi.client {
       insert(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of the parent bucket. */
           bucket: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -964,7 +964,7 @@ declare namespace gapi.client {
       /** Returns a list of Anywhere Cache instances of the bucket matching the criteria. */
       list(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the parent bucket. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -989,7 +989,7 @@ declare namespace gapi.client {
       /** Pauses an Anywhere Cache instance. */
       pause(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** The ID of requested Anywhere Cache instance. */
         anywhereCacheId: string;
         /** Name of the parent bucket. */
@@ -1012,7 +1012,7 @@ declare namespace gapi.client {
       /** Resumes a paused or disabled Anywhere Cache instance. */
       resume(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** The ID of requested Anywhere Cache instance. */
         anywhereCacheId: string;
         /** Name of the parent bucket. */
@@ -1035,7 +1035,7 @@ declare namespace gapi.client {
       /** Updates the config(ttl and admissionPolicy) of an Anywhere Cache instance. */
       update(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** The ID of requested Anywhere Cache instance. */
         anywhereCacheId: string;
         /** Name of the parent bucket. */
@@ -1060,7 +1060,7 @@ declare namespace gapi.client {
       update(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** The ID of requested Anywhere Cache instance. */
           anywhereCacheId: string;
           /** Name of the parent bucket. */
@@ -1087,7 +1087,7 @@ declare namespace gapi.client {
       /** Permanently deletes the ACL entry for the specified entity on the specified bucket. */
       delete(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers. */
@@ -1112,7 +1112,7 @@ declare namespace gapi.client {
       /** Returns the ACL entry for the specified entity on the specified bucket. */
       get(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers. */
@@ -1137,7 +1137,7 @@ declare namespace gapi.client {
       /** Creates a new ACL entry on the specified bucket. */
       insert(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1162,7 +1162,7 @@ declare namespace gapi.client {
       insert(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of a bucket. */
           bucket: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1187,7 +1187,7 @@ declare namespace gapi.client {
       /** Retrieves ACL entries on the specified bucket. */
       list(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1210,7 +1210,7 @@ declare namespace gapi.client {
       /** Patches an ACL entry on the specified bucket. */
       patch(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers. */
@@ -1237,7 +1237,7 @@ declare namespace gapi.client {
       patch(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of a bucket. */
           bucket: string;
           /** The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers. */
@@ -1264,7 +1264,7 @@ declare namespace gapi.client {
       /** Updates an ACL entry on the specified bucket. */
       update(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers. */
@@ -1291,7 +1291,7 @@ declare namespace gapi.client {
       update(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of a bucket. */
           bucket: string;
           /** The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers. */
@@ -1320,7 +1320,7 @@ declare namespace gapi.client {
       /** Deletes an empty bucket. Deletions are permanent unless soft delete is enabled on the bucket. */
       delete(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1347,7 +1347,7 @@ declare namespace gapi.client {
       /** Returns metadata for the specified bucket. */
       get(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1365,7 +1365,7 @@ declare namespace gapi.client {
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Set of properties to return. Defaults to noAcl. */
-        projection?: string;
+        projection?: 'full' | 'noAcl';
         /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
         quotaUser?: string;
         /** If true, return the soft-deleted version of this bucket. The default is false. For more information, see [Soft Delete](https://cloud.google.com/storage/docs/soft-delete). */
@@ -1380,7 +1380,7 @@ declare namespace gapi.client {
       /** Returns an IAM policy for the specified bucket. */
       getIamPolicy(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1405,7 +1405,7 @@ declare namespace gapi.client {
       /** Returns the storage layout configuration for the specified bucket. Note that this operation requires storage.objects.list permission. */
       getStorageLayout(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1428,7 +1428,7 @@ declare namespace gapi.client {
       /** Creates a new bucket. */
       insert(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** When set to true, object retention is enabled for this bucket. */
         enableObjectRetention?: boolean;
         /** Selector specifying which fields to include in a partial response. */
@@ -1438,15 +1438,26 @@ declare namespace gapi.client {
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Apply a predefined set of access controls to this bucket. */
-        predefinedAcl?: string;
+        predefinedAcl?:
+          | 'authenticatedRead'
+          | 'private'
+          | 'projectPrivate'
+          | 'publicRead'
+          | 'publicReadWrite';
         /** Apply a predefined set of default object access controls to this bucket. */
-        predefinedDefaultObjectAcl?: string;
+        predefinedDefaultObjectAcl?:
+          | 'authenticatedRead'
+          | 'bucketOwnerFullControl'
+          | 'bucketOwnerRead'
+          | 'private'
+          | 'projectPrivate'
+          | 'publicRead';
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** A valid API project identifier. */
         project: string;
         /** Set of properties to return. Defaults to noAcl, unless the bucket resource specifies acl or defaultObjectAcl properties, when it defaults to full. */
-        projection?: string;
+        projection?: 'full' | 'noAcl';
         /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
         quotaUser?: string;
         /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
@@ -1461,7 +1472,7 @@ declare namespace gapi.client {
       insert(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** When set to true, object retention is enabled for this bucket. */
           enableObjectRetention?: boolean;
           /** Selector specifying which fields to include in a partial response. */
@@ -1471,15 +1482,26 @@ declare namespace gapi.client {
           /** OAuth 2.0 token for the current user. */
           oauth_token?: string;
           /** Apply a predefined set of access controls to this bucket. */
-          predefinedAcl?: string;
+          predefinedAcl?:
+            | 'authenticatedRead'
+            | 'private'
+            | 'projectPrivate'
+            | 'publicRead'
+            | 'publicReadWrite';
           /** Apply a predefined set of default object access controls to this bucket. */
-          predefinedDefaultObjectAcl?: string;
+          predefinedDefaultObjectAcl?:
+            | 'authenticatedRead'
+            | 'bucketOwnerFullControl'
+            | 'bucketOwnerRead'
+            | 'private'
+            | 'projectPrivate'
+            | 'publicRead';
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
           /** A valid API project identifier. */
           project: string;
           /** Set of properties to return. Defaults to noAcl, unless the bucket resource specifies acl or defaultObjectAcl properties, when it defaults to full. */
-          projection?: string;
+          projection?: 'full' | 'noAcl';
           /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
           quotaUser?: string;
           /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
@@ -1494,7 +1516,7 @@ declare namespace gapi.client {
       /** Retrieves a list of buckets for a given project. */
       list(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1512,7 +1534,7 @@ declare namespace gapi.client {
         /** A valid API project identifier. */
         project: string;
         /** Set of properties to return. Defaults to noAcl. */
-        projection?: string;
+        projection?: 'full' | 'noAcl';
         /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
         quotaUser?: string;
         /** If true, return a list of bucket resource names for buckets that are in unreachable locations. */
@@ -1529,7 +1551,7 @@ declare namespace gapi.client {
       /** Locks retention policy on a bucket. */
       lockRetentionPolicy(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1554,7 +1576,7 @@ declare namespace gapi.client {
       /** Patches a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate. */
       patch(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1568,13 +1590,24 @@ declare namespace gapi.client {
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Apply a predefined set of access controls to this bucket. */
-        predefinedAcl?: string;
+        predefinedAcl?:
+          | 'authenticatedRead'
+          | 'private'
+          | 'projectPrivate'
+          | 'publicRead'
+          | 'publicReadWrite';
         /** Apply a predefined set of default object access controls to this bucket. */
-        predefinedDefaultObjectAcl?: string;
+        predefinedDefaultObjectAcl?:
+          | 'authenticatedRead'
+          | 'bucketOwnerFullControl'
+          | 'bucketOwnerRead'
+          | 'private'
+          | 'projectPrivate'
+          | 'publicRead';
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Set of properties to return. Defaults to full. */
-        projection?: string;
+        projection?: 'full' | 'noAcl';
         /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
         quotaUser?: string;
         /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
@@ -1589,7 +1622,7 @@ declare namespace gapi.client {
       patch(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of a bucket. */
           bucket: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1603,13 +1636,24 @@ declare namespace gapi.client {
           /** OAuth 2.0 token for the current user. */
           oauth_token?: string;
           /** Apply a predefined set of access controls to this bucket. */
-          predefinedAcl?: string;
+          predefinedAcl?:
+            | 'authenticatedRead'
+            | 'private'
+            | 'projectPrivate'
+            | 'publicRead'
+            | 'publicReadWrite';
           /** Apply a predefined set of default object access controls to this bucket. */
-          predefinedDefaultObjectAcl?: string;
+          predefinedDefaultObjectAcl?:
+            | 'authenticatedRead'
+            | 'bucketOwnerFullControl'
+            | 'bucketOwnerRead'
+            | 'private'
+            | 'projectPrivate'
+            | 'publicRead';
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
           /** Set of properties to return. Defaults to full. */
-          projection?: string;
+          projection?: 'full' | 'noAcl';
           /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
           quotaUser?: string;
           /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
@@ -1624,7 +1668,7 @@ declare namespace gapi.client {
       /** Initiates a long-running Relocate Bucket operation on the specified bucket. */
       relocate(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket to be moved. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1647,7 +1691,7 @@ declare namespace gapi.client {
       relocate(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of the bucket to be moved. */
           bucket: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1670,7 +1714,7 @@ declare namespace gapi.client {
       /** Restores a soft-deleted bucket. */
       restore(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1684,7 +1728,7 @@ declare namespace gapi.client {
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Set of properties to return. Defaults to full. */
-        projection?: string;
+        projection?: 'full' | 'noAcl';
         /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
         quotaUser?: string;
         /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
@@ -1697,7 +1741,7 @@ declare namespace gapi.client {
       /** Updates an IAM policy for the specified bucket. */
       setIamPolicy(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1722,7 +1766,7 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of a bucket. */
           bucket: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1747,7 +1791,7 @@ declare namespace gapi.client {
       /** Tests a set of permissions on the given bucket to see which, if any, are held by the caller. */
       testIamPermissions(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1772,7 +1816,7 @@ declare namespace gapi.client {
       /** Updates a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate. */
       update(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1786,13 +1830,24 @@ declare namespace gapi.client {
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Apply a predefined set of access controls to this bucket. */
-        predefinedAcl?: string;
+        predefinedAcl?:
+          | 'authenticatedRead'
+          | 'private'
+          | 'projectPrivate'
+          | 'publicRead'
+          | 'publicReadWrite';
         /** Apply a predefined set of default object access controls to this bucket. */
-        predefinedDefaultObjectAcl?: string;
+        predefinedDefaultObjectAcl?:
+          | 'authenticatedRead'
+          | 'bucketOwnerFullControl'
+          | 'bucketOwnerRead'
+          | 'private'
+          | 'projectPrivate'
+          | 'publicRead';
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Set of properties to return. Defaults to full. */
-        projection?: string;
+        projection?: 'full' | 'noAcl';
         /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
         quotaUser?: string;
         /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
@@ -1807,7 +1862,7 @@ declare namespace gapi.client {
       update(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of a bucket. */
           bucket: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1821,13 +1876,24 @@ declare namespace gapi.client {
           /** OAuth 2.0 token for the current user. */
           oauth_token?: string;
           /** Apply a predefined set of access controls to this bucket. */
-          predefinedAcl?: string;
+          predefinedAcl?:
+            | 'authenticatedRead'
+            | 'private'
+            | 'projectPrivate'
+            | 'publicRead'
+            | 'publicReadWrite';
           /** Apply a predefined set of default object access controls to this bucket. */
-          predefinedDefaultObjectAcl?: string;
+          predefinedDefaultObjectAcl?:
+            | 'authenticatedRead'
+            | 'bucketOwnerFullControl'
+            | 'bucketOwnerRead'
+            | 'private'
+            | 'projectPrivate'
+            | 'publicRead';
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
           /** Set of properties to return. Defaults to full. */
-          projection?: string;
+          projection?: 'full' | 'noAcl';
           /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
           quotaUser?: string;
           /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
@@ -1844,7 +1910,7 @@ declare namespace gapi.client {
       /** Stop watching resources through this channel */
       stop(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1865,7 +1931,7 @@ declare namespace gapi.client {
       stop(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1888,7 +1954,7 @@ declare namespace gapi.client {
       /** Permanently deletes the default object ACL entry for the specified entity on the specified bucket. */
       delete(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers. */
@@ -1913,7 +1979,7 @@ declare namespace gapi.client {
       /** Returns the default object ACL entry for the specified entity on the specified bucket. */
       get(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers. */
@@ -1938,7 +2004,7 @@ declare namespace gapi.client {
       /** Creates a new default object ACL entry on the specified bucket. */
       insert(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1963,7 +2029,7 @@ declare namespace gapi.client {
       insert(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of a bucket. */
           bucket: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1988,7 +2054,7 @@ declare namespace gapi.client {
       /** Retrieves default object ACL entries on the specified bucket. */
       list(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2015,7 +2081,7 @@ declare namespace gapi.client {
       /** Patches a default object ACL entry on the specified bucket. */
       patch(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers. */
@@ -2042,7 +2108,7 @@ declare namespace gapi.client {
       patch(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of a bucket. */
           bucket: string;
           /** The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers. */
@@ -2069,7 +2135,7 @@ declare namespace gapi.client {
       /** Updates a default object ACL entry on the specified bucket. */
       update(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers. */
@@ -2096,7 +2162,7 @@ declare namespace gapi.client {
       update(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of a bucket. */
           bucket: string;
           /** The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers. */
@@ -2125,7 +2191,7 @@ declare namespace gapi.client {
       /** Permanently deletes a folder. Only applicable to buckets with hierarchical namespace enabled. */
       delete(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket in which the folder resides. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2152,7 +2218,7 @@ declare namespace gapi.client {
       /** Deletes a folder recursively. Only applicable to buckets with hierarchical namespace enabled. */
       deleteRecursive(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket in which the folder resides. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2179,7 +2245,7 @@ declare namespace gapi.client {
       /** Returns metadata for the specified folder. Only applicable to buckets with hierarchical namespace enabled. */
       get(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket in which the folder resides. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2206,7 +2272,7 @@ declare namespace gapi.client {
       /** Creates a new folder. Only applicable to buckets with hierarchical namespace enabled. */
       insert(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket in which the folder resides. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2231,7 +2297,7 @@ declare namespace gapi.client {
       insert(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of the bucket in which the folder resides. */
           bucket: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2256,7 +2322,7 @@ declare namespace gapi.client {
       /** Retrieves a list of folders matching the criteria. Only applicable to buckets with hierarchical namespace enabled. */
       list(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket in which to look for folders. */
         bucket: string;
         /** Returns results in a directory-like mode. The only supported value is '/'. If set, items will only contain folders that either exactly match the prefix, or are one level below the prefix. */
@@ -2289,7 +2355,7 @@ declare namespace gapi.client {
       /** Renames a source folder to a destination folder. Only applicable to buckets with hierarchical namespace enabled. */
       rename(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket in which the folders are in. */
         bucket: string;
         /** Name of the destination folder. */
@@ -2322,7 +2388,7 @@ declare namespace gapi.client {
         /** Allows the deletion of a managed folder even if it is not empty. A managed folder is empty if there are no objects or managed folders that it applies to. Callers must have storage.managedFolders.setIamPolicy permission. */
         allowNonEmpty?: boolean;
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket containing the managed folder. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2349,7 +2415,7 @@ declare namespace gapi.client {
       /** Returns metadata of the specified managed folder. */
       get(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket containing the managed folder. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2376,7 +2442,7 @@ declare namespace gapi.client {
       /** Returns an IAM policy for the specified managed folder. */
       getIamPolicy(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket containing the managed folder. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2403,7 +2469,7 @@ declare namespace gapi.client {
       /** Creates a new managed folder. */
       insert(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket containing the managed folder. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2426,7 +2492,7 @@ declare namespace gapi.client {
       insert(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of the bucket containing the managed folder. */
           bucket: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2449,7 +2515,7 @@ declare namespace gapi.client {
       /** Lists managed folders in the given bucket. */
       list(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket containing the managed folder. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2476,7 +2542,7 @@ declare namespace gapi.client {
       /** Updates an IAM policy for the specified managed folder. */
       setIamPolicy(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket containing the managed folder. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2503,7 +2569,7 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of the bucket containing the managed folder. */
           bucket: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2530,7 +2596,7 @@ declare namespace gapi.client {
       /** Tests a set of permissions on the given managed folder to see which, if any, are held by the caller. */
       testIamPermissions(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket containing the managed folder. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2559,7 +2625,7 @@ declare namespace gapi.client {
       /** Permanently deletes a notification subscription. */
       delete(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** The parent bucket of the notification. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2584,7 +2650,7 @@ declare namespace gapi.client {
       /** View a notification configuration. */
       get(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** The parent bucket of the notification. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2609,7 +2675,7 @@ declare namespace gapi.client {
       /** Creates a notification subscription for a given bucket. */
       insert(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** The parent bucket of the notification. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2634,7 +2700,7 @@ declare namespace gapi.client {
       insert(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** The parent bucket of the notification. */
           bucket: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2659,7 +2725,7 @@ declare namespace gapi.client {
       /** Retrieves a list of notification subscriptions for a given bucket. */
       list(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a Google Cloud Storage bucket. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2684,7 +2750,7 @@ declare namespace gapi.client {
       /** Permanently deletes the ACL entry for the specified entity on the specified object. */
       delete(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers. */
@@ -2713,7 +2779,7 @@ declare namespace gapi.client {
       /** Returns the ACL entry for the specified entity on the specified object. */
       get(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers. */
@@ -2742,7 +2808,7 @@ declare namespace gapi.client {
       /** Creates a new ACL entry on the specified object. */
       insert(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2771,7 +2837,7 @@ declare namespace gapi.client {
       insert(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of a bucket. */
           bucket: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2800,7 +2866,7 @@ declare namespace gapi.client {
       /** Retrieves ACL entries on the specified object. */
       list(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2827,7 +2893,7 @@ declare namespace gapi.client {
       /** Patches an ACL entry on the specified object. */
       patch(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers. */
@@ -2858,7 +2924,7 @@ declare namespace gapi.client {
       patch(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of a bucket. */
           bucket: string;
           /** The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers. */
@@ -2889,7 +2955,7 @@ declare namespace gapi.client {
       /** Updates an ACL entry on the specified object. */
       update(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of a bucket. */
         bucket: string;
         /** The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers. */
@@ -2920,7 +2986,7 @@ declare namespace gapi.client {
       update(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of a bucket. */
           bucket: string;
           /** The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers. */
@@ -2953,7 +3019,7 @@ declare namespace gapi.client {
       /** Initiates a long-running bulk restore operation on the specified bucket. */
       bulkRestore(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket in which the object resides. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2976,7 +3042,7 @@ declare namespace gapi.client {
       bulkRestore(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of the bucket in which the object resides. */
           bucket: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2999,13 +3065,19 @@ declare namespace gapi.client {
       /** Concatenates a list of existing objects into a new object in the same bucket. */
       compose(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket containing the source objects. The destination object is stored in this bucket. */
         destinationBucket: string;
         /** Name of the new object. For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
         destinationObject: string;
         /** Apply a predefined set of access controls to the destination object. */
-        destinationPredefinedAcl?: string;
+        destinationPredefinedAcl?:
+          | 'authenticatedRead'
+          | 'bucketOwnerFullControl'
+          | 'bucketOwnerRead'
+          | 'private'
+          | 'projectPrivate'
+          | 'publicRead';
         /** Specifies which groups of Object Contexts from the source object(s) should be dropped from the destination object. */
         dropContextGroups?: string | string[];
         /** Selector specifying which fields to include in a partial response. */
@@ -3036,13 +3108,19 @@ declare namespace gapi.client {
       compose(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of the bucket containing the source objects. The destination object is stored in this bucket. */
           destinationBucket: string;
           /** Name of the new object. For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
           destinationObject: string;
           /** Apply a predefined set of access controls to the destination object. */
-          destinationPredefinedAcl?: string;
+          destinationPredefinedAcl?:
+            | 'authenticatedRead'
+            | 'bucketOwnerFullControl'
+            | 'bucketOwnerRead'
+            | 'private'
+            | 'projectPrivate'
+            | 'publicRead';
           /** Specifies which groups of Object Contexts from the source object(s) should be dropped from the destination object. */
           dropContextGroups?: string | string[];
           /** Selector specifying which fields to include in a partial response. */
@@ -3073,7 +3151,7 @@ declare namespace gapi.client {
       /** Copies a source object to a destination object. Optionally overrides metadata. */
       copy(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
         destinationBucket: string;
         /** Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object. Overrides the object metadata's kms_key_name value, if any. */
@@ -3081,7 +3159,13 @@ declare namespace gapi.client {
         /** Name of the new object. Required when the object metadata is not otherwise provided. Overrides the object metadata's name value, if any. */
         destinationObject: string;
         /** Apply a predefined set of access controls to the destination object. */
-        destinationPredefinedAcl?: string;
+        destinationPredefinedAcl?:
+          | 'authenticatedRead'
+          | 'bucketOwnerFullControl'
+          | 'bucketOwnerRead'
+          | 'private'
+          | 'projectPrivate'
+          | 'publicRead';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** Makes the operation conditional on whether the destination object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object. */
@@ -3107,7 +3191,7 @@ declare namespace gapi.client {
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Set of properties to return. Defaults to noAcl, unless the object resource specifies the acl property, when it defaults to full. */
-        projection?: string;
+        projection?: 'full' | 'noAcl';
         /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
         quotaUser?: string;
         /** Name of the bucket in which to find the source object. */
@@ -3128,7 +3212,7 @@ declare namespace gapi.client {
       copy(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
           destinationBucket: string;
           /** Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object. Overrides the object metadata's kms_key_name value, if any. */
@@ -3136,7 +3220,13 @@ declare namespace gapi.client {
           /** Name of the new object. Required when the object metadata is not otherwise provided. Overrides the object metadata's name value, if any. */
           destinationObject: string;
           /** Apply a predefined set of access controls to the destination object. */
-          destinationPredefinedAcl?: string;
+          destinationPredefinedAcl?:
+            | 'authenticatedRead'
+            | 'bucketOwnerFullControl'
+            | 'bucketOwnerRead'
+            | 'private'
+            | 'projectPrivate'
+            | 'publicRead';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** Makes the operation conditional on whether the destination object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object. */
@@ -3162,7 +3252,7 @@ declare namespace gapi.client {
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
           /** Set of properties to return. Defaults to noAcl, unless the object resource specifies the acl property, when it defaults to full. */
-          projection?: string;
+          projection?: 'full' | 'noAcl';
           /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
           quotaUser?: string;
           /** Name of the bucket in which to find the source object. */
@@ -3183,7 +3273,7 @@ declare namespace gapi.client {
       /** Deletes an object and its metadata. Deletions are permanent if versioning is not enabled for the bucket, or if the generation parameter is used. */
       delete(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket in which the object resides. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3218,7 +3308,7 @@ declare namespace gapi.client {
       /** Retrieves an object or its metadata. */
       get(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket in which the object resides. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3242,7 +3332,7 @@ declare namespace gapi.client {
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Set of properties to return. Defaults to noAcl. */
-        projection?: string;
+        projection?: 'full' | 'noAcl';
         /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
         quotaUser?: string;
         /** Restore token used to differentiate soft-deleted objects with the same name and generation. Only applicable for hierarchical namespace buckets and if softDeleted is set to true. This parameter is optional, and is only required in the rare case when there are multiple soft-deleted objects with the same name and generation. */
@@ -3259,7 +3349,7 @@ declare namespace gapi.client {
       /** Returns an IAM policy for the specified object. */
       getIamPolicy(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket in which the object resides. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3286,7 +3376,7 @@ declare namespace gapi.client {
       /** Stores a new object and metadata. */
       insert(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any. */
         bucket: string;
         /** If set, sets the contentEncoding property of the final object to this value. Setting this parameter is equivalent to setting the contentEncoding metadata property. This can be useful when uploading an object with uploadType=media to indicate the encoding of the content being uploaded. */
@@ -3310,11 +3400,17 @@ declare namespace gapi.client {
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Apply a predefined set of access controls to this object. */
-        predefinedAcl?: string;
+        predefinedAcl?:
+          | 'authenticatedRead'
+          | 'bucketOwnerFullControl'
+          | 'bucketOwnerRead'
+          | 'private'
+          | 'projectPrivate'
+          | 'publicRead';
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Set of properties to return. Defaults to noAcl, unless the object resource specifies the acl property, when it defaults to full. */
-        projection?: string;
+        projection?: 'full' | 'noAcl';
         /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
         quotaUser?: string;
         /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
@@ -3329,7 +3425,7 @@ declare namespace gapi.client {
       insert(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any. */
           bucket: string;
           /** If set, sets the contentEncoding property of the final object to this value. Setting this parameter is equivalent to setting the contentEncoding metadata property. This can be useful when uploading an object with uploadType=media to indicate the encoding of the content being uploaded. */
@@ -3353,11 +3449,17 @@ declare namespace gapi.client {
           /** OAuth 2.0 token for the current user. */
           oauth_token?: string;
           /** Apply a predefined set of access controls to this object. */
-          predefinedAcl?: string;
+          predefinedAcl?:
+            | 'authenticatedRead'
+            | 'bucketOwnerFullControl'
+            | 'bucketOwnerRead'
+            | 'private'
+            | 'projectPrivate'
+            | 'publicRead';
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
           /** Set of properties to return. Defaults to noAcl, unless the object resource specifies the acl property, when it defaults to full. */
-          projection?: string;
+          projection?: 'full' | 'noAcl';
           /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
           quotaUser?: string;
           /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
@@ -3372,7 +3474,7 @@ declare namespace gapi.client {
       /** Retrieves a list of objects matching the criteria. */
       list(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket in which to look for objects. */
         bucket: string;
         /** Returns results in a directory-like mode. items will contain only objects whose names, aside from the prefix, do not contain delimiter. Objects whose names, aside from the prefix, contain delimiter will have their name, truncated after the delimiter, returned in prefixes. Duplicate prefixes are omitted. */
@@ -3402,7 +3504,7 @@ declare namespace gapi.client {
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Set of properties to return. Defaults to noAcl. */
-        projection?: string;
+        projection?: 'full' | 'noAcl';
         /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
         quotaUser?: string;
         /** If true, only soft-deleted object versions will be listed. The default is false. For more information, see [Soft Delete](https://cloud.google.com/storage/docs/soft-delete). */
@@ -3421,7 +3523,7 @@ declare namespace gapi.client {
       /** Moves the source object to the destination object in the same bucket. */
       move(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket in which the object resides. */
         bucket: string;
         /** Name of the destination object. For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
@@ -3451,7 +3553,7 @@ declare namespace gapi.client {
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Set of properties to return. Defaults to noAcl. */
-        projection?: string;
+        projection?: 'full' | 'noAcl';
         /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
         quotaUser?: string;
         /** Name of the source object. For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
@@ -3466,7 +3568,7 @@ declare namespace gapi.client {
       /** Patches an object's metadata. */
       patch(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket in which the object resides. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3490,11 +3592,17 @@ declare namespace gapi.client {
         /** Must be true to remove the retention configuration, reduce its unlocked retention period, or change its mode from unlocked to locked. */
         overrideUnlockedRetention?: boolean;
         /** Apply a predefined set of access controls to this object. */
-        predefinedAcl?: string;
+        predefinedAcl?:
+          | 'authenticatedRead'
+          | 'bucketOwnerFullControl'
+          | 'bucketOwnerRead'
+          | 'private'
+          | 'projectPrivate'
+          | 'publicRead';
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Set of properties to return. Defaults to full. */
-        projection?: string;
+        projection?: 'full' | 'noAcl';
         /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
         quotaUser?: string;
         /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
@@ -3509,7 +3617,7 @@ declare namespace gapi.client {
       patch(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of the bucket in which the object resides. */
           bucket: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3533,11 +3641,17 @@ declare namespace gapi.client {
           /** Must be true to remove the retention configuration, reduce its unlocked retention period, or change its mode from unlocked to locked. */
           overrideUnlockedRetention?: boolean;
           /** Apply a predefined set of access controls to this object. */
-          predefinedAcl?: string;
+          predefinedAcl?:
+            | 'authenticatedRead'
+            | 'bucketOwnerFullControl'
+            | 'bucketOwnerRead'
+            | 'private'
+            | 'projectPrivate'
+            | 'publicRead';
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
           /** Set of properties to return. Defaults to full. */
-          projection?: string;
+          projection?: 'full' | 'noAcl';
           /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
           quotaUser?: string;
           /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
@@ -3552,7 +3666,7 @@ declare namespace gapi.client {
       /** Restores a soft-deleted object. */
       restore(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket in which the object resides. */
         bucket: string;
         /** If true, copies the source object's ACL; otherwise, uses the bucket's default object ACL. The default is false. */
@@ -3578,7 +3692,7 @@ declare namespace gapi.client {
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Set of properties to return. Defaults to full. */
-        projection?: string;
+        projection?: 'full' | 'noAcl';
         /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
         quotaUser?: string;
         /** Restore token used to differentiate sof-deleted objects with the same name and generation. Only applicable for hierarchical namespace buckets. This parameter is optional, and is only required in the rare case when there are multiple soft-deleted objects with the same name and generation. */
@@ -3593,7 +3707,7 @@ declare namespace gapi.client {
       /** Rewrites a source object to a destination object. Optionally overrides metadata. */
       rewrite(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any. */
         destinationBucket: string;
         /** Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object. Overrides the object metadata's kms_key_name value, if any. */
@@ -3601,7 +3715,13 @@ declare namespace gapi.client {
         /** Name of the new object. Required when the object metadata is not otherwise provided. Overrides the object metadata's name value, if any. For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
         destinationObject: string;
         /** Apply a predefined set of access controls to the destination object. */
-        destinationPredefinedAcl?: string;
+        destinationPredefinedAcl?:
+          | 'authenticatedRead'
+          | 'bucketOwnerFullControl'
+          | 'bucketOwnerRead'
+          | 'private'
+          | 'projectPrivate'
+          | 'publicRead';
         /** Specifies which groups of Object Contexts from the source object should be dropped from the destination object. */
         dropContextGroups?: string | string[];
         /** Selector specifying which fields to include in a partial response. */
@@ -3631,7 +3751,7 @@ declare namespace gapi.client {
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Set of properties to return. Defaults to noAcl, unless the object resource specifies the acl property, when it defaults to full. */
-        projection?: string;
+        projection?: 'full' | 'noAcl';
         /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
         quotaUser?: string;
         /** Include this field (from the previous rewrite response) on each rewrite request after the first one, until the rewrite response 'done' flag is true. Calls that provide a rewriteToken can omit all other request fields, but if included those fields must match the values provided in the first rewrite request. */
@@ -3654,7 +3774,7 @@ declare namespace gapi.client {
       rewrite(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any. */
           destinationBucket: string;
           /** Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object. Overrides the object metadata's kms_key_name value, if any. */
@@ -3662,7 +3782,13 @@ declare namespace gapi.client {
           /** Name of the new object. Required when the object metadata is not otherwise provided. Overrides the object metadata's name value, if any. For information about how to URL encode object names to be path safe, see [Encoding URI Path Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding). */
           destinationObject: string;
           /** Apply a predefined set of access controls to the destination object. */
-          destinationPredefinedAcl?: string;
+          destinationPredefinedAcl?:
+            | 'authenticatedRead'
+            | 'bucketOwnerFullControl'
+            | 'bucketOwnerRead'
+            | 'private'
+            | 'projectPrivate'
+            | 'publicRead';
           /** Specifies which groups of Object Contexts from the source object should be dropped from the destination object. */
           dropContextGroups?: string | string[];
           /** Selector specifying which fields to include in a partial response. */
@@ -3692,7 +3818,7 @@ declare namespace gapi.client {
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
           /** Set of properties to return. Defaults to noAcl, unless the object resource specifies the acl property, when it defaults to full. */
-          projection?: string;
+          projection?: 'full' | 'noAcl';
           /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
           quotaUser?: string;
           /** Include this field (from the previous rewrite response) on each rewrite request after the first one, until the rewrite response 'done' flag is true. Calls that provide a rewriteToken can omit all other request fields, but if included those fields must match the values provided in the first rewrite request. */
@@ -3715,7 +3841,7 @@ declare namespace gapi.client {
       /** Updates an IAM policy for the specified object. */
       setIamPolicy(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket in which the object resides. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3744,7 +3870,7 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of the bucket in which the object resides. */
           bucket: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3773,7 +3899,7 @@ declare namespace gapi.client {
       /** Tests a set of permissions on the given object to see which, if any, are held by the caller. */
       testIamPermissions(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket in which the object resides. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3802,7 +3928,7 @@ declare namespace gapi.client {
       /** Updates an object's metadata. */
       update(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket in which the object resides. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3826,11 +3952,17 @@ declare namespace gapi.client {
         /** Must be true to remove the retention configuration, reduce its unlocked retention period, or change its mode from unlocked to locked. */
         overrideUnlockedRetention?: boolean;
         /** Apply a predefined set of access controls to this object. */
-        predefinedAcl?: string;
+        predefinedAcl?:
+          | 'authenticatedRead'
+          | 'bucketOwnerFullControl'
+          | 'bucketOwnerRead'
+          | 'private'
+          | 'projectPrivate'
+          | 'publicRead';
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Set of properties to return. Defaults to full. */
-        projection?: string;
+        projection?: 'full' | 'noAcl';
         /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
         quotaUser?: string;
         /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
@@ -3845,7 +3977,7 @@ declare namespace gapi.client {
       update(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of the bucket in which the object resides. */
           bucket: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3869,11 +4001,17 @@ declare namespace gapi.client {
           /** Must be true to remove the retention configuration, reduce its unlocked retention period, or change its mode from unlocked to locked. */
           overrideUnlockedRetention?: boolean;
           /** Apply a predefined set of access controls to this object. */
-          predefinedAcl?: string;
+          predefinedAcl?:
+            | 'authenticatedRead'
+            | 'bucketOwnerFullControl'
+            | 'bucketOwnerRead'
+            | 'private'
+            | 'projectPrivate'
+            | 'publicRead';
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
           /** Set of properties to return. Defaults to full. */
-          projection?: string;
+          projection?: 'full' | 'noAcl';
           /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
           quotaUser?: string;
           /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
@@ -3888,7 +4026,7 @@ declare namespace gapi.client {
       /** Watch for changes on all objects in a bucket. */
       watchAll(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket in which to look for objects. */
         bucket: string;
         /** Returns results in a directory-like mode. items will contain only objects whose names, aside from the prefix, do not contain delimiter. Objects whose names, aside from the prefix, contain delimiter will have their name, truncated after the delimiter, returned in prefixes. Duplicate prefixes are omitted. */
@@ -3912,7 +4050,7 @@ declare namespace gapi.client {
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Set of properties to return. Defaults to noAcl. */
-        projection?: string;
+        projection?: 'full' | 'noAcl';
         /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
         quotaUser?: string;
         /** Filter results to objects whose names are lexicographically equal to or after startOffset. If endOffset is also set, the objects listed will have names between startOffset (inclusive) and endOffset (exclusive). */
@@ -3931,7 +4069,7 @@ declare namespace gapi.client {
       watchAll(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of the bucket in which to look for objects. */
           bucket: string;
           /** Returns results in a directory-like mode. items will contain only objects whose names, aside from the prefix, do not contain delimiter. Objects whose names, aside from the prefix, contain delimiter will have their name, truncated after the delimiter, returned in prefixes. Duplicate prefixes are omitted. */
@@ -3955,7 +4093,7 @@ declare namespace gapi.client {
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
           /** Set of properties to return. Defaults to noAcl. */
-          projection?: string;
+          projection?: 'full' | 'noAcl';
           /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
           quotaUser?: string;
           /** Filter results to objects whose names are lexicographically equal to or after startOffset. If endOffset is also set, the objects listed will have names between startOffset (inclusive) and endOffset (exclusive). */
@@ -3976,7 +4114,7 @@ declare namespace gapi.client {
       /** Starts asynchronous advancement of the relocate bucket operation in the case of required write downtime, to allow it to lock the bucket at the source location, and proceed with the bucket location swap. The server makes a best effort to advance the relocate bucket operation, but success is not guaranteed. */
       advanceRelocateBucket(request: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket to advance the relocate for. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4001,7 +4139,7 @@ declare namespace gapi.client {
       advanceRelocateBucket(
         request: {
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Name of the bucket to advance the relocate for. */
           bucket: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4026,7 +4164,7 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. */
       cancel(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** The parent bucket of the operation resource. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4049,7 +4187,7 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. */
       get(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** The parent bucket of the operation resource. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4072,7 +4210,7 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. */
       list(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Name of the bucket in which to look for operations. */
         bucket: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4101,7 +4239,7 @@ declare namespace gapi.client {
       /** Creates a new HMAC key for the specified service account. */
       create(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -4128,7 +4266,7 @@ declare namespace gapi.client {
         /** Name of the HMAC key to be deleted. */
         accessId: string;
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -4153,7 +4291,7 @@ declare namespace gapi.client {
         /** Name of the HMAC key. */
         accessId: string;
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -4176,7 +4314,7 @@ declare namespace gapi.client {
       /** Retrieves a list of HMAC keys matching the criteria. */
       list(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -4209,7 +4347,7 @@ declare namespace gapi.client {
         /** Name of the HMAC key being updated. */
         accessId: string;
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -4236,7 +4374,7 @@ declare namespace gapi.client {
           /** Name of the HMAC key being updated. */
           accessId: string;
           /** Data format for the response. */
-          alt?: string;
+          alt?: 'json' | 'media';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -4263,7 +4401,7 @@ declare namespace gapi.client {
       /** Get the email address of this project's Google Cloud Storage service account. */
       get(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json' | 'media';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */

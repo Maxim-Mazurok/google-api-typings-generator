@@ -136,7 +136,12 @@ declare namespace gapi.client {
       /** The required IAM permission. */
       permission?: string;
       /** The type of the permission that was checked. For data access audit logs this corresponds with the permission type that must be enabled in the project/folder/organization IAM policy in order for the log to be written. */
-      permissionType?: string;
+      permissionType?:
+        | 'PERMISSION_TYPE_UNSPECIFIED'
+        | 'ADMIN_READ'
+        | 'ADMIN_WRITE'
+        | 'DATA_READ'
+        | 'DATA_WRITE';
       /** The resource being accessed, as a REST-style or cloud resource string. For example: bigquery.googleapis.com/projects/PROJECTID/datasets/DATASETID or projects/PROJECTID/datasets/DATASETID */
       resource?: string;
       /** Resource attributes used in IAM condition evaluation. This field contains resource attributes like resource type and resource name. To get the whole view of the attributes used in IAM condition evaluation, the user must also look into `AuditLog.request_metadata.request_attributes`. */
@@ -144,7 +149,44 @@ declare namespace gapi.client {
     }
     interface CheckError {
       /** The error code. */
-      code?: string;
+      code?:
+        | 'ERROR_CODE_UNSPECIFIED'
+        | 'NOT_FOUND'
+        | 'PERMISSION_DENIED'
+        | 'RESOURCE_EXHAUSTED'
+        | 'BUDGET_EXCEEDED'
+        | 'DENIAL_OF_SERVICE_DETECTED'
+        | 'LOAD_SHEDDING'
+        | 'ABUSER_DETECTED'
+        | 'SERVICE_NOT_ACTIVATED'
+        | 'VISIBILITY_DENIED'
+        | 'BILLING_DISABLED'
+        | 'PROJECT_DELETED'
+        | 'PROJECT_INVALID'
+        | 'CONSUMER_INVALID'
+        | 'IP_ADDRESS_BLOCKED'
+        | 'REFERER_BLOCKED'
+        | 'CLIENT_APP_BLOCKED'
+        | 'API_TARGET_BLOCKED'
+        | 'API_KEY_INVALID'
+        | 'API_KEY_EXPIRED'
+        | 'API_KEY_NOT_FOUND'
+        | 'SPATULA_HEADER_INVALID'
+        | 'LOAS_ROLE_INVALID'
+        | 'NO_LOAS_PROJECT'
+        | 'LOAS_PROJECT_DISABLED'
+        | 'SECURITY_POLICY_VIOLATED'
+        | 'INVALID_CREDENTIAL'
+        | 'LOCATION_POLICY_VIOLATED'
+        | 'NAMESPACE_LOOKUP_UNAVAILABLE'
+        | 'SERVICE_STATUS_UNAVAILABLE'
+        | 'BILLING_STATUS_UNAVAILABLE'
+        | 'QUOTA_CHECK_UNAVAILABLE'
+        | 'LOAS_PROJECT_LOOKUP_UNAVAILABLE'
+        | 'CLOUD_RESOURCE_MANAGER_BACKEND_UNAVAILABLE'
+        | 'SECURITY_POLICY_BACKEND_UNAVAILABLE'
+        | 'LOCATION_POLICY_BACKEND_UNAVAILABLE'
+        | 'INJECTED_ERROR';
       /** Free-form text providing details on the error cause of the error. */
       detail?: string;
       /** Contains public information about the check error. If available, `status.code` will be non zero and client can propagate it out as public error. */
@@ -192,7 +234,12 @@ declare namespace gapi.client {
       /** The Google cloud project number, e.g. 1234567890. A value of 0 indicates no project number is found. NOTE: This field is deprecated after Chemist support flexible consumer id. New code should not depend on this field anymore. */
       projectNumber?: string;
       /** The type of the consumer which should have been defined in [Google Resource Manager](https://cloud.google.com/resource-manager/). */
-      type?: string;
+      type?:
+        | 'CONSUMER_TYPE_UNSPECIFIED'
+        | 'PROJECT'
+        | 'FOLDER'
+        | 'ORGANIZATION'
+        | 'SERVICE_SPECIFIC';
     }
     interface Distribution {
       /** The number of samples in each histogram bucket. `bucket_counts` are optional. If present, they must sum to the `count` value. The buckets are defined below in `bucket_option`. There are N buckets. `bucket_counts[0]` is the number of samples in the underflow bucket. `bucket_counts[1]` to `bucket_counts[N-1]` are the numbers of samples in each of the finite buckets. And `bucket_counts[N]` is the number of samples in the overflow bucket. See the comments of `bucket_option` below for more details. Any suffix of trailing zeros may be omitted. */
@@ -296,7 +343,16 @@ declare namespace gapi.client {
       /** The log entry payload, represented as a protocol buffer that is expressed as a JSON object. The only accepted type currently is AuditLog. */
       protoPayload?: {[P in string]: any};
       /** The severity of the log entry. The default value is `LogSeverity.DEFAULT`. */
-      severity?: string;
+      severity?:
+        | 'DEFAULT'
+        | 'DEBUG'
+        | 'INFO'
+        | 'NOTICE'
+        | 'WARNING'
+        | 'ERROR'
+        | 'CRITICAL'
+        | 'ALERT'
+        | 'EMERGENCY';
       /** Optional. Source code location information associated with the log entry, if any. */
       sourceLocation?: LogEntrySourceLocation;
       /** The log entry payload, represented as a structure that is expressed as a JSON object. */
@@ -374,7 +430,7 @@ declare namespace gapi.client {
       /** End time of the operation. Required when the operation is used in ServiceController.Report, but optional when the operation is used in ServiceController.Check. */
       endTime?: string;
       /** DO NOT USE. This is an experimental field. */
-      importance?: string;
+      importance?: 'LOW' | 'HIGH' | 'DEBUG' | 'PROMOTED';
       /** Labels describing the operation. Only the following labels are allowed: - Labels describing monitored resources as defined in the service configuration. - Default labels of metric values. When specified, labels defined in the metric value override these default. - The following labels defined by Google Cloud Platform: - `cloud.googleapis.com/location` describing the location where the operation happened, - `servicecontrol.googleapis.com/user_agent` describing the user agent of the API request, - `servicecontrol.googleapis.com/service_agent` describing the service used to handle the API request (e.g. ESP), - `servicecontrol.googleapis.com/platform` describing the platform where the API is served, such as App Engine, Compute Engine, or Kubernetes Engine. */
       labels?: {[P in string]: string};
       /** Represents information to be logged. */
@@ -424,7 +480,21 @@ declare namespace gapi.client {
     }
     interface QuotaError {
       /** Error code. */
-      code?: string;
+      code?:
+        | 'UNSPECIFIED'
+        | 'RESOURCE_EXHAUSTED'
+        | 'OUT_OF_RANGE'
+        | 'BILLING_NOT_ACTIVE'
+        | 'PROJECT_DELETED'
+        | 'API_KEY_INVALID'
+        | 'API_KEY_EXPIRED'
+        | 'SPATULA_HEADER_INVALID'
+        | 'LOAS_ROLE_INVALID'
+        | 'NO_LOAS_PROJECT'
+        | 'PROJECT_STATUS_UNAVAILABLE'
+        | 'SERVICE_STATUS_UNAVAILABLE'
+        | 'BILLING_STATUS_UNAVAILABLE'
+        | 'QUOTA_SYSTEM_UNAVAILABLE';
       /** Free-form text that provides details on the cause of the error. */
       description?: string;
       /** Contains additional information about the quota error. If available, `status.code` will be non zero. */
@@ -438,7 +508,10 @@ declare namespace gapi.client {
       /** Map of quota group name to the actual number of tokens consumed. If the quota check was not successful, then this will not be populated due to no quota consumption. We are not merging this field with 'quota_metrics' field because of the complexity of scaling in Chemist client code base. For simplicity, we will keep this field for Castor (that scales quota usage) and 'quota_metrics' for SuperQuota (that doesn't scale quota usage). */
       quotaConsumed?: {[P in string]: number};
       /** Output only. Indicates the state of the quota extraction. */
-      quotaExtractionState?: string;
+      quotaExtractionState?:
+        | 'QUOTA_EXTRACTION_STATE_UNSPECIFIED'
+        | 'QUOTA_EXTRACTION_STATE_DARK_LAUNCH'
+        | 'QUOTA_EXTRACTION_STATE_TRAFFIC_MIGRATION';
       /** Quota metrics to indicate the usage. Depending on the check request, one or more of the following metrics will be included: 1. For rate quota, per quota group or per quota metric incremental usage will be specified using the following delta metric: "serviceruntime.googleapis.com/api/consumer/quota_used_count" 2. For allocation quota, per quota metric total usage will be specified using the following gauge metric: "serviceruntime.googleapis.com/allocation/consumer/quota_used_count" 3. For both rate quota and allocation quota, the quota limit reached condition will be specified using the following boolean metric: "serviceruntime.googleapis.com/quota/exceeded" */
       quotaMetrics?: MetricValueSet[];
     }
@@ -454,11 +527,16 @@ declare namespace gapi.client {
       /** Represents information about this operation. Each MetricValueSet corresponds to a metric defined in the service configuration. The data type used in the MetricValueSet must agree with the data type specified in the metric definition. Within a single operation, it is not allowed to have more than one MetricValue instances that have the same metric names and identical label value combinations. If a request has such duplicated MetricValue instances, the entire request is rejected with an invalid argument error. This field is mutually exclusive with method_name. */
       quotaMetrics?: MetricValueSet[];
       /** Quota mode for this operation. */
-      quotaMode?: string;
+      quotaMode?:
+        | 'UNSPECIFIED'
+        | 'NORMAL'
+        | 'BEST_EFFORT'
+        | 'CHECK_ONLY'
+        | 'ADJUST_ONLY';
     }
     interface QuotaProperties {
       /** Quota mode for this operation. */
-      quotaMode?: string;
+      quotaMode?: 'ACQUIRE' | 'ACQUIRE_BEST_EFFORT' | 'CHECK';
     }
     interface ReportError {
       /** The Operation.operation_id value from the request. */
@@ -618,7 +696,13 @@ declare namespace gapi.client {
       /** The [SPAN_ID] portion of the span's resource name. */
       spanId?: string;
       /** Distinguishes between spans generated in a particular context. For example, two spans with the same name may be distinguished using `CLIENT` (caller) and `SERVER` (callee) to identify an RPC call. */
-      spanKind?: string;
+      spanKind?:
+        | 'SPAN_KIND_UNSPECIFIED'
+        | 'INTERNAL'
+        | 'SERVER'
+        | 'CLIENT'
+        | 'PRODUCER'
+        | 'CONSUMER';
       /** The start time of the span. On the client side, this is the time kept by the local machine where the span execution starts. On the server side, this is the time when the server's application handler starts running. */
       startTime?: string;
       /** An optional final status for this span. */
@@ -678,7 +762,16 @@ declare namespace gapi.client {
       /** The log entry payload, represented as a protocol buffer that is expressed as a JSON object. The only accepted type currently is AuditLog. */
       protoPayload?: {[P in string]: any};
       /** The severity of the log entry. The default value is `LogSeverity.DEFAULT`. */
-      severity?: string;
+      severity?:
+        | 'DEFAULT'
+        | 'DEBUG'
+        | 'INFO'
+        | 'NOTICE'
+        | 'WARNING'
+        | 'ERROR'
+        | 'CRITICAL'
+        | 'ALERT'
+        | 'EMERGENCY';
       /** Optional. Source code location information associated with the log entry, if any. */
       sourceLocation?: V1LogEntrySourceLocation;
       /** The log entry payload, represented as a structure that is expressed as a JSON object. */
@@ -716,13 +809,13 @@ declare namespace gapi.client {
       /** The parent resource for the resource. */
       parent?: Resource;
       /** The api path the resource event was created in. This should match the source of the `payload` field. For direct integrations with Chemist, this should generally be the RESPONSE. go/resource-event-pipeline-type */
-      path?: string;
+      path?: 'API_PATH_UNSPECIFIED' | 'REQUEST' | 'RESPONSE';
       /** The payload contains metadata associated with the resource event. A ResourceEventPayloadStatus is provided instead if the original payload cannot be returned due to a limitation (e.g. size limit). */
       payload?: {[P in string]: any};
       /** The resource associated with the event. */
       resource?: Resource;
       /** The resource event type determines how the backend service should process the event. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'CREATE' | 'UPDATE' | 'DELETE' | 'UNDELETE';
     }
     interface ViolationInfo {
       /** Optional. Value that is being checked for the policy. This could be in encrypted form (if pii sensitive). This field will only be emitted in LIST_POLICY types */
@@ -734,17 +827,21 @@ declare namespace gapi.client {
       /** Optional. Error message that policy is indicating. */
       errorMessage?: string;
       /** Optional. Indicates the type of the policy. */
-      policyType?: string;
+      policyType?:
+        | 'POLICY_TYPE_UNSPECIFIED'
+        | 'BOOLEAN_CONSTRAINT'
+        | 'LIST_CONSTRAINT'
+        | 'CUSTOM_CONSTRAINT';
     }
     interface ServicesResource {
       /** Attempts to allocate quota for the specified consumer. It should be called before the operation is executed. This method requires the `servicemanagement.services.quota` permission on the specified service. For more information, see [Cloud IAM](https://cloud.google.com/iam). **NOTE:** The client **must** fail-open on server errors `INTERNAL`, `UNKNOWN`, `DEADLINE_EXCEEDED`, and `UNAVAILABLE`. To ensure system reliability, the server may inject these errors to prohibit any hard dependency on the quota functionality. */
       allocateQuota(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -769,11 +866,11 @@ declare namespace gapi.client {
       allocateQuota(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -798,11 +895,11 @@ declare namespace gapi.client {
       /** Checks whether an operation on a service should be allowed to proceed based on the configuration of the service and related policies. It must be called before the operation is executed. If feasible, the client should cache the check results and reuse them for 60 seconds. In case of any server errors, the client should rely on the cached results for much longer time to avoid outage. WARNING: There is general 60s delay for the configuration and policy propagation, therefore callers MUST NOT depend on the `Check` method having the latest policy information. NOTE: the CheckRequest has the size limit (wire-format byte size) of 1MB. This method requires the `servicemanagement.services.check` permission on the specified service. For more information, see [Cloud IAM](https://cloud.google.com/iam). */
       check(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -827,11 +924,11 @@ declare namespace gapi.client {
       check(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -856,11 +953,11 @@ declare namespace gapi.client {
       /** Reports operation results to Google Service Control, such as logs and metrics. It should be called after an operation is completed. If feasible, the client should aggregate reporting data for up to 5 seconds to reduce API traffic. Limiting aggregation to 5 seconds is to reduce data loss during client crashes. Clients should carefully choose the aggregation time window to avoid data loss risk more than 0.01% for business and compliance reasons. NOTE: the ReportRequest has the size limit (wire-format byte size) of 1MB. This method requires the `servicemanagement.services.report` permission on the specified service. For more information, see [Google Cloud IAM](https://cloud.google.com/iam). */
       report(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -885,11 +982,11 @@ declare namespace gapi.client {
       report(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

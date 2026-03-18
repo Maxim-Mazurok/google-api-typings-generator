@@ -50,7 +50,14 @@ declare namespace gapi.client {
       /** Config for API key auth. */
       apiKeyConfig?: GoogleCloudAiplatformV1beta1AuthConfigApiKeyConfig;
       /** Type of auth scheme. */
-      authType?: string;
+      authType?:
+        | 'AUTH_TYPE_UNSPECIFIED'
+        | 'NO_AUTH'
+        | 'API_KEY_AUTH'
+        | 'HTTP_BASIC_AUTH'
+        | 'GOOGLE_SERVICE_ACCOUNT_AUTH'
+        | 'OAUTH'
+        | 'OIDC_AUTH';
       /** Config for Google Service Account auth. */
       googleServiceAccountConfig?: GoogleCloudAiplatformV1beta1AuthConfigGoogleServiceAccountConfig;
       /** Config for HTTP Basic auth. */
@@ -66,7 +73,13 @@ declare namespace gapi.client {
       /** Optional. The API key to be used in the request directly. */
       apiKeyString?: string;
       /** Optional. The location of the API key. */
-      httpElementLocation?: string;
+      httpElementLocation?:
+        | 'HTTP_IN_UNSPECIFIED'
+        | 'HTTP_IN_QUERY'
+        | 'HTTP_IN_HEADER'
+        | 'HTTP_IN_PATH'
+        | 'HTTP_IN_BODY'
+        | 'HTTP_IN_COOKIE';
       /** Optional. The parameter name of the API key. E.g. If the API request is "https://example.com/act?api_key=", "api_key" would be the parameter name. */
       name?: string;
     }
@@ -108,7 +121,24 @@ declare namespace gapi.client {
       /** Output only. Describes the reason the model stopped generating tokens in more detail. This field is returned only when `finish_reason` is set. */
       finishMessage?: string;
       /** Output only. The reason why the model stopped generating tokens. If empty, the model has not stopped generating. */
-      finishReason?: string;
+      finishReason?:
+        | 'FINISH_REASON_UNSPECIFIED'
+        | 'STOP'
+        | 'MAX_TOKENS'
+        | 'SAFETY'
+        | 'RECITATION'
+        | 'OTHER'
+        | 'BLOCKLIST'
+        | 'PROHIBITED_CONTENT'
+        | 'SPII'
+        | 'MALFORMED_FUNCTION_CALL'
+        | 'MODEL_ARMOR'
+        | 'IMAGE_SAFETY'
+        | 'IMAGE_PROHIBITED_CONTENT'
+        | 'IMAGE_RECITATION'
+        | 'IMAGE_OTHER'
+        | 'UNEXPECTED_TOOL_CALL'
+        | 'NO_IMAGE';
       /** Output only. Metadata returned when grounding is enabled. It contains the sources used to ground the generated content. */
       groundingMetadata?: GoogleCloudAiplatformV1beta1GroundingMetadata;
       /** Output only. The 0-based index of this candidate in the list of generated responses. This is useful for distinguishing between multiple candidates when `candidate_count` > 1. */
@@ -140,7 +170,11 @@ declare namespace gapi.client {
     }
     interface GoogleCloudAiplatformV1beta1CodeExecutionResult {
       /** Required. Outcome of the code execution. */
-      outcome?: string;
+      outcome?:
+        | 'OUTCOME_UNSPECIFIED'
+        | 'OUTCOME_OK'
+        | 'OUTCOME_FAILED'
+        | 'OUTCOME_DEADLINE_EXCEEDED';
       /** Optional. Contains stdout when code execution is successful, stderr or other description otherwise. */
       output?: string;
     }
@@ -176,11 +210,18 @@ declare namespace gapi.client {
       /** Optional. The threshold to be used in dynamic retrieval. If not set, a system default value is used. */
       dynamicThreshold?: number;
       /** The mode of the predictor to be used in dynamic retrieval. */
-      mode?: string;
+      mode?: 'MODE_UNSPECIFIED' | 'MODE_DYNAMIC';
     }
     interface GoogleCloudAiplatformV1beta1EnterpriseWebSearch {
       /** Optional. Sites with confidence level chosen & above this value will be blocked from the search results. */
-      blockingConfidence?: string;
+      blockingConfidence?:
+        | 'PHISH_BLOCK_THRESHOLD_UNSPECIFIED'
+        | 'BLOCK_LOW_AND_ABOVE'
+        | 'BLOCK_MEDIUM_AND_ABOVE'
+        | 'BLOCK_HIGH_AND_ABOVE'
+        | 'BLOCK_HIGHER_AND_ABOVE'
+        | 'BLOCK_VERY_HIGH_AND_ABOVE'
+        | 'BLOCK_ONLY_EXTREMELY_HIGH';
       /** Optional. List of domains to be excluded from the search results. The default limit is 2000 domains. */
       excludeDomains?: string[];
     }
@@ -188,13 +229,13 @@ declare namespace gapi.client {
       /** Required. The code to be executed. */
       code?: string;
       /** Required. Programming language of the `code`. */
-      language?: string;
+      language?: 'LANGUAGE_UNSPECIFIED' | 'PYTHON';
     }
     interface GoogleCloudAiplatformV1beta1ExternalApi {
       /** The authentication config to access the API. Deprecated. Please use auth_config instead. */
       apiAuth?: GoogleCloudAiplatformV1beta1ApiAuth;
       /** The API spec that the external API implements. */
-      apiSpec?: string;
+      apiSpec?: 'API_SPEC_UNSPECIFIED' | 'SIMPLE_SEARCH' | 'ELASTIC_SEARCH';
       /** The authentication config to access the API. */
       authConfig?: GoogleCloudAiplatformV1beta1AuthConfig;
       /** Parameters for the elastic search API. */
@@ -237,7 +278,7 @@ declare namespace gapi.client {
       /** Optional. Function names to call. Only set when the Mode is ANY. Function names should match FunctionDeclaration.name. With mode set to ANY, model will predict a function call from the set of function names provided. */
       allowedFunctionNames?: string[];
       /** Optional. Function calling mode. */
-      mode?: string;
+      mode?: 'MODE_UNSPECIFIED' | 'AUTO' | 'ANY' | 'NONE' | 'VALIDATED';
       /** Optional. When set to true, arguments of a single function call will be streamed out in multiple parts/contents/responses. Partial parameter results will be returned in the `FunctionCall.partial_args` field. */
       streamFunctionCallArguments?: boolean;
     }
@@ -265,7 +306,11 @@ declare namespace gapi.client {
       /** Required. The function response in JSON object format. Use "output" key to specify function output and "error" key to specify error details (if any). If "output" and "error" keys are not specified, then whole "response" is treated as function output. */
       response?: {[P in string]: any};
       /** Optional. Specifies how the response should be scheduled in the conversation. Only applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE. */
-      scheduling?: string;
+      scheduling?:
+        | 'SCHEDULING_UNSPECIFIED'
+        | 'SILENT'
+        | 'WHEN_IDLE'
+        | 'INTERRUPT';
     }
     interface GoogleCloudAiplatformV1beta1FunctionResponseBlob {
       /** Required. Raw bytes. */
@@ -325,7 +370,15 @@ declare namespace gapi.client {
     }
     interface GoogleCloudAiplatformV1beta1GenerateContentResponsePromptFeedback {
       /** Output only. The reason why the prompt was blocked. */
-      blockReason?: string;
+      blockReason?:
+        | 'BLOCKED_REASON_UNSPECIFIED'
+        | 'SAFETY'
+        | 'OTHER'
+        | 'BLOCKLIST'
+        | 'PROHIBITED_CONTENT'
+        | 'MODEL_ARMOR'
+        | 'IMAGE_SAFETY'
+        | 'JAILBREAK';
       /** Output only. A readable message that explains the reason why the prompt was blocked. */
       blockReasonMessage?: string;
       /** Output only. A list of safety ratings for the prompt. There is one rating per category. */
@@ -353,7 +406,12 @@ declare namespace gapi.client {
       /** The total number of tokens for the entire request. This is the sum of `prompt_token_count`, `candidates_token_count`, `tool_use_prompt_token_count`, and `thoughts_token_count`. */
       totalTokenCount?: number;
       /** Output only. The traffic type for this request. */
-      trafficType?: string;
+      trafficType?:
+        | 'TRAFFIC_TYPE_UNSPECIFIED'
+        | 'ON_DEMAND'
+        | 'ON_DEMAND_PRIORITY'
+        | 'ON_DEMAND_FLEX'
+        | 'PROVISIONED_THROUGHPUT';
     }
     interface GoogleCloudAiplatformV1beta1GenerationConfig {
       /** Optional. If enabled, audio timestamps will be included in the request to the model. This can be useful for synchronizing audio with other modalities in the response. */
@@ -371,7 +429,11 @@ declare namespace gapi.client {
       /** Optional. The maximum number of tokens to generate in the response. A token is approximately four characters. The default value varies by model. This parameter can be used to control the length of the generated text and prevent overly long responses. */
       maxOutputTokens?: number;
       /** Optional. The token resolution at which input media content is sampled. This is used to control the trade-off between the quality of the response and the number of tokens used to represent the media. A higher resolution allows the model to perceive more detail, which can lead to a more nuanced response, but it will also use more tokens. This does not affect the image dimensions sent to the model. */
-      mediaResolution?: string;
+      mediaResolution?:
+        | 'MEDIA_RESOLUTION_UNSPECIFIED'
+        | 'MEDIA_RESOLUTION_LOW'
+        | 'MEDIA_RESOLUTION_MEDIUM'
+        | 'MEDIA_RESOLUTION_HIGH';
       /** Optional. Config for model selection. */
       modelConfig?: GoogleCloudAiplatformV1beta1GenerationConfigModelConfig;
       /** Optional. Penalizes tokens that have already appeared in the generated text. A positive value encourages the model to generate more diverse and less repetitive text. Valid values can range from [-2.0, 2.0]. */
@@ -383,7 +445,11 @@ declare namespace gapi.client {
       /** Optional. The IANA standard MIME type of the response. The model will generate output that conforms to this MIME type. Supported values include 'text/plain' (default) and 'application/json'. The model needs to be prompted to output the appropriate response type, otherwise the behavior is undefined. */
       responseMimeType?: string;
       /** Optional. The modalities of the response. The model will generate a response that includes all the specified modalities. For example, if this is set to `[TEXT, IMAGE]`, the response will include both text and an image. */
-      responseModalities?: string[];
+      responseModalities?:
+        | 'MODALITY_UNSPECIFIED'
+        | 'TEXT'
+        | 'IMAGE'
+        | 'AUDIO'[];
       /** Optional. Lets you to specify a schema for the model's response, ensuring that the output conforms to a particular structure. This is useful for generating structured data such as JSON. The schema is a subset of the [OpenAPI 3.0 schema object](https://spec.openapis.org/oas/v3.0.3#schema) object. When this field is set, you must also set the `response_mime_type` to `application/json`. */
       responseSchema?: GoogleCloudAiplatformV1beta1Schema;
       /** Optional. Routing configuration. */
@@ -405,7 +471,11 @@ declare namespace gapi.client {
     }
     interface GoogleCloudAiplatformV1beta1GenerationConfigModelConfig {
       /** Required. Feature selection preference. */
-      featureSelectionPreference?: string;
+      featureSelectionPreference?:
+        | 'FEATURE_SELECTION_PREFERENCE_UNSPECIFIED'
+        | 'PRIORITIZE_QUALITY'
+        | 'BALANCED'
+        | 'PRIORITIZE_COST';
     }
     interface GoogleCloudAiplatformV1beta1GenerationConfigRoutingConfig {
       /** In this mode, the model is selected automatically based on the content of the request. */
@@ -415,7 +485,11 @@ declare namespace gapi.client {
     }
     interface GoogleCloudAiplatformV1beta1GenerationConfigRoutingConfigAutoRoutingMode {
       /** The model routing preference. */
-      modelRoutingPreference?: string;
+      modelRoutingPreference?:
+        | 'UNKNOWN'
+        | 'PRIORITIZE_QUALITY'
+        | 'BALANCED'
+        | 'PRIORITIZE_COST';
     }
     interface GoogleCloudAiplatformV1beta1GenerationConfigRoutingConfigManualRoutingMode {
       /** The name of the model to use. Only public LLM models are accepted. */
@@ -427,7 +501,12 @@ declare namespace gapi.client {
       /** Optional. The token budget for the model's thinking process. The model will make a best effort to stay within this budget. This can be used to control the trade-off between response quality and latency. */
       thinkingBudget?: number;
       /** Optional. The number of thoughts tokens that the model should generate. */
-      thinkingLevel?: string;
+      thinkingLevel?:
+        | 'THINKING_LEVEL_UNSPECIFIED'
+        | 'LOW'
+        | 'MEDIUM'
+        | 'HIGH'
+        | 'MINIMAL';
     }
     interface GoogleCloudAiplatformV1beta1GoogleMaps {
       /** Optional. If true, include the widget context token in the response. */
@@ -555,9 +634,16 @@ declare namespace gapi.client {
       /** Optional. Specifies the size of generated images. Supported values are `1K`, `2K`, `4K`. If not specified, the model will use default value `1K`. */
       imageSize?: string;
       /** Optional. Controls whether the model can generate people. */
-      personGeneration?: string;
+      personGeneration?:
+        | 'PERSON_GENERATION_UNSPECIFIED'
+        | 'ALLOW_ALL'
+        | 'ALLOW_ADULT'
+        | 'ALLOW_NONE';
       /** Optional. Controls whether prominent people (celebrities) generation is allowed. If used with personGeneration, personGeneration enum would take precedence. For instance, if ALLOW_NONE is set, all person generation would be blocked. If this field is unspecified, the default behavior is to allow prominent people. */
-      prominentPeople?: string;
+      prominentPeople?:
+        | 'PROMINENT_PEOPLE_UNSPECIFIED'
+        | 'ALLOW_PROMINENT_PEOPLE'
+        | 'BLOCK_PROMINENT_PEOPLE';
     }
     interface GoogleCloudAiplatformV1beta1ImageConfigImageOutputOptions {
       /** Optional. The compression quality of the output image. */
@@ -585,7 +671,13 @@ declare namespace gapi.client {
     }
     interface GoogleCloudAiplatformV1beta1ModalityTokenCount {
       /** The modality that this token count applies to. */
-      modality?: string;
+      modality?:
+        | 'MODALITY_UNSPECIFIED'
+        | 'TEXT'
+        | 'IMAGE'
+        | 'VIDEO'
+        | 'AUDIO'
+        | 'DOCUMENT';
       /** The number of tokens counted for this modality. */
       tokenCount?: number;
     }
@@ -629,7 +721,7 @@ declare namespace gapi.client {
       /** Required. A JSON Path (RFC 9535) to the argument being streamed. https://datatracker.ietf.org/doc/html/rfc9535. e.g. "$.foo.bar[0].data". */
       jsonPath?: string;
       /** Optional. Represents a null value. */
-      nullValue?: string;
+      nullValue?: 'NULL_VALUE';
       /** Optional. Represents a double value. */
       numberValue?: number;
       /** Optional. Represents a string value. */
@@ -639,7 +731,12 @@ declare namespace gapi.client {
     }
     interface GoogleCloudAiplatformV1beta1PartMediaResolution {
       /** The tokenization quality used for given media. */
-      level?: string;
+      level?:
+        | 'MEDIA_RESOLUTION_UNSPECIFIED'
+        | 'MEDIA_RESOLUTION_LOW'
+        | 'MEDIA_RESOLUTION_MEDIUM'
+        | 'MEDIA_RESOLUTION_HIGH'
+        | 'MEDIA_RESOLUTION_ULTRA_HIGH';
     }
     interface GoogleCloudAiplatformV1beta1PrebuiltVoiceConfig {
       /** The name of the prebuilt voice to use. */
@@ -723,25 +820,69 @@ declare namespace gapi.client {
       /** Output only. Indicates whether the content was blocked because of this rating. */
       blocked?: boolean;
       /** Output only. The harm category of this rating. */
-      category?: string;
+      category?:
+        | 'HARM_CATEGORY_UNSPECIFIED'
+        | 'HARM_CATEGORY_HATE_SPEECH'
+        | 'HARM_CATEGORY_DANGEROUS_CONTENT'
+        | 'HARM_CATEGORY_HARASSMENT'
+        | 'HARM_CATEGORY_SEXUALLY_EXPLICIT'
+        | 'HARM_CATEGORY_CIVIC_INTEGRITY'
+        | 'HARM_CATEGORY_IMAGE_HATE'
+        | 'HARM_CATEGORY_IMAGE_DANGEROUS_CONTENT'
+        | 'HARM_CATEGORY_IMAGE_HARASSMENT'
+        | 'HARM_CATEGORY_IMAGE_SEXUALLY_EXPLICIT'
+        | 'HARM_CATEGORY_JAILBREAK';
       /** Output only. The overwritten threshold for the safety category of Gemini 2.0 image out. If minors are detected in the output image, the threshold of each safety category will be overwritten if user sets a lower threshold. */
-      overwrittenThreshold?: string;
+      overwrittenThreshold?:
+        | 'HARM_BLOCK_THRESHOLD_UNSPECIFIED'
+        | 'BLOCK_LOW_AND_ABOVE'
+        | 'BLOCK_MEDIUM_AND_ABOVE'
+        | 'BLOCK_ONLY_HIGH'
+        | 'BLOCK_NONE'
+        | 'OFF';
       /** Output only. The probability of harm for this category. */
-      probability?: string;
+      probability?:
+        | 'HARM_PROBABILITY_UNSPECIFIED'
+        | 'NEGLIGIBLE'
+        | 'LOW'
+        | 'MEDIUM'
+        | 'HIGH';
       /** Output only. The probability score of harm for this category. */
       probabilityScore?: number;
       /** Output only. The severity of harm for this category. */
-      severity?: string;
+      severity?:
+        | 'HARM_SEVERITY_UNSPECIFIED'
+        | 'HARM_SEVERITY_NEGLIGIBLE'
+        | 'HARM_SEVERITY_LOW'
+        | 'HARM_SEVERITY_MEDIUM'
+        | 'HARM_SEVERITY_HIGH';
       /** Output only. The severity score of harm for this category. */
       severityScore?: number;
     }
     interface GoogleCloudAiplatformV1beta1SafetySetting {
       /** Required. The harm category to be blocked. */
-      category?: string;
+      category?:
+        | 'HARM_CATEGORY_UNSPECIFIED'
+        | 'HARM_CATEGORY_HATE_SPEECH'
+        | 'HARM_CATEGORY_DANGEROUS_CONTENT'
+        | 'HARM_CATEGORY_HARASSMENT'
+        | 'HARM_CATEGORY_SEXUALLY_EXPLICIT'
+        | 'HARM_CATEGORY_CIVIC_INTEGRITY'
+        | 'HARM_CATEGORY_IMAGE_HATE'
+        | 'HARM_CATEGORY_IMAGE_DANGEROUS_CONTENT'
+        | 'HARM_CATEGORY_IMAGE_HARASSMENT'
+        | 'HARM_CATEGORY_IMAGE_SEXUALLY_EXPLICIT'
+        | 'HARM_CATEGORY_JAILBREAK';
       /** Optional. The method for blocking content. If not specified, the default behavior is to use the probability score. */
-      method?: string;
+      method?: 'HARM_BLOCK_METHOD_UNSPECIFIED' | 'SEVERITY' | 'PROBABILITY';
       /** Required. The threshold for blocking content. If the harm probability exceeds this threshold, the content will be blocked. */
-      threshold?: string;
+      threshold?:
+        | 'HARM_BLOCK_THRESHOLD_UNSPECIFIED'
+        | 'BLOCK_LOW_AND_ABOVE'
+        | 'BLOCK_MEDIUM_AND_ABOVE'
+        | 'BLOCK_ONLY_HIGH'
+        | 'BLOCK_NONE'
+        | 'OFF';
     }
     interface GoogleCloudAiplatformV1beta1Schema {
       /** Optional. If `type` is `OBJECT`, specifies how to handle properties not defined in `properties`. If it is a boolean `false`, no additional properties are allowed. If it is a schema, additional properties are allowed if they conform to the schema. */
@@ -793,7 +934,15 @@ declare namespace gapi.client {
       /** Optional. Title for the schema. */
       title?: string;
       /** Optional. Data type of the schema field. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'STRING'
+        | 'NUMBER'
+        | 'INTEGER'
+        | 'BOOLEAN'
+        | 'ARRAY'
+        | 'OBJECT'
+        | 'NULL';
     }
     interface GoogleCloudAiplatformV1beta1SearchEntryPoint {
       /** Optional. An HTML snippet that can be embedded in a web page or an application's webview. This snippet displays a search result, including the title, URL, and a brief description of the search result. */
@@ -850,7 +999,7 @@ declare namespace gapi.client {
     interface GoogleCloudAiplatformV1beta1ToolCodeExecution {}
     interface GoogleCloudAiplatformV1beta1ToolComputerUse {
       /** Required. The environment being operated. */
-      environment?: string;
+      environment?: 'ENVIRONMENT_UNSPECIFIED' | 'ENVIRONMENT_BROWSER';
       /** Optional. By default, [predefined functions](https://cloud.google.com/vertex-ai/generative-ai/docs/computer-use#supported-actions) are included in the final model call. Some of them can be explicitly excluded from being automatically included. This can serve two purposes: 1. Using a more restricted / different action space. 2. Improving the definitions / instructions of predefined functions. */
       excludedPredefinedFunctions?: string[];
     }
@@ -862,7 +1011,14 @@ declare namespace gapi.client {
     }
     interface GoogleCloudAiplatformV1beta1ToolGoogleSearch {
       /** Optional. Sites with confidence level chosen & above this value will be blocked from the search results. */
-      blockingConfidence?: string;
+      blockingConfidence?:
+        | 'PHISH_BLOCK_THRESHOLD_UNSPECIFIED'
+        | 'BLOCK_LOW_AND_ABOVE'
+        | 'BLOCK_MEDIUM_AND_ABOVE'
+        | 'BLOCK_HIGH_AND_ABOVE'
+        | 'BLOCK_HIGHER_AND_ABOVE'
+        | 'BLOCK_VERY_HIGH_AND_ABOVE'
+        | 'BLOCK_ONLY_EXTREMELY_HIGH';
       /** Optional. List of domains to be excluded from the search results. The default limit is 2000 domains. Example: ["amazon.com", "facebook.com"]. */
       excludeDomains?: string[];
       /** Optional. The set of search types to enable. If not set, web search is enabled by default. */
@@ -891,7 +1047,10 @@ declare namespace gapi.client {
       /** The URL retrieved by the tool. */
       retrievedUrl?: string;
       /** The status of the URL retrieval. */
-      urlRetrievalStatus?: string;
+      urlRetrievalStatus?:
+        | 'URL_RETRIEVAL_STATUS_UNSPECIFIED'
+        | 'URL_RETRIEVAL_STATUS_SUCCESS'
+        | 'URL_RETRIEVAL_STATUS_ERROR';
     }
     interface GoogleCloudAiplatformV1beta1VertexAISearch {
       /** Optional. Fully-qualified Vertex AI Search data store resource ID. Format: `projects/{project}/locations/{location}/collections/{collection}/dataStores/{dataStore}` */
@@ -952,7 +1111,10 @@ declare namespace gapi.client {
       longitude?: number;
     }
     interface ModelOperationMetadata {
-      basicOperationStatus?: string;
+      basicOperationStatus?:
+        | 'BASIC_OPERATION_STATUS_UNSPECIFIED'
+        | 'BASIC_OPERATION_STATUS_UPLOADING'
+        | 'BASIC_OPERATION_STATUS_VERIFYING';
       /** The name of the model we are creating/updating The name must have the form `projects/{project_id}/models/{model_id}` */
       name?: string;
     }
@@ -960,11 +1122,11 @@ declare namespace gapi.client {
       /** Perform a token counting. */
       countTokens(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The name of the Endpoint requested to perform token counting. Format: `projects/{project}/locations/{location}/endpoints/{endpoint}` */
@@ -989,11 +1151,11 @@ declare namespace gapi.client {
       countTokens(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The name of the Endpoint requested to perform token counting. Format: `projects/{project}/locations/{location}/endpoints/{endpoint}` */
@@ -1018,11 +1180,11 @@ declare namespace gapi.client {
       /** Generate content with multimodal inputs. */
       generateContent(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1047,11 +1209,11 @@ declare namespace gapi.client {
       generateContent(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1076,11 +1238,11 @@ declare namespace gapi.client {
       /** Generate content with multimodal inputs with streaming support. */
       streamGenerateContent(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1105,11 +1267,11 @@ declare namespace gapi.client {
       streamGenerateContent(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

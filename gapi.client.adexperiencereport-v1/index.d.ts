@@ -30,15 +30,15 @@ declare namespace gapi.client {
   namespace adexperiencereport {
     interface PlatformSummary {
       /** The site's Ad Experience Report status on this platform. */
-      betterAdsStatus?: string;
+      betterAdsStatus?: 'UNKNOWN' | 'PASSING' | 'WARNING' | 'FAILING';
       /** The time at which [enforcement](https://support.google.com/webtools/answer/7308033) against the site began or will begin on this platform. Not set when the filter_status is OFF. */
       enforcementTime?: string;
       /** The site's [enforcement status](https://support.google.com/webtools/answer/7308033) on this platform. */
-      filterStatus?: string;
+      filterStatus?: 'UNKNOWN' | 'ON' | 'OFF' | 'PAUSED' | 'PENDING';
       /** The time at which the site's status last changed on this platform. */
       lastChangeTime?: string;
       /** The site's regions on this platform. No longer populated, because there is no longer any semantic difference between sites in different regions. */
-      region?: string[];
+      region?: 'REGION_UNKNOWN' | 'REGION_A' | 'REGION_B' | 'REGION_C'[];
       /** A link to the full Ad Experience Report for the site on this platform.. Not set in ViolatingSitesResponse. Note that you must complete the [Search Console verification process](https://support.google.com/webmasters/answer/9008080) for the site before you can access the full report. */
       reportUrl?: string;
       /** Whether the site is currently under review on this platform. */
@@ -60,11 +60,11 @@ declare namespace gapi.client {
       /** Gets a site's Ad Experience Report summary. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -89,11 +89,11 @@ declare namespace gapi.client {
       /** Lists sites that are failing in the Ad Experience Report on at least one platform. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

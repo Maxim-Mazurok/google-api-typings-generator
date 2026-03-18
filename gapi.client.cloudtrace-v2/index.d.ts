@@ -57,7 +57,7 @@ declare namespace gapi.client {
       /** The `[TRACE_ID]` for a trace within a project. */
       traceId?: string;
       /** The relationship of the current span relative to the linked span. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'CHILD_LINKED_SPAN' | 'PARENT_LINKED_SPAN';
     }
     interface Links {
       /** The number of dropped links after the maximum size was enforced. If this value is 0, then no links were dropped. */
@@ -71,7 +71,7 @@ declare namespace gapi.client {
       /** An identifier for the MessageEvent's message that can be used to match `SENT` and `RECEIVED` MessageEvents. */
       id?: string;
       /** Type of MessageEvent. Indicates whether the message was sent or received. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'SENT' | 'RECEIVED';
       /** The number of uncompressed bytes sent or received. */
       uncompressedSizeBytes?: string;
     }
@@ -101,7 +101,13 @@ declare namespace gapi.client {
       /** Required. The `[SPAN_ID]` portion of the span's resource name. */
       spanId?: string;
       /** Optional. Distinguishes between spans generated in a particular context. For example, two spans with the same name may be distinguished using `CLIENT` (caller) and `SERVER` (callee) to identify an RPC call. */
-      spanKind?: string;
+      spanKind?:
+        | 'SPAN_KIND_UNSPECIFIED'
+        | 'INTERNAL'
+        | 'SERVER'
+        | 'CLIENT'
+        | 'PRODUCER'
+        | 'CONSUMER';
       /** Stack trace captured at the start of the span. */
       stackTrace?: StackTrace;
       /** Required. The start time of the span. On the client side, this is the time kept by the local machine where the span execution starts. On the server side, this is the time when the server's application handler starts running. */
@@ -173,11 +179,11 @@ declare namespace gapi.client {
       /** Creates a new span. If a span ID already exists, an additional copy of the span will be stored. */
       createSpan(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -202,11 +208,11 @@ declare namespace gapi.client {
       createSpan(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -233,11 +239,11 @@ declare namespace gapi.client {
       /** Batch writes new spans to new or existing traces. You cannot update existing spans. If a span ID already exists, an additional copy of the span will be stored. */
       batchWrite(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -262,11 +268,11 @@ declare namespace gapi.client {
       batchWrite(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

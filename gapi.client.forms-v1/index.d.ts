@@ -56,7 +56,7 @@ declare namespace gapi.client {
       /** Whether the options should be displayed in random order for different instances of the quiz. This is often used to prevent cheating by respondents who might be looking at another respondent's screen, or to address bias in a survey that might be introduced by always putting the same options first or last. */
       shuffle?: boolean;
       /** Required. The type of choice question. */
-      type?: string;
+      type?: 'CHOICE_TYPE_UNSPECIFIED' | 'RADIO' | 'CHECKBOX' | 'DROP_DOWN';
     }
     interface CloudPubsubTopic {
       /** Required. A fully qualified Pub/Sub topic name to publish the events to. This topic must be owned by the calling project and already exist in Pub/Sub. */
@@ -131,7 +131,17 @@ declare namespace gapi.client {
       /** Maximum number of bytes allowed for any single file uploaded to this question. */
       maxFileSize?: string;
       /** File types accepted by this question. */
-      types?: string[];
+      types?:
+        | 'FILE_TYPE_UNSPECIFIED'
+        | 'ANY'
+        | 'DOCUMENT'
+        | 'PRESENTATION'
+        | 'SPREADSHEET'
+        | 'DRAWING'
+        | 'PDF'
+        | 'IMAGE'
+        | 'VIDEO'
+        | 'AUDIO'[];
     }
     interface Form {
       /** Output only. The form ID. */
@@ -169,7 +179,11 @@ declare namespace gapi.client {
     }
     interface FormSettings {
       /** Optional. The setting that determines whether the form collects email addresses from respondents. */
-      emailCollectionType?: string;
+      emailCollectionType?:
+        | 'EMAIL_COLLECTION_TYPE_UNSPECIFIED'
+        | 'DO_NOT_COLLECT'
+        | 'VERIFIED'
+        | 'RESPONDER_INPUT';
       /** Settings related to quiz forms and grading. */
       quizSettings?: QuizSettings;
     }
@@ -257,7 +271,7 @@ declare namespace gapi.client {
     }
     interface MediaProperties {
       /** Position of the media. */
-      alignment?: string;
+      alignment?: 'ALIGNMENT_UNSPECIFIED' | 'LEFT' | 'RIGHT' | 'CENTER';
       /** The width of the media in pixels. When the media is displayed, it is scaled to the smaller of this value or the width of the displayed form. The original aspect ratio of the media is preserved. If a width is not specified when the media is added to the form, it is set to the width of the media source. Width must be between 0 and 740, inclusive. Setting width to 0 or unspecified is only permitted when updating the media source. */
       width?: number;
     }
@@ -269,7 +283,11 @@ declare namespace gapi.client {
     }
     interface Option {
       /** Section navigation type. */
-      goToAction?: string;
+      goToAction?:
+        | 'GO_TO_ACTION_UNSPECIFIED'
+        | 'NEXT_SECTION'
+        | 'RESTART_FORM'
+        | 'SUBMIT_FORM';
       /** Item ID of section header to go to. */
       goToSectionId?: string;
       /** Display image as an option. */
@@ -334,7 +352,7 @@ declare namespace gapi.client {
     }
     interface RatingQuestion {
       /** Required. The icon type to use for the rating. */
-      iconType?: string;
+      iconType?: 'RATING_ICON_TYPE_UNSPECIFIED' | 'STAR' | 'HEART' | 'THUMB_UP';
       /** Required. The rating scale level of the rating question. */
       ratingScaleLevel?: number;
     }
@@ -448,15 +466,19 @@ declare namespace gapi.client {
       /** Output only. Timestamp of when this was created. */
       createTime?: string;
       /** Output only. The most recent error type for an attempted delivery. To begin watching the form again a call can be made to watches.renew which also clears this error information. */
-      errorType?: string;
+      errorType?:
+        | 'ERROR_TYPE_UNSPECIFIED'
+        | 'PROJECT_NOT_AUTHORIZED'
+        | 'NO_USER_ACCESS'
+        | 'OTHER_ERRORS';
       /** Required. Which event type to watch for. */
-      eventType?: string;
+      eventType?: 'EVENT_TYPE_UNSPECIFIED' | 'SCHEMA' | 'RESPONSES';
       /** Output only. Timestamp for when this will expire. Each watches.renew call resets this to seven days in the future. */
       expireTime?: string;
       /** Output only. The ID of this watch. See notes on CreateWatchRequest.watch_id. */
       id?: string;
       /** Output only. The current state of the watch. Additional details about suspended watches can be found by checking the `error_type`. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'ACTIVE' | 'SUSPENDED';
       /** Required. Where to send the notification. */
       target?: WatchTarget;
     }
@@ -474,11 +496,11 @@ declare namespace gapi.client {
       /** Get one response from the form. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -503,11 +525,11 @@ declare namespace gapi.client {
       /** List a form's responses. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -538,11 +560,11 @@ declare namespace gapi.client {
       /** Create a new watch. If a watch ID is provided, it must be unused. For each invoking project, the per form limit is one watch per Watch.EventType. A watch expires seven days after it is created (see Watch.expire_time). */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -567,11 +589,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -596,11 +618,11 @@ declare namespace gapi.client {
       /** Delete a watch. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -625,11 +647,11 @@ declare namespace gapi.client {
       /** Return a list of the watches owned by the invoking project. The maximum number of watches is two: For each invoker, the limit is one for each event type per form. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -652,11 +674,11 @@ declare namespace gapi.client {
       /** Renew an existing watch for seven days. The state of the watch after renewal is `ACTIVE`, and the `expire_time` is seven days from the renewal. Renewing a watch in an error state (e.g. `SUSPENDED`) succeeds if the error is no longer present, but fail otherwise. After a watch has expired, RenewWatch returns `NOT_FOUND`. */
       renew(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -683,11 +705,11 @@ declare namespace gapi.client {
       renew(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -716,11 +738,11 @@ declare namespace gapi.client {
       /** Change the form with a batch of updates. */
       batchUpdate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -745,11 +767,11 @@ declare namespace gapi.client {
       batchUpdate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -774,11 +796,11 @@ declare namespace gapi.client {
       /** Create a new form using the title given in the provided form message in the request. *Important:* Only the form.info.title and form.info.document_title fields are copied to the new form. All other fields including the form description, items and settings are disallowed. To create a new form and add items, you must first call forms.create to create an empty form with a title and (optional) document title, and then call forms.update to add the items. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -803,11 +825,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -832,11 +854,11 @@ declare namespace gapi.client {
       /** Get a form. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -859,11 +881,11 @@ declare namespace gapi.client {
       /** Updates the publish settings of a form. Legacy forms aren't supported because they don't have the `publish_settings` field. */
       setPublishSettings(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -888,11 +910,11 @@ declare namespace gapi.client {
       setPublishSettings(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

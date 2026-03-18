@@ -36,7 +36,7 @@ declare namespace gapi.client {
       /** Output only. Whether this account is premium. Premium accounts have access to additional spam-related metrics. */
       premium?: boolean;
       /** Output only. State of the account. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'READY' | 'NEEDS_ATTENTION' | 'CLOSED';
       /** The account time zone, as used by reporting. For more information, see [changing the time zone of your reports](https://support.google.com/adsense/answer/9830725). */
       timeZone?: TimeZone;
     }
@@ -54,7 +54,11 @@ declare namespace gapi.client {
       /** Output only. Unique ID of the ad client as used in the `AD_CLIENT_ID` reporting dimension. Present only if the ad client supports reporting. */
       reportingDimensionId?: string;
       /** Output only. State of the ad client. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'READY'
+        | 'GETTING_READY'
+        | 'REQUIRES_REVIEW';
     }
     interface AdClientAdCode {
       /** Output only. The AdSense code snippet to add to the head of an HTML page. */
@@ -74,7 +78,7 @@ declare namespace gapi.client {
       /** Output only. Unique ID of the ad unit as used in the `AD_UNIT_ID` reporting dimension. */
       reportingDimensionId?: string;
       /** Required. State of the ad unit. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'ACTIVE' | 'ARCHIVED';
     }
     interface AdUnitAdCode {
       /** Output only. The code snippet to add to the body of an HTML page. */
@@ -86,7 +90,7 @@ declare namespace gapi.client {
       /** Output only. Resource name of the alert. Format: accounts/{account}/alerts/{alert} */
       name?: string;
       /** Output only. Severity of this alert. */
-      severity?: string;
+      severity?: 'SEVERITY_UNSPECIFIED' | 'INFO' | 'WARNING' | 'SEVERE';
       /** Output only. Type of alert. This identifies the broad type of this alert, and provides a stable machine-readable identifier that will not be translated. For example, "payment-hold". */
       type?: string;
     }
@@ -98,7 +102,13 @@ declare namespace gapi.client {
       /** Required. Size of the ad unit. e.g. "728x90", "1x3" (for responsive ad units). */
       size?: string;
       /** Required. Type of the ad unit. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'DISPLAY'
+        | 'FEED'
+        | 'ARTICLE'
+        | 'MATCHED_CONTENT'
+        | 'LINK';
     }
     interface CustomChannel {
       /** Whether the custom channel is active and collecting data. See https://support.google.com/adsense/answer/10077192. */
@@ -125,7 +135,14 @@ declare namespace gapi.client {
       /** Required. Name of the header. */
       name?: string;
       /** Required. Type of the header. */
-      type?: string;
+      type?:
+        | 'HEADER_TYPE_UNSPECIFIED'
+        | 'DIMENSION'
+        | 'METRIC_TALLY'
+        | 'METRIC_RATIO'
+        | 'METRIC_CURRENCY'
+        | 'METRIC_MILLISECONDS'
+        | 'METRIC_DECIMAL';
     }
     interface HttpBody {
       /** The HTTP Content-Type header value specifying the content type of the body. */
@@ -219,13 +236,19 @@ declare namespace gapi.client {
     }
     interface PolicyIssue {
       /** Required. The most severe action taken on the entity over the past seven days. */
-      action?: string;
+      action?:
+        | 'ENFORCEMENT_ACTION_UNSPECIFIED'
+        | 'WARNED'
+        | 'AD_SERVING_RESTRICTED'
+        | 'AD_SERVING_DISABLED'
+        | 'AD_SERVED_WITH_CLICK_CONFIRMATION'
+        | 'AD_PERSONALIZATION_RESTRICTED';
       /** Optional. List of ad clients associated with the policy issue (either as the primary ad client or an associated host/secondary ad client). In the latter case, this will be an ad client that is not owned by the current account. */
       adClients?: string[];
       /** Required. Total number of ad requests affected by the policy violations over the past seven days. */
       adRequestCount?: string;
       /** Required. Type of the entity indicating if the entity is a site, site-section, or page. */
-      entityType?: string;
+      entityType?: 'ENTITY_TYPE_UNSPECIFIED' | 'SITE' | 'SITE_SECTION' | 'PAGE';
       /** Required. The date (in the America/Los_Angeles timezone) when policy violations were first detected on the entity. */
       firstDetectedDate?: Date;
       /** Required. The date (in the America/Los_Angeles timezone) when policy violations were last detected on the entity. */
@@ -249,7 +272,11 @@ declare namespace gapi.client {
       /** Required. The policy topic. For example, "sexual-content" or "ads-obscuring-content"." */
       topic?: string;
       /** Optional. The type of policy topic. For example, "POLICY" represents all the policy topics that are related to the Google Publisher Policy (GPP). See https://support.google.com/adsense/answer/15689616. */
-      type?: string;
+      type?:
+        | 'POLICY_TOPIC_TYPE_UNSPECIFIED'
+        | 'POLICY'
+        | 'ADVERTISER_PREFERENCE'
+        | 'REGULATORY';
     }
     interface ReportResult {
       /** The averages of the report. This is the same length as any other row in the report; cells corresponding to dimension columns are empty. */
@@ -289,7 +316,12 @@ declare namespace gapi.client {
       /** Output only. Unique ID of the site as used in the `OWNED_SITE_ID` reporting dimension. */
       reportingDimensionId?: string;
       /** Output only. State of a site. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'REQUIRES_REVIEW'
+        | 'GETTING_READY'
+        | 'READY'
+        | 'NEEDS_ATTENTION';
     }
     interface TimeZone {
       /** IANA Time Zone Database time zone. For example "America/New_York". */
@@ -309,11 +341,11 @@ declare namespace gapi.client {
       /** Creates an ad unit. This method can be called only by a restricted set of projects, which are usually owned by [AdSense for Platforms](https://developers.google.com/adsense/platforms/) publishers. Contact your account manager if you need to use this method. Note that ad units can only be created for ad clients with an "AFC" product code. For more info see the [AdClient resource](/adsense/management/reference/rest/v2/accounts.adclients). For now, this method can only be used to create `DISPLAY` ad units. See: https://support.google.com/adsense/answer/9183566 */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -338,11 +370,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -367,11 +399,11 @@ declare namespace gapi.client {
       /** Gets an ad unit from a specified account and ad client. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -394,11 +426,11 @@ declare namespace gapi.client {
       /** Gets the ad unit code for a given ad unit. For more information, see [About the AdSense code](https://support.google.com/adsense/answer/9274634) and [Where to place the ad code in your HTML](https://support.google.com/adsense/answer/9190028). */
       getAdcode(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -421,11 +453,11 @@ declare namespace gapi.client {
       /** Lists all ad units under a specified account and ad client. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -452,11 +484,11 @@ declare namespace gapi.client {
       /** Lists all the custom channels available for an ad unit. */
       listLinkedCustomChannels(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -483,11 +515,11 @@ declare namespace gapi.client {
       /** Updates an ad unit. This method can be called only by a restricted set of projects, which are usually owned by [AdSense for Platforms](https://developers.google.com/adsense/platforms/) publishers. Contact your account manager if you need to use this method. For now, this method can only be used to update `DISPLAY` ad units. See: https://support.google.com/adsense/answer/9183566 */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -514,11 +546,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -547,11 +579,11 @@ declare namespace gapi.client {
       /** Creates a custom channel. This method can be called only by a restricted set of projects, which are usually owned by [AdSense for Platforms](https://developers.google.com/adsense/platforms/) publishers. Contact your account manager if you need to use this method. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -576,11 +608,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -605,11 +637,11 @@ declare namespace gapi.client {
       /** Deletes a custom channel. This method can be called only by a restricted set of projects, which are usually owned by [AdSense for Platforms](https://developers.google.com/adsense/platforms/) publishers. Contact your account manager if you need to use this method. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -632,11 +664,11 @@ declare namespace gapi.client {
       /** Gets information about the selected custom channel. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -659,11 +691,11 @@ declare namespace gapi.client {
       /** Lists all the custom channels available in an ad client. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -690,11 +722,11 @@ declare namespace gapi.client {
       /** Lists all the ad units available for a custom channel. */
       listLinkedAdUnits(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -721,11 +753,11 @@ declare namespace gapi.client {
       /** Updates a custom channel. This method can be called only by a restricted set of projects, which are usually owned by [AdSense for Platforms](https://developers.google.com/adsense/platforms/) publishers. Contact your account manager if you need to use this method. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -752,11 +784,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -785,11 +817,11 @@ declare namespace gapi.client {
       /** Gets information about the selected url channel. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -812,11 +844,11 @@ declare namespace gapi.client {
       /** Lists active url channels. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -845,11 +877,11 @@ declare namespace gapi.client {
       /** Gets the ad client from the given resource name. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -872,11 +904,11 @@ declare namespace gapi.client {
       /** Gets the AdSense code for a given ad client. This returns what was previously known as the 'auto ad code'. This is only supported for ad clients with a product_code of AFC. For more information, see [About the AdSense code](https://support.google.com/adsense/answer/9274634). */
       getAdcode(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -899,11 +931,11 @@ declare namespace gapi.client {
       /** Lists all the ad clients available in an account. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -935,11 +967,11 @@ declare namespace gapi.client {
       /** Lists all the alerts available in an account. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -966,11 +998,11 @@ declare namespace gapi.client {
       /** Lists all the payments available for an account. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -995,11 +1027,11 @@ declare namespace gapi.client {
       /** Gets information about the selected policy issue. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1022,11 +1054,11 @@ declare namespace gapi.client {
       /** Lists all the policy issues where the specified account is involved, both directly and through any AFP child accounts. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1055,17 +1087,25 @@ declare namespace gapi.client {
       /** Generates a saved report. */
       generate(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The [ISO-4217 currency code](https://en.wikipedia.org/wiki/ISO_4217) to use when reporting on monetary metrics. Defaults to the account's currency if not set. */
         currencyCode?: string;
         /** Date range of the report, if unset the range will be considered CUSTOM. */
-        dateRange?: string;
+        dateRange?:
+          | 'REPORTING_DATE_RANGE_UNSPECIFIED'
+          | 'CUSTOM'
+          | 'TODAY'
+          | 'YESTERDAY'
+          | 'MONTH_TO_DATE'
+          | 'YEAR_TO_DATE'
+          | 'LAST_7_DAYS'
+          | 'LAST_30_DAYS';
         /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
         'endDate.day'?: number;
         /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
@@ -1087,7 +1127,10 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Timezone in which to generate the report. If unspecified, this defaults to the account timezone. For more information, see [changing the time zone of your reports](https://support.google.com/adsense/answer/9830725). */
-        reportingTimeZone?: string;
+        reportingTimeZone?:
+          | 'REPORTING_TIME_ZONE_UNSPECIFIED'
+          | 'ACCOUNT_TIME_ZONE'
+          | 'GOOGLE_TIME_ZONE';
         /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
         'startDate.day'?: number;
         /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
@@ -1102,17 +1145,25 @@ declare namespace gapi.client {
       /** Generates a csv formatted saved report. */
       generateCsv(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The [ISO-4217 currency code](https://en.wikipedia.org/wiki/ISO_4217) to use when reporting on monetary metrics. Defaults to the account's currency if not set. */
         currencyCode?: string;
         /** Date range of the report, if unset the range will be considered CUSTOM. */
-        dateRange?: string;
+        dateRange?:
+          | 'REPORTING_DATE_RANGE_UNSPECIFIED'
+          | 'CUSTOM'
+          | 'TODAY'
+          | 'YESTERDAY'
+          | 'MONTH_TO_DATE'
+          | 'YEAR_TO_DATE'
+          | 'LAST_7_DAYS'
+          | 'LAST_30_DAYS';
         /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
         'endDate.day'?: number;
         /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
@@ -1134,7 +1185,10 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Timezone in which to generate the report. If unspecified, this defaults to the account timezone. For more information, see [changing the time zone of your reports](https://support.google.com/adsense/answer/9830725). */
-        reportingTimeZone?: string;
+        reportingTimeZone?:
+          | 'REPORTING_TIME_ZONE_UNSPECIFIED'
+          | 'ACCOUNT_TIME_ZONE'
+          | 'GOOGLE_TIME_ZONE';
         /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
         'startDate.day'?: number;
         /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
@@ -1149,11 +1203,11 @@ declare namespace gapi.client {
       /** Lists saved reports. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1182,21 +1236,145 @@ declare namespace gapi.client {
       /** Generates an ad hoc report. */
       generate(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The account which owns the collection of reports. Format: accounts/{account} */
         account: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The [ISO-4217 currency code](https://en.wikipedia.org/wiki/ISO_4217) to use when reporting on monetary metrics. Defaults to the account's currency if not set. */
         currencyCode?: string;
         /** Date range of the report, if unset the range will be considered CUSTOM. */
-        dateRange?: string;
+        dateRange?:
+          | 'REPORTING_DATE_RANGE_UNSPECIFIED'
+          | 'CUSTOM'
+          | 'TODAY'
+          | 'YESTERDAY'
+          | 'MONTH_TO_DATE'
+          | 'YEAR_TO_DATE'
+          | 'LAST_7_DAYS'
+          | 'LAST_30_DAYS';
         /** Dimensions to base the report on. */
-        dimensions?: string | string[];
+        dimensions?:
+          | 'DIMENSION_UNSPECIFIED'
+          | 'DATE'
+          | 'WEEK'
+          | 'MONTH'
+          | 'ACCOUNT_NAME'
+          | 'AD_CLIENT_ID'
+          | 'HOSTED_AD_CLIENT_ID'
+          | 'PRODUCT_NAME'
+          | 'PRODUCT_CODE'
+          | 'AD_UNIT_NAME'
+          | 'AD_UNIT_ID'
+          | 'AD_UNIT_SIZE_NAME'
+          | 'AD_UNIT_SIZE_CODE'
+          | 'CUSTOM_CHANNEL_NAME'
+          | 'CUSTOM_CHANNEL_ID'
+          | 'HOSTED_CUSTOM_CHANNEL_ID'
+          | 'OWNED_SITE_DOMAIN_NAME'
+          | 'OWNED_SITE_ID'
+          | 'PAGE_URL'
+          | 'URL_CHANNEL_NAME'
+          | 'URL_CHANNEL_ID'
+          | 'BUYER_NETWORK_NAME'
+          | 'BUYER_NETWORK_ID'
+          | 'BID_TYPE_NAME'
+          | 'BID_TYPE_CODE'
+          | 'CREATIVE_SIZE_NAME'
+          | 'CREATIVE_SIZE_CODE'
+          | 'DOMAIN_NAME'
+          | 'DOMAIN_CODE'
+          | 'COUNTRY_NAME'
+          | 'COUNTRY_CODE'
+          | 'PLATFORM_TYPE_NAME'
+          | 'PLATFORM_TYPE_CODE'
+          | 'TARGETING_TYPE_NAME'
+          | 'TARGETING_TYPE_CODE'
+          | 'TRAFFIC_SOURCE_NAME'
+          | 'TRAFFIC_SOURCE_CODE'
+          | 'CONTENT_PLATFORM_NAME'
+          | 'CONTENT_PLATFORM_CODE'
+          | 'AD_PLACEMENT_NAME'
+          | 'AD_PLACEMENT_CODE'
+          | 'REQUESTED_AD_TYPE_NAME'
+          | 'REQUESTED_AD_TYPE_CODE'
+          | 'SERVED_AD_TYPE_NAME'
+          | 'SERVED_AD_TYPE_CODE'
+          | 'AD_FORMAT_NAME'
+          | 'AD_FORMAT_CODE'
+          | 'CUSTOM_SEARCH_STYLE_NAME'
+          | 'CUSTOM_SEARCH_STYLE_ID'
+          | 'DOMAIN_REGISTRANT'
+          | 'WEBSEARCH_QUERY_STRING'
+          | 'OS_TYPE_NAME'
+          | 'OS_TYPE_CODE'
+          | 'BROWSER_TYPE_NAME'
+          | 'BROWSER_TYPE_CODE'
+          | 'WEBVIEW_TYPE_NAME'
+          | 'WEBVIEW_TYPE_CODE'
+          | (
+              | 'DIMENSION_UNSPECIFIED'
+              | 'DATE'
+              | 'WEEK'
+              | 'MONTH'
+              | 'ACCOUNT_NAME'
+              | 'AD_CLIENT_ID'
+              | 'HOSTED_AD_CLIENT_ID'
+              | 'PRODUCT_NAME'
+              | 'PRODUCT_CODE'
+              | 'AD_UNIT_NAME'
+              | 'AD_UNIT_ID'
+              | 'AD_UNIT_SIZE_NAME'
+              | 'AD_UNIT_SIZE_CODE'
+              | 'CUSTOM_CHANNEL_NAME'
+              | 'CUSTOM_CHANNEL_ID'
+              | 'HOSTED_CUSTOM_CHANNEL_ID'
+              | 'OWNED_SITE_DOMAIN_NAME'
+              | 'OWNED_SITE_ID'
+              | 'PAGE_URL'
+              | 'URL_CHANNEL_NAME'
+              | 'URL_CHANNEL_ID'
+              | 'BUYER_NETWORK_NAME'
+              | 'BUYER_NETWORK_ID'
+              | 'BID_TYPE_NAME'
+              | 'BID_TYPE_CODE'
+              | 'CREATIVE_SIZE_NAME'
+              | 'CREATIVE_SIZE_CODE'
+              | 'DOMAIN_NAME'
+              | 'DOMAIN_CODE'
+              | 'COUNTRY_NAME'
+              | 'COUNTRY_CODE'
+              | 'PLATFORM_TYPE_NAME'
+              | 'PLATFORM_TYPE_CODE'
+              | 'TARGETING_TYPE_NAME'
+              | 'TARGETING_TYPE_CODE'
+              | 'TRAFFIC_SOURCE_NAME'
+              | 'TRAFFIC_SOURCE_CODE'
+              | 'CONTENT_PLATFORM_NAME'
+              | 'CONTENT_PLATFORM_CODE'
+              | 'AD_PLACEMENT_NAME'
+              | 'AD_PLACEMENT_CODE'
+              | 'REQUESTED_AD_TYPE_NAME'
+              | 'REQUESTED_AD_TYPE_CODE'
+              | 'SERVED_AD_TYPE_NAME'
+              | 'SERVED_AD_TYPE_CODE'
+              | 'AD_FORMAT_NAME'
+              | 'AD_FORMAT_CODE'
+              | 'CUSTOM_SEARCH_STYLE_NAME'
+              | 'CUSTOM_SEARCH_STYLE_ID'
+              | 'DOMAIN_REGISTRANT'
+              | 'WEBSEARCH_QUERY_STRING'
+              | 'OS_TYPE_NAME'
+              | 'OS_TYPE_CODE'
+              | 'BROWSER_TYPE_NAME'
+              | 'BROWSER_TYPE_CODE'
+              | 'WEBVIEW_TYPE_NAME'
+              | 'WEBVIEW_TYPE_CODE'
+            )[];
         /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
         'endDate.day'?: number;
         /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
@@ -1214,7 +1392,83 @@ declare namespace gapi.client {
         /** The maximum number of rows of report data to return. Reports producing more rows than the requested limit will be truncated. If unset, this defaults to 100,000 rows for `Reports.GenerateReport` and 1,000,000 rows for `Reports.GenerateCsvReport`, which are also the maximum values permitted here. Report truncation can be identified (for `Reports.GenerateReport` only) by comparing the number of rows returned to the value returned in `total_matched_rows`. */
         limit?: number;
         /** Required. Reporting metrics. */
-        metrics?: string | string[];
+        metrics?:
+          | 'METRIC_UNSPECIFIED'
+          | 'PAGE_VIEWS'
+          | 'AD_REQUESTS'
+          | 'MATCHED_AD_REQUESTS'
+          | 'TOTAL_IMPRESSIONS'
+          | 'IMPRESSIONS'
+          | 'INDIVIDUAL_AD_IMPRESSIONS'
+          | 'CLICKS'
+          | 'PAGE_VIEWS_SPAM_RATIO'
+          | 'AD_REQUESTS_SPAM_RATIO'
+          | 'MATCHED_AD_REQUESTS_SPAM_RATIO'
+          | 'IMPRESSIONS_SPAM_RATIO'
+          | 'INDIVIDUAL_AD_IMPRESSIONS_SPAM_RATIO'
+          | 'CLICKS_SPAM_RATIO'
+          | 'AD_REQUESTS_COVERAGE'
+          | 'PAGE_VIEWS_CTR'
+          | 'AD_REQUESTS_CTR'
+          | 'MATCHED_AD_REQUESTS_CTR'
+          | 'IMPRESSIONS_CTR'
+          | 'INDIVIDUAL_AD_IMPRESSIONS_CTR'
+          | 'ACTIVE_VIEW_MEASURABILITY'
+          | 'ACTIVE_VIEW_VIEWABILITY'
+          | 'ACTIVE_VIEW_TIME'
+          | 'ESTIMATED_EARNINGS'
+          | 'PAGE_VIEWS_RPM'
+          | 'AD_REQUESTS_RPM'
+          | 'MATCHED_AD_REQUESTS_RPM'
+          | 'IMPRESSIONS_RPM'
+          | 'INDIVIDUAL_AD_IMPRESSIONS_RPM'
+          | 'COST_PER_CLICK'
+          | 'ADS_PER_IMPRESSION'
+          | 'TOTAL_EARNINGS'
+          | 'WEBSEARCH_RESULT_PAGES'
+          | 'FUNNEL_REQUESTS'
+          | 'FUNNEL_IMPRESSIONS'
+          | 'FUNNEL_CLICKS'
+          | 'FUNNEL_RPM'
+          | (
+              | 'METRIC_UNSPECIFIED'
+              | 'PAGE_VIEWS'
+              | 'AD_REQUESTS'
+              | 'MATCHED_AD_REQUESTS'
+              | 'TOTAL_IMPRESSIONS'
+              | 'IMPRESSIONS'
+              | 'INDIVIDUAL_AD_IMPRESSIONS'
+              | 'CLICKS'
+              | 'PAGE_VIEWS_SPAM_RATIO'
+              | 'AD_REQUESTS_SPAM_RATIO'
+              | 'MATCHED_AD_REQUESTS_SPAM_RATIO'
+              | 'IMPRESSIONS_SPAM_RATIO'
+              | 'INDIVIDUAL_AD_IMPRESSIONS_SPAM_RATIO'
+              | 'CLICKS_SPAM_RATIO'
+              | 'AD_REQUESTS_COVERAGE'
+              | 'PAGE_VIEWS_CTR'
+              | 'AD_REQUESTS_CTR'
+              | 'MATCHED_AD_REQUESTS_CTR'
+              | 'IMPRESSIONS_CTR'
+              | 'INDIVIDUAL_AD_IMPRESSIONS_CTR'
+              | 'ACTIVE_VIEW_MEASURABILITY'
+              | 'ACTIVE_VIEW_VIEWABILITY'
+              | 'ACTIVE_VIEW_TIME'
+              | 'ESTIMATED_EARNINGS'
+              | 'PAGE_VIEWS_RPM'
+              | 'AD_REQUESTS_RPM'
+              | 'MATCHED_AD_REQUESTS_RPM'
+              | 'IMPRESSIONS_RPM'
+              | 'INDIVIDUAL_AD_IMPRESSIONS_RPM'
+              | 'COST_PER_CLICK'
+              | 'ADS_PER_IMPRESSION'
+              | 'TOTAL_EARNINGS'
+              | 'WEBSEARCH_RESULT_PAGES'
+              | 'FUNNEL_REQUESTS'
+              | 'FUNNEL_IMPRESSIONS'
+              | 'FUNNEL_CLICKS'
+              | 'FUNNEL_RPM'
+            )[];
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** The name of a dimension or metric to sort the resulting report on, can be prefixed with "+" to sort ascending or "-" to sort descending. If no prefix is specified, the column is sorted ascending. */
@@ -1224,7 +1478,10 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Timezone in which to generate the report. If unspecified, this defaults to the account timezone. For more information, see [changing the time zone of your reports](https://support.google.com/adsense/answer/9830725). */
-        reportingTimeZone?: string;
+        reportingTimeZone?:
+          | 'REPORTING_TIME_ZONE_UNSPECIFIED'
+          | 'ACCOUNT_TIME_ZONE'
+          | 'GOOGLE_TIME_ZONE';
         /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
         'startDate.day'?: number;
         /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
@@ -1239,21 +1496,145 @@ declare namespace gapi.client {
       /** Generates a csv formatted ad hoc report. */
       generateCsv(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Required. The account which owns the collection of reports. Format: accounts/{account} */
         account: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The [ISO-4217 currency code](https://en.wikipedia.org/wiki/ISO_4217) to use when reporting on monetary metrics. Defaults to the account's currency if not set. */
         currencyCode?: string;
         /** Date range of the report, if unset the range will be considered CUSTOM. */
-        dateRange?: string;
+        dateRange?:
+          | 'REPORTING_DATE_RANGE_UNSPECIFIED'
+          | 'CUSTOM'
+          | 'TODAY'
+          | 'YESTERDAY'
+          | 'MONTH_TO_DATE'
+          | 'YEAR_TO_DATE'
+          | 'LAST_7_DAYS'
+          | 'LAST_30_DAYS';
         /** Dimensions to base the report on. */
-        dimensions?: string | string[];
+        dimensions?:
+          | 'DIMENSION_UNSPECIFIED'
+          | 'DATE'
+          | 'WEEK'
+          | 'MONTH'
+          | 'ACCOUNT_NAME'
+          | 'AD_CLIENT_ID'
+          | 'HOSTED_AD_CLIENT_ID'
+          | 'PRODUCT_NAME'
+          | 'PRODUCT_CODE'
+          | 'AD_UNIT_NAME'
+          | 'AD_UNIT_ID'
+          | 'AD_UNIT_SIZE_NAME'
+          | 'AD_UNIT_SIZE_CODE'
+          | 'CUSTOM_CHANNEL_NAME'
+          | 'CUSTOM_CHANNEL_ID'
+          | 'HOSTED_CUSTOM_CHANNEL_ID'
+          | 'OWNED_SITE_DOMAIN_NAME'
+          | 'OWNED_SITE_ID'
+          | 'PAGE_URL'
+          | 'URL_CHANNEL_NAME'
+          | 'URL_CHANNEL_ID'
+          | 'BUYER_NETWORK_NAME'
+          | 'BUYER_NETWORK_ID'
+          | 'BID_TYPE_NAME'
+          | 'BID_TYPE_CODE'
+          | 'CREATIVE_SIZE_NAME'
+          | 'CREATIVE_SIZE_CODE'
+          | 'DOMAIN_NAME'
+          | 'DOMAIN_CODE'
+          | 'COUNTRY_NAME'
+          | 'COUNTRY_CODE'
+          | 'PLATFORM_TYPE_NAME'
+          | 'PLATFORM_TYPE_CODE'
+          | 'TARGETING_TYPE_NAME'
+          | 'TARGETING_TYPE_CODE'
+          | 'TRAFFIC_SOURCE_NAME'
+          | 'TRAFFIC_SOURCE_CODE'
+          | 'CONTENT_PLATFORM_NAME'
+          | 'CONTENT_PLATFORM_CODE'
+          | 'AD_PLACEMENT_NAME'
+          | 'AD_PLACEMENT_CODE'
+          | 'REQUESTED_AD_TYPE_NAME'
+          | 'REQUESTED_AD_TYPE_CODE'
+          | 'SERVED_AD_TYPE_NAME'
+          | 'SERVED_AD_TYPE_CODE'
+          | 'AD_FORMAT_NAME'
+          | 'AD_FORMAT_CODE'
+          | 'CUSTOM_SEARCH_STYLE_NAME'
+          | 'CUSTOM_SEARCH_STYLE_ID'
+          | 'DOMAIN_REGISTRANT'
+          | 'WEBSEARCH_QUERY_STRING'
+          | 'OS_TYPE_NAME'
+          | 'OS_TYPE_CODE'
+          | 'BROWSER_TYPE_NAME'
+          | 'BROWSER_TYPE_CODE'
+          | 'WEBVIEW_TYPE_NAME'
+          | 'WEBVIEW_TYPE_CODE'
+          | (
+              | 'DIMENSION_UNSPECIFIED'
+              | 'DATE'
+              | 'WEEK'
+              | 'MONTH'
+              | 'ACCOUNT_NAME'
+              | 'AD_CLIENT_ID'
+              | 'HOSTED_AD_CLIENT_ID'
+              | 'PRODUCT_NAME'
+              | 'PRODUCT_CODE'
+              | 'AD_UNIT_NAME'
+              | 'AD_UNIT_ID'
+              | 'AD_UNIT_SIZE_NAME'
+              | 'AD_UNIT_SIZE_CODE'
+              | 'CUSTOM_CHANNEL_NAME'
+              | 'CUSTOM_CHANNEL_ID'
+              | 'HOSTED_CUSTOM_CHANNEL_ID'
+              | 'OWNED_SITE_DOMAIN_NAME'
+              | 'OWNED_SITE_ID'
+              | 'PAGE_URL'
+              | 'URL_CHANNEL_NAME'
+              | 'URL_CHANNEL_ID'
+              | 'BUYER_NETWORK_NAME'
+              | 'BUYER_NETWORK_ID'
+              | 'BID_TYPE_NAME'
+              | 'BID_TYPE_CODE'
+              | 'CREATIVE_SIZE_NAME'
+              | 'CREATIVE_SIZE_CODE'
+              | 'DOMAIN_NAME'
+              | 'DOMAIN_CODE'
+              | 'COUNTRY_NAME'
+              | 'COUNTRY_CODE'
+              | 'PLATFORM_TYPE_NAME'
+              | 'PLATFORM_TYPE_CODE'
+              | 'TARGETING_TYPE_NAME'
+              | 'TARGETING_TYPE_CODE'
+              | 'TRAFFIC_SOURCE_NAME'
+              | 'TRAFFIC_SOURCE_CODE'
+              | 'CONTENT_PLATFORM_NAME'
+              | 'CONTENT_PLATFORM_CODE'
+              | 'AD_PLACEMENT_NAME'
+              | 'AD_PLACEMENT_CODE'
+              | 'REQUESTED_AD_TYPE_NAME'
+              | 'REQUESTED_AD_TYPE_CODE'
+              | 'SERVED_AD_TYPE_NAME'
+              | 'SERVED_AD_TYPE_CODE'
+              | 'AD_FORMAT_NAME'
+              | 'AD_FORMAT_CODE'
+              | 'CUSTOM_SEARCH_STYLE_NAME'
+              | 'CUSTOM_SEARCH_STYLE_ID'
+              | 'DOMAIN_REGISTRANT'
+              | 'WEBSEARCH_QUERY_STRING'
+              | 'OS_TYPE_NAME'
+              | 'OS_TYPE_CODE'
+              | 'BROWSER_TYPE_NAME'
+              | 'BROWSER_TYPE_CODE'
+              | 'WEBVIEW_TYPE_NAME'
+              | 'WEBVIEW_TYPE_CODE'
+            )[];
         /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
         'endDate.day'?: number;
         /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
@@ -1271,7 +1652,83 @@ declare namespace gapi.client {
         /** The maximum number of rows of report data to return. Reports producing more rows than the requested limit will be truncated. If unset, this defaults to 100,000 rows for `Reports.GenerateReport` and 1,000,000 rows for `Reports.GenerateCsvReport`, which are also the maximum values permitted here. Report truncation can be identified (for `Reports.GenerateReport` only) by comparing the number of rows returned to the value returned in `total_matched_rows`. */
         limit?: number;
         /** Required. Reporting metrics. */
-        metrics?: string | string[];
+        metrics?:
+          | 'METRIC_UNSPECIFIED'
+          | 'PAGE_VIEWS'
+          | 'AD_REQUESTS'
+          | 'MATCHED_AD_REQUESTS'
+          | 'TOTAL_IMPRESSIONS'
+          | 'IMPRESSIONS'
+          | 'INDIVIDUAL_AD_IMPRESSIONS'
+          | 'CLICKS'
+          | 'PAGE_VIEWS_SPAM_RATIO'
+          | 'AD_REQUESTS_SPAM_RATIO'
+          | 'MATCHED_AD_REQUESTS_SPAM_RATIO'
+          | 'IMPRESSIONS_SPAM_RATIO'
+          | 'INDIVIDUAL_AD_IMPRESSIONS_SPAM_RATIO'
+          | 'CLICKS_SPAM_RATIO'
+          | 'AD_REQUESTS_COVERAGE'
+          | 'PAGE_VIEWS_CTR'
+          | 'AD_REQUESTS_CTR'
+          | 'MATCHED_AD_REQUESTS_CTR'
+          | 'IMPRESSIONS_CTR'
+          | 'INDIVIDUAL_AD_IMPRESSIONS_CTR'
+          | 'ACTIVE_VIEW_MEASURABILITY'
+          | 'ACTIVE_VIEW_VIEWABILITY'
+          | 'ACTIVE_VIEW_TIME'
+          | 'ESTIMATED_EARNINGS'
+          | 'PAGE_VIEWS_RPM'
+          | 'AD_REQUESTS_RPM'
+          | 'MATCHED_AD_REQUESTS_RPM'
+          | 'IMPRESSIONS_RPM'
+          | 'INDIVIDUAL_AD_IMPRESSIONS_RPM'
+          | 'COST_PER_CLICK'
+          | 'ADS_PER_IMPRESSION'
+          | 'TOTAL_EARNINGS'
+          | 'WEBSEARCH_RESULT_PAGES'
+          | 'FUNNEL_REQUESTS'
+          | 'FUNNEL_IMPRESSIONS'
+          | 'FUNNEL_CLICKS'
+          | 'FUNNEL_RPM'
+          | (
+              | 'METRIC_UNSPECIFIED'
+              | 'PAGE_VIEWS'
+              | 'AD_REQUESTS'
+              | 'MATCHED_AD_REQUESTS'
+              | 'TOTAL_IMPRESSIONS'
+              | 'IMPRESSIONS'
+              | 'INDIVIDUAL_AD_IMPRESSIONS'
+              | 'CLICKS'
+              | 'PAGE_VIEWS_SPAM_RATIO'
+              | 'AD_REQUESTS_SPAM_RATIO'
+              | 'MATCHED_AD_REQUESTS_SPAM_RATIO'
+              | 'IMPRESSIONS_SPAM_RATIO'
+              | 'INDIVIDUAL_AD_IMPRESSIONS_SPAM_RATIO'
+              | 'CLICKS_SPAM_RATIO'
+              | 'AD_REQUESTS_COVERAGE'
+              | 'PAGE_VIEWS_CTR'
+              | 'AD_REQUESTS_CTR'
+              | 'MATCHED_AD_REQUESTS_CTR'
+              | 'IMPRESSIONS_CTR'
+              | 'INDIVIDUAL_AD_IMPRESSIONS_CTR'
+              | 'ACTIVE_VIEW_MEASURABILITY'
+              | 'ACTIVE_VIEW_VIEWABILITY'
+              | 'ACTIVE_VIEW_TIME'
+              | 'ESTIMATED_EARNINGS'
+              | 'PAGE_VIEWS_RPM'
+              | 'AD_REQUESTS_RPM'
+              | 'MATCHED_AD_REQUESTS_RPM'
+              | 'IMPRESSIONS_RPM'
+              | 'INDIVIDUAL_AD_IMPRESSIONS_RPM'
+              | 'COST_PER_CLICK'
+              | 'ADS_PER_IMPRESSION'
+              | 'TOTAL_EARNINGS'
+              | 'WEBSEARCH_RESULT_PAGES'
+              | 'FUNNEL_REQUESTS'
+              | 'FUNNEL_IMPRESSIONS'
+              | 'FUNNEL_CLICKS'
+              | 'FUNNEL_RPM'
+            )[];
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** The name of a dimension or metric to sort the resulting report on, can be prefixed with "+" to sort ascending or "-" to sort descending. If no prefix is specified, the column is sorted ascending. */
@@ -1281,7 +1738,10 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Timezone in which to generate the report. If unspecified, this defaults to the account timezone. For more information, see [changing the time zone of your reports](https://support.google.com/adsense/answer/9830725). */
-        reportingTimeZone?: string;
+        reportingTimeZone?:
+          | 'REPORTING_TIME_ZONE_UNSPECIFIED'
+          | 'ACCOUNT_TIME_ZONE'
+          | 'GOOGLE_TIME_ZONE';
         /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
         'startDate.day'?: number;
         /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
@@ -1296,11 +1756,11 @@ declare namespace gapi.client {
       /** Gets the saved report from the given resource name. */
       getSaved(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1326,11 +1786,11 @@ declare namespace gapi.client {
       /** Gets information about the selected site. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1353,11 +1813,11 @@ declare namespace gapi.client {
       /** Lists all the sites available in an account. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1386,11 +1846,11 @@ declare namespace gapi.client {
       /** Gets information about the selected AdSense account. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1413,11 +1873,11 @@ declare namespace gapi.client {
       /** Gets the ad blocking recovery tag of an account. */
       getAdBlockingRecoveryTag(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1440,11 +1900,11 @@ declare namespace gapi.client {
       /** Lists all accounts available to this user. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1469,11 +1929,11 @@ declare namespace gapi.client {
       /** Lists all accounts directly managed by the given AdSense account. */
       listChildAccounts(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

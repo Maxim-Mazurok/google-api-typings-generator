@@ -38,7 +38,11 @@ declare namespace gapi.client {
       /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
       exemptedMembers?: string[];
       /** The log type that this config enables. */
-      logType?: string;
+      logType?:
+        | 'LOG_TYPE_UNSPECIFIED'
+        | 'ADMIN_READ'
+        | 'DATA_WRITE'
+        | 'DATA_READ';
     }
     interface AuthorizationCode {
       /** The Authorization Code in ASCII. It can be used to transfer the domain to or from another registrar. */
@@ -54,7 +58,9 @@ declare namespace gapi.client {
     }
     interface ConfigureContactSettingsRequest {
       /** The list of contact notices that the caller acknowledges. The notices needed here depend on the values specified in `contact_settings`. */
-      contactNotices?: string[];
+      contactNotices?:
+        | 'CONTACT_NOTICE_UNSPECIFIED'
+        | 'PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT'[];
       /** Fields of the `ContactSettings` to update. */
       contactSettings?: ContactSettings;
       /** Required. The field mask describing which fields to update as a comma-separated list. For example, if only the registrant contact is being updated, the `update_mask` is `"registrant_contact"`. */
@@ -90,7 +96,11 @@ declare namespace gapi.client {
       /** Required. The administrative contact for the `Registration`. */
       adminContact?: Contact;
       /** Required. Privacy setting for the contacts associated with the `Registration`. */
-      privacy?: string;
+      privacy?:
+        | 'CONTACT_PRIVACY_UNSPECIFIED'
+        | 'PUBLIC_CONTACT_DATA'
+        | 'PRIVATE_CONTACT_DATA'
+        | 'REDACTED_CONTACT_DATA';
       /** Required. The registrant contact for the `Registration`. *Caution: Anyone with access to this email address, phone number, and/or postal address can take control of the domain.* *Warning: For new `Registration`s, the registrant receives an email confirmation that they must complete within 15 days to avoid domain suspension.* */
       registrantContact?: Contact;
       /** Required. The technical contact for the `Registration`. */
@@ -116,7 +126,13 @@ declare namespace gapi.client {
       /** The domain name. Unicode domain names are expressed in Punycode format. */
       domainName?: string;
       /** The state of this domain as a `Registration` resource. */
-      resourceState?: string;
+      resourceState?:
+        | 'RESOURCE_STATE_UNSPECIFIED'
+        | 'IMPORTABLE'
+        | 'UNSUPPORTED'
+        | 'SUSPENDED'
+        | 'EXPIRED'
+        | 'DELETED';
       /** Price to renew the domain for one year. Only set when `resource_state` is `IMPORTABLE`. */
       yearlyPrice?: Money;
     }
@@ -126,7 +142,7 @@ declare namespace gapi.client {
       /** The PEM-encoded certificate chain. */
       pemCertificate?: string;
       /** The redirect type. */
-      redirectType?: string;
+      redirectType?: 'REDIRECT_TYPE_UNSPECIFIED' | 'TEMPORARY' | 'PERMANENT';
       /** If true, the forwarding works also over HTTPS. */
       sslEnabled?: boolean;
       /** The subdomain of the registered domain that is being forwarded. E.g. `www.example.com`, `example.com` (i.e. the registered domain itself) or `*.example.com` (i.e. all subdomains). */
@@ -136,11 +152,34 @@ declare namespace gapi.client {
     }
     interface DsRecord {
       /** The algorithm used to generate the referenced DNSKEY. */
-      algorithm?: string;
+      algorithm?:
+        | 'ALGORITHM_UNSPECIFIED'
+        | 'RSAMD5'
+        | 'DH'
+        | 'DSA'
+        | 'ECC'
+        | 'RSASHA1'
+        | 'DSANSEC3SHA1'
+        | 'RSASHA1NSEC3SHA1'
+        | 'RSASHA256'
+        | 'RSASHA512'
+        | 'ECCGOST'
+        | 'ECDSAP256SHA256'
+        | 'ECDSAP384SHA384'
+        | 'ED25519'
+        | 'ED448'
+        | 'INDIRECT'
+        | 'PRIVATEDNS'
+        | 'PRIVATEOID';
       /** The digest generated from the referenced DNSKEY. */
       digest?: string;
       /** The hash function used to generate the digest of the referenced DNSKEY. */
-      digestType?: string;
+      digestType?:
+        | 'DIGEST_TYPE_UNSPECIFIED'
+        | 'SHA1'
+        | 'SHA256'
+        | 'GOST3411'
+        | 'SHA384';
       /** The key tag of the record. Must be set in range 0 -- 65535. */
       keyTag?: number;
     }
@@ -188,7 +227,10 @@ declare namespace gapi.client {
       /** Output only. The list of DS records published for this domain. The list is automatically populated when `ds_state` is `DS_RECORDS_PUBLISHED`, otherwise it remains empty. */
       dsRecords?: DsRecord[];
       /** Required. The state of DS records for this domain. Used to enable or disable automatic DNSSEC. */
-      dsState?: string;
+      dsState?:
+        | 'DS_STATE_UNSPECIFIED'
+        | 'DS_RECORDS_UNPUBLISHED'
+        | 'DS_RECORDS_PUBLISHED';
       /** Output only. A list of name servers that store the DNS zone for this domain. Each name server is a domain name, with Unicode domain names expressed in Punycode format. This field is automatically populated with the name servers assigned to the Google Domains DNS zone. */
       nameServers?: string[];
     }
@@ -232,9 +274,13 @@ declare namespace gapi.client {
       /** The frontend IP address of the load balancer to health check. */
       ipAddress?: string;
       /** The protocol of the load balancer to health check. */
-      ipProtocol?: string;
+      ipProtocol?: 'UNDEFINED' | 'TCP' | 'UDP';
       /** The type of load balancer specified by this target. This value must match the configuration of the load balancer located at the LoadBalancerTarget's IP address, port, and region. Use the following: - *regionalL4ilb*: for a regional internal passthrough Network Load Balancer. - *regionalL7ilb*: for a regional internal Application Load Balancer. - *globalL7ilb*: for a global internal Application Load Balancer. */
-      loadBalancerType?: string;
+      loadBalancerType?:
+        | 'NONE'
+        | 'GLOBAL_L7ILB'
+        | 'REGIONAL_L4ILB'
+        | 'REGIONAL_L7ILB';
       /** The fully qualified URL of the network that the load balancer is attached to. This should be formatted like `https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}`. */
       networkUrl?: string;
       /** The configured port of the load balancer. */
@@ -258,13 +304,27 @@ declare namespace gapi.client {
     }
     interface ManagementSettings {
       /** Output only. The actual transfer lock state for this `Registration`. */
-      effectiveTransferLockState?: string;
+      effectiveTransferLockState?:
+        | 'TRANSFER_LOCK_STATE_UNSPECIFIED'
+        | 'UNLOCKED'
+        | 'LOCKED';
       /** Optional. The desired renewal method for this `Registration`. The actual `renewal_method` is automatically updated to reflect this choice. If unset or equal to `RENEWAL_METHOD_UNSPECIFIED`, the actual `renewalMethod` is treated as if it were set to `AUTOMATIC_RENEWAL`. You cannot use `RENEWAL_DISABLED` during resource creation, and you can update the renewal status only when the `Registration` resource has state `ACTIVE` or `SUSPENDED`. When `preferred_renewal_method` is set to `AUTOMATIC_RENEWAL`, the actual `renewal_method` can be set to `RENEWAL_DISABLED` in case of problems with the billing account or reported domain abuse. In such cases, check the `issues` field on the `Registration`. After the problem is resolved, the `renewal_method` is automatically updated to `preferred_renewal_method` in a few hours. */
-      preferredRenewalMethod?: string;
+      preferredRenewalMethod?:
+        | 'RENEWAL_METHOD_UNSPECIFIED'
+        | 'AUTOMATIC_RENEWAL'
+        | 'MANUAL_RENEWAL'
+        | 'RENEWAL_DISABLED';
       /** Output only. The actual renewal method for this `Registration`. When `preferred_renewal_method` is set to `AUTOMATIC_RENEWAL`, the actual `renewal_method` can be equal to `RENEWAL_DISABLED`—for example, when there are problems with the billing account or reported domain abuse. In such cases, check the `issues` field on the `Registration`. After the problem is resolved, the `renewal_method` is automatically updated to `preferred_renewal_method` in a few hours. */
-      renewalMethod?: string;
+      renewalMethod?:
+        | 'RENEWAL_METHOD_UNSPECIFIED'
+        | 'AUTOMATIC_RENEWAL'
+        | 'MANUAL_RENEWAL'
+        | 'RENEWAL_DISABLED';
       /** This is the desired transfer lock state for this `Registration`. A transfer lock controls whether the domain can be transferred to another registrar. The transfer lock state of the domain is returned in the `effective_transfer_lock_state` property. The transfer lock state values might be different for the following reasons: * `transfer_lock_state` was updated only a short time ago. * Domains with the `TRANSFER_LOCK_UNSUPPORTED_BY_REGISTRY` state are in the list of `domain_properties`. These domains are always in the `UNLOCKED` state. */
-      transferLockState?: string;
+      transferLockState?:
+        | 'TRANSFER_LOCK_STATE_UNSPECIFIED'
+        | 'UNLOCKED'
+        | 'LOCKED';
     }
     interface Money {
       /** The three-letter currency code defined in ISO 4217. */
@@ -344,9 +404,11 @@ declare namespace gapi.client {
     }
     interface RegisterDomainRequest {
       /** The list of contact notices that the caller acknowledges. The notices needed here depend on the values specified in `registration.contact_settings`. */
-      contactNotices?: string[];
+      contactNotices?:
+        | 'CONTACT_NOTICE_UNSPECIFIED'
+        | 'PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT'[];
       /** The list of domain notices that you acknowledge. Call `RetrieveRegisterParameters` to see the notices that need acknowledgement. */
-      domainNotices?: string[];
+      domainNotices?: 'DOMAIN_NOTICE_UNSPECIFIED' | 'HSTS_PRELOADED'[];
       /** Required. The complete `Registration` resource to be created. */
       registration?: Registration;
       /** When true, only validation is performed, without actually registering the domain. Follows: https://cloud.google.com/apis/design/design_patterns#request_validation */
@@ -356,13 +418,22 @@ declare namespace gapi.client {
     }
     interface RegisterParameters {
       /** Indicates whether the domain is available for registration. This value is accurate when obtained by calling `RetrieveRegisterParameters`, but is approximate when obtained by calling `SearchDomains`. */
-      availability?: string;
+      availability?:
+        | 'AVAILABILITY_UNSPECIFIED'
+        | 'AVAILABLE'
+        | 'UNAVAILABLE'
+        | 'UNSUPPORTED'
+        | 'UNKNOWN';
       /** The domain name. Unicode domain names are expressed in Punycode format. */
       domainName?: string;
       /** Notices about special properties of the domain. */
-      domainNotices?: string[];
+      domainNotices?: 'DOMAIN_NOTICE_UNSPECIFIED' | 'HSTS_PRELOADED'[];
       /** Contact privacy options that the domain supports. */
-      supportedPrivacy?: string[];
+      supportedPrivacy?:
+        | 'CONTACT_PRIVACY_UNSPECIFIED'
+        | 'PUBLIC_CONTACT_DATA'
+        | 'PRIVATE_CONTACT_DATA'
+        | 'REDACTED_CONTACT_DATA'[];
       /** Price to register or renew the domain for one year. */
       yearlyPrice?: Money;
     }
@@ -376,11 +447,20 @@ declare namespace gapi.client {
       /** Required. Immutable. The domain name. Unicode domain names must be expressed in Punycode format. */
       domainName?: string;
       /** Output only. Special properties of the domain. */
-      domainProperties?: string[];
+      domainProperties?:
+        | 'DOMAIN_PROPERTY_UNSPECIFIED'
+        | 'TRANSFER_LOCK_UNSUPPORTED_BY_REGISTRY'
+        | 'REQUIRE_PUSH_TRANSFER'[];
       /** Output only. The expiration timestamp of the `Registration`. */
       expireTime?: string;
       /** Output only. The set of issues with the `Registration` that require attention. */
-      issues?: string[];
+      issues?:
+        | 'ISSUE_UNSPECIFIED'
+        | 'CONTACT_SUPPORT'
+        | 'UNVERIFIED_EMAIL'
+        | 'PROBLEM_WITH_BILLING'
+        | 'DNS_NOT_ACTIVATED'
+        | 'AUTO_RENEWAL_UPDATE_NOT_EFFECTIVE'[];
       /** Set of labels associated with the `Registration`. */
       labels?: {[P in string]: string};
       /** Settings for management of the `Registration`, including renewal, billing, and transfer. You cannot update these with the `UpdateRegistration` method. To update these settings, use the `ConfigureManagementSettings` method. */
@@ -390,15 +470,44 @@ declare namespace gapi.client {
       /** Output only. Pending contact settings for the `Registration`. Updates to the `contact_settings` field that change its `registrant_contact` or `privacy` fields require email confirmation by the `registrant_contact` before taking effect. This field is set only if there are pending updates to the `contact_settings` that have not been confirmed. To confirm the changes, the `registrant_contact` must follow the instructions in the email they receive. */
       pendingContactSettings?: ContactSettings;
       /** Output only. Current domain management provider. */
-      provider?: string;
+      provider?: 'REGISTRAR_UNSPECIFIED' | 'GOOGLE_DOMAINS' | 'SQUARESPACE';
       /** Output only. The reason the domain registration failed. Only set for domains in REGISTRATION_FAILED state. */
-      registerFailureReason?: string;
+      registerFailureReason?:
+        | 'REGISTER_FAILURE_REASON_UNSPECIFIED'
+        | 'REGISTER_FAILURE_REASON_UNKNOWN'
+        | 'DOMAIN_NOT_AVAILABLE'
+        | 'INVALID_CONTACTS';
       /** Output only. The state of the `Registration` */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'REGISTRATION_PENDING'
+        | 'REGISTRATION_FAILED'
+        | 'TRANSFER_PENDING'
+        | 'TRANSFER_FAILED'
+        | 'IMPORT_PENDING'
+        | 'ACTIVE'
+        | 'SUSPENDED'
+        | 'EXPORTED'
+        | 'EXPIRED';
       /** Output only. Set of options for the `contact_settings.privacy` field that this `Registration` supports. */
-      supportedPrivacy?: string[];
+      supportedPrivacy?:
+        | 'CONTACT_PRIVACY_UNSPECIFIED'
+        | 'PUBLIC_CONTACT_DATA'
+        | 'PRIVATE_CONTACT_DATA'
+        | 'REDACTED_CONTACT_DATA'[];
       /** Output only. Deprecated: For more information, see [Cloud Domains feature deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations). The reason the domain transfer failed. Only set for domains in TRANSFER_FAILED state. */
-      transferFailureReason?: string;
+      transferFailureReason?:
+        | 'TRANSFER_FAILURE_REASON_UNSPECIFIED'
+        | 'TRANSFER_FAILURE_REASON_UNKNOWN'
+        | 'EMAIL_CONFIRMATION_FAILURE'
+        | 'DOMAIN_NOT_REGISTERED'
+        | 'DOMAIN_HAS_TRANSFER_LOCK'
+        | 'INVALID_AUTHORIZATION_CODE'
+        | 'TRANSFER_CANCELLED'
+        | 'TRANSFER_REJECTED'
+        | 'INVALID_REGISTRANT_EMAIL_ADDRESS'
+        | 'DOMAIN_NOT_ELIGIBLE_FOR_TRANSFER'
+        | 'TRANSFER_ALREADY_PENDING';
     }
     interface RenewDomainRequest {
       /** Optional. When true, only validation is performed, without actually renewing the domain. For more information, see [Request validation](https://cloud.google.com/apis/design/design_patterns#request_validation) */
@@ -486,7 +595,9 @@ declare namespace gapi.client {
       /** The domain's transfer authorization code. You can obtain this from the domain's current registrar. */
       authorizationCode?: AuthorizationCode;
       /** The list of contact notices that you acknowledge. The notices needed here depend on the values specified in `registration.contact_settings`. */
-      contactNotices?: string[];
+      contactNotices?:
+        | 'CONTACT_NOTICE_UNSPECIFIED'
+        | 'PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT'[];
       /** Required. The complete `Registration` resource to be created. You can leave `registration.dns_settings` unset to import the domain's current DNS configuration from its current registrar. Use this option only if you are sure that the domain's current DNS service does not cease upon transfer, as is often the case for DNS services provided for free by the registrar. */
       registration?: Registration;
       /** Validate the request without actually transferring the domain. */
@@ -504,9 +615,16 @@ declare namespace gapi.client {
       /** The name servers that currently store the configuration of the domain. */
       nameServers?: string[];
       /** Contact privacy options that the domain supports. */
-      supportedPrivacy?: string[];
+      supportedPrivacy?:
+        | 'CONTACT_PRIVACY_UNSPECIFIED'
+        | 'PUBLIC_CONTACT_DATA'
+        | 'PRIVATE_CONTACT_DATA'
+        | 'REDACTED_CONTACT_DATA'[];
       /** Indicates whether the domain is protected by a transfer lock. For a transfer to succeed, this must show `UNLOCKED`. To unlock a domain, go to its current registrar. */
-      transferLockState?: string;
+      transferLockState?:
+        | 'TRANSFER_LOCK_STATE_UNSPECIFIED'
+        | 'UNLOCKED'
+        | 'LOCKED';
       /** Price to transfer or renew the domain for one year. */
       yearlyPrice?: Money;
     }
@@ -526,11 +644,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -553,11 +671,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -590,11 +708,11 @@ declare namespace gapi.client {
       /** Updates a `Registration`'s contact settings. Some changes require confirmation by the domain's registrant contact . Caution: Please consider carefully any changes to contact privacy settings when changing from `REDACTED_CONTACT_DATA` to `PUBLIC_CONTACT_DATA.` There may be a delay in reflecting updates you make to registrant contact information such that any changes you make to contact privacy (including from `REDACTED_CONTACT_DATA` to `PUBLIC_CONTACT_DATA`) will be applied without delay but changes to registrant contact information may take a limited time to be publicized. This means that changes to contact privacy from `REDACTED_CONTACT_DATA` to `PUBLIC_CONTACT_DATA` may make the previous registrant contact data public until the modified registrant contact details are published. */
       configureContactSettings(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -619,11 +737,11 @@ declare namespace gapi.client {
       configureContactSettings(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -648,11 +766,11 @@ declare namespace gapi.client {
       /** Updates a `Registration`'s DNS settings. */
       configureDnsSettings(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -677,11 +795,11 @@ declare namespace gapi.client {
       configureDnsSettings(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -706,11 +824,11 @@ declare namespace gapi.client {
       /** Updates a `Registration`'s management settings. */
       configureManagementSettings(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -735,11 +853,11 @@ declare namespace gapi.client {
       configureManagementSettings(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -764,11 +882,11 @@ declare namespace gapi.client {
       /** Deletes a `Registration` resource. This method works on any `Registration` resource using [Subscription or Commitment billing](/domains/pricing#billing-models), provided that the resource was created at least 1 day in the past. When an active registration is successfully deleted, you can continue to use the domain in [Google Domains](https://domains.google/) until it expires. The calling user becomes the domain's sole owner in Google Domains, and permissions for the domain are subsequently managed there. The domain does not renew automatically unless the new owner sets up billing in Google Domains. After January 2024 you will only be able to delete `Registration` resources when `state` is one of: `EXPORTED`, `EXPIRED`,`REGISTRATION_FAILED` or `TRANSFER_FAILED`. See [Cloud Domains feature deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations) for more details. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -791,11 +909,11 @@ declare namespace gapi.client {
       /** Deprecated: For more information, see [Cloud Domains feature deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations) Exports a `Registration` resource, such that it is no longer managed by Cloud Domains. When an active domain is successfully exported, you can continue to use the domain in [Google Domains](https://domains.google/) until it expires. The calling user becomes the domain's sole owner in Google Domains, and permissions for the domain are subsequently managed there. The domain does not renew automatically unless the new owner sets up billing in Google Domains. */
       export(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -820,11 +938,11 @@ declare namespace gapi.client {
       export(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -849,11 +967,11 @@ declare namespace gapi.client {
       /** Gets the details of a `Registration` resource. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -876,11 +994,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -905,11 +1023,11 @@ declare namespace gapi.client {
       /** Deprecated: For more information, see [Cloud Domains feature deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations) Imports a domain name from [Google Domains](https://domains.google/) for use in Cloud Domains. To transfer a domain from another registrar, use the `TransferDomain` method instead. Since individual users can own domains in Google Domains, the calling user must have ownership permission on the domain. */
       import(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -934,11 +1052,11 @@ declare namespace gapi.client {
       import(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -963,11 +1081,11 @@ declare namespace gapi.client {
       /** Initiates the `Push Transfer` process to transfer the domain to another registrar. The process might complete instantly or might require confirmation or additional work. Check the emails sent to the email address of the registrant. The process is aborted after a timeout if it's not completed. This method is only supported for domains that have the `REQUIRE_PUSH_TRANSFER` property in the list of `domain_properties`. The domain must also be unlocked before it can be transferred to a different registrar. For more information, see [Transfer a registered domain to another registrar](https://cloud.google.com/domains/docs/transfer-domain-to-another-registrar). */
       initiatePushTransfer(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -992,11 +1110,11 @@ declare namespace gapi.client {
       initiatePushTransfer(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1021,11 +1139,11 @@ declare namespace gapi.client {
       /** Lists the `Registration` resources in a project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1054,11 +1172,11 @@ declare namespace gapi.client {
       /** Updates select fields of a `Registration` resource, notably `labels`. To update other fields, use the appropriate custom update method: * To update management settings, see `ConfigureManagementSettings` * To update DNS configuration, see `ConfigureDnsSettings` * To update contact information, see `ConfigureContactSettings` */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1085,11 +1203,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1116,11 +1234,11 @@ declare namespace gapi.client {
       /** Registers a new domain name and creates a corresponding `Registration` resource. Call `RetrieveRegisterParameters` first to check availability of the domain name and determine parameters like price that are needed to build a call to this method. A successful call creates a `Registration` resource in state `REGISTRATION_PENDING`, which resolves to `ACTIVE` within 1-2 minutes, indicating that the domain was successfully registered. If the resource ends up in state `REGISTRATION_FAILED`, it indicates that the domain was not registered successfully, and you can safely delete the resource and retry registration. */
       register(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1145,11 +1263,11 @@ declare namespace gapi.client {
       register(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1174,11 +1292,11 @@ declare namespace gapi.client {
       /** Renews a recently expired domain. This method can only be called on domains that expired in the previous 30 days. After the renewal, the new expiration time of the domain is one year after the old expiration time and you are charged a `yearly_price` for the renewal. */
       renewDomain(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1203,11 +1321,11 @@ declare namespace gapi.client {
       renewDomain(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1232,11 +1350,11 @@ declare namespace gapi.client {
       /** Resets the authorization code of the `Registration` to a new random string. You can call this method only after 60 days have elapsed since the initial domain registration. Domains that have the `REQUIRE_PUSH_TRANSFER` property in the list of `domain_properties` don't support authorization codes and must use the `InitiatePushTransfer` method to initiate the process to transfer the domain to a different registrar. */
       resetAuthorizationCode(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1261,11 +1379,11 @@ declare namespace gapi.client {
       resetAuthorizationCode(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1290,11 +1408,11 @@ declare namespace gapi.client {
       /** Gets the authorization code of the `Registration` for the purpose of transferring the domain to another registrar. You can call this method only after 60 days have elapsed since the initial domain registration. Domains that have the `REQUIRE_PUSH_TRANSFER` property in the list of `domain_properties` don't support authorization codes and must use the `InitiatePushTransfer` method to initiate the process to transfer the domain to a different registrar. */
       retrieveAuthorizationCode(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1317,11 +1435,11 @@ declare namespace gapi.client {
       /** Lists the DNS records from the Google Domains DNS zone for domains that use the deprecated `google_domains_dns` in the `Registration`'s `dns_settings`. */
       retrieveGoogleDomainsDnsRecords(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1348,11 +1466,11 @@ declare namespace gapi.client {
       /** Lists the deprecated domain and email forwarding configurations you set up in the deprecated Google Domains UI. The configuration is present only for domains with the `google_domains_redirects_data_available` set to `true` in the `Registration`'s `dns_settings`. A forwarding configuration might not work correctly if required DNS records are not present in the domain's authoritative DNS Zone. */
       retrieveGoogleDomainsForwardingConfig(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1375,11 +1493,11 @@ declare namespace gapi.client {
       /** Deprecated: For more information, see [Cloud Domains feature deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations) Lists domain names from [Google Domains](https://domains.google/) that can be imported to Cloud Domains using the `ImportDomain` method. Since individual users can own domains in Google Domains, the list of domains returned depends on the individual user making the call. Domains already managed by Cloud Domains are not returned. */
       retrieveImportableDomains(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1406,11 +1524,11 @@ declare namespace gapi.client {
       /** Gets parameters needed to register a new domain name, including price and up-to-date availability. Use the returned values to call `RegisterDomain`. */
       retrieveRegisterParameters(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The domain name. Unicode domain names must be expressed in Punycode format. */
@@ -1435,11 +1553,11 @@ declare namespace gapi.client {
       /** Deprecated: For more information, see [Cloud Domains feature deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations) Gets parameters needed to transfer a domain name from another registrar to Cloud Domains. For domains already managed by [Google Domains](https://domains.google/), use `ImportDomain` instead. Use the returned values to call `TransferDomain`. */
       retrieveTransferParameters(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The domain name. Unicode domain names must be expressed in Punycode format. */
@@ -1464,11 +1582,11 @@ declare namespace gapi.client {
       /** Searches for available domain names similar to the provided query. Availability results from this method are approximate; call `RetrieveRegisterParameters` on a domain before registering to confirm availability. */
       searchDomains(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1494,11 +1612,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1524,11 +1642,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1553,11 +1671,11 @@ declare namespace gapi.client {
       /** Deprecated: For more information, see [Cloud Domains feature deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations) Transfers a domain name from another registrar to Cloud Domains. For domains already managed by [Google Domains](https://domains.google/), use `ImportDomain` instead. Before calling this method, go to the domain's current registrar to unlock the domain for transfer and retrieve the domain's transfer authorization code. Then call `RetrieveTransferParameters` to confirm that the domain is unlocked and to get values needed to build a call to this method. A successful call creates a `Registration` resource in state `TRANSFER_PENDING`. It can take several days to complete the transfer process. The registrant can often speed up this process by approving the transfer through the current registrar, either by clicking a link in an email from the registrar or by visiting the registrar's website. A few minutes after transfer approval, the resource transitions to state `ACTIVE`, indicating that the transfer was successful. If the transfer is rejected or the request expires without being approved, the resource can end up in state `TRANSFER_FAILED`. If transfer fails, you can safely delete the resource and retry the transfer. */
       transfer(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1582,11 +1700,11 @@ declare namespace gapi.client {
       transfer(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1613,11 +1731,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1640,11 +1758,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */

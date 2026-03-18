@@ -106,7 +106,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowCxV3beta1ContinuousTestResult {
       name?: string;
-      result?: string;
+      result?: 'AGGREGATED_TEST_RESULT_UNSPECIFIED' | 'PASSED' | 'FAILED';
       runTime?: string;
       testCaseResults?: string[];
     }
@@ -137,8 +137,15 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowCxV3beta1DataStoreConnection {
       dataStore?: string;
-      dataStoreType?: string;
-      documentProcessingMode?: string;
+      dataStoreType?:
+        | 'DATA_STORE_TYPE_UNSPECIFIED'
+        | 'PUBLIC_WEB'
+        | 'UNSTRUCTURED'
+        | 'STRUCTURED';
+      documentProcessingMode?:
+        | 'DOCUMENT_PROCESSING_MODE_UNSPECIFIED'
+        | 'DOCUMENTS'
+        | 'CHUNKS';
     }
     interface GoogleCloudDialogflowCxV3beta1DeployFlowMetadata {
       testErrors?: GoogleCloudDialogflowCxV3beta1TestError[];
@@ -288,11 +295,24 @@ declare namespace gapi.client {
       content?: string;
     }
     interface GoogleCloudDialogflowCxV3beta1InputAudioConfig {
-      audioEncoding?: string;
+      audioEncoding?:
+        | 'AUDIO_ENCODING_UNSPECIFIED'
+        | 'AUDIO_ENCODING_LINEAR_16'
+        | 'AUDIO_ENCODING_FLAC'
+        | 'AUDIO_ENCODING_MULAW'
+        | 'AUDIO_ENCODING_AMR'
+        | 'AUDIO_ENCODING_AMR_WB'
+        | 'AUDIO_ENCODING_OGG_OPUS'
+        | 'AUDIO_ENCODING_SPEEX_WITH_HEADER_BYTE'
+        | 'AUDIO_ENCODING_ALAW';
       bargeInConfig?: GoogleCloudDialogflowCxV3beta1BargeInConfig;
       enableWordInfo?: boolean;
       model?: string;
-      modelVariant?: string;
+      modelVariant?:
+        | 'SPEECH_MODEL_VARIANT_UNSPECIFIED'
+        | 'USE_BEST_AVAILABLE'
+        | 'USE_STANDARD'
+        | 'USE_ENHANCED';
       optOutConformerModelMigration?: boolean;
       phraseHints?: string[];
       sampleRateHertz?: number;
@@ -362,7 +382,7 @@ declare namespace gapi.client {
       displayName?: string;
       justCollected?: boolean;
       required?: boolean;
-      state?: string;
+      state?: 'PARAMETER_STATE_UNSPECIFIED' | 'EMPTY' | 'INVALID' | 'FILLED';
       value?: any;
     }
     interface GoogleCloudDialogflowCxV3beta1QueryInput {
@@ -452,7 +472,7 @@ declare namespace gapi.client {
       conversationTurns?: GoogleCloudDialogflowCxV3beta1ConversationTurn[];
       environment?: string;
       name?: string;
-      testResult?: string;
+      testResult?: 'TEST_RESULT_UNSPECIFIED' | 'PASSED' | 'FAILED';
       testTime?: string;
     }
     interface GoogleCloudDialogflowCxV3beta1TestConfig {
@@ -467,7 +487,13 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowCxV3beta1TestRunDifference {
       description?: string;
-      type?: string;
+      type?:
+        | 'DIFF_TYPE_UNSPECIFIED'
+        | 'INTENT'
+        | 'PAGE'
+        | 'PARAMETERS'
+        | 'UTTERANCE'
+        | 'FLOW';
     }
     interface GoogleCloudDialogflowCxV3beta1TextInput {
       text?: string;
@@ -498,7 +524,10 @@ declare namespace gapi.client {
     interface GoogleCloudDialogflowCxV3beta1TurnSignals {
       agentEscalated?: boolean;
       dtmfUsed?: boolean;
-      failureReasons?: string[];
+      failureReasons?:
+        | 'FAILURE_REASON_UNSPECIFIED'
+        | 'FAILED_INTENT'
+        | 'FAILED_WEBHOOK'[];
       noMatch?: boolean;
       noUserInput?: boolean;
       reachedEndPage?: boolean;
@@ -517,7 +546,15 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowCxV3beta1WebhookGenericWebService {
       allowedCaCerts?: string[];
-      httpMethod?: string;
+      httpMethod?:
+        | 'HTTP_METHOD_UNSPECIFIED'
+        | 'POST'
+        | 'GET'
+        | 'HEAD'
+        | 'PUT'
+        | 'DELETE'
+        | 'PATCH'
+        | 'OPTIONS';
       oauthConfig?: GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceOAuthConfig;
       parameterMapping?: {[P in string]: string};
       password?: string;
@@ -528,10 +565,14 @@ declare namespace gapi.client {
         [P in string]: GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceSecretVersionHeaderValue;
       };
       serviceAccountAuthConfig?: GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceServiceAccountAuthConfig;
-      serviceAgentAuth?: string;
+      serviceAgentAuth?:
+        | 'SERVICE_AGENT_AUTH_UNSPECIFIED'
+        | 'NONE'
+        | 'ID_TOKEN'
+        | 'ACCESS_TOKEN';
       uri?: string;
       username?: string;
-      webhookType?: string;
+      webhookType?: 'WEBHOOK_TYPE_UNSPECIFIED' | 'STANDARD' | 'FLEXIBLE';
     }
     interface GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceOAuthConfig {
       clientId?: string;
@@ -591,7 +632,7 @@ declare namespace gapi.client {
       targetPage?: string;
     }
     interface GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse {
-      mergeBehavior?: string;
+      mergeBehavior?: 'MERGE_BEHAVIOR_UNSPECIFIED' | 'APPEND' | 'REPLACE';
       messages?: GoogleCloudDialogflowCxV3beta1ResponseMessage[];
     }
     interface GoogleCloudDialogflowCxV3beta1WebhookServiceDirectoryConfig {
@@ -600,7 +641,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowCxV3ContinuousTestResult {
       name?: string;
-      result?: string;
+      result?: 'AGGREGATED_TEST_RESULT_UNSPECIFIED' | 'PASSED' | 'FAILED';
       runTime?: string;
       testCaseResults?: string[];
     }
@@ -631,8 +672,15 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowCxV3DataStoreConnection {
       dataStore?: string;
-      dataStoreType?: string;
-      documentProcessingMode?: string;
+      dataStoreType?:
+        | 'DATA_STORE_TYPE_UNSPECIFIED'
+        | 'PUBLIC_WEB'
+        | 'UNSTRUCTURED'
+        | 'STRUCTURED';
+      documentProcessingMode?:
+        | 'DOCUMENT_PROCESSING_MODE_UNSPECIFIED'
+        | 'DOCUMENTS'
+        | 'CHUNKS';
     }
     interface GoogleCloudDialogflowCxV3DeployFlowMetadata {
       testErrors?: GoogleCloudDialogflowCxV3TestError[];
@@ -782,11 +830,24 @@ declare namespace gapi.client {
       content?: string;
     }
     interface GoogleCloudDialogflowCxV3InputAudioConfig {
-      audioEncoding?: string;
+      audioEncoding?:
+        | 'AUDIO_ENCODING_UNSPECIFIED'
+        | 'AUDIO_ENCODING_LINEAR_16'
+        | 'AUDIO_ENCODING_FLAC'
+        | 'AUDIO_ENCODING_MULAW'
+        | 'AUDIO_ENCODING_AMR'
+        | 'AUDIO_ENCODING_AMR_WB'
+        | 'AUDIO_ENCODING_OGG_OPUS'
+        | 'AUDIO_ENCODING_SPEEX_WITH_HEADER_BYTE'
+        | 'AUDIO_ENCODING_ALAW';
       bargeInConfig?: GoogleCloudDialogflowCxV3BargeInConfig;
       enableWordInfo?: boolean;
       model?: string;
-      modelVariant?: string;
+      modelVariant?:
+        | 'SPEECH_MODEL_VARIANT_UNSPECIFIED'
+        | 'USE_BEST_AVAILABLE'
+        | 'USE_STANDARD'
+        | 'USE_ENHANCED';
       optOutConformerModelMigration?: boolean;
       phraseHints?: string[];
       sampleRateHertz?: number;
@@ -856,7 +917,7 @@ declare namespace gapi.client {
       displayName?: string;
       justCollected?: boolean;
       required?: boolean;
-      state?: string;
+      state?: 'PARAMETER_STATE_UNSPECIFIED' | 'EMPTY' | 'INVALID' | 'FILLED';
       value?: any;
     }
     interface GoogleCloudDialogflowCxV3QueryInput {
@@ -878,7 +939,11 @@ declare namespace gapi.client {
       outputAudioText?: GoogleCloudDialogflowCxV3ResponseMessageOutputAudioText;
       payload?: {[P in string]: any};
       playAudio?: GoogleCloudDialogflowCxV3ResponseMessagePlayAudio;
-      responseType?: string;
+      responseType?:
+        | 'RESPONSE_TYPE_UNSPECIFIED'
+        | 'ENTRY_PROMPT'
+        | 'PARAMETER_PROMPT'
+        | 'HANDLER_PROMPT';
       telephonyTransferCall?: GoogleCloudDialogflowCxV3ResponseMessageTelephonyTransferCall;
       text?: GoogleCloudDialogflowCxV3ResponseMessageText;
       toolCall?: GoogleCloudDialogflowCxV3ToolCall;
@@ -947,7 +1012,7 @@ declare namespace gapi.client {
       conversationTurns?: GoogleCloudDialogflowCxV3ConversationTurn[];
       environment?: string;
       name?: string;
-      testResult?: string;
+      testResult?: 'TEST_RESULT_UNSPECIFIED' | 'PASSED' | 'FAILED';
       testTime?: string;
     }
     interface GoogleCloudDialogflowCxV3TestConfig {
@@ -962,7 +1027,13 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowCxV3TestRunDifference {
       description?: string;
-      type?: string;
+      type?:
+        | 'DIFF_TYPE_UNSPECIFIED'
+        | 'INTENT'
+        | 'PAGE'
+        | 'PARAMETERS'
+        | 'UTTERANCE'
+        | 'FLOW';
     }
     interface GoogleCloudDialogflowCxV3TextInput {
       text?: string;
@@ -993,7 +1064,10 @@ declare namespace gapi.client {
     interface GoogleCloudDialogflowCxV3TurnSignals {
       agentEscalated?: boolean;
       dtmfUsed?: boolean;
-      failureReasons?: string[];
+      failureReasons?:
+        | 'FAILURE_REASON_UNSPECIFIED'
+        | 'FAILED_INTENT'
+        | 'FAILED_WEBHOOK'[];
       noMatch?: boolean;
       noUserInput?: boolean;
       reachedEndPage?: boolean;
@@ -1012,7 +1086,15 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowCxV3WebhookGenericWebService {
       allowedCaCerts?: string[];
-      httpMethod?: string;
+      httpMethod?:
+        | 'HTTP_METHOD_UNSPECIFIED'
+        | 'POST'
+        | 'GET'
+        | 'HEAD'
+        | 'PUT'
+        | 'DELETE'
+        | 'PATCH'
+        | 'OPTIONS';
       oauthConfig?: GoogleCloudDialogflowCxV3WebhookGenericWebServiceOAuthConfig;
       parameterMapping?: {[P in string]: string};
       password?: string;
@@ -1023,10 +1105,14 @@ declare namespace gapi.client {
         [P in string]: GoogleCloudDialogflowCxV3WebhookGenericWebServiceSecretVersionHeaderValue;
       };
       serviceAccountAuthConfig?: GoogleCloudDialogflowCxV3WebhookGenericWebServiceServiceAccountAuthConfig;
-      serviceAgentAuth?: string;
+      serviceAgentAuth?:
+        | 'SERVICE_AGENT_AUTH_UNSPECIFIED'
+        | 'NONE'
+        | 'ID_TOKEN'
+        | 'ACCESS_TOKEN';
       uri?: string;
       username?: string;
-      webhookType?: string;
+      webhookType?: 'WEBHOOK_TYPE_UNSPECIFIED' | 'STANDARD' | 'FLEXIBLE';
     }
     interface GoogleCloudDialogflowCxV3WebhookGenericWebServiceOAuthConfig {
       clientId?: string;
@@ -1086,7 +1172,7 @@ declare namespace gapi.client {
       targetPage?: string;
     }
     interface GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse {
-      mergeBehavior?: string;
+      mergeBehavior?: 'MERGE_BEHAVIOR_UNSPECIFIED' | 'APPEND' | 'REPLACE';
       messages?: GoogleCloudDialogflowCxV3ResponseMessage[];
     }
     interface GoogleCloudDialogflowCxV3WebhookServiceDirectoryConfig {
@@ -1100,7 +1186,13 @@ declare namespace gapi.client {
       displayName?: string;
       duplicateCheckResult?: GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResult;
       systemAction?: string;
-      triggeringEvent?: string;
+      triggeringEvent?:
+        | 'TRIGGER_EVENT_UNSPECIFIED'
+        | 'END_OF_UTTERANCE'
+        | 'MANUAL_CALL'
+        | 'CUSTOMER_MESSAGE'
+        | 'AGENT_MESSAGE'
+        | 'TOOL_CALL_COMPLETION';
     }
     interface GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResult {
       duplicateSuggestions?: GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResultDuplicateSuggestion[];
@@ -1151,7 +1243,10 @@ declare namespace gapi.client {
       uri?: string;
     }
     interface GoogleCloudDialogflowV2ArticleSuggestionModelMetadata {
-      trainingModelType?: string;
+      trainingModelType?:
+        | 'MODEL_TYPE_UNSPECIFIED'
+        | 'SMART_REPLY_DUAL_ENCODER_MODEL'
+        | 'SMART_REPLY_BERT_MODEL';
     }
     interface GoogleCloudDialogflowV2BatchUpdateEntityTypesResponse {
       entityTypes?: GoogleCloudDialogflowV2EntityType[];
@@ -1160,23 +1255,43 @@ declare namespace gapi.client {
       intents?: GoogleCloudDialogflowV2Intent[];
     }
     interface GoogleCloudDialogflowV2beta1Agent {
-      apiVersion?: string;
+      apiVersion?:
+        | 'API_VERSION_UNSPECIFIED'
+        | 'API_VERSION_V1'
+        | 'API_VERSION_V2'
+        | 'API_VERSION_V2_BETA_1';
       avatarUri?: string;
       classificationThreshold?: number;
       defaultLanguageCode?: string;
       description?: string;
       displayName?: string;
       enableLogging?: boolean;
-      matchMode?: string;
+      matchMode?:
+        | 'MATCH_MODE_UNSPECIFIED'
+        | 'MATCH_MODE_HYBRID'
+        | 'MATCH_MODE_ML_ONLY';
       parent?: string;
       supportedLanguageCodes?: string[];
-      tier?: string;
+      tier?:
+        | 'TIER_UNSPECIFIED'
+        | 'TIER_STANDARD'
+        | 'TIER_ENTERPRISE'
+        | 'TIER_ENTERPRISE_PLUS';
       timeZone?: string;
     }
     interface GoogleCloudDialogflowV2beta1AgentAssistantFeedback {
-      answerRelevance?: string;
-      documentCorrectness?: string;
-      documentEfficiency?: string;
+      answerRelevance?:
+        | 'ANSWER_RELEVANCE_UNSPECIFIED'
+        | 'IRRELEVANT'
+        | 'RELEVANT';
+      documentCorrectness?:
+        | 'DOCUMENT_CORRECTNESS_UNSPECIFIED'
+        | 'INCORRECT'
+        | 'CORRECT';
+      documentEfficiency?:
+        | 'DOCUMENT_EFFICIENCY_UNSPECIFIED'
+        | 'INEFFICIENT'
+        | 'EFFICIENT';
       knowledgeAssistFeedback?: GoogleCloudDialogflowV2beta1AgentAssistantFeedbackKnowledgeAssistFeedback;
       knowledgeSearchFeedback?: GoogleCloudDialogflowV2beta1AgentAssistantFeedbackKnowledgeSearchFeedback;
       summarizationFeedback?: GoogleCloudDialogflowV2beta1AgentAssistantFeedbackSummarizationFeedback;
@@ -1214,7 +1329,13 @@ declare namespace gapi.client {
       displayName?: string;
       duplicateCheckResult?: GoogleCloudDialogflowV2beta1AgentCoachingInstructionDuplicateCheckResult;
       systemAction?: string;
-      triggeringEvent?: string;
+      triggeringEvent?:
+        | 'TRIGGER_EVENT_UNSPECIFIED'
+        | 'END_OF_UTTERANCE'
+        | 'MANUAL_CALL'
+        | 'CUSTOMER_MESSAGE'
+        | 'AGENT_MESSAGE'
+        | 'TOOL_CALL_COMPLETION';
     }
     interface GoogleCloudDialogflowV2beta1AgentCoachingInstructionDuplicateCheckResult {
       duplicateSuggestions?: GoogleCloudDialogflowV2beta1AgentCoachingInstructionDuplicateCheckResultDuplicateSuggestion[];
@@ -1283,7 +1404,11 @@ declare namespace gapi.client {
       agentAssistantDetailFeedback?: GoogleCloudDialogflowV2beta1AgentAssistantFeedback;
       clicked?: boolean;
       clickTime?: string;
-      correctnessLevel?: string;
+      correctnessLevel?:
+        | 'CORRECTNESS_LEVEL_UNSPECIFIED'
+        | 'NOT_CORRECT'
+        | 'PARTIALLY_CORRECT'
+        | 'FULLY_CORRECT';
       displayed?: boolean;
       displayTime?: string;
     }
@@ -1312,7 +1437,10 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowV2beta1AutomatedAgentReply {
       allowCancellation?: boolean;
-      automatedAgentReplyType?: string;
+      automatedAgentReplyType?:
+        | 'AUTOMATED_AGENT_REPLY_TYPE_UNSPECIFIED'
+        | 'PARTIAL'
+        | 'FINAL';
       callCompanionAuthCode?: string;
       cxCurrentPage?: string;
       cxSessionParameters?: {[P in string]: any};
@@ -1364,7 +1492,7 @@ declare namespace gapi.client {
     interface GoogleCloudDialogflowV2beta1BatchUpdateIntentsRequest {
       intentBatchInline?: GoogleCloudDialogflowV2beta1IntentBatch;
       intentBatchUri?: string;
-      intentView?: string;
+      intentView?: 'INTENT_VIEW_UNSPECIFIED' | 'INTENT_VIEW_FULL';
       languageCode?: string;
       updateMask?: string;
     }
@@ -1374,12 +1502,36 @@ declare namespace gapi.client {
     interface GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata {
       conversationProfile?: string;
       createTime?: string;
-      participantRole?: string;
-      suggestionFeatureType?: string;
+      participantRole?:
+        | 'ROLE_UNSPECIFIED'
+        | 'HUMAN_AGENT'
+        | 'AUTOMATED_AGENT'
+        | 'END_USER';
+      suggestionFeatureType?:
+        | 'TYPE_UNSPECIFIED'
+        | 'ARTICLE_SUGGESTION'
+        | 'FAQ'
+        | 'SMART_REPLY'
+        | 'DIALOGFLOW_ASSIST'
+        | 'CONVERSATION_SUMMARIZATION'
+        | 'KNOWLEDGE_SEARCH'
+        | 'KNOWLEDGE_ASSIST';
     }
     interface GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigRequest {
-      participantRole?: string;
-      suggestionFeatureType?: string;
+      participantRole?:
+        | 'ROLE_UNSPECIFIED'
+        | 'HUMAN_AGENT'
+        | 'AUTOMATED_AGENT'
+        | 'END_USER';
+      suggestionFeatureType?:
+        | 'TYPE_UNSPECIFIED'
+        | 'ARTICLE_SUGGESTION'
+        | 'FAQ'
+        | 'SMART_REPLY'
+        | 'DIALOGFLOW_ASSIST'
+        | 'CONVERSATION_SUMMARIZATION'
+        | 'KNOWLEDGE_SEARCH'
+        | 'KNOWLEDGE_ASSIST';
     }
     interface GoogleCloudDialogflowV2beta1CompileSuggestionRequest {
       contextSize?: number;
@@ -1394,11 +1546,25 @@ declare namespace gapi.client {
     interface GoogleCloudDialogflowV2beta1Connection {
       connectionId?: string;
       errorDetails?: GoogleCloudDialogflowV2beta1ConnectionErrorDetails;
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CONNECTED'
+        | 'DISCONNECTED'
+        | 'AUTHENTICATION_FAILED'
+        | 'KEEPALIVE';
       updateTime?: string;
     }
     interface GoogleCloudDialogflowV2beta1ConnectionErrorDetails {
-      certificateState?: string;
+      certificateState?:
+        | 'CERTIFICATE_STATE_UNSPECIFIED'
+        | 'CERTIFICATE_VALID'
+        | 'CERTIFICATE_INVALID'
+        | 'CERTIFICATE_EXPIRED'
+        | 'CERTIFICATE_HOSTNAME_NOT_FOUND'
+        | 'CERTIFICATE_UNAUTHENTICATED'
+        | 'CERTIFICATE_TRUST_STORE_NOT_FOUND'
+        | 'CERTIFICATE_HOSTNAME_INVALID_FORMAT'
+        | 'CERTIFICATE_QUOTA_EXCEEDED';
       errorMessage?: string;
     }
     interface GoogleCloudDialogflowV2beta1Context {
@@ -1408,12 +1574,18 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowV2beta1Conversation {
       conversationProfile?: string;
-      conversationStage?: string;
+      conversationStage?:
+        | 'CONVERSATION_STAGE_UNSPECIFIED'
+        | 'VIRTUAL_AGENT_STAGE'
+        | 'HUMAN_ASSIST_STAGE';
       endTime?: string;
       ingestedContextReferences?: {
         [P in string]: GoogleCloudDialogflowV2beta1ConversationContextReference;
       };
-      lifecycleState?: string;
+      lifecycleState?:
+        | 'LIFECYCLE_STATE_UNSPECIFIED'
+        | 'IN_PROGRESS'
+        | 'COMPLETED';
       name?: string;
       phoneNumber?: GoogleCloudDialogflowV2beta1ConversationPhoneNumber;
       startTime?: string;
@@ -1426,12 +1598,12 @@ declare namespace gapi.client {
       contextContents?: GoogleCloudDialogflowV2beta1ConversationContextReferenceContextContent[];
       createTime?: string;
       languageCode?: string;
-      updateMode?: string;
+      updateMode?: 'UPDATE_MODE_UNSPECIFIED' | 'APPEND' | 'OVERWRITE';
     }
     interface GoogleCloudDialogflowV2beta1ConversationContextReferenceContextContent {
       answerRecord?: string;
       content?: string;
-      contentFormat?: string;
+      contentFormat?: 'CONTENT_FORMAT_UNSPECIFIED' | 'JSON' | 'PLAIN_TEXT';
       ingestionTime?: string;
     }
     interface GoogleCloudDialogflowV2beta1ConversationEvent {
@@ -1439,7 +1611,14 @@ declare namespace gapi.client {
       errorStatus?: GoogleRpcStatus;
       newMessagePayload?: GoogleCloudDialogflowV2beta1Message;
       newRecognitionResultPayload?: GoogleCloudDialogflowV2beta1StreamingRecognitionResult;
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'CONVERSATION_STARTED'
+        | 'CONVERSATION_FINISHED'
+        | 'HUMAN_INTERVENTION_NEEDED'
+        | 'NEW_MESSAGE'
+        | 'NEW_RECOGNITION_RESULT'
+        | 'UNRECOVERABLE_ERROR';
     }
     interface GoogleCloudDialogflowV2beta1ConversationPhoneNumber {
       countryCode?: number;
@@ -1483,7 +1662,10 @@ declare namespace gapi.client {
       parent?: string;
     }
     interface GoogleCloudDialogflowV2beta1CustomPronunciationParams {
-      phoneticEncoding?: string;
+      phoneticEncoding?:
+        | 'PHONETIC_ENCODING_UNSPECIFIED'
+        | 'PHONETIC_ENCODING_IPA'
+        | 'PHONETIC_ENCODING_X_SAMPA';
       phrase?: string;
       pronunciation?: string;
     }
@@ -1512,13 +1694,25 @@ declare namespace gapi.client {
       contentUri?: string;
       displayName?: string;
       enableAutoReload?: boolean;
-      knowledgeTypes?: string[];
+      knowledgeTypes?:
+        | 'KNOWLEDGE_TYPE_UNSPECIFIED'
+        | 'FAQ'
+        | 'EXTRACTIVE_QA'
+        | 'ARTICLE_SUGGESTION'
+        | 'AGENT_FACING_SMART_REPLY'
+        | 'SMART_REPLY'[];
       latestReloadStatus?: GoogleCloudDialogflowV2beta1DocumentReloadStatus;
       metadata?: {[P in string]: string};
       mimeType?: string;
       name?: string;
       rawContent?: string;
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'ACTIVE'
+        | 'UPDATING'
+        | 'RELOADING'
+        | 'DELETING';
     }
     interface GoogleCloudDialogflowV2beta1DocumentReloadStatus {
       status?: GoogleRpcStatus;
@@ -1532,11 +1726,13 @@ declare namespace gapi.client {
       name?: string;
     }
     interface GoogleCloudDialogflowV2beta1EntityType {
-      autoExpansionMode?: string;
+      autoExpansionMode?:
+        | 'AUTO_EXPANSION_MODE_UNSPECIFIED'
+        | 'AUTO_EXPANSION_MODE_DEFAULT';
       displayName?: string;
       enableFuzzyExtraction?: boolean;
       entities?: GoogleCloudDialogflowV2beta1EntityTypeEntity[];
-      kind?: string;
+      kind?: 'KIND_UNSPECIFIED' | 'KIND_MAP' | 'KIND_LIST' | 'KIND_REGEXP';
       name?: string;
     }
     interface GoogleCloudDialogflowV2beta1EntityTypeBatch {
@@ -1551,7 +1747,7 @@ declare namespace gapi.client {
       description?: string;
       fulfillment?: GoogleCloudDialogflowV2beta1Fulfillment;
       name?: string;
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'STOPPED' | 'LOADING' | 'RUNNING';
       textToSpeechSettings?: GoogleCloudDialogflowV2beta1TextToSpeechSettings;
       updateTime?: string;
     }
@@ -1612,7 +1808,7 @@ declare namespace gapi.client {
       name?: string;
     }
     interface GoogleCloudDialogflowV2beta1FulfillmentFeature {
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'SMALLTALK';
     }
     interface GoogleCloudDialogflowV2beta1FulfillmentGenericWebService {
       isCloudFunction?: boolean;
@@ -1638,7 +1834,12 @@ declare namespace gapi.client {
       generator?: GoogleCloudDialogflowV2beta1Generator;
       generatorName?: string;
       securitySettings?: string;
-      triggerEvents?: string[];
+      triggerEvents?:
+        | 'TRIGGER_EVENT_UNSPECIFIED'
+        | 'END_OF_UTTERANCE'
+        | 'MANUAL_CALL'
+        | 'CUSTOMER_MESSAGE'
+        | 'AGENT_MESSAGE'[];
     }
     interface GoogleCloudDialogflowV2beta1GenerateStatelessSuggestionResponse {
       generatorSuggestion?: GoogleCloudDialogflowV2beta1GeneratorSuggestion;
@@ -1664,7 +1865,12 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowV2beta1GenerateSuggestionsRequest {
       latestMessage?: string;
-      triggerEvents?: string[];
+      triggerEvents?:
+        | 'TRIGGER_EVENT_UNSPECIFIED'
+        | 'END_OF_UTTERANCE'
+        | 'MANUAL_CALL'
+        | 'CUSTOMER_MESSAGE'
+        | 'AGENT_MESSAGE'[];
     }
     interface GoogleCloudDialogflowV2beta1GenerateSuggestionsResponse {
       generatorSuggestionAnswers?: GoogleCloudDialogflowV2beta1GenerateSuggestionsResponseGeneratorSuggestionAnswer[];
@@ -1686,7 +1892,12 @@ declare namespace gapi.client {
       suggestionDedupingConfig?: GoogleCloudDialogflowV2beta1SuggestionDedupingConfig;
       summarizationContext?: GoogleCloudDialogflowV2beta1SummarizationContext;
       tools?: string[];
-      triggerEvent?: string;
+      triggerEvent?:
+        | 'TRIGGER_EVENT_UNSPECIFIED'
+        | 'END_OF_UTTERANCE'
+        | 'MANUAL_CALL'
+        | 'CUSTOMER_MESSAGE'
+        | 'AGENT_MESSAGE';
       updateTime?: string;
     }
     interface GoogleCloudDialogflowV2beta1GeneratorEvaluation {
@@ -1717,11 +1928,18 @@ declare namespace gapi.client {
       agentAssistInputDataConfig?: GoogleCloudDialogflowV2beta1GeneratorEvaluationConfigAgentAssistInputDataConfig;
       datasetInputDataConfig?: GoogleCloudDialogflowV2beta1GeneratorEvaluationConfigDatasetInputDataConfig;
       endTime?: string;
-      inputDataSourceType?: string;
+      inputDataSourceType?:
+        | 'INPUT_DATA_SOURCE_TYPE_UNSPECIFIED'
+        | 'AGENT_ASSIST_CONVERSATIONS'
+        | 'INSIGHTS_CONVERSATIONS';
       isSummaryGenerationAllowed?: boolean;
       sampleSize?: number;
       startTime?: string;
-      summaryGenerationOption?: string;
+      summaryGenerationOption?:
+        | 'SUMMARY_GENERATION_OPTION_UNSPECIFIED'
+        | 'ALWAYS_GENERATE'
+        | 'GENERATE_IF_MISSING'
+        | 'DO_NOT_GENERATE';
     }
     interface GoogleCloudDialogflowV2beta1GeneratorEvaluationConfigSummarizationConfig {
       accuracyEvaluationVersion?: string;
@@ -1810,7 +2028,14 @@ declare namespace gapi.client {
       knowledgeBases?: string[];
     }
     interface GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSections {
-      sectionTypes?: string[];
+      sectionTypes?:
+        | 'SECTION_TYPE_UNSPECIFIED'
+        | 'SITUATION'
+        | 'ACTION'
+        | 'RESOLUTION'
+        | 'REASON_FOR_CANCELLATION'
+        | 'CUSTOMER_SATISFACTION'
+        | 'ENTITIES'[];
     }
     interface GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionTriggerSettings {
       noSmallTalk?: boolean;
@@ -1847,7 +2072,13 @@ declare namespace gapi.client {
       warnings?: GoogleRpcStatus[];
     }
     interface GoogleCloudDialogflowV2beta1ImportDocumentTemplate {
-      knowledgeTypes?: string[];
+      knowledgeTypes?:
+        | 'KNOWLEDGE_TYPE_UNSPECIFIED'
+        | 'FAQ'
+        | 'EXTRACTIVE_QA'
+        | 'ARTICLE_SUGGESTION'
+        | 'AGENT_FACING_SMART_REPLY'
+        | 'SMART_REPLY'[];
       metadata?: {[P in string]: string};
       mimeType?: string;
     }
@@ -1873,7 +2104,14 @@ declare namespace gapi.client {
       projectNotAllowlisted?: boolean;
     }
     interface GoogleCloudDialogflowV2beta1IngestedContextReferenceDebugInfoIngestedParameterDebugInfo {
-      ingestionStatus?: string;
+      ingestionStatus?:
+        | 'INGESTION_STATUS_UNSPECIFIED'
+        | 'INGESTION_STATUS_SUCCEEDED'
+        | 'INGESTION_STATUS_CONTEXT_NOT_AVAILABLE'
+        | 'INGESTION_STATUS_PARSE_FAILED'
+        | 'INGESTION_STATUS_INVALID_ENTRY'
+        | 'INGESTION_STATUS_INVALID_FORMAT'
+        | 'INGESTION_STATUS_LANGUAGE_MISMATCH';
       parameter?: string;
     }
     interface GoogleCloudDialogflowV2beta1InitializeEncryptionSpecMetadata {
@@ -1883,7 +2121,16 @@ declare namespace gapi.client {
       encryptionSpec?: GoogleCloudDialogflowV2beta1EncryptionSpec;
     }
     interface GoogleCloudDialogflowV2beta1InputAudioConfig {
-      audioEncoding?: string;
+      audioEncoding?:
+        | 'AUDIO_ENCODING_UNSPECIFIED'
+        | 'AUDIO_ENCODING_LINEAR_16'
+        | 'AUDIO_ENCODING_FLAC'
+        | 'AUDIO_ENCODING_MULAW'
+        | 'AUDIO_ENCODING_AMR'
+        | 'AUDIO_ENCODING_AMR_WB'
+        | 'AUDIO_ENCODING_OGG_OPUS'
+        | 'AUDIO_ENCODING_SPEEX_WITH_HEADER_BYTE'
+        | 'AUDIO_ENCODING_ALAW';
       bargeInConfig?: GoogleCloudDialogflowV2beta1BargeInConfig;
       defaultNoSpeechTimeout?: string;
       disableNoSpeechRecognizedEvent?: boolean;
@@ -1891,7 +2138,11 @@ declare namespace gapi.client {
       enableWordInfo?: boolean;
       languageCode?: string;
       model?: string;
-      modelVariant?: string;
+      modelVariant?:
+        | 'SPEECH_MODEL_VARIANT_UNSPECIFIED'
+        | 'USE_BEST_AVAILABLE'
+        | 'USE_STANDARD'
+        | 'USE_ENHANCED';
       optOutConformerModelMigration?: boolean;
       phraseHints?: string[];
       phraseSets?: string[];
@@ -1901,7 +2152,18 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowV2beta1Intent {
       action?: string;
-      defaultResponsePlatforms?: string[];
+      defaultResponsePlatforms?:
+        | 'PLATFORM_UNSPECIFIED'
+        | 'FACEBOOK'
+        | 'SLACK'
+        | 'TELEGRAM'
+        | 'KIK'
+        | 'SKYPE'
+        | 'LINE'
+        | 'VIBER'
+        | 'ACTIONS_ON_GOOGLE'
+        | 'TELEPHONY'
+        | 'GOOGLE_HANGOUTS'[];
       displayName?: string;
       endInteraction?: boolean;
       events?: string[];
@@ -1920,7 +2182,10 @@ declare namespace gapi.client {
       resetContexts?: boolean;
       rootFollowupIntentName?: string;
       trainingPhrases?: GoogleCloudDialogflowV2beta1IntentTrainingPhrase[];
-      webhookState?: string;
+      webhookState?:
+        | 'WEBHOOK_STATE_UNSPECIFIED'
+        | 'WEBHOOK_STATE_ENABLED'
+        | 'WEBHOOK_STATE_ENABLED_FOR_SLOT_FILLING';
     }
     interface GoogleCloudDialogflowV2beta1IntentBatch {
       intents?: GoogleCloudDialogflowV2beta1Intent[];
@@ -1943,7 +2208,18 @@ declare namespace gapi.client {
       listSelect?: GoogleCloudDialogflowV2beta1IntentMessageListSelect;
       mediaContent?: GoogleCloudDialogflowV2beta1IntentMessageMediaContent;
       payload?: {[P in string]: any};
-      platform?: string;
+      platform?:
+        | 'PLATFORM_UNSPECIFIED'
+        | 'FACEBOOK'
+        | 'SLACK'
+        | 'TELEGRAM'
+        | 'KIK'
+        | 'SKYPE'
+        | 'LINE'
+        | 'VIBER'
+        | 'ACTIONS_ON_GOOGLE'
+        | 'TELEPHONY'
+        | 'GOOGLE_HANGOUTS';
       quickReplies?: GoogleCloudDialogflowV2beta1IntentMessageQuickReplies;
       rbmCarouselRichCard?: GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCard;
       rbmStandaloneRichCard?: GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard;
@@ -1971,7 +2247,12 @@ declare namespace gapi.client {
       uri?: string;
     }
     interface GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard {
-      imageDisplayOptions?: string;
+      imageDisplayOptions?:
+        | 'IMAGE_DISPLAY_OPTIONS_UNSPECIFIED'
+        | 'GRAY'
+        | 'WHITE'
+        | 'CROPPED'
+        | 'BLURRED_BACKGROUND';
       items?: GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItem[];
     }
     interface GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItem {
@@ -1983,7 +2264,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction {
       url?: string;
-      urlTypeHint?: string;
+      urlTypeHint?: 'URL_TYPE_HINT_UNSPECIFIED' | 'AMP_ACTION' | 'AMP_CONTENT';
     }
     interface GoogleCloudDialogflowV2beta1IntentMessageCard {
       buttons?: GoogleCloudDialogflowV2beta1IntentMessageCardButton[];
@@ -2006,7 +2287,11 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowV2beta1IntentMessageColumnProperties {
       header?: string;
-      horizontalAlignment?: string;
+      horizontalAlignment?:
+        | 'HORIZONTAL_ALIGNMENT_UNSPECIFIED'
+        | 'LEADING'
+        | 'CENTER'
+        | 'TRAILING';
     }
     interface GoogleCloudDialogflowV2beta1IntentMessageImage {
       accessibilityText?: string;
@@ -2029,7 +2314,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowV2beta1IntentMessageMediaContent {
       mediaObjects?: GoogleCloudDialogflowV2beta1IntentMessageMediaContentResponseMediaObject[];
-      mediaType?: string;
+      mediaType?: 'RESPONSE_MEDIA_TYPE_UNSPECIFIED' | 'AUDIO';
     }
     interface GoogleCloudDialogflowV2beta1IntentMessageMediaContentResponseMediaObject {
       contentUrl?: string;
@@ -2050,17 +2335,23 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia {
       fileUri?: string;
-      height?: string;
+      height?: 'HEIGHT_UNSPECIFIED' | 'SHORT' | 'MEDIUM' | 'TALL';
       thumbnailUri?: string;
     }
     interface GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCard {
       cardContents?: GoogleCloudDialogflowV2beta1IntentMessageRbmCardContent[];
-      cardWidth?: string;
+      cardWidth?: 'CARD_WIDTH_UNSPECIFIED' | 'SMALL' | 'MEDIUM';
     }
     interface GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard {
       cardContent?: GoogleCloudDialogflowV2beta1IntentMessageRbmCardContent;
-      cardOrientation?: string;
-      thumbnailImageAlignment?: string;
+      cardOrientation?:
+        | 'CARD_ORIENTATION_UNSPECIFIED'
+        | 'HORIZONTAL'
+        | 'VERTICAL';
+      thumbnailImageAlignment?:
+        | 'THUMBNAIL_IMAGE_ALIGNMENT_UNSPECIFIED'
+        | 'LEFT'
+        | 'RIGHT';
     }
     interface GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedAction {
       dial?: GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedActionRbmSuggestedActionDial;
@@ -2153,7 +2444,7 @@ declare namespace gapi.client {
       name?: string;
       parts?: GoogleCloudDialogflowV2beta1IntentTrainingPhrasePart[];
       timesAddedCount?: number;
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'EXAMPLE' | 'TEMPLATE';
     }
     interface GoogleCloudDialogflowV2beta1IntentTrainingPhrasePart {
       alias?: string;
@@ -2168,7 +2459,11 @@ declare namespace gapi.client {
       answer?: string;
       faqQuestion?: string;
       matchConfidence?: number;
-      matchConfidenceLevel?: string;
+      matchConfidenceLevel?:
+        | 'MATCH_CONFIDENCE_LEVEL_UNSPECIFIED'
+        | 'LOW'
+        | 'MEDIUM'
+        | 'HIGH';
       source?: string;
     }
     interface GoogleCloudDialogflowV2beta1KnowledgeAssistAnswer {
@@ -2198,11 +2493,36 @@ declare namespace gapi.client {
       queryText?: string;
     }
     interface GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo {
-      datastoreResponseReason?: string;
+      datastoreResponseReason?:
+        | 'DATASTORE_RESPONSE_REASON_UNSPECIFIED'
+        | 'NONE'
+        | 'SEARCH_OUT_OF_QUOTA'
+        | 'SEARCH_EMPTY_RESULTS'
+        | 'ANSWER_GENERATION_GEN_AI_DISABLED'
+        | 'ANSWER_GENERATION_OUT_OF_QUOTA'
+        | 'ANSWER_GENERATION_ERROR'
+        | 'ANSWER_GENERATION_NOT_ENOUGH_INFO'
+        | 'ANSWER_GENERATION_RAI_FAILED'
+        | 'ANSWER_GENERATION_NOT_GROUNDED';
       ingestedContextReferenceDebugInfo?: GoogleCloudDialogflowV2beta1IngestedContextReferenceDebugInfo;
       knowledgeAssistBehavior?: GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfoKnowledgeAssistBehavior;
-      queryCategorizationFailureReason?: string;
-      queryGenerationFailureReason?: string;
+      queryCategorizationFailureReason?:
+        | 'QUERY_CATEGORIZATION_FAILURE_REASON_UNSPECIFIED'
+        | 'QUERY_CATEGORIZATION_INVALID_CONFIG'
+        | 'QUERY_CATEGORIZATION_RESULT_NOT_FOUND'
+        | 'QUERY_CATEGORIZATION_FAILED';
+      queryGenerationFailureReason?:
+        | 'QUERY_GENERATION_FAILURE_REASON_UNSPECIFIED'
+        | 'QUERY_GENERATION_OUT_OF_QUOTA'
+        | 'QUERY_GENERATION_FAILED'
+        | 'QUERY_GENERATION_NO_QUERY_GENERATED'
+        | 'QUERY_GENERATION_RAI_FAILED'
+        | 'NOT_IN_ALLOWLIST'
+        | 'QUERY_GENERATION_QUERY_REDACTED'
+        | 'QUERY_GENERATION_LLM_RESPONSE_PARSE_FAILED'
+        | 'QUERY_GENERATION_EMPTY_CONVERSATION'
+        | 'QUERY_GENERATION_EMPTY_LAST_MESSAGE'
+        | 'QUERY_GENERATION_TRIGGERING_EVENT_CONDITION_NOT_MET';
       serviceLatency?: GoogleCloudDialogflowV2beta1ServiceLatency;
     }
     interface GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfoKnowledgeAssistBehavior {
@@ -2233,7 +2553,7 @@ declare namespace gapi.client {
       doneTime?: string;
       exportOperationMetadata?: GoogleCloudDialogflowV2beta1ExportOperationMetadata;
       knowledgeBase?: string;
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'PENDING' | 'RUNNING' | 'DONE';
     }
     interface GoogleCloudDialogflowV2beta1ListAnswerRecordsResponse {
       answerRecords?: GoogleCloudDialogflowV2beta1AnswerRecord[];
@@ -2321,7 +2641,11 @@ declare namespace gapi.client {
       messageAnnotation?: GoogleCloudDialogflowV2beta1MessageAnnotation;
       name?: string;
       participant?: string;
-      participantRole?: string;
+      participantRole?:
+        | 'ROLE_UNSPECIFIED'
+        | 'HUMAN_AGENT'
+        | 'AUTOMATED_AGENT'
+        | 'END_USER';
       responseMessages?: GoogleCloudDialogflowV2beta1ResponseMessage[];
       sendTime?: string;
       sentimentAnalysis?: GoogleCloudDialogflowV2beta1SentimentAnalysisResult;
@@ -2333,11 +2657,15 @@ declare namespace gapi.client {
     interface GoogleCloudDialogflowV2beta1MessageEntry {
       createTime?: string;
       languageCode?: string;
-      role?: string;
+      role?:
+        | 'ROLE_UNSPECIFIED'
+        | 'HUMAN_AGENT'
+        | 'AUTOMATED_AGENT'
+        | 'END_USER';
       text?: string;
     }
     interface GoogleCloudDialogflowV2beta1NotificationConfig {
-      messageFormat?: string;
+      messageFormat?: 'MESSAGE_FORMAT_UNSPECIFIED' | 'PROTO' | 'JSON';
       topic?: string;
     }
     interface GoogleCloudDialogflowV2beta1OriginalDetectIntentRequest {
@@ -2350,20 +2678,40 @@ declare namespace gapi.client {
       config?: GoogleCloudDialogflowV2beta1OutputAudioConfig;
     }
     interface GoogleCloudDialogflowV2beta1OutputAudioConfig {
-      audioEncoding?: string;
+      audioEncoding?:
+        | 'OUTPUT_AUDIO_ENCODING_UNSPECIFIED'
+        | 'OUTPUT_AUDIO_ENCODING_LINEAR_16'
+        | 'OUTPUT_AUDIO_ENCODING_MP3'
+        | 'OUTPUT_AUDIO_ENCODING_MP3_64_KBPS'
+        | 'OUTPUT_AUDIO_ENCODING_OGG_OPUS'
+        | 'OUTPUT_AUDIO_ENCODING_MULAW'
+        | 'OUTPUT_AUDIO_ENCODING_ALAW';
       sampleRateHertz?: number;
       synthesizeSpeechConfig?: GoogleCloudDialogflowV2beta1SynthesizeSpeechConfig;
     }
     interface GoogleCloudDialogflowV2beta1Participant {
-      agentDesktopSource?: string;
+      agentDesktopSource?:
+        | 'AGENT_DESKTOP_SOURCE_UNSPECIFIED'
+        | 'LIVE_PERSON'
+        | 'GENESYS_CLOUD'
+        | 'TWILIO'
+        | 'SALESFORCE'
+        | 'OTHER';
       documentsMetadataFilters?: {[P in string]: string};
       name?: string;
       obfuscatedExternalUserId?: string;
-      role?: string;
+      role?:
+        | 'ROLE_UNSPECIFIED'
+        | 'HUMAN_AGENT'
+        | 'AUTOMATED_AGENT'
+        | 'END_USER';
     }
     interface GoogleCloudDialogflowV2beta1PhoneNumber {
       conversationProfile?: string;
-      lifecycleState?: string;
+      lifecycleState?:
+        | 'LIFECYCLE_STATE_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'DELETE_REQUESTED';
       name?: string;
       phoneNumber?: string;
     }
@@ -2409,8 +2757,18 @@ declare namespace gapi.client {
       raiCategoryConfigs?: GoogleCloudDialogflowV2beta1RaiSettingsRaiCategoryConfig[];
     }
     interface GoogleCloudDialogflowV2beta1RaiSettingsRaiCategoryConfig {
-      category?: string;
-      sensitivityLevel?: string;
+      category?:
+        | 'RAI_CATEGORY_UNSPECIFIED'
+        | 'DANGEROUS_CONTENT'
+        | 'SEXUALLY_EXPLICIT'
+        | 'HARASSMENT'
+        | 'HATE_SPEECH';
+      sensitivityLevel?:
+        | 'SENSITIVITY_LEVEL_UNSPECIFIED'
+        | 'BLOCK_MOST'
+        | 'BLOCK_SOME'
+        | 'BLOCK_FEW'
+        | 'BLOCK_NONE';
     }
     interface GoogleCloudDialogflowV2beta1ReloadDocumentRequest {
       gcsSource?: GoogleCloudDialogflowV2beta1GcsSource;
@@ -2455,7 +2813,7 @@ declare namespace gapi.client {
       answer?: string;
       answerRecord?: string;
       answerSources?: GoogleCloudDialogflowV2beta1SearchKnowledgeAnswerAnswerSource[];
-      answerType?: string;
+      answerType?: 'ANSWER_TYPE_UNSPECIFIED' | 'FAQ' | 'GENERATIVE' | 'INTENT';
     }
     interface GoogleCloudDialogflowV2beta1SearchKnowledgeAnswerAnswerSource {
       metadata?: {[P in string]: any};
@@ -2464,7 +2822,17 @@ declare namespace gapi.client {
       uri?: string;
     }
     interface GoogleCloudDialogflowV2beta1SearchKnowledgeDebugInfo {
-      datastoreResponseReason?: string;
+      datastoreResponseReason?:
+        | 'DATASTORE_RESPONSE_REASON_UNSPECIFIED'
+        | 'NONE'
+        | 'SEARCH_OUT_OF_QUOTA'
+        | 'SEARCH_EMPTY_RESULTS'
+        | 'ANSWER_GENERATION_GEN_AI_DISABLED'
+        | 'ANSWER_GENERATION_OUT_OF_QUOTA'
+        | 'ANSWER_GENERATION_ERROR'
+        | 'ANSWER_GENERATION_NOT_ENOUGH_INFO'
+        | 'ANSWER_GENERATION_RAI_FAILED'
+        | 'ANSWER_GENERATION_NOT_GROUNDED';
       ingestedContextReferenceDebugInfo?: GoogleCloudDialogflowV2beta1IngestedContextReferenceDebugInfo;
       searchKnowledgeBehavior?: GoogleCloudDialogflowV2beta1SearchKnowledgeDebugInfoSearchKnowledgeBehavior;
       serviceLatency?: GoogleCloudDialogflowV2beta1ServiceLatency;
@@ -2482,7 +2850,10 @@ declare namespace gapi.client {
       latestMessage?: string;
       parent?: string;
       query?: GoogleCloudDialogflowV2beta1TextInput;
-      querySource?: string;
+      querySource?:
+        | 'QUERY_SOURCE_UNSPECIFIED'
+        | 'AGENT_QUERY'
+        | 'SUGGESTED_QUERY';
       searchConfig?: GoogleCloudDialogflowV2beta1SearchKnowledgeRequestSearchConfig;
       sessionId?: string;
     }
@@ -2503,10 +2874,10 @@ declare namespace gapi.client {
       condition?: string;
     }
     interface GoogleCloudDialogflowV2beta1SearchKnowledgeRequestSearchConfigBoostSpecsBoostSpecConditionBoostSpecBoostControlSpec {
-      attributeType?: string;
+      attributeType?: 'ATTRIBUTE_TYPE_UNSPECIFIED' | 'NUMERICAL' | 'FRESHNESS';
       controlPoints?: GoogleCloudDialogflowV2beta1SearchKnowledgeRequestSearchConfigBoostSpecsBoostSpecConditionBoostSpecBoostControlSpecControlPoint[];
       fieldName?: string;
-      interpolationType?: string;
+      interpolationType?: 'INTERPOLATION_TYPE_UNSPECIFIED' | 'LINEAR';
     }
     interface GoogleCloudDialogflowV2beta1SearchKnowledgeRequestSearchConfigBoostSpecsBoostSpecConditionBoostSpecBoostControlSpecControlPoint {
       attributeValue?: string;
@@ -2542,17 +2913,36 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowV2beta1SessionEntityType {
       entities?: GoogleCloudDialogflowV2beta1EntityTypeEntity[];
-      entityOverrideMode?: string;
+      entityOverrideMode?:
+        | 'ENTITY_OVERRIDE_MODE_UNSPECIFIED'
+        | 'ENTITY_OVERRIDE_MODE_OVERRIDE'
+        | 'ENTITY_OVERRIDE_MODE_SUPPLEMENT';
       name?: string;
     }
     interface GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata {
       conversationProfile?: string;
       createTime?: string;
-      participantRole?: string;
-      suggestionFeatureType?: string;
+      participantRole?:
+        | 'ROLE_UNSPECIFIED'
+        | 'HUMAN_AGENT'
+        | 'AUTOMATED_AGENT'
+        | 'END_USER';
+      suggestionFeatureType?:
+        | 'TYPE_UNSPECIFIED'
+        | 'ARTICLE_SUGGESTION'
+        | 'FAQ'
+        | 'SMART_REPLY'
+        | 'DIALOGFLOW_ASSIST'
+        | 'CONVERSATION_SUMMARIZATION'
+        | 'KNOWLEDGE_SEARCH'
+        | 'KNOWLEDGE_ASSIST';
     }
     interface GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigRequest {
-      participantRole?: string;
+      participantRole?:
+        | 'ROLE_UNSPECIFIED'
+        | 'HUMAN_AGENT'
+        | 'AUTOMATED_AGENT'
+        | 'END_USER';
       suggestionFeatureConfig?: GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionFeatureConfig;
     }
     interface GoogleCloudDialogflowV2beta1SipTrunk {
@@ -2571,13 +2961,26 @@ declare namespace gapi.client {
       phrases?: string[];
     }
     interface GoogleCloudDialogflowV2beta1SpeechToTextConfig {
-      audioEncoding?: string;
+      audioEncoding?:
+        | 'AUDIO_ENCODING_UNSPECIFIED'
+        | 'AUDIO_ENCODING_LINEAR_16'
+        | 'AUDIO_ENCODING_FLAC'
+        | 'AUDIO_ENCODING_MULAW'
+        | 'AUDIO_ENCODING_AMR'
+        | 'AUDIO_ENCODING_AMR_WB'
+        | 'AUDIO_ENCODING_OGG_OPUS'
+        | 'AUDIO_ENCODING_SPEEX_WITH_HEADER_BYTE'
+        | 'AUDIO_ENCODING_ALAW';
       enableWordInfo?: boolean;
       languageCode?: string;
       model?: string;
       phraseSets?: string[];
       sampleRateHertz?: number;
-      speechModelVariant?: string;
+      speechModelVariant?:
+        | 'SPEECH_MODEL_VARIANT_UNSPECIFIED'
+        | 'USE_BEST_AVAILABLE'
+        | 'USE_STANDARD'
+        | 'USE_ENHANCED';
       useTimeoutBasedEndpointing?: boolean;
     }
     interface GoogleCloudDialogflowV2beta1SpeechWordInfo {
@@ -2591,7 +2994,12 @@ declare namespace gapi.client {
       dtmfDigits?: GoogleCloudDialogflowV2beta1TelephonyDtmfEvents;
       isFinal?: boolean;
       languageCode?: string;
-      messageType?: string;
+      messageType?:
+        | 'MESSAGE_TYPE_UNSPECIFIED'
+        | 'TRANSCRIPT'
+        | 'END_OF_SINGLE_UTTERANCE'
+        | 'DTMF_DIGITS'
+        | 'PARTIAL_DTMF_DIGITS';
       speechEndOffset?: string;
       speechWordInfo?: GoogleCloudDialogflowV2beta1SpeechWordInfo[];
       stability?: number;
@@ -2674,10 +3082,18 @@ declare namespace gapi.client {
       source?: string;
     }
     interface GoogleCloudDialogflowV2beta1SuggestionFeature {
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'ARTICLE_SUGGESTION'
+        | 'FAQ'
+        | 'SMART_REPLY'
+        | 'DIALOGFLOW_ASSIST'
+        | 'CONVERSATION_SUMMARIZATION'
+        | 'KNOWLEDGE_SEARCH'
+        | 'KNOWLEDGE_ASSIST';
     }
     interface GoogleCloudDialogflowV2beta1SuggestionInput {
-      action?: string;
+      action?: 'ACTION_UNSPECIFIED' | 'CANCEL' | 'REVISE' | 'CONFIRM';
       answerRecord?: string;
       intentInput?: GoogleCloudDialogflowV2beta1IntentInput;
       parameters?: {[P in string]: any};
@@ -2791,7 +3207,17 @@ declare namespace gapi.client {
     interface GoogleCloudDialogflowV2beta1SummarizationSection {
       definition?: string;
       key?: string;
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'SITUATION'
+        | 'ACTION'
+        | 'RESOLUTION'
+        | 'REASON_FOR_CANCELLATION'
+        | 'CUSTOMER_SATISFACTION'
+        | 'ENTITIES'
+        | 'CUSTOMER_DEFINED'
+        | 'SITUATION_CONCISE'
+        | 'ACTION_CONCISE';
     }
     interface GoogleCloudDialogflowV2beta1SummarizationSectionList {
       summarizationSections?: GoogleCloudDialogflowV2beta1SummarizationSection[];
@@ -2812,7 +3238,24 @@ declare namespace gapi.client {
       volumeGainDb?: number;
     }
     interface GoogleCloudDialogflowV2beta1TelephonyDtmfEvents {
-      dtmfEvents?: string[];
+      dtmfEvents?:
+        | 'TELEPHONY_DTMF_UNSPECIFIED'
+        | 'DTMF_ONE'
+        | 'DTMF_TWO'
+        | 'DTMF_THREE'
+        | 'DTMF_FOUR'
+        | 'DTMF_FIVE'
+        | 'DTMF_SIX'
+        | 'DTMF_SEVEN'
+        | 'DTMF_EIGHT'
+        | 'DTMF_NINE'
+        | 'DTMF_ZERO'
+        | 'DTMF_A'
+        | 'DTMF_B'
+        | 'DTMF_C'
+        | 'DTMF_D'
+        | 'DTMF_STAR'
+        | 'DTMF_POUND'[];
     }
     interface GoogleCloudDialogflowV2beta1TextInput {
       languageCode?: string;
@@ -2820,14 +3263,26 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowV2beta1TextToSpeechSettings {
       enableTextToSpeech?: boolean;
-      outputAudioEncoding?: string;
+      outputAudioEncoding?:
+        | 'OUTPUT_AUDIO_ENCODING_UNSPECIFIED'
+        | 'OUTPUT_AUDIO_ENCODING_LINEAR_16'
+        | 'OUTPUT_AUDIO_ENCODING_MP3'
+        | 'OUTPUT_AUDIO_ENCODING_MP3_64_KBPS'
+        | 'OUTPUT_AUDIO_ENCODING_OGG_OPUS'
+        | 'OUTPUT_AUDIO_ENCODING_MULAW'
+        | 'OUTPUT_AUDIO_ENCODING_ALAW';
       sampleRateHertz?: number;
       synthesizeSpeechConfigs?: {
         [P in string]: GoogleCloudDialogflowV2beta1SynthesizeSpeechConfig;
       };
     }
     interface GoogleCloudDialogflowV2beta1Tool {
-      actionConfirmationRequirement?: {[P in string]: string};
+      actionConfirmationRequirement?: {
+        [P in string]:
+          | 'CONFIRMATION_REQUIREMENT_UNSPECIFIED'
+          | 'REQUIRED'
+          | 'NOT_REQUIRED';
+      };
       connectorSpec?: GoogleCloudDialogflowV2beta1ToolConnectorTool;
       createTime?: string;
       description?: string;
@@ -2850,7 +3305,10 @@ declare namespace gapi.client {
     interface GoogleCloudDialogflowV2beta1ToolAuthenticationApiKeyConfig {
       apiKey?: string;
       keyName?: string;
-      requestLocation?: string;
+      requestLocation?:
+        | 'REQUEST_LOCATION_UNSPECIFIED'
+        | 'HEADER'
+        | 'QUERY_STRING';
       secretVersionForApiKey?: string;
     }
     interface GoogleCloudDialogflowV2beta1ToolAuthenticationBearerTokenConfig {
@@ -2860,20 +3318,23 @@ declare namespace gapi.client {
     interface GoogleCloudDialogflowV2beta1ToolAuthenticationOAuthConfig {
       clientId?: string;
       clientSecret?: string;
-      oauthGrantType?: string;
+      oauthGrantType?: 'OAUTH_GRANT_TYPE_UNSPECIFIED' | 'CLIENT_CREDENTIAL';
       scopes?: string[];
       secretVersionForClientSecret?: string;
       tokenEndpoint?: string;
     }
     interface GoogleCloudDialogflowV2beta1ToolAuthenticationServiceAgentAuthConfig {
-      serviceAgentAuth?: string;
+      serviceAgentAuth?:
+        | 'SERVICE_AGENT_AUTH_UNSPECIFIED'
+        | 'ID_TOKEN'
+        | 'ACCESS_TOKEN';
     }
     interface GoogleCloudDialogflowV2beta1ToolCall {
       action?: string;
       answerRecord?: string;
       createTime?: string;
       inputParameters?: {[P in string]: any};
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'TRIGGERED' | 'NEEDS_CONFIRMATION';
       tool?: string;
       toolDisplayDetails?: string;
       toolDisplayName?: string;
@@ -2902,14 +3363,26 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowV2beta1ToolConnectorToolActionEntityOperation {
       entityId?: string;
-      operation?: string;
+      operation?:
+        | 'OPERATION_TYPE_UNSPECIFIED'
+        | 'LIST'
+        | 'GET'
+        | 'CREATE'
+        | 'UPDATE'
+        | 'DELETE';
     }
     interface GoogleCloudDialogflowV2beta1ToolExtensionTool {
       name?: string;
     }
     interface GoogleCloudDialogflowV2beta1ToolFunctionTool {
       inputSchema?: {[P in string]: any};
-      methodType?: string;
+      methodType?:
+        | 'METHOD_TYPE_UNSPECIFIED'
+        | 'GET'
+        | 'POST'
+        | 'PUT'
+        | 'DELETE'
+        | 'PATCH';
       outputSchema?: {[P in string]: any};
     }
     interface GoogleCloudDialogflowV2beta1ToolOpenApiTool {
@@ -2933,7 +3406,12 @@ declare namespace gapi.client {
     interface GoogleCloudDialogflowV2beta1ValidationError {
       entries?: string[];
       errorMessage?: string;
-      severity?: string;
+      severity?:
+        | 'SEVERITY_UNSPECIFIED'
+        | 'INFO'
+        | 'WARNING'
+        | 'ERROR'
+        | 'CRITICAL';
     }
     interface GoogleCloudDialogflowV2beta1ValidationResult {
       validationErrors?: GoogleCloudDialogflowV2beta1ValidationError[];
@@ -2942,12 +3420,20 @@ declare namespace gapi.client {
       createTime?: string;
       description?: string;
       name?: string;
-      status?: string;
+      status?:
+        | 'VERSION_STATUS_UNSPECIFIED'
+        | 'IN_PROGRESS'
+        | 'READY'
+        | 'FAILED';
       versionNumber?: number;
     }
     interface GoogleCloudDialogflowV2beta1VoiceSelectionParams {
       name?: string;
-      ssmlGender?: string;
+      ssmlGender?:
+        | 'SSML_VOICE_GENDER_UNSPECIFIED'
+        | 'SSML_VOICE_GENDER_MALE'
+        | 'SSML_VOICE_GENDER_FEMALE'
+        | 'SSML_VOICE_GENDER_NEUTRAL';
     }
     interface GoogleCloudDialogflowV2beta1WebhookRequest {
       alternativeQueryResults?: GoogleCloudDialogflowV2beta1QueryResult[];
@@ -2970,8 +3456,19 @@ declare namespace gapi.client {
     interface GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata {
       conversationProfile?: string;
       createTime?: string;
-      participantRole?: string;
-      suggestionFeatureType?: string;
+      participantRole?:
+        | 'ROLE_UNSPECIFIED'
+        | 'HUMAN_AGENT'
+        | 'AUTOMATED_AGENT'
+        | 'END_USER';
+      suggestionFeatureType?:
+        | 'TYPE_UNSPECIFIED'
+        | 'ARTICLE_SUGGESTION'
+        | 'FAQ'
+        | 'SMART_REPLY'
+        | 'CONVERSATION_SUMMARIZATION'
+        | 'KNOWLEDGE_SEARCH'
+        | 'KNOWLEDGE_ASSIST';
     }
     interface GoogleCloudDialogflowV2Context {
       lifespanCount?: number;
@@ -2983,7 +3480,14 @@ declare namespace gapi.client {
       errorStatus?: GoogleRpcStatus;
       newMessagePayload?: GoogleCloudDialogflowV2Message;
       newRecognitionResultPayload?: GoogleCloudDialogflowV2StreamingRecognitionResult;
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'CONVERSATION_STARTED'
+        | 'CONVERSATION_FINISHED'
+        | 'HUMAN_INTERVENTION_NEEDED'
+        | 'NEW_MESSAGE'
+        | 'NEW_RECOGNITION_RESULT'
+        | 'UNRECOVERABLE_ERROR';
     }
     interface GoogleCloudDialogflowV2ConversationModel {
       articleSuggestionModelMetadata?: GoogleCloudDialogflowV2ArticleSuggestionModelMetadata;
@@ -2995,7 +3499,16 @@ declare namespace gapi.client {
       satisfiesPzi?: boolean;
       satisfiesPzs?: boolean;
       smartReplyModelMetadata?: GoogleCloudDialogflowV2SmartReplyModelMetadata;
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'UNDEPLOYED'
+        | 'DEPLOYING'
+        | 'DEPLOYED'
+        | 'UNDEPLOYING'
+        | 'DELETING'
+        | 'FAILED'
+        | 'PENDING';
     }
     interface GoogleCloudDialogflowV2CreateConversationDatasetOperationMetadata {
       conversationDataset?: string;
@@ -3004,13 +3517,26 @@ declare namespace gapi.client {
       conversationModel?: string;
       conversationModelEvaluation?: string;
       createTime?: string;
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'INITIALIZING'
+        | 'RUNNING'
+        | 'CANCELLED'
+        | 'SUCCEEDED'
+        | 'FAILED';
     }
     interface GoogleCloudDialogflowV2CreateConversationModelOperationMetadata {
       conversationModel?: string;
       createTime?: string;
       doneTime?: string;
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PENDING'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'CANCELLED'
+        | 'CANCELLING'
+        | 'TRAINING';
     }
     interface GoogleCloudDialogflowV2DeleteConversationDatasetOperationMetadata {}
     interface GoogleCloudDialogflowV2DeleteConversationModelOperationMetadata {
@@ -3028,11 +3554,13 @@ declare namespace gapi.client {
       name?: string;
     }
     interface GoogleCloudDialogflowV2EntityType {
-      autoExpansionMode?: string;
+      autoExpansionMode?:
+        | 'AUTO_EXPANSION_MODE_UNSPECIFIED'
+        | 'AUTO_EXPANSION_MODE_DEFAULT';
       displayName?: string;
       enableFuzzyExtraction?: boolean;
       entities?: GoogleCloudDialogflowV2EntityTypeEntity[];
-      kind?: string;
+      kind?: 'KIND_UNSPECIFIED' | 'KIND_MAP' | 'KIND_LIST' | 'KIND_REGEXP';
       name?: string;
     }
     interface GoogleCloudDialogflowV2EntityTypeEntity {
@@ -3107,7 +3635,14 @@ declare namespace gapi.client {
       projectNotAllowlisted?: boolean;
     }
     interface GoogleCloudDialogflowV2IngestedContextReferenceDebugInfoIngestedParameterDebugInfo {
-      ingestionStatus?: string;
+      ingestionStatus?:
+        | 'INGESTION_STATUS_UNSPECIFIED'
+        | 'INGESTION_STATUS_SUCCEEDED'
+        | 'INGESTION_STATUS_CONTEXT_NOT_AVAILABLE'
+        | 'INGESTION_STATUS_PARSE_FAILED'
+        | 'INGESTION_STATUS_INVALID_ENTRY'
+        | 'INGESTION_STATUS_INVALID_FORMAT'
+        | 'INGESTION_STATUS_LANGUAGE_MISMATCH';
       parameter?: string;
     }
     interface GoogleCloudDialogflowV2InitializeEncryptionSpecMetadata {
@@ -3121,7 +3656,17 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowV2Intent {
       action?: string;
-      defaultResponsePlatforms?: string[];
+      defaultResponsePlatforms?:
+        | 'PLATFORM_UNSPECIFIED'
+        | 'FACEBOOK'
+        | 'SLACK'
+        | 'TELEGRAM'
+        | 'KIK'
+        | 'SKYPE'
+        | 'LINE'
+        | 'VIBER'
+        | 'ACTIONS_ON_GOOGLE'
+        | 'GOOGLE_HANGOUTS'[];
       displayName?: string;
       endInteraction?: boolean;
       events?: string[];
@@ -3139,7 +3684,10 @@ declare namespace gapi.client {
       resetContexts?: boolean;
       rootFollowupIntentName?: string;
       trainingPhrases?: GoogleCloudDialogflowV2IntentTrainingPhrase[];
-      webhookState?: string;
+      webhookState?:
+        | 'WEBHOOK_STATE_UNSPECIFIED'
+        | 'WEBHOOK_STATE_ENABLED'
+        | 'WEBHOOK_STATE_ENABLED_FOR_SLOT_FILLING';
     }
     interface GoogleCloudDialogflowV2IntentFollowupIntentInfo {
       followupIntentName?: string;
@@ -3155,7 +3703,17 @@ declare namespace gapi.client {
       listSelect?: GoogleCloudDialogflowV2IntentMessageListSelect;
       mediaContent?: GoogleCloudDialogflowV2IntentMessageMediaContent;
       payload?: {[P in string]: any};
-      platform?: string;
+      platform?:
+        | 'PLATFORM_UNSPECIFIED'
+        | 'FACEBOOK'
+        | 'SLACK'
+        | 'TELEGRAM'
+        | 'KIK'
+        | 'SKYPE'
+        | 'LINE'
+        | 'VIBER'
+        | 'ACTIONS_ON_GOOGLE'
+        | 'GOOGLE_HANGOUTS';
       quickReplies?: GoogleCloudDialogflowV2IntentMessageQuickReplies;
       simpleResponses?: GoogleCloudDialogflowV2IntentMessageSimpleResponses;
       suggestions?: GoogleCloudDialogflowV2IntentMessageSuggestions;
@@ -3177,7 +3735,12 @@ declare namespace gapi.client {
       uri?: string;
     }
     interface GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard {
-      imageDisplayOptions?: string;
+      imageDisplayOptions?:
+        | 'IMAGE_DISPLAY_OPTIONS_UNSPECIFIED'
+        | 'GRAY'
+        | 'WHITE'
+        | 'CROPPED'
+        | 'BLURRED_BACKGROUND';
       items?: GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItem[];
     }
     interface GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItem {
@@ -3189,7 +3752,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction {
       url?: string;
-      urlTypeHint?: string;
+      urlTypeHint?: 'URL_TYPE_HINT_UNSPECIFIED' | 'AMP_ACTION' | 'AMP_CONTENT';
     }
     interface GoogleCloudDialogflowV2IntentMessageCard {
       buttons?: GoogleCloudDialogflowV2IntentMessageCardButton[];
@@ -3212,7 +3775,11 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowV2IntentMessageColumnProperties {
       header?: string;
-      horizontalAlignment?: string;
+      horizontalAlignment?:
+        | 'HORIZONTAL_ALIGNMENT_UNSPECIFIED'
+        | 'LEADING'
+        | 'CENTER'
+        | 'TRAILING';
     }
     interface GoogleCloudDialogflowV2IntentMessageImage {
       accessibilityText?: string;
@@ -3235,7 +3802,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowV2IntentMessageMediaContent {
       mediaObjects?: GoogleCloudDialogflowV2IntentMessageMediaContentResponseMediaObject[];
-      mediaType?: string;
+      mediaType?: 'RESPONSE_MEDIA_TYPE_UNSPECIFIED' | 'AUDIO';
     }
     interface GoogleCloudDialogflowV2IntentMessageMediaContentResponseMediaObject {
       contentUrl?: string;
@@ -3298,7 +3865,7 @@ declare namespace gapi.client {
       name?: string;
       parts?: GoogleCloudDialogflowV2IntentTrainingPhrasePart[];
       timesAddedCount?: number;
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'EXAMPLE' | 'TEMPLATE';
     }
     interface GoogleCloudDialogflowV2IntentTrainingPhrasePart {
       alias?: string;
@@ -3333,11 +3900,36 @@ declare namespace gapi.client {
       queryText?: string;
     }
     interface GoogleCloudDialogflowV2KnowledgeAssistDebugInfo {
-      datastoreResponseReason?: string;
+      datastoreResponseReason?:
+        | 'DATASTORE_RESPONSE_REASON_UNSPECIFIED'
+        | 'NONE'
+        | 'SEARCH_OUT_OF_QUOTA'
+        | 'SEARCH_EMPTY_RESULTS'
+        | 'ANSWER_GENERATION_GEN_AI_DISABLED'
+        | 'ANSWER_GENERATION_OUT_OF_QUOTA'
+        | 'ANSWER_GENERATION_ERROR'
+        | 'ANSWER_GENERATION_NOT_ENOUGH_INFO'
+        | 'ANSWER_GENERATION_RAI_FAILED'
+        | 'ANSWER_GENERATION_NOT_GROUNDED';
       ingestedContextReferenceDebugInfo?: GoogleCloudDialogflowV2IngestedContextReferenceDebugInfo;
       knowledgeAssistBehavior?: GoogleCloudDialogflowV2KnowledgeAssistDebugInfoKnowledgeAssistBehavior;
-      queryCategorizationFailureReason?: string;
-      queryGenerationFailureReason?: string;
+      queryCategorizationFailureReason?:
+        | 'QUERY_CATEGORIZATION_FAILURE_REASON_UNSPECIFIED'
+        | 'QUERY_CATEGORIZATION_INVALID_CONFIG'
+        | 'QUERY_CATEGORIZATION_RESULT_NOT_FOUND'
+        | 'QUERY_CATEGORIZATION_FAILED';
+      queryGenerationFailureReason?:
+        | 'QUERY_GENERATION_FAILURE_REASON_UNSPECIFIED'
+        | 'QUERY_GENERATION_OUT_OF_QUOTA'
+        | 'QUERY_GENERATION_FAILED'
+        | 'QUERY_GENERATION_NO_QUERY_GENERATED'
+        | 'QUERY_GENERATION_RAI_FAILED'
+        | 'NOT_IN_ALLOWLIST'
+        | 'QUERY_GENERATION_QUERY_REDACTED'
+        | 'QUERY_GENERATION_LLM_RESPONSE_PARSE_FAILED'
+        | 'QUERY_GENERATION_EMPTY_CONVERSATION'
+        | 'QUERY_GENERATION_EMPTY_LAST_MESSAGE'
+        | 'QUERY_GENERATION_TRIGGERING_EVENT_CONDITION_NOT_MET';
       serviceLatency?: GoogleCloudDialogflowV2ServiceLatency;
     }
     interface GoogleCloudDialogflowV2KnowledgeAssistDebugInfoKnowledgeAssistBehavior {
@@ -3363,7 +3955,7 @@ declare namespace gapi.client {
       doneTime?: string;
       exportOperationMetadata?: GoogleCloudDialogflowV2ExportOperationMetadata;
       knowledgeBase?: string;
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'PENDING' | 'RUNNING' | 'DONE';
     }
     interface GoogleCloudDialogflowV2Message {
       content?: string;
@@ -3372,7 +3964,11 @@ declare namespace gapi.client {
       messageAnnotation?: GoogleCloudDialogflowV2MessageAnnotation;
       name?: string;
       participant?: string;
-      participantRole?: string;
+      participantRole?:
+        | 'ROLE_UNSPECIFIED'
+        | 'HUMAN_AGENT'
+        | 'AUTOMATED_AGENT'
+        | 'END_USER';
       sendTime?: string;
       sentimentAnalysis?: GoogleCloudDialogflowV2SentimentAnalysisResult;
     }
@@ -3421,14 +4017,28 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowV2SessionEntityType {
       entities?: GoogleCloudDialogflowV2EntityTypeEntity[];
-      entityOverrideMode?: string;
+      entityOverrideMode?:
+        | 'ENTITY_OVERRIDE_MODE_UNSPECIFIED'
+        | 'ENTITY_OVERRIDE_MODE_OVERRIDE'
+        | 'ENTITY_OVERRIDE_MODE_SUPPLEMENT';
       name?: string;
     }
     interface GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata {
       conversationProfile?: string;
       createTime?: string;
-      participantRole?: string;
-      suggestionFeatureType?: string;
+      participantRole?:
+        | 'ROLE_UNSPECIFIED'
+        | 'HUMAN_AGENT'
+        | 'AUTOMATED_AGENT'
+        | 'END_USER';
+      suggestionFeatureType?:
+        | 'TYPE_UNSPECIFIED'
+        | 'ARTICLE_SUGGESTION'
+        | 'FAQ'
+        | 'SMART_REPLY'
+        | 'CONVERSATION_SUMMARIZATION'
+        | 'KNOWLEDGE_SEARCH'
+        | 'KNOWLEDGE_ASSIST';
     }
     interface GoogleCloudDialogflowV2SmartReplyAnswer {
       answerRecord?: string;
@@ -3436,7 +4046,10 @@ declare namespace gapi.client {
       reply?: string;
     }
     interface GoogleCloudDialogflowV2SmartReplyModelMetadata {
-      trainingModelType?: string;
+      trainingModelType?:
+        | 'MODEL_TYPE_UNSPECIFIED'
+        | 'SMART_REPLY_DUAL_ENCODER_MODEL'
+        | 'SMART_REPLY_BERT_MODEL';
     }
     interface GoogleCloudDialogflowV2SpeechWordInfo {
       confidence?: number;
@@ -3448,7 +4061,10 @@ declare namespace gapi.client {
       confidence?: number;
       isFinal?: boolean;
       languageCode?: string;
-      messageType?: string;
+      messageType?:
+        | 'MESSAGE_TYPE_UNSPECIFIED'
+        | 'TRANSCRIPT'
+        | 'END_OF_SINGLE_UTTERANCE';
       speechEndOffset?: string;
       speechWordInfo?: GoogleCloudDialogflowV2SpeechWordInfo[];
       transcript?: string;
@@ -3493,7 +4109,7 @@ declare namespace gapi.client {
       answerRecord?: string;
       createTime?: string;
       inputParameters?: {[P in string]: any};
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'TRIGGERED' | 'NEEDS_CONFIRMATION';
       tool?: string;
       toolDisplayDetails?: string;
       toolDisplayName?: string;
@@ -3536,7 +4152,10 @@ declare namespace gapi.client {
     interface GoogleCloudDialogflowV3alpha1TurnSignals {
       agentEscalated?: boolean;
       dtmfUsed?: boolean;
-      failureReasons?: string[];
+      failureReasons?:
+        | 'FAILURE_REASON_UNSPECIFIED'
+        | 'FAILED_INTENT'
+        | 'FAILED_WEBHOOK'[];
       noMatch?: boolean;
       noUserInput?: boolean;
       reachedEndPage?: boolean;
@@ -3582,11 +4201,11 @@ declare namespace gapi.client {
     interface EntitiesResource {
       batchCreate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3610,11 +4229,11 @@ declare namespace gapi.client {
       batchCreate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3637,11 +4256,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       batchDelete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3665,11 +4284,11 @@ declare namespace gapi.client {
       batchDelete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3692,11 +4311,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       batchUpdate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3720,11 +4339,11 @@ declare namespace gapi.client {
       batchUpdate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3749,11 +4368,11 @@ declare namespace gapi.client {
     interface EntityTypesResource {
       batchDelete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3777,11 +4396,11 @@ declare namespace gapi.client {
       batchDelete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3804,11 +4423,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       batchUpdate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3832,11 +4451,11 @@ declare namespace gapi.client {
       batchUpdate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3859,11 +4478,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3888,11 +4507,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3916,11 +4535,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1EntityType>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3941,11 +4560,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3967,11 +4586,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1EntityType>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3995,11 +4614,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListEntityTypesResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4025,11 +4644,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4057,16 +4676,16 @@ declare namespace gapi.client {
     interface IntentsResource {
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
-        intentView?: string;
+        intentView?: 'INTENT_VIEW_UNSPECIFIED' | 'INTENT_VIEW_FULL';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         languageCode?: string;
@@ -4088,11 +4707,11 @@ declare namespace gapi.client {
     interface ContextsResource {
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4116,11 +4735,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4143,11 +4762,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1Context>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4168,11 +4787,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4193,11 +4812,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1Context>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4220,11 +4839,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListContextsResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4249,11 +4868,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4279,11 +4898,11 @@ declare namespace gapi.client {
     interface EntityTypesResource {
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4307,11 +4926,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4334,11 +4953,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1SessionEntityType>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4359,11 +4978,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4384,11 +5003,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1SessionEntityType>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4411,11 +5030,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListSessionEntityTypesResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4440,11 +5059,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4470,11 +5089,11 @@ declare namespace gapi.client {
     interface SessionsResource {
       deleteContexts(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4495,11 +5114,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       detectIntent(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4523,11 +5142,11 @@ declare namespace gapi.client {
       detectIntent(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4557,11 +5176,11 @@ declare namespace gapi.client {
     interface EnvironmentsResource {
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         environmentId?: string;
@@ -4586,11 +5205,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           environmentId?: string;
@@ -4614,11 +5233,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1Environment>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4639,11 +5258,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4664,11 +5283,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1Environment>;
       getHistory(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4691,11 +5310,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1EnvironmentHistory>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4718,12 +5337,12 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListEnvironmentsResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         allowLoadToDraftAndDiscardChanges?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4748,12 +5367,12 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           allowLoadToDraftAndDiscardChanges?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4781,11 +5400,11 @@ declare namespace gapi.client {
     interface IntentsResource {
       batchDelete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4809,11 +5428,11 @@ declare namespace gapi.client {
       batchDelete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4836,11 +5455,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       batchUpdate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4864,11 +5483,11 @@ declare namespace gapi.client {
       batchUpdate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4891,16 +5510,16 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
-        intentView?: string;
+        intentView?: 'INTENT_VIEW_UNSPECIFIED' | 'INTENT_VIEW_FULL';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         languageCode?: string;
@@ -4921,16 +5540,16 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
-          intentView?: string;
+          intentView?: 'INTENT_VIEW_UNSPECIFIED' | 'INTENT_VIEW_FULL';
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
           key?: string;
           languageCode?: string;
@@ -4950,11 +5569,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1Intent>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4975,16 +5594,16 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
-        intentView?: string;
+        intentView?: 'INTENT_VIEW_UNSPECIFIED' | 'INTENT_VIEW_FULL';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         languageCode?: string;
@@ -5002,16 +5621,16 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1Intent>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
-        intentView?: string;
+        intentView?: 'INTENT_VIEW_UNSPECIFIED' | 'INTENT_VIEW_FULL';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         languageCode?: string;
@@ -5031,16 +5650,16 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListIntentsResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
-        intentView?: string;
+        intentView?: 'INTENT_VIEW_UNSPECIFIED' | 'INTENT_VIEW_FULL';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         languageCode?: string;
@@ -5062,16 +5681,16 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
-          intentView?: string;
+          intentView?: 'INTENT_VIEW_UNSPECIFIED' | 'INTENT_VIEW_FULL';
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
           key?: string;
           languageCode?: string;
@@ -5094,11 +5713,11 @@ declare namespace gapi.client {
     interface DocumentsResource {
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5123,11 +5742,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5151,11 +5770,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5176,11 +5795,11 @@ declare namespace gapi.client {
       }): Request<GoogleLongrunningOperation>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5201,11 +5820,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1Document>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5229,11 +5848,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListDocumentsResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5258,11 +5877,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5286,11 +5905,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       reload(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5314,11 +5933,11 @@ declare namespace gapi.client {
       reload(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5343,11 +5962,11 @@ declare namespace gapi.client {
     interface KnowledgeBasesResource {
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5371,11 +5990,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5398,11 +6017,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1KnowledgeBase>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5424,11 +6043,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5449,11 +6068,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1KnowledgeBase>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5477,11 +6096,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListKnowledgeBasesResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5506,11 +6125,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5537,11 +6156,11 @@ declare namespace gapi.client {
     interface ContextsResource {
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5565,11 +6184,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5592,11 +6211,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1Context>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5617,11 +6236,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5642,11 +6261,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1Context>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5669,11 +6288,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListContextsResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5698,11 +6317,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5728,11 +6347,11 @@ declare namespace gapi.client {
     interface EntityTypesResource {
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5756,11 +6375,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5783,11 +6402,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1SessionEntityType>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5808,11 +6427,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5833,11 +6452,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1SessionEntityType>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5860,11 +6479,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListSessionEntityTypesResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5889,11 +6508,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -5919,11 +6538,11 @@ declare namespace gapi.client {
     interface SessionsResource {
       deleteContexts(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5944,11 +6563,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       detectIntent(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5972,11 +6591,11 @@ declare namespace gapi.client {
       detectIntent(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6003,11 +6622,11 @@ declare namespace gapi.client {
     interface VersionsResource {
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6031,11 +6650,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6058,11 +6677,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1Version>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6083,11 +6702,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6108,11 +6727,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1Version>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6135,11 +6754,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListVersionsResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6164,11 +6783,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6194,11 +6813,11 @@ declare namespace gapi.client {
     interface AgentResource {
       export(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6222,11 +6841,11 @@ declare namespace gapi.client {
       export(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6249,11 +6868,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       getFulfillment(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6274,11 +6893,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1Fulfillment>;
       getValidationResult(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6300,11 +6919,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ValidationResult>;
       import(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6328,11 +6947,11 @@ declare namespace gapi.client {
       import(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6355,11 +6974,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       restore(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6383,11 +7002,11 @@ declare namespace gapi.client {
       restore(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6410,11 +7029,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       search(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6437,11 +7056,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1SearchAgentsResponse>;
       train(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6465,11 +7084,11 @@ declare namespace gapi.client {
       train(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6492,11 +7111,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       updateFulfillment(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6521,11 +7140,11 @@ declare namespace gapi.client {
       updateFulfillment(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6557,11 +7176,11 @@ declare namespace gapi.client {
     interface AnswerRecordsResource {
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6582,11 +7201,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1AnswerRecord>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6610,11 +7229,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListAnswerRecordsResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6639,11 +7258,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6669,11 +7288,11 @@ declare namespace gapi.client {
     interface ConversationProfilesResource {
       clearSuggestionFeatureConfig(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         conversationProfile: string;
@@ -6697,11 +7316,11 @@ declare namespace gapi.client {
       clearSuggestionFeatureConfig(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           conversationProfile: string;
@@ -6724,11 +7343,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6752,11 +7371,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6779,11 +7398,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1ConversationProfile>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6804,11 +7423,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6829,11 +7448,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ConversationProfile>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6856,11 +7475,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListConversationProfilesResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6885,11 +7504,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6913,11 +7532,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1ConversationProfile>;
       setSuggestionFeatureConfig(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         conversationProfile: string;
@@ -6941,11 +7560,11 @@ declare namespace gapi.client {
       setSuggestionFeatureConfig(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           conversationProfile: string;
@@ -6970,11 +7589,11 @@ declare namespace gapi.client {
     interface MessagesResource {
       batchCreate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6998,11 +7617,11 @@ declare namespace gapi.client {
       batchCreate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7025,11 +7644,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1BatchCreateMessagesResponse>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7055,11 +7674,11 @@ declare namespace gapi.client {
     interface SuggestionsResource {
       compile(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7083,11 +7702,11 @@ declare namespace gapi.client {
       compile(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7110,11 +7729,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1CompileSuggestionResponse>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7138,11 +7757,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListSuggestionsResponse>;
       suggestArticles(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7166,11 +7785,11 @@ declare namespace gapi.client {
       suggestArticles(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7193,11 +7812,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1SuggestArticlesResponse>;
       suggestFaqAnswers(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7221,11 +7840,11 @@ declare namespace gapi.client {
       suggestFaqAnswers(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7248,11 +7867,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1SuggestFaqAnswersResponse>;
       suggestKnowledgeAssist(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7276,11 +7895,11 @@ declare namespace gapi.client {
       suggestKnowledgeAssist(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7303,11 +7922,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1SuggestKnowledgeAssistResponse>;
       suggestSmartReplies(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7331,11 +7950,11 @@ declare namespace gapi.client {
       suggestSmartReplies(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7360,11 +7979,11 @@ declare namespace gapi.client {
     interface ParticipantsResource {
       analyzeContent(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7388,11 +8007,11 @@ declare namespace gapi.client {
       analyzeContent(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7415,11 +8034,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1AnalyzeContentResponse>;
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7443,11 +8062,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7470,11 +8089,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1Participant>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7495,11 +8114,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1Participant>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7522,11 +8141,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListParticipantsResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7551,11 +8170,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7582,11 +8201,11 @@ declare namespace gapi.client {
     interface SuggestionsResource {
       generate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         conversation: string;
@@ -7610,11 +8229,11 @@ declare namespace gapi.client {
       generate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           conversation: string;
@@ -7637,11 +8256,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1GenerateSuggestionsResponse>;
       searchKnowledge(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         conversation: string;
@@ -7665,11 +8284,11 @@ declare namespace gapi.client {
       searchKnowledge(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           conversation: string;
@@ -7692,11 +8311,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1SearchKnowledgeResponse>;
       suggestConversationSummary(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         conversation: string;
@@ -7720,11 +8339,11 @@ declare namespace gapi.client {
       suggestConversationSummary(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           conversation: string;
@@ -7749,11 +8368,11 @@ declare namespace gapi.client {
     interface ConversationsResource {
       complete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7777,11 +8396,11 @@ declare namespace gapi.client {
       complete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7804,11 +8423,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1Conversation>;
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         conversationId?: string;
@@ -7833,11 +8452,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           conversationId?: string;
@@ -7861,11 +8480,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1Conversation>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7886,11 +8505,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1Conversation>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7919,11 +8538,11 @@ declare namespace gapi.client {
     interface GeneratorsResource {
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -7948,11 +8567,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -7976,11 +8595,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1Generator>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8005,11 +8624,11 @@ declare namespace gapi.client {
     interface DocumentsResource {
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8034,11 +8653,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8062,11 +8681,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8087,11 +8706,11 @@ declare namespace gapi.client {
       }): Request<GoogleLongrunningOperation>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8112,11 +8731,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1Document>;
       import(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8140,11 +8759,11 @@ declare namespace gapi.client {
       import(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8167,11 +8786,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8195,11 +8814,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListDocumentsResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8224,11 +8843,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8252,11 +8871,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       reload(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8280,11 +8899,11 @@ declare namespace gapi.client {
       reload(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8309,11 +8928,11 @@ declare namespace gapi.client {
     interface KnowledgeBasesResource {
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8337,11 +8956,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8364,11 +8983,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1KnowledgeBase>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8390,11 +9009,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8415,11 +9034,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1KnowledgeBase>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8443,11 +9062,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListKnowledgeBasesResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8472,11 +9091,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8503,11 +9122,11 @@ declare namespace gapi.client {
     interface EntitiesResource {
       batchCreate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8531,11 +9150,11 @@ declare namespace gapi.client {
       batchCreate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8558,11 +9177,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       batchDelete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8586,11 +9205,11 @@ declare namespace gapi.client {
       batchDelete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8613,11 +9232,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       batchUpdate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8641,11 +9260,11 @@ declare namespace gapi.client {
       batchUpdate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8670,11 +9289,11 @@ declare namespace gapi.client {
     interface EntityTypesResource {
       batchDelete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8698,11 +9317,11 @@ declare namespace gapi.client {
       batchDelete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8725,11 +9344,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       batchUpdate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8753,11 +9372,11 @@ declare namespace gapi.client {
       batchUpdate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8780,11 +9399,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8809,11 +9428,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8837,11 +9456,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1EntityType>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8862,11 +9481,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8888,11 +9507,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1EntityType>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8916,11 +9535,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListEntityTypesResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -8946,11 +9565,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -8978,16 +9597,16 @@ declare namespace gapi.client {
     interface IntentsResource {
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
-        intentView?: string;
+        intentView?: 'INTENT_VIEW_UNSPECIFIED' | 'INTENT_VIEW_FULL';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         languageCode?: string;
@@ -9009,11 +9628,11 @@ declare namespace gapi.client {
     interface ContextsResource {
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9037,11 +9656,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9064,11 +9683,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1Context>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9089,11 +9708,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9114,11 +9733,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1Context>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9141,11 +9760,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListContextsResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9170,11 +9789,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9200,11 +9819,11 @@ declare namespace gapi.client {
     interface EntityTypesResource {
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9228,11 +9847,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9255,11 +9874,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1SessionEntityType>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9280,11 +9899,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9305,11 +9924,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1SessionEntityType>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9332,11 +9951,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListSessionEntityTypesResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9361,11 +9980,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9391,11 +10010,11 @@ declare namespace gapi.client {
     interface SessionsResource {
       deleteContexts(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9416,11 +10035,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       detectIntent(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9444,11 +10063,11 @@ declare namespace gapi.client {
       detectIntent(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9478,11 +10097,11 @@ declare namespace gapi.client {
     interface EnvironmentsResource {
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         environmentId?: string;
@@ -9507,11 +10126,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           environmentId?: string;
@@ -9535,11 +10154,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1Environment>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9560,11 +10179,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9585,11 +10204,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1Environment>;
       getHistory(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9612,11 +10231,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1EnvironmentHistory>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9639,12 +10258,12 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListEnvironmentsResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         allowLoadToDraftAndDiscardChanges?: boolean;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9669,12 +10288,12 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           allowLoadToDraftAndDiscardChanges?: boolean;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9702,11 +10321,11 @@ declare namespace gapi.client {
     interface IntentsResource {
       batchDelete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9730,11 +10349,11 @@ declare namespace gapi.client {
       batchDelete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9757,11 +10376,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       batchUpdate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9785,11 +10404,11 @@ declare namespace gapi.client {
       batchUpdate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -9812,16 +10431,16 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
-        intentView?: string;
+        intentView?: 'INTENT_VIEW_UNSPECIFIED' | 'INTENT_VIEW_FULL';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         languageCode?: string;
@@ -9842,16 +10461,16 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
-          intentView?: string;
+          intentView?: 'INTENT_VIEW_UNSPECIFIED' | 'INTENT_VIEW_FULL';
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
           key?: string;
           languageCode?: string;
@@ -9871,11 +10490,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1Intent>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -9896,16 +10515,16 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
-        intentView?: string;
+        intentView?: 'INTENT_VIEW_UNSPECIFIED' | 'INTENT_VIEW_FULL';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         languageCode?: string;
@@ -9923,16 +10542,16 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1Intent>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
-        intentView?: string;
+        intentView?: 'INTENT_VIEW_UNSPECIFIED' | 'INTENT_VIEW_FULL';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         languageCode?: string;
@@ -9952,16 +10571,16 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListIntentsResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
-        intentView?: string;
+        intentView?: 'INTENT_VIEW_UNSPECIFIED' | 'INTENT_VIEW_FULL';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         languageCode?: string;
@@ -9983,16 +10602,16 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
-          intentView?: string;
+          intentView?: 'INTENT_VIEW_UNSPECIFIED' | 'INTENT_VIEW_FULL';
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
           key?: string;
           languageCode?: string;
@@ -10015,11 +10634,11 @@ declare namespace gapi.client {
     interface ContextsResource {
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10043,11 +10662,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10070,11 +10689,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1Context>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10095,11 +10714,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10120,11 +10739,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1Context>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10147,11 +10766,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListContextsResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10176,11 +10795,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10206,11 +10825,11 @@ declare namespace gapi.client {
     interface EntityTypesResource {
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10234,11 +10853,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10261,11 +10880,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1SessionEntityType>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10286,11 +10905,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10311,11 +10930,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1SessionEntityType>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10338,11 +10957,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListSessionEntityTypesResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10367,11 +10986,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10397,11 +11016,11 @@ declare namespace gapi.client {
     interface SessionsResource {
       deleteContexts(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10422,11 +11041,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       detectIntent(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10450,11 +11069,11 @@ declare namespace gapi.client {
       detectIntent(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10481,11 +11100,11 @@ declare namespace gapi.client {
     interface VersionsResource {
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10509,11 +11128,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10536,11 +11155,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1Version>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10561,11 +11180,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10586,11 +11205,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1Version>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10613,11 +11232,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListVersionsResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10642,11 +11261,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10672,11 +11291,11 @@ declare namespace gapi.client {
     interface AgentResource {
       export(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10700,11 +11319,11 @@ declare namespace gapi.client {
       export(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10727,11 +11346,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       getFulfillment(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10752,11 +11371,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1Fulfillment>;
       getValidationResult(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10778,11 +11397,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ValidationResult>;
       import(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10806,11 +11425,11 @@ declare namespace gapi.client {
       import(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10833,11 +11452,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       restore(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10861,11 +11480,11 @@ declare namespace gapi.client {
       restore(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10888,11 +11507,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       search(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10915,11 +11534,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1SearchAgentsResponse>;
       train(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10943,11 +11562,11 @@ declare namespace gapi.client {
       train(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -10970,11 +11589,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       updateFulfillment(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -10999,11 +11618,11 @@ declare namespace gapi.client {
       updateFulfillment(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11034,11 +11653,11 @@ declare namespace gapi.client {
     interface AnswerRecordsResource {
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11059,11 +11678,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1AnswerRecord>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11087,11 +11706,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListAnswerRecordsResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11116,11 +11735,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11146,11 +11765,11 @@ declare namespace gapi.client {
     interface ConversationProfilesResource {
       clearSuggestionFeatureConfig(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         conversationProfile: string;
@@ -11174,11 +11793,11 @@ declare namespace gapi.client {
       clearSuggestionFeatureConfig(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           conversationProfile: string;
@@ -11201,11 +11820,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11229,11 +11848,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11256,11 +11875,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1ConversationProfile>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11281,11 +11900,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11306,11 +11925,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ConversationProfile>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11333,11 +11952,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListConversationProfilesResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11362,11 +11981,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11390,11 +12009,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1ConversationProfile>;
       setSuggestionFeatureConfig(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         conversationProfile: string;
@@ -11418,11 +12037,11 @@ declare namespace gapi.client {
       setSuggestionFeatureConfig(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           conversationProfile: string;
@@ -11447,11 +12066,11 @@ declare namespace gapi.client {
     interface MessagesResource {
       batchCreate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11475,11 +12094,11 @@ declare namespace gapi.client {
       batchCreate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11502,11 +12121,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1BatchCreateMessagesResponse>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11532,11 +12151,11 @@ declare namespace gapi.client {
     interface SuggestionsResource {
       suggestArticles(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11560,11 +12179,11 @@ declare namespace gapi.client {
       suggestArticles(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11587,11 +12206,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1SuggestArticlesResponse>;
       suggestFaqAnswers(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11615,11 +12234,11 @@ declare namespace gapi.client {
       suggestFaqAnswers(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11642,11 +12261,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1SuggestFaqAnswersResponse>;
       suggestKnowledgeAssist(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11670,11 +12289,11 @@ declare namespace gapi.client {
       suggestKnowledgeAssist(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11697,11 +12316,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1SuggestKnowledgeAssistResponse>;
       suggestSmartReplies(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11725,11 +12344,11 @@ declare namespace gapi.client {
       suggestSmartReplies(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11754,11 +12373,11 @@ declare namespace gapi.client {
     interface ParticipantsResource {
       analyzeContent(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11782,11 +12401,11 @@ declare namespace gapi.client {
       analyzeContent(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11809,11 +12428,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1AnalyzeContentResponse>;
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11837,11 +12456,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11864,11 +12483,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1Participant>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11889,11 +12508,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1Participant>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11916,11 +12535,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListParticipantsResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -11945,11 +12564,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -11976,11 +12595,11 @@ declare namespace gapi.client {
     interface SuggestionsResource {
       generate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         conversation: string;
@@ -12004,11 +12623,11 @@ declare namespace gapi.client {
       generate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           conversation: string;
@@ -12031,11 +12650,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1GenerateSuggestionsResponse>;
       searchKnowledge(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         conversation: string;
@@ -12059,11 +12678,11 @@ declare namespace gapi.client {
       searchKnowledge(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           conversation: string;
@@ -12086,11 +12705,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1SearchKnowledgeResponse>;
       suggestConversationSummary(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         conversation: string;
@@ -12114,11 +12733,11 @@ declare namespace gapi.client {
       suggestConversationSummary(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           conversation: string;
@@ -12143,11 +12762,11 @@ declare namespace gapi.client {
     interface ConversationsResource {
       complete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12171,11 +12790,11 @@ declare namespace gapi.client {
       complete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -12198,11 +12817,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1Conversation>;
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         conversationId?: string;
@@ -12227,11 +12846,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           conversationId?: string;
@@ -12255,11 +12874,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1Conversation>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12280,11 +12899,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1Conversation>;
       ingestContextReferences(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         conversation: string;
@@ -12308,11 +12927,11 @@ declare namespace gapi.client {
       ingestContextReferences(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           conversation: string;
@@ -12335,11 +12954,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1IngestContextReferencesResponse>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12368,11 +12987,11 @@ declare namespace gapi.client {
     interface EncryptionSpecResource {
       initialize(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12396,11 +13015,11 @@ declare namespace gapi.client {
       initialize(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -12425,11 +13044,11 @@ declare namespace gapi.client {
     interface EvaluationsResource {
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12453,11 +13072,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -12480,11 +13099,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12505,11 +13124,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12530,11 +13149,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1GeneratorEvaluation>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12559,11 +13178,11 @@ declare namespace gapi.client {
     interface GeneratorsResource {
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12588,11 +13207,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -12616,11 +13235,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1Generator>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12641,11 +13260,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12666,11 +13285,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1Generator>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12693,11 +13312,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListGeneratorsResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12722,11 +13341,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -12753,11 +13372,11 @@ declare namespace gapi.client {
     interface DocumentsResource {
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12782,11 +13401,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -12810,11 +13429,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12835,11 +13454,11 @@ declare namespace gapi.client {
       }): Request<GoogleLongrunningOperation>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12860,11 +13479,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1Document>;
       import(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12888,11 +13507,11 @@ declare namespace gapi.client {
       import(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -12915,11 +13534,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12943,11 +13562,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListDocumentsResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -12972,11 +13591,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13000,11 +13619,11 @@ declare namespace gapi.client {
       ): Request<GoogleLongrunningOperation>;
       reload(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13028,11 +13647,11 @@ declare namespace gapi.client {
       reload(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13057,11 +13676,11 @@ declare namespace gapi.client {
     interface KnowledgeBasesResource {
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13085,11 +13704,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13112,11 +13731,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1KnowledgeBase>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13138,11 +13757,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13163,11 +13782,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1KnowledgeBase>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13191,11 +13810,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListKnowledgeBasesResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13220,11 +13839,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13251,11 +13870,11 @@ declare namespace gapi.client {
     interface OperationsResource {
       cancel(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13276,11 +13895,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13301,11 +13920,11 @@ declare namespace gapi.client {
       }): Request<GoogleLongrunningOperation>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13332,11 +13951,11 @@ declare namespace gapi.client {
     interface PhoneNumbersResource {
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13357,11 +13976,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1PhoneNumber>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13385,11 +14004,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListPhoneNumbersResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13414,11 +14033,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13442,11 +14061,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1PhoneNumber>;
       undelete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13470,11 +14089,11 @@ declare namespace gapi.client {
       undelete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13499,11 +14118,11 @@ declare namespace gapi.client {
     interface SipTrunksResource {
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13527,11 +14146,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13554,11 +14173,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1SipTrunk>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13579,11 +14198,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13604,11 +14223,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1SipTrunk>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13631,11 +14250,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListSipTrunksResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13660,11 +14279,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13690,11 +14309,11 @@ declare namespace gapi.client {
     interface StatelessSuggestionResource {
       generate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13718,11 +14337,11 @@ declare namespace gapi.client {
       generate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13747,11 +14366,11 @@ declare namespace gapi.client {
     interface SuggestionsResource {
       generateStatelessSummary(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13775,11 +14394,11 @@ declare namespace gapi.client {
       generateStatelessSummary(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13802,11 +14421,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1GenerateStatelessSummaryResponse>;
       searchKnowledge(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13830,11 +14449,11 @@ declare namespace gapi.client {
       searchKnowledge(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13859,11 +14478,11 @@ declare namespace gapi.client {
     interface ToolsResource {
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13888,11 +14507,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -13916,11 +14535,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1Tool>;
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13941,11 +14560,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13966,11 +14585,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1Tool>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -13993,11 +14612,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListToolsResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14022,11 +14641,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -14052,11 +14671,11 @@ declare namespace gapi.client {
     interface LocationsResource {
       deleteAgent(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14077,11 +14696,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14102,11 +14721,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudLocationLocation>;
       getAgent(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14127,11 +14746,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1Agent>;
       getEncryptionSpec(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14152,11 +14771,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1EncryptionSpec>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         extraLocationTypes?: string | string[];
@@ -14181,11 +14800,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudLocationListLocationsResponse>;
       setAgent(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14210,11 +14829,11 @@ declare namespace gapi.client {
       setAgent(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -14253,11 +14872,11 @@ declare namespace gapi.client {
     interface OperationsResource {
       cancel(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14278,11 +14897,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14303,11 +14922,11 @@ declare namespace gapi.client {
       }): Request<GoogleLongrunningOperation>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14334,11 +14953,11 @@ declare namespace gapi.client {
     interface PhoneNumbersResource {
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14359,11 +14978,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1PhoneNumber>;
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14387,11 +15006,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1ListPhoneNumbersResponse>;
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14416,11 +15035,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -14444,11 +15063,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1PhoneNumber>;
       undelete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14472,11 +15091,11 @@ declare namespace gapi.client {
       undelete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -14501,11 +15120,11 @@ declare namespace gapi.client {
     interface SuggestionsResource {
       generateStatelessSummary(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14529,11 +15148,11 @@ declare namespace gapi.client {
       generateStatelessSummary(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -14556,11 +15175,11 @@ declare namespace gapi.client {
       ): Request<GoogleCloudDialogflowV2beta1GenerateStatelessSummaryResponse>;
       searchKnowledge(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14584,11 +15203,11 @@ declare namespace gapi.client {
       searchKnowledge(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -14613,11 +15232,11 @@ declare namespace gapi.client {
     interface ProjectsResource {
       deleteAgent(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14638,11 +15257,11 @@ declare namespace gapi.client {
       }): Request<{}>;
       getAgent(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14663,11 +15282,11 @@ declare namespace gapi.client {
       }): Request<GoogleCloudDialogflowV2beta1Agent>;
       setAgent(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -14692,11 +15311,11 @@ declare namespace gapi.client {
       setAgent(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

@@ -122,7 +122,7 @@ declare namespace gapi.client {
       /** The list of filters to combine. Requires: * At least one filter is present. */
       filters?: Filter[];
       /** The operator for combining multiple filters. */
-      op?: string;
+      op?: 'OPERATOR_UNSPECIFIED' | 'AND' | 'OR';
     }
     interface Count {
       /** Optional. Optional constraint on the maximum number of documents to count. This provides a way to set an upper bound on the number of documents to scan, limiting latency, and cost. Unspecified is interpreted as no bound. High-Level Example: ``` AGGREGATE COUNT_UP_TO(1000) OVER ( SELECT * FROM k ); ``` Requires: * Must be greater than zero when present. */
@@ -239,7 +239,18 @@ declare namespace gapi.client {
       /** The field to filter by. */
       field?: FieldReference;
       /** The operator to filter by. */
-      op?: string;
+      op?:
+        | 'OPERATOR_UNSPECIFIED'
+        | 'LESS_THAN'
+        | 'LESS_THAN_OR_EQUAL'
+        | 'GREATER_THAN'
+        | 'GREATER_THAN_OR_EQUAL'
+        | 'EQUAL'
+        | 'NOT_EQUAL'
+        | 'ARRAY_CONTAINS'
+        | 'IN'
+        | 'ARRAY_CONTAINS_ANY'
+        | 'NOT_IN';
       /** The value to compare to. */
       value?: Value;
     }
@@ -261,7 +272,7 @@ declare namespace gapi.client {
       /** Remove all of the given elements from the array in the field. If the field is not an array, or if the field does not yet exist, it is set to the empty array. Equivalent numbers of the different types (e.g. 3L and 3.0) are considered equal when deciding whether an element should be removed. NaN is equal to NaN, and Null is equal to Null. This will remove all equivalent values if there are duplicates. The corresponding transform_result will be the null value. */
       removeAllFromArray?: ArrayValue;
       /** Sets the field to the given server value. */
-      setToServerValue?: string;
+      setToServerValue?: 'SERVER_VALUE_UNSPECIFIED' | 'REQUEST_TIME';
     }
     interface Filter {
       /** A composite filter. */
@@ -273,7 +284,11 @@ declare namespace gapi.client {
     }
     interface FindNearest {
       /** Required. The distance measure to use, required. */
-      distanceMeasure?: string;
+      distanceMeasure?:
+        | 'DISTANCE_MEASURE_UNSPECIFIED'
+        | 'EUCLIDEAN'
+        | 'COSINE'
+        | 'DOT_PRODUCT';
       /** Optional. Optional name of the field to output the result of the vector distance calculation. Must conform to document field name limitations. */
       distanceResultField?: string;
       /** Optional. Option to specify a threshold for which no less similar documents will be returned. The behavior of the specified `distance_measure` will affect the meaning of the distance threshold. Since DOT_PRODUCT distances increase when the vectors are more similar, the comparison is inverted. * For EUCLIDEAN, COSINE: `WHERE distance <= distance_threshold` * For DOT_PRODUCT: `WHERE distance >= distance_threshold` */
@@ -305,7 +320,7 @@ declare namespace gapi.client {
       /** Output only. The backup contains an externally consistent copy of the database at this time. */
       snapshotTime?: string;
       /** Output only. The current state of the backup. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'CREATING' | 'READY' | 'NOT_AVAILABLE';
       /** Output only. Statistics about the backup. This data only becomes available after the backup is fully materialized to secondary storage. This field will be empty till then. */
       stats?: GoogleFirestoreAdminV1Stats;
     }
@@ -335,7 +350,15 @@ declare namespace gapi.client {
       /** Which namespace IDs are being deleted. */
       namespaceIds?: string[];
       /** The state of the operation. */
-      operationState?: string;
+      operationState?:
+        | 'OPERATION_STATE_UNSPECIFIED'
+        | 'INITIALIZING'
+        | 'PROCESSING'
+        | 'CANCELLING'
+        | 'FINALIZING'
+        | 'SUCCESSFUL'
+        | 'FAILED'
+        | 'CANCELLED';
       /** The progress, in bytes, of this operation. */
       progressBytes?: GoogleFirestoreAdminV1Progress;
       /** The progress, in documents, of this operation. */
@@ -357,7 +380,15 @@ declare namespace gapi.client {
       /** The time the clone finished, unset for ongoing clones. */
       endTime?: string;
       /** The operation state of the clone. */
-      operationState?: string;
+      operationState?:
+        | 'OPERATION_STATE_UNSPECIFIED'
+        | 'INITIALIZING'
+        | 'PROCESSING'
+        | 'CANCELLING'
+        | 'FINALIZING'
+        | 'SUCCESSFUL'
+        | 'FAILED'
+        | 'CANCELLED';
       /** The snapshot from which this database was cloned. */
       pitrSnapshot?: GoogleFirestoreAdminV1PitrSnapshot;
       /** How far along the clone is as an estimated percentage of remaining time. */
@@ -389,17 +420,30 @@ declare namespace gapi.client {
     interface GoogleFirestoreAdminV1DailyRecurrence {}
     interface GoogleFirestoreAdminV1Database {
       /** The App Engine integration mode to use for this database. */
-      appEngineIntegrationMode?: string;
+      appEngineIntegrationMode?:
+        | 'APP_ENGINE_INTEGRATION_MODE_UNSPECIFIED'
+        | 'ENABLED'
+        | 'DISABLED';
       /** Optional. Presence indicates CMEK is enabled for this database. */
       cmekConfig?: GoogleFirestoreAdminV1CmekConfig;
       /** The concurrency control mode to use for this database. If unspecified in a CreateDatabase request, this will default based on the database edition: Optimistic for Enterprise and Pessimistic for all other databases. */
-      concurrencyMode?: string;
+      concurrencyMode?:
+        | 'CONCURRENCY_MODE_UNSPECIFIED'
+        | 'OPTIMISTIC'
+        | 'PESSIMISTIC'
+        | 'OPTIMISTIC_WITH_ENTITY_GROUPS';
       /** Output only. The timestamp at which this database was created. Databases created before 2016 do not populate create_time. */
       createTime?: string;
       /** Immutable. The edition of the database. */
-      databaseEdition?: string;
+      databaseEdition?:
+        | 'DATABASE_EDITION_UNSPECIFIED'
+        | 'STANDARD'
+        | 'ENTERPRISE';
       /** State of delete protection for the database. */
-      deleteProtectionState?: string;
+      deleteProtectionState?:
+        | 'DELETE_PROTECTION_STATE_UNSPECIFIED'
+        | 'DELETE_PROTECTION_DISABLED'
+        | 'DELETE_PROTECTION_ENABLED';
       /** Output only. The timestamp at which this database was deleted. Only set if the database has been deleted. */
       deleteTime?: string;
       /** Output only. The earliest timestamp at which older versions of the data can be read from the database. See [version_retention_period] above; this field is populated with `now - version_retention_period`. This value is continuously updated, and becomes stale the moment it is queried. If you are using this value to recover data, make sure to account for the time from the moment when the value is queried to the moment when you initiate the recovery. */
@@ -407,7 +451,10 @@ declare namespace gapi.client {
       /** This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. */
       etag?: string;
       /** Optional. The Firestore API data access mode to use for this database. If not set on write: - the default value is DATA_ACCESS_MODE_DISABLED for Enterprise Edition. - the default value is DATA_ACCESS_MODE_ENABLED for Standard Edition. */
-      firestoreDataAccessMode?: string;
+      firestoreDataAccessMode?:
+        | 'DATA_ACCESS_MODE_UNSPECIFIED'
+        | 'DATA_ACCESS_MODE_ENABLED'
+        | 'DATA_ACCESS_MODE_DISABLED';
       /** Output only. Background: Free tier is the ability of a Firestore database to use a small amount of resources every day without being charged. Once usage exceeds the free tier limit further usage is charged. Whether this database can make use of the free tier. Only one database per project can be eligible for the free tier. The first (or next) database that is created in a project without a free tier database will be marked as eligible for the free tier. Databases that are created while there is a free tier database will not be eligible for the free tier. */
       freeTier?: boolean;
       /** Output only. The key_prefix for this database. This key_prefix is used, in combination with the project ID ("~") to construct the application ID that is returned from the Cloud Datastore APIs in Google App Engine first generation runtimes. This value may be empty in which case the appid to use for URL-encoded keys is the project_id (eg: foo instead of v~foo). */
@@ -415,21 +462,33 @@ declare namespace gapi.client {
       /** Required. The location of the database. Available locations are listed at https://cloud.google.com/firestore/docs/locations. */
       locationId?: string;
       /** Optional. The MongoDB compatible API data access mode to use for this database. If not set on write, the default value is DATA_ACCESS_MODE_ENABLED for Enterprise Edition. The value is always DATA_ACCESS_MODE_DISABLED for Standard Edition. */
-      mongodbCompatibleDataAccessMode?: string;
+      mongodbCompatibleDataAccessMode?:
+        | 'DATA_ACCESS_MODE_UNSPECIFIED'
+        | 'DATA_ACCESS_MODE_ENABLED'
+        | 'DATA_ACCESS_MODE_DISABLED';
       /** The resource name of the Database. Format: `projects/{project}/databases/{database}` */
       name?: string;
       /** Whether to enable the PITR feature on this database. */
-      pointInTimeRecoveryEnablement?: string;
+      pointInTimeRecoveryEnablement?:
+        | 'POINT_IN_TIME_RECOVERY_ENABLEMENT_UNSPECIFIED'
+        | 'POINT_IN_TIME_RECOVERY_ENABLED'
+        | 'POINT_IN_TIME_RECOVERY_DISABLED';
       /** Output only. The database resource's prior database ID. This field is only populated for deleted databases. */
       previousId?: string;
       /** Immutable. The default Realtime Updates mode to use for this database. */
-      realtimeUpdatesMode?: string;
+      realtimeUpdatesMode?:
+        | 'REALTIME_UPDATES_MODE_UNSPECIFIED'
+        | 'REALTIME_UPDATES_MODE_ENABLED'
+        | 'REALTIME_UPDATES_MODE_DISABLED';
       /** Output only. Information about the provenance of this database. */
       sourceInfo?: GoogleFirestoreAdminV1SourceInfo;
       /** Optional. Input only. Immutable. Tag keys/values directly bound to this resource. For example: "123/environment": "production", "123/costCenter": "marketing" */
       tags?: {[P in string]: string};
       /** Required. The type of the database. See https://cloud.google.com/datastore/docs/firestore-or-datastore for information about how to choose. */
-      type?: string;
+      type?:
+        | 'DATABASE_TYPE_UNSPECIFIED'
+        | 'FIRESTORE_NATIVE'
+        | 'DATASTORE_MODE';
       /** Output only. The system-generated UUID4 for this Database. */
       uid?: string;
       /** Output only. The timestamp at which this database was most recently updated. Note this only includes updates to the database resource and not data contained by the database. */
@@ -456,7 +515,15 @@ declare namespace gapi.client {
       /** Which namespace IDs are being exported. */
       namespaceIds?: string[];
       /** The state of the export operation. */
-      operationState?: string;
+      operationState?:
+        | 'OPERATION_STATE_UNSPECIFIED'
+        | 'INITIALIZING'
+        | 'PROCESSING'
+        | 'CANCELLING'
+        | 'FINALIZING'
+        | 'SUCCESSFUL'
+        | 'FAILED'
+        | 'CANCELLED';
       /** Where the documents are being exported to. */
       outputUriPrefix?: string;
       /** The progress, in bytes, of this operation. */
@@ -504,7 +571,15 @@ declare namespace gapi.client {
       /** The time this operation started. */
       startTime?: string;
       /** The state of the operation. */
-      state?: string;
+      state?:
+        | 'OPERATION_STATE_UNSPECIFIED'
+        | 'INITIALIZING'
+        | 'PROCESSING'
+        | 'CANCELLING'
+        | 'FINALIZING'
+        | 'SUCCESSFUL'
+        | 'FAILED'
+        | 'CANCELLED';
       /** Describes the deltas of TTL configuration. */
       ttlConfigDelta?: GoogleFirestoreAdminV1TtlConfigDelta;
     }
@@ -520,7 +595,15 @@ declare namespace gapi.client {
       /** Which namespace IDs are being imported. */
       namespaceIds?: string[];
       /** The state of the import operation. */
-      operationState?: string;
+      operationState?:
+        | 'OPERATION_STATE_UNSPECIFIED'
+        | 'INITIALIZING'
+        | 'PROCESSING'
+        | 'CANCELLING'
+        | 'FINALIZING'
+        | 'SUCCESSFUL'
+        | 'FAILED'
+        | 'CANCELLED';
       /** The progress, in bytes, of this operation. */
       progressBytes?: GoogleFirestoreAdminV1Progress;
       /** The progress, in documents, of this operation. */
@@ -538,9 +621,9 @@ declare namespace gapi.client {
     }
     interface GoogleFirestoreAdminV1Index {
       /** The API scope supported by this index. */
-      apiScope?: string;
+      apiScope?: 'ANY_API' | 'DATASTORE_MODE_API' | 'MONGODB_COMPATIBLE_API';
       /** Immutable. The density configuration of the index. */
-      density?: string;
+      density?: 'DENSITY_UNSPECIFIED' | 'SPARSE_ALL' | 'SPARSE_ANY' | 'DENSE';
       /** The fields supported by this index. For composite indexes, this requires a minimum of 2 and a maximum of 100 fields. The last field entry is always for the field path `__name__`. If, on creation, `__name__` was not specified as the last field, it will be added automatically with the same direction as that of the last field defined. If the final field in a composite index is not directional, the `__name__` will be ordered ASCENDING (unless explicitly specified). For single field indexes, this will always be exactly one entry with a field path equal to the field path of the associated field. */
       fields?: GoogleFirestoreAdminV1IndexField[];
       /** Optional. Whether the index is multikey. By default, the index is not multikey. For non-multikey indexes, none of the paths in the index definition reach or traverse an array, except via an explicit array index. For multikey indexes, at most one of the paths in the index definition reach or traverse an array, except via an explicit array index. Violations will result in errors. Note this field only applies to index with MONGODB_COMPATIBLE_API ApiScope. */
@@ -548,11 +631,15 @@ declare namespace gapi.client {
       /** Output only. A server defined name for this index. The form of this name for composite indexes will be: `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/indexes/{composite_index_id}` For single field indexes, this field will be empty. */
       name?: string;
       /** Indexes with a collection query scope specified allow queries against a collection that is the child of a specific document, specified at query time, and that has the same collection ID. Indexes with a collection group query scope specified allow queries against all collections descended from a specific document, specified at query time, and that have the same collection ID as this index. */
-      queryScope?: string;
+      queryScope?:
+        | 'QUERY_SCOPE_UNSPECIFIED'
+        | 'COLLECTION'
+        | 'COLLECTION_GROUP'
+        | 'COLLECTION_RECURSIVE';
       /** Optional. The number of shards for the index. */
       shardCount?: number;
       /** Output only. The serving state of the index. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'CREATING' | 'READY' | 'NEEDS_REPAIR';
       /** Optional. Whether it is an unique index. Unique index ensures all values for the indexed field(s) are unique across documents. */
       unique?: boolean;
     }
@@ -568,17 +655,17 @@ declare namespace gapi.client {
     }
     interface GoogleFirestoreAdminV1IndexConfigDelta {
       /** Specifies how the index is changing. */
-      changeType?: string;
+      changeType?: 'CHANGE_TYPE_UNSPECIFIED' | 'ADD' | 'REMOVE';
       /** The index being changed. */
       index?: GoogleFirestoreAdminV1Index;
     }
     interface GoogleFirestoreAdminV1IndexField {
       /** Indicates that this field supports operations on `array_value`s. */
-      arrayConfig?: string;
+      arrayConfig?: 'ARRAY_CONFIG_UNSPECIFIED' | 'CONTAINS';
       /** Can be __name__. For single field indexes, this must match the name of the field or may be omitted. */
       fieldPath?: string;
       /** Indicates that this field supports ordering by the specified order or comparing using =, !=, <, <=, >, >=. */
-      order?: string;
+      order?: 'ORDER_UNSPECIFIED' | 'ASCENDING' | 'DESCENDING';
       /** Indicates that this field supports nearest neighbor and distance operations on vector. */
       vectorConfig?: GoogleFirestoreAdminV1VectorConfig;
     }
@@ -594,7 +681,15 @@ declare namespace gapi.client {
       /** The time this operation started. */
       startTime?: string;
       /** The state of the operation. */
-      state?: string;
+      state?:
+        | 'OPERATION_STATE_UNSPECIFIED'
+        | 'INITIALIZING'
+        | 'PROCESSING'
+        | 'CANCELLING'
+        | 'FINALIZING'
+        | 'SUCCESSFUL'
+        | 'FAILED'
+        | 'CANCELLED';
     }
     interface GoogleFirestoreAdminV1ListBackupSchedulesResponse {
       /** List of all backup schedules. */
@@ -656,7 +751,15 @@ declare namespace gapi.client {
       /** The time the restore finished, unset for ongoing restores. */
       endTime?: string;
       /** The operation state of the restore. */
-      operationState?: string;
+      operationState?:
+        | 'OPERATION_STATE_UNSPECIFIED'
+        | 'INITIALIZING'
+        | 'PROCESSING'
+        | 'CANCELLING'
+        | 'FINALIZING'
+        | 'SUCCESSFUL'
+        | 'FAILED'
+        | 'CANCELLED';
       /** How far along the restore is as an estimated percentage of remaining time. */
       progressPercentage?: GoogleFirestoreAdminV1Progress;
       /** The time the restore was started. */
@@ -689,11 +792,11 @@ declare namespace gapi.client {
     }
     interface GoogleFirestoreAdminV1TtlConfig {
       /** Output only. The state of the TTL configuration. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'CREATING' | 'ACTIVE' | 'NEEDS_REPAIR';
     }
     interface GoogleFirestoreAdminV1TtlConfigDelta {
       /** Specifies how the TTL configuration is changing. */
-      changeType?: string;
+      changeType?: 'CHANGE_TYPE_UNSPECIFIED' | 'ADD' | 'REMOVE';
     }
     interface GoogleFirestoreAdminV1UpdateDatabaseMetadata {}
     interface GoogleFirestoreAdminV1UserCreds {
@@ -706,7 +809,7 @@ declare namespace gapi.client {
       /** Output only. The plaintext server-generated password for the user creds. Only populated in responses for CreateUserCreds and ResetUserPassword. */
       securePassword?: string;
       /** Output only. Whether the user creds are enabled or disabled. Defaults to ENABLED on creation. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'ENABLED' | 'DISABLED';
       /** Output only. The time the user creds were last updated. */
       updateTime?: string;
     }
@@ -718,7 +821,15 @@ declare namespace gapi.client {
     }
     interface GoogleFirestoreAdminV1WeeklyRecurrence {
       /** The day of week to run. DAY_OF_WEEK_UNSPECIFIED is not allowed. */
-      day?: string;
+      day?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY';
     }
     interface GoogleLongrunningCancelOperationRequest {}
     interface GoogleLongrunningListOperationsResponse {
@@ -811,7 +922,7 @@ declare namespace gapi.client {
     }
     interface Order {
       /** The direction to order by. Defaults to `ASCENDING`. */
-      direction?: string;
+      direction?: 'DIRECTION_UNSPECIFIED' | 'ASCENDING' | 'DESCENDING';
       /** The field to order by. */
       field?: FieldReference;
     }
@@ -993,7 +1104,7 @@ declare namespace gapi.client {
       /** A token that can be used to resume the stream for the given `target_ids`, or all targets if `target_ids` is empty. Not set on every target change. */
       resumeToken?: string;
       /** The type of change that occurred. */
-      targetChangeType?: string;
+      targetChangeType?: 'NO_CHANGE' | 'ADD' | 'REMOVE' | 'CURRENT' | 'RESET';
       /** The target IDs of targets that have changed. If empty, the change applies to all targets. The order of the target IDs is not defined. */
       targetIds?: number[];
     }
@@ -1007,7 +1118,12 @@ declare namespace gapi.client {
       /** The field to which to apply the operator. */
       field?: FieldReference;
       /** The unary operator to apply. */
-      op?: string;
+      op?:
+        | 'OPERATOR_UNSPECIFIED'
+        | 'IS_NAN'
+        | 'IS_NULL'
+        | 'IS_NOT_NAN'
+        | 'IS_NOT_NULL';
     }
     interface Value {
       /** An array value. Cannot directly contain another array value, though can contain a map which contains another array. */
@@ -1029,7 +1145,7 @@ declare namespace gapi.client {
       /** A map value. */
       mapValue?: MapValue;
       /** A null value. */
-      nullValue?: string;
+      nullValue?: 'NULL_VALUE';
       /** A value that represents an unevaluated pipeline. **Requires:** * Not allowed to be used when writing documents. */
       pipelineValue?: Pipeline;
       /** A reference to a document. For example: `projects/{project_id}/databases/{database_id}/documents/{document_path}`. */
@@ -1085,11 +1201,11 @@ declare namespace gapi.client {
       /** Creates a backup schedule on a database. At most two backup schedules can be configured on a database, one daily backup schedule and one weekly backup schedule. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1114,11 +1230,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1143,11 +1259,11 @@ declare namespace gapi.client {
       /** Deletes a backup schedule. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1170,11 +1286,11 @@ declare namespace gapi.client {
       /** Gets information about a backup schedule. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1197,11 +1313,11 @@ declare namespace gapi.client {
       /** List backup schedules. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1224,11 +1340,11 @@ declare namespace gapi.client {
       /** Updates a backup schedule. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1255,11 +1371,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1288,11 +1404,11 @@ declare namespace gapi.client {
       /** Gets the metadata and configuration for a Field. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1315,11 +1431,11 @@ declare namespace gapi.client {
       /** Lists the field configuration and metadata for this database. Currently, FirestoreAdmin.ListFields only supports listing fields that have been explicitly overridden. To issue this query, call FirestoreAdmin.ListFields with the filter set to `indexConfig.usesAncestorConfig:false` or `ttlConfig:*`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1348,11 +1464,11 @@ declare namespace gapi.client {
       /** Updates a field configuration. Currently, field updates apply only to single field index configuration. However, calls to FirestoreAdmin.UpdateField should provide a field mask to avoid changing any configuration that the caller isn't aware of. The field mask should be specified as: `{ paths: "index_config" }`. This call returns a google.longrunning.Operation which may be used to track the status of the field update. The metadata for the operation will be the type FieldOperationMetadata. To configure the default field settings for the database, use the special `Field` with resource name: `projects/{project_id}/databases/{database_id}/collectionGroups/__default__/fields/*`. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1379,11 +1495,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1412,11 +1528,11 @@ declare namespace gapi.client {
       /** Creates a composite index. This returns a google.longrunning.Operation which may be used to track the status of the creation. The metadata for the operation will be the type IndexOperationMetadata. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1441,11 +1557,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1470,11 +1586,11 @@ declare namespace gapi.client {
       /** Deletes a composite index. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1497,11 +1613,11 @@ declare namespace gapi.client {
       /** Gets a composite index. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1524,11 +1640,11 @@ declare namespace gapi.client {
       /** Lists composite indexes. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1563,11 +1679,11 @@ declare namespace gapi.client {
       /** Gets multiple documents. Documents returned by this method are not guaranteed to be returned in the same order that they were requested. */
       batchGet(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The database name. In the format: `projects/{project_id}/databases/{database_id}`. */
@@ -1592,11 +1708,11 @@ declare namespace gapi.client {
       batchGet(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The database name. In the format: `projects/{project_id}/databases/{database_id}`. */
@@ -1621,11 +1737,11 @@ declare namespace gapi.client {
       /** Applies a batch of write operations. The BatchWrite method does not apply the write operations atomically and can apply them out of order. Method does not allow more than one write per document. Each write succeeds or fails independently. See the BatchWriteResponse for the success status of each write. If you require an atomically applied set of writes, use Commit instead. */
       batchWrite(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The database name. In the format: `projects/{project_id}/databases/{database_id}`. */
@@ -1650,11 +1766,11 @@ declare namespace gapi.client {
       batchWrite(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The database name. In the format: `projects/{project_id}/databases/{database_id}`. */
@@ -1679,11 +1795,11 @@ declare namespace gapi.client {
       /** Starts a new transaction. */
       beginTransaction(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The database name. In the format: `projects/{project_id}/databases/{database_id}`. */
@@ -1708,11 +1824,11 @@ declare namespace gapi.client {
       beginTransaction(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The database name. In the format: `projects/{project_id}/databases/{database_id}`. */
@@ -1737,11 +1853,11 @@ declare namespace gapi.client {
       /** Commits a transaction, while optionally updating documents. */
       commit(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The database name. In the format: `projects/{project_id}/databases/{database_id}`. */
@@ -1766,11 +1882,11 @@ declare namespace gapi.client {
       commit(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The database name. In the format: `projects/{project_id}/databases/{database_id}`. */
@@ -1795,11 +1911,11 @@ declare namespace gapi.client {
       /** Creates a new document. */
       createDocument(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The collection ID, relative to `parent`, to list. For example: `chatrooms`. */
@@ -1830,11 +1946,11 @@ declare namespace gapi.client {
       createDocument(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The collection ID, relative to `parent`, to list. For example: `chatrooms`. */
@@ -1865,11 +1981,11 @@ declare namespace gapi.client {
       /** Deletes a document. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** When set to `true`, the target document must exist. When set to `false`, the target document must not exist. */
@@ -1896,11 +2012,11 @@ declare namespace gapi.client {
       /** Executes a pipeline query. */
       executePipeline(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Database identifier, in the form `projects/{project}/databases/{database}`. */
@@ -1925,11 +2041,11 @@ declare namespace gapi.client {
       executePipeline(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. Database identifier, in the form `projects/{project}/databases/{database}`. */
@@ -1954,11 +2070,11 @@ declare namespace gapi.client {
       /** Gets a single document. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1987,11 +2103,11 @@ declare namespace gapi.client {
       /** Lists documents. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. The collection ID, relative to `parent`, to list. For example: `chatrooms` or `messages`. This is optional, and when not provided, Firestore will list documents from all collections under the provided `parent`. */
@@ -2030,11 +2146,11 @@ declare namespace gapi.client {
       /** Lists all the collection IDs underneath a document. */
       listCollectionIds(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2059,11 +2175,11 @@ declare namespace gapi.client {
       listCollectionIds(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2088,11 +2204,11 @@ declare namespace gapi.client {
       /** Lists documents. */
       listDocuments(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. The collection ID, relative to `parent`, to list. For example: `chatrooms` or `messages`. This is optional, and when not provided, Firestore will list documents from all collections under the provided `parent`. */
@@ -2131,11 +2247,11 @@ declare namespace gapi.client {
       /** Listens to changes. This method is only available via gRPC or WebChannel (not REST). */
       listen(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The database name. In the format: `projects/{project_id}/databases/{database_id}`. */
@@ -2160,11 +2276,11 @@ declare namespace gapi.client {
       listen(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The database name. In the format: `projects/{project_id}/databases/{database_id}`. */
@@ -2189,11 +2305,11 @@ declare namespace gapi.client {
       /** Partitions a query by returning partition cursors that can be used to run the query in parallel. The returned partition cursors are split points that can be used by RunQuery as starting/end points for the query results. */
       partitionQuery(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2218,11 +2334,11 @@ declare namespace gapi.client {
       partitionQuery(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2247,11 +2363,11 @@ declare namespace gapi.client {
       /** Updates or inserts a document. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** When set to `true`, the target document must exist. When set to `false`, the target document must not exist. */
@@ -2284,11 +2400,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** When set to `true`, the target document must exist. When set to `false`, the target document must not exist. */
@@ -2321,11 +2437,11 @@ declare namespace gapi.client {
       /** Rolls back a transaction. */
       rollback(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The database name. In the format: `projects/{project_id}/databases/{database_id}`. */
@@ -2350,11 +2466,11 @@ declare namespace gapi.client {
       rollback(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The database name. In the format: `projects/{project_id}/databases/{database_id}`. */
@@ -2379,11 +2495,11 @@ declare namespace gapi.client {
       /** Runs an aggregation query. Rather than producing Document results like Firestore.RunQuery, this API allows running an aggregation to produce a series of AggregationResult server-side. High-Level Example: ``` -- Return the number of documents in table given a filter. SELECT COUNT(*) FROM ( SELECT * FROM k where a = true ); ``` */
       runAggregationQuery(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2408,11 +2524,11 @@ declare namespace gapi.client {
       runAggregationQuery(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2437,11 +2553,11 @@ declare namespace gapi.client {
       /** Runs a query. */
       runQuery(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2466,11 +2582,11 @@ declare namespace gapi.client {
       runQuery(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2495,11 +2611,11 @@ declare namespace gapi.client {
       /** Streams batches of document updates and deletes, in order. This method is only available via gRPC or WebChannel (not REST). */
       write(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The database name. In the format: `projects/{project_id}/databases/{database_id}`. This is only required in the first message. */
@@ -2524,11 +2640,11 @@ declare namespace gapi.client {
       write(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The database name. In the format: `projects/{project_id}/databases/{database_id}`. This is only required in the first message. */
@@ -2555,11 +2671,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2584,11 +2700,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2613,11 +2729,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2640,11 +2756,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2667,11 +2783,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2704,11 +2820,11 @@ declare namespace gapi.client {
       /** Create a user creds. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2735,11 +2851,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2766,11 +2882,11 @@ declare namespace gapi.client {
       /** Deletes a user creds. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2793,11 +2909,11 @@ declare namespace gapi.client {
       /** Disables a user creds. No-op if the user creds are already disabled. */
       disable(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2822,11 +2938,11 @@ declare namespace gapi.client {
       disable(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2851,11 +2967,11 @@ declare namespace gapi.client {
       /** Enables a user creds. No-op if the user creds are already enabled. */
       enable(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2880,11 +2996,11 @@ declare namespace gapi.client {
       enable(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2909,11 +3025,11 @@ declare namespace gapi.client {
       /** Gets a user creds resource. Note that the returned resource does not contain the secret value itself. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2936,11 +3052,11 @@ declare namespace gapi.client {
       /** List all user creds in the database. Note that the returned resource does not contain the secret value itself. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2963,11 +3079,11 @@ declare namespace gapi.client {
       /** Resets the password of a user creds. */
       resetPassword(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2992,11 +3108,11 @@ declare namespace gapi.client {
       resetPassword(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3023,11 +3139,11 @@ declare namespace gapi.client {
       /** Bulk deletes a subset of documents from Google Cloud Firestore. Documents created or updated after the underlying system starts to process the request will not be deleted. The bulk delete occurs in the background and its progress can be monitored and managed via the Operation resource that is created. For more details on bulk delete behavior, refer to: https://cloud.google.com/firestore/docs/manage-data/bulk-delete */
       bulkDeleteDocuments(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3052,11 +3168,11 @@ declare namespace gapi.client {
       bulkDeleteDocuments(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3081,11 +3197,11 @@ declare namespace gapi.client {
       /** Creates a new database by cloning an existing one. The new database must be in the same cloud region or multi-region location as the existing database. This behaves similar to FirestoreAdmin.CreateDatabase except instead of creating a new empty database, a new database is created with the database type, index configuration, and documents from an existing database. The long-running operation can be used to track the progress of the clone, with the Operation's metadata field type being the CloneDatabaseMetadata. The response type is the Database if the clone was successful. The new database is not readable or writeable until the LRO has completed. */
       clone(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3110,11 +3226,11 @@ declare namespace gapi.client {
       clone(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3139,11 +3255,11 @@ declare namespace gapi.client {
       /** Create a database. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The ID to use for the database, which will become the final component of the database's resource name. This value should be 4-63 characters. Valid characters are /a-z-/ with first character a letter and the last a letter or a number. Must not be UUID-like /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/. "(default)" database ID is also valid if the database is Standard edition. */
@@ -3170,11 +3286,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. The ID to use for the database, which will become the final component of the database's resource name. This value should be 4-63 characters. Valid characters are /a-z-/ with first character a letter and the last a letter or a number. Must not be UUID-like /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/. "(default)" database ID is also valid if the database is Standard edition. */
@@ -3201,11 +3317,11 @@ declare namespace gapi.client {
       /** Deletes a database. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The current etag of the Database. If an etag is provided and does not match the current etag of the database, deletion will be blocked and a FAILED_PRECONDITION error will be returned. */
@@ -3230,11 +3346,11 @@ declare namespace gapi.client {
       /** Exports a copy of all or a subset of documents from Google Cloud Firestore to another storage system, such as Google Cloud Storage. Recent updates to documents may not be reflected in the export. The export occurs in the background and its progress can be monitored and managed via the Operation resource that is created. The output of an export may only be used once the associated operation is done. If an export operation is cancelled before completion it may leave partial data behind in Google Cloud Storage. For more details on export behavior and output format, refer to: https://cloud.google.com/firestore/docs/manage-data/export-import */
       exportDocuments(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3259,11 +3375,11 @@ declare namespace gapi.client {
       exportDocuments(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3288,11 +3404,11 @@ declare namespace gapi.client {
       /** Gets information about a database. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3315,11 +3431,11 @@ declare namespace gapi.client {
       /** Imports documents into Google Cloud Firestore. Existing documents with the same name are overwritten. The import occurs in the background and its progress can be monitored and managed via the Operation resource that is created. If an ImportDocuments operation is cancelled, it is possible that a subset of the data has already been imported to Cloud Firestore. */
       importDocuments(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3344,11 +3460,11 @@ declare namespace gapi.client {
       importDocuments(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3373,11 +3489,11 @@ declare namespace gapi.client {
       /** List all the databases in the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3402,11 +3518,11 @@ declare namespace gapi.client {
       /** Updates a database. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3433,11 +3549,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3464,11 +3580,11 @@ declare namespace gapi.client {
       /** Creates a new database by restoring from an existing backup. The new database must be in the same cloud region or multi-region location as the existing backup. This behaves similar to FirestoreAdmin.CreateDatabase except instead of creating a new empty database, a new database is created with the database type, index configuration, and documents from an existing backup. The long-running operation can be used to track the progress of the restore, with the Operation's metadata field type being the RestoreDatabaseMetadata. The response type is the Database if the restore was successful. The new database is not readable or writeable until the LRO has completed. */
       restore(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3493,11 +3609,11 @@ declare namespace gapi.client {
       restore(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3529,11 +3645,11 @@ declare namespace gapi.client {
       /** Deletes a backup. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3556,11 +3672,11 @@ declare namespace gapi.client {
       /** Gets information about a backup. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3583,11 +3699,11 @@ declare namespace gapi.client {
       /** Lists all the backups. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3614,11 +3730,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3641,11 +3757,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */

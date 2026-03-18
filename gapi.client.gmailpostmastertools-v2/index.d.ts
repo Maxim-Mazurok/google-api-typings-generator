@@ -30,7 +30,16 @@ declare namespace gapi.client {
   namespace gmailpostmastertools {
     interface BaseMetric {
       /** A predefined standard metric. */
-      standardMetric?: string;
+      standardMetric?:
+        | 'STANDARD_METRIC_UNSPECIFIED'
+        | 'FEEDBACK_LOOP_ID'
+        | 'FEEDBACK_LOOP_SPAM_RATE'
+        | 'SPAM_RATE'
+        | 'AUTH_SUCCESS_RATE'
+        | 'TLS_ENCRYPTION_MESSAGE_COUNT'
+        | 'TLS_ENCRYPTION_RATE'
+        | 'DELIVERY_ERROR_COUNT'
+        | 'DELIVERY_ERROR_RATE';
     }
     interface BatchQueryDomainStatsRequest {
       /** Required. A list of individual query requests. Each request can be for a different domain. A maximum of 100 requests can be included in a single batch. */
@@ -48,13 +57,25 @@ declare namespace gapi.client {
     }
     interface ComplianceRowData {
       /** The compliance requirement. */
-      requirement?: string;
+      requirement?:
+        | 'COMPLIANCE_REQUIREMENT_UNSPECIFIED'
+        | 'SPF'
+        | 'DKIM'
+        | 'SPF_AND_DKIM'
+        | 'DMARC_POLICY'
+        | 'DMARC_ALIGNMENT'
+        | 'MESSAGE_FORMATTING'
+        | 'DNS_RECORDS'
+        | 'ENCRYPTION'
+        | 'USER_REPORTED_SPAM_RATE'
+        | 'ONE_CLICK_UNSUBSCRIBE'
+        | 'HONOR_UNSUBSCRIBE';
       /** The compliance status for the requirement. */
       status?: ComplianceStatus;
     }
     interface ComplianceStatus {
       /** Output only. The compliance status. */
-      status?: string;
+      status?: 'STATE_UNSPECIFIED' | 'COMPLIANT' | 'NEEDS_WORK';
     }
     interface Date {
       /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
@@ -86,9 +107,12 @@ declare namespace gapi.client {
       /** Identifier. The resource name of the domain. Format: `domains/{domain_name}`, where domain_name is the fully qualified domain name (i.e., mymail.mydomain.com). */
       name?: string;
       /** Output only. User's permission of this domain. */
-      permission?: string;
+      permission?: 'PERMISSION_UNSPECIFIED' | 'READER' | 'OWNER' | 'NONE';
       /** Output only. Information about a user's verification history and properties for the domain. */
-      verificationState?: string;
+      verificationState?:
+        | 'VERIFICATION_STATE_UNSPECIFIED'
+        | 'UNVERIFIED'
+        | 'VERIFIED';
     }
     interface DomainComplianceData {
       /** Domain that this data is for. */
@@ -120,7 +144,11 @@ declare namespace gapi.client {
     }
     interface HonorUnsubscribeVerdict {
       /** The specific reason for the compliance verdict. Must be empty if the status is compliant. */
-      reason?: string;
+      reason?:
+        | 'REASON_UNSPECIFIED'
+        | 'NOT_HONORING'
+        | 'NOT_HONORING_TOO_FEW_CAMPAIGNS'
+        | 'NOT_HONORING_TOO_MANY_CAMPAIGNS';
       /** The compliance status. */
       status?: ComplianceStatus;
     }
@@ -140,13 +168,20 @@ declare namespace gapi.client {
     }
     interface OneClickUnsubscribeVerdict {
       /** The specific reason for the compliance verdict. Must be empty if the status is compliant. */
-      reason?: string;
+      reason?:
+        | 'REASON_UNSPECIFIED'
+        | 'NO_UNSUB_GENERAL'
+        | 'NO_UNSUB_SPAM_REPORTS'
+        | 'NO_UNSUB_PROMO_SPAM_REPORTS';
       /** The compliance status. */
       status?: ComplianceStatus;
     }
     interface QueryDomainStatsRequest {
       /** Optional. The granularity at which to aggregate the statistics. If unspecified, defaults to DAILY. */
-      aggregationGranularity?: string;
+      aggregationGranularity?:
+        | 'AGGREGATION_GRANULARITY_UNSPECIFIED'
+        | 'DAILY'
+        | 'OVERALL';
       /** Required. The specific metrics to query. You can define a custom name for each metric, which will be used in the response. */
       metricDefinitions?: MetricDefinition[];
       /** Optional. The maximum number of DomainStats resources to return in the response. The server may return fewer than this value. If unspecified, a default value of 10 will be used. The maximum value is 200. */
@@ -198,11 +233,11 @@ declare namespace gapi.client {
       /** Retrieves a list of domain statistics for a given domain and time period. Returns statistics only for dates where data is available. Returns PERMISSION_DENIED if you don't have permission to access DomainStats for the domain. */
       query(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -227,11 +262,11 @@ declare namespace gapi.client {
       query(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -258,11 +293,11 @@ declare namespace gapi.client {
       /** Retrieves detailed information about a domain registered by you. Returns NOT_FOUND if the domain is not registered by you. Domain represents the metadata of a domain that has been registered within the system and linked to a user. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -285,11 +320,11 @@ declare namespace gapi.client {
       /** Retrieves the compliance status for a given domain. Returns PERMISSION_DENIED if you don't have permission to access compliance status for the domain. */
       getComplianceStatus(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -312,11 +347,11 @@ declare namespace gapi.client {
       /** Retrieves a list of all domains registered by you, along with their corresponding metadata. The order of domains in the response is unspecified and non-deterministic. Newly registered domains will not necessarily be added to the end of this list. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -344,11 +379,11 @@ declare namespace gapi.client {
       /** Executes a batch of QueryDomainStats requests for multiple domains. Returns PERMISSION_DENIED if you don't have permission to access DomainStats for any of the requested domains. */
       batchQuery(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -371,11 +406,11 @@ declare namespace gapi.client {
       batchQuery(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

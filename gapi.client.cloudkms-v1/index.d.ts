@@ -47,7 +47,13 @@ declare namespace gapi.client {
       /** Integrity verification field. A CRC32C checksum of the returned AsymmetricDecryptResponse.plaintext. An integrity check of AsymmetricDecryptResponse.plaintext can be performed by computing the CRC32C checksum of AsymmetricDecryptResponse.plaintext and comparing your results to this field. Discard the response in case of non-matching checksum values, and perform a limited number of retries. A persistent mismatch may indicate an issue in your computation of the CRC32C checksum. Note: This field is defined as int64 for reasons of compatibility across different languages. However, it is a non-negative integer, which will never exceed 2^32-1, and can be safely downconverted to uint32 in languages that support this type. */
       plaintextCrc32c?: string;
       /** The ProtectionLevel of the CryptoKeyVersion used in decryption. */
-      protectionLevel?: string;
+      protectionLevel?:
+        | 'PROTECTION_LEVEL_UNSPECIFIED'
+        | 'SOFTWARE'
+        | 'HSM'
+        | 'EXTERNAL'
+        | 'EXTERNAL_VPC'
+        | 'HSM_SINGLE_TENANT';
       /** Integrity verification field. A flag indicating whether AsymmetricDecryptRequest.ciphertext_crc32c was received by KeyManagementService and used for the integrity verification of the ciphertext. A false value of this field indicates either that AsymmetricDecryptRequest.ciphertext_crc32c was left unset or that it was not delivered to KeyManagementService. If you've set AsymmetricDecryptRequest.ciphertext_crc32c but this field is still false, discard the response and perform a limited number of retries. */
       verifiedCiphertextCrc32c?: boolean;
     }
@@ -65,7 +71,13 @@ declare namespace gapi.client {
       /** The resource name of the CryptoKeyVersion used for signing. Check this field to verify that the intended resource was used for signing. */
       name?: string;
       /** The ProtectionLevel of the CryptoKeyVersion used for signing. */
-      protectionLevel?: string;
+      protectionLevel?:
+        | 'PROTECTION_LEVEL_UNSPECIFIED'
+        | 'SOFTWARE'
+        | 'HSM'
+        | 'EXTERNAL'
+        | 'EXTERNAL_VPC'
+        | 'HSM_SINGLE_TENANT';
       /** The created signature. */
       signature?: string;
       /** Integrity verification field. A CRC32C checksum of the returned AsymmetricSignResponse.signature. An integrity check of AsymmetricSignResponse.signature can be performed by computing the CRC32C checksum of AsymmetricSignResponse.signature and comparing your results to this field. Discard the response in case of non-matching checksum values, and perform a limited number of retries. A persistent mismatch may indicate an issue in your computation of the CRC32C checksum. Note: This field is defined as int64 for reasons of compatibility across different languages. However, it is a non-negative integer, which will never exceed 2^32-1, and can be safely downconverted to uint32 in languages that support this type. */
@@ -85,7 +97,11 @@ declare namespace gapi.client {
       /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
       exemptedMembers?: string[];
       /** The log type that this config enables. */
-      logType?: string;
+      logType?:
+        | 'LOG_TYPE_UNSPECIFIED'
+        | 'ADMIN_READ'
+        | 'DATA_WRITE'
+        | 'DATA_READ';
     }
     interface AutokeyConfig {
       /** Optional. A checksum computed by the server based on the value of other fields. This may be sent on update requests to ensure that the client has an up-to-date value before proceeding. The request will be rejected with an ABORTED error on a mismatched etag. */
@@ -93,11 +109,19 @@ declare namespace gapi.client {
       /** Optional. Name of the key project, e.g. `projects/{PROJECT_ID}` or `projects/{PROJECT_NUMBER}`, where Cloud KMS Autokey will provision a new CryptoKey when a KeyHandle is created. On UpdateAutokeyConfig, the caller will require `cloudkms.cryptoKeys.setIamPolicy` permission on this key project. Once configured, for Cloud KMS Autokey to function properly, this key project must have the Cloud KMS API activated and the Cloud KMS Service Agent for this key project must be granted the `cloudkms.admin` role (or pertinent permissions). A request with an empty key project field will clear the configuration. */
       keyProject?: string;
       /** Optional. KeyProjectResolutionMode for the AutokeyConfig. Valid values are `DEDICATED_KEY_PROJECT`, `RESOURCE_PROJECT`, or `DISABLED`. */
-      keyProjectResolutionMode?: string;
+      keyProjectResolutionMode?:
+        | 'KEY_PROJECT_RESOLUTION_MODE_UNSPECIFIED'
+        | 'DEDICATED_KEY_PROJECT'
+        | 'RESOURCE_PROJECT'
+        | 'DISABLED';
       /** Identifier. Name of the AutokeyConfig resource, e.g. `folders/{FOLDER_NUMBER}/autokeyConfig` or `projects/{PROJECT_NUMBER}/autokeyConfig`. */
       name?: string;
       /** Output only. The state for the AutokeyConfig. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'ACTIVE'
+        | 'KEY_PROJECT_DELETED'
+        | 'UNINITIALIZED';
     }
     interface Binding {
       /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
@@ -173,7 +197,14 @@ declare namespace gapi.client {
       /** Output only. A copy of the "primary" CryptoKeyVersion that will be used by Encrypt when this CryptoKey is given in EncryptRequest.name. The CryptoKey's primary version can be updated via UpdateCryptoKeyPrimaryVersion. Keys with purpose ENCRYPT_DECRYPT may have a primary. For other keys, this field will be omitted. */
       primary?: CryptoKeyVersion;
       /** Immutable. The immutable purpose of this CryptoKey. */
-      purpose?: string;
+      purpose?:
+        | 'CRYPTO_KEY_PURPOSE_UNSPECIFIED'
+        | 'ENCRYPT_DECRYPT'
+        | 'ASYMMETRIC_SIGN'
+        | 'ASYMMETRIC_DECRYPT'
+        | 'RAW_ENCRYPT_DECRYPT'
+        | 'MAC'
+        | 'KEY_ENCAPSULATION';
       /** next_rotation_time will be advanced by this period when the service automatically rotates a key. Must be at least 24 hours and at most 876,000 hours. If rotation_period is set, next_rotation_time must also be set. Keys with purpose ENCRYPT_DECRYPT support automatic rotation. For other keys, this field must be omitted. */
       rotationPeriod?: string;
       /** A template describing settings for new CryptoKeyVersion instances. The properties of new CryptoKeyVersion instances created by either CreateCryptoKeyVersion or auto-rotation are controlled by this template. */
@@ -181,7 +212,54 @@ declare namespace gapi.client {
     }
     interface CryptoKeyVersion {
       /** Output only. The CryptoKeyVersionAlgorithm that this CryptoKeyVersion supports. */
-      algorithm?: string;
+      algorithm?:
+        | 'CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED'
+        | 'GOOGLE_SYMMETRIC_ENCRYPTION'
+        | 'AES_128_GCM'
+        | 'AES_256_GCM'
+        | 'AES_128_CBC'
+        | 'AES_256_CBC'
+        | 'AES_128_CTR'
+        | 'AES_256_CTR'
+        | 'RSA_SIGN_PSS_2048_SHA256'
+        | 'RSA_SIGN_PSS_3072_SHA256'
+        | 'RSA_SIGN_PSS_4096_SHA256'
+        | 'RSA_SIGN_PSS_4096_SHA512'
+        | 'RSA_SIGN_PKCS1_2048_SHA256'
+        | 'RSA_SIGN_PKCS1_3072_SHA256'
+        | 'RSA_SIGN_PKCS1_4096_SHA256'
+        | 'RSA_SIGN_PKCS1_4096_SHA512'
+        | 'RSA_SIGN_RAW_PKCS1_2048'
+        | 'RSA_SIGN_RAW_PKCS1_3072'
+        | 'RSA_SIGN_RAW_PKCS1_4096'
+        | 'RSA_DECRYPT_OAEP_2048_SHA256'
+        | 'RSA_DECRYPT_OAEP_3072_SHA256'
+        | 'RSA_DECRYPT_OAEP_4096_SHA256'
+        | 'RSA_DECRYPT_OAEP_4096_SHA512'
+        | 'RSA_DECRYPT_OAEP_2048_SHA1'
+        | 'RSA_DECRYPT_OAEP_3072_SHA1'
+        | 'RSA_DECRYPT_OAEP_4096_SHA1'
+        | 'EC_SIGN_P256_SHA256'
+        | 'EC_SIGN_P384_SHA384'
+        | 'EC_SIGN_SECP256K1_SHA256'
+        | 'EC_SIGN_ED25519'
+        | 'HMAC_SHA256'
+        | 'HMAC_SHA1'
+        | 'HMAC_SHA384'
+        | 'HMAC_SHA512'
+        | 'HMAC_SHA224'
+        | 'EXTERNAL_SYMMETRIC_ENCRYPTION'
+        | 'ML_KEM_768'
+        | 'ML_KEM_1024'
+        | 'KEM_XWING'
+        | 'PQ_SIGN_ML_DSA_44'
+        | 'PQ_SIGN_ML_DSA_65'
+        | 'PQ_SIGN_ML_DSA_87'
+        | 'PQ_SIGN_SLH_DSA_SHA2_128S'
+        | 'PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256'
+        | 'PQ_SIGN_ML_DSA_44_EXTERNAL_MU'
+        | 'PQ_SIGN_ML_DSA_65_EXTERNAL_MU'
+        | 'PQ_SIGN_ML_DSA_87_EXTERNAL_MU';
       /** Output only. Statement that was generated and signed by the HSM at key creation time. Use this statement to verify attributes of the key as stored on the HSM, independently of Google. Only provided for key versions with protection_level HSM. */
       attestation?: KeyOperationAttestation;
       /** Output only. The time at which this CryptoKeyVersion was created. */
@@ -207,17 +285,87 @@ declare namespace gapi.client {
       /** Output only. The resource name for this CryptoKeyVersion in the format `projects/*‍/locations/*‍/keyRings/*‍/cryptoKeys/*‍/cryptoKeyVersions/*`. */
       name?: string;
       /** Output only. The ProtectionLevel describing how crypto operations are performed with this CryptoKeyVersion. */
-      protectionLevel?: string;
+      protectionLevel?:
+        | 'PROTECTION_LEVEL_UNSPECIFIED'
+        | 'SOFTWARE'
+        | 'HSM'
+        | 'EXTERNAL'
+        | 'EXTERNAL_VPC'
+        | 'HSM_SINGLE_TENANT';
       /** Output only. Whether or not this key version is eligible for reimport, by being specified as a target in ImportCryptoKeyVersionRequest.crypto_key_version. */
       reimportEligible?: boolean;
       /** The current state of the CryptoKeyVersion. */
-      state?: string;
+      state?:
+        | 'CRYPTO_KEY_VERSION_STATE_UNSPECIFIED'
+        | 'PENDING_GENERATION'
+        | 'ENABLED'
+        | 'DISABLED'
+        | 'DESTROYED'
+        | 'DESTROY_SCHEDULED'
+        | 'PENDING_IMPORT'
+        | 'IMPORT_FAILED'
+        | 'GENERATION_FAILED'
+        | 'PENDING_EXTERNAL_DESTRUCTION'
+        | 'EXTERNAL_DESTRUCTION_FAILED';
     }
     interface CryptoKeyVersionTemplate {
       /** Required. Algorithm to use when creating a CryptoKeyVersion based on this template. For backwards compatibility, GOOGLE_SYMMETRIC_ENCRYPTION is implied if both this field is omitted and CryptoKey.purpose is ENCRYPT_DECRYPT. */
-      algorithm?: string;
+      algorithm?:
+        | 'CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED'
+        | 'GOOGLE_SYMMETRIC_ENCRYPTION'
+        | 'AES_128_GCM'
+        | 'AES_256_GCM'
+        | 'AES_128_CBC'
+        | 'AES_256_CBC'
+        | 'AES_128_CTR'
+        | 'AES_256_CTR'
+        | 'RSA_SIGN_PSS_2048_SHA256'
+        | 'RSA_SIGN_PSS_3072_SHA256'
+        | 'RSA_SIGN_PSS_4096_SHA256'
+        | 'RSA_SIGN_PSS_4096_SHA512'
+        | 'RSA_SIGN_PKCS1_2048_SHA256'
+        | 'RSA_SIGN_PKCS1_3072_SHA256'
+        | 'RSA_SIGN_PKCS1_4096_SHA256'
+        | 'RSA_SIGN_PKCS1_4096_SHA512'
+        | 'RSA_SIGN_RAW_PKCS1_2048'
+        | 'RSA_SIGN_RAW_PKCS1_3072'
+        | 'RSA_SIGN_RAW_PKCS1_4096'
+        | 'RSA_DECRYPT_OAEP_2048_SHA256'
+        | 'RSA_DECRYPT_OAEP_3072_SHA256'
+        | 'RSA_DECRYPT_OAEP_4096_SHA256'
+        | 'RSA_DECRYPT_OAEP_4096_SHA512'
+        | 'RSA_DECRYPT_OAEP_2048_SHA1'
+        | 'RSA_DECRYPT_OAEP_3072_SHA1'
+        | 'RSA_DECRYPT_OAEP_4096_SHA1'
+        | 'EC_SIGN_P256_SHA256'
+        | 'EC_SIGN_P384_SHA384'
+        | 'EC_SIGN_SECP256K1_SHA256'
+        | 'EC_SIGN_ED25519'
+        | 'HMAC_SHA256'
+        | 'HMAC_SHA1'
+        | 'HMAC_SHA384'
+        | 'HMAC_SHA512'
+        | 'HMAC_SHA224'
+        | 'EXTERNAL_SYMMETRIC_ENCRYPTION'
+        | 'ML_KEM_768'
+        | 'ML_KEM_1024'
+        | 'KEM_XWING'
+        | 'PQ_SIGN_ML_DSA_44'
+        | 'PQ_SIGN_ML_DSA_65'
+        | 'PQ_SIGN_ML_DSA_87'
+        | 'PQ_SIGN_SLH_DSA_SHA2_128S'
+        | 'PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256'
+        | 'PQ_SIGN_ML_DSA_44_EXTERNAL_MU'
+        | 'PQ_SIGN_ML_DSA_65_EXTERNAL_MU'
+        | 'PQ_SIGN_ML_DSA_87_EXTERNAL_MU';
       /** ProtectionLevel to use when creating a CryptoKeyVersion based on this template. Immutable. Defaults to SOFTWARE. */
-      protectionLevel?: string;
+      protectionLevel?:
+        | 'PROTECTION_LEVEL_UNSPECIFIED'
+        | 'SOFTWARE'
+        | 'HSM'
+        | 'EXTERNAL'
+        | 'EXTERNAL_VPC'
+        | 'HSM_SINGLE_TENANT';
     }
     interface DecapsulateRequest {
       /** Required. The ciphertext produced from encapsulation with the named CryptoKeyVersion public key(s). */
@@ -229,7 +377,13 @@ declare namespace gapi.client {
       /** The resource name of the CryptoKeyVersion used for decapsulation. Check this field to verify that the intended resource was used for decapsulation. */
       name?: string;
       /** The ProtectionLevel of the CryptoKeyVersion used in decapsulation. */
-      protectionLevel?: string;
+      protectionLevel?:
+        | 'PROTECTION_LEVEL_UNSPECIFIED'
+        | 'SOFTWARE'
+        | 'HSM'
+        | 'EXTERNAL'
+        | 'EXTERNAL_VPC'
+        | 'HSM_SINGLE_TENANT';
       /** The decapsulated shared_secret originally encapsulated with the matching public key. */
       sharedSecret?: string;
       /** Integrity verification field. A CRC32C checksum of the returned DecapsulateResponse.shared_secret. An integrity check of DecapsulateResponse.shared_secret can be performed by computing the CRC32C checksum of DecapsulateResponse.shared_secret and comparing your results to this field. Discard the response in case of non-matching checksum values, and perform a limited number of retries. A persistent mismatch may indicate an issue in your computation of the CRC32C checksum. Note: receiving this response message indicates that KeyManagementService is able to successfully decrypt the ciphertext. Note: This field is defined as int64 for reasons of compatibility across different languages. However, it is a non-negative integer, which will never exceed 2^32-1, and can be safely downconverted to uint32 in languages that support this type. */
@@ -253,7 +407,13 @@ declare namespace gapi.client {
       /** Integrity verification field. A CRC32C checksum of the returned DecryptResponse.plaintext. An integrity check of DecryptResponse.plaintext can be performed by computing the CRC32C checksum of DecryptResponse.plaintext and comparing your results to this field. Discard the response in case of non-matching checksum values, and perform a limited number of retries. A persistent mismatch may indicate an issue in your computation of the CRC32C checksum. Note: receiving this response message indicates that KeyManagementService is able to successfully decrypt the ciphertext. Note: This field is defined as int64 for reasons of compatibility across different languages. However, it is a non-negative integer, which will never exceed 2^32-1, and can be safely downconverted to uint32 in languages that support this type. */
       plaintextCrc32c?: string;
       /** The ProtectionLevel of the CryptoKeyVersion used in decryption. */
-      protectionLevel?: string;
+      protectionLevel?:
+        | 'PROTECTION_LEVEL_UNSPECIFIED'
+        | 'SOFTWARE'
+        | 'HSM'
+        | 'EXTERNAL'
+        | 'EXTERNAL_VPC'
+        | 'HSM_SINGLE_TENANT';
       /** Whether the Decryption was performed using the primary key version. */
       usedPrimary?: boolean;
     }
@@ -284,7 +444,10 @@ declare namespace gapi.client {
       /** Optional. Etag of the currently stored EkmConnection. */
       etag?: string;
       /** Optional. Describes who can perform control plane operations on the EKM. If unset, this defaults to MANUAL. */
-      keyManagementMode?: string;
+      keyManagementMode?:
+        | 'KEY_MANAGEMENT_MODE_UNSPECIFIED'
+        | 'MANUAL'
+        | 'CLOUD_KMS';
       /** Output only. The resource name for the EkmConnection in the format `projects/*‍/locations/*‍/ekmConnections/*`. */
       name?: string;
       /** Optional. A list of ServiceResolvers where the EKM can be reached. There should be one ServiceResolver per EKM replica. Currently, only a single ServiceResolver is supported. */
@@ -310,7 +473,13 @@ declare namespace gapi.client {
       /** The resource name of the CryptoKeyVersion used in encryption. Check this field to verify that the intended resource was used for encryption. */
       name?: string;
       /** The ProtectionLevel of the CryptoKeyVersion used in encryption. */
-      protectionLevel?: string;
+      protectionLevel?:
+        | 'PROTECTION_LEVEL_UNSPECIFIED'
+        | 'SOFTWARE'
+        | 'HSM'
+        | 'EXTERNAL'
+        | 'EXTERNAL_VPC'
+        | 'HSM_SINGLE_TENANT';
       /** Integrity verification field. A flag indicating whether EncryptRequest.additional_authenticated_data_crc32c was received by KeyManagementService and used for the integrity verification of the AAD. A false value of this field indicates either that EncryptRequest.additional_authenticated_data_crc32c was left unset or that it was not delivered to KeyManagementService. If you've set EncryptRequest.additional_authenticated_data_crc32c but this field is still false, discard the response and perform a limited number of retries. */
       verifiedAdditionalAuthenticatedDataCrc32c?: boolean;
       /** Integrity verification field. A flag indicating whether EncryptRequest.plaintext_crc32c was received by KeyManagementService and used for the integrity verification of the plaintext. A false value of this field indicates either that EncryptRequest.plaintext_crc32c was left unset or that it was not delivered to KeyManagementService. If you've set EncryptRequest.plaintext_crc32c but this field is still false, discard the response and perform a limited number of retries. */
@@ -337,7 +506,13 @@ declare namespace gapi.client {
       /** The length in bytes of the amount of randomness to retrieve. Minimum 8 bytes, maximum 1024 bytes. */
       lengthBytes?: number;
       /** The ProtectionLevel to use when generating the random data. Currently, only HSM protection level is supported. */
-      protectionLevel?: string;
+      protectionLevel?:
+        | 'PROTECTION_LEVEL_UNSPECIFIED'
+        | 'SOFTWARE'
+        | 'HSM'
+        | 'EXTERNAL'
+        | 'EXTERNAL_VPC'
+        | 'HSM_SINGLE_TENANT';
     }
     interface GenerateRandomBytesResponse {
       /** The generated data. */
@@ -347,7 +522,54 @@ declare namespace gapi.client {
     }
     interface ImportCryptoKeyVersionRequest {
       /** Required. The algorithm of the key being imported. This does not need to match the version_template of the CryptoKey this version imports into. */
-      algorithm?: string;
+      algorithm?:
+        | 'CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED'
+        | 'GOOGLE_SYMMETRIC_ENCRYPTION'
+        | 'AES_128_GCM'
+        | 'AES_256_GCM'
+        | 'AES_128_CBC'
+        | 'AES_256_CBC'
+        | 'AES_128_CTR'
+        | 'AES_256_CTR'
+        | 'RSA_SIGN_PSS_2048_SHA256'
+        | 'RSA_SIGN_PSS_3072_SHA256'
+        | 'RSA_SIGN_PSS_4096_SHA256'
+        | 'RSA_SIGN_PSS_4096_SHA512'
+        | 'RSA_SIGN_PKCS1_2048_SHA256'
+        | 'RSA_SIGN_PKCS1_3072_SHA256'
+        | 'RSA_SIGN_PKCS1_4096_SHA256'
+        | 'RSA_SIGN_PKCS1_4096_SHA512'
+        | 'RSA_SIGN_RAW_PKCS1_2048'
+        | 'RSA_SIGN_RAW_PKCS1_3072'
+        | 'RSA_SIGN_RAW_PKCS1_4096'
+        | 'RSA_DECRYPT_OAEP_2048_SHA256'
+        | 'RSA_DECRYPT_OAEP_3072_SHA256'
+        | 'RSA_DECRYPT_OAEP_4096_SHA256'
+        | 'RSA_DECRYPT_OAEP_4096_SHA512'
+        | 'RSA_DECRYPT_OAEP_2048_SHA1'
+        | 'RSA_DECRYPT_OAEP_3072_SHA1'
+        | 'RSA_DECRYPT_OAEP_4096_SHA1'
+        | 'EC_SIGN_P256_SHA256'
+        | 'EC_SIGN_P384_SHA384'
+        | 'EC_SIGN_SECP256K1_SHA256'
+        | 'EC_SIGN_ED25519'
+        | 'HMAC_SHA256'
+        | 'HMAC_SHA1'
+        | 'HMAC_SHA384'
+        | 'HMAC_SHA512'
+        | 'HMAC_SHA224'
+        | 'EXTERNAL_SYMMETRIC_ENCRYPTION'
+        | 'ML_KEM_768'
+        | 'ML_KEM_1024'
+        | 'KEM_XWING'
+        | 'PQ_SIGN_ML_DSA_44'
+        | 'PQ_SIGN_ML_DSA_65'
+        | 'PQ_SIGN_ML_DSA_87'
+        | 'PQ_SIGN_SLH_DSA_SHA2_128S'
+        | 'PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256'
+        | 'PQ_SIGN_ML_DSA_44_EXTERNAL_MU'
+        | 'PQ_SIGN_ML_DSA_65_EXTERNAL_MU'
+        | 'PQ_SIGN_ML_DSA_87_EXTERNAL_MU';
       /** Optional. The optional name of an existing CryptoKeyVersion to target for an import operation. If this field is not present, a new CryptoKeyVersion containing the supplied key material is created. If this field is present, the supplied key material is imported into the existing CryptoKeyVersion. To import into an existing CryptoKeyVersion, the CryptoKeyVersion must be a child of ImportCryptoKeyVersionRequest.parent, have been previously created via ImportCryptoKeyVersion, and be in DESTROYED or IMPORT_FAILED state. The key material and algorithm must match the previous CryptoKeyVersion exactly if the CryptoKeyVersion has ever contained key material. */
       cryptoKeyVersion?: string;
       /** Required. The name of the ImportJob that was used to wrap this key material. */
@@ -371,15 +593,32 @@ declare namespace gapi.client {
       /** Output only. The time this ImportJob's key material was generated. */
       generateTime?: string;
       /** Required. Immutable. The wrapping method to be used for incoming key material. */
-      importMethod?: string;
+      importMethod?:
+        | 'IMPORT_METHOD_UNSPECIFIED'
+        | 'RSA_OAEP_3072_SHA1_AES_256'
+        | 'RSA_OAEP_4096_SHA1_AES_256'
+        | 'RSA_OAEP_3072_SHA256_AES_256'
+        | 'RSA_OAEP_4096_SHA256_AES_256'
+        | 'RSA_OAEP_3072_SHA256'
+        | 'RSA_OAEP_4096_SHA256';
       /** Output only. The resource name for this ImportJob in the format `projects/*‍/locations/*‍/keyRings/*‍/importJobs/*`. */
       name?: string;
       /** Required. Immutable. The protection level of the ImportJob. This must match the protection_level of the version_template on the CryptoKey you attempt to import into. */
-      protectionLevel?: string;
+      protectionLevel?:
+        | 'PROTECTION_LEVEL_UNSPECIFIED'
+        | 'SOFTWARE'
+        | 'HSM'
+        | 'EXTERNAL'
+        | 'EXTERNAL_VPC'
+        | 'HSM_SINGLE_TENANT';
       /** Output only. The public key with which to wrap key material prior to import. Only returned if state is ACTIVE. */
       publicKey?: WrappingPublicKey;
       /** Output only. The current state of the ImportJob, indicating if it can be used. */
-      state?: string;
+      state?:
+        | 'IMPORT_JOB_STATE_UNSPECIFIED'
+        | 'PENDING_GENERATION'
+        | 'ACTIVE'
+        | 'EXPIRED';
     }
     interface KeyAccessJustificationsEnrollmentConfig {
       /** Whether the project has KAJ logging enabled. */
@@ -389,7 +628,19 @@ declare namespace gapi.client {
     }
     interface KeyAccessJustificationsPolicy {
       /** The list of allowed reasons for access to a CryptoKey. Zero allowed access reasons means all encrypt, decrypt, and sign operations for the CryptoKey associated with this policy will fail. */
-      allowedAccessReasons?: string[];
+      allowedAccessReasons?:
+        | 'REASON_UNSPECIFIED'
+        | 'CUSTOMER_INITIATED_SUPPORT'
+        | 'GOOGLE_INITIATED_SERVICE'
+        | 'THIRD_PARTY_DATA_REQUEST'
+        | 'GOOGLE_INITIATED_REVIEW'
+        | 'CUSTOMER_INITIATED_ACCESS'
+        | 'GOOGLE_INITIATED_SYSTEM_OPERATION'
+        | 'REASON_NOT_EXPECTED'
+        | 'MODIFIED_CUSTOMER_INITIATED_ACCESS'
+        | 'MODIFIED_GOOGLE_INITIATED_SYSTEM_OPERATION'
+        | 'GOOGLE_RESPONSE_TO_PRODUCTION_ALERT'
+        | 'CUSTOMER_AUTHORIZED_WORKFLOW_SERVICING'[];
     }
     interface KeyAccessJustificationsPolicyConfig {
       /** Optional. The default key access justification policy used when a CryptoKey is created in this folder. This is only used when a Key Access Justifications policy is not provided in the CreateCryptoKeyRequest. This overrides any default policies in its ancestry. */
@@ -411,7 +662,10 @@ declare namespace gapi.client {
       /** Output only. The attestation data provided by the HSM when the key operation was performed. */
       content?: string;
       /** Output only. The format of the attestation data. */
-      format?: string;
+      format?:
+        | 'ATTESTATION_FORMAT_UNSPECIFIED'
+        | 'CAVIUM_V1_COMPRESSED'
+        | 'CAVIUM_V2_COMPRESSED';
     }
     interface KeyRing {
       /** Output only. The time at which this KeyRing was created. */
@@ -529,7 +783,13 @@ declare namespace gapi.client {
       /** The resource name of the CryptoKeyVersion used for signing. Check this field to verify that the intended resource was used for signing. */
       name?: string;
       /** The ProtectionLevel of the CryptoKeyVersion used for signing. */
-      protectionLevel?: string;
+      protectionLevel?:
+        | 'PROTECTION_LEVEL_UNSPECIFIED'
+        | 'SOFTWARE'
+        | 'HSM'
+        | 'EXTERNAL'
+        | 'EXTERNAL_VPC'
+        | 'HSM_SINGLE_TENANT';
       /** Integrity verification field. A flag indicating whether MacSignRequest.data_crc32c was received by KeyManagementService and used for the integrity verification of the data. A false value of this field indicates either that MacSignRequest.data_crc32c was left unset or that it was not delivered to KeyManagementService. If you've set MacSignRequest.data_crc32c but this field is still false, discard the response and perform a limited number of retries. */
       verifiedDataCrc32c?: boolean;
     }
@@ -547,7 +807,13 @@ declare namespace gapi.client {
       /** The resource name of the CryptoKeyVersion used for verification. Check this field to verify that the intended resource was used for verification. */
       name?: string;
       /** The ProtectionLevel of the CryptoKeyVersion used for verification. */
-      protectionLevel?: string;
+      protectionLevel?:
+        | 'PROTECTION_LEVEL_UNSPECIFIED'
+        | 'SOFTWARE'
+        | 'HSM'
+        | 'EXTERNAL'
+        | 'EXTERNAL_VPC'
+        | 'HSM_SINGLE_TENANT';
       /** This field indicates whether or not the verification operation for MacVerifyRequest.mac over MacVerifyRequest.data was successful. */
       success?: boolean;
       /** Integrity verification field. A flag indicating whether MacVerifyRequest.data_crc32c was received by KeyManagementService and used for the integrity verification of the data. A false value of this field indicates either that MacVerifyRequest.data_crc32c was left unset or that it was not delivered to KeyManagementService. If you've set MacVerifyRequest.data_crc32c but this field is still false, discard the response and perform a limited number of retries. */
@@ -581,7 +847,54 @@ declare namespace gapi.client {
     }
     interface PublicKey {
       /** The Algorithm associated with this key. */
-      algorithm?: string;
+      algorithm?:
+        | 'CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED'
+        | 'GOOGLE_SYMMETRIC_ENCRYPTION'
+        | 'AES_128_GCM'
+        | 'AES_256_GCM'
+        | 'AES_128_CBC'
+        | 'AES_256_CBC'
+        | 'AES_128_CTR'
+        | 'AES_256_CTR'
+        | 'RSA_SIGN_PSS_2048_SHA256'
+        | 'RSA_SIGN_PSS_3072_SHA256'
+        | 'RSA_SIGN_PSS_4096_SHA256'
+        | 'RSA_SIGN_PSS_4096_SHA512'
+        | 'RSA_SIGN_PKCS1_2048_SHA256'
+        | 'RSA_SIGN_PKCS1_3072_SHA256'
+        | 'RSA_SIGN_PKCS1_4096_SHA256'
+        | 'RSA_SIGN_PKCS1_4096_SHA512'
+        | 'RSA_SIGN_RAW_PKCS1_2048'
+        | 'RSA_SIGN_RAW_PKCS1_3072'
+        | 'RSA_SIGN_RAW_PKCS1_4096'
+        | 'RSA_DECRYPT_OAEP_2048_SHA256'
+        | 'RSA_DECRYPT_OAEP_3072_SHA256'
+        | 'RSA_DECRYPT_OAEP_4096_SHA256'
+        | 'RSA_DECRYPT_OAEP_4096_SHA512'
+        | 'RSA_DECRYPT_OAEP_2048_SHA1'
+        | 'RSA_DECRYPT_OAEP_3072_SHA1'
+        | 'RSA_DECRYPT_OAEP_4096_SHA1'
+        | 'EC_SIGN_P256_SHA256'
+        | 'EC_SIGN_P384_SHA384'
+        | 'EC_SIGN_SECP256K1_SHA256'
+        | 'EC_SIGN_ED25519'
+        | 'HMAC_SHA256'
+        | 'HMAC_SHA1'
+        | 'HMAC_SHA384'
+        | 'HMAC_SHA512'
+        | 'HMAC_SHA224'
+        | 'EXTERNAL_SYMMETRIC_ENCRYPTION'
+        | 'ML_KEM_768'
+        | 'ML_KEM_1024'
+        | 'KEM_XWING'
+        | 'PQ_SIGN_ML_DSA_44'
+        | 'PQ_SIGN_ML_DSA_65'
+        | 'PQ_SIGN_ML_DSA_87'
+        | 'PQ_SIGN_SLH_DSA_SHA2_128S'
+        | 'PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256'
+        | 'PQ_SIGN_ML_DSA_44_EXTERNAL_MU'
+        | 'PQ_SIGN_ML_DSA_65_EXTERNAL_MU'
+        | 'PQ_SIGN_ML_DSA_87_EXTERNAL_MU';
       /** The name of the CryptoKeyVersion public key. Provided here for verification. NOTE: This field is in Beta. */
       name?: string;
       /** The public key, encoded in PEM format. For more information, see the [RFC 7468](https://tools.ietf.org/html/rfc7468) sections for [General Considerations](https://tools.ietf.org/html/rfc7468#section-2) and [Textual Encoding of Subject Public Key Info] (https://tools.ietf.org/html/rfc7468#section-13). */
@@ -589,11 +902,22 @@ declare namespace gapi.client {
       /** Integrity verification field. A CRC32C checksum of the returned PublicKey.pem. An integrity check of PublicKey.pem can be performed by computing the CRC32C checksum of PublicKey.pem and comparing your results to this field. Discard the response in case of non-matching checksum values, and perform a limited number of retries. A persistent mismatch may indicate an issue in your computation of the CRC32C checksum. Note: This field is defined as int64 for reasons of compatibility across different languages. However, it is a non-negative integer, which will never exceed `2^32-1`, and can be safely downconverted to uint32 in languages that support this type. NOTE: This field is in Beta. */
       pemCrc32c?: string;
       /** The ProtectionLevel of the CryptoKeyVersion public key. */
-      protectionLevel?: string;
+      protectionLevel?:
+        | 'PROTECTION_LEVEL_UNSPECIFIED'
+        | 'SOFTWARE'
+        | 'HSM'
+        | 'EXTERNAL'
+        | 'EXTERNAL_VPC'
+        | 'HSM_SINGLE_TENANT';
       /** This field contains the public key (with integrity verification), formatted according to the public_key_format field. */
       publicKey?: ChecksummedData;
       /** The PublicKey format specified by the customer through the public_key_format field. */
-      publicKeyFormat?: string;
+      publicKeyFormat?:
+        | 'PUBLIC_KEY_FORMAT_UNSPECIFIED'
+        | 'PEM'
+        | 'DER'
+        | 'NIST_PQC'
+        | 'XWING_RAW_BYTES';
     }
     interface QuorumAuth {
       /** Output only. The required numbers of approvers. The M value used for M of N quorum auth. Must be greater than or equal to 2 and less than or equal to total_approver_count - 1. */
@@ -637,7 +961,13 @@ declare namespace gapi.client {
       /** Integrity verification field. A CRC32C checksum of the returned RawDecryptResponse.plaintext. An integrity check of plaintext can be performed by computing the CRC32C checksum of plaintext and comparing your results to this field. Discard the response in case of non-matching checksum values, and perform a limited number of retries. A persistent mismatch may indicate an issue in your computation of the CRC32C checksum. Note: receiving this response message indicates that KeyManagementService is able to successfully decrypt the ciphertext. Note: This field is defined as int64 for reasons of compatibility across different languages. However, it is a non-negative integer, which will never exceed 2^32-1, and can be safely downconverted to uint32 in languages that support this type. */
       plaintextCrc32c?: string;
       /** The ProtectionLevel of the CryptoKeyVersion used in decryption. */
-      protectionLevel?: string;
+      protectionLevel?:
+        | 'PROTECTION_LEVEL_UNSPECIFIED'
+        | 'SOFTWARE'
+        | 'HSM'
+        | 'EXTERNAL'
+        | 'EXTERNAL_VPC'
+        | 'HSM_SINGLE_TENANT';
       /** Integrity verification field. A flag indicating whether RawDecryptRequest.additional_authenticated_data_crc32c was received by KeyManagementService and used for the integrity verification of additional_authenticated_data. A false value of this field indicates either that // RawDecryptRequest.additional_authenticated_data_crc32c was left unset or that it was not delivered to KeyManagementService. If you've set RawDecryptRequest.additional_authenticated_data_crc32c but this field is still false, discard the response and perform a limited number of retries. */
       verifiedAdditionalAuthenticatedDataCrc32c?: boolean;
       /** Integrity verification field. A flag indicating whether RawDecryptRequest.ciphertext_crc32c was received by KeyManagementService and used for the integrity verification of the ciphertext. A false value of this field indicates either that RawDecryptRequest.ciphertext_crc32c was left unset or that it was not delivered to KeyManagementService. If you've set RawDecryptRequest.ciphertext_crc32c but this field is still false, discard the response and perform a limited number of retries. */
@@ -671,7 +1001,13 @@ declare namespace gapi.client {
       /** The resource name of the CryptoKeyVersion used in encryption. Check this field to verify that the intended resource was used for encryption. */
       name?: string;
       /** The ProtectionLevel of the CryptoKeyVersion used in encryption. */
-      protectionLevel?: string;
+      protectionLevel?:
+        | 'PROTECTION_LEVEL_UNSPECIFIED'
+        | 'SOFTWARE'
+        | 'HSM'
+        | 'EXTERNAL'
+        | 'EXTERNAL_VPC'
+        | 'HSM_SINGLE_TENANT';
       /** The length of the authentication tag that is appended to the end of the ciphertext. */
       tagLength?: number;
       /** Integrity verification field. A flag indicating whether RawEncryptRequest.additional_authenticated_data_crc32c was received by KeyManagementService and used for the integrity verification of additional_authenticated_data. A false value of this field indicates either that // RawEncryptRequest.additional_authenticated_data_crc32c was left unset or that it was not delivered to KeyManagementService. If you've set RawEncryptRequest.additional_authenticated_data_crc32c but this field is still false, discard the response and perform a limited number of retries. */
@@ -763,7 +1099,16 @@ declare namespace gapi.client {
       /** Required. The quorum auth configuration for the SingleTenantHsmInstance. */
       quorumAuth?: QuorumAuth;
       /** Output only. The state of the SingleTenantHsmInstance. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'PENDING_TWO_FACTOR_AUTH_REGISTRATION'
+        | 'ACTIVE'
+        | 'DISABLING'
+        | 'DISABLED'
+        | 'DELETING'
+        | 'DELETED'
+        | 'FAILED';
       /** Output only. The system-defined duration that an instance can remain unrefreshed until it is automatically disabled. This will have a value of 120 days. */
       unrefreshedDurationUntilDisable?: string;
     }
@@ -799,7 +1144,15 @@ declare namespace gapi.client {
       /** Output only. Parameters for an approval of a SingleTenantHsmInstanceProposal that has both required challenges and a quorum. */
       requiredActionQuorumParameters?: RequiredActionQuorumParameters;
       /** Output only. The state of the SingleTenantHsmInstanceProposal. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'PENDING'
+        | 'APPROVED'
+        | 'RUNNING'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'DELETED';
       /** Input only. The TTL for the SingleTenantHsmInstanceProposal. Proposals will expire after this duration. */
       ttl?: string;
     }
@@ -832,11 +1185,11 @@ declare namespace gapi.client {
       /** Returns the AutokeyConfig for a folder or project. */
       getAutokeyConfig(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -859,11 +1212,11 @@ declare namespace gapi.client {
       /** Gets the KeyAccessJustificationsPolicyConfig for a given organization, folder, or project. */
       getKajPolicyConfig(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -886,11 +1239,11 @@ declare namespace gapi.client {
       /** Updates the AutokeyConfig for a folder or a project. The caller must have both `cloudkms.autokeyConfigs.update` permission on the parent folder and `cloudkms.cryptoKeys.setIamPolicy` permission on the provided key project. A KeyHandle creation in the folder's descendant projects will use this configuration to determine where to create the resulting CryptoKey. */
       updateAutokeyConfig(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -917,11 +1270,11 @@ declare namespace gapi.client {
       updateAutokeyConfig(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -948,11 +1301,11 @@ declare namespace gapi.client {
       /** Updates the KeyAccessJustificationsPolicyConfig for a given organization, folder, or project. */
       updateKajPolicyConfig(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -979,11 +1332,11 @@ declare namespace gapi.client {
       updateKajPolicyConfig(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1012,11 +1365,11 @@ declare namespace gapi.client {
       /** Gets the KeyAccessJustificationsPolicyConfig for a given organization, folder, or project. */
       getKajPolicyConfig(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1039,11 +1392,11 @@ declare namespace gapi.client {
       /** Updates the KeyAccessJustificationsPolicyConfig for a given organization, folder, or project. */
       updateKajPolicyConfig(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1070,11 +1423,11 @@ declare namespace gapi.client {
       updateKajPolicyConfig(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1103,11 +1456,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1133,11 +1486,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1163,11 +1516,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1194,11 +1547,11 @@ declare namespace gapi.client {
       /** Creates a new EkmConnection in a given Project and Location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. It must be unique within a location and match the regular expression `[a-zA-Z0-9_-]{1,63}`. */
@@ -1225,11 +1578,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. It must be unique within a location and match the regular expression `[a-zA-Z0-9_-]{1,63}`. */
@@ -1256,11 +1609,11 @@ declare namespace gapi.client {
       /** Returns metadata for a given EkmConnection. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1283,11 +1636,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1312,11 +1665,11 @@ declare namespace gapi.client {
       /** Lists EkmConnections. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1347,11 +1700,11 @@ declare namespace gapi.client {
       /** Updates an EkmConnection's metadata. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1378,11 +1731,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1410,11 +1763,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1440,11 +1793,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1469,11 +1822,11 @@ declare namespace gapi.client {
       /** Verifies that Cloud KMS can successfully connect to the external key manager specified by an EkmConnection. If there is an error connecting to the EKM, this method returns a FAILED_PRECONDITION status containing structured information as described at https://cloud.google.com/kms/docs/reference/ekm_errors. */
       verifyConnectivity(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1498,11 +1851,11 @@ declare namespace gapi.client {
       /** Creates a new KeyHandle, triggering the provisioning of a new CryptoKey for CMEK use with the given resource type in the configured key project and the same location. GetOperation should be used to resolve the resulting long-running operation and get the resulting KeyHandle and CryptoKey. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1529,11 +1882,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1560,11 +1913,11 @@ declare namespace gapi.client {
       /** Returns the KeyHandle. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1587,11 +1940,11 @@ declare namespace gapi.client {
       /** Lists KeyHandles. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1622,11 +1975,11 @@ declare namespace gapi.client {
       /** Decrypts data that was encrypted with a public key retrieved from GetPublicKey corresponding to a CryptoKeyVersion with CryptoKey.purpose ASYMMETRIC_DECRYPT. */
       asymmetricDecrypt(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1651,11 +2004,11 @@ declare namespace gapi.client {
       asymmetricDecrypt(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1680,11 +2033,11 @@ declare namespace gapi.client {
       /** Signs data using a CryptoKeyVersion with CryptoKey.purpose ASYMMETRIC_SIGN, producing a signature that can be verified with the public key retrieved from GetPublicKey. */
       asymmetricSign(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1709,11 +2062,11 @@ declare namespace gapi.client {
       asymmetricSign(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1738,11 +2091,11 @@ declare namespace gapi.client {
       /** Create a new CryptoKeyVersion in a CryptoKey. The server will assign the next sequential id. If unset, state will be set to ENABLED. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1767,11 +2120,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1796,11 +2149,11 @@ declare namespace gapi.client {
       /** Decapsulates data that was encapsulated with a public key retrieved from GetPublicKey corresponding to a CryptoKeyVersion with CryptoKey.purpose KEY_ENCAPSULATION. */
       decapsulate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1825,11 +2178,11 @@ declare namespace gapi.client {
       decapsulate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1854,11 +2207,11 @@ declare namespace gapi.client {
       /** Permanently deletes the given CryptoKeyVersion. Only possible if the version has not been previously imported and if its state is one of DESTROYED, IMPORT_FAILED, or GENERATION_FAILED. Successfully imported CryptoKeyVersions cannot be deleted at this time. The specified version will be immediately and permanently deleted upon calling this method. This action cannot be undone. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1881,11 +2234,11 @@ declare namespace gapi.client {
       /** Schedule a CryptoKeyVersion for destruction. Upon calling this method, CryptoKeyVersion.state will be set to DESTROY_SCHEDULED, and destroy_time will be set to the time destroy_scheduled_duration in the future. At that time, the state will automatically change to DESTROYED, and the key material will be irrevocably destroyed. Before the destroy_time is reached, RestoreCryptoKeyVersion may be called to reverse the process. */
       destroy(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1910,11 +2263,11 @@ declare namespace gapi.client {
       destroy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1939,11 +2292,11 @@ declare namespace gapi.client {
       /** Returns metadata for a given CryptoKeyVersion. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1966,11 +2319,11 @@ declare namespace gapi.client {
       /** Returns the public key for the given CryptoKeyVersion. The CryptoKey.purpose must be ASYMMETRIC_SIGN or ASYMMETRIC_DECRYPT. */
       getPublicKey(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1984,7 +2337,12 @@ declare namespace gapi.client {
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Optional. The PublicKey format specified by the user. This field is required for PQC algorithms. If specified, the public key will be exported through the public_key field in the requested format. Otherwise, the pem field will be populated for non-PQC algorithms, and an error will be returned for PQC algorithms. */
-        publicKeyFormat?: string;
+        publicKeyFormat?:
+          | 'PUBLIC_KEY_FORMAT_UNSPECIFIED'
+          | 'PEM'
+          | 'DER'
+          | 'NIST_PQC'
+          | 'XWING_RAW_BYTES';
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1995,11 +2353,11 @@ declare namespace gapi.client {
       /** Import wrapped key material into a CryptoKeyVersion. All requests must specify a CryptoKey. If a CryptoKeyVersion is additionally specified in the request, key material will be reimported into that version. Otherwise, a new version will be created, and will be assigned the next sequential id within the CryptoKey. */
       import(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2024,11 +2382,11 @@ declare namespace gapi.client {
       import(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2053,11 +2411,11 @@ declare namespace gapi.client {
       /** Lists CryptoKeyVersions. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2085,16 +2443,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** The fields to include in the response. */
-        view?: string;
+        view?: 'CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED' | 'FULL';
       }): Request<ListCryptoKeyVersionsResponse>;
       /** Signs data using a CryptoKeyVersion with CryptoKey.purpose MAC, producing a tag that can be verified by another source with the same key. */
       macSign(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2119,11 +2477,11 @@ declare namespace gapi.client {
       macSign(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2148,11 +2506,11 @@ declare namespace gapi.client {
       /** Verifies MAC tag using a CryptoKeyVersion with CryptoKey.purpose MAC, and returns a response that indicates whether or not the verification was successful. */
       macVerify(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2177,11 +2535,11 @@ declare namespace gapi.client {
       macVerify(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2206,11 +2564,11 @@ declare namespace gapi.client {
       /** Update a CryptoKeyVersion's metadata. state may be changed between ENABLED and DISABLED using this method. See DestroyCryptoKeyVersion and RestoreCryptoKeyVersion to move between other states. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2237,11 +2595,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2268,11 +2626,11 @@ declare namespace gapi.client {
       /** Decrypts data that was originally encrypted using a raw cryptographic mechanism. The CryptoKey.purpose must be RAW_ENCRYPT_DECRYPT. */
       rawDecrypt(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2297,11 +2655,11 @@ declare namespace gapi.client {
       rawDecrypt(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2326,11 +2684,11 @@ declare namespace gapi.client {
       /** Encrypts data using portable cryptographic primitives. Most users should choose Encrypt and Decrypt rather than their raw counterparts. The CryptoKey.purpose must be RAW_ENCRYPT_DECRYPT. */
       rawEncrypt(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2355,11 +2713,11 @@ declare namespace gapi.client {
       rawEncrypt(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2384,11 +2742,11 @@ declare namespace gapi.client {
       /** Restore a CryptoKeyVersion in the DESTROY_SCHEDULED state. Upon restoration of the CryptoKeyVersion, state will be set to DISABLED, and destroy_time will be cleared. */
       restore(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2413,11 +2771,11 @@ declare namespace gapi.client {
       restore(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2444,11 +2802,11 @@ declare namespace gapi.client {
       /** Create a new CryptoKey within a KeyRing. CryptoKey.purpose and CryptoKey.version_template.algorithm are required. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. It must be unique within a KeyRing and match the regular expression `[a-zA-Z0-9_-]{1,63}` */
@@ -2477,11 +2835,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. It must be unique within a KeyRing and match the regular expression `[a-zA-Z0-9_-]{1,63}` */
@@ -2510,11 +2868,11 @@ declare namespace gapi.client {
       /** Decrypts data that was protected by Encrypt. The CryptoKey.purpose must be ENCRYPT_DECRYPT. */
       decrypt(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2539,11 +2897,11 @@ declare namespace gapi.client {
       decrypt(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2568,11 +2926,11 @@ declare namespace gapi.client {
       /** Permanently deletes the given CryptoKey. All child CryptoKeyVersions must have been previously deleted using KeyManagementService.DeleteCryptoKeyVersion. The specified crypto key will be immediately and permanently deleted upon calling this method. This action cannot be undone. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2595,11 +2953,11 @@ declare namespace gapi.client {
       /** Encrypts data, so that it can only be recovered by a call to Decrypt. The CryptoKey.purpose must be ENCRYPT_DECRYPT. */
       encrypt(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2624,11 +2982,11 @@ declare namespace gapi.client {
       encrypt(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2653,11 +3011,11 @@ declare namespace gapi.client {
       /** Returns metadata for a given CryptoKey, as well as its primary CryptoKeyVersion. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2680,11 +3038,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2709,11 +3067,11 @@ declare namespace gapi.client {
       /** Lists CryptoKeys. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2741,16 +3099,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** The fields of the primary version to include in the response. */
-        versionView?: string;
+        versionView?: 'CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED' | 'FULL';
       }): Request<ListCryptoKeysResponse>;
       /** Update a CryptoKey. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2777,11 +3135,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2809,11 +3167,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2839,11 +3197,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2868,11 +3226,11 @@ declare namespace gapi.client {
       /** Update the version of a CryptoKey that will be used in Encrypt. Returns an error if called on a key whose purpose is not ENCRYPT_DECRYPT. */
       updatePrimaryVersion(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2897,11 +3255,11 @@ declare namespace gapi.client {
       updatePrimaryVersion(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2929,11 +3287,11 @@ declare namespace gapi.client {
       /** Create a new ImportJob within a KeyRing. ImportJob.import_method is required. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2960,11 +3318,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2991,11 +3349,11 @@ declare namespace gapi.client {
       /** Returns metadata for a given ImportJob. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3018,11 +3376,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3047,11 +3405,11 @@ declare namespace gapi.client {
       /** Lists ImportJobs. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3083,11 +3441,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3113,11 +3471,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3144,11 +3502,11 @@ declare namespace gapi.client {
       /** Create a new KeyRing in a given Project and Location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3175,11 +3533,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3206,11 +3564,11 @@ declare namespace gapi.client {
       /** Returns metadata for a given KeyRing. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3233,11 +3591,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3262,11 +3620,11 @@ declare namespace gapi.client {
       /** Lists KeyRings. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3298,11 +3656,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3328,11 +3686,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3361,11 +3719,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3390,11 +3748,11 @@ declare namespace gapi.client {
       /** Retrieves a specific RetiredResource resource, which represents the record of a deleted CryptoKey. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3417,11 +3775,11 @@ declare namespace gapi.client {
       /** Lists the RetiredResources which are the records of deleted CryptoKeys. RetiredResources prevent the reuse of these resource names after deletion. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3450,11 +3808,11 @@ declare namespace gapi.client {
       /** Approves a SingleTenantHsmInstanceProposal for a given SingleTenantHsmInstance. The proposal must be in the PENDING state. */
       approve(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3479,11 +3837,11 @@ declare namespace gapi.client {
       approve(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3508,11 +3866,11 @@ declare namespace gapi.client {
       /** Creates a new SingleTenantHsmInstanceProposal for a given SingleTenantHsmInstance. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3539,11 +3897,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3570,11 +3928,11 @@ declare namespace gapi.client {
       /** Deletes a SingleTenantHsmInstanceProposal. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3597,11 +3955,11 @@ declare namespace gapi.client {
       /** Executes a SingleTenantHsmInstanceProposal for a given SingleTenantHsmInstance. The proposal must be in the APPROVED state. */
       execute(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3626,11 +3984,11 @@ declare namespace gapi.client {
       execute(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3655,11 +4013,11 @@ declare namespace gapi.client {
       /** Returns metadata for a given SingleTenantHsmInstanceProposal. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3682,11 +4040,11 @@ declare namespace gapi.client {
       /** Lists SingleTenantHsmInstanceProposals. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3721,11 +4079,11 @@ declare namespace gapi.client {
       /** Creates a new SingleTenantHsmInstance in a given Project and Location. User must create a RegisterTwoFactorAuthKeys proposal with this single-tenant HSM instance to finish setup of the instance. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3752,11 +4110,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3783,11 +4141,11 @@ declare namespace gapi.client {
       /** Returns metadata for a given SingleTenantHsmInstance. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3810,11 +4168,11 @@ declare namespace gapi.client {
       /** Lists SingleTenantHsmInstances. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3850,11 +4208,11 @@ declare namespace gapi.client {
       /** Generate random bytes using the Cloud KMS randomness source in the provided location. */
       generateRandomBytes(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3879,11 +4237,11 @@ declare namespace gapi.client {
       generateRandomBytes(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -3908,11 +4266,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3935,11 +4293,11 @@ declare namespace gapi.client {
       /** Returns the EkmConfig singleton resource for a given project and location. */
       getEkmConfig(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -3962,11 +4320,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */
@@ -3997,11 +4355,11 @@ declare namespace gapi.client {
       /** Updates the EkmConfig singleton resource for a given project and location. */
       updateEkmConfig(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4028,11 +4386,11 @@ declare namespace gapi.client {
       updateEkmConfig(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4068,11 +4426,11 @@ declare namespace gapi.client {
       /** Returns the AutokeyConfig for a folder or project. */
       getAutokeyConfig(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4095,11 +4453,11 @@ declare namespace gapi.client {
       /** Gets the KeyAccessJustificationsPolicyConfig for a given organization, folder, or project. */
       getKajPolicyConfig(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4122,11 +4480,11 @@ declare namespace gapi.client {
       /** Returns the effective Cloud KMS Autokey configuration for a given project. */
       showEffectiveAutokeyConfig(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4149,11 +4507,11 @@ declare namespace gapi.client {
       /** Returns the KeyAccessJustificationsEnrollmentConfig of the resource closest to the given project in hierarchy. */
       showEffectiveKeyAccessJustificationsEnrollmentConfig(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4176,11 +4534,11 @@ declare namespace gapi.client {
       /** Returns the KeyAccessJustificationsPolicyConfig of the resource closest to the given project in hierarchy. */
       showEffectiveKeyAccessJustificationsPolicyConfig(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4203,11 +4561,11 @@ declare namespace gapi.client {
       /** Updates the AutokeyConfig for a folder or a project. The caller must have both `cloudkms.autokeyConfigs.update` permission on the parent folder and `cloudkms.cryptoKeys.setIamPolicy` permission on the provided key project. A KeyHandle creation in the folder's descendant projects will use this configuration to determine where to create the resulting CryptoKey. */
       updateAutokeyConfig(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4234,11 +4592,11 @@ declare namespace gapi.client {
       updateAutokeyConfig(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -4265,11 +4623,11 @@ declare namespace gapi.client {
       /** Updates the KeyAccessJustificationsPolicyConfig for a given organization, folder, or project. */
       updateKajPolicyConfig(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4296,11 +4654,11 @@ declare namespace gapi.client {
       updateKajPolicyConfig(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

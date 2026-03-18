@@ -62,7 +62,7 @@ declare namespace gapi.client {
       /** Text classification of index numerical score interpretation. The index consists of six categories: * 0: "None" * 1: "Very low" * 2: "Low" * 3: "Moderate" * 4: "High" * 5: "Very high */
       category?: string;
       /** The index's code. This field represents the index for programming purposes by using snake cases instead of spaces. Example: "UPI". */
-      code?: string;
+      code?: 'INDEX_UNSPECIFIED' | 'UPI';
       /** The color used to represent the Pollen Index numeric score. */
       color?: Color;
       /** A human readable representation of the index name. Example: "Universal Pollen Index". */
@@ -96,11 +96,29 @@ declare namespace gapi.client {
       /** Textual description of the plants' shapes of leaves, bark, flowers or seeds that helps identify the plant. */
       specialShapes?: string;
       /** The plant's pollen type. For example: "GRASS". A list of all available codes could be found here. */
-      type?: string;
+      type?: 'POLLEN_TYPE_UNSPECIFIED' | 'GRASS' | 'TREE' | 'WEED';
     }
     interface PlantInfo {
       /** The plant code name. For example: "COTTONWOOD". A list of all available codes could be found here. */
-      code?: string;
+      code?:
+        | 'PLANT_UNSPECIFIED'
+        | 'ALDER'
+        | 'ASH'
+        | 'BIRCH'
+        | 'COTTONWOOD'
+        | 'ELM'
+        | 'MAPLE'
+        | 'OLIVE'
+        | 'JUNIPER'
+        | 'OAK'
+        | 'PINE'
+        | 'CYPRESS_PINE'
+        | 'HAZEL'
+        | 'GRAMINALES'
+        | 'RAGWEED'
+        | 'MUGWORT'
+        | 'JAPANESE_CEDAR'
+        | 'JAPANESE_CYPRESS';
       /** A human readable representation of the plant name. Example: “Cottonwood". */
       displayName?: string;
       /** This object contains data representing specific pollen index value, category and description. */
@@ -112,7 +130,7 @@ declare namespace gapi.client {
     }
     interface PollenTypeInfo {
       /** The pollen type's code name. For example: "GRASS" */
-      code?: string;
+      code?: 'POLLEN_TYPE_UNSPECIFIED' | 'GRASS' | 'TREE' | 'WEED';
       /** A human readable representation of the pollen type name. Example: "Grass" */
       displayName?: string;
       /** Textual list of explanations, related to health insights based on the current pollen levels. */
@@ -126,11 +144,11 @@ declare namespace gapi.client {
       /** Returns up to 5 days of daily pollen information in more than 65 countries, up to 1km resolution. */
       lookup(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. A number that indicates how many forecast days to request (minimum value 1, maximum value is 5). */
@@ -167,11 +185,11 @@ declare namespace gapi.client {
       /** Returns a byte array containing the data of the tile PNG image. */
       lookupHeatmapTile(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -179,7 +197,7 @@ declare namespace gapi.client {
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** Required. The type of the pollen heatmap. Defines the combination of pollen type and index that the map will graphically represent. */
-        mapType: string;
+        mapType: 'MAP_TYPE_UNSPECIFIED' | 'TREE_UPI' | 'GRASS_UPI' | 'WEED_UPI';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Returns response with indentations and line breaks. */

@@ -359,11 +359,11 @@ declare namespace gapi.client {
       /** Stop watching resources through this channel. */
       stop(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -386,11 +386,11 @@ declare namespace gapi.client {
       stop(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -746,17 +746,55 @@ declare namespace gapi.client {
       /** Retrieves a list of activities for a specific customer's account and application such as the Admin console application or the Google Drive application. For more information, see the guides for administrator and Google Drive activity reports. For more information about the activity report's parameters, see the activity parameters reference guides. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The Internet Protocol (IP) Address of host where the event was performed. This is an additional way to filter a report's summary using the IP address of the user whose activity is being reported. This IP address may or may not reflect the user's physical location. For example, the IP address can be the user's proxy server's address or a virtual private network (VPN) address. This parameter supports both IPv4 and IPv6 address versions. */
         actorIpAddress?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Optional. Used to filter on the `oAuthClientId` field present in [`ApplicationInfo`](#applicationinfo) message. **Usage** ``` GET...&applicationInfoFilter=oAuthClientId="clientId" GET...&applicationInfoFilter=oAuthClientId=%22clientId%22 ``` */
         applicationInfoFilter?: string;
         /** Application name for which the events are to be retrieved. */
-        applicationName: string;
+        applicationName:
+          | 'access_transparency'
+          | 'admin'
+          | 'calendar'
+          | 'chat'
+          | 'drive'
+          | 'gcp'
+          | 'gmail'
+          | 'gplus'
+          | 'groups'
+          | 'groups_enterprise'
+          | 'jamboard'
+          | 'login'
+          | 'meet'
+          | 'mobile'
+          | 'rules'
+          | 'saml'
+          | 'token'
+          | 'user_accounts'
+          | 'context_aware_access'
+          | 'chrome'
+          | 'data_studio'
+          | 'keep'
+          | 'vault'
+          | 'gemini_in_workspace_apps'
+          | 'classroom'
+          | 'assignments'
+          | 'cloud_search'
+          | 'tasks'
+          | 'data_migration'
+          | 'meet_hardware'
+          | 'directory_sync'
+          | 'ldap'
+          | 'profile'
+          | 'access_evaluation'
+          | 'admin_data_action'
+          | 'contacts'
+          | 'takeout'
+          | 'graduation';
         /** JSONP */
         callback?: string;
         /** The unique ID of the customer to retrieve data for. */
@@ -803,15 +841,37 @@ declare namespace gapi.client {
       /** Start receiving notifications for account activities. For more information, see Receiving Push Notifications. */
       watch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The Internet Protocol (IP) Address of host where the event was performed. This is an additional way to filter a report's summary using the IP address of the user whose activity is being reported. This IP address may or may not reflect the user's physical location. For example, the IP address can be the user's proxy server's address or a virtual private network (VPN) address. This parameter supports both IPv4 and IPv6 address versions. */
         actorIpAddress?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Application name for which the events are to be retrieved. */
-        applicationName: string;
+        applicationName:
+          | 'access_transparency'
+          | 'admin'
+          | 'calendar'
+          | 'chat'
+          | 'drive'
+          | 'gcp'
+          | 'gplus'
+          | 'groups'
+          | 'groups_enterprise'
+          | 'jamboard'
+          | 'login'
+          | 'meet'
+          | 'mobile'
+          | 'rules'
+          | 'saml'
+          | 'token'
+          | 'user_accounts'
+          | 'context_aware_access'
+          | 'chrome'
+          | 'data_studio'
+          | 'keep'
+          | 'classroom';
         /** JSONP */
         callback?: string;
         /** The unique ID of the customer to retrieve data for. */
@@ -854,15 +914,37 @@ declare namespace gapi.client {
       watch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The Internet Protocol (IP) Address of host where the event was performed. This is an additional way to filter a report's summary using the IP address of the user whose activity is being reported. This IP address may or may not reflect the user's physical location. For example, the IP address can be the user's proxy server's address or a virtual private network (VPN) address. This parameter supports both IPv4 and IPv6 address versions. */
           actorIpAddress?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Application name for which the events are to be retrieved. */
-          applicationName: string;
+          applicationName:
+            | 'access_transparency'
+            | 'admin'
+            | 'calendar'
+            | 'chat'
+            | 'drive'
+            | 'gcp'
+            | 'gplus'
+            | 'groups'
+            | 'groups_enterprise'
+            | 'jamboard'
+            | 'login'
+            | 'meet'
+            | 'mobile'
+            | 'rules'
+            | 'saml'
+            | 'token'
+            | 'user_accounts'
+            | 'context_aware_access'
+            | 'chrome'
+            | 'data_studio'
+            | 'keep'
+            | 'classroom';
           /** JSONP */
           callback?: string;
           /** The unique ID of the customer to retrieve data for. */
@@ -907,11 +989,11 @@ declare namespace gapi.client {
       /** Retrieves a report which is a collection of properties and statistics for a specific customer's account. For more information, see the Customers Usage Report guide. For more information about the customer report's parameters, see the Customers Usage parameters reference guides. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID of the customer to retrieve data for. */
@@ -942,11 +1024,11 @@ declare namespace gapi.client {
       /** Retrieves a report which is a collection of properties and statistics for entities used by users within the account. For more information, see the Entities Usage Report guide. For more information about the entities report's parameters, see the Entities Usage parameters reference guides. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID of the customer to retrieve data for. */
@@ -956,7 +1038,7 @@ declare namespace gapi.client {
         /** Represents the key of the object to filter the data with. It is a string which can take the value `all` to get activity events for all users, or any other value for an app-specific entity. For details on how to obtain the `entityKey` for a particular `entityType`, see the Entities Usage parameters reference guides. */
         entityKey: string;
         /** Represents the type of entity for the report. */
-        entityType: string;
+        entityType: 'gplus_communities';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** The `filters` query string is a comma-separated list of an application's event parameters where the parameter's value is manipulated by a relational operator. The `filters` query string includes the name of the application whose usage is returned in the report. The application values for the Entities usage report include `accounts`, `docs`, and `gmail`. Filters are in the form `[application name]:parameter name[parameter value],...`. In this example, the `<>` 'not equal to' operator is URL-encoded in the request's query string (%3C%3E): GET https://www.googleapis.com/admin/reports/v1/usage/gplus_communities/all/dates/2017-12-01 ?parameters=gplus:community_name,gplus:num_total_members &filters=gplus:num_total_members%3C%3E0 The relational operators include: - `==` - 'equal to'. - `<>` - 'not equal to'. It is URL-encoded (%3C%3E). - `<` - 'less than'. It is URL-encoded (%3C). - `<=` - 'less than or equal to'. It is URL-encoded (%3C=). - `>` - 'greater than'. It is URL-encoded (%3E). - `>=` - 'greater than or equal to'. It is URL-encoded (%3E=). Filters can only be applied to numeric parameters. */
@@ -985,11 +1067,11 @@ declare namespace gapi.client {
       /** Retrieves a report which is a collection of properties and statistics for a set of users with the account. For more information, see the User Usage Report guide. For more information about the user report's parameters, see the Users Usage parameters reference guides. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The unique ID of the customer to retrieve data for. */

@@ -111,11 +111,11 @@ declare namespace gapi.client {
       /** Detects the language of text within a request. */
       detect(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** OAuth bearer token. */
         bearer_token?: string;
         /** JSONP */
@@ -142,11 +142,11 @@ declare namespace gapi.client {
       detect(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** OAuth bearer token. */
           bearer_token?: string;
           /** JSONP */
@@ -173,11 +173,11 @@ declare namespace gapi.client {
       /** Detects the language of text within a request. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** OAuth bearer token. */
         bearer_token?: string;
         /** JSONP */
@@ -209,11 +209,11 @@ declare namespace gapi.client {
       /** Returns a list of supported languages for translation. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** OAuth bearer token. */
         bearer_token?: string;
         /** JSONP */
@@ -247,11 +247,11 @@ declare namespace gapi.client {
       /** Translates input text, returning translated text. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** OAuth bearer token. */
         bearer_token?: string;
         /** JSONP */
@@ -264,7 +264,7 @@ declare namespace gapi.client {
          * The format of the source text, in either HTML (default) or plain-text. A
          * value of "html" indicates HTML and a value of "text" indicates plain-text.
          */
-        format?: string;
+        format?: 'html' | 'text';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /**
@@ -305,11 +305,11 @@ declare namespace gapi.client {
       /** Translates input text, returning translated text. */
       translate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** OAuth bearer token. */
         bearer_token?: string;
         /** JSONP */
@@ -336,11 +336,11 @@ declare namespace gapi.client {
       translate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** OAuth bearer token. */
           bearer_token?: string;
           /** JSONP */

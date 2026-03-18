@@ -33,7 +33,19 @@ declare namespace gapi.client {
   namespace businessprofileperformance {
     interface DailyMetricTimeSeries {
       /** The DailyMetric that the TimeSeries represents. */
-      dailyMetric?: string;
+      dailyMetric?:
+        | 'DAILY_METRIC_UNKNOWN'
+        | 'BUSINESS_IMPRESSIONS_DESKTOP_MAPS'
+        | 'BUSINESS_IMPRESSIONS_DESKTOP_SEARCH'
+        | 'BUSINESS_IMPRESSIONS_MOBILE_MAPS'
+        | 'BUSINESS_IMPRESSIONS_MOBILE_SEARCH'
+        | 'BUSINESS_CONVERSATIONS'
+        | 'BUSINESS_DIRECTION_REQUESTS'
+        | 'CALL_CLICKS'
+        | 'WEBSITE_CLICKS'
+        | 'BUSINESS_BOOKINGS'
+        | 'BUSINESS_FOOD_ORDERS'
+        | 'BUSINESS_FOOD_MENU_CLICKS';
       /** The DailySubEntityType that the TimeSeries represents. Will not be present when breakdown does not exist. */
       dailySubEntityType?: DailySubEntityType;
       /** List of datapoints where each datapoint is a date-value pair. */
@@ -41,7 +53,15 @@ declare namespace gapi.client {
     }
     interface DailySubEntityType {
       /** Represents the day of the week. Eg: MONDAY. Currently supported DailyMetrics = NONE. */
-      dayOfWeek?: string;
+      dayOfWeek?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY';
       /** Represents the time of the day in 24 hour format. Eg: 13:34:20 Currently supported DailyMetrics = NONE. */
       timeOfDay?: TimeOfDay;
     }
@@ -107,11 +127,11 @@ declare namespace gapi.client {
       /** Returns the search keywords used to find a business in search or maps. Each search keyword is accompanied by impressions which are aggregated on a monthly basis. Example request: `GET https://businessprofileperformance.googleapis.com/v1/locations/12345/searchkeywords/impressions/monthly?monthly_range.start_month.year=2022&monthly_range.start_month.month=1&monthly_range.end_month.year=2022&monthly_range.end_month.month=3` */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -158,15 +178,41 @@ declare namespace gapi.client {
       /** Returns the values for each date from a given time range and optionally the sub entity type, where applicable, that are associated with the specific daily metrics. Example request: `GET https://businessprofileperformance.googleapis.com/v1/locations/12345:fetchMultiDailyMetricsTimeSeries?dailyMetrics=WEBSITE_CLICKS&dailyMetrics=CALL_CLICKS&daily_range.start_date.year=2022&daily_range.start_date.month=1&daily_range.start_date.day=1&daily_range.end_date.year=2022&daily_range.end_date.month=3&daily_range.end_date.day=31` */
       fetchMultiDailyMetricsTimeSeries(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The metrics to retrieve time series for. */
-        dailyMetrics?: string | string[];
+        dailyMetrics?:
+          | 'DAILY_METRIC_UNKNOWN'
+          | 'BUSINESS_IMPRESSIONS_DESKTOP_MAPS'
+          | 'BUSINESS_IMPRESSIONS_DESKTOP_SEARCH'
+          | 'BUSINESS_IMPRESSIONS_MOBILE_MAPS'
+          | 'BUSINESS_IMPRESSIONS_MOBILE_SEARCH'
+          | 'BUSINESS_CONVERSATIONS'
+          | 'BUSINESS_DIRECTION_REQUESTS'
+          | 'CALL_CLICKS'
+          | 'WEBSITE_CLICKS'
+          | 'BUSINESS_BOOKINGS'
+          | 'BUSINESS_FOOD_ORDERS'
+          | 'BUSINESS_FOOD_MENU_CLICKS'
+          | (
+              | 'DAILY_METRIC_UNKNOWN'
+              | 'BUSINESS_IMPRESSIONS_DESKTOP_MAPS'
+              | 'BUSINESS_IMPRESSIONS_DESKTOP_SEARCH'
+              | 'BUSINESS_IMPRESSIONS_MOBILE_MAPS'
+              | 'BUSINESS_IMPRESSIONS_MOBILE_SEARCH'
+              | 'BUSINESS_CONVERSATIONS'
+              | 'BUSINESS_DIRECTION_REQUESTS'
+              | 'CALL_CLICKS'
+              | 'WEBSITE_CLICKS'
+              | 'BUSINESS_BOOKINGS'
+              | 'BUSINESS_FOOD_ORDERS'
+              | 'BUSINESS_FOOD_MENU_CLICKS'
+            )[];
         /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
         'dailyRange.endDate.day'?: number;
         /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
@@ -199,15 +245,27 @@ declare namespace gapi.client {
       /** Returns the values for each date from a given time range that are associated with the specific daily metric. Example request: `GET https://businessprofileperformance.googleapis.com/v1/locations/12345:getDailyMetricsTimeSeries?dailyMetric=WEBSITE_CLICKS&daily_range.start_date.year=2022&daily_range.start_date.month=1&daily_range.start_date.day=1&daily_range.end_date.year=2022&daily_range.end_date.month=3&daily_range.end_date.day=31` */
       getDailyMetricsTimeSeries(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The metric to retrieve time series. */
-        dailyMetric?: string;
+        dailyMetric?:
+          | 'DAILY_METRIC_UNKNOWN'
+          | 'BUSINESS_IMPRESSIONS_DESKTOP_MAPS'
+          | 'BUSINESS_IMPRESSIONS_DESKTOP_SEARCH'
+          | 'BUSINESS_IMPRESSIONS_MOBILE_MAPS'
+          | 'BUSINESS_IMPRESSIONS_MOBILE_SEARCH'
+          | 'BUSINESS_CONVERSATIONS'
+          | 'BUSINESS_DIRECTION_REQUESTS'
+          | 'CALL_CLICKS'
+          | 'WEBSITE_CLICKS'
+          | 'BUSINESS_BOOKINGS'
+          | 'BUSINESS_FOOD_ORDERS'
+          | 'BUSINESS_FOOD_MENU_CLICKS';
         /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
         'dailyRange.endDate.day'?: number;
         /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
@@ -221,7 +279,15 @@ declare namespace gapi.client {
         /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
         'dailyRange.startDate.year'?: number;
         /** Represents the day of the week. Eg: MONDAY. Currently supported DailyMetrics = NONE. */
-        'dailySubEntityType.dayOfWeek'?: string;
+        'dailySubEntityType.dayOfWeek'?:
+          | 'DAY_OF_WEEK_UNSPECIFIED'
+          | 'MONDAY'
+          | 'TUESDAY'
+          | 'WEDNESDAY'
+          | 'THURSDAY'
+          | 'FRIDAY'
+          | 'SATURDAY'
+          | 'SUNDAY';
         /** Hours of a day in 24 hour format. Must be greater than or equal to 0 and typically must be less than or equal to 23. An API may choose to allow the value "24:00:00" for scenarios like business closing time. */
         'dailySubEntityType.timeOfDay.hours'?: number;
         /** Minutes of an hour. Must be greater than or equal to 0 and less than or equal to 59. */

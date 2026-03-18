@@ -36,7 +36,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudOrgpolicyV2CustomConstraint {
       /** Allow or deny type. */
-      actionType?: string;
+      actionType?: 'ACTION_TYPE_UNSPECIFIED' | 'ALLOW' | 'DENY';
       /** A Common Expression Language (CEL) condition which is used in the evaluation of the constraint. For example: `resource.instanceName.matches("(production|test)_(.+_)?[\d]+")` or, `resource.management.auto_upgrade == true` The max length of the condition is 1000 characters. */
       condition?: string;
       /** Detailed information about this custom policy constraint. The max length of the description is 2000 characters. */
@@ -44,7 +44,13 @@ declare namespace gapi.client {
       /** One line display name for the UI. The max length of the display_name is 200 characters. */
       displayName?: string;
       /** All the operations being applied for this constraint. */
-      methodTypes?: string[];
+      methodTypes?:
+        | 'METHOD_TYPE_UNSPECIFIED'
+        | 'CREATE'
+        | 'UPDATE'
+        | 'DELETE'
+        | 'REMOVE_GRANT'
+        | 'GOVERN_TAGS'[];
       /** Immutable. Name of the constraint. This is unique within the organization. Format of the name should be * `organizations/{organization_id}/customConstraints/{custom_constraint_id}` Example: `organizations/123/customConstraints/custom.createOnlyE2TypeVms` The max length is 71 characters and the minimum length is 1. Note that the prefix `organizations/{organization_id}/customConstraints/custom.` is not counted. */
       name?: string;
       /** Immutable. The resource instance type on which this policy applies. Format will be of the form : `/` Example: * `compute.googleapis.com/Instance`. */
@@ -98,7 +104,14 @@ declare namespace gapi.client {
     }
     interface GoogleCloudPolicysimulatorV1betaAccessStateDiff {
       /** How the principal's access, specified in the AccessState field, changed between the current (baseline) policies and proposed (simulated) policies. */
-      accessChange?: string;
+      accessChange?:
+        | 'ACCESS_CHANGE_TYPE_UNSPECIFIED'
+        | 'NO_CHANGE'
+        | 'UNKNOWN_CHANGE'
+        | 'ACCESS_REVOKED'
+        | 'ACCESS_GAINED'
+        | 'ACCESS_MAYBE_REVOKED'
+        | 'ACCESS_MAYBE_GAINED';
       /** The results of evaluating the access tuple under the current (baseline) policies. If the AccessState couldn't be fully evaluated, this field explains why. */
       baseline?: GoogleCloudPolicysimulatorV1betaExplainedAccess;
       /** The results of evaluating the access tuple under the proposed (simulated) policies. If the AccessState couldn't be fully evaluated, this field explains why. */
@@ -114,7 +127,12 @@ declare namespace gapi.client {
     }
     interface GoogleCloudPolicysimulatorV1betaBindingExplanation {
       /** Required. Indicates whether _this binding_ provides the specified permission to the specified principal for the specified resource. This field does _not_ indicate whether the principal actually has the permission for the resource. There might be another binding that overrides this binding. To determine whether the principal actually has the permission, use the `access` field in the TroubleshootIamPolicyResponse. */
-      access?: string;
+      access?:
+        | 'ACCESS_STATE_UNSPECIFIED'
+        | 'GRANTED'
+        | 'NOT_GRANTED'
+        | 'UNKNOWN_CONDITIONAL'
+        | 'UNKNOWN_INFO_DENIED';
       /** A condition expression that prevents this binding from granting access unless the expression evaluates to `true`. To learn about IAM Conditions, see https://cloud.google.com/iam/docs/conditions-overview. */
       condition?: GoogleTypeExpr;
       /** Indicates whether each principal in the binding includes the principal specified in the request, either directly or indirectly. Each key identifies a principal in the binding, and each value indicates whether the principal in the binding includes the principal in the request. For example, suppose that a binding includes the following principals: * `user:alice@example.com` * `group:product-eng@example.com` The principal in the replayed access tuple is `user:bob@example.com`. This user is a principal of the group `group:product-eng@example.com`. For the first principal in the binding, the key is `user:alice@example.com`, and the `membership` field in the value is set to `MEMBERSHIP_NOT_INCLUDED`. For the second principal in the binding, the key is `group:product-eng@example.com`, and the `membership` field in the value is set to `MEMBERSHIP_INCLUDED`. */
@@ -122,19 +140,31 @@ declare namespace gapi.client {
         [P in string]: GoogleCloudPolicysimulatorV1betaBindingExplanationAnnotatedMembership;
       };
       /** The relevance of this binding to the overall determination for the entire policy. */
-      relevance?: string;
+      relevance?: 'HEURISTIC_RELEVANCE_UNSPECIFIED' | 'NORMAL' | 'HIGH';
       /** The role that this binding grants. For example, `roles/compute.serviceAgent`. For a complete list of predefined IAM roles, as well as the permissions in each role, see https://cloud.google.com/iam/help/roles/reference. */
       role?: string;
       /** Indicates whether the role granted by this binding contains the specified permission. */
-      rolePermission?: string;
+      rolePermission?:
+        | 'ROLE_PERMISSION_UNSPECIFIED'
+        | 'ROLE_PERMISSION_INCLUDED'
+        | 'ROLE_PERMISSION_NOT_INCLUDED'
+        | 'ROLE_PERMISSION_UNKNOWN_INFO_DENIED';
       /** The relevance of the permission's existence, or nonexistence, in the role to the overall determination for the entire policy. */
-      rolePermissionRelevance?: string;
+      rolePermissionRelevance?:
+        | 'HEURISTIC_RELEVANCE_UNSPECIFIED'
+        | 'NORMAL'
+        | 'HIGH';
     }
     interface GoogleCloudPolicysimulatorV1betaBindingExplanationAnnotatedMembership {
       /** Indicates whether the binding includes the principal. */
-      membership?: string;
+      membership?:
+        | 'MEMBERSHIP_UNSPECIFIED'
+        | 'MEMBERSHIP_INCLUDED'
+        | 'MEMBERSHIP_NOT_INCLUDED'
+        | 'MEMBERSHIP_UNKNOWN_INFO_DENIED'
+        | 'MEMBERSHIP_UNKNOWN_UNSUPPORTED';
       /** The relevance of the principal's status to the overall determination for the binding. */
-      relevance?: string;
+      relevance?: 'HEURISTIC_RELEVANCE_UNSPECIFIED' | 'NORMAL' | 'HIGH';
     }
     interface GoogleCloudPolicysimulatorV1betaCreateOrgPolicyViolationsPreviewOperationMetadata {
       /** Time when the request was received. */
@@ -148,11 +178,21 @@ declare namespace gapi.client {
       /** Time when the request started processing, i.e., when the state was set to RUNNING. */
       startTime?: string;
       /** Output only. The current state of the operation. */
-      state?: string;
+      state?:
+        | 'PREVIEW_STATE_UNSPECIFIED'
+        | 'PREVIEW_PENDING'
+        | 'PREVIEW_RUNNING'
+        | 'PREVIEW_SUCCEEDED'
+        | 'PREVIEW_FAILED';
     }
     interface GoogleCloudPolicysimulatorV1betaExplainedAccess {
       /** Whether the principal in the access tuple has permission to access the resource in the access tuple under the given policies. */
-      accessState?: string;
+      accessState?:
+        | 'ACCESS_STATE_UNSPECIFIED'
+        | 'GRANTED'
+        | 'NOT_GRANTED'
+        | 'UNKNOWN_CONDITIONAL'
+        | 'UNKNOWN_INFO_DENIED';
       /** If the AccessState is `UNKNOWN`, this field contains a list of errors explaining why the result is `UNKNOWN`. If the `AccessState` is `GRANTED` or `NOT_GRANTED`, this field is omitted. */
       errors?: GoogleRpcStatus[];
       /** If the AccessState is `UNKNOWN`, this field contains the policies that led to that result. If the `AccessState` is `GRANTED` or `NOT_GRANTED`, this field is omitted. */
@@ -160,7 +200,12 @@ declare namespace gapi.client {
     }
     interface GoogleCloudPolicysimulatorV1betaExplainedPolicy {
       /** Indicates whether _this policy_ provides the specified permission to the specified principal for the specified resource. This field does _not_ indicate whether the principal actually has the permission for the resource. There might be another policy that overrides this policy. To determine whether the principal actually has the permission, use the `access` field in the TroubleshootIamPolicyResponse. */
-      access?: string;
+      access?:
+        | 'ACCESS_STATE_UNSPECIFIED'
+        | 'GRANTED'
+        | 'NOT_GRANTED'
+        | 'UNKNOWN_CONDITIONAL'
+        | 'UNKNOWN_INFO_DENIED';
       /** Details about how each binding in the policy affects the principal's ability, or inability, to use the permission for the resource. If the user who created the Replay does not have access to the policy, this field is omitted. */
       bindingExplanations?: GoogleCloudPolicysimulatorV1betaBindingExplanation[];
       /** The full resource name that identifies the resource. For example, `//compute.googleapis.com/projects/my-project/zones/us-central1-a/instances/my-instance`. If the user who created the Replay does not have access to the policy, this field is omitted. For examples of full resource names for Google Cloud services, see https://cloud.google.com/iam/help/troubleshooter/full-resource-names. */
@@ -168,7 +213,7 @@ declare namespace gapi.client {
       /** The IAM policy attached to the resource. If the user who created the Replay does not have access to the policy, this field is empty. */
       policy?: GoogleIamV1Policy;
       /** The relevance of this policy to the overall determination in the TroubleshootIamPolicyResponse. If the user who created the Replay does not have access to the policy, this field is omitted. */
-      relevance?: string;
+      relevance?: 'HEURISTIC_RELEVANCE_UNSPECIFIED' | 'NORMAL' | 'HIGH';
     }
     interface GoogleCloudPolicysimulatorV1betaGenerateOrgPolicyViolationsPreviewOperationMetadata {
       /** Time when the request was received. */
@@ -182,7 +227,12 @@ declare namespace gapi.client {
       /** Time when the request started processing, i.e. when the state was set to RUNNING. */
       startTime?: string;
       /** The current state of the operation. */
-      state?: string;
+      state?:
+        | 'PREVIEW_STATE_UNSPECIFIED'
+        | 'PREVIEW_PENDING'
+        | 'PREVIEW_RUNNING'
+        | 'PREVIEW_SUCCEEDED'
+        | 'PREVIEW_FAILED';
     }
     interface GoogleCloudPolicysimulatorV1betaListOrgPolicyViolationsPreviewsResponse {
       /** A token that you can use to retrieve the next page of results. If this field is omitted, there are no subsequent pages. */
@@ -248,7 +298,12 @@ declare namespace gapi.client {
       /** Output only. A summary of the state of all resources scanned for compliance with the changed OrgPolicy. */
       resourceCounts?: GoogleCloudPolicysimulatorV1betaOrgPolicyViolationsPreviewResourceCounts;
       /** Output only. The state of the `OrgPolicyViolationsPreview`. */
-      state?: string;
+      state?:
+        | 'PREVIEW_STATE_UNSPECIFIED'
+        | 'PREVIEW_PENDING'
+        | 'PREVIEW_RUNNING'
+        | 'PREVIEW_SUCCEEDED'
+        | 'PREVIEW_FAILED';
       /** Output only. The number of OrgPolicyViolations in this `OrgPolicyViolationsPreview`. This count may differ from `resource_summary.noncompliant_count` because each OrgPolicyViolation is specific to a resource **and** constraint. If there are multiple constraints being evaluated (i.e. multiple policies in the overlay), a single resource may violate multiple constraints. */
       violationsCount?: number;
     }
@@ -272,11 +327,16 @@ declare namespace gapi.client {
       /** Output only. Summary statistics about the replayed log entries. */
       resultsSummary?: GoogleCloudPolicysimulatorV1betaReplayResultsSummary;
       /** Output only. The current state of the `Replay`. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PENDING'
+        | 'RUNNING'
+        | 'SUCCEEDED'
+        | 'FAILED';
     }
     interface GoogleCloudPolicysimulatorV1betaReplayConfig {
       /** The logs to use as input for the Replay. */
-      logSource?: string;
+      logSource?: 'LOG_SOURCE_UNSPECIFIED' | 'RECENT_ACCESSES';
       /** A mapping of the resources that you want to simulate policies for and the policies that you want to simulate. Keys are the full resource names for the resources. For example, `//cloudresourcemanager.googleapis.com/projects/my-project`. For examples of full resource names for Google Cloud services, see https://cloud.google.com/iam/help/troubleshooter/full-resource-names. Values are Policy objects representing the policies that you want to simulate. Replays automatically take into account any IAM policies inherited through the resource hierarchy, and any policies set on descendant resources. You do not need to include these policies in the policy overlay. */
       policyOverlay?: {[P in string]: GoogleIamV1Policy};
     }
@@ -328,11 +388,16 @@ declare namespace gapi.client {
       /** Output only. Summary statistics about the replayed log entries. */
       resultsSummary?: GoogleCloudPolicysimulatorV1ReplayResultsSummary;
       /** Output only. The current state of the `Replay`. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PENDING'
+        | 'RUNNING'
+        | 'SUCCEEDED'
+        | 'FAILED';
     }
     interface GoogleCloudPolicysimulatorV1ReplayConfig {
       /** The logs to use as input for the Replay. */
-      logSource?: string;
+      logSource?: 'LOG_SOURCE_UNSPECIFIED' | 'RECENT_ACCESSES';
       /** A mapping of the resources that you want to simulate policies for and the policies that you want to simulate. Keys are the full resource names for the resources. For example, `//cloudresourcemanager.googleapis.com/projects/my-project`. For examples of full resource names for Google Cloud services, see https://cloud.google.com/iam/help/troubleshooter/full-resource-names. Values are Policy objects representing the policies that you want to simulate. Replays automatically take into account any IAM policies inherited through the resource hierarchy, and any policies set on descendant resources. You do not need to include these policies in the policy overlay. */
       policyOverlay?: {[P in string]: GoogleIamV1Policy};
     }
@@ -364,7 +429,11 @@ declare namespace gapi.client {
       /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
       exemptedMembers?: string[];
       /** The log type that this config enables. */
-      logType?: string;
+      logType?:
+        | 'LOG_TYPE_UNSPECIFIED'
+        | 'ADMIN_READ'
+        | 'DATA_WRITE'
+        | 'DATA_READ';
     }
     interface GoogleIamV1Binding {
       /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
@@ -434,11 +503,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -466,11 +535,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -498,11 +567,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -525,11 +594,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -562,11 +631,11 @@ declare namespace gapi.client {
       /** Lists the results of running a Replay. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -595,11 +664,11 @@ declare namespace gapi.client {
       /** Creates and starts a Replay using the given ReplayConfig. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -624,11 +693,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -653,11 +722,11 @@ declare namespace gapi.client {
       /** Gets the specified Replay. Each `Replay` is available for at least 7 days. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -680,11 +749,11 @@ declare namespace gapi.client {
       /** Lists each Replay in a project, folder, or organization. Each `Replay` is available for at least 7 days. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -723,11 +792,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -750,11 +819,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -787,11 +856,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -819,11 +888,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -848,11 +917,11 @@ declare namespace gapi.client {
       /** ListOrgPolicyViolations lists the OrgPolicyViolations that are present in an OrgPolicyViolationsPreview. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -881,11 +950,11 @@ declare namespace gapi.client {
       /** CreateOrgPolicyViolationsPreview creates an OrgPolicyViolationsPreview for the proposed changes in the provided OrgPolicyViolationsPreview.OrgPolicyOverlay. The changes to OrgPolicy are specified by this `OrgPolicyOverlay`. The resources to scan are inferred from these specified changes. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -912,11 +981,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -943,11 +1012,11 @@ declare namespace gapi.client {
       /** GenerateOrgPolicyViolationsPreview generates an OrgPolicyViolationsPreview for the proposed changes in the provided OrgPolicyViolationsPreview.OrgPolicyOverlay. The changes to OrgPolicy are specified by this `OrgPolicyOverlay`. The resources to scan are inferred from these specified changes. */
       generate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -972,11 +1041,11 @@ declare namespace gapi.client {
       generate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1001,11 +1070,11 @@ declare namespace gapi.client {
       /** GetOrgPolicyViolationsPreview gets the specified OrgPolicyViolationsPreview. Each OrgPolicyViolationsPreview is available for at least 7 days. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1028,11 +1097,11 @@ declare namespace gapi.client {
       /** ListOrgPolicyViolationsPreviews lists each OrgPolicyViolationsPreview in an organization. Each OrgPolicyViolationsPreview is available for at least 7 days. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1063,11 +1132,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1090,11 +1159,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1127,11 +1196,11 @@ declare namespace gapi.client {
       /** Lists the results of running a Replay. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1160,11 +1229,11 @@ declare namespace gapi.client {
       /** Creates and starts a Replay using the given ReplayConfig. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1189,11 +1258,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1218,11 +1287,11 @@ declare namespace gapi.client {
       /** Gets the specified Replay. Each `Replay` is available for at least 7 days. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1245,11 +1314,11 @@ declare namespace gapi.client {
       /** Lists each Replay in a project, folder, or organization. Each `Replay` is available for at least 7 days. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1288,11 +1357,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1320,11 +1389,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1352,11 +1421,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1379,11 +1448,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1416,11 +1485,11 @@ declare namespace gapi.client {
       /** Lists the results of running a Replay. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1449,11 +1518,11 @@ declare namespace gapi.client {
       /** Creates and starts a Replay using the given ReplayConfig. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1478,11 +1547,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1507,11 +1576,11 @@ declare namespace gapi.client {
       /** Gets the specified Replay. Each `Replay` is available for at least 7 days. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1534,11 +1603,11 @@ declare namespace gapi.client {
       /** Lists each Replay in a project, folder, or organization. Each `Replay` is available for at least 7 days. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

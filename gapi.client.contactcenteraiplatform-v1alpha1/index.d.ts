@@ -88,7 +88,18 @@ declare namespace gapi.client {
       /** Optional. Params that sets up Google as IdP. */
       samlParams?: SAMLParams;
       /** Output only. The state of this contact center. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'STATE_DEPLOYING'
+        | 'STATE_DEPLOYED'
+        | 'STATE_TERMINATING'
+        | 'STATE_FAILED'
+        | 'STATE_TERMINATING_FAILED'
+        | 'STATE_TERMINATED'
+        | 'STATE_IN_GRACE_PERIOD'
+        | 'STATE_FAILING_OVER'
+        | 'STATE_DEGRADED'
+        | 'STATE_REPAIRING';
       /** Output only. [Output only] Update time stamp */
       updateTime?: string;
       /** Output only. URIs to access the deployed ContactCenters. */
@@ -194,7 +205,24 @@ declare namespace gapi.client {
     }
     interface InstanceConfig {
       /** The instance size of this the instance configuration. */
-      instanceSize?: string;
+      instanceSize?:
+        | 'INSTANCE_SIZE_UNSPECIFIED'
+        | 'STANDARD_SMALL'
+        | 'STANDARD_MEDIUM'
+        | 'STANDARD_LARGE'
+        | 'STANDARD_XLARGE'
+        | 'STANDARD_2XLARGE'
+        | 'STANDARD_3XLARGE'
+        | 'MULTIREGION_SMALL'
+        | 'MULTIREGION_MEDIUM'
+        | 'MULTIREGION_LARGE'
+        | 'MULTIREGION_XLARGE'
+        | 'MULTIREGION_2XLARGE'
+        | 'MULTIREGION_3XLARGE'
+        | 'DEV_SMALL'
+        | 'SANDBOX_SMALL'
+        | 'TRIAL_SMALL'
+        | 'TIME_LIMITED_TRIAL_SMALL';
     }
     interface ListContactCentersResponse {
       /** The list of ContactCenter */
@@ -287,11 +315,53 @@ declare namespace gapi.client {
       /** Reflects the count sum of contact centers on a billing account. */
       contactCenterCountSum?: number;
       /** Contact center instance type. */
-      contactCenterInstanceSize?: string;
+      contactCenterInstanceSize?:
+        | 'INSTANCE_SIZE_UNSPECIFIED'
+        | 'STANDARD_SMALL'
+        | 'STANDARD_MEDIUM'
+        | 'STANDARD_LARGE'
+        | 'STANDARD_XLARGE'
+        | 'STANDARD_2XLARGE'
+        | 'STANDARD_3XLARGE'
+        | 'MULTIREGION_SMALL'
+        | 'MULTIREGION_MEDIUM'
+        | 'MULTIREGION_LARGE'
+        | 'MULTIREGION_XLARGE'
+        | 'MULTIREGION_2XLARGE'
+        | 'MULTIREGION_3XLARGE'
+        | 'DEV_SMALL'
+        | 'SANDBOX_SMALL'
+        | 'TRIAL_SMALL'
+        | 'TIME_LIMITED_TRIAL_SMALL';
     }
     interface SAMLParams {
       /** Additional contexts used for authentication. */
-      authenticationContexts?: string[];
+      authenticationContexts?:
+        | 'AUTHENTICATION_CONTEXT_UNSPECIFIED'
+        | 'INTERNET_PROTOCOL'
+        | 'INTERNET_PROTOCOL_PASSWORD'
+        | 'KERBEROS'
+        | 'MOBILE_ONE_FACTOR_UNREGISTERED'
+        | 'MOBILE_TWO_FACTOR_UNREGISTERED'
+        | 'MOBILE_ONE_FACTOR_CONTRACT'
+        | 'MOBILE_TWO_FACTOR_CONTRACT'
+        | 'PASSWORD'
+        | 'PASSWORD_PROTECTED_TRANSPORT'
+        | 'PREVIOUS_SESSION'
+        | 'PUBLIC_KEY_X509'
+        | 'PUBLIC_KEY_PGP'
+        | 'PUBLIC_KEY_SPKI'
+        | 'PUBLIC_KEY_XML_DIGITAL_SIGNATURE'
+        | 'SMARTCARD'
+        | 'SMARTCARD_PKI'
+        | 'SOFTWARE_PKI'
+        | 'TELEPHONY'
+        | 'TELEPHONY_NOMADIC'
+        | 'TELEPHONY_PERSONALIZED'
+        | 'TELEPHONY_AUTHENTICATED'
+        | 'SECURE_REMOTE_PASSWORD'
+        | 'SSL_TLS_CERTIFICATE_BASED'
+        | 'TIME_SYNC_TOKEN'[];
       /** SAML certificate */
       certificate?: string;
       /** IdP field that maps to the user’s email address */
@@ -333,7 +403,11 @@ declare namespace gapi.client {
       /** Optional. Maximum time the solver should spend on the problem. If not set, defaults to 1 minute. The choice of a time limit should depend on the size of the problem. To give an example, when solving a 7-day instance with 2 `ShiftTemplates`, each with ~20 possible start times and holding 2 events with ~30 possible start times, and two days off per week, recommended values are: <10s for fast solutions (and likely suboptimal), (10s, 300s) for good quality solutions, and >300s for an exhaustive search. Larger instances may require longer time limits. This value is not a hard limit and it does not account for the communication overhead. The expected latency to solve the problem may slightly exceed this value. */
       maximumProcessingDuration?: string;
       /** Required. Specifies the type of schedule to generate. */
-      scheduleType?: string;
+      scheduleType?:
+        | 'SCHEDULE_TYPE_UNSPECIFIED'
+        | 'SINGLE_SHIFT'
+        | 'WEEKLY_WITH_FIXED_EVENTS'
+        | 'WEEKLY_WITH_VARIABLE_EVENTS';
     }
     interface Status {
       /** The status code, which should be an enum value of google.rpc.Code. */
@@ -377,7 +451,15 @@ declare namespace gapi.client {
     }
     interface WeeklySchedule {
       /** Required. Days of the week this schedule applies to. */
-      days?: string[];
+      days?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY'[];
       /** Optional. Duration of the schedule. */
       duration?: string;
       /** Optional. Daily end time of the schedule. If `end_time` is before `start_time`, the schedule will be considered as ending on the next day. */
@@ -401,11 +483,11 @@ declare namespace gapi.client {
       /** Creates a new ContactCenter in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Id of the requesting object If auto-generating Id server-side, remove this field and contact_center_id from the method_signature of Create RPC */
@@ -434,11 +516,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. Id of the requesting object If auto-generating Id server-side, remove this field and contact_center_id from the method_signature of Create RPC */
@@ -467,11 +549,11 @@ declare namespace gapi.client {
       /** Deletes a single ContactCenter. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -496,11 +578,11 @@ declare namespace gapi.client {
       /** Gets details of a single ContactCenter. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -523,11 +605,11 @@ declare namespace gapi.client {
       /** Lists ContactCenters in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -558,11 +640,11 @@ declare namespace gapi.client {
       /** Updates the parameters of a single ContactCenter. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -591,11 +673,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -626,11 +708,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -655,11 +737,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -684,11 +766,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -711,11 +793,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -738,11 +820,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -775,11 +857,11 @@ declare namespace gapi.client {
       /** Generates shifts constrained by various parameters. */
       generateShifts(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -804,11 +886,11 @@ declare namespace gapi.client {
       generateShifts(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -833,11 +915,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -860,11 +942,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */
@@ -895,11 +977,11 @@ declare namespace gapi.client {
       /** Queries the contact center quota, an aggregation over all the projects, that belongs to the billing account, which the input project belongs to. */
       queryContactCenterQuota(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

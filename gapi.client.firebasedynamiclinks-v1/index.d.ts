@@ -106,9 +106,20 @@ declare namespace gapi.client {
       /** The number of times this event occurred. */
       count?: string;
       /** Link event. */
-      event?: string;
+      event?:
+        | 'DYNAMIC_LINK_EVENT_UNSPECIFIED'
+        | 'CLICK'
+        | 'REDIRECT'
+        | 'APP_INSTALL'
+        | 'APP_FIRST_OPEN'
+        | 'APP_RE_OPEN';
       /** Requested platform. */
-      platform?: string;
+      platform?:
+        | 'DYNAMIC_LINK_PLATFORM_UNSPECIFIED'
+        | 'ANDROID'
+        | 'IOS'
+        | 'DESKTOP'
+        | 'OTHER';
     }
     interface DynamicLinkInfo {
       /** Parameters used for tracking. See all tracking parameters in the [documentation](https://firebase.google.com/docs/dynamic-links/create-manually). */
@@ -138,7 +149,37 @@ declare namespace gapi.client {
     }
     interface DynamicLinkWarning {
       /** The warning code. */
-      warningCode?: string;
+      warningCode?:
+        | 'CODE_UNSPECIFIED'
+        | 'NOT_IN_PROJECT_ANDROID_PACKAGE_NAME'
+        | 'NOT_INTEGER_ANDROID_PACKAGE_MIN_VERSION'
+        | 'UNNECESSARY_ANDROID_PACKAGE_MIN_VERSION'
+        | 'NOT_URI_ANDROID_LINK'
+        | 'UNNECESSARY_ANDROID_LINK'
+        | 'NOT_URI_ANDROID_FALLBACK_LINK'
+        | 'BAD_URI_SCHEME_ANDROID_FALLBACK_LINK'
+        | 'NOT_IN_PROJECT_IOS_BUNDLE_ID'
+        | 'NOT_IN_PROJECT_IPAD_BUNDLE_ID'
+        | 'UNNECESSARY_IOS_URL_SCHEME'
+        | 'NOT_NUMERIC_IOS_APP_STORE_ID'
+        | 'UNNECESSARY_IOS_APP_STORE_ID'
+        | 'NOT_URI_IOS_FALLBACK_LINK'
+        | 'BAD_URI_SCHEME_IOS_FALLBACK_LINK'
+        | 'NOT_URI_IPAD_FALLBACK_LINK'
+        | 'BAD_URI_SCHEME_IPAD_FALLBACK_LINK'
+        | 'BAD_DEBUG_PARAM'
+        | 'BAD_AD_PARAM'
+        | 'DEPRECATED_PARAM'
+        | 'UNRECOGNIZED_PARAM'
+        | 'TOO_LONG_PARAM'
+        | 'NOT_URI_SOCIAL_IMAGE_LINK'
+        | 'BAD_URI_SCHEME_SOCIAL_IMAGE_LINK'
+        | 'NOT_URI_SOCIAL_URL'
+        | 'BAD_URI_SCHEME_SOCIAL_URL'
+        | 'LINK_LENGTH_TOO_LONG'
+        | 'LINK_WITH_FRAGMENTS'
+        | 'NOT_MATCHING_IOS_BUNDLE_ID_AND_STORE_ID'
+        | 'API_DEPRECATED';
       /** The document describing the warning, and helps resolve. */
       warningDocumentLink?: string;
       /** The warning message to help developers improve their requests. */
@@ -154,19 +195,27 @@ declare namespace gapi.client {
       /** iOS version, ie: 9.3.5. Consider adding "build". */
       iosVersion?: string;
       /** App post install attribution retrieval information. Disambiguates mechanism (iSDK or developer invoked) to retrieve payload from clicked link. */
-      retrievalMethod?: string;
+      retrievalMethod?:
+        | 'UNKNOWN_PAYLOAD_RETRIEVAL_METHOD'
+        | 'IMPLICIT_WEAK_MATCH'
+        | 'EXPLICIT_WEAK_MATCH'
+        | 'EXPLICIT_STRONG_AFTER_WEAK_MATCH';
       /** Google SDK version. Version takes the form "$major.$minor.$patch" */
       sdkVersion?: string;
       /** Possible unique matched link that server need to check before performing device heuristics match. If passed link is short server need to expand the link. If link is long server need to vslidate the link. */
       uniqueMatchLinkToCheck?: string;
       /** Strong match page information. Disambiguates between default UI and custom page to present when strong match succeeds/fails to find cookie. */
-      visualStyle?: string;
+      visualStyle?: 'UNKNOWN_VISUAL_STYLE' | 'DEFAULT_STYLE' | 'CUSTOM_STYLE';
     }
     interface GetIosPostInstallAttributionResponse {
       /** The minimum version for app, specified by dev through ?imv= parameter. Return to iSDK to allow app to evaluate if current version meets this. */
       appMinimumVersion?: string;
       /** The confidence of the returned attribution. */
-      attributionConfidence?: string;
+      attributionConfidence?:
+        | 'UNKNOWN_ATTRIBUTION_CONFIDENCE'
+        | 'WEAK'
+        | 'DEFAULT'
+        | 'UNIQUE';
       /** The deep-link attributed post-install via one of several techniques (device heuristics, copy unique). */
       deepLink?: string;
       /** User-agent specific custom-scheme URIs for iSDK to open. This will be set according to the user-agent tha the click was originally made in. There is no Safari-equivalent custom-scheme open URLs. ie: googlechrome://www.example.com ie: firefox://open-url?url=http://www.example.com ie: opera-http://example.com */
@@ -182,7 +231,7 @@ declare namespace gapi.client {
       /** Entire FDL (short or long) attributed post-install via one of several techniques (device heuristics, copy unique). */
       requestedLink?: string;
       /** Which IP version the request was made from. */
-      requestIpVersion?: string;
+      requestIpVersion?: 'UNKNOWN_IP_VERSION' | 'IP_V4' | 'IP_V6';
       /** The entire FDL, expanded from a short link. It is the same as the requested_link, if it is long. Parameters from this should not be used directly (ie: server can default utm_[campaign|medium|source] to a value when requested_link lack them, server determine the best fallback_link when requested_link specifies >1 fallback links). */
       resolvedLink?: string;
       /** Scion campaign value to be propagated by iSDK to Scion at post-install. */
@@ -270,7 +319,7 @@ declare namespace gapi.client {
       /** Creation timestamp of the short link. */
       creationTime?: string;
       /** Attributes that have been flagged about this short url. */
-      flaggedAttribute?: string[];
+      flaggedAttribute?: 'UNSPECIFIED_ATTRIBUTE' | 'SPAM'[];
       /** Full Dyamic Link info */
       info?: DynamicLinkInfo;
       /** Short durable link url, for example, "https://sample.app.goo.gl/xyz123". Required. */
@@ -278,7 +327,11 @@ declare namespace gapi.client {
       /** Link name defined by the creator. Required. */
       linkName?: string;
       /** Visibility status of link. */
-      visibility?: string;
+      visibility?:
+        | 'UNSPECIFIED_VISIBILITY'
+        | 'UNARCHIVED'
+        | 'ARCHIVED'
+        | 'NEVER_SHOWN';
     }
     interface NavigationInfo {
       /** If this option is on, FDL click will be forced to redirect rather than show an interstitial page. */
@@ -296,17 +349,17 @@ declare namespace gapi.client {
       /** Only applies to Option.CUSTOM. */
       customSuffix?: string;
       /** Suffix option. */
-      option?: string;
+      option?: 'OPTION_UNSPECIFIED' | 'UNGUESSABLE' | 'SHORT' | 'CUSTOM';
     }
     interface ManagedShortLinksResource {
       /** Creates a managed short Dynamic Link given either a valid long Dynamic Link or details such as Dynamic Link domain, Android and iOS app information. The created short Dynamic Link will not expire. This differs from CreateShortDynamicLink in the following ways: - The request will also contain a name for the link (non unique name for the front end). - The response must be authenticated with an auth token (generated with the admin service account). - The link will appear in the FDL list of links in the console front end. The Dynamic Link domain in the request must be owned by requester's Firebase project. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -329,11 +382,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -358,11 +411,11 @@ declare namespace gapi.client {
       /** Creates a short Dynamic Link given either a valid long Dynamic Link or details such as Dynamic Link domain, Android and iOS app information. The created short Dynamic Link will not expire. Repeated calls with the same long Dynamic Link or Dynamic Link information will produce the same short Dynamic Link. The Dynamic Link domain in the request must be owned by requester's Firebase project. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -385,11 +438,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -414,11 +467,11 @@ declare namespace gapi.client {
       /** Fetches analytics stats of a short Dynamic Link for a given duration. Metrics include number of clicks, redirects, installs, app first opens, and app reopens. */
       getLinkStats(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The span of time requested in days. */
@@ -445,11 +498,11 @@ declare namespace gapi.client {
       /** Get iOS strong/weak-match info for post-install attribution. */
       installAttribution(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -472,11 +525,11 @@ declare namespace gapi.client {
       installAttribution(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -499,11 +552,11 @@ declare namespace gapi.client {
       /** Get iOS reopen attribution for app universal link open deeplinking. */
       reopenAttribution(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -526,11 +579,11 @@ declare namespace gapi.client {
       reopenAttribution(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

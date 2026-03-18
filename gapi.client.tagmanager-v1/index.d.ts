@@ -36,13 +36,30 @@ declare namespace gapi.client {
     }
     interface AccountAccess {
       /** List of Account permissions. Valid account permissions are read and manage. */
-      permission?: string[];
+      permission?:
+        | 'read'
+        | 'edit'
+        | 'publish'
+        | 'delete'
+        | 'manage'
+        | 'editWorkspace'[];
     }
     interface Condition {
       /** A list of named parameters (key/value), depending on the condition's type. Notes: - For binary operators, include parameters named arg0 and arg1 for specifying the left and right operands, respectively. - At this time, the left operand (arg0) must be a reference to a variable. - For case-insensitive Regex matching, include a boolean parameter named ignore_case that is set to true. If not specified or set to any other value, the matching will be case sensitive. - To negate an operator, include a boolean parameter named negate boolean parameter that is set to true. */
       parameter?: Parameter[];
       /** The type of operator for this condition. */
-      type?: string;
+      type?:
+        | 'equals'
+        | 'contains'
+        | 'startsWith'
+        | 'endsWith'
+        | 'matchRegex'
+        | 'greater'
+        | 'greaterOrEquals'
+        | 'less'
+        | 'lessOrEquals'
+        | 'cssSelector'
+        | 'urlMatches';
     }
     interface Container {
       /** GTM Account ID. */
@@ -52,7 +69,115 @@ declare namespace gapi.client {
       /** Optional list of domain names associated with the Container. */
       domainName?: string[];
       /** List of enabled built-in variables. Valid values include: pageUrl, pageHostname, pagePath, referrer, event, clickElement, clickClasses, clickId, clickTarget, clickUrl, clickText, formElement, formClasses, formId, formTarget, formUrl, formText, errorMessage, errorUrl, errorLine, newHistoryFragment, oldHistoryFragment, newHistoryState, oldHistoryState, historySource, containerVersion, debugMode, randomNumber, containerId. */
-      enabledBuiltInVariable?: string[];
+      enabledBuiltInVariable?:
+        | 'pageUrl'
+        | 'pageHostname'
+        | 'pagePath'
+        | 'referrer'
+        | 'event'
+        | 'clickElement'
+        | 'clickClasses'
+        | 'clickId'
+        | 'clickTarget'
+        | 'clickUrl'
+        | 'clickText'
+        | 'firstPartyServingUrl'
+        | 'formElement'
+        | 'formClasses'
+        | 'formId'
+        | 'formTarget'
+        | 'formUrl'
+        | 'formText'
+        | 'environmentName'
+        | 'errorMessage'
+        | 'errorUrl'
+        | 'errorLine'
+        | 'newHistoryUrl'
+        | 'oldHistoryUrl'
+        | 'newHistoryFragment'
+        | 'oldHistoryFragment'
+        | 'newHistoryState'
+        | 'oldHistoryState'
+        | 'historySource'
+        | 'containerVersion'
+        | 'debugMode'
+        | 'randomNumber'
+        | 'containerId'
+        | 'appId'
+        | 'appName'
+        | 'appVersionCode'
+        | 'appVersionName'
+        | 'language'
+        | 'osVersion'
+        | 'platform'
+        | 'sdkVersion'
+        | 'deviceName'
+        | 'resolution'
+        | 'advertiserId'
+        | 'advertisingTrackingEnabled'
+        | 'htmlId'
+        | 'ampBrowserLanguage'
+        | 'ampCanonicalPath'
+        | 'ampCanonicalUrl'
+        | 'ampCanonicalHost'
+        | 'ampReferrer'
+        | 'ampTitle'
+        | 'ampClientId'
+        | 'ampClientTimezone'
+        | 'ampClientTimestamp'
+        | 'ampClientScreenWidth'
+        | 'ampClientScreenHeight'
+        | 'ampClientScrollX'
+        | 'ampClientScrollY'
+        | 'ampClientMaxScrollX'
+        | 'ampClientMaxScrollY'
+        | 'ampTotalEngagedTime'
+        | 'ampPageViewId'
+        | 'ampPageLoadTime'
+        | 'ampPageDownloadTime'
+        | 'ampGtmEvent'
+        | 'eventName'
+        | 'firebaseEventParameterCampaign'
+        | 'firebaseEventParameterCampaignAclid'
+        | 'firebaseEventParameterCampaignAnid'
+        | 'firebaseEventParameterCampaignClickTimestamp'
+        | 'firebaseEventParameterCampaignContent'
+        | 'firebaseEventParameterCampaignCp1'
+        | 'firebaseEventParameterCampaignGclid'
+        | 'firebaseEventParameterCampaignSource'
+        | 'firebaseEventParameterCampaignTerm'
+        | 'firebaseEventParameterCurrency'
+        | 'firebaseEventParameterDynamicLinkAcceptTime'
+        | 'firebaseEventParameterDynamicLinkLinkid'
+        | 'firebaseEventParameterNotificationMessageDeviceTime'
+        | 'firebaseEventParameterNotificationMessageId'
+        | 'firebaseEventParameterNotificationMessageName'
+        | 'firebaseEventParameterNotificationMessageTime'
+        | 'firebaseEventParameterNotificationTopic'
+        | 'firebaseEventParameterPreviousAppVersion'
+        | 'firebaseEventParameterPreviousOsVersion'
+        | 'firebaseEventParameterPrice'
+        | 'firebaseEventParameterProductId'
+        | 'firebaseEventParameterQuantity'
+        | 'firebaseEventParameterValue'
+        | 'videoProvider'
+        | 'videoUrl'
+        | 'videoTitle'
+        | 'videoDuration'
+        | 'videoPercent'
+        | 'videoVisible'
+        | 'videoStatus'
+        | 'videoCurrentTime'
+        | 'scrollDepthThreshold'
+        | 'scrollDepthUnits'
+        | 'scrollDepthDirection'
+        | 'elementVisibilityRatio'
+        | 'elementVisibilityTime'
+        | 'elementVisibilityFirstTime'
+        | 'elementVisibilityRecentTime'
+        | 'analyticsClientId'
+        | 'analyticsSessionId'
+        | 'analyticsSessionNumber'[];
       /** The fingerprint of the GTM Container as computed at storage time. This value is recomputed whenever the account is modified. */
       fingerprint?: string;
       /** Container display name. */
@@ -66,13 +191,25 @@ declare namespace gapi.client {
       /** Container Time Zone ID. */
       timeZoneId?: string;
       /** List of Usage Contexts for the Container. Valid values include: web, android, ios. */
-      usageContext?: string[];
+      usageContext?:
+        | 'web'
+        | 'android'
+        | 'ios'
+        | 'androidSdk5'
+        | 'iosSdk5'
+        | 'amp'[];
     }
     interface ContainerAccess {
       /** GTM Container ID. */
       containerId?: string;
       /** List of Container permissions. Valid container permissions are: read, edit, delete, publish. */
-      permission?: string[];
+      permission?:
+        | 'read'
+        | 'edit'
+        | 'publish'
+        | 'delete'
+        | 'manage'
+        | 'editWorkspace'[];
     }
     interface ContainerVersion {
       /** GTM Account ID. */
@@ -153,7 +290,7 @@ declare namespace gapi.client {
       /** The environment display name. Can be set or changed only on USER type environments. */
       name?: string;
       /** The type of this environment. */
-      type?: string;
+      type?: 'user' | 'live' | 'latest' | 'draft';
       /** Default preview page url for the environment. */
       url?: string;
     }
@@ -223,7 +360,14 @@ declare namespace gapi.client {
       /** This map parameter's parameters (must have keys; keys must be unique). */
       map?: Parameter[];
       /** The parameter type. Valid values are: - boolean: The value represents a boolean, represented as 'true' or 'false' - integer: The value represents a 64-bit signed integer value, in base 10 - list: A list of parameters should be specified - map: A map of parameters should be specified - template: The value represents any text; this can include variable references (even variable references that might return non-string types) - trigger_reference: The value represents a trigger, represented as the trigger id - tag_reference: The value represents a tag, represented as the tag name */
-      type?: string;
+      type?:
+        | 'template'
+        | 'integer'
+        | 'boolean'
+        | 'list'
+        | 'map'
+        | 'triggerReference'
+        | 'tagReference';
       /** A parameter's value (may contain variable references). as appropriate to the specified type. */
       value?: string;
     }
@@ -271,7 +415,7 @@ declare namespace gapi.client {
       /** The list of setup tags. Currently we only allow one. */
       setupTag?: SetupTag[];
       /** Option to fire this tag. */
-      tagFiringOption?: string;
+      tagFiringOption?: 'unlimited' | 'oncePerEvent' | 'oncePerLoad';
       /** The Tag ID uniquely identifies the GTM Tag. */
       tagId?: string;
       /** The list of teardown tags. Currently we only allow one. */
@@ -327,7 +471,26 @@ declare namespace gapi.client {
       /** The Trigger ID uniquely identifies the GTM Trigger. */
       triggerId?: string;
       /** Defines the data layer event that causes this trigger. */
-      type?: string;
+      type?:
+        | 'pageview'
+        | 'domReady'
+        | 'windowLoaded'
+        | 'customEvent'
+        | 'triggerGroup'
+        | 'always'
+        | 'formSubmission'
+        | 'click'
+        | 'linkClick'
+        | 'jsError'
+        | 'historyChange'
+        | 'timer'
+        | 'ampClick'
+        | 'ampTimer'
+        | 'ampScroll'
+        | 'ampVisibility'
+        | 'youTubeVideo'
+        | 'scrollDepth'
+        | 'elementVisibility';
       /** Globally unique id of the trigger that auto-generates this (a Form Submit, Link Click or Timer listener) if any. Used to make incompatible auto-events work together with trigger filtering based on trigger ids. This value is populated during output generation since the tags implied by triggers don't exist until then. Only valid for Form Submit, Link Click and Timer triggers. */
       uniqueTriggerId?: Parameter;
       /** List of integer percentage values for scroll triggers. The trigger will fire when each percentage is reached when the view is scrolled vertically. Only valid for AMP scroll triggers. */
@@ -387,13 +550,13 @@ declare namespace gapi.client {
       /** Creates a GTM Environment. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -418,13 +581,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The GTM Account ID. */
           accountId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The GTM Container ID. */
@@ -449,13 +612,13 @@ declare namespace gapi.client {
       /** Deletes a GTM Environment. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -480,13 +643,13 @@ declare namespace gapi.client {
       /** Gets a GTM Environment. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -511,13 +674,13 @@ declare namespace gapi.client {
       /** Lists all GTM Environments of a GTM Container. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -540,13 +703,13 @@ declare namespace gapi.client {
       /** Updates a GTM Environment. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -575,13 +738,13 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The GTM Account ID. */
           accountId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The GTM Container ID. */
@@ -612,13 +775,13 @@ declare namespace gapi.client {
       /** List all entities in a GTM Folder. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -645,13 +808,13 @@ declare namespace gapi.client {
       /** Creates a GTM Folder. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -676,13 +839,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The GTM Account ID. */
           accountId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The GTM Container ID. */
@@ -707,13 +870,13 @@ declare namespace gapi.client {
       /** Deletes a GTM Folder. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -738,13 +901,13 @@ declare namespace gapi.client {
       /** Gets a GTM Folder. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -769,13 +932,13 @@ declare namespace gapi.client {
       /** Lists all GTM Folders of a Container. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -798,13 +961,13 @@ declare namespace gapi.client {
       /** Updates a GTM Folder. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -833,13 +996,13 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The GTM Account ID. */
           accountId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The GTM Container ID. */
@@ -871,13 +1034,13 @@ declare namespace gapi.client {
       /** Moves entities to a GTM Folder. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -910,13 +1073,13 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The GTM Account ID. */
           accountId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The GTM Container ID. */
@@ -951,13 +1114,13 @@ declare namespace gapi.client {
       /** Re-generates the authorization code for a GTM Environment. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -984,13 +1147,13 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The GTM Account ID. */
           accountId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The GTM Container ID. */
@@ -1019,13 +1182,13 @@ declare namespace gapi.client {
       /** Creates a GTM Tag. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -1050,13 +1213,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The GTM Account ID. */
           accountId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The GTM Container ID. */
@@ -1081,13 +1244,13 @@ declare namespace gapi.client {
       /** Deletes a GTM Tag. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -1112,13 +1275,13 @@ declare namespace gapi.client {
       /** Gets a GTM Tag. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -1143,13 +1306,13 @@ declare namespace gapi.client {
       /** Lists all GTM Tags of a Container. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -1172,13 +1335,13 @@ declare namespace gapi.client {
       /** Updates a GTM Tag. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -1207,13 +1370,13 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The GTM Account ID. */
           accountId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The GTM Container ID. */
@@ -1244,13 +1407,13 @@ declare namespace gapi.client {
       /** Creates a GTM Trigger. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -1275,13 +1438,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The GTM Account ID. */
           accountId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The GTM Container ID. */
@@ -1306,13 +1469,13 @@ declare namespace gapi.client {
       /** Deletes a GTM Trigger. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -1337,13 +1500,13 @@ declare namespace gapi.client {
       /** Gets a GTM Trigger. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -1368,13 +1531,13 @@ declare namespace gapi.client {
       /** Lists all GTM Triggers of a Container. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -1397,13 +1560,13 @@ declare namespace gapi.client {
       /** Updates a GTM Trigger. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -1432,13 +1595,13 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The GTM Account ID. */
           accountId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The GTM Container ID. */
@@ -1469,13 +1632,13 @@ declare namespace gapi.client {
       /** Creates a GTM Variable. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -1500,13 +1663,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The GTM Account ID. */
           accountId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The GTM Container ID. */
@@ -1531,13 +1694,13 @@ declare namespace gapi.client {
       /** Deletes a GTM Variable. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -1562,13 +1725,13 @@ declare namespace gapi.client {
       /** Gets a GTM Variable. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -1593,13 +1756,13 @@ declare namespace gapi.client {
       /** Lists all GTM Variables of a Container. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -1622,13 +1785,13 @@ declare namespace gapi.client {
       /** Updates a GTM Variable. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -1657,13 +1820,13 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The GTM Account ID. */
           accountId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The GTM Container ID. */
@@ -1694,13 +1857,13 @@ declare namespace gapi.client {
       /** Creates a Container Version. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -1725,13 +1888,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The GTM Account ID. */
           accountId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The GTM Container ID. */
@@ -1756,13 +1919,13 @@ declare namespace gapi.client {
       /** Deletes a Container Version. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -1787,13 +1950,13 @@ declare namespace gapi.client {
       /** Gets a Container Version. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -1818,13 +1981,13 @@ declare namespace gapi.client {
       /** Lists all Container Versions of a GTM Container. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -1851,13 +2014,13 @@ declare namespace gapi.client {
       /** Publishes a Container Version. */
       publish(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -1884,13 +2047,13 @@ declare namespace gapi.client {
       /** Restores a Container Version. This will overwrite the container's current configuration (including its variables, triggers and tags). The operation will not have any effect on the version that is being served (i.e. the published version). */
       restore(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -1915,13 +2078,13 @@ declare namespace gapi.client {
       /** Undeletes a Container Version. */
       undelete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -1946,13 +2109,13 @@ declare namespace gapi.client {
       /** Updates a Container Version. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -1981,13 +2144,13 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The GTM Account ID. */
           accountId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The GTM Container ID. */
@@ -2018,13 +2181,13 @@ declare namespace gapi.client {
       /** Creates a Container. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2047,13 +2210,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The GTM Account ID. */
           accountId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2076,13 +2239,13 @@ declare namespace gapi.client {
       /** Deletes a Container. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -2105,13 +2268,13 @@ declare namespace gapi.client {
       /** Gets a Container. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -2134,13 +2297,13 @@ declare namespace gapi.client {
       /** Lists all Containers that belongs to a GTM Account. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2161,13 +2324,13 @@ declare namespace gapi.client {
       /** Updates a Container. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The GTM Container ID. */
@@ -2194,13 +2357,13 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The GTM Account ID. */
           accountId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The GTM Container ID. */
@@ -2237,13 +2400,13 @@ declare namespace gapi.client {
       /** Creates a user's Account & Container Permissions. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2266,13 +2429,13 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The GTM Account ID. */
           accountId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2295,13 +2458,13 @@ declare namespace gapi.client {
       /** Removes a user from the account, revoking access to it and all of its containers. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2324,13 +2487,13 @@ declare namespace gapi.client {
       /** Gets a user's Account & Container Permissions. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2353,13 +2516,13 @@ declare namespace gapi.client {
       /** List all users that have access to the account along with Account and Container Permissions granted to each of them. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2380,13 +2543,13 @@ declare namespace gapi.client {
       /** Updates a user's Account & Container Permissions. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2411,13 +2574,13 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The GTM Account ID. */
           accountId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2444,13 +2607,13 @@ declare namespace gapi.client {
       /** Gets a GTM Account. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2471,11 +2634,11 @@ declare namespace gapi.client {
       /** Lists all GTM Accounts that a user has access to. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2496,13 +2659,13 @@ declare namespace gapi.client {
       /** Updates a GTM Account. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The GTM Account ID. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2527,13 +2690,13 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** The GTM Account ID. */
           accountId: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

@@ -78,7 +78,7 @@ declare namespace gapi.client {
       /** Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the label before allowing access. */
       useAdminAccess?: boolean;
       /** When specified, only certain fields belonging to the indicated view will be returned. */
-      view?: string;
+      view?: 'LABEL_VIEW_BASIC' | 'LABEL_VIEW_FULL';
       /** Provides control over how write requests are executed. */
       writeControl?: GoogleAppsDriveLabelsV2betaWriteControl;
     }
@@ -330,7 +330,7 @@ declare namespace gapi.client {
       /** Output only. ICU date format. */
       dateFormat?: string;
       /** Localized date formatting option. Field values are rendered in this format according to their locale. */
-      dateFormatType?: string;
+      dateFormatType?: 'DATE_FORMAT_UNSPECIFIED' | 'LONG_DATE' | 'SHORT_DATE';
       /** Output only. Maximum valid value (year, month, day). */
       maxValue?: GoogleTypeDate;
       /** Output only. Minimum valid value (year, month, day). */
@@ -514,7 +514,7 @@ declare namespace gapi.client {
       /** Output only. Globally unique identifier of this label. ID makes up part of the label `name`, but unlike `name`, ID is consistent between revisions. Matches the regex: `([a-zA-Z0-9])+`. */
       id?: string;
       /** Required. The type of label. */
-      labelType?: string;
+      labelType?: 'LABEL_TYPE_UNSPECIFIED' | 'SHARED' | 'ADMIN' | 'GOOGLE_APP';
       /** Custom URL to present to users to allow them to learn more about this label and how it should be used. */
       learnMoreUri?: string;
       /** Output only. The lifecycle state of the label including whether it's published, deprecated, and has draft changes. */
@@ -548,7 +548,11 @@ declare namespace gapi.client {
     }
     interface GoogleAppsDriveLabelsV2betaLabelAppliedLabelPolicy {
       /** Indicates how the applied label and field values should be copied when a Drive item is copied. */
-      copyMode?: string;
+      copyMode?:
+        | 'COPY_MODE_UNSPECIFIED'
+        | 'DO_NOT_COPY'
+        | 'ALWAYS_COPY'
+        | 'COPY_APPLIABLE';
     }
     interface GoogleAppsDriveLabelsV2betaLabelDisplayHints {
       /** Whether the label should be shown in the UI as disabled. */
@@ -566,7 +570,7 @@ declare namespace gapi.client {
     }
     interface GoogleAppsDriveLabelsV2betaLabelEnabledAppSettingsEnabledApp {
       /** Optional. The name of the app. */
-      app?: string;
+      app?: 'APP_UNSPECIFIED' | 'DRIVE' | 'GMAIL';
     }
     interface GoogleAppsDriveLabelsV2betaLabelLimits {
       /** The limits for fields. */
@@ -600,7 +604,7 @@ declare namespace gapi.client {
       /** Output only. Resource name of this label lock. */
       name?: string;
       /** Output only. This label lock's state. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'ACTIVE' | 'DELETING';
     }
     interface GoogleAppsDriveLabelsV2betaLabelLockCapabilities {
       /** True if the user is authorized to view the policy. */
@@ -618,7 +622,12 @@ declare namespace gapi.client {
       /** Person resource name. */
       person?: string;
       /** The role the principal should have. */
-      role?: string;
+      role?:
+        | 'LABEL_ROLE_UNSPECIFIED'
+        | 'READER'
+        | 'APPLIER'
+        | 'ORGANIZER'
+        | 'EDITOR';
     }
     interface GoogleAppsDriveLabelsV2betaLabelProperties {
       /** The description of the label. */
@@ -642,7 +651,12 @@ declare namespace gapi.client {
       /** Output only. Whether the object associated with this lifecycle has unpublished changes. */
       hasUnpublishedChanges?: boolean;
       /** Output only. The state of the object associated with this lifecycle. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'UNPUBLISHED_DRAFT'
+        | 'PUBLISHED'
+        | 'DISABLED'
+        | 'DELETED';
     }
     interface GoogleAppsDriveLabelsV2betaLifecycleDisabledPolicy {
       /** Whether to hide this disabled object in the search menu for Drive items. * When `false`, the object is generally shown in the UI as disabled but it appears in the search results when searching for Drive items. * When `true`, the object is generally hidden in the UI when searching for Drive items. */
@@ -710,13 +724,17 @@ declare namespace gapi.client {
     }
     interface GoogleAppsDriveLabelsV2betaUpdateLabelCopyModeRequest {
       /** Required. Indicates how the applied label and field values should be copied when a Drive item is copied. */
-      copyMode?: string;
+      copyMode?:
+        | 'COPY_MODE_UNSPECIFIED'
+        | 'DO_NOT_COPY'
+        | 'ALWAYS_COPY'
+        | 'COPY_APPLIABLE';
       /** The BCP-47 language code to use for evaluating localized field labels. When not specified, values in the default configured language will be used. */
       languageCode?: string;
       /** Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the label before allowing access. */
       useAdminAccess?: boolean;
       /** When specified, only certain fields belonging to the indicated view will be returned. */
-      view?: string;
+      view?: 'LABEL_VIEW_BASIC' | 'LABEL_VIEW_FULL';
     }
     interface GoogleAppsDriveLabelsV2betaUpdateLabelEnabledAppSettingsRequest {
       /** Required. The new `EnabledAppSettings` value for the label. */
@@ -726,7 +744,7 @@ declare namespace gapi.client {
       /** Optional. Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the label before allowing access. */
       useAdminAccess?: boolean;
       /** Optional. When specified, only certain fields belonging to the indicated view will be returned. */
-      view?: string;
+      view?: 'LABEL_VIEW_BASIC' | 'LABEL_VIEW_FULL';
     }
     interface GoogleAppsDriveLabelsV2betaUpdateLabelPermissionRequest {
       /** Required. The permission to create or update on the label. */
@@ -783,11 +801,11 @@ declare namespace gapi.client {
       /** Lists the label locks on a label. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -816,11 +834,11 @@ declare namespace gapi.client {
       /** Deletes label permissions. Permissions affect the label resource as a whole, aren't revisioned, and don't require publishing. */
       batchDelete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -845,11 +863,11 @@ declare namespace gapi.client {
       batchDelete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -874,11 +892,11 @@ declare namespace gapi.client {
       /** Updates label permissions. If a permission for the indicated principal doesn't exist, a label permission is created, otherwise the existing permission is updated. Permissions affect the label resource as a whole, aren't revisioned, and don't require publishing. */
       batchUpdate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -903,11 +921,11 @@ declare namespace gapi.client {
       batchUpdate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -932,11 +950,11 @@ declare namespace gapi.client {
       /** Updates a label's permissions. If a permission for the indicated principal doesn't exist, a label permission is created, otherwise the existing permission is updated. Permissions affect the label resource as a whole, aren't revisioned, and don't require publishing. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -963,11 +981,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -994,11 +1012,11 @@ declare namespace gapi.client {
       /** Deletes a label's permission. Permissions affect the label resource as a whole, aren't revisioned, and don't require publishing. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1023,11 +1041,11 @@ declare namespace gapi.client {
       /** Lists a label's permissions. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1058,11 +1076,11 @@ declare namespace gapi.client {
       /** Lists the label locks on a label. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1091,11 +1109,11 @@ declare namespace gapi.client {
       /** Deletes label permissions. Permissions affect the label resource as a whole, aren't revisioned, and don't require publishing. */
       batchDelete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1120,11 +1138,11 @@ declare namespace gapi.client {
       batchDelete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1149,11 +1167,11 @@ declare namespace gapi.client {
       /** Updates label permissions. If a permission for the indicated principal doesn't exist, a label permission is created, otherwise the existing permission is updated. Permissions affect the label resource as a whole, aren't revisioned, and don't require publishing. */
       batchUpdate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1178,11 +1196,11 @@ declare namespace gapi.client {
       batchUpdate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1207,11 +1225,11 @@ declare namespace gapi.client {
       /** Updates a label's permissions. If a permission for the indicated principal doesn't exist, a label permission is created, otherwise the existing permission is updated. Permissions affect the label resource as a whole, aren't revisioned, and don't require publishing. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1238,11 +1256,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1269,11 +1287,11 @@ declare namespace gapi.client {
       /** Deletes a label's permission. Permissions affect the label resource as a whole, aren't revisioned, and don't require publishing. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1298,11 +1316,11 @@ declare namespace gapi.client {
       /** Lists a label's permissions. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1333,11 +1351,11 @@ declare namespace gapi.client {
       /** Updates a label's permissions. If a permission for the indicated principal doesn't exist, a label permission is created, otherwise the existing permission is updated. Permissions affect the label resource as a whole, aren't revisioned, and don't require publishing. */
       updatePermissions(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1364,11 +1382,11 @@ declare namespace gapi.client {
       updatePermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1399,11 +1417,11 @@ declare namespace gapi.client {
       /** Creates a label. For more information, see [Create and publish a label](https://developers.google.com/workspace/drive/labels/guides/create-label). */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1430,11 +1448,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1461,11 +1479,11 @@ declare namespace gapi.client {
       /** Permanently deletes a label and related metadata on Drive items. For more information, see [Disable, enable, and delete a label](https://developers.google.com/workspace/drive/labels/guides/disable-delete-label). Once deleted, the label and related Drive item metadata will be deleted. Only draft labels and disabled labels may be deleted. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1492,11 +1510,11 @@ declare namespace gapi.client {
       /** Updates a single label by applying a set of update requests resulting in a new draft revision. For more information, see [Update a label](https://developers.google.com/workspace/drive/labels/guides/update-label). The batch update is all-or-nothing: If any of the update requests are invalid, no changes are applied. The resulting draft revision must be published before the changes may be used with Drive items. */
       delta(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1521,11 +1539,11 @@ declare namespace gapi.client {
       delta(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1550,11 +1568,11 @@ declare namespace gapi.client {
       /** Disable a published label. For more information, see [Disable, enable, and delete a label](https://developers.google.com/workspace/drive/labels/guides/disable-delete-label). Disabling a label will result in a new disabled published revision based on the current published revision. If there's a draft revision, a new disabled draft revision will be created based on the latest draft revision. Older draft revisions will be deleted. Once disabled, a label may be deleted with `DeleteLabel`. */
       disable(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1579,11 +1597,11 @@ declare namespace gapi.client {
       disable(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1608,11 +1626,11 @@ declare namespace gapi.client {
       /** Enable a disabled label and restore it to its published state. For more information, see [Disable, enable, and delete a label](https://developers.google.com/workspace/drive/labels/guides/disable-delete-label). This will result in a new published revision based on the current disabled published revision. If there's an existing disabled draft revision, a new revision will be created based on that draft and will be enabled. */
       enable(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1637,11 +1655,11 @@ declare namespace gapi.client {
       enable(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1666,11 +1684,11 @@ declare namespace gapi.client {
       /** Get a label by its resource name. For more information, see [Search for labels](https://developers.google.com/workspace/drive/labels/guides/search-label). Resource name may be any of: * `labels/{id}` - See `labels/{id}@latest` * `labels/{id}@latest` - Gets the latest revision of the label. * `labels/{id}@published` - Gets the current published revision of the label. * `labels/{id}@{revision_id}` - Gets the label at the specified revision ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1694,16 +1712,16 @@ declare namespace gapi.client {
         /** Set to `true` in order to use the user's admin credentials. The server verifies that the user is an admin for the label before allowing access. */
         useAdminAccess?: boolean;
         /** When specified, only certain fields belonging to the indicated view are returned. */
-        view?: string;
+        view?: 'LABEL_VIEW_BASIC' | 'LABEL_VIEW_FULL';
       }): Request<GoogleAppsDriveLabelsV2betaLabel>;
       /** List labels. For more information, see [Search for labels](https://developers.google.com/workspace/drive/labels/guides/search-label). */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The customer to scope this list request to. For example: `customers/abcd1234`. If unset, will return all labels within the current customer. */
@@ -1715,7 +1733,12 @@ declare namespace gapi.client {
         /** The BCP-47 language code to use for evaluating localized field labels. When not specified, values in the default configured language are used. */
         languageCode?: string;
         /** Specifies the level of access the user must have on the returned labels. The minimum role a user must have on a label. Defaults to `READER`. */
-        minimumRole?: string;
+        minimumRole?:
+          | 'LABEL_ROLE_UNSPECIFIED'
+          | 'READER'
+          | 'APPLIER'
+          | 'ORGANIZER'
+          | 'EDITOR';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Maximum number of labels to return per page. Default: 50. Max: 200. */
@@ -1735,16 +1758,16 @@ declare namespace gapi.client {
         /** Set to `true` in order to use the user's admin credentials. This will return all labels within the customer. */
         useAdminAccess?: boolean;
         /** When specified, only certain fields belonging to the indicated view are returned. */
-        view?: string;
+        view?: 'LABEL_VIEW_BASIC' | 'LABEL_VIEW_FULL';
       }): Request<GoogleAppsDriveLabelsV2betaListLabelsResponse>;
       /** Publish all draft changes to the label. Once published, the label may not return to its draft state. For more information, see [Create and publish a label](https://developers.google.com/workspace/drive/labels/guides/create-label). Publishing a label will result in a new published revision. All previous draft revisions will be deleted. Previous published revisions will be kept but are subject to automated deletion as needed. For more information, see [Label lifecycle](https://developers.google.com/workspace/drive/labels/guides/label-lifecycle). Once published, some changes are no longer permitted. Generally, any change that would invalidate or cause new restrictions on existing metadata related to the label will be rejected. For example, the following changes to a label will be rejected after the label is published: * The label cannot be directly deleted. It must be disabled first, then deleted. * `Field.FieldType` cannot be changed. * Changes to field validation options cannot reject something that was previously accepted. * Reducing the maximum entries. */
       publish(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1769,11 +1792,11 @@ declare namespace gapi.client {
       publish(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1798,11 +1821,11 @@ declare namespace gapi.client {
       /** Updates a label's `CopyMode`. Changes to this policy aren't revisioned, don't require publishing, and take effect immediately. */
       updateLabelCopyMode(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1827,11 +1850,11 @@ declare namespace gapi.client {
       updateLabelCopyMode(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1856,11 +1879,11 @@ declare namespace gapi.client {
       /** Updates a label's `EnabledAppSettings`. Enabling a label in a Google Workspace app allows it to be used in that app. This change isn't revisioned, doesn't require publishing, and takes effect immediately. */
       updateLabelEnabledAppSettings(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1885,11 +1908,11 @@ declare namespace gapi.client {
       updateLabelEnabledAppSettings(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1914,11 +1937,11 @@ declare namespace gapi.client {
       /** Updates a label's permissions. If a permission for the indicated principal doesn't exist, a label permission is created, otherwise the existing permission is updated. Permissions affect the label resource as a whole, aren't revisioned, and don't require publishing. */
       updatePermissions(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1945,11 +1968,11 @@ declare namespace gapi.client {
       updatePermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1981,11 +2004,11 @@ declare namespace gapi.client {
       /** Get the constraints on the structure of a label; such as, the maximum number of fields allowed and maximum length of the label title. */
       getLabel(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2010,11 +2033,11 @@ declare namespace gapi.client {
       /** Gets the user capabilities. */
       getCapabilities(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The customer to scope this request to. For example: `customers/abcd1234`. If unset, it will return settings within the current customer. */

@@ -34,7 +34,17 @@ declare namespace gapi.client {
     }
     interface GoogleCloudVideointelligenceV1_AnnotateVideoRequest {
       /** Required. Requested video annotation features. */
-      features?: string[];
+      features?:
+        | 'FEATURE_UNSPECIFIED'
+        | 'LABEL_DETECTION'
+        | 'SHOT_CHANGE_DETECTION'
+        | 'EXPLICIT_CONTENT_DETECTION'
+        | 'FACE_DETECTION'
+        | 'SPEECH_TRANSCRIPTION'
+        | 'TEXT_DETECTION'
+        | 'OBJECT_TRACKING'
+        | 'LOGO_RECOGNITION'
+        | 'PERSON_DETECTION'[];
       /** The video data bytes. If unset, the input video(s) should be specified via the `input_uri`. If set, `input_uri` must be unset. */
       inputContent?: string;
       /** Input video location. Currently, only [Cloud Storage](https://cloud.google.com/storage/) URIs are supported. URIs must be specified in the following format: `gs://bucket-id/object-id` (other URI formats return google.rpc.Code.INVALID_ARGUMENT). For more information, see [Request URIs](https://cloud.google.com/storage/docs/request-endpoints). To identify multiple videos, a video URI may include wildcards in the `object-id`. Supported wildcards: '*' to match 0 or more characters; '?' to match 1 character. If unset, the input video should be embedded in the request as `input_content`. If set, `input_content` must be unset. */
@@ -86,13 +96,19 @@ declare namespace gapi.client {
     }
     interface GoogleCloudVideointelligenceV1_ExplicitContentFrame {
       /** Likelihood of the pornography content.. */
-      pornographyLikelihood?: string;
+      pornographyLikelihood?:
+        | 'LIKELIHOOD_UNSPECIFIED'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Time-offset, relative to the beginning of the video, corresponding to the video frame for this location. */
       timeOffset?: string;
     }
     interface GoogleCloudVideointelligenceV1_ExportToOutputUriStatus {
       /** Output only. State of the `output_uri` export. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'SUCCEEDED' | 'FAILED';
       /** Output only. Only set if state is FAILED. */
       status?: GoogleRpc_Status;
     }
@@ -146,7 +162,11 @@ declare namespace gapi.client {
       /** The confidence threshold we perform filtering on the labels from frame-level detection. If not set, it is set to 0.4 by default. The valid range for this threshold is [0.1, 0.9]. Any value set outside of this range will be clipped. Note: For best results, follow the default threshold. We will update the default threshold everytime when we release a new model. */
       frameConfidenceThreshold?: number;
       /** What labels should be detected with LABEL_DETECTION, in addition to video-level labels or segment-level labels. If unspecified, defaults to `SHOT_MODE`. */
-      labelDetectionMode?: string;
+      labelDetectionMode?:
+        | 'LABEL_DETECTION_MODE_UNSPECIFIED'
+        | 'SHOT_MODE'
+        | 'FRAME_MODE'
+        | 'SHOT_AND_FRAME_MODE';
       /** Model to use for label detection. Supported values: "builtin/stable" (the default if unset) and "builtin/latest". */
       model?: string;
       /** Whether the video has been shot from a stationary (i.e., non-moving) camera. When set to true, might improve detection accuracy for moving objects. Should be used with `SHOT_AND_FRAME_MODE` enabled. */
@@ -328,7 +348,17 @@ declare namespace gapi.client {
       /** Status of exporting annotation response to user specified `output_uri`. Only set if `output_uri` is set in the request. */
       exportStatus?: GoogleCloudVideointelligenceV1_ExportToOutputUriStatus;
       /** Specifies which feature is being tracked if the request contains more than one feature. */
-      feature?: string;
+      feature?:
+        | 'FEATURE_UNSPECIFIED'
+        | 'LABEL_DETECTION'
+        | 'SHOT_CHANGE_DETECTION'
+        | 'EXPLICIT_CONTENT_DETECTION'
+        | 'FACE_DETECTION'
+        | 'SPEECH_TRANSCRIPTION'
+        | 'TEXT_DETECTION'
+        | 'OBJECT_TRACKING'
+        | 'LOGO_RECOGNITION'
+        | 'PERSON_DETECTION';
       /** Video file location in [Cloud Storage](https://cloud.google.com/storage/). */
       inputUri?: string;
       /** Approximate percentage processed thus far. Guaranteed to be 100 when fully processed. */
@@ -456,13 +486,19 @@ declare namespace gapi.client {
     }
     interface GoogleCloudVideointelligenceV1beta2_ExplicitContentFrame {
       /** Likelihood of the pornography content.. */
-      pornographyLikelihood?: string;
+      pornographyLikelihood?:
+        | 'LIKELIHOOD_UNSPECIFIED'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Time-offset, relative to the beginning of the video, corresponding to the video frame for this location. */
       timeOffset?: string;
     }
     interface GoogleCloudVideointelligenceV1beta2_ExportToOutputUriStatus {
       /** Output only. State of the `output_uri` export. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'SUCCEEDED' | 'FAILED';
       /** Output only. Only set if state is FAILED. */
       status?: GoogleRpc_Status;
     }
@@ -630,7 +666,17 @@ declare namespace gapi.client {
       /** Status of exporting annotation response to user specified `output_uri`. Only set if `output_uri` is set in the request. */
       exportStatus?: GoogleCloudVideointelligenceV1beta2_ExportToOutputUriStatus;
       /** Specifies which feature is being tracked if the request contains more than one feature. */
-      feature?: string;
+      feature?:
+        | 'FEATURE_UNSPECIFIED'
+        | 'LABEL_DETECTION'
+        | 'SHOT_CHANGE_DETECTION'
+        | 'EXPLICIT_CONTENT_DETECTION'
+        | 'FACE_DETECTION'
+        | 'SPEECH_TRANSCRIPTION'
+        | 'TEXT_DETECTION'
+        | 'OBJECT_TRACKING'
+        | 'LOGO_RECOGNITION'
+        | 'PERSON_DETECTION';
       /** Video file location in [Cloud Storage](https://cloud.google.com/storage/). */
       inputUri?: string;
       /** Approximate percentage processed thus far. Guaranteed to be 100 when fully processed. */
@@ -738,13 +784,19 @@ declare namespace gapi.client {
     }
     interface GoogleCloudVideointelligenceV1p1beta1_ExplicitContentFrame {
       /** Likelihood of the pornography content.. */
-      pornographyLikelihood?: string;
+      pornographyLikelihood?:
+        | 'LIKELIHOOD_UNSPECIFIED'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Time-offset, relative to the beginning of the video, corresponding to the video frame for this location. */
       timeOffset?: string;
     }
     interface GoogleCloudVideointelligenceV1p1beta1_ExportToOutputUriStatus {
       /** Output only. State of the `output_uri` export. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'SUCCEEDED' | 'FAILED';
       /** Output only. Only set if state is FAILED. */
       status?: GoogleRpc_Status;
     }
@@ -912,7 +964,17 @@ declare namespace gapi.client {
       /** Status of exporting annotation response to user specified `output_uri`. Only set if `output_uri` is set in the request. */
       exportStatus?: GoogleCloudVideointelligenceV1p1beta1_ExportToOutputUriStatus;
       /** Specifies which feature is being tracked if the request contains more than one feature. */
-      feature?: string;
+      feature?:
+        | 'FEATURE_UNSPECIFIED'
+        | 'LABEL_DETECTION'
+        | 'SHOT_CHANGE_DETECTION'
+        | 'EXPLICIT_CONTENT_DETECTION'
+        | 'FACE_DETECTION'
+        | 'SPEECH_TRANSCRIPTION'
+        | 'TEXT_DETECTION'
+        | 'OBJECT_TRACKING'
+        | 'LOGO_RECOGNITION'
+        | 'PERSON_DETECTION';
       /** Video file location in [Cloud Storage](https://cloud.google.com/storage/). */
       inputUri?: string;
       /** Approximate percentage processed thus far. Guaranteed to be 100 when fully processed. */
@@ -1020,13 +1082,19 @@ declare namespace gapi.client {
     }
     interface GoogleCloudVideointelligenceV1p2beta1_ExplicitContentFrame {
       /** Likelihood of the pornography content.. */
-      pornographyLikelihood?: string;
+      pornographyLikelihood?:
+        | 'LIKELIHOOD_UNSPECIFIED'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Time-offset, relative to the beginning of the video, corresponding to the video frame for this location. */
       timeOffset?: string;
     }
     interface GoogleCloudVideointelligenceV1p2beta1_ExportToOutputUriStatus {
       /** Output only. State of the `output_uri` export. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'SUCCEEDED' | 'FAILED';
       /** Output only. Only set if state is FAILED. */
       status?: GoogleRpc_Status;
     }
@@ -1194,7 +1262,17 @@ declare namespace gapi.client {
       /** Status of exporting annotation response to user specified `output_uri`. Only set if `output_uri` is set in the request. */
       exportStatus?: GoogleCloudVideointelligenceV1p2beta1_ExportToOutputUriStatus;
       /** Specifies which feature is being tracked if the request contains more than one feature. */
-      feature?: string;
+      feature?:
+        | 'FEATURE_UNSPECIFIED'
+        | 'LABEL_DETECTION'
+        | 'SHOT_CHANGE_DETECTION'
+        | 'EXPLICIT_CONTENT_DETECTION'
+        | 'FACE_DETECTION'
+        | 'SPEECH_TRANSCRIPTION'
+        | 'TEXT_DETECTION'
+        | 'OBJECT_TRACKING'
+        | 'LOGO_RECOGNITION'
+        | 'PERSON_DETECTION';
       /** Video file location in [Cloud Storage](https://cloud.google.com/storage/). */
       inputUri?: string;
       /** Approximate percentage processed thus far. Guaranteed to be 100 when fully processed. */
@@ -1322,13 +1400,19 @@ declare namespace gapi.client {
     }
     interface GoogleCloudVideointelligenceV1p3beta1_ExplicitContentFrame {
       /** Likelihood of the pornography content.. */
-      pornographyLikelihood?: string;
+      pornographyLikelihood?:
+        | 'LIKELIHOOD_UNSPECIFIED'
+        | 'VERY_UNLIKELY'
+        | 'UNLIKELY'
+        | 'POSSIBLE'
+        | 'LIKELY'
+        | 'VERY_LIKELY';
       /** Time-offset, relative to the beginning of the video, corresponding to the video frame for this location. */
       timeOffset?: string;
     }
     interface GoogleCloudVideointelligenceV1p3beta1_ExportToOutputUriStatus {
       /** Output only. State of the `output_uri` export. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'SUCCEEDED' | 'FAILED';
       /** Output only. Only set if state is FAILED. */
       status?: GoogleRpc_Status;
     }
@@ -1522,7 +1606,18 @@ declare namespace gapi.client {
       /** Status of exporting annotation response to user specified `output_uri`. Only set if `output_uri` is set in the request. */
       exportStatus?: GoogleCloudVideointelligenceV1p3beta1_ExportToOutputUriStatus;
       /** Specifies which feature is being tracked if the request contains more than one feature. */
-      feature?: string;
+      feature?:
+        | 'FEATURE_UNSPECIFIED'
+        | 'LABEL_DETECTION'
+        | 'SHOT_CHANGE_DETECTION'
+        | 'EXPLICIT_CONTENT_DETECTION'
+        | 'FACE_DETECTION'
+        | 'SPEECH_TRANSCRIPTION'
+        | 'TEXT_DETECTION'
+        | 'OBJECT_TRACKING'
+        | 'LOGO_RECOGNITION'
+        | 'CELEBRITY_RECOGNITION'
+        | 'PERSON_DETECTION';
       /** Video file location in [Cloud Storage](https://cloud.google.com/storage/). */
       inputUri?: string;
       /** Approximate percentage processed thus far. Guaranteed to be 100 when fully processed. */
@@ -1626,11 +1721,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1653,11 +1748,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1680,11 +1775,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1718,11 +1813,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1747,11 +1842,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1776,11 +1871,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1803,11 +1898,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1830,11 +1925,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1873,11 +1968,11 @@ declare namespace gapi.client {
       /** Performs asynchronous video annotation. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `AnnotateVideoProgress` (progress). `Operation.response` contains `AnnotateVideoResponse` (results). */
       annotate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1900,11 +1995,11 @@ declare namespace gapi.client {
       annotate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

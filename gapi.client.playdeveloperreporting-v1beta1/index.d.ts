@@ -133,7 +133,11 @@ declare namespace gapi.client {
       /** Output only. Sample error reports which belong to this ErrorIssue. *Note:* currently a maximum of 1 per ErrorIssue is supported. Format: "apps/{app}/{report}" */
       sampleErrorReports?: string[];
       /** Type of the errors grouped in this issue. */
-      type?: string;
+      type?:
+        | 'ERROR_TYPE_UNSPECIFIED'
+        | 'APPLICATION_NOT_RESPONDING'
+        | 'CRASH'
+        | 'NON_FATAL';
     }
     interface GooglePlayDeveloperReportingV1beta1ErrorReport {
       /** The app version on which an event in this error report occurred on. */
@@ -151,7 +155,11 @@ declare namespace gapi.client {
       /** Textual representation of the error report. These textual reports are produced by the platform. The reports are then sanitized and filtered to remove any potentially sensitive information. Although their format is fairly stable, they are not entirely meant for machine consumption and we cannot guarantee that there won't be subtle changes to the formatting that may break systems trying to parse information out of the reports. */
       reportText?: string;
       /** Type of the error for which this report was generated. */
-      type?: string;
+      type?:
+        | 'ERROR_TYPE_UNSPECIFIED'
+        | 'APPLICATION_NOT_RESPONDING'
+        | 'CRASH'
+        | 'NON_FATAL';
       /** Version control system information from BUNDLE-METADATA/version-control-info.textproto or META-INF/version-control-info.textproto of the app bundle or APK, respectively. */
       vcsInformation?: string;
     }
@@ -167,7 +175,11 @@ declare namespace gapi.client {
     }
     interface GooglePlayDeveloperReportingV1beta1FreshnessInfoFreshness {
       /** Aggregation period for which data is available. */
-      aggregationPeriod?: string;
+      aggregationPeriod?:
+        | 'AGGREGATION_PERIOD_UNSPECIFIED'
+        | 'HOURLY'
+        | 'DAILY'
+        | 'FULL_RANGE';
       /** Latest end time for which data is available, for the aggregation period. The time is specified in the metric set's default timezone. *Note:* time ranges in TimelineSpec are represented as `start_time, end_time)`. For example, if the latest available timeline data point for a `DAILY` aggregation period is `2021-06-23 00:00:00 America/Los_Angeles`, the value of this field would be `2021-06-24 00:00:00 America/Los_Angeles` so it can be easily reused in [TimelineSpec.end_time. */
       latestEndTime?: GoogleTypeDateTime;
     }
@@ -193,7 +205,11 @@ declare namespace gapi.client {
     }
     interface GooglePlayDeveloperReportingV1beta1MetricsRow {
       /** Optional. Granularity of the aggregation period of the row. */
-      aggregationPeriod?: string;
+      aggregationPeriod?:
+        | 'AGGREGATION_PERIOD_UNSPECIFIED'
+        | 'HOURLY'
+        | 'DAILY'
+        | 'FULL_RANGE';
       /** Optional. Dimension columns in the row. */
       dimensions?: GooglePlayDeveloperReportingV1beta1DimensionValue[];
       /** Optional. Metric columns in the row. */
@@ -227,7 +243,11 @@ declare namespace gapi.client {
       /** Optional. Specification of the timeline aggregation parameters. **Supported aggregation periods:** * DAILY: metrics are aggregated in calendar date intervals. Due to historical constraints, the default and only supported timezone is `America/Los_Angeles`. * HOURLY: metrics are aggregated in hourly intervals. The default and only supported timezone is `UTC`. */
       timelineSpec?: GooglePlayDeveloperReportingV1beta1TimelineSpec;
       /** Optional. User view to select. The output data will correspond to the selected view. **Supported values:** * `OS_PUBLIC` To select data from all publicly released Android versions. This is the default. Supports all the above dimensions. * `APP_TESTERS` To select data from users who have opted in to be testers. Supports all the above dimensions. * `OS_BETA` To select data from beta android versions only, excluding data from released android versions. Only the following dimensions are supported: * `versionCode` (int64): version of the app that was running on the user's device. * `osBuild` (string): OS build of the user's device, e.g., "T1B2.220916.004". */
-      userCohort?: string;
+      userCohort?:
+        | 'USER_COHORT_UNSPECIFIED'
+        | 'OS_PUBLIC'
+        | 'OS_BETA'
+        | 'APP_TESTERS';
     }
     interface GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetResponse {
       /** Continuation token to fetch the next page of data. */
@@ -249,7 +269,11 @@ declare namespace gapi.client {
       /** Optional. Specification of the timeline aggregation parameters. **Supported aggregation periods:** * DAILY: metrics are aggregated in calendar date intervals. Due to historical constraints, the default and only supported timezone is `America/Los_Angeles`. * HOURLY: metrics are aggregated in hourly intervals. The default and only supported timezone is `UTC`. */
       timelineSpec?: GooglePlayDeveloperReportingV1beta1TimelineSpec;
       /** Optional. User view to select. The output data will correspond to the selected view. **Supported values:** * `OS_PUBLIC` To select data from all publicly released Android versions. This is the default. Supports all the above dimensions. * `APP_TESTERS` To select data from users who have opted in to be testers. Supports all the above dimensions. * `OS_BETA` To select data from beta android versions only, excluding data from released android versions. Only the following dimensions are supported: * `versionCode` (int64): version of the app that was running on the user's device. * `osBuild` (string): OS build of the user's device, e.g., "T1B2.220916.004". */
-      userCohort?: string;
+      userCohort?:
+        | 'USER_COHORT_UNSPECIFIED'
+        | 'OS_PUBLIC'
+        | 'OS_BETA'
+        | 'APP_TESTERS';
     }
     interface GooglePlayDeveloperReportingV1beta1QueryCrashRateMetricSetResponse {
       /** Continuation token to fetch the next page of data. */
@@ -291,7 +315,11 @@ declare namespace gapi.client {
       /** Optional. Specification of the timeline aggregation parameters. **Supported aggregation periods:** * DAILY: metrics are aggregated in calendar date intervals. Due to historical constraints, the only supported timezone is `America/Los_Angeles`. */
       timelineSpec?: GooglePlayDeveloperReportingV1beta1TimelineSpec;
       /** Optional. User view to select. The output data will correspond to the selected view. The only supported value is `OS_PUBLIC`. */
-      userCohort?: string;
+      userCohort?:
+        | 'USER_COHORT_UNSPECIFIED'
+        | 'OS_PUBLIC'
+        | 'OS_BETA'
+        | 'APP_TESTERS';
     }
     interface GooglePlayDeveloperReportingV1beta1QueryExcessiveWakeupRateMetricSetResponse {
       /** Continuation token to fetch the next page of data. */
@@ -313,7 +341,11 @@ declare namespace gapi.client {
       /** Optional. Specification of the timeline aggregation parameters. **Supported aggregation periods:** * DAILY: metrics are aggregated in calendar date intervals. Due to historical constraints, the default and only supported timezone is `America/Los_Angeles`. */
       timelineSpec?: GooglePlayDeveloperReportingV1beta1TimelineSpec;
       /** Optional. User view to select. The output data will correspond to the selected view. **Supported values:** * `OS_PUBLIC` To select data from all publicly released Android versions. This is the default. Supports all the above dimensions. * `APP_TESTERS` To select data from users who have opted in to be testers. Supports all the above dimensions. * `OS_BETA` To select data from beta android versions only, excluding data from released android versions. Only the following dimensions are supported: * `versionCode` (int64): version of the app that was running on the user's device. * `osBuild` (string): OS build of the user's device, e.g., "T1B2.220916.004". */
-      userCohort?: string;
+      userCohort?:
+        | 'USER_COHORT_UNSPECIFIED'
+        | 'OS_PUBLIC'
+        | 'OS_BETA'
+        | 'APP_TESTERS';
     }
     interface GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetResponse {
       /** Continuation token to fetch the next page of data. */
@@ -335,7 +367,11 @@ declare namespace gapi.client {
       /** Optional. Specification of the timeline aggregation parameters. **Supported aggregation periods:** * DAILY: metrics are aggregated in calendar date intervals. Due to historical constraints, the only supported timezone is `America/Los_Angeles`. */
       timelineSpec?: GooglePlayDeveloperReportingV1beta1TimelineSpec;
       /** Optional. User view to select. The output data will correspond to the selected view. The only supported value is `OS_PUBLIC`. */
-      userCohort?: string;
+      userCohort?:
+        | 'USER_COHORT_UNSPECIFIED'
+        | 'OS_PUBLIC'
+        | 'OS_BETA'
+        | 'APP_TESTERS';
     }
     interface GooglePlayDeveloperReportingV1beta1QuerySlowRenderingRateMetricSetResponse {
       /** Continuation token to fetch the next page of data. */
@@ -357,7 +393,11 @@ declare namespace gapi.client {
       /** Optional. Specification of the timeline aggregation parameters. **Supported aggregation periods:** * DAILY: metrics are aggregated in calendar date intervals. Due to historical constraints, the only supported timezone is `America/Los_Angeles`. */
       timelineSpec?: GooglePlayDeveloperReportingV1beta1TimelineSpec;
       /** Optional. User view to select. The output data will correspond to the selected view. The only supported value is `OS_PUBLIC`. */
-      userCohort?: string;
+      userCohort?:
+        | 'USER_COHORT_UNSPECIFIED'
+        | 'OS_PUBLIC'
+        | 'OS_BETA'
+        | 'APP_TESTERS';
     }
     interface GooglePlayDeveloperReportingV1beta1QuerySlowStartRateMetricSetResponse {
       /** Continuation token to fetch the next page of data. */
@@ -379,7 +419,11 @@ declare namespace gapi.client {
       /** Optional. Specification of the timeline aggregation parameters. **Supported aggregation periods:** * DAILY: metrics are aggregated in calendar date intervals. Due to historical constraints, the only supported timezone is `America/Los_Angeles`. */
       timelineSpec?: GooglePlayDeveloperReportingV1beta1TimelineSpec;
       /** Optional. User view to select. The output data will correspond to the selected view. The only supported value is `OS_PUBLIC`. */
-      userCohort?: string;
+      userCohort?:
+        | 'USER_COHORT_UNSPECIFIED'
+        | 'OS_PUBLIC'
+        | 'OS_BETA'
+        | 'APP_TESTERS';
     }
     interface GooglePlayDeveloperReportingV1beta1QueryStuckBackgroundWakelockRateMetricSetResponse {
       /** Continuation token to fetch the next page of data. */
@@ -435,7 +479,11 @@ declare namespace gapi.client {
     }
     interface GooglePlayDeveloperReportingV1beta1TimelineSpec {
       /** Optional. Type of the aggregation period of the datapoints in the timeline. Intervals are identified by the date and time at the start of the interval. */
-      aggregationPeriod?: string;
+      aggregationPeriod?:
+        | 'AGGREGATION_PERIOD_UNSPECIFIED'
+        | 'HOURLY'
+        | 'DAILY'
+        | 'FULL_RANGE';
       /** Optional. Ending datapoint of the timeline (exclusive). See start_time for restrictions. The timezone of the end point must match the timezone of the start point. */
       endTime?: GoogleTypeDateTime;
       /** Optional. Starting datapoint of the timeline (inclusive). Must be aligned to the aggregation period as follows: * HOURLY: the 'minutes', 'seconds' and 'nanos' fields must be unset. The time_zone can be left unset (defaults to UTC) or set explicitly to "UTC". Setting any other utc_offset or timezone id will result in a validation error. * DAILY: the 'hours', 'minutes', 'seconds' and 'nanos' fields must be unset. Different metric sets support different timezones. It can be left unset to use the default timezone specified by the metric set. The timezone of the end point must match the timezone of the start point. */
@@ -483,11 +531,11 @@ declare namespace gapi.client {
       /** Lists anomalies in any of the datasets. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -518,11 +566,11 @@ declare namespace gapi.client {
       /** Describes filtering options for releases. */
       fetchReleaseFilterOptions(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -545,11 +593,11 @@ declare namespace gapi.client {
       /** Searches for Apps accessible by the user. */
       search(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -576,11 +624,11 @@ declare namespace gapi.client {
       /** Describes the properties of the metric set. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -603,11 +651,11 @@ declare namespace gapi.client {
       /** Queries the metrics in the metric set. */
       query(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -632,11 +680,11 @@ declare namespace gapi.client {
       query(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -663,11 +711,11 @@ declare namespace gapi.client {
       /** Describes the properties of the metric set. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -690,11 +738,11 @@ declare namespace gapi.client {
       /** Queries the metrics in the metric set. */
       query(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -719,11 +767,11 @@ declare namespace gapi.client {
       query(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -750,11 +798,11 @@ declare namespace gapi.client {
       /** Describes the properties of the metrics set. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -777,11 +825,11 @@ declare namespace gapi.client {
       /** Queries the metrics in the metrics set. */
       query(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -806,11 +854,11 @@ declare namespace gapi.client {
       query(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -837,11 +885,11 @@ declare namespace gapi.client {
       /** Searches all error issues in which reports have been grouped. */
       search(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -916,11 +964,11 @@ declare namespace gapi.client {
       /** Searches all error reports received for an app. */
       search(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -996,11 +1044,11 @@ declare namespace gapi.client {
       /** Describes the properties of the metric set. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1023,11 +1071,11 @@ declare namespace gapi.client {
       /** Queries the metrics in the metric set. */
       query(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1052,11 +1100,11 @@ declare namespace gapi.client {
       query(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1083,11 +1131,11 @@ declare namespace gapi.client {
       /** Describes the properties of the metric set. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1110,11 +1158,11 @@ declare namespace gapi.client {
       /** Queries the metrics in the metric set. */
       query(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1139,11 +1187,11 @@ declare namespace gapi.client {
       query(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1170,11 +1218,11 @@ declare namespace gapi.client {
       /** Describes the properties of the metric set. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1197,11 +1245,11 @@ declare namespace gapi.client {
       /** Queries the metrics in the metric set. */
       query(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1226,11 +1274,11 @@ declare namespace gapi.client {
       query(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1257,11 +1305,11 @@ declare namespace gapi.client {
       /** Describes the properties of the metric set. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1284,11 +1332,11 @@ declare namespace gapi.client {
       /** Queries the metrics in the metric set. */
       query(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1313,11 +1361,11 @@ declare namespace gapi.client {
       query(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1344,11 +1392,11 @@ declare namespace gapi.client {
       /** Describes the properties of the metric set. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1371,11 +1419,11 @@ declare namespace gapi.client {
       /** Queries the metrics in the metric set. */
       query(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1400,11 +1448,11 @@ declare namespace gapi.client {
       query(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

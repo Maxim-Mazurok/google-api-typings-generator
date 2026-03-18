@@ -67,7 +67,10 @@ declare namespace gapi.client {
       /** Output only. The canonical resource name. */
       name?: string;
       /** The operating system type where this account applies. */
-      operatingSystemType?: string;
+      operatingSystemType?:
+        | 'OPERATING_SYSTEM_TYPE_UNSPECIFIED'
+        | 'LINUX'
+        | 'WINDOWS';
       /** Only one POSIX account can be marked as primary. */
       primary?: boolean;
       /** The path to the logic shell for this account. */
@@ -125,11 +128,11 @@ declare namespace gapi.client {
       /** Signs an SSH public key for a user to authenticate to a virtual machine on Google Compute Engine. */
       signSshPublicKey(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -154,11 +157,11 @@ declare namespace gapi.client {
       signSshPublicKey(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -188,11 +191,11 @@ declare namespace gapi.client {
       /** Signs an SSH public key for a user to authenticate to a virtual machine on Google Compute Engine. */
       signSshPublicKey(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -217,11 +220,11 @@ declare namespace gapi.client {
       signSshPublicKey(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -248,11 +251,11 @@ declare namespace gapi.client {
       /** Signs an SSH public key for a user to authenticate to a virtual machine on Google Compute Engine. */
       signSshPublicKey(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -277,11 +280,11 @@ declare namespace gapi.client {
       signSshPublicKey(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -308,11 +311,11 @@ declare namespace gapi.client {
       /** Deletes a POSIX account. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -324,7 +327,10 @@ declare namespace gapi.client {
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Optional. The type of operating system associated with the account. */
-        operatingSystemType?: string;
+        operatingSystemType?:
+          | 'OPERATING_SYSTEM_TYPE_UNSPECIFIED'
+          | 'LINUX'
+          | 'WINDOWS';
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
@@ -337,11 +343,11 @@ declare namespace gapi.client {
       /** Create a POSIX account if it doesn't exist. */
       provisionPosixAccount(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -366,11 +372,11 @@ declare namespace gapi.client {
       provisionPosixAccount(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -399,11 +405,11 @@ declare namespace gapi.client {
       /** Create an SSH public key */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -428,11 +434,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -457,11 +463,11 @@ declare namespace gapi.client {
       /** Deletes an SSH public key. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -484,11 +490,11 @@ declare namespace gapi.client {
       /** Retrieves an SSH public key. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -511,11 +517,11 @@ declare namespace gapi.client {
       /** Updates an SSH public key and returns the profile information. This method supports patch semantics. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -542,11 +548,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -575,11 +581,11 @@ declare namespace gapi.client {
       /** Retrieves the profile information used for logging in to a virtual machine on Google Compute Engine. */
       getLoginProfile(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -591,7 +597,10 @@ declare namespace gapi.client {
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Optional. The type of operating system associated with the account. */
-        operatingSystemType?: string;
+        operatingSystemType?:
+          | 'OPERATING_SYSTEM_TYPE_UNSPECIFIED'
+          | 'LINUX'
+          | 'WINDOWS';
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Required. The project ID of the Google Cloud Platform project. */
@@ -605,16 +614,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** The view configures whether to retrieve security keys information. */
-        view?: string;
+        view?: 'LOGIN_PROFILE_VIEW_UNSPECIFIED' | 'BASIC' | 'SECURITY_KEY';
       }): Request<LoginProfile>;
       /** Adds an SSH public key and returns the profile information. Default POSIX account information is set when no username and UID exist as part of the login profile. */
       importSshPublicKey(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -638,18 +647,18 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** The view configures whether to retrieve security keys information. */
-        view?: string;
+        view?: 'LOGIN_PROFILE_VIEW_UNSPECIFIED' | 'BASIC' | 'SECURITY_KEY';
         /** Request body */
         resource: SshPublicKey;
       }): Request<ImportSshPublicKeyResponse>;
       importSshPublicKey(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -673,7 +682,7 @@ declare namespace gapi.client {
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
           /** The view configures whether to retrieve security keys information. */
-          view?: string;
+          view?: 'LOGIN_PROFILE_VIEW_UNSPECIFIED' | 'BASIC' | 'SECURITY_KEY';
         },
         body: SshPublicKey,
       ): Request<ImportSshPublicKeyResponse>;

@@ -26,13 +26,25 @@ declare namespace gapi.client {
   namespace appengine {
     interface ApiConfigHandler {
       /** Action to take when users access resources that require authentication. Defaults to redirect. */
-      authFailAction?: string;
+      authFailAction?:
+        | 'AUTH_FAIL_ACTION_UNSPECIFIED'
+        | 'AUTH_FAIL_ACTION_REDIRECT'
+        | 'AUTH_FAIL_ACTION_UNAUTHORIZED';
       /** Level of login required to access this resource. Defaults to optional. */
-      login?: string;
+      login?:
+        | 'LOGIN_UNSPECIFIED'
+        | 'LOGIN_OPTIONAL'
+        | 'LOGIN_ADMIN'
+        | 'LOGIN_REQUIRED';
       /** Path to the script from the application root directory. */
       script?: string;
       /** Security (HTTPS) enforcement for this URL. */
-      securityLevel?: string;
+      securityLevel?:
+        | 'SECURE_UNSPECIFIED'
+        | 'SECURE_DEFAULT'
+        | 'SECURE_NEVER'
+        | 'SECURE_OPTIONAL'
+        | 'SECURE_ALWAYS';
       /** URL to serve the endpoint at. */
       url?: string;
     }
@@ -46,7 +58,11 @@ declare namespace gapi.client {
       /** Output only. Google Cloud Storage bucket that can be used for storing files associated with this application. This bucket is associated with the application and can be used by the gcloud deployment commands.@OutputOnly */
       codeBucket?: string;
       /** The type of the Cloud Firestore or Cloud Datastore database associated with this application. */
-      databaseType?: string;
+      databaseType?:
+        | 'DATABASE_TYPE_UNSPECIFIED'
+        | 'CLOUD_DATASTORE'
+        | 'CLOUD_FIRESTORE'
+        | 'CLOUD_DATASTORE_COMPATIBILITY';
       /** Output only. Google Cloud Storage bucket that can be used by this application to store content.@OutputOnly */
       defaultBucket?: string;
       /** Cookie expiration policy for this application. */
@@ -70,9 +86,13 @@ declare namespace gapi.client {
       /** The service account associated with the application. This is the app-level default identity. If no identity provided during create version, Admin API will fallback to this one. */
       serviceAccount?: string;
       /** Serving status of this application. */
-      servingStatus?: string;
+      servingStatus?:
+        | 'UNSPECIFIED'
+        | 'SERVING'
+        | 'USER_DISABLED'
+        | 'SYSTEM_DISABLED';
       /** The SSL policy that will be applied to the application. If set to Modern it will restrict traffic with TLS < 1.2 and allow only Modern Ciphers suite */
-      sslPolicy?: string;
+      sslPolicy?: 'SSL_POLICY_UNSPECIFIED' | 'DEFAULT' | 'MODERN';
     }
     interface AuthorizedCertificate {
       /** The SSL certificate serving the AuthorizedCertificate resource. This must be obtained independently from a certificate authority. */
@@ -163,7 +183,7 @@ declare namespace gapi.client {
       /** The previous and current reasons for a container state will be sent for a container event. CLHs that need to know the signal that caused the container event to trigger (edges) as opposed to just knowing the state can act upon differences in the previous and current reasons.Reasons will be provided for every system: service management, data governance, abuse, and billing.If this is a CCFE-triggered event used for reconciliation then the current reasons will be set to their *_CONTROL_PLANE_SYNC state. The previous reasons will contain the last known set of non-unknown non-control_plane_sync reasons for the state. */
       previousReasons?: Reasons;
       /** The current state of the container. This state is the culmination of all of the opinions from external systems that CCFE knows about of the container. */
-      state?: string;
+      state?: 'UNKNOWN_STATE' | 'ON' | 'OFF' | 'DELETED';
     }
     interface CpuUtilization {
       /** Period of time over which CPU utilization is calculated. */
@@ -234,7 +254,7 @@ declare namespace gapi.client {
       /** Endpoints service name which is the name of the "service" resource in the Service Management API. For example "myapi.endpoints.myproject.cloud.goog" */
       name?: string;
       /** Endpoints rollout strategy. If FIXED, config_id must be specified. If MANAGED, config_id must be omitted. */
-      rolloutStrategy?: string;
+      rolloutStrategy?: 'UNSPECIFIED_ROLLOUT_STRATEGY' | 'FIXED' | 'MANAGED';
     }
     interface Entrypoint {
       /** The format should be a shell command that can be fed to bash -c. */
@@ -242,7 +262,12 @@ declare namespace gapi.client {
     }
     interface ErrorHandler {
       /** Error condition this handler applies to. */
-      errorCode?: string;
+      errorCode?:
+        | 'ERROR_CODE_UNSPECIFIED'
+        | 'ERROR_CODE_DEFAULT'
+        | 'ERROR_CODE_OVER_QUOTA'
+        | 'ERROR_CODE_DOS_API_DENIAL'
+        | 'ERROR_CODE_TIMEOUT';
       /** MIME type of file. Defaults to text/html. */
       mimeType?: string;
       /** Static file content to be served for this error. */
@@ -264,7 +289,7 @@ declare namespace gapi.client {
     }
     interface FirewallRule {
       /** The action to take on matched requests. */
-      action?: string;
+      action?: 'UNSPECIFIED_ACTION' | 'ALLOW' | 'DENY';
       /** An optional string description of this rule. This field has a maximum length of 400 characters. */
       description?: string;
       priority?: number;
@@ -321,7 +346,7 @@ declare namespace gapi.client {
       /** Output only. App Engine release this instance is running on. */
       appEngineRelease?: string;
       /** Output only. Availability of the instance. */
-      availability?: string;
+      availability?: 'UNSPECIFIED' | 'RESIDENT' | 'DYNAMIC';
       /** Output only. Average latency (ms) over the last minute. */
       averageLatency?: number;
       /** Output only. Number of errors since this instance was started. */
@@ -345,7 +370,13 @@ declare namespace gapi.client {
       /** Output only. The IP address of this instance. Only applicable for instances in App Engine flexible environment. */
       vmIp?: string;
       /** Output only. The liveness health check of this instance. Only applicable for instances in App Engine flexible environment. */
-      vmLiveness?: string;
+      vmLiveness?:
+        | 'LIVENESS_STATE_UNSPECIFIED'
+        | 'UNKNOWN'
+        | 'HEALTHY'
+        | 'UNHEALTHY'
+        | 'DRAINING'
+        | 'TIMEOUT';
       /** Output only. Name of the virtual machine where this instance lives. Only applicable for instances in App Engine flexible environment. */
       vmName?: string;
       /** Output only. Status of the virtual machine where this instance lives. Only applicable for instances in App Engine flexible environment. */
@@ -461,7 +492,14 @@ declare namespace gapi.client {
       /** Time at which the certificate was last renewed. The renewal process is fully managed. Certificate renewal will automatically occur before the certificate expires. Renewal errors can be tracked via ManagementStatus.@OutputOnly */
       lastRenewalTime?: string;
       /** Status of certificate management. Refers to the most recent certificate acquisition or renewal attempt.@OutputOnly */
-      status?: string;
+      status?:
+        | 'MANAGEMENT_STATUS_UNSPECIFIED'
+        | 'OK'
+        | 'PENDING'
+        | 'FAILED_RETRYING_NOT_VISIBLE'
+        | 'FAILED_PERMANENT'
+        | 'FAILED_RETRYING_CAA_FORBIDDEN'
+        | 'FAILED_RETRYING_CAA_CHECKING';
     }
     interface ManualScaling {
       /** Number of instances to assign to the service at the start. This number can later be altered by using the Modules API (https://cloud.google.com/appengine/docs/python/modules/functions) set_num_instances() function. */
@@ -471,7 +509,7 @@ declare namespace gapi.client {
       /** List of ports, or port pairs, to forward from the virtual machine to the application container. Only applicable in the App Engine flexible environment. */
       forwardedPorts?: string[];
       /** The IP mode for instances. Only applicable in the App Engine flexible environment. */
-      instanceIpMode?: string;
+      instanceIpMode?: 'INSTANCE_IP_MODE_UNSPECIFIED' | 'EXTERNAL' | 'INTERNAL';
       /** Tag to apply to the instance during creation. Only applicable in the App Engine flexible environment. */
       instanceTag?: string;
       /** Google Compute Engine network where the virtual machines are created. Specify the short name, not the resource path.Defaults to default. */
@@ -483,7 +521,11 @@ declare namespace gapi.client {
     }
     interface NetworkSettings {
       /** The ingress settings for version or service. */
-      ingressTrafficAllowed?: string;
+      ingressTrafficAllowed?:
+        | 'INGRESS_TRAFFIC_ALLOWED_UNSPECIFIED'
+        | 'INGRESS_TRAFFIC_ALLOWED_ALL'
+        | 'INGRESS_TRAFFIC_ALLOWED_INTERNAL_ONLY'
+        | 'INGRESS_TRAFFIC_ALLOWED_INTERNAL_AND_LB';
     }
     interface NetworkUtilization {
       /** Target bytes received per second. */
@@ -562,7 +604,10 @@ declare namespace gapi.client {
       /** The unique ID for this project event. CLHs can use this value to dedup repeated calls. required */
       eventId?: string;
       /** Phase indicates when in the container event propagation this event is being communicated. Events are sent before and after the per-resource events are propagated. required */
-      phase?: string;
+      phase?:
+        | 'CONTAINER_EVENT_PHASE_UNSPECIFIED'
+        | 'BEFORE_RESOURCE_HANDLING'
+        | 'AFTER_RESOURCE_HANDLING';
       /** The projects metadata for this project. required */
       projectMetadata?: ProjectsMetadata;
       /** The state of the organization that led to this event. */
@@ -574,7 +619,7 @@ declare namespace gapi.client {
       /** The consumer project number. */
       consumerProjectNumber?: string;
       /** The CCFE state of the consumer project. It is the same state that is communicated to the CLH during project events. Notice that this field is not set in the DB, it is only set in this proto when communicated to CLH in the side channel. */
-      consumerProjectState?: string;
+      consumerProjectState?: 'UNKNOWN_STATE' | 'ON' | 'OFF' | 'DELETED';
       /** The GCE tags associated with the consumer project and those inherited due to their ancestry, if any. Not supported by CCFE. */
       gceTag?: GceTag[];
       /** DEPRECATED: Indicates whether the GCE project is in the DEPROVISIONING state. This field is a temporary workaround (see b/475310865) to allow GCE extensions to bypass certain checks during deprovisioning. It will be replaced by a permanent solution in the future. */
@@ -607,12 +652,37 @@ declare namespace gapi.client {
       timeout?: string;
     }
     interface Reasons {
-      abuse?: string;
-      billing?: string;
-      dataGovernance?: string;
+      abuse?:
+        | 'ABUSE_UNKNOWN_REASON'
+        | 'ABUSE_CONTROL_PLANE_SYNC'
+        | 'SUSPEND'
+        | 'REINSTATE';
+      billing?:
+        | 'BILLING_UNKNOWN_REASON'
+        | 'BILLING_CONTROL_PLANE_SYNC'
+        | 'PROBATION'
+        | 'CLOSE'
+        | 'OPEN';
+      dataGovernance?:
+        | 'DATA_GOVERNANCE_UNKNOWN_REASON'
+        | 'DATA_GOVERNANCE_CONTROL_PLANE_SYNC'
+        | 'HIDE'
+        | 'UNHIDE'
+        | 'PURGE';
       /** Consumer Container denotes if the service is active within a project or not. This information could be used to clean up resources in case service in DISABLED_FULL i.e. Service is inactive > 30 days. */
-      serviceActivation?: string;
-      serviceManagement?: string;
+      serviceActivation?:
+        | 'SERVICE_ACTIVATION_STATUS_UNSPECIFIED'
+        | 'SERVICE_ACTIVATION_ENABLED'
+        | 'SERVICE_ACTIVATION_DISABLED'
+        | 'SERVICE_ACTIVATION_DISABLED_FULL'
+        | 'SERVICE_ACTIVATION_UNKNOWN_REASON';
+      serviceManagement?:
+        | 'SERVICE_MANAGEMENT_UNKNOWN_REASON'
+        | 'SERVICE_MANAGEMENT_CONTROL_PLANE_SYNC'
+        | 'ACTIVATION'
+        | 'PREPARE_DEACTIVATION'
+        | 'ABORT_DEACTIVATION'
+        | 'COMMIT_DEACTIVATION';
     }
     interface RepairApplicationRequest {}
     interface RequestUtilization {
@@ -635,7 +705,7 @@ declare namespace gapi.client {
       /** Data for this record. Values vary by record type, as defined in RFC 1035 (section 5) and RFC 1034 (section 3.6.1). */
       rrdata?: string;
       /** Resource record type. Example: AAAA. */
-      type?: string;
+      type?: 'RECORD_TYPE_UNSPECIFIED' | 'A' | 'AAAA' | 'CNAME';
     }
     interface Resources {
       /** Number of CPU cores needed. */
@@ -659,11 +729,19 @@ declare namespace gapi.client {
       /** Date when Runtime is end of support. */
       endOfSupportDate?: Date;
       /** The environment of the runtime. */
-      environment?: string;
+      environment?: 'ENVIRONMENT_UNSPECIFIED' | 'STANDARD' | 'FLEXIBLE';
       /** The name of the runtime, e.g., 'go113', 'nodejs12', etc. */
       name?: string;
       /** The stage of life this runtime is in, e.g., BETA, GA, etc. */
-      stage?: string;
+      stage?:
+        | 'RUNTIME_STAGE_UNSPECIFIED'
+        | 'DEVELOPMENT'
+        | 'ALPHA'
+        | 'BETA'
+        | 'GA'
+        | 'DEPRECATED'
+        | 'DECOMMISSIONED'
+        | 'END_OF_SUPPORT';
       /** Supported operating systems for the runtime, e.g., 'ubuntu22', etc. */
       supportedOperatingSystems?: string[];
       /** Warning messages, e.g., a deprecation warning. */
@@ -693,7 +771,10 @@ declare namespace gapi.client {
       /** Output only. ID of the managed AuthorizedCertificate resource currently being provisioned, if applicable. Until the new managed certificate has been successfully provisioned, the previous SSL state will be preserved. Once the provisioning process completes, the certificate_id field will reflect the new managed certificate and this field will be left empty. To remove SSL support while there is still a pending managed certificate, clear the certificate_id field with an UpdateDomainMappingRequest.@OutputOnly */
       pendingManagedCertificateId?: string;
       /** SSL management type for this domain. If AUTOMATIC, a managed certificate is automatically provisioned. If MANUAL, certificate_id must be manually specified in order to configure SSL for this domain. */
-      sslManagementType?: string;
+      sslManagementType?:
+        | 'SSL_MANAGEMENT_TYPE_UNSPECIFIED'
+        | 'AUTOMATIC'
+        | 'MANUAL';
     }
     interface StandardSchedulerSettings {
       /** Maximum number of instances to run for this version. Set to 2147483647 to disable max_instances configuration. */
@@ -733,7 +814,7 @@ declare namespace gapi.client {
       /** Mapping from version IDs within the service to fractional (0.000, 1] allocations of traffic for that version. Each version can be specified only once, but some versions in the service may not have any traffic allocation. Services that have traffic allocated cannot be deleted until either the service is deleted or their traffic allocation is removed. Allocations must sum to 1. Up to two decimal place precision is supported for IP-based splits and up to three decimal places is supported for cookie-based splits. */
       allocations?: {[P in string]: number};
       /** Mechanism used to determine which version a request is sent to. The traffic selection algorithm will be stable for either type until allocations are changed. */
-      shardBy?: string;
+      shardBy?: 'UNSPECIFIED' | 'COOKIE' | 'IP' | 'RANDOM';
     }
     interface UrlDispatchRule {
       /** Domain name to match against. The wildcard "*" is supported if specified before a period: "*.".Defaults to matching all domains: "*". */
@@ -747,15 +828,32 @@ declare namespace gapi.client {
       /** Uses API Endpoints to handle requests. */
       apiEndpoint?: ApiEndpointHandler;
       /** Action to take when users access resources that require authentication. Defaults to redirect. */
-      authFailAction?: string;
+      authFailAction?:
+        | 'AUTH_FAIL_ACTION_UNSPECIFIED'
+        | 'AUTH_FAIL_ACTION_REDIRECT'
+        | 'AUTH_FAIL_ACTION_UNAUTHORIZED';
       /** Level of login required to access this resource. Not supported for Node.js in the App Engine standard environment. */
-      login?: string;
+      login?:
+        | 'LOGIN_UNSPECIFIED'
+        | 'LOGIN_OPTIONAL'
+        | 'LOGIN_ADMIN'
+        | 'LOGIN_REQUIRED';
       /** 30x code to use when performing redirects for the secure field. Defaults to 302. */
-      redirectHttpResponseCode?: string;
+      redirectHttpResponseCode?:
+        | 'REDIRECT_HTTP_RESPONSE_CODE_UNSPECIFIED'
+        | 'REDIRECT_HTTP_RESPONSE_CODE_301'
+        | 'REDIRECT_HTTP_RESPONSE_CODE_302'
+        | 'REDIRECT_HTTP_RESPONSE_CODE_303'
+        | 'REDIRECT_HTTP_RESPONSE_CODE_307';
       /** Executes a script to handle the requests that match this URL pattern. Only the auto value is supported for Node.js in the App Engine standard environment, for example "script": "auto". */
       script?: ScriptHandler;
       /** Security (HTTPS) enforcement for this URL. */
-      securityLevel?: string;
+      securityLevel?:
+        | 'SECURE_UNSPECIFIED'
+        | 'SECURE_DEFAULT'
+        | 'SECURE_NEVER'
+        | 'SECURE_OPTIONAL'
+        | 'SECURE_ALWAYS';
       /** Returns the contents of a file, such as an image, as the response. */
       staticFiles?: StaticFilesHandler;
       /** URL prefix. Uses regular expression syntax, which means regexp special characters must be escaped, but should not contain groupings. All URLs that begin with this prefix are handled by this handler, using the portion of the URL after the prefix as part of the file path. */
@@ -805,7 +903,16 @@ declare namespace gapi.client {
       /** Relative name of the version within the service. Example: v1. Version names can contain only lowercase letters, numbers, or hyphens. Reserved names: "default", "latest", and any name with the prefix "ah-". */
       id?: string;
       /** Before an application can receive email or XMPP messages, the application must be configured to enable the service. */
-      inboundServices?: string[];
+      inboundServices?:
+        | 'INBOUND_SERVICE_UNSPECIFIED'
+        | 'INBOUND_SERVICE_MAIL'
+        | 'INBOUND_SERVICE_MAIL_BOUNCE'
+        | 'INBOUND_SERVICE_XMPP_ERROR'
+        | 'INBOUND_SERVICE_XMPP_MESSAGE'
+        | 'INBOUND_SERVICE_XMPP_SUBSCRIBE'
+        | 'INBOUND_SERVICE_XMPP_PRESENCE'
+        | 'INBOUND_SERVICE_CHANNEL_PRESENCE'
+        | 'INBOUND_SERVICE_WARMUP'[];
       /** Instance class that is used to run this version. Valid values are: AutomaticScaling: F1, F2, F4, F4_1G ManualScaling or BasicScaling: B1, B2, B4, B8, B4_1GDefaults to F1 for AutomaticScaling and B1 for ManualScaling or BasicScaling. */
       instanceClass?: string;
       /** Configuration for third-party Python runtime libraries that are required by the application.Only returned in GET requests if view=FULL is set. */
@@ -835,7 +942,7 @@ declare namespace gapi.client {
       /** The identity that the deployed version will run as. Admin API will use the App Engine Appspot service account as default if this field is neither provided in app.yaml file nor through CLI flag. */
       serviceAccount?: string;
       /** Current serving status of this version. Only the versions with a SERVING status create instances and can be billed.SERVING_STATUS_UNSPECIFIED is an invalid value. Defaults to SERVING. */
-      servingStatus?: string;
+      servingStatus?: 'SERVING_STATUS_UNSPECIFIED' | 'SERVING' | 'STOPPED';
       /** Whether multiple requests can be dispatched to this version at once. */
       threadsafe?: boolean;
       /** Output only. Serving URL for this version. Example: "https://myversion-dot-myservice-dot-myapp.appspot.com"@OutputOnly */
@@ -857,7 +964,10 @@ declare namespace gapi.client {
     }
     interface VpcAccessConnector {
       /** The egress setting for the connector, controlling what traffic is diverted through it. */
-      egressSetting?: string;
+      egressSetting?:
+        | 'EGRESS_SETTING_UNSPECIFIED'
+        | 'ALL_TRAFFIC'
+        | 'PRIVATE_IP_RANGES';
       /** Full Serverless VPC Access Connector name e.g. projects/my-project/locations/us-central1/connectors/c1. */
       name?: string;
     }
@@ -871,11 +981,11 @@ declare namespace gapi.client {
       /** Uploads the specified SSL certificate. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */
         appsId: string;
         /** JSONP */
@@ -900,11 +1010,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */
           appsId: string;
           /** JSONP */
@@ -929,11 +1039,11 @@ declare namespace gapi.client {
       /** Deletes the specified SSL certificate. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Required. Name of the resource to delete. Example: apps/myapp/authorizedCertificates/12345. */
         appsId: string;
         /** Part of `name`. See documentation of `appsId`. */
@@ -958,11 +1068,11 @@ declare namespace gapi.client {
       /** Gets the specified SSL certificate. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Required. Name of the resource requested. Example: apps/myapp/authorizedCertificates/12345. */
         appsId: string;
         /** Part of `name`. See documentation of `appsId`. */
@@ -984,16 +1094,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Controls the set of fields returned in the GET response. */
-        view?: string;
+        view?: 'BASIC_CERTIFICATE' | 'FULL_CERTIFICATE';
       }): Request<AuthorizedCertificate>;
       /** Lists all SSL certificates the user is authorized to administer. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */
         appsId: string;
         /** JSONP */
@@ -1017,16 +1127,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Controls the set of fields returned in the LIST response. */
-        view?: string;
+        view?: 'BASIC_CERTIFICATE' | 'FULL_CERTIFICATE';
       }): Request<ListAuthorizedCertificatesResponse>;
       /** Updates the specified SSL certificate. To renew a certificate and maintain its existing domain mappings, update certificate_data with a new certificate. The new certificate must be applicable to the same domains as the original certificate. The certificate display_name may also be updated. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Required. Name of the resource to update. Example: apps/myapp/authorizedCertificates/12345. */
         appsId: string;
         /** Part of `name`. See documentation of `appsId`. */
@@ -1055,11 +1165,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `name`. Required. Name of the resource to update. Example: apps/myapp/authorizedCertificates/12345. */
           appsId: string;
           /** Part of `name`. See documentation of `appsId`. */
@@ -1090,11 +1200,11 @@ declare namespace gapi.client {
       /** Lists all domains the user is authorized to administer. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */
         appsId: string;
         /** JSONP */
@@ -1123,11 +1233,11 @@ declare namespace gapi.client {
       /** Maps a domain to an application. A user must be authorized to administer a domain in order to map it to an application. For a list of available authorized domains, see AuthorizedDomains.ListAuthorizedDomains. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */
         appsId: string;
         /** JSONP */
@@ -1139,7 +1249,10 @@ declare namespace gapi.client {
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Whether the domain creation should override any existing mappings for this domain. By default, overrides are rejected. */
-        overrideStrategy?: string;
+        overrideStrategy?:
+          | 'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY'
+          | 'STRICT'
+          | 'OVERRIDE';
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
@@ -1154,11 +1267,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */
           appsId: string;
           /** JSONP */
@@ -1170,7 +1283,10 @@ declare namespace gapi.client {
           /** OAuth 2.0 token for the current user. */
           oauth_token?: string;
           /** Whether the domain creation should override any existing mappings for this domain. By default, overrides are rejected. */
-          overrideStrategy?: string;
+          overrideStrategy?:
+            | 'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY'
+            | 'STRICT'
+            | 'OVERRIDE';
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
           /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
@@ -1185,11 +1301,11 @@ declare namespace gapi.client {
       /** Deletes the specified domain mapping. A user must be authorized to administer the associated domain in order to delete a DomainMapping resource. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Required. Name of the resource to delete. Example: apps/myapp/domainMappings/example.com. */
         appsId: string;
         /** JSONP */
@@ -1214,11 +1330,11 @@ declare namespace gapi.client {
       /** Gets the specified domain mapping. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Required. Name of the resource requested. Example: apps/myapp/domainMappings/example.com. */
         appsId: string;
         /** JSONP */
@@ -1243,11 +1359,11 @@ declare namespace gapi.client {
       /** Lists the domain mappings on an application. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */
         appsId: string;
         /** JSONP */
@@ -1274,11 +1390,11 @@ declare namespace gapi.client {
       /** Updates the specified domain mapping. To map an SSL certificate to a domain mapping, update certificate_id to point to an AuthorizedCertificate resource. A user must be authorized to administer the associated domain in order to update a DomainMapping resource. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Required. Name of the resource to update. Example: apps/myapp/domainMappings/example.com. */
         appsId: string;
         /** JSONP */
@@ -1307,11 +1423,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `name`. Required. Name of the resource to update. Example: apps/myapp/domainMappings/example.com. */
           appsId: string;
           /** JSONP */
@@ -1342,11 +1458,11 @@ declare namespace gapi.client {
       /** Replaces the entire firewall ruleset in one bulk operation. This overrides and replaces the rules of an existing firewall with the new rules.If the final rule does not match traffic with the '*' wildcard IP range, then an "allow all" rule is explicitly added to the end of the list. */
       batchUpdate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Name of the Firewall collection to set. Example: apps/myapp/firewall/ingressRules. */
         appsId: string;
         /** JSONP */
@@ -1371,11 +1487,11 @@ declare namespace gapi.client {
       batchUpdate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `name`. Name of the Firewall collection to set. Example: apps/myapp/firewall/ingressRules. */
           appsId: string;
           /** JSONP */
@@ -1400,11 +1516,11 @@ declare namespace gapi.client {
       /** Creates a firewall rule for the application. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. Required. Name of the parent Firewall collection in which to create a new rule. Example: apps/myapp/firewall/ingressRules. */
         appsId: string;
         /** JSONP */
@@ -1429,11 +1545,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `parent`. Required. Name of the parent Firewall collection in which to create a new rule. Example: apps/myapp/firewall/ingressRules. */
           appsId: string;
           /** JSONP */
@@ -1458,11 +1574,11 @@ declare namespace gapi.client {
       /** Deletes the specified firewall rule. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Name of the Firewall resource to delete. Example: apps/myapp/firewall/ingressRules/100. */
         appsId: string;
         /** JSONP */
@@ -1487,11 +1603,11 @@ declare namespace gapi.client {
       /** Gets the specified firewall rule. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Name of the Firewall resource to retrieve. Example: apps/myapp/firewall/ingressRules/100. */
         appsId: string;
         /** JSONP */
@@ -1516,11 +1632,11 @@ declare namespace gapi.client {
       /** Lists the firewall rules of an application. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. Name of the Firewall collection to retrieve. Example: apps/myapp/firewall/ingressRules. */
         appsId: string;
         /** JSONP */
@@ -1549,11 +1665,11 @@ declare namespace gapi.client {
       /** Updates the specified firewall rule. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Name of the Firewall resource to update. Example: apps/myapp/firewall/ingressRules/100. */
         appsId: string;
         /** JSONP */
@@ -1582,11 +1698,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `name`. Name of the Firewall resource to update. Example: apps/myapp/firewall/ingressRules/100. */
           appsId: string;
           /** JSONP */
@@ -1620,11 +1736,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Resource name for the location. */
         appsId: string;
         /** JSONP */
@@ -1649,11 +1765,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: List all public locations: Use the path GET /v1/locations. List project-visible locations: Use the path GET /v1/projects/{project_id}/locations. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. The resource that owns the locations collection, if applicable. */
         appsId: string;
         /** JSONP */
@@ -1686,11 +1802,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. The name of the operation resource. */
         appsId: string;
         /** JSONP */
@@ -1715,11 +1831,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. The name of the operation's parent resource. */
         appsId: string;
         /** JSONP */
@@ -1752,11 +1868,11 @@ declare namespace gapi.client {
       /** Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over and determine if another instance should be started.Only applicable for instances in App Engine flexible environment. */
       debug(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Required. Name of the resource requested. Example: apps/myapp/services/default/versions/v1/instances/instance-1. */
         appsId: string;
         /** JSONP */
@@ -1787,11 +1903,11 @@ declare namespace gapi.client {
       debug(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `name`. Required. Name of the resource requested. Example: apps/myapp/services/default/versions/v1/instances/instance-1. */
           appsId: string;
           /** JSONP */
@@ -1822,11 +1938,11 @@ declare namespace gapi.client {
       /** Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Required. Name of the resource requested. Example: apps/myapp/services/default/versions/v1/instances/instance-1. */
         appsId: string;
         /** JSONP */
@@ -1855,11 +1971,11 @@ declare namespace gapi.client {
       /** Gets instance information. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Required. Name of the resource requested. Example: apps/myapp/services/default/versions/v1/instances/instance-1. */
         appsId: string;
         /** JSONP */
@@ -1888,11 +2004,11 @@ declare namespace gapi.client {
       /** Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list). */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. Required. Name of the parent Version resource. Example: apps/myapp/services/default/versions/v1. */
         appsId: string;
         /** JSONP */
@@ -1925,11 +2041,11 @@ declare namespace gapi.client {
       /** Deploys code and resource files to a new version. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. Required. Name of the parent resource to create this version under. Example: apps/myapp/services/default. */
         appsId: string;
         /** JSONP */
@@ -1956,11 +2072,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `parent`. Required. Name of the parent resource to create this version under. Example: apps/myapp/services/default. */
           appsId: string;
           /** JSONP */
@@ -1987,11 +2103,11 @@ declare namespace gapi.client {
       /** Deletes an existing Version resource. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Required. Name of the resource requested. Example: apps/myapp/services/default/versions/v1. */
         appsId: string;
         /** JSONP */
@@ -2018,11 +2134,11 @@ declare namespace gapi.client {
       /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Required. Name of the resource requested. Example: apps/myapp/services/default/versions/v1. */
         appsId: string;
         /** JSONP */
@@ -2046,16 +2162,16 @@ declare namespace gapi.client {
         /** Part of `name`. See documentation of `appsId`. */
         versionsId: string;
         /** Controls the set of fields returned in the Get response. */
-        view?: string;
+        view?: 'BASIC' | 'FULL';
       }): Request<Version>;
       /** Lists the versions of a service. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. Required. Name of the parent Service resource. Example: apps/myapp/services/default. */
         appsId: string;
         /** JSONP */
@@ -2081,16 +2197,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Controls the set of fields returned in the List response. */
-        view?: string;
+        view?: 'BASIC' | 'FULL';
       }): Request<ListVersionsResponse>;
       /** Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the version resource uses:Standard environment instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic scaling in the standard environment: automatic_scaling.min_idle_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling) automatic_scaling.max_idle_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling) automaticScaling.standard_scheduler_settings.max_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings) automaticScaling.standard_scheduler_settings.min_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings) automaticScaling.standard_scheduler_settings.target_cpu_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings) automaticScaling.standard_scheduler_settings.target_throughput_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling in the standard environment: serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status) manual_scaling.instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#manualscaling)Flexible environment serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic scaling in the flexible environment: automatic_scaling.min_total_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling) automatic_scaling.max_total_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling) automatic_scaling.cool_down_period_sec (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling) automatic_scaling.cpu_utilization.target_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)manual scaling in the flexible environment: manual_scaling.instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#manualscaling) */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Required. Name of the resource to update. Example: apps/myapp/services/default/versions/1. */
         appsId: string;
         /** JSONP */
@@ -2121,11 +2237,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `name`. Required. Name of the resource to update. Example: apps/myapp/services/default/versions/1. */
           appsId: string;
           /** JSONP */
@@ -2159,11 +2275,11 @@ declare namespace gapi.client {
       /** Deletes the specified service and all enclosed versions. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Required. Name of the resource requested. Example: apps/myapp/services/default. */
         appsId: string;
         /** JSONP */
@@ -2188,11 +2304,11 @@ declare namespace gapi.client {
       /** Gets the current configuration of the specified service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Required. Name of the resource requested. Example: apps/myapp/services/default. */
         appsId: string;
         /** JSONP */
@@ -2217,11 +2333,11 @@ declare namespace gapi.client {
       /** Lists all the services in the application. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */
         appsId: string;
         /** JSONP */
@@ -2248,11 +2364,11 @@ declare namespace gapi.client {
       /** Updates the configuration of the specified service. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Required. Name of the resource to update. Example: apps/myapp/services/default. */
         appsId: string;
         /** JSONP */
@@ -2283,11 +2399,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `name`. Required. Name of the resource to update. Example: apps/myapp/services/default. */
           appsId: string;
           /** JSONP */
@@ -2321,11 +2437,11 @@ declare namespace gapi.client {
       /** Creates an App Engine application for a Google Cloud Platform project. Required fields: id - The ID of the target Cloud Platform project. location - The region (https://cloud.google.com/appengine/docs/locations) where you want the App Engine application located.For more information about App Engine applications, see Managing Projects, Applications, and Billing (https://cloud.google.com/appengine/docs/standard/python/console/). */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2348,11 +2464,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2375,11 +2491,11 @@ declare namespace gapi.client {
       /** Gets information about an application. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Required. Name of the Application resource to get. Example: apps/myapp. */
         appsId: string;
         /** JSONP */
@@ -2387,7 +2503,10 @@ declare namespace gapi.client {
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** Options to include extra data */
-        includeExtraData?: string;
+        includeExtraData?:
+          | 'INCLUDE_EXTRA_DATA_UNSPECIFIED'
+          | 'INCLUDE_EXTRA_DATA_NONE'
+          | 'INCLUDE_GOOGLE_GENERATED_METADATA';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** OAuth 2.0 token for the current user. */
@@ -2404,17 +2523,17 @@ declare namespace gapi.client {
       /** Lists all the available runtimes for the application. */
       listRuntimes(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */
         appsId: string;
         /** JSONP */
         callback?: string;
         /** Optional. The environment of the Application. */
-        environment?: string;
+        environment?: 'ENVIRONMENT_UNSPECIFIED' | 'STANDARD' | 'FLEXIBLE';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2433,11 +2552,11 @@ declare namespace gapi.client {
       /** Updates the specified Application resource. You can update the following fields: auth_domain - Google authentication domain for controlling user access to the application. default_cookie_expiration - Cookie expiration policy for the application. iap - Identity-Aware Proxy properties for the application. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Required. Name of the Application resource to update. Example: apps/myapp. */
         appsId: string;
         /** JSONP */
@@ -2464,11 +2583,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `name`. Required. Name of the Application resource to update. Example: apps/myapp. */
           appsId: string;
           /** JSONP */
@@ -2495,11 +2614,11 @@ declare namespace gapi.client {
       /** Recreates the required App Engine features for the specified App Engine application, for example a Cloud Storage bucket or App Engine service account. Use this method if you receive an error message about a missing feature, for example, Error retrieving the App Engine service account. If you have deleted your App Engine service account, this will not be able to recreate it. Instead, you should attempt to use the IAM undelete API if possible at https://cloud.google.com/iam/reference/rest/v1/projects.serviceAccounts/undelete?apix_params=%7B"name"%3A"projects%2F-%2FserviceAccounts%2Funique_id"%2C"resource"%3A%7B%7D%7D . If the deletion was recent, the numeric ID can be found in the Cloud Console Activity Log. */
       repair(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. Required. Name of the application to repair. Example: apps/myapp */
         appsId: string;
         /** JSONP */
@@ -2524,11 +2643,11 @@ declare namespace gapi.client {
       repair(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `name`. Required. Name of the application to repair. Example: apps/myapp */
           appsId: string;
           /** JSONP */
@@ -2562,11 +2681,11 @@ declare namespace gapi.client {
       /** Uploads the specified SSL certificate. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. See documentation of `projectsId`. */
         applicationsId: string;
         /** JSONP */
@@ -2595,11 +2714,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `parent`. See documentation of `projectsId`. */
           applicationsId: string;
           /** JSONP */
@@ -2628,11 +2747,11 @@ declare namespace gapi.client {
       /** Deletes the specified SSL certificate. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. See documentation of `projectsId`. */
         applicationsId: string;
         /** Part of `name`. See documentation of `projectsId`. */
@@ -2661,11 +2780,11 @@ declare namespace gapi.client {
       /** Gets the specified SSL certificate. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. See documentation of `projectsId`. */
         applicationsId: string;
         /** Part of `name`. See documentation of `projectsId`. */
@@ -2691,16 +2810,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Controls the set of fields returned in the GET response. */
-        view?: string;
+        view?: 'BASIC_CERTIFICATE' | 'FULL_CERTIFICATE';
       }): Request<AuthorizedCertificate>;
       /** Lists all SSL certificates the user is authorized to administer. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. See documentation of `projectsId`. */
         applicationsId: string;
         /** JSONP */
@@ -2728,16 +2847,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Controls the set of fields returned in the LIST response. */
-        view?: string;
+        view?: 'BASIC_CERTIFICATE' | 'FULL_CERTIFICATE';
       }): Request<ListAuthorizedCertificatesResponse>;
       /** Updates the specified SSL certificate. To renew a certificate and maintain its existing domain mappings, update certificate_data with a new certificate. The new certificate must be applicable to the same domains as the original certificate. The certificate display_name may also be updated. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. See documentation of `projectsId`. */
         applicationsId: string;
         /** Part of `name`. See documentation of `projectsId`. */
@@ -2770,11 +2889,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `name`. See documentation of `projectsId`. */
           applicationsId: string;
           /** Part of `name`. See documentation of `projectsId`. */
@@ -2809,11 +2928,11 @@ declare namespace gapi.client {
       /** Lists all domains the user is authorized to administer. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. See documentation of `projectsId`. */
         applicationsId: string;
         /** JSONP */
@@ -2846,11 +2965,11 @@ declare namespace gapi.client {
       /** Maps a domain to an application. A user must be authorized to administer a domain in order to map it to an application. For a list of available authorized domains, see AuthorizedDomains.ListAuthorizedDomains. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. See documentation of `projectsId`. */
         applicationsId: string;
         /** JSONP */
@@ -2864,7 +2983,10 @@ declare namespace gapi.client {
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Whether the domain creation should override any existing mappings for this domain. By default, overrides are rejected. */
-        overrideStrategy?: string;
+        overrideStrategy?:
+          | 'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY'
+          | 'STRICT'
+          | 'OVERRIDE';
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */
@@ -2881,11 +3003,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `parent`. See documentation of `projectsId`. */
           applicationsId: string;
           /** JSONP */
@@ -2899,7 +3021,10 @@ declare namespace gapi.client {
           /** OAuth 2.0 token for the current user. */
           oauth_token?: string;
           /** Whether the domain creation should override any existing mappings for this domain. By default, overrides are rejected. */
-          overrideStrategy?: string;
+          overrideStrategy?:
+            | 'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY'
+            | 'STRICT'
+            | 'OVERRIDE';
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
           /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */
@@ -2916,11 +3041,11 @@ declare namespace gapi.client {
       /** Deletes the specified domain mapping. A user must be authorized to administer the associated domain in order to delete a DomainMapping resource. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. See documentation of `projectsId`. */
         applicationsId: string;
         /** JSONP */
@@ -2949,11 +3074,11 @@ declare namespace gapi.client {
       /** Gets the specified domain mapping. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. See documentation of `projectsId`. */
         applicationsId: string;
         /** JSONP */
@@ -2982,11 +3107,11 @@ declare namespace gapi.client {
       /** Lists the domain mappings on an application. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `parent`. See documentation of `projectsId`. */
         applicationsId: string;
         /** JSONP */
@@ -3017,11 +3142,11 @@ declare namespace gapi.client {
       /** Updates the specified domain mapping. To map an SSL certificate to a domain mapping, update certificate_id to point to an AuthorizedCertificate resource. A user must be authorized to administer the associated domain in order to update a DomainMapping resource. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. See documentation of `projectsId`. */
         applicationsId: string;
         /** JSONP */
@@ -3054,11 +3179,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `name`. See documentation of `projectsId`. */
           applicationsId: string;
           /** JSONP */
@@ -3093,11 +3218,11 @@ declare namespace gapi.client {
       /** Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over and determine if another instance should be started.Only applicable for instances in App Engine flexible environment. */
       debug(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. See documentation of `projectsId`. */
         applicationsId: string;
         /** JSONP */
@@ -3132,11 +3257,11 @@ declare namespace gapi.client {
       debug(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `name`. See documentation of `projectsId`. */
           applicationsId: string;
           /** JSONP */
@@ -3171,11 +3296,11 @@ declare namespace gapi.client {
       /** Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. See documentation of `projectsId`. */
         applicationsId: string;
         /** JSONP */
@@ -3210,11 +3335,11 @@ declare namespace gapi.client {
       /** Deletes an existing Version resource. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. See documentation of `projectsId`. */
         applicationsId: string;
         /** JSONP */
@@ -3245,11 +3370,11 @@ declare namespace gapi.client {
       /** Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the version resource uses:Standard environment instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic scaling in the standard environment: automatic_scaling.min_idle_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling) automatic_scaling.max_idle_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling) automaticScaling.standard_scheduler_settings.max_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings) automaticScaling.standard_scheduler_settings.min_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings) automaticScaling.standard_scheduler_settings.target_cpu_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings) automaticScaling.standard_scheduler_settings.target_throughput_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling in the standard environment: serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status) manual_scaling.instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#manualscaling)Flexible environment serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic scaling in the flexible environment: automatic_scaling.min_total_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling) automatic_scaling.max_total_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling) automatic_scaling.cool_down_period_sec (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling) automatic_scaling.cpu_utilization.target_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)manual scaling in the flexible environment: manual_scaling.instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#manualscaling) */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. See documentation of `projectsId`. */
         applicationsId: string;
         /** JSONP */
@@ -3284,11 +3409,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `name`. See documentation of `projectsId`. */
           applicationsId: string;
           /** JSONP */
@@ -3326,11 +3451,11 @@ declare namespace gapi.client {
       /** Deletes the specified service and all enclosed versions. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. See documentation of `projectsId`. */
         applicationsId: string;
         /** JSONP */
@@ -3359,11 +3484,11 @@ declare namespace gapi.client {
       /** Updates the configuration of the specified service. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. See documentation of `projectsId`. */
         applicationsId: string;
         /** JSONP */
@@ -3398,11 +3523,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `name`. See documentation of `projectsId`. */
           applicationsId: string;
           /** JSONP */
@@ -3440,11 +3565,11 @@ declare namespace gapi.client {
       /** Updates the specified Application resource. You can update the following fields: auth_domain - Google authentication domain for controlling user access to the application. default_cookie_expiration - Cookie expiration policy for the application. iap - Identity-Aware Proxy properties for the application. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Part of `name`. See documentation of `projectsId`. */
         applicationsId: string;
         /** JSONP */
@@ -3475,11 +3600,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Part of `name`. See documentation of `projectsId`. */
           applicationsId: string;
           /** JSONP */

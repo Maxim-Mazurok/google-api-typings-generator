@@ -41,7 +41,7 @@ declare namespace gapi.client {
       /** The height of the ad slot in pixels. This field will be present only when size type is `PIXEL`. */
       height?: string;
       /** The type of the ad slot size. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'PIXEL' | 'INTERSTITIAL' | 'NATIVE' | 'FLUID';
       /** The width of the ad slot in pixels. This field will be present only when size type is `PIXEL`. */
       width?: string;
     }
@@ -67,7 +67,7 @@ declare namespace gapi.client {
       /** Identifier. The unique resource name for the curated package. Format: `curators/{accountId}/curatedPackages/{curatedPackageId}` */
       name?: string;
       /** Output only. The state of the curated package. Can be used to filter the response of the curatedPackages.list method. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'ACTIVE' | 'INACTIVE';
       /** Optional. Targeting criteria for the curated package. */
       targeting?: PackageTargeting;
       /** Output only. The timestamp when the curated package was last updated. Can be used to filter the response of the curatedPackages.list method. */
@@ -81,7 +81,7 @@ declare namespace gapi.client {
       /** Immutable. Identifier. The unique identifier for the data segment. Account ID corresponds to the account ID that created the segment. v1alpha format: `buyers/{accountId}/dataSegments/{curatorDataSegmentId}` v1beta format: `curators/{curatorAccountId}/dataSegments/{curatorDataSegmentId}` */
       name?: string;
       /** Output only. The state of the data segment. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'ACTIVE' | 'INACTIVE';
       /** Output only. Time the data segment was last updated. */
       updateTime?: string;
     }
@@ -143,27 +143,57 @@ declare namespace gapi.client {
       /** Optional. The geo criteria IDs to be included or excluded as defined in https://storage.googleapis.com/adx-rtb-dictionaries/geo-table.csv. If unset, inventory will be targeted regardless of geo. */
       geoTargeting?: CriteriaTargeting;
       /** Optional. The targeted accelerated mobile page type. If unset, inventory will be targeted regardless of AMP status. */
-      includedAcceleratedMobilePageType?: string;
+      includedAcceleratedMobilePageType?:
+        | 'ACCELERATED_MOBILE_PAGE_TYPE_UNSPECIFIED'
+        | 'ACCELERATED_MOBILE_PAGE_TYPE_NON_AMP'
+        | 'ACCELERATED_MOBILE_PAGE_TYPE_AMP'
+        | 'ACCELERATED_MOBILE_PAGE_TYPE_AMP_STORY';
       /** Optional. The list of ad sizes to target. If unset, inventory will be targeted regardless of ad size. Curated packages supports `PIXEL` and `INTERSTITIAL` ad sizes. */
       includedAdSizes?: AdSize[];
       /** Optional. The included list of targeted authorized seller statuses. If empty, inventory will be targeted regardless of seller status. */
-      includedAuthorizedSellerStatuses?: string[];
+      includedAuthorizedSellerStatuses?:
+        | 'AUTHORIZED_SELLER_STATUS_UNSPECIFIED'
+        | 'AUTHORIZED_SELLER_STATUS_DIRECT'
+        | 'AUTHORIZED_SELLER_STATUS_RESELLER'[];
       /** Optional. The creative format to target. If unset, all creative markup types are targeted. */
-      includedCreativeFormat?: string;
+      includedCreativeFormat?:
+        | 'CREATIVE_FORMAT_UNSPECIFIED'
+        | 'CREATIVE_FORMAT_DISPLAY'
+        | 'CREATIVE_FORMAT_VIDEO'
+        | 'CREATIVE_FORMAT_AUDIO';
       /** Optional. The active data segments to be targeted. If unset, inventory will be targeted regardless of data segments. Format: `curators/{account_id}/dataSegments/{data_segment_id}` */
       includedDataSegments?: string[];
       /** Optional. The list of included device types to target. If empty, all device types are targeted. */
-      includedDeviceTypes?: string[];
+      includedDeviceTypes?:
+        | 'DEVICE_TYPE_UNSPECIFIED'
+        | 'DEVICE_TYPE_PERSONAL_COMPUTER'
+        | 'DEVICE_TYPE_CONNECTED_TV'
+        | 'DEVICE_TYPE_PHONE'
+        | 'DEVICE_TYPE_TABLET'[];
       /** Optional. The environment to target. If unspecified, all environments are targeted. */
-      includedEnvironment?: string;
+      includedEnvironment?:
+        | 'ENVIRONMENT_UNSPECIFIED'
+        | 'ENVIRONMENT_SITE'
+        | 'ENVIRONMENT_APP';
       /** Optional. The targeted native inventory types. If empty, inventory will be targeted regardless of native inventory type. */
-      includedNativeInventoryTypes?: string[];
+      includedNativeInventoryTypes?:
+        | 'NATIVE_INVENTORY_TYPE_UNSPECIFIED'
+        | 'NATIVE_INVENTORY_TYPE_NATIVE_ONLY'
+        | 'NATIVE_INVENTORY_TYPE_NATIVE_OR_BANNER'[];
       /** Optional. The list of targeted open measurement types. If empty, inventory will be targeted regardless of Open Measurement support. */
-      includedOpenMeasurementTypes?: string[];
+      includedOpenMeasurementTypes?:
+        | 'OPEN_MEASUREMENT_TYPE_UNSPECIFIED'
+        | 'OPEN_MEASUREMENT_TYPE_OMID_V1'[];
       /** Optional. The list of targeted restricted categories. If empty, inventory will be targeted regardless of restricted categories. */
-      includedRestrictedCategories?: string[];
+      includedRestrictedCategories?:
+        | 'RESTRICTED_CATEGORY_UNSPECIFIED'
+        | 'RESTRICTED_CATEGORY_ALCOHOL'
+        | 'RESTRICTED_CATEGORY_GAMBLING'[];
       /** Optional. The targeted rewarded type. If unset, inventory will be targeted regardless of rewarded type. */
-      includedRewardedType?: string;
+      includedRewardedType?:
+        | 'REWARDED_TYPE_UNSPECIFIED'
+        | 'REWARDED_TYPE_NON_REWARDED'
+        | 'REWARDED_TYPE_REWARDED';
       /** Optional. The languages to target. If unset, inventory will be targeted regardless of language. See https://developers.google.com/google-ads/api/data/codes-formats#languages for the list of supported language codes. */
       languageTargeting?: StringTargetingDimension;
       /** Optional. The targeted minimum predicted click through rate, ranging in values [10, 10000] (0.01% - 10%). A value of 50 means that the configuration will only match adslots for which we predict at least 0.05% click through rate. An unset value indicates inventory will be targeted regardless of predicted click through rate. */
@@ -183,17 +213,42 @@ declare namespace gapi.client {
     }
     interface PackageVideoTargeting {
       /** Optional. The targeted video delivery method. If unset, inventory will be targeted regardless of video delivery method. */
-      includedContentDeliveryMethod?: string;
+      includedContentDeliveryMethod?:
+        | 'CONTENT_DELIVERY_METHOD_UNSPECIFIED'
+        | 'CONTENT_DELIVERY_METHOD_STREAMING'
+        | 'CONTENT_DELIVERY_METHOD_PROGRESSIVE';
       /** Optional. The targeted maximum video ad duration. If unset, inventory will be targeted regardless of maximum video ad duration. */
-      includedMaximumAdDurationTargeting?: string;
+      includedMaximumAdDurationTargeting?:
+        | 'MAXIMUM_VIDEO_AD_DURATION_UNSPECIFIED'
+        | 'MAXIMUM_VIDEO_AD_DURATION_FIFTEEN_SECONDS'
+        | 'MAXIMUM_VIDEO_AD_DURATION_TWENTY_SECONDS'
+        | 'MAXIMUM_VIDEO_AD_DURATION_THIRTY_SECONDS'
+        | 'MAXIMUM_VIDEO_AD_DURATION_SIXTY_SECONDS'
+        | 'MAXIMUM_VIDEO_AD_DURATION_NINETY_SECONDS'
+        | 'MAXIMUM_VIDEO_AD_DURATION_ONE_HUNDRED_TWENTY_SECONDS';
       /** Optional. The list of targeted video mime types using the IANA published MIME type strings (https://www.iana.org/assignments/media-types/media-types.xhtml). If empty, inventory will be targeted regardless of video mime type. */
-      includedMimeTypes?: string[];
+      includedMimeTypes?:
+        | 'VIDEO_MIME_TYPE_UNSPECIFIED'
+        | 'VIDEO_MIME_TYPE_THREEGPP'
+        | 'VIDEO_MIME_TYPE_APPLICATION_MPEGURL'
+        | 'VIDEO_MIME_TYPE_MP4'
+        | 'VIDEO_MIME_TYPE_APPLICATION_MPEGDASH'
+        | 'VIDEO_MIME_TYPE_APPLICATION_JAVASCRIPT'
+        | 'VIDEO_MIME_TYPE_WEBM'[];
       /** Optional. The list of targeted video playback methods. If empty, inventory will be targeted regardless of video playback method. */
-      includedPlaybackMethods?: string[];
+      includedPlaybackMethods?:
+        | 'PLAYBACK_METHOD_UNSPECIFIED'
+        | 'PLAYBACK_METHOD_AUTO_PLAY_SOUND_ON'
+        | 'PLAYBACK_METHOD_AUTO_PLAY_SOUND_OFF'
+        | 'PLAYBACK_METHOD_CLICK_TO_PLAY'[];
       /** Optional. The targeted video player size. If unset, inventory will be targeted regardless of video player size. */
       includedPlayerSizeTargeting?: VideoPlayerSizeTargeting;
       /** Optional. The targeted video ad position types. If empty, inventory will be targeted regardless of video ad position type. */
-      includedPositionTypes?: string[];
+      includedPositionTypes?:
+        | 'POSITION_TYPE_UNSPECIFIED'
+        | 'POSITION_TYPE_MIDROLL'
+        | 'POSITION_TYPE_POSTROLL'
+        | 'POSITION_TYPE_PREROLL'[];
       /** Optional. The targeted minimum predicted completion rate percentage. This value must be a multiple of 10 between 10 and 90 (inclusive). For example, 10 is valid, but 0, 15, and 100 are not. A value of 10 means that the configuration will only match adslots for which we predict at least 10% completion rate. An unset value indicates inventory will be targeted regardless of predicted completion rate. */
       minimumPredictedCompletionRatePercentage?: string;
       /** Optional. The targeted video plcmt types. If unset, inventory will be targeted regardless of video plcmt type. */
@@ -201,7 +256,10 @@ declare namespace gapi.client {
     }
     interface StringTargetingDimension {
       /** Required. How the items in this list should be targeted. */
-      selectionType?: string;
+      selectionType?:
+        | 'SELECTION_TYPE_UNSPECIFIED'
+        | 'SELECTION_TYPE_INCLUDE'
+        | 'SELECTION_TYPE_EXCLUDE';
       /** Required. The values specified. */
       values?: string[];
     }
@@ -219,19 +277,27 @@ declare namespace gapi.client {
     }
     interface VideoPlcmtTargeting {
       /** Required. The selection type for the list of video plcmts. */
-      selectionType?: string;
+      selectionType?:
+        | 'SELECTION_TYPE_UNSPECIFIED'
+        | 'SELECTION_TYPE_INCLUDE'
+        | 'SELECTION_TYPE_EXCLUDE';
       /** Required. The list of targeted video plcmts types. If empty, inventory will be targeted regardless of video plcmt type. */
-      videoPlcmtTypes?: string[];
+      videoPlcmtTypes?:
+        | 'VIDEO_PLCMT_TYPE_UNSPECIFIED'
+        | 'INSTREAM'
+        | 'ACCOMPANYING_CONTENT'
+        | 'INTERSTITIAL'
+        | 'NO_CONTENT'[];
     }
     interface CuratedPackagesResource {
       /** Activates an existing curated package. */
       activate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -256,11 +322,11 @@ declare namespace gapi.client {
       activate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -285,11 +351,11 @@ declare namespace gapi.client {
       /** Creates a new curated package. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -314,11 +380,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -343,11 +409,11 @@ declare namespace gapi.client {
       /** Deactivates an existing curated package. */
       deactivate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -372,11 +438,11 @@ declare namespace gapi.client {
       deactivate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -401,11 +467,11 @@ declare namespace gapi.client {
       /** Gets a curated package given its resource name. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -428,11 +494,11 @@ declare namespace gapi.client {
       /** Lists curated packages owned by the specified curator. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -461,11 +527,11 @@ declare namespace gapi.client {
       /** Updates an existing curated package. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -492,11 +558,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -525,11 +591,11 @@ declare namespace gapi.client {
       /** Activates a data segment. */
       activate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -554,11 +620,11 @@ declare namespace gapi.client {
       activate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -583,11 +649,11 @@ declare namespace gapi.client {
       /** Creates a data segment owned by the listed curator. The data segment will be created in the `ACTIVE` state, meaning it will be immediately available for buyers to use in preferred deals, private auction deals, and auction packages. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -612,11 +678,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -641,11 +707,11 @@ declare namespace gapi.client {
       /** Deactivates a data segment. */
       deactivate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -670,11 +736,11 @@ declare namespace gapi.client {
       deactivate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -699,11 +765,11 @@ declare namespace gapi.client {
       /** Gets a data segment given its name. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -726,11 +792,11 @@ declare namespace gapi.client {
       /** List the data segments owned by a curator. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -757,11 +823,11 @@ declare namespace gapi.client {
       /** Updates a data segment. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -788,11 +854,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -825,11 +891,11 @@ declare namespace gapi.client {
       /** Lists all media planner accounts that the caller has access to. For curators, this will return all media planners that have accepted curator terms. For other accounts, attempting to list media planners will return an error. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

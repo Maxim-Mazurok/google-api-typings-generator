@@ -32,7 +32,19 @@ declare namespace gapi.client {
       /** Required. The resource name this setting is for. This is of the form `accounts/{account_id}/notificationSetting`. */
       name?: string;
       /** The types of notifications that will be sent to the Pub/Sub topic. To stop receiving notifications entirely, use NotificationSettings.UpdateNotificationSetting with an empty notification_types or set the pubsub_topic to an empty string. */
-      notificationTypes?: string[];
+      notificationTypes?:
+        | 'NOTIFICATION_TYPE_UNSPECIFIED'
+        | 'GOOGLE_UPDATE'
+        | 'NEW_REVIEW'
+        | 'UPDATED_REVIEW'
+        | 'NEW_CUSTOMER_MEDIA'
+        | 'NEW_QUESTION'
+        | 'UPDATED_QUESTION'
+        | 'NEW_ANSWER'
+        | 'UPDATED_ANSWER'
+        | 'DUPLICATE_LOCATION'
+        | 'LOSS_OF_VOICE_OF_MERCHANT'
+        | 'VOICE_OF_MERCHANT_UPDATED'[];
       /** Optional. The Google Pub/Sub topic that will receive notifications when locations managed by this account are updated. If unset, no notifications will be posted. The account mybusiness-api-pubsub@system.gserviceaccount.com must have at least Publish permissions on the Pub/Sub topic. */
       pubsubTopic?: string;
     }
@@ -40,11 +52,11 @@ declare namespace gapi.client {
       /** Returns the pubsub notification settings for the account. */
       getNotificationSetting(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -67,11 +79,11 @@ declare namespace gapi.client {
       /** Sets the pubsub notification setting for the account informing Google which topic to send pubsub notifications for. Use the notification_types field within notification_setting to manipulate the events an account wants to subscribe to. An account will only have one notification setting resource, and only one pubsub topic can be set. To delete the setting, update with an empty notification_types */
       updateNotificationSetting(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -98,11 +110,11 @@ declare namespace gapi.client {
       updateNotificationSetting(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

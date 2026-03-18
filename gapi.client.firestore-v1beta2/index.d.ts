@@ -35,7 +35,15 @@ declare namespace gapi.client {
       /** The time this operation completed. Will be unset if operation still in progress. */
       endTime?: string;
       /** The state of the export operation. */
-      operationState?: string;
+      operationState?:
+        | 'OPERATION_STATE_UNSPECIFIED'
+        | 'INITIALIZING'
+        | 'PROCESSING'
+        | 'CANCELLING'
+        | 'FINALIZING'
+        | 'SUCCESSFUL'
+        | 'FAILED'
+        | 'CANCELLED';
       /** Where the entities are being exported to. */
       outputUriPrefix?: string;
       /** The progress, in bytes, of this operation. */
@@ -75,7 +83,15 @@ declare namespace gapi.client {
       /** The time this operation started. */
       startTime?: string;
       /** The state of the operation. */
-      state?: string;
+      state?:
+        | 'OPERATION_STATE_UNSPECIFIED'
+        | 'INITIALIZING'
+        | 'PROCESSING'
+        | 'CANCELLING'
+        | 'FINALIZING'
+        | 'SUCCESSFUL'
+        | 'FAILED'
+        | 'CANCELLED';
     }
     interface GoogleFirestoreAdminV1beta2ImportDocumentsMetadata {
       /** Which collection ids are being imported. */
@@ -85,7 +101,15 @@ declare namespace gapi.client {
       /** The location of the documents being imported. */
       inputUriPrefix?: string;
       /** The state of the import operation. */
-      operationState?: string;
+      operationState?:
+        | 'OPERATION_STATE_UNSPECIFIED'
+        | 'INITIALIZING'
+        | 'PROCESSING'
+        | 'CANCELLING'
+        | 'FINALIZING'
+        | 'SUCCESSFUL'
+        | 'FAILED'
+        | 'CANCELLED';
       /** The progress, in bytes, of this operation. */
       progressBytes?: GoogleFirestoreAdminV1beta2Progress;
       /** The progress, in documents, of this operation. */
@@ -105,9 +129,12 @@ declare namespace gapi.client {
       /** Output only. A server defined name for this index. The form of this name for composite indexes will be: `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/indexes/{composite_index_id}` For single field indexes, this field will be empty. */
       name?: string;
       /** Indexes with a collection query scope specified allow queries against a collection that is the child of a specific document, specified at query time, and that has the same collection id. Indexes with a collection group query scope specified allow queries against all collections descended from a specific document, specified at query time, and that have the same collection id as this index. */
-      queryScope?: string;
+      queryScope?:
+        | 'QUERY_SCOPE_UNSPECIFIED'
+        | 'COLLECTION'
+        | 'COLLECTION_GROUP';
       /** Output only. The serving state of the index. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'CREATING' | 'READY' | 'NEEDS_REPAIR';
     }
     interface GoogleFirestoreAdminV1beta2IndexConfig {
       /** Output only. Specifies the resource name of the `Field` from which this field's index configuration is set (when `uses_ancestor_config` is true), or from which it *would* be set if this field had no index configuration (when `uses_ancestor_config` is false). */
@@ -121,17 +148,17 @@ declare namespace gapi.client {
     }
     interface GoogleFirestoreAdminV1beta2IndexConfigDelta {
       /** Specifies how the index is changing. */
-      changeType?: string;
+      changeType?: 'CHANGE_TYPE_UNSPECIFIED' | 'ADD' | 'REMOVE';
       /** The index being changed. */
       index?: GoogleFirestoreAdminV1beta2Index;
     }
     interface GoogleFirestoreAdminV1beta2IndexField {
       /** Indicates that this field supports operations on `array_value`s. */
-      arrayConfig?: string;
+      arrayConfig?: 'ARRAY_CONFIG_UNSPECIFIED' | 'CONTAINS';
       /** Can be __name__. For single field indexes, this must match the name of the field or may be omitted. */
       fieldPath?: string;
       /** Indicates that this field supports ordering by the specified order or comparing using =, <, <=, >, >=. */
-      order?: string;
+      order?: 'ORDER_UNSPECIFIED' | 'ASCENDING' | 'DESCENDING';
     }
     interface GoogleFirestoreAdminV1beta2IndexOperationMetadata {
       /** The time this operation completed. Will be unset if operation still in progress. */
@@ -145,7 +172,15 @@ declare namespace gapi.client {
       /** The time this operation started. */
       startTime?: string;
       /** The state of the operation. */
-      state?: string;
+      state?:
+        | 'OPERATION_STATE_UNSPECIFIED'
+        | 'INITIALIZING'
+        | 'PROCESSING'
+        | 'CANCELLING'
+        | 'FINALIZING'
+        | 'SUCCESSFUL'
+        | 'FAILED'
+        | 'CANCELLED';
     }
     interface GoogleFirestoreAdminV1beta2ListFieldsResponse {
       /** The requested fields. */
@@ -173,7 +208,15 @@ declare namespace gapi.client {
       /** Which namespace IDs are being deleted. */
       namespaceIds?: string[];
       /** The state of the operation. */
-      operationState?: string;
+      operationState?:
+        | 'OPERATION_STATE_UNSPECIFIED'
+        | 'INITIALIZING'
+        | 'PROCESSING'
+        | 'CANCELLING'
+        | 'FINALIZING'
+        | 'SUCCESSFUL'
+        | 'FAILED'
+        | 'CANCELLED';
       /** The progress, in bytes, of this operation. */
       progressBytes?: GoogleFirestoreAdminV1Progress;
       /** The progress, in documents, of this operation. */
@@ -189,7 +232,15 @@ declare namespace gapi.client {
       /** The time the clone finished, unset for ongoing clones. */
       endTime?: string;
       /** The operation state of the clone. */
-      operationState?: string;
+      operationState?:
+        | 'OPERATION_STATE_UNSPECIFIED'
+        | 'INITIALIZING'
+        | 'PROCESSING'
+        | 'CANCELLING'
+        | 'FINALIZING'
+        | 'SUCCESSFUL'
+        | 'FAILED'
+        | 'CANCELLED';
       /** The snapshot from which this database was cloned. */
       pitrSnapshot?: GoogleFirestoreAdminV1PitrSnapshot;
       /** How far along the clone is as an estimated percentage of remaining time. */
@@ -221,7 +272,15 @@ declare namespace gapi.client {
       /** The time the restore finished, unset for ongoing restores. */
       endTime?: string;
       /** The operation state of the restore. */
-      operationState?: string;
+      operationState?:
+        | 'OPERATION_STATE_UNSPECIFIED'
+        | 'INITIALIZING'
+        | 'PROCESSING'
+        | 'CANCELLING'
+        | 'FINALIZING'
+        | 'SUCCESSFUL'
+        | 'FAILED'
+        | 'CANCELLED';
       /** How far along the restore is as an estimated percentage of remaining time. */
       progressPercentage?: GoogleFirestoreAdminV1Progress;
       /** The time the restore was started. */
@@ -252,11 +311,11 @@ declare namespace gapi.client {
       /** Gets the metadata and configuration for a Field. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -279,11 +338,11 @@ declare namespace gapi.client {
       /** Lists the field configuration and metadata for this database. Currently, FirestoreAdmin.ListFields only supports listing fields that have been explicitly overridden. To issue this query, call FirestoreAdmin.ListFields with the filter set to `indexConfig.usesAncestorConfig:false`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -312,11 +371,11 @@ declare namespace gapi.client {
       /** Updates a field configuration. Currently, field updates apply only to single field index configuration. However, calls to FirestoreAdmin.UpdateField should provide a field mask to avoid changing any configuration that the caller isn't aware of. The field mask should be specified as: `{ paths: "index_config" }`. This call returns a google.longrunning.Operation which may be used to track the status of the field update. The metadata for the operation will be the type FieldOperationMetadata. To configure the default field settings for the database, use the special `Field` with resource name: `projects/{project_id}/databases/{database_id}/collectionGroups/__default__/fields/*`. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -343,11 +402,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -376,11 +435,11 @@ declare namespace gapi.client {
       /** Creates a composite index. This returns a google.longrunning.Operation which may be used to track the status of the creation. The metadata for the operation will be the type IndexOperationMetadata. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -405,11 +464,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -434,11 +493,11 @@ declare namespace gapi.client {
       /** Deletes a composite index. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -461,11 +520,11 @@ declare namespace gapi.client {
       /** Gets a composite index. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -488,11 +547,11 @@ declare namespace gapi.client {
       /** Lists composite indexes. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -527,11 +586,11 @@ declare namespace gapi.client {
       /** Exports a copy of all or a subset of documents from Google Cloud Firestore to another storage system, such as Google Cloud Storage. Recent updates to documents may not be reflected in the export. The export occurs in the background and its progress can be monitored and managed via the Operation resource that is created. The output of an export may only be used once the associated operation is done. If an export operation is cancelled before completion it may leave partial data behind in Google Cloud Storage. */
       exportDocuments(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -556,11 +615,11 @@ declare namespace gapi.client {
       exportDocuments(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -585,11 +644,11 @@ declare namespace gapi.client {
       /** Imports documents into Google Cloud Firestore. Existing documents with the same name are overwritten. The import occurs in the background and its progress can be monitored and managed via the Operation resource that is created. If an ImportDocuments operation is cancelled, it is possible that a subset of the data has already been imported to Cloud Firestore. */
       importDocuments(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -614,11 +673,11 @@ declare namespace gapi.client {
       importDocuments(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

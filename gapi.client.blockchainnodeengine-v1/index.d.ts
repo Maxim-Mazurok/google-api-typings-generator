@@ -30,7 +30,7 @@ declare namespace gapi.client {
   namespace blockchainnodeengine {
     interface BlockchainNode {
       /** Immutable. The blockchain type of the node. */
-      blockchainType?: string;
+      blockchainType?: 'BLOCKCHAIN_TYPE_UNSPECIFIED' | 'ETHEREUM';
       /** Output only. The connection information used to interact with a blockchain node. */
       connectionInfo?: ConnectionInfo;
       /** Output only. The timestamp at which the blockchain node was first created. */
@@ -44,7 +44,16 @@ declare namespace gapi.client {
       /** Optional. When true, the node is only accessible via Private Service Connect; no public endpoints are exposed. Otherwise, the node is only accessible via public endpoints. Warning: These nodes are deprecated, please use public endpoints instead. */
       privateServiceConnectEnabled?: boolean;
       /** Output only. A status representing the state of the node. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'DELETING'
+        | 'RUNNING'
+        | 'ERROR'
+        | 'UPDATING'
+        | 'REPAIRING'
+        | 'RECONCILING'
+        | 'SYNCING';
       /** Output only. The timestamp at which the blockchain node was last updated. */
       updateTime?: string;
     }
@@ -69,15 +78,23 @@ declare namespace gapi.client {
       /** Immutable. Enables JSON-RPC access to functions in the `debug` namespace. Defaults to `false`. */
       apiEnableDebug?: boolean;
       /** Immutable. The consensus client. */
-      consensusClient?: string;
+      consensusClient?:
+        | 'CONSENSUS_CLIENT_UNSPECIFIED'
+        | 'LIGHTHOUSE'
+        | 'ERIGON_EMBEDDED_CONSENSUS_LAYER';
       /** Immutable. The execution client */
-      executionClient?: string;
+      executionClient?: 'EXECUTION_CLIENT_UNSPECIFIED' | 'GETH' | 'ERIGON';
       /** Details for the Geth execution client. */
       gethDetails?: GethDetails;
       /** Immutable. The Ethereum environment being accessed. */
-      network?: string;
+      network?:
+        | 'NETWORK_UNSPECIFIED'
+        | 'MAINNET'
+        | 'TESTNET_GOERLI_PRATER'
+        | 'TESTNET_SEPOLIA'
+        | 'TESTNET_HOLESKY';
       /** Immutable. The type of Ethereum node. */
-      nodeType?: string;
+      nodeType?: 'NODE_TYPE_UNSPECIFIED' | 'LIGHT' | 'FULL' | 'ARCHIVE';
       /** Configuration for validator-related parameters on the beacon client, and for any GCP-managed validator client. */
       validatorConfig?: ValidatorConfig;
     }
@@ -91,7 +108,10 @@ declare namespace gapi.client {
     }
     interface GethDetails {
       /** Immutable. Blockchain garbage collection mode. */
-      garbageCollectionMode?: string;
+      garbageCollectionMode?:
+        | 'GARBAGE_COLLECTION_MODE_UNSPECIFIED'
+        | 'FULL'
+        | 'ARCHIVE';
     }
     interface GoogleProtobufEmpty {}
     interface ListBlockchainNodesResponse {
@@ -174,11 +194,11 @@ declare namespace gapi.client {
       /** Creates a new blockchain node in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. ID of the requesting object. */
         blockchainNodeId?: string;
         /** JSONP */
@@ -207,11 +227,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. ID of the requesting object. */
           blockchainNodeId?: string;
           /** JSONP */
@@ -240,11 +260,11 @@ declare namespace gapi.client {
       /** Deletes a single blockchain node. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -269,11 +289,11 @@ declare namespace gapi.client {
       /** Gets details of a single blockchain node. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -296,11 +316,11 @@ declare namespace gapi.client {
       /** Lists blockchain nodes in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -331,11 +351,11 @@ declare namespace gapi.client {
       /** Updates the parameters of a single blockchain node. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -364,11 +384,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -399,11 +419,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -428,11 +448,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -457,11 +477,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -484,11 +504,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -511,11 +531,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -546,11 +566,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -573,11 +593,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. A list of extra location types that should be used as conditions for controlling the visibility of the locations. */

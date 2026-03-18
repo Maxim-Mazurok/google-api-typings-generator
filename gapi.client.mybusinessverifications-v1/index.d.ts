@@ -46,7 +46,10 @@ declare namespace gapi.client {
     }
     interface ComplyWithGuidelines {
       /** The reason why the location is being recommended to comply with guidelines. */
-      recommendationReason?: string;
+      recommendationReason?:
+        | 'RECOMMENDATION_REASON_UNSPECIFIED'
+        | 'BUSINESS_LOCATION_SUSPENDED'
+        | 'BUSINESS_LOCATION_DISABLED';
     }
     interface EmailVerificationData {
       /** Domain name in the email address. e.g. "gmail.com" in foo@gmail.com */
@@ -76,7 +79,7 @@ declare namespace gapi.client {
       /** The generated instant verification token. */
       instantVerificationToken?: string;
       /** Output only. The result of the instant verification token generation. */
-      result?: string;
+      result?: 'RESULT_UNSPECIFIED' | 'SUCCEEDED' | 'FAILED';
     }
     interface ListVerificationsResponse {
       /** If the number of verifications exceeded the requested page size, this field will be populated with a token to fetch the next page of verification on a subsequent call. If there are no more attributes, this field will not be present in the response. */
@@ -125,11 +128,19 @@ declare namespace gapi.client {
       /** The timestamp when the verification is requested. */
       createTime?: string;
       /** The method of the verification. */
-      method?: string;
+      method?:
+        | 'VERIFICATION_METHOD_UNSPECIFIED'
+        | 'ADDRESS'
+        | 'EMAIL'
+        | 'PHONE_CALL'
+        | 'SMS'
+        | 'AUTO'
+        | 'VETTED_PARTNER'
+        | 'TRUSTED_PARTNER';
       /** Resource name of the verification. */
       name?: string;
       /** The state of the verification. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'PENDING' | 'COMPLETED' | 'FAILED';
     }
     interface VerificationOption {
       /** Set only if the method is MAIL. */
@@ -141,7 +152,15 @@ declare namespace gapi.client {
       /** Set only if the method is PHONE_CALL or SMS. Phone number that the PIN will be sent to. */
       phoneNumber?: string;
       /** Method to verify the location. */
-      verificationMethod?: string;
+      verificationMethod?:
+        | 'VERIFICATION_METHOD_UNSPECIFIED'
+        | 'ADDRESS'
+        | 'EMAIL'
+        | 'PHONE_CALL'
+        | 'SMS'
+        | 'AUTO'
+        | 'VETTED_PARTNER'
+        | 'TRUSTED_PARTNER';
     }
     interface VerificationToken {
       /** The token string. */
@@ -161,7 +180,15 @@ declare namespace gapi.client {
       /** Optional. The input for ADDRESS method. Contact name the mail should be sent to. */
       mailerContact?: string;
       /** Required. Verification method. */
-      method?: string;
+      method?:
+        | 'VERIFICATION_METHOD_UNSPECIFIED'
+        | 'ADDRESS'
+        | 'EMAIL'
+        | 'PHONE_CALL'
+        | 'SMS'
+        | 'AUTO'
+        | 'VETTED_PARTNER'
+        | 'TRUSTED_PARTNER';
       /** Optional. The input for PHONE_CALL/SMS method The phone number that should be called or be sent SMS to. It must be one of the phone numbers in the eligible options. */
       phoneNumber?: string;
       /** Optional. The input for VETTED_PARTNER method available to select [partners.](https://support.google.com/business/answer/7674102) The input is not needed for a vetted account. Token that is associated to the location. Token that is associated to the location. */
@@ -192,11 +219,11 @@ declare namespace gapi.client {
       /** Completes a `PENDING` verification. It is only necessary for non `AUTO` verification methods. `AUTO` verification request is instantly `VERIFIED` upon creation. */
       complete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -221,11 +248,11 @@ declare namespace gapi.client {
       complete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -250,11 +277,11 @@ declare namespace gapi.client {
       /** List verifications of a location, ordered by create time. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -283,11 +310,11 @@ declare namespace gapi.client {
       /** Reports all eligible verification options for a location in a specific language. */
       fetchVerificationOptions(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -312,11 +339,11 @@ declare namespace gapi.client {
       fetchVerificationOptions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -341,11 +368,11 @@ declare namespace gapi.client {
       /** Gets the VoiceOfMerchant state. */
       getVoiceOfMerchantState(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -368,11 +395,11 @@ declare namespace gapi.client {
       /** Starts the verification process for a location. */
       verify(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -397,11 +424,11 @@ declare namespace gapi.client {
       verify(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -429,11 +456,11 @@ declare namespace gapi.client {
       /** Generate a token for the provided location data to verify the location. */
       generate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -456,11 +483,11 @@ declare namespace gapi.client {
       generate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

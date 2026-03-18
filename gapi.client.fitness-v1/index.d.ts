@@ -36,7 +36,12 @@ declare namespace gapi.client {
       /** The start time for the aggregated data, in milliseconds since epoch, inclusive. */
       startTimeMillis?: string;
       /** The type of a bucket signifies how the data aggregation is performed in the bucket. */
-      type?: string;
+      type?:
+        | 'unknown'
+        | 'time'
+        | 'session'
+        | 'activityType'
+        | 'activitySegment';
     }
     interface AggregateBy {
       /** A data source ID to aggregate. Only data from the specified data source ID will be included in the aggregation. If specified, this data source must exist; the OAuth scopes in the supplied credentials must grant read access to this data type. The dataset in the response will have the same data source ID. Note: Data can be aggregated by either the dataTypeName or the dataSourceId, not both. */
@@ -58,7 +63,17 @@ declare namespace gapi.client {
       /** The end of a window of time. Data that intersects with this time window will be aggregated. The time is in milliseconds since epoch, inclusive. The maximum allowed difference between start_time_millis // and end_time_millis is 7776000000 (roughly 90 days). */
       endTimeMillis?: string;
       /** DO NOT POPULATE THIS FIELD. It is ignored. */
-      filteredDataQualityStandard?: string[];
+      filteredDataQualityStandard?:
+        | 'dataQualityUnknown'
+        | 'dataQualityBloodPressureEsh2002'
+        | 'dataQualityBloodPressureEsh2010'
+        | 'dataQualityBloodPressureAami'
+        | 'dataQualityBloodPressureBhsAA'
+        | 'dataQualityBloodPressureBhsAB'
+        | 'dataQualityBloodPressureBhsBA'
+        | 'dataQualityBloodPressureBhsBB'
+        | 'dataQualityBloodGlucoseIso151972003'
+        | 'dataQualityBloodGlucoseIso151972013'[];
       /** The start of a window of time. Data that intersects with this time window will be aggregated. The time is in milliseconds since epoch, inclusive. */
       startTimeMillis?: string;
     }
@@ -94,7 +109,7 @@ declare namespace gapi.client {
     interface BucketByTimePeriod {
       /** org.joda.timezone.DateTimeZone */
       timeZoneId?: string;
-      type?: string;
+      type?: 'day' | 'week' | 'month';
       value?: number;
     }
     interface DataPoint {
@@ -131,7 +146,17 @@ declare namespace gapi.client {
       /** Information about an application which feeds sensor data into the platform. */
       application?: Application;
       /** DO NOT POPULATE THIS FIELD. It is never populated in responses from the platform, and is ignored in queries. It will be removed in a future version entirely. */
-      dataQualityStandard?: string[];
+      dataQualityStandard?:
+        | 'dataQualityUnknown'
+        | 'dataQualityBloodPressureEsh2002'
+        | 'dataQualityBloodPressureEsh2010'
+        | 'dataQualityBloodPressureAami'
+        | 'dataQualityBloodPressureBhsAA'
+        | 'dataQualityBloodPressureBhsAB'
+        | 'dataQualityBloodPressureBhsBA'
+        | 'dataQualityBloodPressureBhsBB'
+        | 'dataQualityBloodGlucoseIso151972003'
+        | 'dataQualityBloodGlucoseIso151972013'[];
       /** A unique identifier for the data stream produced by this data source. The identifier includes: - The physical device's manufacturer, model, and serial number (UID). - The application's package name or name. Package name is used when the data source was created by an Android application. The developer project number is used when the data source was created by a REST client. - The data source's type. - The data source's stream name. Note that not all attributes of the data source are used as part of the stream identifier. In particular, the version of the hardware/the application isn't used. This allows us to preserve the same stream through version updates. This also means that two DataSource objects may represent the same data stream even if they're not equal. The exact format of the data stream ID created by an Android application is: type:dataType.name:application.packageName:device.manufacturer:device.model:device.uid:dataStreamName The exact format of the data stream ID created by a REST client is: type:dataType.name:developer project number:device.manufacturer:device.model:device.uid:dataStreamName When any of the optional fields that make up the data stream ID are absent, they will be omitted from the data stream ID. The minimum viable data stream ID would be: type:dataType.name:developer project number Finally, the developer project number and device UID are obfuscated when read by any REST or Android client that did not create the data source. Only the data source creator will see the developer project number in clear and normal form. This means a client will see a different set of data_stream_ids than another client with different credentials. */
       dataStreamId?: string;
       /** The stream name uniquely identifies this particular data source among other data sources of the same type from the same underlying producer. Setting the stream name is optional, but should be done whenever an application exposes two streams for the same data type, or when a device has two equivalent sensors. */
@@ -143,7 +168,7 @@ declare namespace gapi.client {
       /** An end-user visible name for this data source. */
       name?: string;
       /** A constant describing the type of this data source. Indicates whether this data source produces raw or derived data. */
-      type?: string;
+      type?: 'raw' | 'derived';
     }
     interface DataType {
       /** A field represents one dimension of a data type. */
@@ -153,7 +178,14 @@ declare namespace gapi.client {
     }
     interface DataTypeField {
       /** The different supported formats for each field in a data type. */
-      format?: string;
+      format?:
+        | 'integer'
+        | 'floatPoint'
+        | 'string'
+        | 'map'
+        | 'integerList'
+        | 'floatList'
+        | 'blob';
       /** Defines the name and format of data. Unlike data type names, field names are not namespaced, and only need to be unique within the data type. */
       name?: string;
       optional?: boolean;
@@ -164,7 +196,15 @@ declare namespace gapi.client {
       /** End-user visible model name for the device. */
       model?: string;
       /** A constant representing the type of the device. */
-      type?: string;
+      type?:
+        | 'unknown'
+        | 'phone'
+        | 'tablet'
+        | 'watch'
+        | 'chestStrap'
+        | 'scale'
+        | 'headMounted'
+        | 'smartDisplay';
       /** The serial number or other unique ID for the hardware. This field is obfuscated when read by any REST or Android client that did not create the data source. Only the data source creator will see the uid field in clear and normal form. The obfuscation preserves equality; that is, given two IDs, if id1 == id2, obfuscated(id1) == obfuscated(id2). */
       uid?: string;
       /** Version string for the device hardware/software. */
@@ -236,11 +276,11 @@ declare namespace gapi.client {
       /** Aggregates data of a certain type or stream into buckets divided by a given type of boundary. Multiple data sets of multiple types and from multiple sources can be aggregated into exactly one bucket type per request. */
       aggregate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -265,11 +305,11 @@ declare namespace gapi.client {
       aggregate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -296,11 +336,11 @@ declare namespace gapi.client {
       /** Queries for user's data point changes for a particular data source. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The data stream ID of the data source that created the dataset. */
@@ -331,11 +371,11 @@ declare namespace gapi.client {
       /** Performs an inclusive delete of all data points whose start and end times have any overlap with the time range specified by the dataset ID. For most data types, the entire data point will be deleted. For data types where the time span represents a consistent value (such as com.google.activity.segment), and a data point straddles either end point of the dataset, only the overlapping portion of the data point will be deleted. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Dataset identifier that is a composite of the minimum data point start time and maximum data point end time represented as nanoseconds from the epoch. The ID is formatted like: "startTime-endTime" where startTime and endTime are 64 bit integers. */
@@ -362,11 +402,11 @@ declare namespace gapi.client {
       /** Returns a dataset containing all data points whose start and end times overlap with the specified range of the dataset minimum start time and maximum end time. Specifically, any data point whose start time is less than or equal to the dataset end time and whose end time is greater than or equal to the dataset start time. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Dataset identifier that is a composite of the minimum data point start time and maximum data point end time represented as nanoseconds from the epoch. The ID is formatted like: "startTime-endTime" where startTime and endTime are 64 bit integers. */
@@ -397,11 +437,11 @@ declare namespace gapi.client {
       /** Adds data points to a dataset. The dataset need not be previously created. All points within the given dataset will be returned with subsquent calls to retrieve this dataset. Data points can belong to more than one dataset. This method does not use patch semantics: the data points provided are merely inserted, with no existing data replaced. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** This field is not used, and can be safely omitted. */
@@ -430,11 +470,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** This field is not used, and can be safely omitted. */
@@ -465,11 +505,11 @@ declare namespace gapi.client {
       /** Creates a new data source that is unique across all data sources belonging to this user. A data source is a unique source of sensor data. Data sources can expose raw data coming from hardware sensors on local or companion devices. They can also expose derived data, created by transforming or merging other data sources. Multiple data sources can exist for the same data type. Every data point in every dataset inserted into or read from the Fitness API has an associated data source. Each data source produces a unique stream of dataset updates, with a unique data source identifier. Not all changes to data source affect the data stream ID, so that data collected by updated versions of the same application/device can still be considered to belong to the same data source. Data sources are identified using a string generated by the server, based on the contents of the source being created. The dataStreamId field should not be set when invoking this method. It will be automatically generated by the server with the correct format. If a dataStreamId is set, it must match the format that the server would generate. This format is a combination of some fields from the data source, and has a specific order. If it doesn't match, the request will fail with an error. Specifying a DataType which is not a known type (beginning with "com.google.") will create a DataSource with a *custom data type*. Custom data types are only readable by the application that created them. Custom data types are *deprecated*; use standard data types instead. In addition to the data source fields included in the data source ID, the developer project number that is authenticated when creating the data source is included. This developer project number is obfuscated when read by any other developer reading public data types. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -494,11 +534,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -523,11 +563,11 @@ declare namespace gapi.client {
       /** Deletes the specified data source. The request will fail if the data source contains any data points. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The data stream ID of the data source to delete. */
@@ -552,11 +592,11 @@ declare namespace gapi.client {
       /** Returns the specified data source. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The data stream ID of the data source to retrieve. */
@@ -581,11 +621,11 @@ declare namespace gapi.client {
       /** Lists all data sources that are visible to the developer, using the OAuth scopes provided. The list is not exhaustive; the user may have private data sources that are only visible to other developers, or calls using other scopes. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The names of data types to include in the list. If not specified, all data sources will be returned. */
@@ -610,11 +650,11 @@ declare namespace gapi.client {
       /** Updates the specified data source. The dataStreamId, dataType, type, dataStreamName, and device properties with the exception of version, cannot be modified. Data sources are identified by their dataStreamId. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The data stream ID of the data source to update. */
@@ -641,11 +681,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The data stream ID of the data source to update. */
@@ -676,11 +716,11 @@ declare namespace gapi.client {
       /** Deletes a session specified by the given session ID. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -705,13 +745,13 @@ declare namespace gapi.client {
       /** Lists sessions previously created. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** If non-empty, only sessions with these activity types should be returned. */
         activityType?: number | number[];
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** An RFC3339 timestamp. Only sessions starting before endTime and ending after startTime up to (endTime + 1 day) will be included in the response. If this time is omitted but startTime is specified, all sessions ending after startTime to the end of time will be returned. */
@@ -742,11 +782,11 @@ declare namespace gapi.client {
       /** Updates or insert a given session. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -773,11 +813,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

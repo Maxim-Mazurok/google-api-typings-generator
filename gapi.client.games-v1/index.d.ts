@@ -26,7 +26,7 @@ declare namespace gapi.client {
   namespace games {
     interface AchievementDefinition {
       /** The type of the achievement. */
-      achievementType?: string;
+      achievementType?: 'STANDARD' | 'INCREMENTAL';
       /** The description of the achievement. */
       description?: string;
       /** Experience points which will be earned when unlocking this achievement. */
@@ -36,7 +36,7 @@ declare namespace gapi.client {
       /** The ID of the achievement. */
       id?: string;
       /** The initial state of the achievement. */
-      initialState?: string;
+      initialState?: 'HIDDEN' | 'REVEALED' | 'UNLOCKED';
       /** Indicates whether the revealed icon image being returned is a default image, or is provided by the game. */
       isRevealedIconUrlDefault?: boolean;
       /** Indicates whether the unlocked icon image being returned is a default image, or is game-provided. */
@@ -70,7 +70,7 @@ declare namespace gapi.client {
     }
     interface AchievementRevealResponse {
       /** The current state of the achievement for which a reveal was attempted. This might be `UNLOCKED` if the achievement was already unlocked. */
-      currentState?: string;
+      currentState?: 'REVEALED' | 'UNLOCKED';
       /** Uniquely identifies the type of this resource. Value is always the fixed string `games#achievementRevealResponse`. */
       kind?: string;
     }
@@ -110,13 +110,13 @@ declare namespace gapi.client {
       /** The payload if an update of type `SET_STEPS_AT_LEAST` was requested for the achievement. */
       setStepsAtLeastPayload?: GamesAchievementSetStepsAtLeast;
       /** The type of update being applied. */
-      updateType?: string;
+      updateType?: 'REVEAL' | 'UNLOCK' | 'INCREMENT' | 'SET_STEPS_AT_LEAST';
     }
     interface AchievementUpdateResponse {
       /** The achievement this update is was applied to. */
       achievementId?: string;
       /** The current state of the achievement. */
-      currentState?: string;
+      currentState?: 'HIDDEN' | 'REVEALED' | 'UNLOCKED';
       /** The current steps recorded for this achievement if it is incremental. */
       currentSteps?: number;
       /** Uniquely identifies the type of this resource. Value is always the fixed string `games#achievementUpdateResponse`. */
@@ -138,7 +138,7 @@ declare namespace gapi.client {
       /** The description of the application. */
       description?: string;
       /** A list of features that have been enabled for the application. */
-      enabledFeatures?: string[];
+      enabledFeatures?: 'SNAPSHOTS'[];
       /** The ID of the application. */
       id?: string;
       /** The instances of the application. */
@@ -198,7 +198,13 @@ declare namespace gapi.client {
     }
     interface EventBatchRecordFailure {
       /** The cause for the update failure. */
-      failureCause?: string;
+      failureCause?:
+        | 'TOO_LARGE'
+        | 'TIME_PERIOD_EXPIRED'
+        | 'TIME_PERIOD_SHORT'
+        | 'TIME_PERIOD_LONG'
+        | 'ALREADY_UPDATED'
+        | 'RECORD_RATE_HIGH';
       /** Uniquely identifies the type of this resource. Value is always the fixed string `games#eventBatchRecordFailure`. */
       kind?: string;
       /** The time range which was rejected; empty for a request-wide failure. */
@@ -226,7 +232,7 @@ declare namespace gapi.client {
       /** Uniquely identifies the type of this resource. Value is always the fixed string `games#eventDefinition`. */
       kind?: string;
       /** The visibility of event being tracked in this definition. */
-      visibility?: string;
+      visibility?: 'REVEALED' | 'HIDDEN';
     }
     interface EventDefinitionListResponse {
       /** The event definitions. */
@@ -256,7 +262,7 @@ declare namespace gapi.client {
       /** The ID of the event that was not updated. */
       eventId?: string;
       /** The cause for the update failure. */
-      failureCause?: string;
+      failureCause?: 'NOT_FOUND' | 'INVALID_UPDATE_VALUE';
       /** Uniquely identifies the type of this resource. Value is always the fixed string `games#eventRecordFailure`. */
       kind?: string;
     }
@@ -344,7 +350,7 @@ declare namespace gapi.client {
       /** Localized display name. */
       name?: string;
       /** The platform type. */
-      platformType?: string;
+      platformType?: 'ANDROID' | 'IOS' | 'WEB_APP';
       /** Flag to show if this game instance supports realtime play. */
       realtimePlay?: boolean;
       /** Flag to show if this game instance supports turn based play. */
@@ -398,7 +404,7 @@ declare namespace gapi.client {
       /** The name of the leaderboard. */
       name?: string;
       /** How scores are ordered. */
-      order?: string;
+      order?: 'LARGER_IS_BETTER' | 'SMALLER_IS_BETTER';
     }
     interface LeaderboardEntry {
       /** The localized string for the numerical value of this score. */
@@ -416,7 +422,7 @@ declare namespace gapi.client {
       /** The numerical value of this score. */
       scoreValue?: string;
       /** The time span of this high score. */
-      timeSpan?: string;
+      timeSpan?: 'ALL_TIME' | 'WEEKLY' | 'DAILY';
       /** The timestamp at which this score was recorded, in milliseconds since the epoch in UTC. */
       writeTimestampMillis?: string;
     }
@@ -456,9 +462,11 @@ declare namespace gapi.client {
     }
     interface LinkPersonaRequest {
       /** Required. Cardinality constraint to observe when linking a persona to a player in the scope of a game. */
-      cardinalityConstraint?: string;
+      cardinalityConstraint?: 'ONE_PERSONA_TO_ONE_PLAYER';
       /** Required. Resolution policy to apply when the linking of a persona to a player would result in violating the specified cardinality constraint. */
-      conflictingLinksResolutionPolicy?: string;
+      conflictingLinksResolutionPolicy?:
+        | 'KEEP_EXISTING_LINKS'
+        | 'CREATE_NEW_LINK';
       /** Input only. Optional expiration time. */
       expireTime?: string;
       /** Required. Stable identifier of the in-game account. Please refrain from re-using the same persona for different games. */
@@ -472,7 +480,7 @@ declare namespace gapi.client {
     }
     interface LinkPersonaResponse {
       /** Output only. State of a persona linking attempt. */
-      state?: string;
+      state?: 'LINK_CREATED' | 'PERSONA_OR_PLAYER_ALREADY_LINKED';
     }
     interface MetagameConfig {
       /** Current version of the metagame configuration data. When this data is updated, the version number will be increased by one. */
@@ -494,7 +502,7 @@ declare namespace gapi.client {
       /** An object to represent Play Game experience information for the player. */
       experienceInfo?: PlayerExperienceInfo;
       /** The friend status of the given player, relative to the requester. This is unset if the player is not sharing their friends list with the game. */
-      friendStatus?: string;
+      friendStatus?: 'NO_RELATIONSHIP' | 'FRIEND';
       /** Per-application unique player identifier. */
       gamePlayerId?: string;
       /** Uniquely identifies the type of this resource. Value is always the fixed string `games#player` */
@@ -517,7 +525,7 @@ declare namespace gapi.client {
     }
     interface PlayerAchievement {
       /** The state of the achievement. */
-      achievementState?: string;
+      achievementState?: 'HIDDEN' | 'REVEALED' | 'UNLOCKED';
       /** The current steps for an incremental achievement. */
       currentSteps?: number;
       /** Experience points earned for the achievement. This field is absent for achievements that have not yet been unlocked and 0 for achievements that have been unlocked by testers but that are unpublished. */
@@ -589,7 +597,7 @@ declare namespace gapi.client {
       /** The social rank of the score in this leaderboard. */
       socialRank?: LeaderboardScoreRank;
       /** The time span of this score. */
-      timeSpan?: string;
+      timeSpan?: 'ALL_TIME' | 'WEEKLY' | 'DAILY';
       /** The timestamp at which this score was recorded, in milliseconds since the epoch in UTC. */
       writeTimestamp?: string;
     }
@@ -631,7 +639,7 @@ declare namespace gapi.client {
       /** Additional information about this score. Values will contain no more than 64 URI-safe characters as defined by section 2.3 of RFC 3986. */
       scoreTag?: string;
       /** The time span for this player score. */
-      timeSpan?: string;
+      timeSpan?: 'ALL_TIME' | 'WEEKLY' | 'DAILY';
     }
     interface PlayerScoreListResponse {
       /** Uniquely identifies the type of this resource. Value is always the fixed string `games#playerScoreListResponse`. */
@@ -641,7 +649,7 @@ declare namespace gapi.client {
     }
     interface PlayerScoreResponse {
       /** The time spans where the submitted score is better than the existing score for that time span. */
-      beatenScoreTimeSpans?: string[];
+      beatenScoreTimeSpans?: 'ALL_TIME' | 'WEEKLY' | 'DAILY'[];
       /** The formatted value of the submitted score. */
       formattedScore?: string;
       /** Uniquely identifies the type of this resource. Value is always the fixed string `games#playerScoreResponse`. */
@@ -664,7 +672,7 @@ declare namespace gapi.client {
       tokenValue?: string;
     }
     interface ProfileSettings {
-      friendsListVisibility?: string;
+      friendsListVisibility?: 'VISIBLE' | 'REQUEST_REQUIRED' | 'UNAVAILABLE';
       /** Uniquely identifies the type of this resource. Value is always the fixed string `games#profileSettings`. */
       kind?: string;
       /** Whether the player's profile is visible to the currently signed in player. */
@@ -704,7 +712,7 @@ declare namespace gapi.client {
       /** Uniquely identifies the type of this resource. Value is always the fixed string `games#revisionCheckResponse`. */
       kind?: string;
       /** The result of the revision check. */
-      revisionStatus?: string;
+      revisionStatus?: 'OK' | 'DEPRECATED' | 'INVALID';
     }
     interface ScopedPlayerIds {
       /** Identifier of the player across all games of the given developer. Every player has the same developer_player_key in all games of one developer. Developer player key changes for the game if the game is transferred to another developer. Note that game_player_id will stay unchanged. */
@@ -744,7 +752,7 @@ declare namespace gapi.client {
       /** The title of this snapshot. */
       title?: string;
       /** The type of this snapshot. */
-      type?: string;
+      type?: 'SAVE_GAME';
       /** The unique name provided when the snapshot was created. */
       uniqueName?: string;
     }
@@ -808,11 +816,11 @@ declare namespace gapi.client {
       /** Generates a Play Grouping API token for the PGS user identified by the attached credential. */
       generatePlayGroupingApiToken(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -837,11 +845,11 @@ declare namespace gapi.client {
       /** Generates a Play Grouping API token for the PGS user identified by the Recall session ID provided in the request. */
       generateRecallPlayGroupingApiToken(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -870,11 +878,11 @@ declare namespace gapi.client {
       /** Lists all the achievement definitions for your application. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -903,13 +911,13 @@ declare namespace gapi.client {
       /** Increments the steps of the achievement with the given ID for the currently authenticated player. */
       increment(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the achievement used by this method. */
         achievementId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -934,11 +942,11 @@ declare namespace gapi.client {
       /** Lists the progress for all your application's achievements for the currently authenticated player. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -960,7 +968,7 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Tells the server to return only achievements with the specified state. If this parameter isn't specified, all achievements are returned. */
-        state?: string;
+        state?: 'ALL' | 'HIDDEN' | 'REVEALED' | 'UNLOCKED';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -969,13 +977,13 @@ declare namespace gapi.client {
       /** Sets the state of the achievement with the given ID to `REVEALED` for the currently authenticated player. */
       reveal(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the achievement used by this method. */
         achievementId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -996,13 +1004,13 @@ declare namespace gapi.client {
       /** Sets the steps for the currently authenticated player towards unlocking an achievement. If the steps parameter is less than the current number of steps that the player already gained for the achievement, the achievement is not modified. */
       setStepsAtLeast(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the achievement used by this method. */
         achievementId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1025,13 +1033,13 @@ declare namespace gapi.client {
       /** Unlocks this achievement for the currently authenticated player. */
       unlock(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the achievement used by this method. */
         achievementId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1052,11 +1060,11 @@ declare namespace gapi.client {
       /** Updates multiple achievements for the currently authenticated player. */
       updateMultiple(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1079,11 +1087,11 @@ declare namespace gapi.client {
       updateMultiple(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1108,11 +1116,11 @@ declare namespace gapi.client {
       /** Retrieves the metadata of the application with the given ID. If the requested application is not available for the specified `platformType`, the returned response will not include any instance data. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The application ID from the Google Play developer console. */
         applicationId: string;
         /** JSONP */
@@ -1126,7 +1134,7 @@ declare namespace gapi.client {
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Restrict application details returned to the specific platform. */
-        platformType?: string;
+        platformType?: 'ANDROID' | 'IOS' | 'WEB_APP';
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
@@ -1139,17 +1147,17 @@ declare namespace gapi.client {
       /** Returns a URL for the requested end point type. */
       getEndPoint(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The application ID from the Google Play developer console. */
         applicationId?: string;
         /** JSONP */
         callback?: string;
         /** Type of endpoint being requested. */
-        endPointType?: string;
+        endPointType?: 'PROFILE_CREATION' | 'PROFILE_SETTINGS';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1168,11 +1176,11 @@ declare namespace gapi.client {
       /** Indicate that the currently authenticated user is playing your application. */
       played(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1193,11 +1201,11 @@ declare namespace gapi.client {
       /** Verifies the auth token provided with this request is for the application with the specified ID, and returns the ID of the player it was granted for. */
       verify(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** The application ID from the Google Play developer console. */
         applicationId: string;
         /** JSONP */
@@ -1222,11 +1230,11 @@ declare namespace gapi.client {
       /** Returns a list showing the current progress on events in this application for the currently authenticated user. */
       listByPlayer(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1253,11 +1261,11 @@ declare namespace gapi.client {
       /** Returns a list of the event definitions in this application. */
       listDefinitions(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1284,11 +1292,11 @@ declare namespace gapi.client {
       /** Records a batch of changes to the number of times events have occurred for the currently authenticated user of this application. */
       record(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1313,11 +1321,11 @@ declare namespace gapi.client {
       record(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1344,11 +1352,11 @@ declare namespace gapi.client {
       /** Retrieves the metadata of the leaderboard with the given ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1373,11 +1381,11 @@ declare namespace gapi.client {
       /** Lists all the leaderboard metadata for your application. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1406,11 +1414,11 @@ declare namespace gapi.client {
       /** Return the metagame configuration data for the calling application. */
       getMetagameConfig(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1431,15 +1439,15 @@ declare namespace gapi.client {
       /** List play data aggregated per category for the player corresponding to `playerId`. */
       listCategoriesByPlayer(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The collection of categories for which data will be returned. */
-        collection: string;
+        collection: 'ALL';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1468,11 +1476,11 @@ declare namespace gapi.client {
       /** Retrieves the Player resource with the given ID. To retrieve the player for the currently authenticated user, set `playerId` to `me`. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1499,11 +1507,11 @@ declare namespace gapi.client {
       /** Get the application player ids for the currently authenticated player across all requested games by the same developer as the calling application. This will only return ids for players that actually have an id (scoped or otherwise) with that game. */
       getMultipleApplicationPlayerIds(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The application IDs from the Google Play developer console for the games to return scoped ids for. */
         applicationIds?: string | string[];
         /** JSONP */
@@ -1526,11 +1534,11 @@ declare namespace gapi.client {
       /** Retrieves scoped player identifiers for currently authenticated user. */
       getScopedPlayerIds(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1551,15 +1559,15 @@ declare namespace gapi.client {
       /** Get the collection of players for the currently authenticated user. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Collection of players being retrieved */
-        collection: string;
+        collection: 'CONNECTED' | 'VISIBLE' | 'FRIENDS_ALL';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1586,11 +1594,11 @@ declare namespace gapi.client {
       /** Retrieve the Recall tokens from all requested games that is associated with the PGS Player encoded in the provided recall session id. The API is only available for users that have an active PGS Player profile. */
       gamesPlayerTokens(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The application IDs from the Google Play developer console for the games to return scoped ids for. */
         applicationIds?: string | string[];
         /** JSONP */
@@ -1615,11 +1623,11 @@ declare namespace gapi.client {
       /** Retrieve the last Recall token from all developer games that is associated with the PGS Player encoded in the provided recall session id. The API is only available for users that have active PGS Player profile. */
       lastTokenFromAllDeveloperGames(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1642,11 +1650,11 @@ declare namespace gapi.client {
       /** Associate the PGS Player principal encoded in the provided recall session id with an in-game account */
       linkPersona(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1669,11 +1677,11 @@ declare namespace gapi.client {
       linkPersona(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1696,11 +1704,11 @@ declare namespace gapi.client {
       /** Delete all Recall tokens linking the given persona to any player (with or without a profile). */
       resetPersona(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1723,11 +1731,11 @@ declare namespace gapi.client {
       resetPersona(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1750,11 +1758,11 @@ declare namespace gapi.client {
       /** Retrieve all Recall tokens associated with the PGS Player encoded in the provided recall session id. The API is only available for users that have active PGS Player profile. */
       retrieveTokens(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1777,11 +1785,11 @@ declare namespace gapi.client {
       /** Delete a Recall token linking the PGS Player principal identified by the Recall session and an in-game account identified either by the 'persona' or by the token value. */
       unlinkPersona(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1804,11 +1812,11 @@ declare namespace gapi.client {
       unlinkPersona(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1833,11 +1841,11 @@ declare namespace gapi.client {
       /** Checks whether the games client is out of date. */
       check(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. The revision of the client SDK used by your application. Format: `[PLATFORM_TYPE]:[VERSION_NUMBER]`. Possible values of `PLATFORM_TYPE` are: * `ANDROID` - Client is running the Android SDK. * `IOS` - Client is running the iOS SDK. * `WEB_APP` - Client is running as a Web App. */
@@ -1862,17 +1870,17 @@ declare namespace gapi.client {
       /** Get high scores, and optionally ranks, in leaderboards for the currently authenticated player. For a specific time span, `leaderboardId` can be set to `ALL` to retrieve data for all leaderboards in a given time span. `NOTE: You cannot ask for 'ALL' leaderboards and 'ALL' timeSpans in the same request; only one parameter may be set to 'ALL'. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** The types of ranks to return. If the parameter is omitted, no ranks will be returned. */
-        includeRankType?: string;
+        includeRankType?: 'ALL' | 'PUBLIC' | 'SOCIAL' | 'FRIENDS';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** The preferred language to use for strings returned by this method. */
@@ -1892,7 +1900,7 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** The time span for the scores and ranks you're requesting. */
-        timeSpan: string;
+        timeSpan: 'ALL' | 'ALL_TIME' | 'WEEKLY' | 'DAILY';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1901,15 +1909,15 @@ declare namespace gapi.client {
       /** Lists the scores in a leaderboard, starting from the top. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The collection of scores you're requesting. */
-        collection: string;
+        collection: 'PUBLIC' | 'SOCIAL' | 'FRIENDS';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1929,7 +1937,7 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Required. The time span for the scores and ranks you're requesting. */
-        timeSpan: string;
+        timeSpan: 'ALL_TIME' | 'WEEKLY' | 'DAILY';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1938,15 +1946,15 @@ declare namespace gapi.client {
       /** Lists the scores in a leaderboard around (and including) a player's score. */
       listWindow(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The collection of scores you're requesting. */
-        collection: string;
+        collection: 'PUBLIC' | 'SOCIAL' | 'FRIENDS';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1970,7 +1978,7 @@ declare namespace gapi.client {
         /** True if the top scores should be returned when the player is not in the leaderboard. Defaults to true. */
         returnTopIfAbsent?: boolean;
         /** Required. The time span for the scores and ranks you're requesting. */
-        timeSpan: string;
+        timeSpan: 'ALL_TIME' | 'WEEKLY' | 'DAILY';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1979,11 +1987,11 @@ declare namespace gapi.client {
       /** Submits a score to the specified leaderboard. */
       submit(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2012,11 +2020,11 @@ declare namespace gapi.client {
       /** Submits multiple scores to leaderboards. */
       submitMultiple(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2041,11 +2049,11 @@ declare namespace gapi.client {
       submitMultiple(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2072,11 +2080,11 @@ declare namespace gapi.client {
       /** Retrieves the metadata for a given snapshot ID. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2101,11 +2109,11 @@ declare namespace gapi.client {
       /** Retrieves a list of snapshots created by your application for the player corresponding to the player ID. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2136,11 +2144,11 @@ declare namespace gapi.client {
       /** Returns engagement and spend statistics in this application for the currently authenticated user. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

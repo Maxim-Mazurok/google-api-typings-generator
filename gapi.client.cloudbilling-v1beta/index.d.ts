@@ -34,9 +34,9 @@ declare namespace gapi.client {
     }
     interface GoogleCloudBillingBillingaccountpricesV1betaAggregationInfo {
       /** Interval at which usage is aggregated to compute cost. Example: "MONTHLY" interval indicates that usage is aggregated every month. */
-      interval?: string;
+      interval?: 'INTERVAL_UNSPECIFIED' | 'INTERVAL_MONTHLY' | 'INTERVAL_DAILY';
       /** Level at which usage is aggregated to compute cost. Example: "ACCOUNT" level indicates that usage is aggregated across all projects in a single account. */
-      level?: string;
+      level?: 'LEVEL_UNSPECIFIED' | 'LEVEL_ACCOUNT' | 'LEVEL_PROJECT';
     }
     interface GoogleCloudBillingBillingaccountpricesV1betaBillingAccountPrice {
       /** ISO-4217 currency code for the price. */
@@ -162,7 +162,11 @@ declare namespace gapi.client {
       /** Regional geographic metadata with 1 region. */
       regionalMetadata?: GoogleCloudBillingBillingaccountskugroupskusV1betaGeoTaxonomyRegional;
       /** Type of geographic taxonomy associated with the billing account SKU group SKU. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'TYPE_GLOBAL'
+        | 'TYPE_REGIONAL'
+        | 'TYPE_MULTI_REGIONAL';
     }
     interface GoogleCloudBillingBillingaccountskugroupskusV1betaGeoTaxonomyGlobal {}
     interface GoogleCloudBillingBillingaccountskugroupskusV1betaGeoTaxonomyMultiRegional {
@@ -225,7 +229,11 @@ declare namespace gapi.client {
       /** Regional geographic metadata with 1 region. */
       regionalMetadata?: GoogleCloudBillingBillingaccountskusV1betaGeoTaxonomyRegional;
       /** Type of geographic taxonomy associated with the billing account SKU. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'TYPE_GLOBAL'
+        | 'TYPE_REGIONAL'
+        | 'TYPE_MULTI_REGIONAL';
     }
     interface GoogleCloudBillingBillingaccountskusV1betaGeoTaxonomyGlobal {}
     interface GoogleCloudBillingBillingaccountskusV1betaGeoTaxonomyMultiRegional {
@@ -256,9 +264,9 @@ declare namespace gapi.client {
     }
     interface GoogleCloudBillingPricesV1betaAggregationInfo {
       /** Interval at which usage is aggregated to compute cost. Example: "MONTHLY" interval indicates that usage is aggregated every month. */
-      interval?: string;
+      interval?: 'INTERVAL_UNSPECIFIED' | 'INTERVAL_MONTHLY' | 'INTERVAL_DAILY';
       /** Level at which usage is aggregated to compute cost. Example: "ACCOUNT" level indicates that usage is aggregated across all projects in a single account. */
-      level?: string;
+      level?: 'LEVEL_UNSPECIFIED' | 'LEVEL_ACCOUNT' | 'LEVEL_PROJECT';
     }
     interface GoogleCloudBillingPricesV1betaListPricesResponse {
       /** Token that can be sent as `page_token` in the subsequent request to retrieve the next page. If this field is empty, there are no subsequent pages. */
@@ -306,7 +314,11 @@ declare namespace gapi.client {
       /** Regional geographic metadata with 1 region. */
       regionalMetadata?: GoogleCloudBillingSkugroupskusV1betaGeoTaxonomyRegional;
       /** Type of geographic taxonomy associated with the SKU group SKU. */
-      type?: string;
+      type?:
+        | 'TYPE_UNSPECIFIED'
+        | 'TYPE_GLOBAL'
+        | 'TYPE_REGIONAL'
+        | 'TYPE_MULTI_REGIONAL';
     }
     interface GoogleCloudBillingSkugroupskusV1betaGeoTaxonomyGlobal {}
     interface GoogleCloudBillingSkugroupskusV1betaGeoTaxonomyMultiRegional {
@@ -373,11 +385,11 @@ declare namespace gapi.client {
       /** Gets a Google Cloud service visible to a billing account. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -400,11 +412,11 @@ declare namespace gapi.client {
       /** Lists services visible to a billing account. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -433,11 +445,11 @@ declare namespace gapi.client {
       /** Gets a SKU that is part of a billing account SKU group. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -460,11 +472,11 @@ declare namespace gapi.client {
       /** Lists SKUs that is part of billing account SKU groups. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -493,11 +505,11 @@ declare namespace gapi.client {
       /** Gets a SKU group visible to a billing account. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -520,11 +532,11 @@ declare namespace gapi.client {
       /** Lists SKU groups visible to a billing account. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -554,11 +566,11 @@ declare namespace gapi.client {
       /** Gets the latest price for SKUs available to your Cloud Billing account. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. ISO-4217 currency code for the price. If not specified, the currency of the billing account is used. */
@@ -585,11 +597,11 @@ declare namespace gapi.client {
       /** Lists the latest prices for SKUs available to your Cloud Billing account. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. ISO-4217 currency code for the price. If not specified, currency of billing account will be used. */
@@ -620,11 +632,11 @@ declare namespace gapi.client {
       /** Gets a SKU visible to a billing account. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -647,11 +659,11 @@ declare namespace gapi.client {
       /** Lists SKUs visible to a billing account. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -689,11 +701,11 @@ declare namespace gapi.client {
       /** Gets a publicly listed SKU that is part of a publicly listed SKU group. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -716,11 +728,11 @@ declare namespace gapi.client {
       /** Lists all publicly listed SKUs contained by a publicly listed SKU group. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -749,11 +761,11 @@ declare namespace gapi.client {
       /** Gets a publicly listed SKU group. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -776,11 +788,11 @@ declare namespace gapi.client {
       /** Lists all publicly listed SKU groups. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -808,11 +820,11 @@ declare namespace gapi.client {
       /** Gets the latest price for the given SKU. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. ISO-4217 currency code for the price. If not specified, USD will be used. */
@@ -839,11 +851,11 @@ declare namespace gapi.client {
       /** Lists the latest prices for all SKUs. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. ISO-4217 currency code for the price. If not specified, USD will be used. */

@@ -38,11 +38,15 @@ declare namespace gapi.client {
       /** The Y coordinate translation element. */
       translateY?: number;
       /** The units for translate elements. */
-      unit?: string;
+      unit?: 'UNIT_UNSPECIFIED' | 'EMU' | 'PT';
     }
     interface Autofit {
       /** The autofit type of the shape. If the autofit type is AUTOFIT_TYPE_UNSPECIFIED, the autofit type is inherited from a parent placeholder if it exists. The field is automatically set to NONE if a request is made that might affect text fitting within its bounding text box. In this case, the font_scale is applied to the font_size and the line_spacing_reduction is applied to the line_spacing. Both properties are also reset to default values. */
-      autofitType?: string;
+      autofitType?:
+        | 'AUTOFIT_TYPE_UNSPECIFIED'
+        | 'NONE'
+        | 'TEXT_AUTOFIT'
+        | 'SHAPE_AUTOFIT';
       /** The font scale applied to the shape. For shapes with autofit_type NONE or SHAPE_AUTOFIT, this value is the default value of 1. For TEXT_AUTOFIT, this value multiplied by the font_size gives the font size that's rendered in the editor. This property is read-only. */
       fontScale?: number;
       /** The line spacing reduction applied to the shape. For shapes with autofit_type NONE or SHAPE_AUTOFIT, this value is the default value of 0. For TEXT_AUTOFIT, this value subtracted from the line_spacing gives the line spacing that's rendered in the editor. This property is read-only. */
@@ -54,7 +58,7 @@ declare namespace gapi.client {
       /** The styling applied to this auto text. */
       style?: TextStyle;
       /** The type of this auto text. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'SLIDE_NUMBER';
     }
     interface BatchUpdatePresentationRequest {
       /** A list of updates to apply to the presentation. */
@@ -106,11 +110,11 @@ declare namespace gapi.client {
     }
     interface CreateLineRequest {
       /** The category of the line to be created. The exact line type created is determined based on the category and how it's routed to connect to other page elements. If you specify both a `category` and a `line_category`, the `category` takes precedence. If you do not specify a value for `category`, but specify a value for `line_category`, then the specified `line_category` value is used. If you do not specify either, then STRAIGHT is used. */
-      category?: string;
+      category?: 'LINE_CATEGORY_UNSPECIFIED' | 'STRAIGHT' | 'BENT' | 'CURVED';
       /** The element properties for the line. */
       elementProperties?: PageElementProperties;
       /** The category of the line to be created. *Deprecated*: use `category` instead. The exact line type created is determined based on the category and how it's routed to connect to other page elements. If you specify both a `category` and a `line_category`, the `category` takes precedence. */
-      lineCategory?: string;
+      lineCategory?: 'STRAIGHT' | 'BENT' | 'CURVED';
       /** A user-supplied object ID. If you specify an ID, it must be unique among all pages and page elements in the presentation. The ID must start with an alphanumeric character or an underscore (matches regex `[a-zA-Z0-9_]`); remaining characters may include those as well as a hyphen or colon (matches regex `[a-zA-Z0-9_-:]`). The length of the ID must not be less than 5 or greater than 50. If you don't specify an ID, a unique one is generated. */
       objectId?: string;
     }
@@ -120,7 +124,22 @@ declare namespace gapi.client {
     }
     interface CreateParagraphBulletsRequest {
       /** The kinds of bullet glyphs to be used. Defaults to the `BULLET_DISC_CIRCLE_SQUARE` preset. */
-      bulletPreset?: string;
+      bulletPreset?:
+        | 'BULLET_DISC_CIRCLE_SQUARE'
+        | 'BULLET_DIAMONDX_ARROW3D_SQUARE'
+        | 'BULLET_CHECKBOX'
+        | 'BULLET_ARROW_DIAMOND_DISC'
+        | 'BULLET_STAR_CIRCLE_SQUARE'
+        | 'BULLET_ARROW3D_CIRCLE_SQUARE'
+        | 'BULLET_LEFTTRIANGLE_DIAMOND_DISC'
+        | 'BULLET_DIAMONDX_HOLLOWDIAMOND_SQUARE'
+        | 'BULLET_DIAMOND_CIRCLE_SQUARE'
+        | 'NUMBERED_DIGIT_ALPHA_ROMAN'
+        | 'NUMBERED_DIGIT_ALPHA_ROMAN_PARENS'
+        | 'NUMBERED_DIGIT_NESTED'
+        | 'NUMBERED_UPPERALPHA_ALPHA_ROMAN'
+        | 'NUMBERED_UPPERROMAN_UPPERALPHA_DIGIT'
+        | 'NUMBERED_ZERODIGIT_ALPHA_ROMAN';
       /** The optional table cell location if the text to be modified is in a table cell. If present, the object_id must refer to a table. */
       cellLocation?: TableCellLocation;
       /** The object ID of the shape or table containing the text to add bullets to. */
@@ -134,7 +153,150 @@ declare namespace gapi.client {
       /** A user-supplied object ID. If you specify an ID, it must be unique among all pages and page elements in the presentation. The ID must start with an alphanumeric character or an underscore (matches regex `[a-zA-Z0-9_]`); remaining characters may include those as well as a hyphen or colon (matches regex `[a-zA-Z0-9_-:]`). The length of the ID must not be less than 5 or greater than 50. If empty, a unique identifier will be generated. */
       objectId?: string;
       /** The shape type. */
-      shapeType?: string;
+      shapeType?:
+        | 'TYPE_UNSPECIFIED'
+        | 'TEXT_BOX'
+        | 'RECTANGLE'
+        | 'ROUND_RECTANGLE'
+        | 'ELLIPSE'
+        | 'ARC'
+        | 'BENT_ARROW'
+        | 'BENT_UP_ARROW'
+        | 'BEVEL'
+        | 'BLOCK_ARC'
+        | 'BRACE_PAIR'
+        | 'BRACKET_PAIR'
+        | 'CAN'
+        | 'CHEVRON'
+        | 'CHORD'
+        | 'CLOUD'
+        | 'CORNER'
+        | 'CUBE'
+        | 'CURVED_DOWN_ARROW'
+        | 'CURVED_LEFT_ARROW'
+        | 'CURVED_RIGHT_ARROW'
+        | 'CURVED_UP_ARROW'
+        | 'DECAGON'
+        | 'DIAGONAL_STRIPE'
+        | 'DIAMOND'
+        | 'DODECAGON'
+        | 'DONUT'
+        | 'DOUBLE_WAVE'
+        | 'DOWN_ARROW'
+        | 'DOWN_ARROW_CALLOUT'
+        | 'FOLDED_CORNER'
+        | 'FRAME'
+        | 'HALF_FRAME'
+        | 'HEART'
+        | 'HEPTAGON'
+        | 'HEXAGON'
+        | 'HOME_PLATE'
+        | 'HORIZONTAL_SCROLL'
+        | 'IRREGULAR_SEAL_1'
+        | 'IRREGULAR_SEAL_2'
+        | 'LEFT_ARROW'
+        | 'LEFT_ARROW_CALLOUT'
+        | 'LEFT_BRACE'
+        | 'LEFT_BRACKET'
+        | 'LEFT_RIGHT_ARROW'
+        | 'LEFT_RIGHT_ARROW_CALLOUT'
+        | 'LEFT_RIGHT_UP_ARROW'
+        | 'LEFT_UP_ARROW'
+        | 'LIGHTNING_BOLT'
+        | 'MATH_DIVIDE'
+        | 'MATH_EQUAL'
+        | 'MATH_MINUS'
+        | 'MATH_MULTIPLY'
+        | 'MATH_NOT_EQUAL'
+        | 'MATH_PLUS'
+        | 'MOON'
+        | 'NO_SMOKING'
+        | 'NOTCHED_RIGHT_ARROW'
+        | 'OCTAGON'
+        | 'PARALLELOGRAM'
+        | 'PENTAGON'
+        | 'PIE'
+        | 'PLAQUE'
+        | 'PLUS'
+        | 'QUAD_ARROW'
+        | 'QUAD_ARROW_CALLOUT'
+        | 'RIBBON'
+        | 'RIBBON_2'
+        | 'RIGHT_ARROW'
+        | 'RIGHT_ARROW_CALLOUT'
+        | 'RIGHT_BRACE'
+        | 'RIGHT_BRACKET'
+        | 'ROUND_1_RECTANGLE'
+        | 'ROUND_2_DIAGONAL_RECTANGLE'
+        | 'ROUND_2_SAME_RECTANGLE'
+        | 'RIGHT_TRIANGLE'
+        | 'SMILEY_FACE'
+        | 'SNIP_1_RECTANGLE'
+        | 'SNIP_2_DIAGONAL_RECTANGLE'
+        | 'SNIP_2_SAME_RECTANGLE'
+        | 'SNIP_ROUND_RECTANGLE'
+        | 'STAR_10'
+        | 'STAR_12'
+        | 'STAR_16'
+        | 'STAR_24'
+        | 'STAR_32'
+        | 'STAR_4'
+        | 'STAR_5'
+        | 'STAR_6'
+        | 'STAR_7'
+        | 'STAR_8'
+        | 'STRIPED_RIGHT_ARROW'
+        | 'SUN'
+        | 'TRAPEZOID'
+        | 'TRIANGLE'
+        | 'UP_ARROW'
+        | 'UP_ARROW_CALLOUT'
+        | 'UP_DOWN_ARROW'
+        | 'UTURN_ARROW'
+        | 'VERTICAL_SCROLL'
+        | 'WAVE'
+        | 'WEDGE_ELLIPSE_CALLOUT'
+        | 'WEDGE_RECTANGLE_CALLOUT'
+        | 'WEDGE_ROUND_RECTANGLE_CALLOUT'
+        | 'FLOW_CHART_ALTERNATE_PROCESS'
+        | 'FLOW_CHART_COLLATE'
+        | 'FLOW_CHART_CONNECTOR'
+        | 'FLOW_CHART_DECISION'
+        | 'FLOW_CHART_DELAY'
+        | 'FLOW_CHART_DISPLAY'
+        | 'FLOW_CHART_DOCUMENT'
+        | 'FLOW_CHART_EXTRACT'
+        | 'FLOW_CHART_INPUT_OUTPUT'
+        | 'FLOW_CHART_INTERNAL_STORAGE'
+        | 'FLOW_CHART_MAGNETIC_DISK'
+        | 'FLOW_CHART_MAGNETIC_DRUM'
+        | 'FLOW_CHART_MAGNETIC_TAPE'
+        | 'FLOW_CHART_MANUAL_INPUT'
+        | 'FLOW_CHART_MANUAL_OPERATION'
+        | 'FLOW_CHART_MERGE'
+        | 'FLOW_CHART_MULTIDOCUMENT'
+        | 'FLOW_CHART_OFFLINE_STORAGE'
+        | 'FLOW_CHART_OFFPAGE_CONNECTOR'
+        | 'FLOW_CHART_ONLINE_STORAGE'
+        | 'FLOW_CHART_OR'
+        | 'FLOW_CHART_PREDEFINED_PROCESS'
+        | 'FLOW_CHART_PREPARATION'
+        | 'FLOW_CHART_PROCESS'
+        | 'FLOW_CHART_PUNCHED_CARD'
+        | 'FLOW_CHART_PUNCHED_TAPE'
+        | 'FLOW_CHART_SORT'
+        | 'FLOW_CHART_SUMMING_JUNCTION'
+        | 'FLOW_CHART_TERMINATOR'
+        | 'ARROW_EAST'
+        | 'ARROW_NORTH_EAST'
+        | 'ARROW_NORTH'
+        | 'SPEECH'
+        | 'STARBURST'
+        | 'TEARDROP'
+        | 'ELLIPSE_RIBBON'
+        | 'ELLIPSE_RIBBON_2'
+        | 'CLOUD_CALLOUT'
+        | 'CUSTOM';
     }
     interface CreateShapeResponse {
       /** The object ID of the created shape. */
@@ -146,7 +308,7 @@ declare namespace gapi.client {
       /** The element properties for the chart. When the aspect ratio of the provided size does not match the chart aspect ratio, the chart is scaled and centered with respect to the size in order to maintain aspect ratio. The provided transform is applied after this operation. */
       elementProperties?: PageElementProperties;
       /** The mode with which the chart is linked to the source spreadsheet. When not specified, the chart will be an image that is not linked. */
-      linkingMode?: string;
+      linkingMode?: 'NOT_LINKED_IMAGE' | 'LINKED';
       /** A user-supplied object ID. If specified, the ID must be unique among all pages and page elements in the presentation. The ID should start with a word character [a-zA-Z0-9_] and then followed by any number of the following characters [a-zA-Z0-9_-:]. The length of the ID should not be less than 5 or greater than 50. If empty, a unique identifier will be generated. */
       objectId?: string;
       /** The ID of the Google Sheets spreadsheet that contains the chart. You might need to add a resource key to the HTTP header for a subset of old files. For more information, see [Access link-shared files using resource keys](https://developers.google.com/drive/api/v3/resource-keys). */
@@ -192,7 +354,7 @@ declare namespace gapi.client {
       /** A user-supplied object ID. If you specify an ID, it must be unique among all pages and page elements in the presentation. The ID must start with an alphanumeric character or an underscore (matches regex `[a-zA-Z0-9_]`); remaining characters may include those as well as a hyphen or colon (matches regex `[a-zA-Z0-9_-:]`). The length of the ID must not be less than 5 or greater than 50. If you don't specify an ID, a unique one is generated. */
       objectId?: string;
       /** The video source. */
-      source?: string;
+      source?: 'SOURCE_UNSPECIFIED' | 'YOUTUBE' | 'DRIVE';
     }
     interface CreateVideoResponse {
       /** The object ID of the created video. */
@@ -246,7 +408,7 @@ declare namespace gapi.client {
       /** The magnitude. */
       magnitude?: number;
       /** The units for magnitude. */
-      unit?: string;
+      unit?: 'UNIT_UNSPECIFIED' | 'EMU' | 'PT';
     }
     interface DuplicateObjectRequest {
       /** The ID of the object to duplicate. */
@@ -350,15 +512,42 @@ declare namespace gapi.client {
       /** Layout ID: the object ID of one of the layouts in the presentation. */
       layoutId?: string;
       /** Predefined layout. */
-      predefinedLayout?: string;
+      predefinedLayout?:
+        | 'PREDEFINED_LAYOUT_UNSPECIFIED'
+        | 'BLANK'
+        | 'CAPTION_ONLY'
+        | 'TITLE'
+        | 'TITLE_AND_BODY'
+        | 'TITLE_AND_TWO_COLUMNS'
+        | 'TITLE_ONLY'
+        | 'SECTION_HEADER'
+        | 'SECTION_TITLE_AND_DESCRIPTION'
+        | 'ONE_COLUMN_TEXT'
+        | 'MAIN_POINT'
+        | 'BIG_NUMBER';
     }
     interface Line {
       /** The category of the line. It matches the `category` specified in CreateLineRequest, and can be updated with UpdateLineCategoryRequest. */
-      lineCategory?: string;
+      lineCategory?:
+        | 'LINE_CATEGORY_UNSPECIFIED'
+        | 'STRAIGHT'
+        | 'BENT'
+        | 'CURVED';
       /** The properties of the line. */
       lineProperties?: LineProperties;
       /** The type of the line. */
-      lineType?: string;
+      lineType?:
+        | 'TYPE_UNSPECIFIED'
+        | 'STRAIGHT_CONNECTOR_1'
+        | 'BENT_CONNECTOR_2'
+        | 'BENT_CONNECTOR_3'
+        | 'BENT_CONNECTOR_4'
+        | 'BENT_CONNECTOR_5'
+        | 'CURVED_CONNECTOR_2'
+        | 'CURVED_CONNECTOR_3'
+        | 'CURVED_CONNECTOR_4'
+        | 'CURVED_CONNECTOR_5'
+        | 'STRAIGHT_LINE';
     }
     interface LineConnection {
       /** The object ID of the connected page element. Some page elements, such as groups, tables, and lines do not have connection sites and therefore cannot be connected to a connector line. */
@@ -372,9 +561,27 @@ declare namespace gapi.client {
     }
     interface LineProperties {
       /** The dash style of the line. */
-      dashStyle?: string;
+      dashStyle?:
+        | 'DASH_STYLE_UNSPECIFIED'
+        | 'SOLID'
+        | 'DOT'
+        | 'DASH'
+        | 'DASH_DOT'
+        | 'LONG_DASH'
+        | 'LONG_DASH_DOT';
       /** The style of the arrow at the end of the line. */
-      endArrow?: string;
+      endArrow?:
+        | 'ARROW_STYLE_UNSPECIFIED'
+        | 'NONE'
+        | 'STEALTH_ARROW'
+        | 'FILL_ARROW'
+        | 'FILL_CIRCLE'
+        | 'FILL_SQUARE'
+        | 'FILL_DIAMOND'
+        | 'OPEN_ARROW'
+        | 'OPEN_CIRCLE'
+        | 'OPEN_SQUARE'
+        | 'OPEN_DIAMOND';
       /** The connection at the end of the line. If unset, there is no connection. Only lines with a Type indicating it is a "connector" can have an `end_connection`. */
       endConnection?: LineConnection;
       /** The fill of the line. The default line fill matches the defaults for new lines created in the Slides editor. */
@@ -382,7 +589,18 @@ declare namespace gapi.client {
       /** The hyperlink destination of the line. If unset, there is no link. */
       link?: Link;
       /** The style of the arrow at the beginning of the line. */
-      startArrow?: string;
+      startArrow?:
+        | 'ARROW_STYLE_UNSPECIFIED'
+        | 'NONE'
+        | 'STEALTH_ARROW'
+        | 'FILL_ARROW'
+        | 'FILL_CIRCLE'
+        | 'FILL_SQUARE'
+        | 'FILL_DIAMOND'
+        | 'OPEN_ARROW'
+        | 'OPEN_CIRCLE'
+        | 'OPEN_SQUARE'
+        | 'OPEN_DIAMOND';
       /** The connection at the beginning of the line. If unset, there is no connection. Only lines with a Type indicating it is a "connector" can have a `start_connection`. */
       startConnection?: LineConnection;
       /** The thickness of the line. */
@@ -392,7 +610,12 @@ declare namespace gapi.client {
       /** If set, indicates this is a link to the specific page in this presentation with this ID. A page with this ID may not exist. */
       pageObjectId?: string;
       /** If set, indicates this is a link to a slide in this presentation, addressed by its position. */
-      relativeLink?: string;
+      relativeLink?:
+        | 'RELATIVE_SLIDE_LINK_UNSPECIFIED'
+        | 'NEXT_SLIDE'
+        | 'PREVIOUS_SLIDE'
+        | 'FIRST_SLIDE'
+        | 'LAST_SLIDE';
       /** If set, indicates this is a link to the slide at this zero-based index in the presentation. There may not be a slide at this index. */
       slideIndex?: number;
       /** If set, indicates this is a link to the external web page at this URL. */
@@ -426,7 +649,24 @@ declare namespace gapi.client {
       /** An opaque RGB color. */
       rgbColor?: RgbColor;
       /** An opaque theme color. */
-      themeColor?: string;
+      themeColor?:
+        | 'THEME_COLOR_TYPE_UNSPECIFIED'
+        | 'DARK1'
+        | 'LIGHT1'
+        | 'DARK2'
+        | 'LIGHT2'
+        | 'ACCENT1'
+        | 'ACCENT2'
+        | 'ACCENT3'
+        | 'ACCENT4'
+        | 'ACCENT5'
+        | 'ACCENT6'
+        | 'HYPERLINK'
+        | 'FOLLOWED_HYPERLINK'
+        | 'TEXT1'
+        | 'BACKGROUND1'
+        | 'TEXT2'
+        | 'BACKGROUND2';
     }
     interface OptionalColor {
       /** If set, this will be used as an opaque color. If unset, this represents a transparent color. */
@@ -434,11 +674,18 @@ declare namespace gapi.client {
     }
     interface Outline {
       /** The dash style of the outline. */
-      dashStyle?: string;
+      dashStyle?:
+        | 'DASH_STYLE_UNSPECIFIED'
+        | 'SOLID'
+        | 'DOT'
+        | 'DASH'
+        | 'DASH_DOT'
+        | 'LONG_DASH'
+        | 'LONG_DASH_DOT';
       /** The fill of the outline. */
       outlineFill?: OutlineFill;
       /** The outline property state. Updating the outline on a page element will implicitly update this field to `RENDERED`, unless another value is specified in the same request. To have no outline on a page element, set this field to `NOT_RENDERED`. In this case, any other outline fields set in the same request will be ignored. */
-      propertyState?: string;
+      propertyState?: 'RENDERED' | 'NOT_RENDERED' | 'INHERIT';
       /** The thickness of the outline. */
       weight?: Dimension;
     }
@@ -460,7 +707,7 @@ declare namespace gapi.client {
       /** The properties of the page. */
       pageProperties?: PageProperties;
       /** The type of the page. */
-      pageType?: string;
+      pageType?: 'SLIDE' | 'MASTER' | 'LAYOUT' | 'NOTES' | 'NOTES_MASTER';
       /** Output only. The revision ID of the presentation. Can be used in update requests to assert the presentation revision hasn't changed since the last read operation. Only populated if the user has edit access to the presentation. The revision ID is not a sequential number but an opaque string. The format of the revision ID might change over time. A returned revision ID is only guaranteed to be valid for 24 hours after it has been returned and cannot be shared across users. If the revision ID is unchanged between calls, then the presentation has not changed. Conversely, a changed ID (for the same presentation and user) usually means the presentation has been updated. However, a changed ID can also be due to internal factors such as ID format changes. */
       revisionId?: string;
       /** Slide specific properties. Only set if page_type = SLIDE. */
@@ -468,7 +715,7 @@ declare namespace gapi.client {
     }
     interface PageBackgroundFill {
       /** The background fill property state. Updating the fill on a page will implicitly update this field to `RENDERED`, unless another value is specified in the same request. To have no fill on a page, set this field to `NOT_RENDERED`. In this case, any other fill fields set in the same request will be ignored. */
-      propertyState?: string;
+      propertyState?: 'RENDERED' | 'NOT_RENDERED' | 'INHERIT';
       /** Solid color fill. */
       solidFill?: SolidFill;
       /** Stretched picture fill. */
@@ -526,9 +773,17 @@ declare namespace gapi.client {
     }
     interface ParagraphStyle {
       /** The text alignment for this paragraph. */
-      alignment?: string;
+      alignment?:
+        | 'ALIGNMENT_UNSPECIFIED'
+        | 'START'
+        | 'CENTER'
+        | 'END'
+        | 'JUSTIFIED';
       /** The text direction of this paragraph. If unset, the value defaults to LEFT_TO_RIGHT since text direction is not inherited. */
-      direction?: string;
+      direction?:
+        | 'TEXT_DIRECTION_UNSPECIFIED'
+        | 'LEFT_TO_RIGHT'
+        | 'RIGHT_TO_LEFT';
       /** The amount indentation for the paragraph on the side that corresponds to the end of the text, based on the current text direction. If unset, the value is inherited from the parent. */
       indentEnd?: Dimension;
       /** The amount of indentation for the start of the first line of the paragraph. If unset, the value is inherited from the parent. */
@@ -542,7 +797,10 @@ declare namespace gapi.client {
       /** The amount of extra space below the paragraph. If unset, the value is inherited from the parent. */
       spaceBelow?: Dimension;
       /** The spacing mode for the paragraph. */
-      spacingMode?: string;
+      spacingMode?:
+        | 'SPACING_MODE_UNSPECIFIED'
+        | 'NEVER_COLLAPSE'
+        | 'COLLAPSE_LISTS';
     }
     interface Placeholder {
       /** The index of the placeholder. If the same placeholder types are present in the same page, they would have different index values. */
@@ -550,7 +808,24 @@ declare namespace gapi.client {
       /** The object ID of this shape's parent placeholder. If unset, the parent placeholder shape does not exist, so the shape does not inherit properties from any other shape. */
       parentObjectId?: string;
       /** The type of the placeholder. */
-      type?: string;
+      type?:
+        | 'NONE'
+        | 'BODY'
+        | 'CHART'
+        | 'CLIP_ART'
+        | 'CENTERED_TITLE'
+        | 'DIAGRAM'
+        | 'DATE_AND_TIME'
+        | 'FOOTER'
+        | 'HEADER'
+        | 'MEDIA'
+        | 'OBJECT'
+        | 'PICTURE'
+        | 'SLIDE_NUMBER'
+        | 'SUBTITLE'
+        | 'TABLE'
+        | 'TITLE'
+        | 'SLIDE_IMAGE';
     }
     interface Presentation {
       /** The layouts in the presentation. A layout is a template that determines how content is arranged and styled on the slides that inherit from that layout. */
@@ -578,11 +853,40 @@ declare namespace gapi.client {
       /** The optional zero-based index of the beginning of the collection. Required for `FIXED_RANGE` and `FROM_START_INDEX` ranges. */
       startIndex?: number;
       /** The type of range. */
-      type?: string;
+      type?:
+        | 'RANGE_TYPE_UNSPECIFIED'
+        | 'FIXED_RANGE'
+        | 'FROM_START_INDEX'
+        | 'ALL';
     }
     interface Recolor {
       /** The name of the recolor effect. The name is determined from the `recolor_stops` by matching the gradient against the colors in the page's current color scheme. This property is read-only. */
-      name?: string;
+      name?:
+        | 'NONE'
+        | 'LIGHT1'
+        | 'LIGHT2'
+        | 'LIGHT3'
+        | 'LIGHT4'
+        | 'LIGHT5'
+        | 'LIGHT6'
+        | 'LIGHT7'
+        | 'LIGHT8'
+        | 'LIGHT9'
+        | 'LIGHT10'
+        | 'DARK1'
+        | 'DARK2'
+        | 'DARK3'
+        | 'DARK4'
+        | 'DARK5'
+        | 'DARK6'
+        | 'DARK7'
+        | 'DARK8'
+        | 'DARK9'
+        | 'DARK10'
+        | 'GRAYSCALE'
+        | 'NEGATIVE'
+        | 'SEPIA'
+        | 'CUSTOM';
       /** The recolor effect is represented by a gradient, which is a list of color stops. The colors in the gradient will replace the corresponding colors at the same position in the color palette and apply to the image. This property is read-only. */
       recolorStops?: ColorStop[];
     }
@@ -594,13 +898,16 @@ declare namespace gapi.client {
       /** If set, this request will replace all of the shapes that contain the given text. */
       containsText?: SubstringMatchCriteria;
       /** The image replace method. If you specify both a `replace_method` and an `image_replace_method`, the `image_replace_method` takes precedence. If you do not specify a value for `image_replace_method`, but specify a value for `replace_method`, then the specified `replace_method` value is used. If you do not specify either, then CENTER_INSIDE is used. */
-      imageReplaceMethod?: string;
+      imageReplaceMethod?:
+        | 'IMAGE_REPLACE_METHOD_UNSPECIFIED'
+        | 'CENTER_INSIDE'
+        | 'CENTER_CROP';
       /** The image URL. The image is fetched once at insertion time and a copy is stored for display inside the presentation. Images must be less than 50MB in size, cannot exceed 25 megapixels, and must be in one of PNG, JPEG, or GIF format. The provided URL can be at most 2 kB in length. The URL itself is saved with the image, and exposed via the Image.source_url field. */
       imageUrl?: string;
       /** If non-empty, limits the matches to page elements only on the given pages. Returns a 400 bad request error if given the page object ID of a notes page or a notes master, or if a page with that object ID doesn't exist in the presentation. */
       pageObjectIds?: string[];
       /** The replace method. *Deprecated*: use `image_replace_method` instead. If you specify both a `replace_method` and an `image_replace_method`, the `image_replace_method` takes precedence. */
-      replaceMethod?: string;
+      replaceMethod?: 'CENTER_INSIDE' | 'CENTER_CROP';
     }
     interface ReplaceAllShapesWithImageResponse {
       /** The number of shapes replaced with images. */
@@ -612,7 +919,7 @@ declare namespace gapi.client {
       /** The criteria that the shapes must match in order to be replaced. The request will replace all of the shapes that contain the given text. */
       containsText?: SubstringMatchCriteria;
       /** The mode with which the chart is linked to the source spreadsheet. When not specified, the chart will be an image that is not linked. */
-      linkingMode?: string;
+      linkingMode?: 'NOT_LINKED_IMAGE' | 'LINKED';
       /** If non-empty, limits the matches to page elements only on the given pages. Returns a 400 bad request error if given the page object ID of a notes page or a notes master, or if a page with that object ID doesn't exist in the presentation. */
       pageObjectIds?: string[];
       /** The ID of the Google Sheets spreadsheet that contains the chart. */
@@ -638,7 +945,10 @@ declare namespace gapi.client {
       /** The ID of the existing image that will be replaced. The ID can be retrieved from the response of a get request. */
       imageObjectId?: string;
       /** The replacement method. */
-      imageReplaceMethod?: string;
+      imageReplaceMethod?:
+        | 'IMAGE_REPLACE_METHOD_UNSPECIFIED'
+        | 'CENTER_INSIDE'
+        | 'CENTER_CROP';
       /** The image URL. The image is fetched once at insertion time and a copy is stored for display inside the presentation. Images must be less than 50MB, cannot exceed 25 megapixels, and must be in PNG, JPEG, or GIF format. The provided URL can't surpass 2 KB in length. The URL is saved with the image, and exposed through the Image.source_url field. */
       url?: string;
     }
@@ -772,7 +1082,17 @@ declare namespace gapi.client {
     }
     interface Shadow {
       /** The alignment point of the shadow, that sets the origin for translate, scale and skew of the shadow. This property is read-only. */
-      alignment?: string;
+      alignment?:
+        | 'RECTANGLE_POSITION_UNSPECIFIED'
+        | 'TOP_LEFT'
+        | 'TOP_CENTER'
+        | 'TOP_RIGHT'
+        | 'LEFT_CENTER'
+        | 'CENTER'
+        | 'RIGHT_CENTER'
+        | 'BOTTOM_LEFT'
+        | 'BOTTOM_CENTER'
+        | 'BOTTOM_RIGHT';
       /** The alpha of the shadow's color, from 0.0 to 1.0. */
       alpha?: number;
       /** The radius of the shadow blur. The larger the radius, the more diffuse the shadow becomes. */
@@ -780,13 +1100,13 @@ declare namespace gapi.client {
       /** The shadow color value. */
       color?: OpaqueColor;
       /** The shadow property state. Updating the shadow on a page element will implicitly update this field to `RENDERED`, unless another value is specified in the same request. To have no shadow on a page element, set this field to `NOT_RENDERED`. In this case, any other shadow fields set in the same request will be ignored. */
-      propertyState?: string;
+      propertyState?: 'RENDERED' | 'NOT_RENDERED' | 'INHERIT';
       /** Whether the shadow should rotate with the shape. This property is read-only. */
       rotateWithShape?: boolean;
       /** Transform that encodes the translate, scale, and skew of the shadow, relative to the alignment position. */
       transform?: AffineTransform;
       /** The type of the shadow. This property is read-only. */
-      type?: string;
+      type?: 'SHADOW_TYPE_UNSPECIFIED' | 'OUTER';
     }
     interface Shape {
       /** Placeholders are page elements that inherit from corresponding placeholders on layouts and masters. If set, the shape is a placeholder shape and any inherited properties can be resolved by looking at the parent placeholder identified by the Placeholder.parent_object_id field. */
@@ -794,13 +1114,156 @@ declare namespace gapi.client {
       /** The properties of the shape. */
       shapeProperties?: ShapeProperties;
       /** The type of the shape. */
-      shapeType?: string;
+      shapeType?:
+        | 'TYPE_UNSPECIFIED'
+        | 'TEXT_BOX'
+        | 'RECTANGLE'
+        | 'ROUND_RECTANGLE'
+        | 'ELLIPSE'
+        | 'ARC'
+        | 'BENT_ARROW'
+        | 'BENT_UP_ARROW'
+        | 'BEVEL'
+        | 'BLOCK_ARC'
+        | 'BRACE_PAIR'
+        | 'BRACKET_PAIR'
+        | 'CAN'
+        | 'CHEVRON'
+        | 'CHORD'
+        | 'CLOUD'
+        | 'CORNER'
+        | 'CUBE'
+        | 'CURVED_DOWN_ARROW'
+        | 'CURVED_LEFT_ARROW'
+        | 'CURVED_RIGHT_ARROW'
+        | 'CURVED_UP_ARROW'
+        | 'DECAGON'
+        | 'DIAGONAL_STRIPE'
+        | 'DIAMOND'
+        | 'DODECAGON'
+        | 'DONUT'
+        | 'DOUBLE_WAVE'
+        | 'DOWN_ARROW'
+        | 'DOWN_ARROW_CALLOUT'
+        | 'FOLDED_CORNER'
+        | 'FRAME'
+        | 'HALF_FRAME'
+        | 'HEART'
+        | 'HEPTAGON'
+        | 'HEXAGON'
+        | 'HOME_PLATE'
+        | 'HORIZONTAL_SCROLL'
+        | 'IRREGULAR_SEAL_1'
+        | 'IRREGULAR_SEAL_2'
+        | 'LEFT_ARROW'
+        | 'LEFT_ARROW_CALLOUT'
+        | 'LEFT_BRACE'
+        | 'LEFT_BRACKET'
+        | 'LEFT_RIGHT_ARROW'
+        | 'LEFT_RIGHT_ARROW_CALLOUT'
+        | 'LEFT_RIGHT_UP_ARROW'
+        | 'LEFT_UP_ARROW'
+        | 'LIGHTNING_BOLT'
+        | 'MATH_DIVIDE'
+        | 'MATH_EQUAL'
+        | 'MATH_MINUS'
+        | 'MATH_MULTIPLY'
+        | 'MATH_NOT_EQUAL'
+        | 'MATH_PLUS'
+        | 'MOON'
+        | 'NO_SMOKING'
+        | 'NOTCHED_RIGHT_ARROW'
+        | 'OCTAGON'
+        | 'PARALLELOGRAM'
+        | 'PENTAGON'
+        | 'PIE'
+        | 'PLAQUE'
+        | 'PLUS'
+        | 'QUAD_ARROW'
+        | 'QUAD_ARROW_CALLOUT'
+        | 'RIBBON'
+        | 'RIBBON_2'
+        | 'RIGHT_ARROW'
+        | 'RIGHT_ARROW_CALLOUT'
+        | 'RIGHT_BRACE'
+        | 'RIGHT_BRACKET'
+        | 'ROUND_1_RECTANGLE'
+        | 'ROUND_2_DIAGONAL_RECTANGLE'
+        | 'ROUND_2_SAME_RECTANGLE'
+        | 'RIGHT_TRIANGLE'
+        | 'SMILEY_FACE'
+        | 'SNIP_1_RECTANGLE'
+        | 'SNIP_2_DIAGONAL_RECTANGLE'
+        | 'SNIP_2_SAME_RECTANGLE'
+        | 'SNIP_ROUND_RECTANGLE'
+        | 'STAR_10'
+        | 'STAR_12'
+        | 'STAR_16'
+        | 'STAR_24'
+        | 'STAR_32'
+        | 'STAR_4'
+        | 'STAR_5'
+        | 'STAR_6'
+        | 'STAR_7'
+        | 'STAR_8'
+        | 'STRIPED_RIGHT_ARROW'
+        | 'SUN'
+        | 'TRAPEZOID'
+        | 'TRIANGLE'
+        | 'UP_ARROW'
+        | 'UP_ARROW_CALLOUT'
+        | 'UP_DOWN_ARROW'
+        | 'UTURN_ARROW'
+        | 'VERTICAL_SCROLL'
+        | 'WAVE'
+        | 'WEDGE_ELLIPSE_CALLOUT'
+        | 'WEDGE_RECTANGLE_CALLOUT'
+        | 'WEDGE_ROUND_RECTANGLE_CALLOUT'
+        | 'FLOW_CHART_ALTERNATE_PROCESS'
+        | 'FLOW_CHART_COLLATE'
+        | 'FLOW_CHART_CONNECTOR'
+        | 'FLOW_CHART_DECISION'
+        | 'FLOW_CHART_DELAY'
+        | 'FLOW_CHART_DISPLAY'
+        | 'FLOW_CHART_DOCUMENT'
+        | 'FLOW_CHART_EXTRACT'
+        | 'FLOW_CHART_INPUT_OUTPUT'
+        | 'FLOW_CHART_INTERNAL_STORAGE'
+        | 'FLOW_CHART_MAGNETIC_DISK'
+        | 'FLOW_CHART_MAGNETIC_DRUM'
+        | 'FLOW_CHART_MAGNETIC_TAPE'
+        | 'FLOW_CHART_MANUAL_INPUT'
+        | 'FLOW_CHART_MANUAL_OPERATION'
+        | 'FLOW_CHART_MERGE'
+        | 'FLOW_CHART_MULTIDOCUMENT'
+        | 'FLOW_CHART_OFFLINE_STORAGE'
+        | 'FLOW_CHART_OFFPAGE_CONNECTOR'
+        | 'FLOW_CHART_ONLINE_STORAGE'
+        | 'FLOW_CHART_OR'
+        | 'FLOW_CHART_PREDEFINED_PROCESS'
+        | 'FLOW_CHART_PREPARATION'
+        | 'FLOW_CHART_PROCESS'
+        | 'FLOW_CHART_PUNCHED_CARD'
+        | 'FLOW_CHART_PUNCHED_TAPE'
+        | 'FLOW_CHART_SORT'
+        | 'FLOW_CHART_SUMMING_JUNCTION'
+        | 'FLOW_CHART_TERMINATOR'
+        | 'ARROW_EAST'
+        | 'ARROW_NORTH_EAST'
+        | 'ARROW_NORTH'
+        | 'SPEECH'
+        | 'STARBURST'
+        | 'TEARDROP'
+        | 'ELLIPSE_RIBBON'
+        | 'ELLIPSE_RIBBON_2'
+        | 'CLOUD_CALLOUT'
+        | 'CUSTOM';
       /** The text content of the shape. */
       text?: TextContent;
     }
     interface ShapeBackgroundFill {
       /** The background fill property state. Updating the fill on a shape will implicitly update this field to `RENDERED`, unless another value is specified in the same request. To have no fill on a shape, set this field to `NOT_RENDERED`. In this case, any other fill fields set in the same request will be ignored. */
-      propertyState?: string;
+      propertyState?: 'RENDERED' | 'NOT_RENDERED' | 'INHERIT';
       /** Solid color fill. */
       solidFill?: SolidFill;
     }
@@ -808,7 +1271,12 @@ declare namespace gapi.client {
       /** The autofit properties of the shape. This property is only set for shapes that allow text. */
       autofit?: Autofit;
       /** The alignment of the content in the shape. If unspecified, the alignment is inherited from a parent placeholder if it exists. If the shape has no parent, the default alignment matches the alignment for new shapes created in the Slides editor. */
-      contentAlignment?: string;
+      contentAlignment?:
+        | 'CONTENT_ALIGNMENT_UNSPECIFIED'
+        | 'CONTENT_ALIGNMENT_UNSUPPORTED'
+        | 'TOP'
+        | 'MIDDLE'
+        | 'BOTTOM';
       /** The hyperlink destination of the shape. If unset, there is no link. Links are not inherited from parent placeholders. */
       link?: Link;
       /** The outline of the shape. If unset, the outline is inherited from a parent placeholder if it exists. If the shape has no parent, then the default outline depends on the shape type, matching the defaults for new shapes created in the Slides editor. */
@@ -904,7 +1372,14 @@ declare namespace gapi.client {
     }
     interface TableBorderProperties {
       /** The dash style of the border. */
-      dashStyle?: string;
+      dashStyle?:
+        | 'DASH_STYLE_UNSPECIFIED'
+        | 'SOLID'
+        | 'DOT'
+        | 'DASH'
+        | 'DASH_DOT'
+        | 'LONG_DASH'
+        | 'LONG_DASH_DOT';
       /** The fill of the table border. */
       tableBorderFill?: TableBorderFill;
       /** The thickness of the border. */
@@ -928,7 +1403,7 @@ declare namespace gapi.client {
     }
     interface TableCellBackgroundFill {
       /** The background fill property state. Updating the fill on a table cell will implicitly update this field to `RENDERED`, unless another value is specified in the same request. To have no fill on a table cell, set this field to `NOT_RENDERED`. In this case, any other fill fields set in the same request will be ignored. */
-      propertyState?: string;
+      propertyState?: 'RENDERED' | 'NOT_RENDERED' | 'INHERIT';
       /** Solid color fill. */
       solidFill?: SolidFill;
     }
@@ -940,7 +1415,12 @@ declare namespace gapi.client {
     }
     interface TableCellProperties {
       /** The alignment of the content in the table cell. The default alignment matches the alignment for newly created table cells in the Slides editor. */
-      contentAlignment?: string;
+      contentAlignment?:
+        | 'CONTENT_ALIGNMENT_UNSPECIFIED'
+        | 'CONTENT_ALIGNMENT_UNSUPPORTED'
+        | 'TOP'
+        | 'MIDDLE'
+        | 'BOTTOM';
       /** The background fill of the table cell. The default fill matches the fill for newly created table cells in the Slides editor. */
       tableCellBackgroundFill?: TableCellBackgroundFill;
     }
@@ -996,7 +1476,11 @@ declare namespace gapi.client {
       /** The background color of the text. If set, the color is either opaque or transparent, depending on if the `opaque_color` field in it is set. */
       backgroundColor?: OptionalColor;
       /** The text's vertical offset from its normal position. Text with `SUPERSCRIPT` or `SUBSCRIPT` baseline offsets is automatically rendered in a smaller font size, computed based on the `font_size` field. The `font_size` itself is not affected by changes in this field. */
-      baselineOffset?: string;
+      baselineOffset?:
+        | 'BASELINE_OFFSET_UNSPECIFIED'
+        | 'NONE'
+        | 'SUPERSCRIPT'
+        | 'SUBSCRIPT';
       /** Whether or not the text is rendered as bold. */
       bold?: boolean;
       /** The font family of the text. The font family can be any font from the Font menu in Slides or from [Google Fonts] (https://fonts.google.com/). If the font name is unrecognized, the text is rendered in `Arial`. Some fonts can affect the weight of the text. If an update request specifies values for both `font_family` and `bold`, the explicitly-set `bold` value is used. */
@@ -1022,7 +1506,24 @@ declare namespace gapi.client {
       /** The concrete color corresponding to the theme color type above. */
       color?: RgbColor;
       /** The type of the theme color. */
-      type?: string;
+      type?:
+        | 'THEME_COLOR_TYPE_UNSPECIFIED'
+        | 'DARK1'
+        | 'LIGHT1'
+        | 'DARK2'
+        | 'LIGHT2'
+        | 'ACCENT1'
+        | 'ACCENT2'
+        | 'ACCENT3'
+        | 'ACCENT4'
+        | 'ACCENT5'
+        | 'ACCENT6'
+        | 'HYPERLINK'
+        | 'FOLLOWED_HYPERLINK'
+        | 'TEXT1'
+        | 'BACKGROUND1'
+        | 'TEXT2'
+        | 'BACKGROUND2';
     }
     interface Thumbnail {
       /** The content URL of the thumbnail image. The URL to the image has a default lifetime of 30 minutes. This URL is tagged with the account of the requester. Anyone with the URL effectively accesses the image as the original requester. Access to the image may be lost if the presentation's sharing settings change. The mime type of the thumbnail image is the same as specified in the `GetPageThumbnailRequest`. */
@@ -1052,7 +1553,11 @@ declare namespace gapi.client {
     }
     interface UpdateLineCategoryRequest {
       /** The line category to update to. The exact line type is determined based on the category to update to and how it's routed to connect to other page elements. */
-      lineCategory?: string;
+      lineCategory?:
+        | 'LINE_CATEGORY_UNSPECIFIED'
+        | 'STRAIGHT'
+        | 'BENT'
+        | 'CURVED';
       /** The object ID of the line the update is applied to. Only a line with a category indicating it is a "connector" can be updated. The line may be rerouted after updating its category. */
       objectId?: string;
     }
@@ -1074,13 +1579,18 @@ declare namespace gapi.client {
     }
     interface UpdatePageElementsZOrderRequest {
       /** The Z-order operation to apply on the page elements. When applying the operation on multiple page elements, the relative Z-orders within these page elements before the operation is maintained. */
-      operation?: string;
+      operation?:
+        | 'Z_ORDER_OPERATION_UNSPECIFIED'
+        | 'BRING_TO_FRONT'
+        | 'BRING_FORWARD'
+        | 'SEND_BACKWARD'
+        | 'SEND_TO_BACK';
       /** The object IDs of the page elements to update. All the page elements must be on the same page and must not be grouped. */
       pageElementObjectIds?: string[];
     }
     interface UpdatePageElementTransformRequest {
       /** The apply mode of the transform update. */
-      applyMode?: string;
+      applyMode?: 'APPLY_MODE_UNSPECIFIED' | 'RELATIVE' | 'ABSOLUTE';
       /** The object ID of the page element to update. */
       objectId?: string;
       /** The input transform matrix used to update the page element. */
@@ -1130,7 +1640,16 @@ declare namespace gapi.client {
     }
     interface UpdateTableBorderPropertiesRequest {
       /** The border position in the table range the updates should apply to. If a border position is not specified, the updates will apply to all borders in the table range. */
-      borderPosition?: string;
+      borderPosition?:
+        | 'ALL'
+        | 'BOTTOM'
+        | 'INNER'
+        | 'INNER_HORIZONTAL'
+        | 'INNER_VERTICAL'
+        | 'LEFT'
+        | 'OUTER'
+        | 'RIGHT'
+        | 'TOP';
       /** The fields that should be updated. At least one field must be specified. The root `tableBorderProperties` is implied and should not be specified. A single `"*"` can be used as short-hand for listing every field. For example to update the table border solid fill color, set `fields` to `"tableBorderFill.solidFill.color"`. To reset a property to its default value, include its field name in the field mask but leave the field itself unset. */
       fields?: string;
       /** The object ID of the table. */
@@ -1194,7 +1713,7 @@ declare namespace gapi.client {
       /** The video source's unique identifier for this video. */
       id?: string;
       /** The video source. */
-      source?: string;
+      source?: 'SOURCE_UNSPECIFIED' | 'YOUTUBE' | 'DRIVE';
       /** An URL to a video. The URL is valid as long as the source video exists and sharing settings do not change. */
       url?: string;
       /** The properties of the video. */
@@ -1230,11 +1749,11 @@ declare namespace gapi.client {
       /** Gets the latest version of the specified page in the presentation. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1259,11 +1778,11 @@ declare namespace gapi.client {
       /** Generates a thumbnail of the latest version of the specified page in the presentation and returns a URL to the thumbnail image. This request counts as an [expensive read request](https://developers.google.com/workspace/slides/limits) for quota purposes. */
       getThumbnail(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1281,9 +1800,13 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** The optional mime type of the thumbnail image. If you don't specify the mime type, the mime type defaults to PNG. */
-        'thumbnailProperties.mimeType'?: string;
+        'thumbnailProperties.mimeType'?: 'PNG';
         /** The optional thumbnail image size. If you don't specify the size, the server chooses a default size of the image. */
-        'thumbnailProperties.thumbnailSize'?: string;
+        'thumbnailProperties.thumbnailSize'?:
+          | 'THUMBNAIL_SIZE_UNSPECIFIED'
+          | 'LARGE'
+          | 'MEDIUM'
+          | 'SMALL';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1294,11 +1817,11 @@ declare namespace gapi.client {
       /** Applies one or more updates to the presentation. Each request is validated before being applied. If any request is not valid, then the entire request will fail and nothing will be applied. Some requests have replies to give you some information about how they are applied. Other requests do not need to return information; these each return an empty reply. The order of replies matches that of the requests. For example, suppose you call batchUpdate with four updates, and only the third one returns information. The response would have two empty replies: the reply to the third request, and another empty reply, in that order. Because other users may be editing the presentation, the presentation might not exactly reflect your changes: your changes may be altered with respect to collaborator changes. If there are no collaborators, the presentation should reflect your changes. In any case, the updates in your request are guaranteed to be applied together atomically. */
       batchUpdate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1323,11 +1846,11 @@ declare namespace gapi.client {
       batchUpdate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1352,11 +1875,11 @@ declare namespace gapi.client {
       /** Creates a blank presentation using the title given in the request. If a `presentationId` is provided, it is used as the ID of the new presentation. Otherwise, a new ID is generated. Other fields in the request, including any provided content, are ignored. Returns the created presentation. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1379,11 +1902,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1406,11 +1929,11 @@ declare namespace gapi.client {
       /** Gets the latest version of the specified presentation. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

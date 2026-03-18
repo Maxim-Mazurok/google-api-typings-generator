@@ -98,7 +98,10 @@ declare namespace gapi.client {
     }
     interface GoogleCloudMemcacheV1UpgradeInstanceRequest {
       /** Required. Specifies the target version of memcached engine to upgrade to. */
-      memcacheVersion?: string;
+      memcacheVersion?:
+        | 'MEMCACHE_VERSION_UNSPECIFIED'
+        | 'MEMCACHE_1_5'
+        | 'MEMCACHE_1_6_15';
     }
     interface GoogleCloudMemcacheV1ZoneMetadata {}
     interface GoogleCloudSaasacceleratorManagementProvidersV1Instance {
@@ -137,7 +140,14 @@ declare namespace gapi.client {
       /** Software versions that are used to deploy this instance. This can be mutated by rollout services. */
       softwareVersions?: {[P in string]: string};
       /** Output only. Current lifecycle state of the resource (e.g. if it's being created or ready to use). */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'READY'
+        | 'UPDATING'
+        | 'REPAIRING'
+        | 'DELETING'
+        | 'ERROR';
       /** Output only. ID of the associated GCP tenant project. See go/get-instance-metadata. */
       tenantProjectId?: string;
       /** Output only. Timestamp when the resource was last modified. */
@@ -229,7 +239,10 @@ declare namespace gapi.client {
       /** Output only. List of Memcached nodes. Refer to Node message for more details. */
       memcacheNodes?: Node[];
       /** The major version of Memcached software. If not provided, latest supported version will be used. Currently the latest supported major version is `MEMCACHE_1_5`. The minor version will be automatically determined by our system based on the latest supported minor version. */
-      memcacheVersion?: string;
+      memcacheVersion?:
+        | 'MEMCACHE_VERSION_UNSPECIFIED'
+        | 'MEMCACHE_1_5'
+        | 'MEMCACHE_1_6_15';
       /** Required. Unique name of the resource in this scope including project and location using the form: `projects/{project_id}/locations/{location_id}/instances/{instance_id}` Note: Memcached instances are managed and addressed at the regional level so `location_id` here refers to a Google Cloud region; however, users may choose which zones Memcached nodes should be provisioned in within an instance. Refer to zones field for more details. */
       name?: string;
       /** Required. Configuration for Memcached nodes. */
@@ -245,7 +258,14 @@ declare namespace gapi.client {
       /** Optional. Output only. Reserved for future use. */
       satisfiesPzs?: boolean;
       /** Output only. The state of this Memcached instance. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'READY'
+        | 'UPDATING'
+        | 'DELETING'
+        | 'PERFORMING_MAINTENANCE'
+        | 'MEMCACHE_VERSION_UPGRADING';
       /** Output only. The time the instance was updated. */
       updateTime?: string;
       /** Zones in which Memcached nodes should be provisioned. Memcached nodes will be equally distributed across these zones. If not provided, the service will by default create nodes in all zones in the region for the instance. */
@@ -253,7 +273,7 @@ declare namespace gapi.client {
     }
     interface InstanceMessage {
       /** A code that correspond to one type of user-facing message. */
-      code?: string;
+      code?: 'CODE_UNSPECIFIED' | 'ZONE_DISTRIBUTION_UNBALANCED';
       /** Message on memcached instance which will be exposed to users. */
       message?: string;
     }
@@ -305,7 +325,7 @@ declare namespace gapi.client {
       /** Required. MaintenancePolicy name using the form: `projects/{project_id}/locations/{location_id}/maintenancePolicies/{maintenance_policy_id}` where {project_id} refers to a GCP consumer project ID, {location_id} refers to a GCP region/zone, {maintenance_policy_id} must be 1-63 characters long and match the regular expression `[a-z0-9]([-a-z0-9]*[a-z0-9])?`. */
       name?: string;
       /** Optional. The state of the policy. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'READY' | 'DELETING';
       /** Maintenance policy applicable to instance update. */
       updatePolicy?: UpdatePolicy;
       /** Output only. The time when the resource was updated. */
@@ -337,7 +357,10 @@ declare namespace gapi.client {
       /** Output only. The full version of memcached server running on this node. e.g. - memcached-1.5.16 */
       memcacheFullVersion?: string;
       /** Output only. Major version of memcached server running on this node, e.g. MEMCACHE_1_5 */
-      memcacheVersion?: string;
+      memcacheVersion?:
+        | 'MEMCACHE_VERSION_UNSPECIFIED'
+        | 'MEMCACHE_1_5'
+        | 'MEMCACHE_1_6_15';
       /** Output only. Identifier of the Memcached node. The node id does not include project or location like the Memcached instance name. */
       nodeId?: string;
       /** User defined parameters currently applied to the node. */
@@ -345,7 +368,12 @@ declare namespace gapi.client {
       /** Output only. The port number of the Memcached server on this node. */
       port?: number;
       /** Output only. Current state of the Memcached node. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'READY'
+        | 'DELETING'
+        | 'UPDATING';
       /** Output only. Location (GCP Zone) for the Memcached node. */
       zone?: string;
     }
@@ -385,13 +413,25 @@ declare namespace gapi.client {
     }
     interface RescheduleMaintenanceRequest {
       /** Required. If reschedule type is SPECIFIC_TIME, must set up schedule_time as well. */
-      rescheduleType?: string;
+      rescheduleType?:
+        | 'RESCHEDULE_TYPE_UNSPECIFIED'
+        | 'IMMEDIATE'
+        | 'NEXT_AVAILABLE_WINDOW'
+        | 'SPECIFIC_TIME';
       /** Timestamp when the maintenance shall be rescheduled to if reschedule_type=SPECIFIC_TIME, in RFC 3339 format, for example `2012-11-15T16:19:00.094Z`. */
       scheduleTime?: string;
     }
     interface Schedule {
       /** Allows to define schedule that runs specified day of the week. */
-      day?: string;
+      day?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY';
       /** Output only. Duration of the time window, set by service producer. */
       duration?: string;
       /** Time within the window to start the operations. */
@@ -441,7 +481,13 @@ declare namespace gapi.client {
     }
     interface UpdatePolicy {
       /** Optional. Relative scheduling channel applied to resource. */
-      channel?: string;
+      channel?:
+        | 'UPDATE_CHANNEL_UNSPECIFIED'
+        | 'EARLIER'
+        | 'LATER'
+        | 'WEEK1'
+        | 'WEEK2'
+        | 'WEEK5';
       /** Deny Maintenance Period that is applied to resource to indicate when maintenance is forbidden. The protocol supports zero-to-many such periods, but the current SLM Rollout implementation only supports zero-to-one. */
       denyMaintenancePeriods?: DenyMaintenancePeriod[];
       /** Optional. Maintenance window that is applied to resources covered by this policy. */
@@ -453,7 +499,15 @@ declare namespace gapi.client {
     }
     interface WeeklyMaintenanceWindow {
       /** Required. Allows to define schedule that runs specified day of the week. */
-      day?: string;
+      day?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY';
       /** Required. Duration of the time window. */
       duration?: string;
       /** Required. Start time of the window in UTC. */
@@ -464,11 +518,11 @@ declare namespace gapi.client {
       /** `ApplyParameters` restarts the set of specified nodes in order to update them to the current set of parameters for the Memcached Instance. */
       applyParameters(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -493,11 +547,11 @@ declare namespace gapi.client {
       applyParameters(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -522,11 +576,11 @@ declare namespace gapi.client {
       /** Creates a new Instance in a given location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -553,11 +607,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -584,11 +638,11 @@ declare namespace gapi.client {
       /** Deletes a single Instance. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -611,11 +665,11 @@ declare namespace gapi.client {
       /** Gets details of a single Instance. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -638,11 +692,11 @@ declare namespace gapi.client {
       /** Returns tags directly bound to a GCP resource. */
       getTags(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -665,11 +719,11 @@ declare namespace gapi.client {
       /** Lists Instances in a given location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -700,11 +754,11 @@ declare namespace gapi.client {
       /** Updates an existing Instance in a given project and location. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -731,11 +785,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -762,11 +816,11 @@ declare namespace gapi.client {
       /** Reschedules upcoming maintenance event. */
       rescheduleMaintenance(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -791,11 +845,11 @@ declare namespace gapi.client {
       rescheduleMaintenance(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -820,11 +874,11 @@ declare namespace gapi.client {
       /** Updates tags directly bound to a GCP resource. */
       setTags(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -849,11 +903,11 @@ declare namespace gapi.client {
       setTags(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -878,11 +932,11 @@ declare namespace gapi.client {
       /** Updates the defined Memcached parameters for an existing instance. This method only stages the parameters, it must be followed by `ApplyParameters` to apply the parameters to nodes of the Memcached instance. */
       updateParameters(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -907,11 +961,11 @@ declare namespace gapi.client {
       updateParameters(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -936,11 +990,11 @@ declare namespace gapi.client {
       /** Upgrades the Memcache instance to a newer memcached engine version specified in the request. */
       upgrade(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -965,11 +1019,11 @@ declare namespace gapi.client {
       upgrade(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -996,11 +1050,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1025,11 +1079,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1054,11 +1108,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1081,11 +1135,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1108,11 +1162,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1145,11 +1199,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1172,11 +1226,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */

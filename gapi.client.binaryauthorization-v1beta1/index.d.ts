@@ -30,9 +30,16 @@ declare namespace gapi.client {
   namespace binaryauthorization {
     interface AdmissionRule {
       /** Required. The action when a pod creation is denied by the admission rule. */
-      enforcementMode?: string;
+      enforcementMode?:
+        | 'ENFORCEMENT_MODE_UNSPECIFIED'
+        | 'ENFORCED_BLOCK_AND_AUDIT_LOG'
+        | 'DRYRUN_AUDIT_LOG_ONLY';
       /** Required. How this admission rule will be evaluated. */
-      evaluationMode?: string;
+      evaluationMode?:
+        | 'EVALUATION_MODE_UNSPECIFIED'
+        | 'ALWAYS_ALLOW'
+        | 'REQUIRE_ATTESTATION'
+        | 'ALWAYS_DENY';
       requireAttestationsBy?: string[];
     }
     interface AdmissionWhitelistPattern {
@@ -110,7 +117,26 @@ declare namespace gapi.client {
       /** A PEM-encoded public key, as described in https://tools.ietf.org/html/rfc7468#section-13 */
       publicKeyPem?: string;
       /** The signature algorithm used to verify a message against a signature using this key. These signature algorithm must match the structure and any object identifiers encoded in `public_key_pem` (i.e. this algorithm must match that of the public key). */
-      signatureAlgorithm?: string;
+      signatureAlgorithm?:
+        | 'SIGNATURE_ALGORITHM_UNSPECIFIED'
+        | 'RSA_PSS_2048_SHA256'
+        | 'RSA_SIGN_PSS_2048_SHA256'
+        | 'RSA_PSS_3072_SHA256'
+        | 'RSA_SIGN_PSS_3072_SHA256'
+        | 'RSA_PSS_4096_SHA256'
+        | 'RSA_SIGN_PSS_4096_SHA256'
+        | 'RSA_PSS_4096_SHA512'
+        | 'RSA_SIGN_PSS_4096_SHA512'
+        | 'RSA_SIGN_PKCS1_2048_SHA256'
+        | 'RSA_SIGN_PKCS1_3072_SHA256'
+        | 'RSA_SIGN_PKCS1_4096_SHA256'
+        | 'RSA_SIGN_PKCS1_4096_SHA512'
+        | 'ECDSA_P256_SHA256'
+        | 'EC_SIGN_P256_SHA256'
+        | 'ECDSA_P384_SHA384'
+        | 'EC_SIGN_P384_SHA384'
+        | 'ECDSA_P521_SHA512'
+        | 'EC_SIGN_P521_SHA512';
     }
     interface Policy {
       /** Optional. Admission policy allowlisting. A matching admission request will always be permitted. This feature is typically used to exclude Google or third-party infrastructure images from Binary Authorization policies. */
@@ -124,7 +150,10 @@ declare namespace gapi.client {
       /** Optional. A checksum, returned by the server, that can be sent on update requests to ensure the policy has an up-to-date value before attempting to update it. See https://google.aip.dev/154. */
       etag?: string;
       /** Optional. Controls the evaluation of a Google-maintained global admission policy for common system-level images. Images not covered by the global policy will be subject to the project admission policy. This setting has no effect when specified inside a global admission policy. */
-      globalPolicyEvaluationMode?: string;
+      globalPolicyEvaluationMode?:
+        | 'GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED'
+        | 'ENABLE'
+        | 'DISABLE';
       /** Optional. Per-istio-service-identity admission rules. Istio service identity spec format: `spiffe:///ns//sa/` or `/ns//sa/` e.g. `spiffe://example.com/ns/test-ns/sa/default` */
       istioServiceIdentityAdmissionRules?: {[P in string]: AdmissionRule};
       /** Optional. Per-kubernetes-namespace admission rules. K8s namespace spec format: `[a-z.-]+`, e.g. `some-namespace` */
@@ -174,17 +203,17 @@ declare namespace gapi.client {
       /** The reason for denial if the Attestation couldn't be validated. */
       denialReason?: string;
       /** The result of the Attestation validation. */
-      result?: string;
+      result?: 'RESULT_UNSPECIFIED' | 'VERIFIED' | 'ATTESTATION_NOT_VERIFIABLE';
     }
     interface AttestorsResource {
       /** Creates an attestor, and returns a copy of the new attestor. Returns NOT_FOUND if the project does not exist, INVALID_ARGUMENT if the request is malformed, ALREADY_EXISTS if the attestor already exists. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The attestors ID. */
         attestorId?: string;
         /** JSONP */
@@ -211,11 +240,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. The attestors ID. */
           attestorId?: string;
           /** JSONP */
@@ -242,11 +271,11 @@ declare namespace gapi.client {
       /** Deletes an attestor. Returns NOT_FOUND if the attestor does not exist. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -269,11 +298,11 @@ declare namespace gapi.client {
       /** Gets an attestor. Returns NOT_FOUND if the attestor does not exist. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -296,11 +325,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -325,11 +354,11 @@ declare namespace gapi.client {
       /** Lists attestors. Returns INVALID_ARGUMENT if the project does not exist. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -357,11 +386,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -387,11 +416,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -416,11 +445,11 @@ declare namespace gapi.client {
       /** Updates an attestor. Returns NOT_FOUND if the attestor does not exist. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -445,11 +474,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -474,11 +503,11 @@ declare namespace gapi.client {
       /** Returns whether the given `Attestation` for the given image URI was signed by the given `Attestor` */
       validateAttestationOccurrence(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The resource name of the Attestor of the occurrence, in the format `projects/*‍/attestors/*`. */
         attestor: string;
         /** JSONP */
@@ -503,11 +532,11 @@ declare namespace gapi.client {
       validateAttestationOccurrence(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. The resource name of the Attestor of the occurrence, in the format `projects/*‍/attestors/*`. */
           attestor: string;
           /** JSONP */
@@ -534,11 +563,11 @@ declare namespace gapi.client {
       /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
       getIamPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -564,11 +593,11 @@ declare namespace gapi.client {
       setIamPolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -594,11 +623,11 @@ declare namespace gapi.client {
       testIamPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -625,11 +654,11 @@ declare namespace gapi.client {
       /** A policy specifies the attestors that must attest to a container image, before the project is allowed to deploy that image. There is at most one policy per project. All image admission requests are permitted if a project has no policy. Gets the policy for this project. Returns a default policy if the project does not have one. */
       getPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -652,11 +681,11 @@ declare namespace gapi.client {
       /** Creates or updates a project's policy, and returns a copy of the new policy. A policy is always updated as a whole, to avoid race conditions with concurrent policy enforcement (or management!) requests. Returns NOT_FOUND if the project does not exist, INVALID_ARGUMENT if the request is malformed. */
       updatePolicy(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -681,11 +710,11 @@ declare namespace gapi.client {
       updatePolicy(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -714,11 +743,11 @@ declare namespace gapi.client {
       /** Gets the current system policy in the specified location. */
       getPolicy(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

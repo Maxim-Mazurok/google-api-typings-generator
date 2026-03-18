@@ -57,11 +57,11 @@ declare namespace gapi.client {
       /** Create or update tags for the user and app that are represented by the given token. */
       createOrUpdate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. App whose tags are being manipulated. Format: apps/{package_name} */
         appPackage: string;
         /** JSONP */
@@ -88,11 +88,11 @@ declare namespace gapi.client {
       createOrUpdate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. App whose tags are being manipulated. Format: apps/{package_name} */
           appPackage: string;
           /** JSONP */
@@ -121,11 +121,11 @@ declare namespace gapi.client {
       /** Verify an API token by asserting the app and persona it belongs to. The verification is a protection against client-side attacks and will fail if the contents of the token don't match the provided values. A token must be verified before it can be used to manipulate user tags. */
       verify(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. App the token belongs to. Format: apps/{package_name} */
         appPackage: string;
         /** JSONP */
@@ -152,11 +152,11 @@ declare namespace gapi.client {
       verify(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. App the token belongs to. Format: apps/{package_name} */
           appPackage: string;
           /** JSONP */

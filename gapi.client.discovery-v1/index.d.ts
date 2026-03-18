@@ -287,7 +287,7 @@ declare namespace gapi.client {
       /** Retrieve the description of a particular version of an api. */
       getRest(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** The name of the API. */
         api: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -308,7 +308,7 @@ declare namespace gapi.client {
       /** Retrieve the list of APIs supported at this endpoint. */
       list(request?: {
         /** Data format for the response. */
-        alt?: string;
+        alt?: 'json';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */

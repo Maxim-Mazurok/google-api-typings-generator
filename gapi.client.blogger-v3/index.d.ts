@@ -65,7 +65,7 @@ declare namespace gapi.client {
       /** The API REST URL to fetch this resource from. */
       selfLink?: string;
       /** The status of the blog. */
-      status?: string;
+      status?: 'LIVE' | 'DELETED';
       /** RFC 3339 date-time when this blog was last updated. */
       updated?: string;
       /** The URL where this blog is published. */
@@ -89,7 +89,7 @@ declare namespace gapi.client {
       /** The Photo Album Key for the user when adding photos to the blog. */
       photosAlbumKey?: string;
       /** Access permissions that the user has for the blog (ADMIN, AUTHOR, or READER). */
-      role?: string;
+      role?: 'VIEW_TYPE_UNSPECIFIED' | 'READER' | 'AUTHOR' | 'ADMIN';
       /** ID of the User. */
       userId?: string;
     }
@@ -142,7 +142,7 @@ declare namespace gapi.client {
       /** The API REST URL to fetch this resource from. */
       selfLink?: string;
       /** The status of the comment (only populated for admin users). */
-      status?: string;
+      status?: 'LIVE' | 'EMPTIED' | 'PENDING' | 'SPAM';
       /** RFC 3339 date-time when this comment was last updated. */
       updated?: string;
     }
@@ -191,7 +191,7 @@ declare namespace gapi.client {
       /** The API REST URL to fetch this resource from. */
       selfLink?: string;
       /** The status of the page for admin resources (either LIVE or DRAFT). */
-      status?: string;
+      status?: 'LIVE' | 'DRAFT' | 'SOFT_TRASHED';
       /** The title of this entity. This is the name displayed in the Admin user interface. */
       title?: string;
       /** RFC 3339 date-time when this Page was trashed. */
@@ -219,7 +219,7 @@ declare namespace gapi.client {
         /** Count of page views for the given time range. */
         count?: string;
         /** Time range the given count applies to. */
-        timeRange?: string;
+        timeRange?: 'ALL_TIME' | 'THIRTY_DAYS' | 'SEVEN_DAYS';
       }>;
       /** The kind of this entry. Always blogger#page_views. */
       kind?: string;
@@ -274,7 +274,10 @@ declare namespace gapi.client {
       /** RFC 3339 date-time when this Post was published. */
       published?: string;
       /** Comment control and display setting for readers of this post. */
-      readerComments?: string;
+      readerComments?:
+        | 'ALLOW'
+        | 'DONT_ALLOW_SHOW_EXISTING'
+        | 'DONT_ALLOW_HIDE_EXISTING';
       /** The container of comments on this Post. */
       replies?: {
         /** The List of Comments for this Post. */
@@ -287,7 +290,7 @@ declare namespace gapi.client {
       /** The API REST URL to fetch this resource from. */
       selfLink?: string;
       /** Status of the post. Only set for admin-level requests. */
-      status?: string;
+      status?: 'LIVE' | 'DRAFT' | 'SCHEDULED' | 'SOFT_TRASHED';
       /** The title of the Post. */
       title?: string;
       /** The title link URL, similar to atom's related link. */
@@ -373,11 +376,11 @@ declare namespace gapi.client {
       /** Gets a blog by id. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -397,16 +400,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Unspecified is interpreted as READER. */
-        view?: string;
+        view?: 'VIEW_TYPE_UNSPECIFIED' | 'READER' | 'AUTHOR' | 'ADMIN';
       }): Request<Blog>;
       /** Gets a blog by url. */
       getByUrl(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -425,16 +428,16 @@ declare namespace gapi.client {
         uploadType?: string;
         url: string;
         /** Unspecified is interpreted as READER. */
-        view?: string;
+        view?: 'VIEW_TYPE_UNSPECIFIED' | 'READER' | 'AUTHOR' | 'ADMIN';
       }): Request<Blog>;
       /** Lists blogs by user. */
       listByUser(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         fetchUserInfo?: boolean;
@@ -448,27 +451,32 @@ declare namespace gapi.client {
         prettyPrint?: boolean;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
-        role?: string | string[];
+        role?:
+          | 'VIEW_TYPE_UNSPECIFIED'
+          | 'READER'
+          | 'AUTHOR'
+          | 'ADMIN'
+          | ('VIEW_TYPE_UNSPECIFIED' | 'READER' | 'AUTHOR' | 'ADMIN')[];
         /** Default value of status is LIVE. */
-        status?: string | string[];
+        status?: 'LIVE' | 'DELETED' | ('LIVE' | 'DELETED')[];
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         userId: string;
         /** Unspecified is interpreted as the user's role on the blog. */
-        view?: string;
+        view?: 'VIEW_TYPE_UNSPECIFIED' | 'READER' | 'AUTHOR' | 'ADMIN';
       }): Request<BlogList>;
     }
     interface BlogUserInfosResource {
       /** Gets one blog and user info pair by blog id and user id. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -494,11 +502,11 @@ declare namespace gapi.client {
       /** Marks a comment as not spam by blog id, post id and comment id. */
       approve(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -522,11 +530,11 @@ declare namespace gapi.client {
       /** Deletes a comment by blog id, post id and comment id. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -550,11 +558,11 @@ declare namespace gapi.client {
       /** Gets a comment by id. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -574,16 +582,16 @@ declare namespace gapi.client {
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
-        view?: string;
+        view?: 'VIEW_TYPE_UNSPECIFIED' | 'READER' | 'AUTHOR' | 'ADMIN';
       }): Request<Comment>;
       /** Lists comments. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -603,21 +611,21 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         startDate?: string;
-        status?: string;
+        status?: 'LIVE' | 'EMPTIED' | 'PENDING' | 'SPAM';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
-        view?: string;
+        view?: 'VIEW_TYPE_UNSPECIFIED' | 'READER' | 'AUTHOR' | 'ADMIN';
       }): Request<CommentList>;
       /** Lists comments by blog. */
       listByBlog(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -636,7 +644,12 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         startDate?: string;
-        status?: string | string[];
+        status?:
+          | 'LIVE'
+          | 'EMPTIED'
+          | 'PENDING'
+          | 'SPAM'
+          | ('LIVE' | 'EMPTIED' | 'PENDING' | 'SPAM')[];
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -645,11 +658,11 @@ declare namespace gapi.client {
       /** Marks a comment as spam by blog id, post id and comment id. */
       markAsSpam(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -673,11 +686,11 @@ declare namespace gapi.client {
       /** Removes the content of a comment by blog id, post id and comment id. */
       removeContent(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -703,11 +716,11 @@ declare namespace gapi.client {
       /** Deletes a page by blog id and page id. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -732,11 +745,11 @@ declare namespace gapi.client {
       /** Gets a page by blog id and page id. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -755,16 +768,16 @@ declare namespace gapi.client {
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
-        view?: string;
+        view?: 'VIEW_TYPE_UNSPECIFIED' | 'READER' | 'AUTHOR' | 'ADMIN';
       }): Request<Page>;
       /** Inserts a page. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -789,11 +802,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           blogId: string;
           /** JSONP */
           callback?: string;
@@ -818,11 +831,11 @@ declare namespace gapi.client {
       /** Lists pages. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -839,21 +852,25 @@ declare namespace gapi.client {
         prettyPrint?: boolean;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
-        status?: string | string[];
+        status?:
+          | 'LIVE'
+          | 'DRAFT'
+          | 'SOFT_TRASHED'
+          | ('LIVE' | 'DRAFT' | 'SOFT_TRASHED')[];
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
-        view?: string;
+        view?: 'VIEW_TYPE_UNSPECIFIED' | 'READER' | 'AUTHOR' | 'ADMIN';
       }): Request<PageList>;
       /** Patches a page. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -880,11 +897,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           blogId: string;
           /** JSONP */
           callback?: string;
@@ -911,11 +928,11 @@ declare namespace gapi.client {
       /** Publishes a page. */
       publish(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -938,11 +955,11 @@ declare namespace gapi.client {
       /** Reverts a published or scheduled page to draft state. */
       revert(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -965,11 +982,11 @@ declare namespace gapi.client {
       /** Updates a page by blog id and page id. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -996,11 +1013,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           blogId: string;
           /** JSONP */
           callback?: string;
@@ -1029,11 +1046,11 @@ declare namespace gapi.client {
       /** Gets page views by blog id. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -1047,7 +1064,7 @@ declare namespace gapi.client {
         prettyPrint?: boolean;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
-        range?: string | string[];
+        range?: 'all' | '30DAYS' | '7DAYS' | ('all' | '30DAYS' | '7DAYS')[];
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1058,11 +1075,11 @@ declare namespace gapi.client {
       /** Deletes a post by blog id and post id. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -1087,11 +1104,11 @@ declare namespace gapi.client {
       /** Gets a post by blog id and post id */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -1113,16 +1130,16 @@ declare namespace gapi.client {
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
-        view?: string;
+        view?: 'VIEW_TYPE_UNSPECIFIED' | 'READER' | 'AUTHOR' | 'ADMIN';
       }): Request<Post>;
       /** Gets a post by path. */
       getByPath(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -1142,16 +1159,16 @@ declare namespace gapi.client {
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
-        view?: string;
+        view?: 'VIEW_TYPE_UNSPECIFIED' | 'READER' | 'AUTHOR' | 'ADMIN';
       }): Request<Post>;
       /** Inserts a post. */
       insert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -1178,11 +1195,11 @@ declare namespace gapi.client {
       insert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           blogId: string;
           /** JSONP */
           callback?: string;
@@ -1209,11 +1226,11 @@ declare namespace gapi.client {
       /** Lists posts. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -1228,30 +1245,35 @@ declare namespace gapi.client {
         maxResults?: number;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
-        orderBy?: string;
+        orderBy?: 'ORDER_BY_UNSPECIFIED' | 'PUBLISHED' | 'UPDATED';
         pageToken?: string;
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Sort direction applied to post list. */
-        sortOption?: string;
+        sortOption?: 'SORT_OPTION_UNSPECIFIED' | 'DESCENDING' | 'ASCENDING';
         startDate?: string;
-        status?: string | string[];
+        status?:
+          | 'LIVE'
+          | 'DRAFT'
+          | 'SCHEDULED'
+          | 'SOFT_TRASHED'
+          | ('LIVE' | 'DRAFT' | 'SCHEDULED' | 'SOFT_TRASHED')[];
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
-        view?: string;
+        view?: 'VIEW_TYPE_UNSPECIFIED' | 'READER' | 'AUTHOR' | 'ADMIN';
       }): Request<PostList>;
       /** Patches a post. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -1281,11 +1303,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           blogId: string;
           /** JSONP */
           callback?: string;
@@ -1315,11 +1337,11 @@ declare namespace gapi.client {
       /** Publishes a post. */
       publish(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -1343,11 +1365,11 @@ declare namespace gapi.client {
       /** Reverts a published or scheduled post to draft state. */
       revert(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -1370,11 +1392,11 @@ declare namespace gapi.client {
       /** Searches for posts matching given query terms in the specified blog. */
       search(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -1385,7 +1407,7 @@ declare namespace gapi.client {
         key?: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
-        orderBy?: string;
+        orderBy?: 'ORDER_BY_UNSPECIFIED' | 'PUBLISHED' | 'UPDATED';
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         q: string;
@@ -1399,11 +1421,11 @@ declare namespace gapi.client {
       /** Updates a post by blog id and post id. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -1433,11 +1455,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           blogId: string;
           /** JSONP */
           callback?: string;
@@ -1469,11 +1491,11 @@ declare namespace gapi.client {
       /** Gets one post and user info pair, by post_id and user_id. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -1498,11 +1520,11 @@ declare namespace gapi.client {
       /** Lists post and user info pairs. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         blogId: string;
         /** JSONP */
         callback?: string;
@@ -1516,31 +1538,36 @@ declare namespace gapi.client {
         maxResults?: number;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
-        orderBy?: string;
+        orderBy?: 'ORDER_BY_UNSPECIFIED' | 'PUBLISHED' | 'UPDATED';
         pageToken?: string;
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         startDate?: string;
-        status?: string | string[];
+        status?:
+          | 'LIVE'
+          | 'DRAFT'
+          | 'SCHEDULED'
+          | 'SOFT_TRASHED'
+          | ('LIVE' | 'DRAFT' | 'SCHEDULED' | 'SOFT_TRASHED')[];
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         userId: string;
-        view?: string;
+        view?: 'VIEW_TYPE_UNSPECIFIED' | 'READER' | 'AUTHOR' | 'ADMIN';
       }): Request<PostUserInfosList>;
     }
     interface UsersResource {
       /** Gets one user by user_id. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

@@ -45,13 +45,47 @@ declare namespace gapi.client {
       /** The constraints associated with this request. */
       constraints?: GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequestListUpdateRequestConstraints;
       /** The type of platform at risk by entries present in the list. */
-      platformType?: string;
+      platformType?:
+        | 'PLATFORM_TYPE_UNSPECIFIED'
+        | 'WINDOWS'
+        | 'LINUX'
+        | 'ANDROID'
+        | 'OSX'
+        | 'IOS'
+        | 'ANY_PLATFORM'
+        | 'ALL_PLATFORMS'
+        | 'CHROME';
       /** The current state of the client for the requested list (the encrypted client state that was received from the last successful list update). */
       state?: string;
       /** The types of entries present in the list. */
-      threatEntryType?: string;
+      threatEntryType?:
+        | 'THREAT_ENTRY_TYPE_UNSPECIFIED'
+        | 'URL'
+        | 'EXECUTABLE'
+        | 'IP_RANGE'
+        | 'CHROME_EXTENSION'
+        | 'FILENAME'
+        | 'CERT';
       /** The type of threat posed by entries present in the list. */
-      threatType?: string;
+      threatType?:
+        | 'THREAT_TYPE_UNSPECIFIED'
+        | 'MALWARE'
+        | 'SOCIAL_ENGINEERING'
+        | 'UNWANTED_SOFTWARE'
+        | 'POTENTIALLY_HARMFUL_APPLICATION'
+        | 'SOCIAL_ENGINEERING_INTERNAL'
+        | 'API_ABUSE'
+        | 'MALICIOUS_BINARY'
+        | 'CSD_WHITELIST'
+        | 'CSD_DOWNLOAD_WHITELIST'
+        | 'CLIENT_INCIDENT'
+        | 'CLIENT_INCIDENT_WHITELIST'
+        | 'APK_MALWARE_OFFLINE'
+        | 'SUBRESOURCE_FILTER'
+        | 'SUSPICIOUS'
+        | 'TRICK_TO_BILL'
+        | 'HIGH_CONFIDENCE_ALLOWLIST'
+        | 'ACCURACY_TIPS';
     }
     interface GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequestListUpdateRequestConstraints {
       /** A client's physical location, expressed as a ISO 31166-1 alpha-2 region code. */
@@ -65,7 +99,7 @@ declare namespace gapi.client {
       /** Requests the list for a specific geographic location. If not set the server may pick that value based on the user's IP address. Expects ISO 3166-1 alpha-2 format. */
       region?: string;
       /** The compression types supported by the client. */
-      supportedCompressions?: string[];
+      supportedCompressions?: 'COMPRESSION_TYPE_UNSPECIFIED' | 'RAW' | 'RICE'[];
     }
     interface GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponse {
       /** The list updates requested by the clients. The number of responses here may be less than the number of requests sent by clients. This is the case, for example, if the server has no updates for a particular list. */
@@ -81,15 +115,52 @@ declare namespace gapi.client {
       /** The new client state, in encrypted format. Opaque to clients. */
       newClientState?: string;
       /** The platform type for which data is returned. */
-      platformType?: string;
+      platformType?:
+        | 'PLATFORM_TYPE_UNSPECIFIED'
+        | 'WINDOWS'
+        | 'LINUX'
+        | 'ANDROID'
+        | 'OSX'
+        | 'IOS'
+        | 'ANY_PLATFORM'
+        | 'ALL_PLATFORMS'
+        | 'CHROME';
       /** A set of entries to remove from a local threat type's list. In practice, this field is empty or contains exactly one ThreatEntrySet. */
       removals?: GoogleSecuritySafebrowsingV4ThreatEntrySet[];
       /** The type of response. This may indicate that an action is required by the client when the response is received. */
-      responseType?: string;
+      responseType?:
+        | 'RESPONSE_TYPE_UNSPECIFIED'
+        | 'PARTIAL_UPDATE'
+        | 'FULL_UPDATE';
       /** The format of the threats. */
-      threatEntryType?: string;
+      threatEntryType?:
+        | 'THREAT_ENTRY_TYPE_UNSPECIFIED'
+        | 'URL'
+        | 'EXECUTABLE'
+        | 'IP_RANGE'
+        | 'CHROME_EXTENSION'
+        | 'FILENAME'
+        | 'CERT';
       /** The threat type for which data is returned. */
-      threatType?: string;
+      threatType?:
+        | 'THREAT_TYPE_UNSPECIFIED'
+        | 'MALWARE'
+        | 'SOCIAL_ENGINEERING'
+        | 'UNWANTED_SOFTWARE'
+        | 'POTENTIALLY_HARMFUL_APPLICATION'
+        | 'SOCIAL_ENGINEERING_INTERNAL'
+        | 'API_ABUSE'
+        | 'MALICIOUS_BINARY'
+        | 'CSD_WHITELIST'
+        | 'CSD_DOWNLOAD_WHITELIST'
+        | 'CLIENT_INCIDENT'
+        | 'CLIENT_INCIDENT_WHITELIST'
+        | 'APK_MALWARE_OFFLINE'
+        | 'SUBRESOURCE_FILTER'
+        | 'SUSPICIOUS'
+        | 'TRICK_TO_BILL'
+        | 'HIGH_CONFIDENCE_ALLOWLIST'
+        | 'ACCURACY_TIPS';
     }
     interface GoogleSecuritySafebrowsingV4FindFullHashesRequest {
       /** Client metadata associated with callers of higher-level APIs built on top of the client's implementation. */
@@ -163,7 +234,7 @@ declare namespace gapi.client {
     }
     interface GoogleSecuritySafebrowsingV4ThreatEntrySet {
       /** The compression type for the entries in this set. */
-      compressionType?: string;
+      compressionType?: 'COMPRESSION_TYPE_UNSPECIFIED' | 'RAW' | 'RICE';
       /** The raw SHA256-formatted entries. */
       rawHashes?: GoogleSecuritySafebrowsingV4RawHashes;
       /** The raw removal indices for a local list. */
@@ -179,11 +250,38 @@ declare namespace gapi.client {
       /** The threat entry responsible for the hit. Full hash should be reported for hash-based hits. */
       entry?: GoogleSecuritySafebrowsingV4ThreatEntry;
       /** The platform type reported. */
-      platformType?: string;
+      platformType?:
+        | 'PLATFORM_TYPE_UNSPECIFIED'
+        | 'WINDOWS'
+        | 'LINUX'
+        | 'ANDROID'
+        | 'OSX'
+        | 'IOS'
+        | 'ANY_PLATFORM'
+        | 'ALL_PLATFORMS'
+        | 'CHROME';
       /** The resources related to the threat hit. */
       resources?: GoogleSecuritySafebrowsingV4ThreatHitThreatSource[];
       /** The threat type reported. */
-      threatType?: string;
+      threatType?:
+        | 'THREAT_TYPE_UNSPECIFIED'
+        | 'MALWARE'
+        | 'SOCIAL_ENGINEERING'
+        | 'UNWANTED_SOFTWARE'
+        | 'POTENTIALLY_HARMFUL_APPLICATION'
+        | 'SOCIAL_ENGINEERING_INTERNAL'
+        | 'API_ABUSE'
+        | 'MALICIOUS_BINARY'
+        | 'CSD_WHITELIST'
+        | 'CSD_DOWNLOAD_WHITELIST'
+        | 'CLIENT_INCIDENT'
+        | 'CLIENT_INCIDENT_WHITELIST'
+        | 'APK_MALWARE_OFFLINE'
+        | 'SUBRESOURCE_FILTER'
+        | 'SUSPICIOUS'
+        | 'TRICK_TO_BILL'
+        | 'HIGH_CONFIDENCE_ALLOWLIST'
+        | 'ACCURACY_TIPS';
       /** Details about the user that encountered the threat. */
       userInfo?: GoogleSecuritySafebrowsingV4ThreatHitUserInfo;
     }
@@ -193,7 +291,12 @@ declare namespace gapi.client {
       /** The remote IP of the resource in ASCII format. Either IPv4 or IPv6. */
       remoteIp?: string;
       /** The type of source reported. */
-      type?: string;
+      type?:
+        | 'THREAT_SOURCE_TYPE_UNSPECIFIED'
+        | 'MATCHING_URL'
+        | 'TAB_URL'
+        | 'TAB_REDIRECT'
+        | 'TAB_RESOURCE';
       /** The URL of the resource. */
       url?: string;
     }
@@ -205,44 +308,146 @@ declare namespace gapi.client {
     }
     interface GoogleSecuritySafebrowsingV4ThreatInfo {
       /** The platform types to be checked. */
-      platformTypes?: string[];
+      platformTypes?:
+        | 'PLATFORM_TYPE_UNSPECIFIED'
+        | 'WINDOWS'
+        | 'LINUX'
+        | 'ANDROID'
+        | 'OSX'
+        | 'IOS'
+        | 'ANY_PLATFORM'
+        | 'ALL_PLATFORMS'
+        | 'CHROME'[];
       /** The threat entries to be checked. */
       threatEntries?: GoogleSecuritySafebrowsingV4ThreatEntry[];
       /** The entry types to be checked. */
-      threatEntryTypes?: string[];
+      threatEntryTypes?:
+        | 'THREAT_ENTRY_TYPE_UNSPECIFIED'
+        | 'URL'
+        | 'EXECUTABLE'
+        | 'IP_RANGE'
+        | 'CHROME_EXTENSION'
+        | 'FILENAME'
+        | 'CERT'[];
       /** The threat types to be checked. */
-      threatTypes?: string[];
+      threatTypes?:
+        | 'THREAT_TYPE_UNSPECIFIED'
+        | 'MALWARE'
+        | 'SOCIAL_ENGINEERING'
+        | 'UNWANTED_SOFTWARE'
+        | 'POTENTIALLY_HARMFUL_APPLICATION'
+        | 'SOCIAL_ENGINEERING_INTERNAL'
+        | 'API_ABUSE'
+        | 'MALICIOUS_BINARY'
+        | 'CSD_WHITELIST'
+        | 'CSD_DOWNLOAD_WHITELIST'
+        | 'CLIENT_INCIDENT'
+        | 'CLIENT_INCIDENT_WHITELIST'
+        | 'APK_MALWARE_OFFLINE'
+        | 'SUBRESOURCE_FILTER'
+        | 'SUSPICIOUS'
+        | 'TRICK_TO_BILL'
+        | 'HIGH_CONFIDENCE_ALLOWLIST'
+        | 'ACCURACY_TIPS'[];
     }
     interface GoogleSecuritySafebrowsingV4ThreatListDescriptor {
       /** The platform type targeted by the list's entries. */
-      platformType?: string;
+      platformType?:
+        | 'PLATFORM_TYPE_UNSPECIFIED'
+        | 'WINDOWS'
+        | 'LINUX'
+        | 'ANDROID'
+        | 'OSX'
+        | 'IOS'
+        | 'ANY_PLATFORM'
+        | 'ALL_PLATFORMS'
+        | 'CHROME';
       /** The entry types contained in the list. */
-      threatEntryType?: string;
+      threatEntryType?:
+        | 'THREAT_ENTRY_TYPE_UNSPECIFIED'
+        | 'URL'
+        | 'EXECUTABLE'
+        | 'IP_RANGE'
+        | 'CHROME_EXTENSION'
+        | 'FILENAME'
+        | 'CERT';
       /** The threat type posed by the list's entries. */
-      threatType?: string;
+      threatType?:
+        | 'THREAT_TYPE_UNSPECIFIED'
+        | 'MALWARE'
+        | 'SOCIAL_ENGINEERING'
+        | 'UNWANTED_SOFTWARE'
+        | 'POTENTIALLY_HARMFUL_APPLICATION'
+        | 'SOCIAL_ENGINEERING_INTERNAL'
+        | 'API_ABUSE'
+        | 'MALICIOUS_BINARY'
+        | 'CSD_WHITELIST'
+        | 'CSD_DOWNLOAD_WHITELIST'
+        | 'CLIENT_INCIDENT'
+        | 'CLIENT_INCIDENT_WHITELIST'
+        | 'APK_MALWARE_OFFLINE'
+        | 'SUBRESOURCE_FILTER'
+        | 'SUSPICIOUS'
+        | 'TRICK_TO_BILL'
+        | 'HIGH_CONFIDENCE_ALLOWLIST'
+        | 'ACCURACY_TIPS';
     }
     interface GoogleSecuritySafebrowsingV4ThreatMatch {
       /** The cache lifetime for the returned match. Clients must not cache this response for more than this duration to avoid false positives. */
       cacheDuration?: string;
       /** The platform type matching this threat. */
-      platformType?: string;
+      platformType?:
+        | 'PLATFORM_TYPE_UNSPECIFIED'
+        | 'WINDOWS'
+        | 'LINUX'
+        | 'ANDROID'
+        | 'OSX'
+        | 'IOS'
+        | 'ANY_PLATFORM'
+        | 'ALL_PLATFORMS'
+        | 'CHROME';
       /** The threat matching this threat. */
       threat?: GoogleSecuritySafebrowsingV4ThreatEntry;
       /** Optional metadata associated with this threat. */
       threatEntryMetadata?: GoogleSecuritySafebrowsingV4ThreatEntryMetadata;
       /** The threat entry type matching this threat. */
-      threatEntryType?: string;
+      threatEntryType?:
+        | 'THREAT_ENTRY_TYPE_UNSPECIFIED'
+        | 'URL'
+        | 'EXECUTABLE'
+        | 'IP_RANGE'
+        | 'CHROME_EXTENSION'
+        | 'FILENAME'
+        | 'CERT';
       /** The threat type matching this threat. */
-      threatType?: string;
+      threatType?:
+        | 'THREAT_TYPE_UNSPECIFIED'
+        | 'MALWARE'
+        | 'SOCIAL_ENGINEERING'
+        | 'UNWANTED_SOFTWARE'
+        | 'POTENTIALLY_HARMFUL_APPLICATION'
+        | 'SOCIAL_ENGINEERING_INTERNAL'
+        | 'API_ABUSE'
+        | 'MALICIOUS_BINARY'
+        | 'CSD_WHITELIST'
+        | 'CSD_DOWNLOAD_WHITELIST'
+        | 'CLIENT_INCIDENT'
+        | 'CLIENT_INCIDENT_WHITELIST'
+        | 'APK_MALWARE_OFFLINE'
+        | 'SUBRESOURCE_FILTER'
+        | 'SUSPICIOUS'
+        | 'TRICK_TO_BILL'
+        | 'HIGH_CONFIDENCE_ALLOWLIST'
+        | 'ACCURACY_TIPS';
     }
     interface EncodedFullHashesResource {
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** A client ID that (hopefully) uniquely identifies the client implementation of the Safe Browsing API. */
@@ -270,11 +475,11 @@ declare namespace gapi.client {
     interface EncodedUpdatesResource {
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** A client ID that uniquely identifies the client implementation of the Safe Browsing API. */
@@ -303,11 +508,11 @@ declare namespace gapi.client {
       /** Finds the full hashes that match the requested hash prefixes. */
       find(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -330,11 +535,11 @@ declare namespace gapi.client {
       find(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -359,11 +564,11 @@ declare namespace gapi.client {
       /** Reports a Safe Browsing threat list hit to Google. Only projects with TRUSTED_REPORTER visibility can use this method. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -386,11 +591,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -415,11 +620,11 @@ declare namespace gapi.client {
       /** Lists the Safe Browsing threat lists available for download. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -442,11 +647,11 @@ declare namespace gapi.client {
       /** Fetches the most recent threat list updates. A client can request updates for multiple lists at once. */
       fetch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -469,11 +674,11 @@ declare namespace gapi.client {
       fetch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -498,11 +703,11 @@ declare namespace gapi.client {
       /** Finds the threat entries that match the Safe Browsing lists. */
       find(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -525,11 +730,11 @@ declare namespace gapi.client {
       find(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

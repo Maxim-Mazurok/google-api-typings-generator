@@ -38,7 +38,10 @@ declare namespace gapi.client {
       /** Required. secret_manager_secret */
       secretManagerSecret?: string;
       /** Required. active directory type */
-      type?: string;
+      type?:
+        | 'ACTIVE_DIRECTORY_TYPE_UNSPECIFIED'
+        | 'GCP_MANAGED'
+        | 'SELF_MANAGED';
     }
     interface Actuation {
       /** Output only. [Output only] Actuation output */
@@ -52,7 +55,14 @@ declare namespace gapi.client {
       /** Output only. [Output only] Start time stamp */
       startTime?: string;
       /** Output only. [Output only] Actuation state */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'INFRA_CREATING'
+        | 'SUCCEEDED'
+        | 'FAILED'
+        | 'POST_INFRA_CONFIGURING'
+        | 'INFRA_DESTROYING'
+        | 'TIMEOUT';
     }
     interface ActuationOutput {
       /** A link to gcs file that store build logs */
@@ -66,7 +76,20 @@ declare namespace gapi.client {
       /** Cloud Build instance UUID associated with this revision, without any suffix or prefix */
       cloudbuildId?: string;
       /** Output only. Code describing any errors that may have occurred. If not specified, there is no error in actuation. */
-      errorCode?: string;
+      errorCode?:
+        | 'ERROR_CODE_UNSPECIFIED'
+        | 'TERRAFORM_FAILED'
+        | 'PERMISSION_DENIED_IN_TERRAFORM'
+        | 'QUOTA_EXCEED_IN_TERRAFORM'
+        | 'ANSIBLE_FAILED'
+        | 'CONSTRAINT_VIOLATION_IN_TERRAFORM'
+        | 'RESOURCE_ALREADY_EXISTS_IN_TERRAFORM'
+        | 'RESOURCE_UNAVAILABLE_IN_TERRAFORM'
+        | 'PERMISSION_DENIED_IN_ANSIBLE'
+        | 'INVALID_SECRET_IN_ANSIBLE'
+        | 'TERRAFORM_DELETION_FAILED'
+        | 'RESOURCE_IN_USE_IN_TERRAFORM_DELETION'
+        | 'ANSIBLE_START_FAILED';
       /** A link to actuation cloud build log. */
       errorLogs?: string;
       /** Output only. whether the error message is user facing. If true, the error message will be shown in the UI. */
@@ -102,13 +125,21 @@ declare namespace gapi.client {
       /** Output only. The available version of the agent in artifact registry. */
       availableVersion?: string;
       /** Output only. Whether the agent has full access to Cloud APIs. */
-      cloudApiAccessFullScopesGranted?: string;
+      cloudApiAccessFullScopesGranted?:
+        | 'UNSPECIFIED_STATE'
+        | 'SUCCESS_STATE'
+        | 'FAILURE_STATE'
+        | 'ERROR_STATE';
       /** Output only. The error message for the agent configuration if invalid. */
       configurationErrorMessage?: string;
       /** Output only. The path to the agent configuration file. */
       configurationFilePath?: string;
       /** Output only. Whether the agent configuration is valid. */
-      configurationValid?: string;
+      configurationValid?:
+        | 'UNSPECIFIED_STATE'
+        | 'SUCCESS_STATE'
+        | 'FAILURE_STATE'
+        | 'ERROR_STATE';
       /** Output only. The installed version of the agent on the host. */
       installedVersion?: string;
       /** Output only. The URI of the instance. Format: projects//zones//instances/ */
@@ -120,9 +151,17 @@ declare namespace gapi.client {
       /** Output only. The services (process metrics, host metrics, etc.). */
       services?: AgentStatusServiceStatus[];
       /** Output only. Whether the agent service is enabled in systemd. */
-      systemdServiceEnabled?: string;
+      systemdServiceEnabled?:
+        | 'UNSPECIFIED_STATE'
+        | 'SUCCESS_STATE'
+        | 'FAILURE_STATE'
+        | 'ERROR_STATE';
       /** Output only. Whether the agent service is running in systemd. */
-      systemdServiceRunning?: string;
+      systemdServiceRunning?:
+        | 'UNSPECIFIED_STATE'
+        | 'SUCCESS_STATE'
+        | 'FAILURE_STATE'
+        | 'ERROR_STATE';
     }
     interface AgentStatusConfigValue {
       /** Output only. Whether the configuration value is the default value or overridden. */
@@ -134,7 +173,11 @@ declare namespace gapi.client {
     }
     interface AgentStatusIAMPermission {
       /** Output only. Whether the permission is granted. */
-      granted?: string;
+      granted?:
+        | 'UNSPECIFIED_STATE'
+        | 'SUCCESS_STATE'
+        | 'FAILURE_STATE'
+        | 'ERROR_STATE';
       /** Output only. The name of the permission. */
       name?: string;
     }
@@ -150,13 +193,21 @@ declare namespace gapi.client {
       /** Output only. The error message for the service if it is not fully functional. */
       errorMessage?: string;
       /** Output only. Whether the service is fully functional (all checks passed). */
-      fullyFunctional?: string;
+      fullyFunctional?:
+        | 'UNSPECIFIED_STATE'
+        | 'SUCCESS_STATE'
+        | 'FAILURE_STATE'
+        | 'ERROR_STATE';
       /** Output only. The permissions required for the service. */
       iamPermissions?: AgentStatusIAMPermission[];
       /** Output only. The name of the service. */
       name?: string;
       /** Output only. The state of the service (enabled or disabled in the configuration). */
-      state?: string;
+      state?:
+        | 'UNSPECIFIED_STATE'
+        | 'SUCCESS_STATE'
+        | 'FAILURE_STATE'
+        | 'ERROR_STATE';
       /** Output only. The message to display when the service state is unspecified. */
       unspecifiedStateMessage?: string;
     }
@@ -196,7 +247,10 @@ declare namespace gapi.client {
     }
     interface BackupProperties {
       /** Output only. The state of the latest backup. */
-      latestBackupStatus?: string;
+      latestBackupStatus?:
+        | 'BACKUP_STATE_UNSPECIFIED'
+        | 'BACKUP_STATE_SUCCESS'
+        | 'BACKUP_STATE_FAILURE';
       /** The time when the latest backup was performed. */
       latestBackupTime?: string;
     }
@@ -211,7 +265,19 @@ declare namespace gapi.client {
       /** Output only. All instance properties. */
       instanceProperties?: InstanceProperties;
       /** Output only. */
-      kind?: string;
+      kind?:
+        | 'RESOURCE_KIND_UNSPECIFIED'
+        | 'RESOURCE_KIND_INSTANCE'
+        | 'RESOURCE_KIND_DISK'
+        | 'RESOURCE_KIND_ADDRESS'
+        | 'RESOURCE_KIND_FILESTORE'
+        | 'RESOURCE_KIND_HEALTH_CHECK'
+        | 'RESOURCE_KIND_FORWARDING_RULE'
+        | 'RESOURCE_KIND_BACKEND_SERVICE'
+        | 'RESOURCE_KIND_SUBNETWORK'
+        | 'RESOURCE_KIND_NETWORK'
+        | 'RESOURCE_KIND_PUBLIC_ADDRESS'
+        | 'RESOURCE_KIND_INSTANCE_GROUP';
       /** Output only. resource name Example: compute.googleapis.com/projects/wlm-obs-dev/zones/us-central1-a/instances/sap-pri */
       name?: string;
     }
@@ -227,9 +293,18 @@ declare namespace gapi.client {
       /** The detailed health checks of the component. */
       componentHealthChecks?: HealthCheck[];
       /** Output only. The type of the component health. */
-      componentHealthType?: string;
+      componentHealthType?:
+        | 'TYPE_UNSPECIFIED'
+        | 'TYPE_REQUIRED'
+        | 'TYPE_OPTIONAL'
+        | 'TYPE_SPECIAL';
       /** Output only. The health state of the component. */
-      state?: string;
+      state?:
+        | 'HEALTH_STATE_UNSPECIFIED'
+        | 'HEALTHY'
+        | 'UNHEALTHY'
+        | 'CRITICAL'
+        | 'UNSUPPORTED';
       /** Sub component health. */
       subComponentsHealth?: ComponentHealth[];
     }
@@ -255,7 +330,7 @@ declare namespace gapi.client {
       /** Required. whether to have TempDB on local SSD */
       tempdbOnSsd?: boolean;
       /** Required. SHARED or SOLE_TENANT */
-      tenancyModel?: string;
+      tenancyModel?: 'TENANCY_MODEL_UNSPECIFIED' | 'SHARED' | 'SOLE_TENANT';
     }
     interface DatabaseDetails {
       /** Database service account - let custoemrs bring their own SA for database */
@@ -281,7 +356,14 @@ declare namespace gapi.client {
       /** Output only. Backup properties. */
       backupProperties?: BackupProperties;
       /** Output only. Type of the database. `HANA`, `DB2`, etc. */
-      databaseType?: string;
+      databaseType?:
+        | 'DATABASE_TYPE_UNSPECIFIED'
+        | 'HANA'
+        | 'MAX_DB'
+        | 'DB2'
+        | 'ORACLE'
+        | 'SQLSERVER'
+        | 'ASE';
     }
     interface Deployment {
       /** Output only. [Output only] Create time stamp */
@@ -297,7 +379,13 @@ declare namespace gapi.client {
       /** MS SQL workload input */
       sqlServerWorkload?: SqlServerWorkload;
       /** Output only. Current state of the deployment. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'ACTIVE'
+        | 'UPDATING'
+        | 'DELETING'
+        | 'FAILED';
       /** Optional. terraform_variables represents all the Terraform variables for the deployment workload. The key is the name of the Terraform variable, and the value is the TerraformVariable. For example: { "project_id": { "input_value": { "string_value": "my-project-id" } }, "zone": { "input_value": { "string_value": "us-central1-a" } } } */
       terraformVariables?: {[P in string]: TerraformVariable};
       /** Output only. [Output only] Update time stamp */
@@ -305,7 +393,11 @@ declare namespace gapi.client {
       /** Optional. The user-specified Cloud Build worker pool resource in which the Cloud Build job will execute. Format: `projects/{project}/locations/{location}/workerPools/{workerPoolId}`. If this field is unspecified, the default Cloud Build worker pool will be used. */
       workerPool?: string;
       /** Optional. Workload type of the deployment */
-      workloadType?: string;
+      workloadType?:
+        | 'WORKLOAD_TYPE_UNSPECIFIED'
+        | 'SAP_S4'
+        | 'SQL_SERVER'
+        | 'ORACLE';
     }
     interface DeploymentOutput {
       /** name of the resource */
@@ -324,7 +416,11 @@ declare namespace gapi.client {
       /** Description of the Evaluation. */
       description?: string;
       /** Evaluation type. */
-      evaluationType?: string;
+      evaluationType?:
+        | 'EVALUATION_TYPE_UNSPECIFIED'
+        | 'SAP'
+        | 'SQL_SERVER'
+        | 'OTHER';
       /** Optional. Immutable. Customer-managed encryption key name, in the format projects/*‍/locations/*‍/keyRings/*‍/cryptoKeys/*. The key will be used for CMEK encryption of the evaluation resource. */
       kmsKey?: string;
       /** Labels as key value pairs. */
@@ -346,7 +442,7 @@ declare namespace gapi.client {
       /** Output only. [Output only] End time stamp. */
       endTime?: string;
       /** Optional. Engine. */
-      engine?: string;
+      engine?: 'ENGINE_UNSPECIFIED' | 'ENGINE_SCANNER' | 'V2';
       /** Output only. [Output only] Evaluation ID. */
       evaluationId?: string;
       /** Optional. External data sources. */
@@ -364,11 +460,11 @@ declare namespace gapi.client {
       /** Output only. Execution result summary per rule. */
       ruleResults?: RuleExecutionResult[];
       /** Type which represents whether the execution executed directly by user or scheduled according to the `Evaluation.schedule` field. */
-      runType?: string;
+      runType?: 'TYPE_UNSPECIFIED' | 'ONE_TIME' | 'SCHEDULED';
       /** Output only. [Output only] Start time stamp. */
       startTime?: string;
       /** Output only. [Output only] State. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'RUNNING' | 'SUCCEEDED' | 'FAILED';
     }
     interface ExecutionResult {
       /** The commands to remediate the violation. */
@@ -382,7 +478,7 @@ declare namespace gapi.client {
       /** The severity of violation. */
       severity?: string;
       /** Execution result type of the scanned resource. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'TYPE_PASSED' | 'TYPE_VIOLATED';
       /** The details of violation in an evaluation result. */
       violationDetails?: ViolationDetails;
       /** The violation message of an execution. */
@@ -394,7 +490,7 @@ declare namespace gapi.client {
       /** Optional. Name of external data source. The name will be used inside the rego/sql to refer the external data. */
       name?: string;
       /** Required. Type of external data source. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'BIG_QUERY_TABLE';
       /** Required. URI of external data source. example of bq table {project_ID}.{dataset_ID}.{table_ID}. */
       uri?: string;
     }
@@ -412,7 +508,13 @@ declare namespace gapi.client {
       /** Output only. The source of the health check. */
       source?: string;
       /** Output only. The state of the health check. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'PASSED'
+        | 'FAILED'
+        | 'DEGRADED'
+        | 'SKIPPED'
+        | 'UNSUPPORTED';
     }
     interface IAMPermission {
       /** Output only. Whether the permission is granted. */
@@ -444,7 +546,13 @@ declare namespace gapi.client {
       /** Optional. Instance machine type. */
       machineType?: string;
       /** Optional. Instance roles. */
-      roles?: string[];
+      roles?:
+        | 'INSTANCE_ROLE_UNSPECIFIED'
+        | 'INSTANCE_ROLE_ASCS'
+        | 'INSTANCE_ROLE_ERS'
+        | 'INSTANCE_ROLE_APP_SERVER'
+        | 'INSTANCE_ROLE_HANA_PRIMARY'
+        | 'INSTANCE_ROLE_HANA_SECONDARY'[];
       /** Optional. SAP Instance properties. */
       sapInstanceProperties?: SapInstanceProperties;
       /** Optional. Instance status. */
@@ -545,7 +653,10 @@ declare namespace gapi.client {
       dnsZone?: string;
       /** Optional. dns_zone_name_suffix */
       dnsZoneNameSuffix?: string;
-      internetAccess?: string;
+      internetAccess?:
+        | 'INTERNETACCESS_UNSPECIFIED'
+        | 'ALLOW_EXTERNAL_IP'
+        | 'CONFIGURE_NAT';
       /** Optional. network project */
       networkProject?: string;
       /** Required. region_name */
@@ -637,7 +748,7 @@ declare namespace gapi.client {
     }
     interface ResourceStatus {
       /** State of the Evaluation resource. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'CREATING' | 'ACTIVE' | 'DELETING';
     }
     interface Rule {
       /** The CAI asset type of the rule is evaluating, for joined asset types, it will be the corresponding primary asset types. */
@@ -657,7 +768,7 @@ declare namespace gapi.client {
       /** Output only. The version of the rule. */
       revisionId?: string;
       /** The type of the rule. */
-      ruleType?: string;
+      ruleType?: 'RULE_TYPE_UNSPECIFIED' | 'BASELINE' | 'CUSTOM';
       /** The secondary category. */
       secondaryCategory?: string;
       /** The severity of the rule. */
@@ -677,7 +788,11 @@ declare namespace gapi.client {
       /** Number of total scanned resources. */
       scannedResourceCount?: string;
       /** Output only. The execution status. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'STATE_SUCCESS'
+        | 'STATE_FAILURE'
+        | 'STATE_SKIPPED';
     }
     interface RuleOutput {
       /** Output only. Violation details generated by rule. */
@@ -703,7 +818,10 @@ declare namespace gapi.client {
       /** Output only. sid is the sap component identificator */
       sid?: string;
       /** The detected topology of the component. */
-      topologyType?: string;
+      topologyType?:
+        | 'TOPOLOGY_TYPE_UNSPECIFIED'
+        | 'TOPOLOGY_SCALE_UP'
+        | 'TOPOLOGY_SCALE_OUT';
     }
     interface SapDiscovery {
       /** Optional. An SAP system may run without an application layer. */
@@ -741,7 +859,10 @@ declare namespace gapi.client {
       /** Optional. The SAP identifier, used by the SAP software and helps differentiate systems for customers. */
       sid?: string;
       /** Optional. The detected topology of the component. */
-      topologyType?: string;
+      topologyType?:
+        | 'TOPOLOGY_TYPE_UNSPECIFIED'
+        | 'TOPOLOGY_SCALE_UP'
+        | 'TOPOLOGY_SCALE_OUT';
     }
     interface SapDiscoveryComponentApplicationProperties {
       /** Optional. Deprecated: ApplicationType now tells you whether this is ABAP or Java. */
@@ -749,7 +870,11 @@ declare namespace gapi.client {
       /** Optional. Instance number of the SAP application instance. */
       appInstanceNumber?: string;
       /** Required. Type of the application. Netweaver, etc. */
-      applicationType?: string;
+      applicationType?:
+        | 'APPLICATION_TYPE_UNSPECIFIED'
+        | 'NETWEAVER'
+        | 'NETWEAVER_ABAP'
+        | 'NETWEAVER_JAVA';
       /** Optional. Instance number of the ASCS instance. */
       ascsInstanceNumber?: string;
       /** Optional. Resource URI of the recognized ASCS host of the application. */
@@ -765,7 +890,14 @@ declare namespace gapi.client {
       /** Optional. SID of the system database. */
       databaseSid?: string;
       /** Required. Type of the database. HANA, DB2, etc. */
-      databaseType?: string;
+      databaseType?:
+        | 'DATABASE_TYPE_UNSPECIFIED'
+        | 'HANA'
+        | 'MAX_DB'
+        | 'DB2'
+        | 'ORACLE'
+        | 'SQLSERVER'
+        | 'ASE';
       /** Optional. The version of the database software running in the system. */
       databaseVersion?: string;
       /** Optional. Instance number of the SAP instance. */
@@ -799,9 +931,25 @@ declare namespace gapi.client {
       /** Optional. A list of resource URIs related to this resource. */
       relatedResources?: string[];
       /** Required. ComputeInstance, ComputeDisk, VPC, Bare Metal server, etc. */
-      resourceKind?: string;
+      resourceKind?:
+        | 'RESOURCE_KIND_UNSPECIFIED'
+        | 'RESOURCE_KIND_INSTANCE'
+        | 'RESOURCE_KIND_DISK'
+        | 'RESOURCE_KIND_ADDRESS'
+        | 'RESOURCE_KIND_FILESTORE'
+        | 'RESOURCE_KIND_HEALTH_CHECK'
+        | 'RESOURCE_KIND_FORWARDING_RULE'
+        | 'RESOURCE_KIND_BACKEND_SERVICE'
+        | 'RESOURCE_KIND_SUBNETWORK'
+        | 'RESOURCE_KIND_NETWORK'
+        | 'RESOURCE_KIND_PUBLIC_ADDRESS'
+        | 'RESOURCE_KIND_INSTANCE_GROUP';
       /** Required. The type of this resource. */
-      resourceType?: string;
+      resourceType?:
+        | 'RESOURCE_TYPE_UNSPECIFIED'
+        | 'RESOURCE_TYPE_COMPUTE'
+        | 'RESOURCE_TYPE_STORAGE'
+        | 'RESOURCE_TYPE_NETWORK';
       /** Required. URI of the resource, includes project, location, and name. */
       resourceUri?: string;
       /** Required. Unix timestamp of when this resource last had its discovery data updated. */
@@ -817,7 +965,23 @@ declare namespace gapi.client {
       /** Optional. The VM's instance number. */
       instanceNumber?: string;
       /** Optional. Bitmask of instance role, a resource may have multiple roles at once. */
-      instanceRole?: string;
+      instanceRole?:
+        | 'INSTANCE_ROLE_UNSPECIFIED'
+        | 'INSTANCE_ROLE_ASCS'
+        | 'INSTANCE_ROLE_ERS'
+        | 'INSTANCE_ROLE_APP_SERVER'
+        | 'INSTANCE_ROLE_DATABASE'
+        | 'INSTANCE_ROLE_ASCS_ERS'
+        | 'INSTANCE_ROLE_ASCS_APP_SERVER'
+        | 'INSTANCE_ROLE_ASCS_DATABASE'
+        | 'INSTANCE_ROLE_ERS_APP_SERVER'
+        | 'INSTANCE_ROLE_ERS_DATABASE'
+        | 'INSTANCE_ROLE_APP_SERVER_DATABASE'
+        | 'INSTANCE_ROLE_ASCS_ERS_APP_SERVER'
+        | 'INSTANCE_ROLE_ASCS_ERS_DATABASE'
+        | 'INSTANCE_ROLE_ASCS_APP_SERVER_DATABASE'
+        | 'INSTANCE_ROLE_ERS_APP_SERVER_DATABASE'
+        | 'INSTANCE_ROLE_ASCS_ERS_APP_SERVER_DATABASE';
       /** Optional. Instance is part of a DR site. */
       isDrSite?: boolean;
       /** Optional. The kernel version of the instance. */
@@ -896,9 +1060,15 @@ declare namespace gapi.client {
       /** database details */
       database?: DatabaseDetails;
       /** Required. two model non-HA and HA supported */
-      deploymentModel?: string;
+      deploymentModel?:
+        | 'DEPLOYMENT_MODEL_UNSPECIFIED'
+        | 'DISTRIBUTED'
+        | 'DISTRIBUTED_HA';
       /** Required. deployment environment */
-      environmentType?: string;
+      environmentType?:
+        | 'ENVIRONMENT_TYPE_UNSPECIFIED'
+        | 'NON_PRODUCTION'
+        | 'PRODUCTION';
       /** the project that infrastructure deployed, current only support the same project where the deployment resource exist. */
       gcpProjectId?: string;
       /** database details */
@@ -908,9 +1078,13 @@ declare namespace gapi.client {
       /** Optional. sap_boot_disk_image */
       sapBootDiskImage?: string;
       /** Required. support scale up and scale out */
-      scalingMethod?: string;
+      scalingMethod?: 'SCALE_METHOD_UNSPECIFIED' | 'SCALE_UP' | 'SCALE_OUT';
       /** Required. sap hana version */
-      version?: string;
+      version?:
+        | 'VERSION_UNSPECIFIED'
+        | 'S4_HANA_2021'
+        | 'S4_HANA_2022'
+        | 'S4_HANA_2023';
       /** vm_prefix */
       vmPrefix?: string;
     }
@@ -928,13 +1102,28 @@ declare namespace gapi.client {
       /** Optional. Was there a SAP system detected for this validation type. */
       isPresent?: boolean;
       /** Optional. The SAP system that the validation data is from. */
-      sapValidationType?: string;
+      sapValidationType?:
+        | 'SAP_VALIDATION_TYPE_UNSPECIFIED'
+        | 'SYSTEM'
+        | 'COROSYNC'
+        | 'PACEMAKER'
+        | 'HANA'
+        | 'NETWEAVER'
+        | 'HANA_SECURITY'
+        | 'CUSTOM';
     }
     interface SapWorkload {
       /** Output only. application component */
       application?: SapComponent;
       /** Output only. The architecture. */
-      architecture?: string;
+      architecture?:
+        | 'ARCHITECTURE_UNSPECIFIED'
+        | 'INVALID'
+        | 'CENTRALIZED'
+        | 'DISTRIBUTED'
+        | 'DISTRIBUTED_HA'
+        | 'STANDALONE_DATABASE'
+        | 'STANDALONE_DATABASE_HA';
       /** Output only. database component */
       database?: SapComponent;
       /** Output only. The metadata for SAP workload. */
@@ -952,7 +1141,13 @@ declare namespace gapi.client {
       /** Optional. Output only. The IAM permissions for the service. */
       iamPermissions?: IAMPermission[];
       /** Output only. The overall state of the service. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CONFIG_FAILURE'
+        | 'IAM_FAILURE'
+        | 'FUNCTIONALITY_FAILURE'
+        | 'ENABLED'
+        | 'DISABLED';
     }
     interface ShellCommand {
       /** Arguments to be passed to the command. */
@@ -968,7 +1163,10 @@ declare namespace gapi.client {
       /** Required. the project that infrastructure deployed, currently only supports the same project where the deployment resource exists. */
       gcpProjectId?: string;
       /** Required. Internet Access */
-      internetAccess?: string;
+      internetAccess?:
+        | 'INTERNET_ACCESS_UNSPECIFIED'
+        | 'ALLOW_EXTERNAL_IP'
+        | 'CONFIGURE_NAT';
       /** Required. network name */
       network?: string;
       /** Required. primary zone */
@@ -1000,7 +1198,20 @@ declare namespace gapi.client {
       /** Required. Details wraps map that represents collected data names and values. */
       details?: SqlserverValidationDetails[];
       /** Optional. The Sqlserver system that the validation data is from. */
-      type?: string;
+      type?:
+        | 'SQLSERVER_VALIDATION_TYPE_UNSPECIFIED'
+        | 'OS'
+        | 'DB_LOG_DISK_SEPARATION'
+        | 'DB_MAX_PARALLELISM'
+        | 'DB_CXPACKET_WAITS'
+        | 'DB_TRANSACTION_LOG_HANDLING'
+        | 'DB_VIRTUAL_LOG_FILE_COUNT'
+        | 'DB_BUFFER_POOL_EXTENSION'
+        | 'DB_MAX_SERVER_MEMORY'
+        | 'INSTANCE_METRICS'
+        | 'DB_INDEX_FRAGMENTATION'
+        | 'DB_TABLE_INDEX_COMPRESSION'
+        | 'DB_BACKUP_POLICY';
     }
     interface SqlServerWorkload {
       /** Required. active directory details */
@@ -1010,13 +1221,19 @@ declare namespace gapi.client {
       /** Required. database details */
       database?: Database;
       /** Required. HIGH_AVAILABILITY or SINGLE_INSTANCE */
-      deploymentModel?: string;
+      deploymentModel?:
+        | 'DEPLOYMENT_MODEL_UNSPECIFIED'
+        | 'HIGH_AVAILABILITY'
+        | 'SINGLE_INSTANCE';
       /** Required. deployment environment */
-      environmentType?: string;
+      environmentType?:
+        | 'ENVIRONMENT_TYPE_UNSPECIFIED'
+        | 'NON_PRODUCTION'
+        | 'PRODUCTION';
       /** Optional. SHARED_DISK or S2D */
-      fciType?: string;
+      fciType?: 'FCI_TYPE_UNSPECIFIED' | 'SHARED_DISK' | 'S2D';
       /** Optional. AOAG or FCI, it is only needed for High Availability deployment mode */
-      haType?: string;
+      haType?: 'HA_TYPE_UNSPECIFIED' | 'AOAG' | 'FCI';
       /** Required. SQL licensing type */
       isSqlPayg?: boolean;
       /** Required. location details */
@@ -1024,17 +1241,34 @@ declare namespace gapi.client {
       /** Required. name of the media storing SQL server installation files */
       mediaBucket?: string;
       /** Required. type of the operating system the SQL server is going to run on top of */
-      operatingSystemType?: string;
+      operatingSystemType?:
+        | 'OPERATING_SYSTEM_TYPE_UNSPECIFIED'
+        | 'WINDOWS'
+        | 'UBUNTU'
+        | 'RED_HAT_ENTERPRISE_LINUX'
+        | 'SUSE';
       /** Required. the image of the operating system */
       osImage?: string;
       /** Optional. OS image type, it's used to create boot disks for VM instances When either Windows licensing type or SQL licensing type is BYOL, this option is disabled and default to custom image */
-      osImageType?: string;
+      osImageType?:
+        | 'OS_IMAGE_TYPE_UNSPECIFIED'
+        | 'PUBLIC_IMAGE'
+        | 'CUSTOM_IMAGE';
       /** Optional. pacemaker configuration, only applicable for Linux HA deployments */
       pacemaker?: Pacemaker;
       /** Optional. SQL Server Edition type, only applicable when Operating System is Linux */
-      sqlServerEdition?: string;
+      sqlServerEdition?:
+        | 'SQL_SERVER_EDITION_TYPE_UNSPECIFIED'
+        | 'SQL_SERVER_EDITION_TYPE_DEVELOPER'
+        | 'SQL_SERVER_EDITION_TYPE_ENTERPRISE'
+        | 'SQL_SERVER_EDITION_TYPE_STANDARD'
+        | 'SQL_SERVER_EDITION_TYPE_WEB';
       /** Optional. 2017 or 2019 or 2022 */
-      sqlServerVersion?: string;
+      sqlServerVersion?:
+        | 'SQL_SERVER_VERSION_TYPE_UNSPECIFIED'
+        | 'SQL_SERVER_VERSION_TYPE_2017'
+        | 'SQL_SERVER_VERSION_TYPE_2019'
+        | 'SQL_SERVER_VERSION_TYPE_2022';
       /** Required. should be unique in the project */
       vmPrefix?: string;
     }
@@ -1068,7 +1302,7 @@ declare namespace gapi.client {
       /** Required. validation_details contains the pairs of validation data: field name & field value. */
       validationDetails?: {[P in string]: string};
       /** Required. workload_type specifies the type of torso workload. */
-      workloadType?: string;
+      workloadType?: 'WORKLOAD_TYPE_UNSPECIFIED' | 'MYSQL' | 'ORACLE' | 'REDIS';
     }
     interface UpcomingMaintenanceEvent {
       /** Optional. End time */
@@ -1102,7 +1336,7 @@ declare namespace gapi.client {
       /** The sap workload content */
       sapWorkload?: SapWorkload;
       /** Required. The type of the workload */
-      workloadType?: string;
+      workloadType?: 'WORKLOAD_TYPE_UNSPECIFIED' | 'S4_HANA';
     }
     interface WorkloadProfileHealth {
       /** The time when the health check was performed. */
@@ -1110,7 +1344,12 @@ declare namespace gapi.client {
       /** The detailed condition reports of each component. */
       componentsHealth?: ComponentHealth[];
       /** Output only. The health state of the workload. */
-      state?: string;
+      state?:
+        | 'HEALTH_STATE_UNSPECIFIED'
+        | 'HEALTHY'
+        | 'UNHEALTHY'
+        | 'CRITICAL'
+        | 'UNSUPPORTED';
     }
     interface WriteInsightRequest {
       /** Optional. The agent version collected this data point. */
@@ -1125,11 +1364,11 @@ declare namespace gapi.client {
       /** Creates a new actuation for an existing Deployment. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1156,11 +1395,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1187,11 +1426,11 @@ declare namespace gapi.client {
       /** Deletes a single Actuation */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1214,11 +1453,11 @@ declare namespace gapi.client {
       /** Gets details of a single Actuation. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1241,11 +1480,11 @@ declare namespace gapi.client {
       /** Lists Actuations in a given project, location and deployment. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1278,11 +1517,11 @@ declare namespace gapi.client {
       /** Creates a new Deployment in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Id of the deployment */
@@ -1311,11 +1550,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. Id of the deployment */
@@ -1344,11 +1583,11 @@ declare namespace gapi.client {
       /** Deletes a single Deployment. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1373,11 +1612,11 @@ declare namespace gapi.client {
       /** Gets details of a single Deployment. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1400,11 +1639,11 @@ declare namespace gapi.client {
       /** Lists Deployments in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1438,11 +1677,11 @@ declare namespace gapi.client {
       /** Get the health of a discovered workload profile. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1467,11 +1706,11 @@ declare namespace gapi.client {
       /** Gets details of a discovered workload profile. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1494,11 +1733,11 @@ declare namespace gapi.client {
       /** List discovered workload profiles */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1530,11 +1769,11 @@ declare namespace gapi.client {
       /** Lists the result of a single evaluation. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1565,11 +1804,11 @@ declare namespace gapi.client {
       /** List all scanned resources for a single Execution. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1604,11 +1843,11 @@ declare namespace gapi.client {
       /** Deletes a single Execution. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1633,11 +1872,11 @@ declare namespace gapi.client {
       /** Gets details of a single Execution. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1660,11 +1899,11 @@ declare namespace gapi.client {
       /** Lists Executions in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1695,11 +1934,11 @@ declare namespace gapi.client {
       /** Creates a new Execution in a given project and location. */
       run(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1724,11 +1963,11 @@ declare namespace gapi.client {
       run(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1757,11 +1996,11 @@ declare namespace gapi.client {
       /** Creates a new Evaluation in a given project and location. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Id of the requesting object. */
@@ -1790,11 +2029,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. Id of the requesting object. */
@@ -1823,11 +2062,11 @@ declare namespace gapi.client {
       /** Deletes a single Evaluation. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1854,11 +2093,11 @@ declare namespace gapi.client {
       /** Gets details of a single Evaluation. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1881,11 +2120,11 @@ declare namespace gapi.client {
       /** Lists Evaluations in a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1916,11 +2155,11 @@ declare namespace gapi.client {
       /** Updates the parameters of a single Evaluation. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1949,11 +2188,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1985,11 +2224,11 @@ declare namespace gapi.client {
       /** Delete the data insights from workload manager data warehouse. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2014,11 +2253,11 @@ declare namespace gapi.client {
       /** Write the data insights to workload manager data warehouse. */
       writeInsight(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2043,11 +2282,11 @@ declare namespace gapi.client {
       writeInsight(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2074,11 +2313,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2103,11 +2342,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -2132,11 +2371,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2159,11 +2398,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2186,11 +2425,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2223,17 +2462,21 @@ declare namespace gapi.client {
       /** Lists rules in a given project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The Cloud Storage bucket name for custom rules. */
         customRulesBucket?: string;
         /** Optional. The evaluation type of the rules will be applied to. The Cloud Storage bucket name for custom rules. */
-        evaluationType?: string;
+        evaluationType?:
+          | 'EVALUATION_TYPE_UNSPECIFIED'
+          | 'SAP'
+          | 'SQL_SERVER'
+          | 'OTHER';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** Filter based on primary_category, secondary_category. */
@@ -2262,11 +2505,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -2289,11 +2532,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */

@@ -42,7 +42,7 @@ declare namespace gapi.client {
       /** The text style of this AutoText. */
       textStyle?: TextStyle;
       /** The type of this auto text. */
-      type?: string;
+      type?: 'TYPE_UNSPECIFIED' | 'PAGE_NUMBER' | 'PAGE_COUNT';
     }
     interface Background {
       /** The background color. */
@@ -110,7 +110,7 @@ declare namespace gapi.client {
       /** The location of the SectionBreak immediately preceding the section whose SectionStyle this footer should belong to. If this is unset or refers to the first section break in the document, the footer applies to the document style. */
       sectionBreakLocation?: Location;
       /** The type of footer to create. */
-      type?: string;
+      type?: 'HEADER_FOOTER_TYPE_UNSPECIFIED' | 'DEFAULT';
     }
     interface CreateFooterResponse {
       /** The ID of the created footer. */
@@ -130,7 +130,7 @@ declare namespace gapi.client {
       /** The location of the SectionBreak which begins the section this header should belong to. If `section_break_location' is unset or if it refers to the first section break in the document body, the header applies to the DocumentStyle */
       sectionBreakLocation?: Location;
       /** The type of header to create. */
-      type?: string;
+      type?: 'HEADER_FOOTER_TYPE_UNSPECIFIED' | 'DEFAULT';
     }
     interface CreateHeaderResponse {
       /** The ID of the created header. */
@@ -148,7 +148,23 @@ declare namespace gapi.client {
     }
     interface CreateParagraphBulletsRequest {
       /** The kinds of bullet glyphs to be used. */
-      bulletPreset?: string;
+      bulletPreset?:
+        | 'BULLET_GLYPH_PRESET_UNSPECIFIED'
+        | 'BULLET_DISC_CIRCLE_SQUARE'
+        | 'BULLET_DIAMONDX_ARROW3D_SQUARE'
+        | 'BULLET_CHECKBOX'
+        | 'BULLET_ARROW_DIAMOND_DISC'
+        | 'BULLET_STAR_CIRCLE_SQUARE'
+        | 'BULLET_ARROW3D_CIRCLE_SQUARE'
+        | 'BULLET_LEFTTRIANGLE_DIAMOND_DISC'
+        | 'BULLET_DIAMONDX_HOLLOWDIAMOND_SQUARE'
+        | 'BULLET_DIAMOND_CIRCLE_SQUARE'
+        | 'NUMBERED_DECIMAL_ALPHA_ROMAN'
+        | 'NUMBERED_DECIMAL_ALPHA_ROMAN_PARENS'
+        | 'NUMBERED_DECIMAL_NESTED'
+        | 'NUMBERED_UPPERALPHA_ALPHA_ROMAN'
+        | 'NUMBERED_UPPERROMAN_UPPERALPHA_DECIMAL'
+        | 'NUMBERED_ZERODECIMAL_ALPHA_ROMAN';
       /** The range to apply the bullet preset to. */
       range?: Range;
     }
@@ -196,13 +212,23 @@ declare namespace gapi.client {
     }
     interface DateElementProperties {
       /** Determines how the date part of the DateElement will be displayed in the document. If unset, the default value is DATE_FORMAT_MONTH_DAY_YEAR_ABBREVIATED, indicating the DateElement will be formatted as `MMM d, y` in `en`, or locale specific equivalent. */
-      dateFormat?: string;
+      dateFormat?:
+        | 'DATE_FORMAT_UNSPECIFIED'
+        | 'DATE_FORMAT_CUSTOM'
+        | 'DATE_FORMAT_MONTH_DAY_ABBREVIATED'
+        | 'DATE_FORMAT_MONTH_DAY_FULL'
+        | 'DATE_FORMAT_MONTH_DAY_YEAR_ABBREVIATED'
+        | 'DATE_FORMAT_ISO8601';
       /** Output only. Indicates how the DateElement is displayed in the document. */
       displayText?: string;
       /** The language code of the DateElement. For example, `en`. If unset, the default locale is `en`. Limited to the following locales: `af`, `am`, `ar`, `az`, `be`, `bg`, `bn`, `ca`, `cs`, `da`, `de`, `el`, `en`, `en-CA`, `en-GB`, `es`, `es-419`, `et`, `eu`, `fa`, `fi`, `fil`, `fr`, `fr-CA`, `gl`, `gu`, `hi`, `hr`, `hu`, `hy`, `id`, `is`, `it`, `iw`, `ja`, `ka`, `kk`, `km`, `kn`, `ko`, `lo`, `lt`, `lv`, `ml`, `mn`, `mr`, `ms`, `ne`, `nl`, `no`, `pa`, `pl`, `pt-BR`, `pt-PT`, `ro`, `ru`, `si`, `sk`, `sl`, `sr`, `sv`, `sw`, `ta`, `te`, `th`, `tr`, `uk`, `ur`, `vi`, `zh-CN`, `zh-HK`, `zh-TW`, `zu`, `cy`, `my`. */
       locale?: string;
       /** Determines how the time part of the DateElement will be displayed in the document. If unset, the default value is TIME_FORMAT_DISABLED, indicating no time should be shown. */
-      timeFormat?: string;
+      timeFormat?:
+        | 'TIME_FORMAT_UNSPECIFIED'
+        | 'TIME_FORMAT_DISABLED'
+        | 'TIME_FORMAT_HOUR_MINUTE'
+        | 'TIME_FORMAT_HOUR_MINUTE_TIMEZONE';
       /** The point in time to represent, in seconds and nanoseconds since Unix epoch: January 1, 1970 at midnight UTC. Timestamp is expected to be in UTC. If time_zone_id is set, the timestamp is adjusted according to the time zone. For example, a timestamp of `18000` with a date format of `DATE_FORMAT_ISO8601` and time format of `TIME_FORMAT_HOUR_MINUTE` would be displayed as `1970-01-01 5:00 AM`. A timestamp of `18000` with date format of `DATE_FORMAT_8SO8601`, time format of `TIME_FORMAT_HOUR_MINUTE`, and time zone set to `America/New_York` will instead be `1970-01-01 12:00 AM`. */
       timestamp?: string;
       /** The time zone of the DateElement, as defined by the Unicode Common Locale Data Repository (CLDR) project. For example, `America/New York`. If unset, the default time zone is `etc/UTC`. */
@@ -270,7 +296,7 @@ declare namespace gapi.client {
       /** The magnitude. */
       magnitude?: number;
       /** The units for magnitude. */
-      unit?: string;
+      unit?: 'UNIT_UNSPECIFIED' | 'PT';
     }
     interface Document {
       /** Output only. The main body of the document. Legacy field: Instead, use Document.tabs.documentTab.body, which exposes the actual document content from all tabs when the includeTabsContent parameter is set to `true`. If `false` or unset, this field contains information about the first tab in the document. */
@@ -302,7 +328,11 @@ declare namespace gapi.client {
       /** Output only. The suggested changes to the named styles of the document, keyed by suggestion ID. Legacy field: Instead, use Document.tabs.documentTab.suggestedNamedStylesChanges, which exposes the actual document content from all tabs when the includeTabsContent parameter is set to `true`. If `false` or unset, this field contains information about the first tab in the document. */
       suggestedNamedStylesChanges?: {[P in string]: SuggestedNamedStyles};
       /** Output only. The suggestions view mode applied to the document. Note: When editing a document, changes must be based on a document with SUGGESTIONS_INLINE. */
-      suggestionsViewMode?: string;
+      suggestionsViewMode?:
+        | 'DEFAULT_FOR_CURRENT_ACCESS'
+        | 'SUGGESTIONS_INLINE'
+        | 'PREVIEW_SUGGESTIONS_ACCEPTED'
+        | 'PREVIEW_WITHOUT_SUGGESTIONS';
       /** Tabs that are part of a document. Tabs can contain child tabs, a tab nested within another tab. Child tabs are represented by the Tab.childTabs field. */
       tabs?: Tab[];
       /** The title of the document. */
@@ -310,7 +340,7 @@ declare namespace gapi.client {
     }
     interface DocumentFormat {
       /** Whether the document has pages or is pageless. */
-      documentMode?: string;
+      documentMode?: 'DOCUMENT_MODE_UNSPECIFIED' | 'PAGES' | 'PAGELESS';
     }
     interface DocumentStyle {
       /** The background of the document. Documents cannot have a transparent background color. */
@@ -450,9 +480,9 @@ declare namespace gapi.client {
       /** The color of the border. */
       color?: OptionalColor;
       /** The dash style of the border. */
-      dashStyle?: string;
+      dashStyle?: 'DASH_STYLE_UNSPECIFIED' | 'SOLID' | 'DOT' | 'DASH';
       /** The property state of the border property. */
-      propertyState?: string;
+      propertyState?: 'RENDERED' | 'NOT_RENDERED';
       /** The width of the border. */
       width?: Dimension;
     }
@@ -662,7 +692,7 @@ declare namespace gapi.client {
       /** Inserts a newline and a section break at a specific index in the document. The section break must be inserted inside the bounds of an existing Paragraph. For instance, it cannot be inserted at a table's start index (i.e. between the table and its preceding paragraph). Section breaks cannot be inserted inside a table, equation, footnote, header, or footer. Since section breaks can only be inserted inside the body, the segment ID field must be empty. */
       location?: Location;
       /** The type of section to insert. */
-      sectionType?: string;
+      sectionType?: 'SECTION_TYPE_UNSPECIFIED' | 'CONTINUOUS' | 'NEXT_PAGE';
     }
     interface InsertTableColumnRequest {
       /** Whether to insert new column to the right of the reference cell location. - `True`: insert to the right. - `False`: insert to the left. */
@@ -762,7 +792,17 @@ declare namespace gapi.client {
     }
     interface NamedStyle {
       /** The type of this named style. */
-      namedStyleType?: string;
+      namedStyleType?:
+        | 'NAMED_STYLE_TYPE_UNSPECIFIED'
+        | 'NORMAL_TEXT'
+        | 'TITLE'
+        | 'SUBTITLE'
+        | 'HEADING_1'
+        | 'HEADING_2'
+        | 'HEADING_3'
+        | 'HEADING_4'
+        | 'HEADING_5'
+        | 'HEADING_6';
       /** The paragraph style of this named style. */
       paragraphStyle?: ParagraphStyle;
       /** The text style of this named style. */
@@ -778,7 +818,17 @@ declare namespace gapi.client {
     }
     interface NamedStyleSuggestionState {
       /** The named style type that this suggestion state corresponds to. This field is provided as a convenience for matching the NamedStyleSuggestionState with its corresponding NamedStyle. */
-      namedStyleType?: string;
+      namedStyleType?:
+        | 'NAMED_STYLE_TYPE_UNSPECIFIED'
+        | 'NORMAL_TEXT'
+        | 'TITLE'
+        | 'SUBTITLE'
+        | 'HEADING_1'
+        | 'HEADING_2'
+        | 'HEADING_3'
+        | 'HEADING_4'
+        | 'HEADING_5'
+        | 'HEADING_6';
       /** A mask that indicates which of the fields in paragraph style have been changed in this suggestion. */
       paragraphStyleSuggestionState?: ParagraphStyleSuggestionState;
       /** A mask that indicates which of the fields in text style have been changed in this suggestion. */
@@ -786,13 +836,25 @@ declare namespace gapi.client {
     }
     interface NestingLevel {
       /** The alignment of the bullet within the space allotted for rendering the bullet. */
-      bulletAlignment?: string;
+      bulletAlignment?:
+        | 'BULLET_ALIGNMENT_UNSPECIFIED'
+        | 'START'
+        | 'CENTER'
+        | 'END';
       /** The format string used by bullets at this level of nesting. The glyph format contains one or more placeholders, and these placeholders are replaced with the appropriate values depending on the glyph_type or glyph_symbol. The placeholders follow the pattern `%[nesting_level]`. Furthermore, placeholders can have prefixes and suffixes. Thus, the glyph format follows the pattern `%[nesting_level]`. Note that the prefix and suffix are optional and can be arbitrary strings. For example, the glyph format `%0.` indicates that the rendered glyph will replace the placeholder with the corresponding glyph for nesting level 0 followed by a period as the suffix. So a list with a glyph type of UPPER_ALPHA and glyph format `%0.` at nesting level 0 will result in a list with rendered glyphs `A.` `B.` `C.` The glyph format can contain placeholders for the current nesting level as well as placeholders for parent nesting levels. For example, a list can have a glyph format of `%0.` at nesting level 0 and a glyph format of `%0.%1.` at nesting level 1. Assuming both nesting levels have DECIMAL glyph types, this would result in a list with rendered glyphs `1.` `2.` ` 2.1.` ` 2.2.` `3.` For nesting levels that are ordered, the string that replaces a placeholder in the glyph format for a particular paragraph depends on the paragraph's order within the list. */
       glyphFormat?: string;
       /** A custom glyph symbol used by bullets when paragraphs at this level of nesting is unordered. The glyph symbol replaces placeholders within the glyph_format. For example, if the glyph_symbol is the solid circle corresponding to Unicode U+25cf code point and the glyph_format is `%0`, the rendered glyph would be the solid circle. */
       glyphSymbol?: string;
       /** The type of glyph used by bullets when paragraphs at this level of nesting is ordered. The glyph type determines the type of glyph used to replace placeholders within the glyph_format when paragraphs at this level of nesting are ordered. For example, if the nesting level is 0, the glyph_format is `%0.` and the glyph type is DECIMAL, then the rendered glyph would replace the placeholder `%0` in the glyph format with a number corresponding to the list item's order within the list. */
-      glyphType?: string;
+      glyphType?:
+        | 'GLYPH_TYPE_UNSPECIFIED'
+        | 'NONE'
+        | 'DECIMAL'
+        | 'ZERO_DECIMAL'
+        | 'UPPER_ALPHA'
+        | 'ALPHA'
+        | 'UPPER_ROMAN'
+        | 'ROMAN';
       /** The amount of indentation for the first line of paragraphs at this level of nesting. */
       indentFirstLine?: Dimension;
       /** The amount of indentation for paragraphs at this level of nesting. Applied to the side that corresponds to the start of the text, based on the paragraph's content direction. */
@@ -858,7 +920,7 @@ declare namespace gapi.client {
       /** The color of the border. */
       color?: OptionalColor;
       /** The dash style of the border. */
-      dashStyle?: string;
+      dashStyle?: 'DASH_STYLE_UNSPECIFIED' | 'SOLID' | 'DOT' | 'DASH';
       /** The padding of the border. */
       padding?: Dimension;
       /** The width of the border. */
@@ -894,7 +956,12 @@ declare namespace gapi.client {
     }
     interface ParagraphStyle {
       /** The text alignment for this paragraph. */
-      alignment?: string;
+      alignment?:
+        | 'ALIGNMENT_UNSPECIFIED'
+        | 'START'
+        | 'CENTER'
+        | 'END'
+        | 'JUSTIFIED';
       /** Whether to avoid widows and orphans for the paragraph. If unset, the value is inherited from the parent. */
       avoidWidowAndOrphan?: boolean;
       /** The border between this paragraph and the next and previous paragraphs. If unset, the value is inherited from the parent. The between border is rendered when the adjacent paragraph has the same border and indent properties. Paragraph borders cannot be partially updated. When changing a paragraph border, the new border must be specified in its entirety. */
@@ -908,7 +975,10 @@ declare namespace gapi.client {
       /** The border at the top of this paragraph. If unset, the value is inherited from the parent. The top border is rendered when the paragraph above has different border and indent properties. Paragraph borders cannot be partially updated. When changing a paragraph border, the new border must be specified in its entirety. */
       borderTop?: ParagraphBorder;
       /** The text direction of this paragraph. If unset, the value defaults to LEFT_TO_RIGHT since paragraph direction is not inherited. */
-      direction?: string;
+      direction?:
+        | 'CONTENT_DIRECTION_UNSPECIFIED'
+        | 'LEFT_TO_RIGHT'
+        | 'RIGHT_TO_LEFT';
       /** The heading ID of the paragraph. If empty, then this paragraph is not a heading. This property is read-only. */
       headingId?: string;
       /** The amount of indentation for the paragraph on the side that corresponds to the end of the text, based on the current paragraph direction. If unset, the value is inherited from the parent. */
@@ -924,7 +994,17 @@ declare namespace gapi.client {
       /** The amount of space between lines, as a percentage of normal, where normal is represented as 100.0. If unset, the value is inherited from the parent. */
       lineSpacing?: number;
       /** The named style type of the paragraph. Since updating the named style type affects other properties within ParagraphStyle, the named style type is applied before the other properties are updated. */
-      namedStyleType?: string;
+      namedStyleType?:
+        | 'NAMED_STYLE_TYPE_UNSPECIFIED'
+        | 'NORMAL_TEXT'
+        | 'TITLE'
+        | 'SUBTITLE'
+        | 'HEADING_1'
+        | 'HEADING_2'
+        | 'HEADING_3'
+        | 'HEADING_4'
+        | 'HEADING_5'
+        | 'HEADING_6';
       /** Whether the current paragraph should always start at the beginning of a page. If unset, the value is inherited from the parent. Attempting to update page_break_before for paragraphs in unsupported regions, including Table, Header, Footer and Footnote, can result in an invalid document state that returns a 400 bad request error. */
       pageBreakBefore?: boolean;
       /** The shading of the paragraph. If unset, the value is inherited from the parent. */
@@ -934,7 +1014,10 @@ declare namespace gapi.client {
       /** The amount of extra space below the paragraph. If unset, the value is inherited from the parent. */
       spaceBelow?: Dimension;
       /** The spacing mode for the paragraph. */
-      spacingMode?: string;
+      spacingMode?:
+        | 'SPACING_MODE_UNSPECIFIED'
+        | 'NEVER_COLLAPSE'
+        | 'COLLAPSE_LISTS';
       /** A list of the tab stops for this paragraph. The list of tab stops is not inherited. This property is read-only. */
       tabStops?: TabStop[];
     }
@@ -1024,7 +1107,14 @@ declare namespace gapi.client {
     }
     interface PositionedObjectPositioning {
       /** The layout of this positioned object. */
-      layout?: string;
+      layout?:
+        | 'POSITIONED_OBJECT_LAYOUT_UNSPECIFIED'
+        | 'WRAP_TEXT'
+        | 'BREAK_LEFT'
+        | 'BREAK_RIGHT'
+        | 'BREAK_LEFT_RIGHT'
+        | 'IN_FRONT_OF_TEXT'
+        | 'BEHIND_TEXT';
       /** The offset of the left edge of the positioned object relative to the beginning of the Paragraph it's tethered to. The exact positioning of the object can depend on other content in the document and the document's styling. */
       leftOffset?: Dimension;
       /** The offset of the top edge of the positioned object relative to the beginning of the Paragraph it's tethered to. The exact positioning of the object can depend on other content in the document and the document's styling. */
@@ -1076,7 +1166,7 @@ declare namespace gapi.client {
       /** The ID of the existing image that will be replaced. The ID can be retrieved from the response of a get request. */
       imageObjectId?: string;
       /** The replacement method. */
-      imageReplaceMethod?: string;
+      imageReplaceMethod?: 'IMAGE_REPLACE_METHOD_UNSPECIFIED' | 'CENTER_CROP';
       /** The tab that the image to be replaced is in. When omitted, the request is applied to the first tab. In a document containing a single tab: - If provided, must match the singular tab's ID. - If omitted, the request applies to the singular tab. In a document containing multiple tabs: - If provided, the request applies to the specified tab. - If omitted, the request applies to the first tab in the document. */
       tabId?: string;
       /** The URI of the new image. The image is fetched once at insertion time and a copy is stored for display inside the document. Images must be less than 50MB, cannot exceed 25 megapixels, and must be in PNG, JPEG, or GIF format. The provided URI can't surpass 2 KB in length. The URI is saved with the image, and exposed through the ImageProperties.source_uri field. */
@@ -1236,9 +1326,15 @@ declare namespace gapi.client {
       /** The section's columns properties. If empty, the section contains one column with the default properties in the Docs editor. A section can be updated to have no more than 3 columns. When updating this property, setting a concrete value is required. Unsetting this property will result in a 400 bad request error. */
       columnProperties?: SectionColumnProperties[];
       /** The style of column separators. This style can be set even when there's one column in the section. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error. */
-      columnSeparatorStyle?: string;
+      columnSeparatorStyle?:
+        | 'COLUMN_SEPARATOR_STYLE_UNSPECIFIED'
+        | 'NONE'
+        | 'BETWEEN_EACH_COLUMN';
       /** The content direction of this section. If unset, the value defaults to LEFT_TO_RIGHT. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error. */
-      contentDirection?: string;
+      contentDirection?:
+        | 'CONTENT_DIRECTION_UNSPECIFIED'
+        | 'LEFT_TO_RIGHT'
+        | 'RIGHT_TO_LEFT';
       /** The ID of the default footer. If unset, the value inherits from the previous SectionBreak's SectionStyle. If the value is unset in the first SectionBreak, it inherits from DocumentStyle's default_footer_id. If DocumentMode is PAGELESS, this property will not be rendered. This property is read-only. */
       defaultFooterId?: string;
       /** The ID of the default header. If unset, the value inherits from the previous SectionBreak's SectionStyle. If the value is unset in the first SectionBreak, it inherits from DocumentStyle's default_header_id. If DocumentMode is PAGELESS, this property will not be rendered. This property is read-only. */
@@ -1268,7 +1364,7 @@ declare namespace gapi.client {
       /** The page number from which to start counting the number of pages for this section. If unset, page numbering continues from the previous section. If the value is unset in the first SectionBreak, refer to DocumentStyle's page_number_start. If DocumentMode is PAGELESS, this property will not be rendered. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error. */
       pageNumberStart?: number;
       /** Output only. The type of section. */
-      sectionType?: string;
+      sectionType?: 'SECTION_TYPE_UNSPECIFIED' | 'CONTINUOUS' | 'NEXT_PAGE';
       /** Indicates whether to use the first page header / footer IDs for the first page of the section. If unset, it inherits from DocumentStyle's use_first_page_header_footer for the first section. If the value is unset for subsequent sectors, it should be interpreted as false. If DocumentMode is PAGELESS, this property will not be rendered. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error. */
       useFirstPageHeaderFooter?: boolean;
     }
@@ -1434,7 +1530,7 @@ declare namespace gapi.client {
       /** The color of the border. This color cannot be transparent. */
       color?: OptionalColor;
       /** The dash style of the border. */
-      dashStyle?: string;
+      dashStyle?: 'DASH_STYLE_UNSPECIFIED' | 'SOLID' | 'DOT' | 'DASH';
       /** The width of the border. */
       width?: Dimension;
     }
@@ -1460,7 +1556,12 @@ declare namespace gapi.client {
       /** The column span of the cell. This property is read-only. */
       columnSpan?: number;
       /** The alignment of the content in the table cell. The default alignment matches the alignment for newly created table cells in the Docs editor. */
-      contentAlignment?: string;
+      contentAlignment?:
+        | 'CONTENT_ALIGNMENT_UNSPECIFIED'
+        | 'CONTENT_ALIGNMENT_UNSUPPORTED'
+        | 'TOP'
+        | 'MIDDLE'
+        | 'BOTTOM';
       /** The bottom padding of the cell. */
       paddingBottom?: Dimension;
       /** The left padding of the cell. */
@@ -1502,7 +1603,10 @@ declare namespace gapi.client {
       /** The width of the column. Set when the column's `width_type` is FIXED_WIDTH. */
       width?: Dimension;
       /** The width type of the column. */
-      widthType?: string;
+      widthType?:
+        | 'WIDTH_TYPE_UNSPECIFIED'
+        | 'EVENLY_DISTRIBUTED'
+        | 'FIXED_WIDTH';
     }
     interface TableOfContents {
       /** The content of the table of contents. */
@@ -1572,7 +1676,7 @@ declare namespace gapi.client {
     }
     interface TabStop {
       /** The alignment of this tab stop. If unset, the value defaults to START. */
-      alignment?: string;
+      alignment?: 'TAB_STOP_ALIGNMENT_UNSPECIFIED' | 'START' | 'CENTER' | 'END';
       /** The offset between this tab stop and the start margin. */
       offset?: Dimension;
     }
@@ -1592,7 +1696,11 @@ declare namespace gapi.client {
       /** The background color of the text. If set, the color is either an RGB color or transparent, depending on the `color` field. */
       backgroundColor?: OptionalColor;
       /** The text's vertical offset from its normal position. Text with `SUPERSCRIPT` or `SUBSCRIPT` baseline offsets is automatically rendered in a smaller font size, computed based on the `font_size` field. Changes in this field don't affect the `font_size`. */
-      baselineOffset?: string;
+      baselineOffset?:
+        | 'BASELINE_OFFSET_UNSPECIFIED'
+        | 'NONE'
+        | 'SUPERSCRIPT'
+        | 'SUBSCRIPT';
       /** Whether or not the text is rendered as bold. */
       bold?: boolean;
       /** The size of the text's font. */
@@ -1724,11 +1832,11 @@ declare namespace gapi.client {
       /** Applies one or more updates to the document. Each request is validated before being applied. If any request is not valid, then the entire request will fail and nothing will be applied. Some requests have replies to give you some information about how they are applied. Other requests do not need to return information; these each return an empty reply. The order of replies matches that of the requests. For example, suppose you call batchUpdate with four updates, and only the third one returns information. The response would have two empty replies, the reply to the third request, and another empty reply, in that order. Because other users may be editing the document, the document might not exactly reflect your changes: your changes may be altered with respect to collaborator changes. If there are no collaborators, the document should reflect your changes. In any case, the updates in your request are guaranteed to be applied together atomically. */
       batchUpdate(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The ID of the document to update. */
@@ -1753,11 +1861,11 @@ declare namespace gapi.client {
       batchUpdate(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** The ID of the document to update. */
@@ -1782,11 +1890,11 @@ declare namespace gapi.client {
       /** Creates a blank document using the title given in the request. Other fields in the request, including any provided content, are ignored. Returns the created document. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1809,11 +1917,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1836,11 +1944,11 @@ declare namespace gapi.client {
       /** Gets the latest version of the specified document. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The ID of the document to retrieve. */
@@ -1858,7 +1966,11 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** The suggestions view mode to apply to the document. This allows viewing the document with all suggestions inline, accepted or rejected. If one is not specified, DEFAULT_FOR_CURRENT_ACCESS is used. */
-        suggestionsViewMode?: string;
+        suggestionsViewMode?:
+          | 'DEFAULT_FOR_CURRENT_ACCESS'
+          | 'SUGGESTIONS_INLINE'
+          | 'PREVIEW_SUGGESTIONS_ACCEPTED'
+          | 'PREVIEW_WITHOUT_SUGGESTIONS';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */

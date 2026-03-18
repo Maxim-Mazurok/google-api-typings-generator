@@ -34,7 +34,7 @@ declare namespace gapi.client {
       /** Output only. Amount of bytes that will be downloaded if the backup is restored. This may be different than storage bytes, since sequential backups of the same disk will share storage. */
       downloadBytes?: string;
       /** Output only. The file system protocol of the source Filestore instance that this backup is created from. */
-      fileSystemProtocol?: string;
+      fileSystemProtocol?: 'FILE_PROTOCOL_UNSPECIFIED' | 'NFS_V3' | 'NFS_V4_1';
       /** Immutable. KMS key name used for data encryption. */
       kmsKey?: string;
       /** Resource labels to represent user provided metadata. */
@@ -50,9 +50,24 @@ declare namespace gapi.client {
       /** The resource name of the source Filestore instance, in the format `projects/{project_number}/locations/{location_id}/instances/{instance_id}`, used to create this backup. */
       sourceInstance?: string;
       /** Output only. The service tier of the source Filestore instance that this backup is created from. */
-      sourceInstanceTier?: string;
+      sourceInstanceTier?:
+        | 'TIER_UNSPECIFIED'
+        | 'STANDARD'
+        | 'PREMIUM'
+        | 'BASIC_HDD'
+        | 'BASIC_SSD'
+        | 'HIGH_SCALE_SSD'
+        | 'ENTERPRISE'
+        | 'ZONAL'
+        | 'REGIONAL';
       /** Output only. The backup state. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'FINALIZING'
+        | 'READY'
+        | 'DELETING'
+        | 'INVALID';
       /** Output only. The size of the storage used by the backup. As backups share storage, this number is expected to change with backup creation/deletion. */
       storageBytes?: string;
       /** Optional. Input only. Immutable. Tag key-value pairs bound to this resource. Each key must be a namespaced name and each value a short name. Example: "123456789012/environment" : "production", "123456789013/costCenter" : "marketing" See the documentation for more information: - Namespaced name: https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_key - Short name: https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_value */
@@ -138,7 +153,14 @@ declare namespace gapi.client {
       /** Software versions that are used to deploy this instance. This can be mutated by rollout services. */
       softwareVersions?: {[P in string]: string};
       /** Output only. Current lifecycle state of the resource (e.g. if it's being created or ready to use). */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'READY'
+        | 'UPDATING'
+        | 'REPAIRING'
+        | 'DELETING'
+        | 'ERROR';
       /** Output only. ID of the associated GCP tenant project. See go/get-instance-metadata. */
       tenantProjectId?: string;
       /** Output only. Timestamp when the resource was last modified. */
@@ -238,7 +260,7 @@ declare namespace gapi.client {
       /** Output only. Used for getting performance limits. */
       performanceLimits?: PerformanceLimits;
       /** Immutable. The protocol indicates the access protocol for all shares in the instance. This field is immutable and it cannot be changed after the instance has been created. Default value: `NFS_V3`. */
-      protocol?: string;
+      protocol?: 'FILE_PROTOCOL_UNSPECIFIED' | 'NFS_V3' | 'NFS_V4_1';
       /** Optional. Replication configuration. */
       replication?: Replication;
       /** Output only. Reserved for future use. */
@@ -246,15 +268,36 @@ declare namespace gapi.client {
       /** Output only. Reserved for future use. */
       satisfiesPzs?: boolean;
       /** Output only. The instance state. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'READY'
+        | 'REPAIRING'
+        | 'DELETING'
+        | 'ERROR'
+        | 'RESTORING'
+        | 'SUSPENDED'
+        | 'SUSPENDING'
+        | 'RESUMING'
+        | 'REVERTING'
+        | 'PROMOTING';
       /** Output only. Additional information about the instance state, if available. */
       statusMessage?: string;
       /** Output only. Field indicates all the reasons the instance is in "SUSPENDED" state. */
-      suspensionReasons?: string[];
+      suspensionReasons?: 'SUSPENSION_REASON_UNSPECIFIED' | 'KMS_KEY_ISSUE'[];
       /** Optional. Input only. Immutable. Tag key-value pairs bound to this resource. Each key must be a namespaced name and each value a short name. Example: "123456789012/environment" : "production", "123456789013/costCenter" : "marketing" See the documentation for more information: - Namespaced name: https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_key - Short name: https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_value */
       tags?: {[P in string]: string};
       /** The service tier of the instance. */
-      tier?: string;
+      tier?:
+        | 'TIER_UNSPECIFIED'
+        | 'STANDARD'
+        | 'PREMIUM'
+        | 'BASIC_HDD'
+        | 'BASIC_SSD'
+        | 'HIGH_SCALE_SSD'
+        | 'ENTERPRISE'
+        | 'ZONAL'
+        | 'REGIONAL';
     }
     interface IOPSPerTB {
       /** Required. Maximum IOPS per TiB. */
@@ -330,7 +373,7 @@ declare namespace gapi.client {
       /** Required. MaintenancePolicy name using the form: `projects/{project_id}/locations/{location_id}/maintenancePolicies/{maintenance_policy_id}` where {project_id} refers to a GCP consumer project ID, {location_id} refers to a GCP region/zone, {maintenance_policy_id} must be 1-63 characters long and match the regular expression `[a-z0-9]([-a-z0-9]*[a-z0-9])?`. */
       name?: string;
       /** Optional. The state of the policy. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'READY' | 'DELETING';
       /** Maintenance policy applicable to instance update. */
       updatePolicy?: UpdatePolicy;
       /** Output only. The time when the resource was updated. */
@@ -344,11 +387,15 @@ declare namespace gapi.client {
     }
     interface NetworkConfig {
       /** The network connect mode of the Filestore instance. If not provided, the connect mode defaults to DIRECT_PEERING. */
-      connectMode?: string;
+      connectMode?:
+        | 'CONNECT_MODE_UNSPECIFIED'
+        | 'DIRECT_PEERING'
+        | 'PRIVATE_SERVICE_ACCESS'
+        | 'PRIVATE_SERVICE_CONNECT';
       /** Output only. IPv4 addresses in the format `{octet1}.{octet2}.{octet3}.{octet4}` or IPv6 addresses in the format `{block1}:{block2}:{block3}:{block4}:{block5}:{block6}:{block7}:{block8}`. */
       ipAddresses?: string[];
       /** Internet protocol versions for which the instance has IP addresses assigned. */
-      modes?: string[];
+      modes?: 'ADDRESS_MODE_UNSPECIFIED' | 'MODE_IPV4' | 'MODE_IPV6'[];
       /** The name of the Google Compute Engine [VPC network](https://cloud.google.com/vpc/docs/vpc) to which the instance is connected. */
       network?: string;
       /** Optional. Private Service Connect configuration. Should only be set when connect_mode is PRIVATE_SERVICE_CONNECT. */
@@ -358,7 +405,7 @@ declare namespace gapi.client {
     }
     interface NfsExportOptions {
       /** Either READ_ONLY, for allowing only read requests on the exported directory, or READ_WRITE, for allowing both read and write requests. The default is READ_WRITE. */
-      accessMode?: string;
+      accessMode?: 'ACCESS_MODE_UNSPECIFIED' | 'READ_ONLY' | 'READ_WRITE';
       /** An integer representing the anonymous group id with a default value of 65534. Anon_gid may only be set with squash_mode of ROOT_SQUASH. An error will be returned if this field is specified for other squash_mode settings. */
       anonGid?: string;
       /** An integer representing the anonymous user id with a default value of 65534. Anon_uid may only be set with squash_mode of ROOT_SQUASH. An error will be returned if this field is specified for other squash_mode settings. */
@@ -368,7 +415,7 @@ declare namespace gapi.client {
       /** Optional. The source VPC network for ip_ranges. Required for instances using Private Service Connect, optional otherwise. If provided, must be the same network specified in the `NetworkConfig.network` field. */
       network?: string;
       /** Either NO_ROOT_SQUASH, for allowing root access on the exported directory, or ROOT_SQUASH, for not allowing root access. The default is NO_ROOT_SQUASH. */
-      squashMode?: string;
+      squashMode?: 'SQUASH_MODE_UNSPECIFIED' | 'NO_ROOT_SQUASH' | 'ROOT_SQUASH';
     }
     interface Operation {
       /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
@@ -431,9 +478,23 @@ declare namespace gapi.client {
       /** Optional. The name of the source instance for the replica, in the format `projects/{project}/locations/{location}/instances/{instance}`. This field is required when creating a replica. */
       peerInstance?: string;
       /** Output only. The replica state. */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'READY'
+        | 'REMOVING'
+        | 'FAILED'
+        | 'PROMOTING'
+        | 'PAUSING'
+        | 'PAUSED'
+        | 'RESUMING';
       /** Output only. Additional information about the replication state, if available. */
-      stateReasons?: string[];
+      stateReasons?:
+        | 'STATE_REASON_UNSPECIFIED'
+        | 'PEER_INSTANCE_UNREACHABLE'
+        | 'REMOVE_FAILED'
+        | 'PAUSE_FAILED'
+        | 'RESUME_FAILED'[];
       /** Output only. The time when the replica state was updated. */
       stateUpdateTime?: string;
     }
@@ -441,7 +502,7 @@ declare namespace gapi.client {
       /** Optional. Replication configuration for the replica instance associated with this instance. Only a single replica is supported. */
       replicas?: ReplicaConfig[];
       /** Optional. The replication role. When creating a new replica, this field must be set to `STANDBY`. */
-      role?: string;
+      role?: 'ROLE_UNSPECIFIED' | 'ACTIVE' | 'STANDBY';
     }
     interface RestoreInstanceRequest {
       /** Required. Name of the file share in the Filestore instance that the backup is being restored to. */
@@ -456,7 +517,15 @@ declare namespace gapi.client {
     }
     interface Schedule {
       /** Allows to define schedule that runs specified day of the week. */
-      day?: string;
+      day?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY';
       /** Output only. Duration of the time window, set by service producer. */
       duration?: string;
       /** Time within the window to start the operations. */
@@ -474,7 +543,7 @@ declare namespace gapi.client {
       /** Output only. The resource name of the snapshot, in the format `projects/{project_id}/locations/{location_id}/instances/{instance_id}/snapshots/{snapshot_id}`. */
       name?: string;
       /** Output only. The snapshot state. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'CREATING' | 'READY' | 'DELETING';
       /** Optional. Input only. Immutable. Tag key-value pairs bound to this resource. Each key must be a namespaced name and each value a short name. Example: "123456789012/environment" : "production", "123456789013/costCenter" : "marketing" See the documentation for more information: - Namespaced name: https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_key - Short name: https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_value */
       tags?: {[P in string]: string};
     }
@@ -498,7 +567,13 @@ declare namespace gapi.client {
     }
     interface UpdatePolicy {
       /** Optional. Relative scheduling channel applied to resource. */
-      channel?: string;
+      channel?:
+        | 'UPDATE_CHANNEL_UNSPECIFIED'
+        | 'EARLIER'
+        | 'LATER'
+        | 'WEEK1'
+        | 'WEEK2'
+        | 'WEEK5';
       /** Deny Maintenance Period that is applied to resource to indicate when maintenance is forbidden. The protocol supports zero-to-many such periods, but the current SLM Rollout implementation only supports zero-to-one. */
       denyMaintenancePeriods?: DenyMaintenancePeriod[];
       /** Optional. Maintenance window that is applied to resources covered by this policy. */
@@ -512,11 +587,11 @@ declare namespace gapi.client {
       /** Creates a backup. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** Required. The ID to use for the backup. The ID must be unique within the specified project and location. This value must start with a lowercase letter followed by up to 62 lowercase letters, numbers, or hyphens, and cannot end with a hyphen. Values that do not match this pattern will trigger an INVALID_ARGUMENT error. */
         backupId?: string;
         /** JSONP */
@@ -543,11 +618,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** Required. The ID to use for the backup. The ID must be unique within the specified project and location. This value must start with a lowercase letter followed by up to 62 lowercase letters, numbers, or hyphens, and cannot end with a hyphen. Values that do not match this pattern will trigger an INVALID_ARGUMENT error. */
           backupId?: string;
           /** JSONP */
@@ -574,11 +649,11 @@ declare namespace gapi.client {
       /** Deletes a backup. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -601,11 +676,11 @@ declare namespace gapi.client {
       /** Gets the details of a specific backup. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -628,11 +703,11 @@ declare namespace gapi.client {
       /** Lists all backups in a project for either a specified location or for all locations. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -663,11 +738,11 @@ declare namespace gapi.client {
       /** Updates the settings of a specific backup. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -694,11 +769,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -727,11 +802,11 @@ declare namespace gapi.client {
       /** Creates a snapshot. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -758,11 +833,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -789,11 +864,11 @@ declare namespace gapi.client {
       /** Deletes a snapshot. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -816,11 +891,11 @@ declare namespace gapi.client {
       /** Gets the details of a specific snapshot. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -843,11 +918,11 @@ declare namespace gapi.client {
       /** Lists all snapshots in a project for either a specified location or for all locations. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -880,11 +955,11 @@ declare namespace gapi.client {
       /** Updates the settings of a specific snapshot. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -911,11 +986,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -944,11 +1019,11 @@ declare namespace gapi.client {
       /** Creates an instance. When creating from a backup, the capacity of the new instance needs to be equal to or larger than the capacity of the backup (and also equal to or larger than the minimum capacity of the tier). */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -975,11 +1050,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1006,11 +1081,11 @@ declare namespace gapi.client {
       /** Deletes an instance. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1035,11 +1110,11 @@ declare namespace gapi.client {
       /** Gets the details of a specific instance. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1062,11 +1137,11 @@ declare namespace gapi.client {
       /** Lists all instances in a project for either a specified location or for all locations. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1097,11 +1172,11 @@ declare namespace gapi.client {
       /** Updates the settings of a specific instance. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1128,11 +1203,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1159,11 +1234,11 @@ declare namespace gapi.client {
       /** Pause the standby instance (replica). WARNING: This operation makes the standby instance's NFS filesystem writable. Any data written to the standby instance while paused will be lost when the replica is resumed or promoted. */
       pauseReplica(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1188,11 +1263,11 @@ declare namespace gapi.client {
       pauseReplica(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1217,11 +1292,11 @@ declare namespace gapi.client {
       /** Promote the standby instance (replica). */
       promoteReplica(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1246,11 +1321,11 @@ declare namespace gapi.client {
       promoteReplica(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1275,11 +1350,11 @@ declare namespace gapi.client {
       /** Restores an existing instance's file share from a backup. The capacity of the instance needs to be equal to or larger than the capacity of the backup (and also equal to or larger than the minimum capacity of the tier). */
       restore(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1304,11 +1379,11 @@ declare namespace gapi.client {
       restore(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1333,11 +1408,11 @@ declare namespace gapi.client {
       /** Resume the standby instance (replica). WARNING: Any data written to the standby instance while paused will be lost when the replica is resumed. */
       resumeReplica(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1362,11 +1437,11 @@ declare namespace gapi.client {
       resumeReplica(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1391,11 +1466,11 @@ declare namespace gapi.client {
       /** Revert an existing instance's file system to a specified snapshot. */
       revert(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1420,11 +1495,11 @@ declare namespace gapi.client {
       revert(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1452,11 +1527,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1481,11 +1556,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1510,11 +1585,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1537,11 +1612,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1564,11 +1639,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1601,11 +1676,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1628,11 +1703,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */

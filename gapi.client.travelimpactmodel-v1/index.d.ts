@@ -102,7 +102,11 @@ declare namespace gapi.client {
     }
     interface FlightWithEmissions {
       /** Optional. The significance of contrails warming impact compared to the total CO2e emissions impact. */
-      contrailsImpactBucket?: string;
+      contrailsImpactBucket?:
+        | 'CONTRAILS_IMPACT_UNSPECIFIED'
+        | 'CONTRAILS_IMPACT_NEGLIGIBLE'
+        | 'CONTRAILS_IMPACT_MODERATE'
+        | 'CONTRAILS_IMPACT_SEVERE';
       /** Optional. Metadata about the EASA Flight Emissions Label. Only set when the emissions data source is EASA. */
       easaLabelMetadata?: EasaLabelMetadata;
       /** Optional. Per-passenger emission estimate numbers. Will not be present if emissions could not be computed. For the list of reasons why emissions could not be computed, see ComputeFlightEmissions. */
@@ -110,7 +114,7 @@ declare namespace gapi.client {
       /** Required. Matches the flight identifiers in the request. Note: all IATA codes are capitalized. */
       flight?: Flight;
       /** Optional. The source of the emissions data. */
-      source?: string;
+      source?: 'SOURCE_UNSPECIFIED' | 'TIM' | 'EASA';
     }
     interface Market {
       /** Required. IATA airport code for flight destination, e.g. "JFK". */
@@ -132,7 +136,11 @@ declare namespace gapi.client {
       /** Required. Matches the flight identifiers in the request. */
       flight?: Scope3FlightSegment;
       /** Optional. The source of the emissions data. */
-      source?: string;
+      source?:
+        | 'SCOPE3_DATA_TYPE_UNSPECIFIED'
+        | 'TIM_EMISSIONS'
+        | 'TYPICAL_FLIGHT_EMISSIONS'
+        | 'DISTANCE_BASED_EMISSIONS';
       /** Optional. Tank-to-wake flight emissions per passenger based on the requested info. */
       ttwEmissionsGramsPerPax?: string;
       /** Optional. Well-to-tank flight emissions per passenger based on the requested info. */
@@ -142,7 +150,12 @@ declare namespace gapi.client {
     }
     interface Scope3FlightSegment {
       /** Required. The cabin class of the flight. */
-      cabinClass?: string;
+      cabinClass?:
+        | 'CABIN_CLASS_UNSPECIFIED'
+        | 'ECONOMY'
+        | 'PREMIUM_ECONOMY'
+        | 'BUSINESS'
+        | 'FIRST';
       /** Optional. 2-character [IATA carrier code](https://www.iata.org/en/publications/directories/code-search/), e.g. `KE`. This is required if specific flight matching is desired. Otherwise, this is unused for typical flight and distance-based emissions models. This could be both operating and marketing carrier code (i.e. codeshare is covered). */
       carrierCode?: string;
       /** Required. Date of the flight in the time zone of the origin airport. Only year is required for typical flight and distance-based emissions models (month and day values are ignored and therefore, can be either omitted, set to 0, or set to a valid date for those cases). Correspondingly, if a specific date is not provided for TIM emissions, we will fallback to typical flight (or distance-based) emissions. */
@@ -166,11 +179,11 @@ declare namespace gapi.client {
       /** Stateless method to retrieve emission estimates. Details on how emission estimates are computed are in [GitHub](https://github.com/google/travel-impact-model) The response will contain all entries that match the input flight legs, in the same order. If there are no estimates available for a certain flight leg, the response will return the flight leg object with empty emission fields. The request will still be considered successful. Reasons for missing emission estimates include: * The flight is unknown to the server. * The input flight leg is missing one or more identifiers. * The flight date is in the past. * The aircraft type is not supported by the model. * Missing seat configuration. The request can contain up to 1000 flight legs. If the request has more than 1000 direct flights, if will fail with an INVALID_ARGUMENT error. */
       computeFlightEmissions(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -193,11 +206,11 @@ declare namespace gapi.client {
       computeFlightEmissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -220,11 +233,11 @@ declare namespace gapi.client {
       /** Stateless method to retrieve GHG emissions estimates for a set of flight segments for Scope 3 reporting. The response will contain all entries that match the input Scope3FlightSegment flight segments, in the same order provided. The estimates will be computed using the following cascading logic (using the first one that is available): 1. TIM-based emissions given origin, destination, carrier, flightNumber, departureDate, and cabinClass. 2. Typical flight emissions given origin, destination, year in departureDate, and cabinClass. 3. Distance-based emissions calculated using distanceKm, year in departureDate, and cabinClass. If there is a future flight requested in this calendar year, we do not support Tier 1 emissions and will fallback to Tier 2 or 3 emissions. If the requested future flight is in not in this calendar year, we will return an empty response. We recommend that for future flights, computeFlightEmissions API is used instead. If there are no estimates available for a certain flight with any of the three methods, the response will return a Scope3FlightEmissions object with empty emission fields. The request will still be considered successful. Generally, missing emissions estimates occur when the flight is unknown to the server (e.g. no specific flight exists, or typical flight emissions are not available for the requested pair). The request will fail with an `INVALID_ARGUMENT` error if: * The request contains more than 1,000 flight legs. * The input flight leg is missing one or more identifiers. For example, missing origin/destination without a valid distance for TIM_EMISSIONS or TYPICAL_FLIGHT_EMISSIONS type matching, or missing distance for a DISTANCE_BASED_EMISSIONS type matching (if you want to fallback to distance-based emissions or want a distance-based emissions estimate, you need to specify a distance). * The flight date is before 2019 (Scope 3 data is only available for 2019 and after). * The flight distance is 0 or lower. * Missing cabin class. Because the request is processed with fallback logic, it is possible that misconfigured requests return valid emissions estimates using fallback methods. For example, if a request has the wrong flight number but specifies the origin and destination, the request will still succeed, but the returned emissions will be based solely on the typical flight emissions. Similarly, if a request is missing the origin for a typical flight emissions request, but specifies a valid distance, the request could succeed based solely on the distance-based emissions. Consequently, one should check the source of the returned emissions (source) to confirm the results are as expected. */
       computeScope3FlightEmissions(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -247,11 +260,11 @@ declare namespace gapi.client {
       computeScope3FlightEmissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -274,11 +287,11 @@ declare namespace gapi.client {
       /** Retrieves typical flight emissions estimates between two airports, also known as a market. If there are no estimates available for a certain market, the response will return the market object with empty emission fields. The request will still be considered successful. Details on how the typical emissions estimates are computed are on [GitHub](https://github.com/google/travel-impact-model/blob/main/projects/typical_flight_emissions.md). The request can contain up to 1000 markets. If the request has more than 1000 markets, it will fail with an INVALID_ARGUMENT error. */
       computeTypicalFlightEmissions(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -301,11 +314,11 @@ declare namespace gapi.client {
       computeTypicalFlightEmissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */

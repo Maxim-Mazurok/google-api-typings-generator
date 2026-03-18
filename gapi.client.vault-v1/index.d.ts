@@ -34,7 +34,13 @@ declare namespace gapi.client {
       /** Account owner. */
       account?: UserInfo;
       /** Account query error. */
-      errorType?: string;
+      errorType?:
+        | 'ERROR_TYPE_UNSPECIFIED'
+        | 'WILDCARD_TOO_BROAD'
+        | 'TOO_MANY_TERMS'
+        | 'LOCATION_UNAVAILABLE'
+        | 'UNKNOWN'
+        | 'DEADLINE_EXCEEDED';
     }
     interface AccountInfo {
       /** A set of accounts to search. */
@@ -66,7 +72,12 @@ declare namespace gapi.client {
     }
     interface CalendarExportOptions {
       /** The file format for exported text messages. */
-      exportFormat?: string;
+      exportFormat?:
+        | 'EXPORT_FORMAT_UNSPECIFIED'
+        | 'MBOX'
+        | 'PST'
+        | 'ICS'
+        | 'XML';
     }
     interface CalendarOptions {
       /** Matches only those events whose location contains all of the words in the given set. If the string contains quoted phrases, this method only matches those events whose location contain the exact phrase. Entries in the set are considered in "and". Word splitting example: ["New Zealand"] vs ["New","Zealand"] "New Zealand": matched by both "New and better Zealand": only matched by the later */
@@ -76,7 +87,12 @@ declare namespace gapi.client {
       /** Matches only those events whose attendees contain all of the words in the given set. Entries in the set are considered in "and". */
       peopleQuery?: string[];
       /** Matches only events for which the custodian gave one of these responses. If the set is empty or contains ATTENDEE_RESPONSE_UNSPECIFIED there will be no filtering on responses. */
-      responseStatuses?: string[];
+      responseStatuses?:
+        | 'ATTENDEE_RESPONSE_UNSPECIFIED'
+        | 'ATTENDEE_RESPONSE_NEEDS_ACTION'
+        | 'ATTENDEE_RESPONSE_ACCEPTED'
+        | 'ATTENDEE_RESPONSE_DECLINED'
+        | 'ATTENDEE_RESPONSE_TENTATIVE'[];
       /** Search the current version of the Calendar event, but export the contents of the last version saved before 12:00 AM UTC on the specified date. Enter the date in UTC. */
       versionDate?: string;
     }
@@ -128,7 +144,7 @@ declare namespace gapi.client {
       /** The search query. */
       query?: Query;
       /** Sets the granularity of the count results. */
-      view?: string;
+      view?: 'COUNT_RESULT_VIEW_UNSPECIFIED' | 'TOTAL_COUNT' | 'ALL';
     }
     interface CountArtifactsResponse {
       /** Count metrics for Groups. */
@@ -152,13 +168,21 @@ declare namespace gapi.client {
     }
     interface DriveOptions {
       /** Set whether the results include only content encrypted with [Google Workspace Client-side encryption](https://support.google.com/a?p=cse_ov) content, only unencrypted content, or both. Defaults to both. Currently supported for Drive. */
-      clientSideEncryptedOption?: string;
+      clientSideEncryptedOption?:
+        | 'CLIENT_SIDE_ENCRYPTED_OPTION_UNSPECIFIED'
+        | 'CLIENT_SIDE_ENCRYPTED_OPTION_ANY'
+        | 'CLIENT_SIDE_ENCRYPTED_OPTION_ENCRYPTED'
+        | 'CLIENT_SIDE_ENCRYPTED_OPTION_UNENCRYPTED';
       /** Set to **true** to include shared drives. */
       includeSharedDrives?: boolean;
       /** Set to true to include Team Drive. */
       includeTeamDrives?: boolean;
       /** Optional. Options to include or exclude documents in shared drives. We recommend using this field over include_shared_drives. This field overrides include_shared_drives and include_team_drives when set. */
-      sharedDrivesOption?: string;
+      sharedDrivesOption?:
+        | 'SHARED_DRIVES_OPTION_UNSPECIFIED'
+        | 'NOT_INCLUDED'
+        | 'INCLUDED_IF_ACCOUNT_IS_NOT_A_MEMBER'
+        | 'INCLUDED';
       /** Search the current version of the Drive file, but export the contents of the last version saved before 12:00 AM UTC on the specified date. Enter the date in UTC. */
       versionDate?: string;
     }
@@ -185,7 +209,11 @@ declare namespace gapi.client {
       /** Output only. Details about the export progress and size. */
       stats?: ExportStats;
       /** Output only. The status of the export. */
-      status?: string;
+      status?:
+        | 'EXPORT_STATUS_UNSPECIFIED'
+        | 'COMPLETED'
+        | 'FAILED'
+        | 'IN_PROGRESS';
     }
     interface ExportOptions {
       /** Option available for Calendar export. */
@@ -201,7 +229,7 @@ declare namespace gapi.client {
       /** Options for Gmail exports. */
       mailOptions?: MailExportOptions;
       /** The requested data region for the export. */
-      region?: string;
+      region?: 'EXPORT_REGION_UNSPECIFIED' | 'ANY' | 'US' | 'EUROPE';
       /** Options for Voice exports. */
       voiceOptions?: VoiceExportOptions;
     }
@@ -215,7 +243,12 @@ declare namespace gapi.client {
     }
     interface GeminiExportOptions {
       /** The file format for exported messages. */
-      exportFormat?: string;
+      exportFormat?:
+        | 'EXPORT_FORMAT_UNSPECIFIED'
+        | 'MBOX'
+        | 'PST'
+        | 'ICS'
+        | 'XML';
     }
     interface GeminiOptions {}
     interface GroupsCountResult {
@@ -232,11 +265,21 @@ declare namespace gapi.client {
     }
     interface GroupsExportOptions {
       /** The file format for exported messages. */
-      exportFormat?: string;
+      exportFormat?:
+        | 'EXPORT_FORMAT_UNSPECIFIED'
+        | 'MBOX'
+        | 'PST'
+        | 'ICS'
+        | 'XML';
     }
     interface HangoutsChatExportOptions {
       /** The file format for exported messages. */
-      exportFormat?: string;
+      exportFormat?:
+        | 'EXPORT_FORMAT_UNSPECIFIED'
+        | 'MBOX'
+        | 'PST'
+        | 'ICS'
+        | 'XML';
     }
     interface HangoutsChatInfo {
       /** A list of Chat spaces IDs, as provided by the [Chat API](https://developers.google.com/workspace/chat). There is a limit of exporting from 500 Chat spaces per request. */
@@ -293,13 +336,25 @@ declare namespace gapi.client {
     }
     interface HeldVoiceQuery {
       /** A list of data types covered by the hold. Should be non-empty. Order does not matter and duplicates are ignored. */
-      coveredData?: string[];
+      coveredData?:
+        | 'COVERED_DATA_UNSPECIFIED'
+        | 'TEXT_MESSAGES'
+        | 'VOICEMAILS'
+        | 'CALL_LOGS'[];
     }
     interface Hold {
       /** If set, the hold applies to the specified accounts and **orgUnit** must be empty. */
       accounts?: HeldAccount[];
       /** The service to be searched. */
-      corpus?: string;
+      corpus?:
+        | 'CORPUS_TYPE_UNSPECIFIED'
+        | 'DRIVE'
+        | 'MAIL'
+        | 'GROUPS'
+        | 'HANGOUTS_CHAT'
+        | 'VOICE'
+        | 'CALENDAR'
+        | 'GEMINI';
       /** The unique immutable ID of the hold. Assigned during creation. */
       holdId?: string;
       /** The name of the hold. */
@@ -361,7 +416,12 @@ declare namespace gapi.client {
     }
     interface MailExportOptions {
       /** The file format for exported messages. */
-      exportFormat?: string;
+      exportFormat?:
+        | 'EXPORT_FORMAT_UNSPECIFIED'
+        | 'MBOX'
+        | 'PST'
+        | 'ICS'
+        | 'XML';
       /** Optional. To enable exporting linked Drive files, set to **true**. */
       exportLinkedDriveFiles?: boolean;
       /** To export confidential mode content, set to **true**. */
@@ -371,7 +431,11 @@ declare namespace gapi.client {
     }
     interface MailOptions {
       /** Specifies whether the results should include encrypted content, unencrypted content, or both. Defaults to including both. */
-      clientSideEncryptedOption?: string;
+      clientSideEncryptedOption?:
+        | 'CLIENT_SIDE_ENCRYPTED_OPTION_UNSPECIFIED'
+        | 'CLIENT_SIDE_ENCRYPTED_OPTION_ANY'
+        | 'CLIENT_SIDE_ENCRYPTED_OPTION_ENCRYPTED'
+        | 'CLIENT_SIDE_ENCRYPTED_OPTION_UNENCRYPTED';
       /** Set to **true** to exclude drafts. */
       excludeDrafts?: boolean;
     }
@@ -383,17 +447,17 @@ declare namespace gapi.client {
       /** Lists the users and their permission for the matter. Currently there is no programmer defined limit on the number of permissions a matter can have. */
       matterPermissions?: MatterPermission[];
       /** Optional. The requested data region for the matter. */
-      matterRegion?: string;
+      matterRegion?: 'MATTER_REGION_UNSPECIFIED' | 'ANY' | 'US' | 'EUROPE';
       /** The name of the matter. */
       name?: string;
       /** The state of the matter. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'OPEN' | 'CLOSED' | 'DELETED';
     }
     interface MatterPermission {
       /** The account ID, as provided by the [Admin SDK](https://developers.google.com/admin-sdk/). */
       accountId?: string;
       /** The user's role for the matter. */
-      role?: string;
+      role?: 'ROLE_UNSPECIFIED' | 'COLLABORATOR' | 'OWNER';
     }
     interface Operation {
       /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
@@ -417,9 +481,21 @@ declare namespace gapi.client {
       /** Set Calendar search-specific options. */
       calendarOptions?: CalendarOptions;
       /** The Google Workspace service to search. */
-      corpus?: string;
+      corpus?:
+        | 'CORPUS_TYPE_UNSPECIFIED'
+        | 'DRIVE'
+        | 'MAIL'
+        | 'GROUPS'
+        | 'HANGOUTS_CHAT'
+        | 'VOICE'
+        | 'CALENDAR'
+        | 'GEMINI';
       /** The data source to search. */
-      dataScope?: string;
+      dataScope?:
+        | 'DATA_SCOPE_UNSPECIFIED'
+        | 'ALL_DATA'
+        | 'HELD_DATA'
+        | 'UNPROCESSED_DATA';
       /** Required when **SearchMethod** is **DRIVE_DOCUMENT**. */
       driveDocumentInfo?: DriveDocumentInfo;
       /** Set Drive search-specific options. */
@@ -435,11 +511,29 @@ declare namespace gapi.client {
       /** Set Gmail search-specific options. */
       mailOptions?: MailOptions;
       /** The entity to search. This field replaces **searchMethod** to support shared drives. When **searchMethod** is **TEAM_DRIVE**, the response of this field is **SHARED_DRIVE**. */
-      method?: string;
+      method?:
+        | 'SEARCH_METHOD_UNSPECIFIED'
+        | 'ACCOUNT'
+        | 'ORG_UNIT'
+        | 'TEAM_DRIVE'
+        | 'ENTIRE_ORG'
+        | 'ROOM'
+        | 'SITES_URL'
+        | 'SHARED_DRIVE'
+        | 'DRIVE_DOCUMENT';
       /** Required when **SearchMethod** is **ORG_UNIT**. */
       orgUnitInfo?: OrgUnitInfo;
       /** The search method to use. */
-      searchMethod?: string;
+      searchMethod?:
+        | 'SEARCH_METHOD_UNSPECIFIED'
+        | 'ACCOUNT'
+        | 'ORG_UNIT'
+        | 'TEAM_DRIVE'
+        | 'ENTIRE_ORG'
+        | 'ROOM'
+        | 'SITES_URL'
+        | 'SHARED_DRIVE'
+        | 'DRIVE_DOCUMENT';
       /** Required when **SearchMethod** is **SHARED_DRIVE**. */
       sharedDriveInfo?: SharedDriveInfo;
       /** Required when **SearchMethod** is **SITES_URL**. */
@@ -513,21 +607,30 @@ declare namespace gapi.client {
     }
     interface VoiceExportOptions {
       /** The file format for exported text messages. */
-      exportFormat?: string;
+      exportFormat?:
+        | 'EXPORT_FORMAT_UNSPECIFIED'
+        | 'MBOX'
+        | 'PST'
+        | 'ICS'
+        | 'XML';
     }
     interface VoiceOptions {
       /** Datatypes to search */
-      coveredData?: string[];
+      coveredData?:
+        | 'COVERED_DATA_UNSPECIFIED'
+        | 'TEXT_MESSAGES'
+        | 'VOICEMAILS'
+        | 'CALL_LOGS'[];
     }
     interface ExportsResource {
       /** Creates an export. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -552,11 +655,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -581,11 +684,11 @@ declare namespace gapi.client {
       /** Deletes an export. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The export ID. */
@@ -610,11 +713,11 @@ declare namespace gapi.client {
       /** Gets an export. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** The export ID. */
@@ -639,11 +742,11 @@ declare namespace gapi.client {
       /** Lists details about the exports in the specified matter. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -672,11 +775,11 @@ declare namespace gapi.client {
       /** Adds an account to a hold. Accounts can be added only to a hold that does not have an organizational unit set. If you try to add an account to an organizational unit-based hold, an error is returned. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -703,11 +806,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -734,13 +837,13 @@ declare namespace gapi.client {
       /** Removes an account from a hold. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** The ID of the account to remove from the hold. */
         accountId: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -765,11 +868,11 @@ declare namespace gapi.client {
       /** Lists the accounts covered by a hold. This can list only individually-specified accounts covered by the hold. If the hold covers an organizational unit, use the [Admin SDK](https://developers.google.com/admin-sdk/). to list the members of the organizational unit on hold. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -796,11 +899,11 @@ declare namespace gapi.client {
       /** Adds accounts to a hold. Returns a list of accounts that have been successfully added. Accounts can be added only to an existing account-based hold. */
       addHeldAccounts(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -827,11 +930,11 @@ declare namespace gapi.client {
       addHeldAccounts(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -858,11 +961,11 @@ declare namespace gapi.client {
       /** Creates a hold in the specified matter. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -887,11 +990,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -916,11 +1019,11 @@ declare namespace gapi.client {
       /** Removes the specified hold and releases the accounts or organizational unit covered by the hold. If the data is not preserved by another hold or retention rule, it might be purged. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -945,11 +1048,11 @@ declare namespace gapi.client {
       /** Gets the specified hold. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -971,16 +1074,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** The amount of detail to return for a hold. */
-        view?: string;
+        view?: 'HOLD_VIEW_UNSPECIFIED' | 'BASIC_HOLD' | 'FULL_HOLD';
       }): Request<Hold>;
       /** Lists the holds in a matter. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1004,16 +1107,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** The amount of detail to return for a hold. */
-        view?: string;
+        view?: 'HOLD_VIEW_UNSPECIFIED' | 'BASIC_HOLD' | 'FULL_HOLD';
       }): Request<ListHoldsResponse>;
       /** Removes the specified accounts from a hold. Returns a list of statuses in the same order as the request. */
       removeHeldAccounts(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1040,11 +1143,11 @@ declare namespace gapi.client {
       removeHeldAccounts(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1071,11 +1174,11 @@ declare namespace gapi.client {
       /** Updates the scope (organizational unit or accounts) and query parameters of a hold. You cannot add accounts to a hold that covers an organizational unit, nor can you add organizational units to a hold that covers individual accounts. If you try, the unsupported values are ignored. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1102,11 +1205,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1136,11 +1239,11 @@ declare namespace gapi.client {
       /** Creates a saved query. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1165,11 +1268,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1194,11 +1297,11 @@ declare namespace gapi.client {
       /** Deletes the specified saved query. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1223,11 +1326,11 @@ declare namespace gapi.client {
       /** Retrieves the specified saved query. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1252,11 +1355,11 @@ declare namespace gapi.client {
       /** Lists the saved queries in a matter. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1285,11 +1388,11 @@ declare namespace gapi.client {
       /** Adds an account as a matter collaborator. */
       addPermissions(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1314,11 +1417,11 @@ declare namespace gapi.client {
       addPermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1343,11 +1446,11 @@ declare namespace gapi.client {
       /** Closes the specified matter. Returns the matter with updated state. */
       close(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1372,11 +1475,11 @@ declare namespace gapi.client {
       close(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1401,11 +1504,11 @@ declare namespace gapi.client {
       /** Counts the accounts processed by the specified query. */
       count(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1430,11 +1533,11 @@ declare namespace gapi.client {
       count(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1459,11 +1562,11 @@ declare namespace gapi.client {
       /** Creates a matter with the given name and description. The initial state is open, and the owner is the method caller. Returns the created matter with default view. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1486,11 +1589,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1513,11 +1616,11 @@ declare namespace gapi.client {
       /** Deletes the specified matter. Returns the matter with updated state. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1540,11 +1643,11 @@ declare namespace gapi.client {
       /** Gets the specified matter. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1564,16 +1667,16 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Specifies how much information about the matter to return in the response. */
-        view?: string;
+        view?: 'VIEW_UNSPECIFIED' | 'BASIC' | 'FULL';
       }): Request<Matter>;
       /** Lists matters the requestor has access to. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1591,22 +1694,22 @@ declare namespace gapi.client {
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** If set, lists only matters with the specified state. The default lists matters of all states. */
-        state?: string;
+        state?: 'STATE_UNSPECIFIED' | 'OPEN' | 'CLOSED' | 'DELETED';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Specifies how much information about the matter to return in response. */
-        view?: string;
+        view?: 'VIEW_UNSPECIFIED' | 'BASIC' | 'FULL';
       }): Request<ListMattersResponse>;
       /** Removes an account as a matter collaborator. */
       removePermissions(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1631,11 +1734,11 @@ declare namespace gapi.client {
       removePermissions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1660,11 +1763,11 @@ declare namespace gapi.client {
       /** Reopens the specified matter. Returns the matter with updated state. */
       reopen(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1689,11 +1792,11 @@ declare namespace gapi.client {
       reopen(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1718,11 +1821,11 @@ declare namespace gapi.client {
       /** Undeletes the specified matter. Returns the matter with updated state. */
       undelete(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1747,11 +1850,11 @@ declare namespace gapi.client {
       undelete(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1776,11 +1879,11 @@ declare namespace gapi.client {
       /** Updates the specified matter. This updates only the name and description of the matter, identified by matter ID. Changes to any other fields are ignored. Returns the default view of the matter. */
       update(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1805,11 +1908,11 @@ declare namespace gapi.client {
       update(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1839,11 +1942,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1868,11 +1971,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1897,11 +2000,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1924,11 +2027,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1951,11 +2054,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

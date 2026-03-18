@@ -32,9 +32,19 @@ declare namespace gapi.client {
       /** Optional. The carbon free energy percentage of the cloud location. This represents the average percentage of time customers' application will be running on carbon-free energy. See https://cloud.google.com/sustainability/region-carbon for more details. There is a difference between default value 0 and unset value. 0 means the carbon free energy percentage is 0%, while unset value means the carbon footprint data is not available. */
       carbonFreeEnergyPercentage?: number;
       /** Optional. The type of the cloud location. */
-      cloudLocationType?: string;
+      cloudLocationType?:
+        | 'CLOUD_LOCATION_TYPE_UNSPECIFIED'
+        | 'CLOUD_LOCATION_TYPE_REGION'
+        | 'CLOUD_LOCATION_TYPE_ZONE'
+        | 'CLOUD_LOCATION_TYPE_REGION_EXTENSION'
+        | 'CLOUD_LOCATION_TYPE_GDCC_ZONE';
       /** Optional. The provider of the cloud location. Values can be Google Cloud or third-party providers, including AWS, Azure, or Oracle Cloud Infrastructure. */
-      cloudProvider?: string;
+      cloudProvider?:
+        | 'CLOUD_PROVIDER_UNSPECIFIED'
+        | 'CLOUD_PROVIDER_GCP'
+        | 'CLOUD_PROVIDER_AWS'
+        | 'CLOUD_PROVIDER_AZURE'
+        | 'CLOUD_PROVIDER_OCI';
       /** Output only. The containing cloud location in the strict nesting hierarchy. For example, the containing cloud location of a zone is a region. */
       containingCloudLocation?: string;
       /** Optional. The human-readable name of the cloud location. Example: us-east-2, us-east1. */
@@ -78,11 +88,11 @@ declare namespace gapi.client {
       /** Retrieves a resource containing information about a cloud location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -105,11 +115,11 @@ declare namespace gapi.client {
       /** Lists cloud locations under a given project and location. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -138,11 +148,11 @@ declare namespace gapi.client {
       /** Searches for cloud locations from a given source location. */
       search(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -175,11 +185,11 @@ declare namespace gapi.client {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -202,11 +212,11 @@ declare namespace gapi.client {
       /** Lists information about the supported locations for this service. This method can be called in two ways: * **List all public locations:** Use the path `GET /v1/locations`. * **List project-visible locations:** Use the path `GET /v1/projects/{project_id}/locations`. This may include public locations as well as private or other locations specifically visible to the project. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Optional. Do not use this field. It is unsupported and is ignored unless explicitly documented otherwise. This is primarily for internal usage. */

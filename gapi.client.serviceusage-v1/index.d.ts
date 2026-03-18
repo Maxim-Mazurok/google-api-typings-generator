@@ -49,7 +49,11 @@ declare namespace gapi.client {
       /** Output only. Analysis result of updating a policy. */
       analysis?: AnalysisResult;
       /** Output only. The type of analysis. */
-      analysisType?: string;
+      analysisType?:
+        | 'ANALYSIS_TYPE_UNSPECIFIED'
+        | 'ANALYSIS_TYPE_DEPENDENCY'
+        | 'ANALYSIS_TYPE_RESOURCE_USAGE'
+        | 'ANALYSIS_TYPE_RESOURCE_EXISTENCE';
       /** Output only. The user friendly display name of the analysis type. E.g. service dependency analysis, service resource usage analysis, etc. */
       displayName?: string;
       /** The names of the service that has analysis result of warnings or blockers. Example: `services/storage.googleapis.com`. */
@@ -80,7 +84,7 @@ declare namespace gapi.client {
       /** Source context for the protocol buffer service represented by this message. */
       sourceContext?: SourceContext;
       /** The source syntax of the service. */
-      syntax?: string;
+      syntax?: 'SYNTAX_PROTO2' | 'SYNTAX_PROTO3' | 'SYNTAX_EDITIONS';
       /** A version string for this interface. If specified, must have the form `major-version.minor-version`, as in `1.10`. If the minor version is omitted, it defaults to zero. If the entire version field is empty, the major version is derived from the package name, as outlined below. If the field is not empty, the version in the package name will be verified to be consistent with what is provided here. The versioning schema uses [semantic versioning](http://semver.org) where the major version number indicates a breaking change and the minor version an additive, non-breaking change. Both version numbers are signals to users what to expect from different versions, and should be carefully chosen based on the product plan. The major version is also reflected in the package name of the interface, which must end in `v`, as in `google.feature.v1`. For major versions 0 and 1, the suffix can be omitted. Zero major versions must only be used for experimental, non-GA interfaces. */
       version?: string;
     }
@@ -156,7 +160,10 @@ declare namespace gapi.client {
       /** The map between request protocol and the backend address. */
       overridesByRequestProtocol?: {[P in string]: BackendRule};
       /** no-lint */
-      pathTranslation?: string;
+      pathTranslation?:
+        | 'PATH_TRANSLATION_UNSPECIFIED'
+        | 'CONSTANT_ADDRESS'
+        | 'APPEND_PATH_TO_ADDRESS';
       /** The protocol used for sending a request to the backend. The supported values are "http/1.1" and "h2". The default value is inferred from the scheme in the address field: SCHEME PROTOCOL http:// http/1.1 https:// http/1.1 grpc:// h2 grpcs:// h2 For secure HTTP backends (https://) that support HTTP/2, set this field to "h2" for improved performance. Configuring this field to non-default values is only supported for secure HTTP backends. This field will be ignored for all other backends. See https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids for more details on the supported values. */
       protocol?: string;
       /** Selects the methods to which this rule applies. Refer to selector for syntax details. */
@@ -210,7 +217,11 @@ declare namespace gapi.client {
       /** The maximum number of elements allowed by flow control. */
       flowControlElementLimit?: number;
       /** The behavior to take when the flow control limit is exceeded. */
-      flowControlLimitExceededBehavior?: string;
+      flowControlLimitExceededBehavior?:
+        | 'UNSET_BEHAVIOR'
+        | 'THROW_EXCEPTION'
+        | 'BLOCK'
+        | 'IGNORE';
       /** The maximum size of the request that could be accepted by server. */
       requestByteLimit?: number;
       /** The aggregated size of the batched field which, if exceeded, causes the batch to be sent. This size is computed by aggregating the sizes of the request field to be batched, not of the entire request message. */
@@ -237,7 +248,15 @@ declare namespace gapi.client {
       /** Settings for legacy Java features, supported in the Service YAML. */
       javaSettings?: JavaSettings;
       /** Launch stage of this version of the API. */
-      launchStage?: string;
+      launchStage?:
+        | 'LAUNCH_STAGE_UNSPECIFIED'
+        | 'UNIMPLEMENTED'
+        | 'PRELAUNCH'
+        | 'EARLY_ACCESS'
+        | 'ALPHA'
+        | 'BETA'
+        | 'GA'
+        | 'DEPRECATED';
       /** Settings for Node client libraries. */
       nodeSettings?: NodeSettings;
       /** Settings for PHP client libraries. */
@@ -253,7 +272,10 @@ declare namespace gapi.client {
     }
     interface CommonLanguageSettings {
       /** The destination where API teams want this client library to be published. */
-      destinations?: string[];
+      destinations?:
+        | 'CLIENT_LIBRARY_DESTINATION_UNSPECIFIED'
+        | 'GITHUB'
+        | 'PACKAGE_MANAGER'[];
       /** Link to automatically generated reference documentation. Example: https://cloud.google.com/nodejs/docs/reference/asset/latest */
       referenceDocsUri?: string;
       /** Configuration for which RPCs should be generated in the GAPIC client. */
@@ -333,7 +355,10 @@ declare namespace gapi.client {
     interface DeleteAdminQuotaPolicyMetadata {}
     interface DisableServiceRequest {
       /** Defines the behavior for checking service usage when disabling a service. */
-      checkIfServiceHasUsage?: string;
+      checkIfServiceHasUsage?:
+        | 'CHECK_IF_SERVICE_HAS_USAGE_UNSPECIFIED'
+        | 'SKIP'
+        | 'CHECK';
       /** Indicates if services that are enabled and which depend on this service should also be disabled. If not set, an error will be generated if any enabled services depend on the service to be disabled. When set, the service, and any enabled services that depend on it, will be disabled together. */
       disableDependentServices?: boolean;
     }
@@ -392,7 +417,11 @@ declare namespace gapi.client {
     }
     interface EnableRule {
       /** Client and resource project enable type. */
-      enableType?: string;
+      enableType?:
+        | 'ENABLE_TYPE_UNSPECIFIED'
+        | 'CLIENT'
+        | 'RESOURCE'
+        | 'V1_COMPATIBLE';
       /** DEPRECATED: Please use field `values`. Service group should have prefix `groups/`. The names of the service groups that are enabled (Not Implemented). Example: `groups/googleServices`. */
       groups?: string[];
       /** DEPRECATED: Please use field `values`. Service should have prefix `services/`. The names of the services that are enabled. Example: `storage.googleapis.com`. */
@@ -427,7 +456,7 @@ declare namespace gapi.client {
       /** The source context. */
       sourceContext?: SourceContext;
       /** The source syntax. */
-      syntax?: string;
+      syntax?: 'SYNTAX_PROTO2' | 'SYNTAX_PROTO3' | 'SYNTAX_EDITIONS';
     }
     interface EnumValue {
       /** Enum value name. */
@@ -447,13 +476,36 @@ declare namespace gapi.client {
     }
     interface Field {
       /** The field cardinality. */
-      cardinality?: string;
+      cardinality?:
+        | 'CARDINALITY_UNKNOWN'
+        | 'CARDINALITY_OPTIONAL'
+        | 'CARDINALITY_REQUIRED'
+        | 'CARDINALITY_REPEATED';
       /** The string value of the default value of this field. Proto2 syntax only. */
       defaultValue?: string;
       /** The field JSON name. */
       jsonName?: string;
       /** The field type. */
-      kind?: string;
+      kind?:
+        | 'TYPE_UNKNOWN'
+        | 'TYPE_DOUBLE'
+        | 'TYPE_FLOAT'
+        | 'TYPE_INT64'
+        | 'TYPE_UINT64'
+        | 'TYPE_INT32'
+        | 'TYPE_FIXED64'
+        | 'TYPE_FIXED32'
+        | 'TYPE_BOOL'
+        | 'TYPE_STRING'
+        | 'TYPE_GROUP'
+        | 'TYPE_MESSAGE'
+        | 'TYPE_BYTES'
+        | 'TYPE_UINT32'
+        | 'TYPE_ENUM'
+        | 'TYPE_SFIXED32'
+        | 'TYPE_SFIXED64'
+        | 'TYPE_SINT32'
+        | 'TYPE_SINT64';
       /** The field name. */
       name?: string;
       /** The field number. */
@@ -480,7 +532,7 @@ declare namespace gapi.client {
       /** Service identity that service producer can use to access consumer resources. If exists is true, it contains email and unique_id. If exists is false, it contains pre-constructed email and empty unique_id. */
       identity?: ServiceIdentity;
       /** Service identity state. */
-      state?: string;
+      state?: 'IDENTITY_STATE_UNSPECIFIED' | 'ACTIVE';
     }
     interface GoogleApiService {
       /** A list of API interfaces exported by this service. Only the `name` field of the google.protobuf.Api needs to be provided by the configuration author, as the remaining fields will be derived from the IDL during the normalization process. It is an error to specify an API interface here which cannot be resolved against the associated IDL files. */
@@ -546,7 +598,7 @@ declare namespace gapi.client {
       /** Service identity that service producer can use to access consumer resources. If exists is true, it contains email and unique_id. If exists is false, it contains pre-constructed email and empty unique_id. */
       identity?: GoogleApiServiceusageV1beta1ServiceIdentity;
       /** Service identity state. */
-      state?: string;
+      state?: 'IDENTITY_STATE_UNSPECIFIED' | 'ACTIVE';
     }
     interface GoogleApiServiceusageV1beta1ServiceIdentity {
       /** The email address of the service account that a service producer would use to access consumer resources. */
@@ -566,7 +618,7 @@ declare namespace gapi.client {
       /** The resource name of the consumer. A valid name would be: - projects/123 */
       parent?: string;
       /** Whether or not the service has been enabled for use by the consumer. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'DISABLED' | 'ENABLED';
     }
     interface GoogleApiServiceusageV1ServiceConfig {
       /** A list of API interfaces exported by this service. Contains only the names, versions, and method names of the interfaces. */
@@ -613,7 +665,10 @@ declare namespace gapi.client {
       /** Output only. Analysis result of updating a policy. */
       analysisResult?: GoogleApiServiceusageV2betaAnalysisResult;
       /** Output only. The type of analysis. */
-      analysisType?: string;
+      analysisType?:
+        | 'ANALYSIS_TYPE_UNSPECIFIED'
+        | 'ANALYSIS_TYPE_DEPENDENCY'
+        | 'ANALYSIS_TYPE_RESOURCE_USAGE';
       /** Output only. The user friendly display name of the analysis type. E.g. service dependency analysis, service resource usage analysis, etc. */
       displayName?: string;
       /** The names of the service that has analysis result of warnings or blockers. Example: `services/storage.googleapis.com`. */
@@ -650,7 +705,9 @@ declare namespace gapi.client {
       /** Output only. User friendly impact detail in a free form message. */
       detail?: string;
       /** Output only. The type of impact. */
-      impactType?: string;
+      impactType?:
+        | 'IMPACT_TYPE_UNSPECIFIED'
+        | 'DEPENDENCY_MISSING_DEPENDENCIES';
       /** Output only. This field will be populated only for the `DEPENDENCY_MISSING_DEPENDENCIES` impact type. Example: `services/compute.googleapis.com`. Impact.detail will be in format : `missing service dependency: {missing_dependency}.` */
       missingDependency?: string;
     }
@@ -714,7 +771,10 @@ declare namespace gapi.client {
       /** Output only. User friendly impact detail in a free form message. */
       detail?: string;
       /** Output only. The type of impact. */
-      impactType?: string;
+      impactType?:
+        | 'IMPACT_TYPE_UNSPECIFIED'
+        | 'DEPENDENCY_MISSING_DEPENDENCIES'
+        | 'RESOURCE_EXISTENCE_PROJECT';
       /** The parent resource that the analysis is based on and the service name that the analysis is for. Example: `projects/100/services/compute.googleapis.com`, folders/101/services/compute.googleapis.com` and `organizations/102/services/compute.googleapis.com`. Usually, the parent resource here is same as the parent resource of the analyzed policy. However, for some analysis types, the parent can be different. For example, for resource existence analysis, if the parent resource of the analyzed policy is a folder or an organization, the parent resource here can still be the project that contains the resources. */
       parent?: string;
     }
@@ -757,7 +817,7 @@ declare namespace gapi.client {
       /** The label key. */
       key?: string;
       /** The type of data that can be assigned to the label. */
-      valueType?: string;
+      valueType?: 'STRING' | 'BOOL' | 'INT64';
     }
     interface ListOperationsResponse {
       /** The standard List next-page token. */
@@ -841,7 +901,7 @@ declare namespace gapi.client {
       /** The URL of the output message type. */
       responseTypeUrl?: string;
       /** The source syntax of this method. This field should be ignored, instead the syntax should be inherited from Api. This is similar to Field and EnumValue. */
-      syntax?: string;
+      syntax?: 'SYNTAX_PROTO2' | 'SYNTAX_PROTO3' | 'SYNTAX_EDITIONS';
     }
     interface MethodPolicy {
       /** Policies that are applicable to the request message. */
@@ -867,11 +927,19 @@ declare namespace gapi.client {
       /** The set of labels that can be used to describe a specific instance of this metric type. For example, the `appengine.googleapis.com/http/server/response_latencies` metric type has a label for the HTTP response code, `response_code`, so you can look at latencies for successful responses or just for responses that failed. */
       labels?: LabelDescriptor[];
       /** Optional. The launch stage of the metric definition. */
-      launchStage?: string;
+      launchStage?:
+        | 'LAUNCH_STAGE_UNSPECIFIED'
+        | 'UNIMPLEMENTED'
+        | 'PRELAUNCH'
+        | 'EARLY_ACCESS'
+        | 'ALPHA'
+        | 'BETA'
+        | 'GA'
+        | 'DEPRECATED';
       /** Optional. Metadata which can be used to guide usage of the metric. */
       metadata?: MetricDescriptorMetadata;
       /** Whether the metric records instantaneous values, changes to a value, etc. Some combinations of `metric_kind` and `value_type` might not be supported. */
-      metricKind?: string;
+      metricKind?: 'METRIC_KIND_UNSPECIFIED' | 'GAUGE' | 'DELTA' | 'CUMULATIVE';
       /** Read-only. If present, then a time series, which is identified partially by a metric type and a MonitoredResourceDescriptor, that is associated with this metric type can only be associated with one of the monitored resource types listed here. */
       monitoredResourceTypes?: string[];
       /** The resource name of the metric descriptor. */
@@ -881,17 +949,36 @@ declare namespace gapi.client {
       /** The units in which the metric value is reported. It is only applicable if the `value_type` is `INT64`, `DOUBLE`, or `DISTRIBUTION`. The `unit` defines the representation of the stored metric values. Different systems might scale the values to be more easily displayed (so a value of `0.02kBy` _might_ be displayed as `20By`, and a value of `3523kBy` _might_ be displayed as `3.5MBy`). However, if the `unit` is `kBy`, then the value of the metric is always in thousands of bytes, no matter how it might be displayed. If you want a custom metric to record the exact number of CPU-seconds used by a job, you can create an `INT64 CUMULATIVE` metric whose `unit` is `s{CPU}` (or equivalently `1s{CPU}` or just `s`). If the job uses 12,005 CPU-seconds, then the value is written as `12005`. Alternatively, if you want a custom metric to record data in a more granular way, you can create a `DOUBLE CUMULATIVE` metric whose `unit` is `ks{CPU}`, and then write the value `12.005` (which is `12005/1000`), or use `Kis{CPU}` and write `11.723` (which is `12005/1024`). The supported units are a subset of [The Unified Code for Units of Measure](https://unitsofmeasure.org/ucum.html) standard: **Basic units (UNIT)** * `bit` bit * `By` byte * `s` second * `min` minute * `h` hour * `d` day * `1` dimensionless **Prefixes (PREFIX)** * `k` kilo (10^3) * `M` mega (10^6) * `G` giga (10^9) * `T` tera (10^12) * `P` peta (10^15) * `E` exa (10^18) * `Z` zetta (10^21) * `Y` yotta (10^24) * `m` milli (10^-3) * `u` micro (10^-6) * `n` nano (10^-9) * `p` pico (10^-12) * `f` femto (10^-15) * `a` atto (10^-18) * `z` zepto (10^-21) * `y` yocto (10^-24) * `Ki` kibi (2^10) * `Mi` mebi (2^20) * `Gi` gibi (2^30) * `Ti` tebi (2^40) * `Pi` pebi (2^50) **Grammar** The grammar also includes these connectors: * `/` division or ratio (as an infix operator). For examples, `kBy/{email}` or `MiBy/10ms` (although you should almost never have `/s` in a metric `unit`; rates should always be computed at query time from the underlying cumulative or delta value). * `.` multiplication or composition (as an infix operator). For examples, `GBy.d` or `k{watt}.h`. The grammar for a unit is as follows: Expression = Component { "." Component } { "/" Component } ; Component = ( [ PREFIX ] UNIT | "%" ) [ Annotation ] | Annotation | "1" ; Annotation = "{" NAME "}" ; Notes: * `Annotation` is just a comment if it follows a `UNIT`. If the annotation is used alone, then the unit is equivalent to `1`. For examples, `{request}/s == 1/s`, `By{transmitted}/s == By/s`. * `NAME` is a sequence of non-blank printable ASCII characters not containing `{` or `}`. * `1` represents a unitary [dimensionless unit](https://en.wikipedia.org/wiki/Dimensionless_quantity) of 1, such as in `1/s`. It is typically used when none of the basic units are appropriate. For example, "new users per day" can be represented as `1/d` or `{new-users}/d` (and a metric value `5` would mean "5 new users). Alternatively, "thousands of page views per day" would be represented as `1000/d` or `k1/d` or `k{page_views}/d` (and a metric value of `5.3` would mean "5300 page views per day"). * `%` represents dimensionless value of 1/100, and annotates values giving a percentage (so the metric values are typically in the range of 0..100, and a metric value `3` means "3 percent"). * `10^2.%` indicates a metric contains a ratio, typically in the range 0..1, that will be multiplied by 100 and displayed as a percentage (so a metric value `0.03` means "3 percent"). */
       unit?: string;
       /** Whether the measurement is an integer, a floating-point number, etc. Some combinations of `metric_kind` and `value_type` might not be supported. */
-      valueType?: string;
+      valueType?:
+        | 'VALUE_TYPE_UNSPECIFIED'
+        | 'BOOL'
+        | 'INT64'
+        | 'DOUBLE'
+        | 'STRING'
+        | 'DISTRIBUTION'
+        | 'MONEY';
     }
     interface MetricDescriptorMetadata {
       /** The delay of data points caused by ingestion. Data points older than this age are guaranteed to be ingested and available to be read, excluding data loss due to errors. */
       ingestDelay?: string;
       /** Deprecated. Must use the MetricDescriptor.launch_stage instead. */
-      launchStage?: string;
+      launchStage?:
+        | 'LAUNCH_STAGE_UNSPECIFIED'
+        | 'UNIMPLEMENTED'
+        | 'PRELAUNCH'
+        | 'EARLY_ACCESS'
+        | 'ALPHA'
+        | 'BETA'
+        | 'GA'
+        | 'DEPRECATED';
       /** The sampling period of metric data points. For metrics which are written periodically, consecutive data points are stored at this time interval, excluding data loss due to errors. Metrics with a higher granularity have a smaller sampling period. */
       samplePeriod?: string;
       /** The scope of the timeseries data of the metric. */
-      timeSeriesResourceHierarchyLevel?: string[];
+      timeSeriesResourceHierarchyLevel?:
+        | 'TIME_SERIES_RESOURCE_HIERARCHY_LEVEL_UNSPECIFIED'
+        | 'PROJECT'
+        | 'ORGANIZATION'
+        | 'FOLDER'[];
     }
     interface MetricRule {
       /** Metrics to update when the selected methods are called, and the associated cost applied to each metric. The key of the map is the metric name, and the values are the amount increased for the metric against which the quota limits are defined. The value must not be negative. */
@@ -913,7 +1000,15 @@ declare namespace gapi.client {
       /** Required. A set of labels used to describe instances of this monitored resource type. For example, an individual Google Cloud SQL database is identified by values for the labels `"database_id"` and `"zone"`. */
       labels?: LabelDescriptor[];
       /** Optional. The launch stage of the monitored resource definition. */
-      launchStage?: string;
+      launchStage?:
+        | 'LAUNCH_STAGE_UNSPECIFIED'
+        | 'UNIMPLEMENTED'
+        | 'PRELAUNCH'
+        | 'EARLY_ACCESS'
+        | 'ALPHA'
+        | 'BETA'
+        | 'GA'
+        | 'DEPRECATED';
       /** Optional. The resource name of the monitored resource descriptor: `"projects/{project_id}/monitoredResourceDescriptors/{type}"` where {type} is the value of the `type` field in this object and {project_id} is a project ID that provides API-specific context for accessing the type. APIs that do not use project information can use the resource name format `"monitoredResourceDescriptors/{type}"`. */
       name?: string;
       /** Required. The monitored resource type. For example, the type `"cloudsql_database"` represents databases in Google Cloud SQL. For a list of types, see [Monitored resource types](https://cloud.google.com/monitoring/api/resources) and [Logging resource types](https://cloud.google.com/logging/docs/api/v2/resource-list). */
@@ -993,7 +1088,15 @@ declare namespace gapi.client {
       /** Link to a *public* URI where users can report issues. Example: https://issuetracker.google.com/issues/new?component=190865&template=1161103 */
       newIssueUri?: string;
       /** For whom the client library is being published. */
-      organization?: string;
+      organization?:
+        | 'CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED'
+        | 'CLOUD'
+        | 'ADS'
+        | 'PHOTOS'
+        | 'STREET_VIEW'
+        | 'SHOPPING'
+        | 'GEO'
+        | 'GENERATIVE_AI';
       /** Optional link to proto reference documentation. Example: https://cloud.google.com/pubsub/lite/docs/reference/rpc */
       protoReferenceDocumentationUri?: string;
       /** Optional link to REST reference documentation. Example: https://cloud.google.com/pubsub/lite/docs/reference/rest */
@@ -1118,7 +1221,7 @@ declare namespace gapi.client {
       /** The source context. */
       sourceContext?: SourceContext;
       /** The source syntax. */
-      syntax?: string;
+      syntax?: 'SYNTAX_PROTO2' | 'SYNTAX_PROTO3' | 'SYNTAX_EDITIONS';
     }
     interface UpdateAdminQuotaPolicyMetadata {}
     interface UpdateConsumerPolicyMetadata {}
@@ -1144,11 +1247,11 @@ declare namespace gapi.client {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1173,11 +1276,11 @@ declare namespace gapi.client {
       cancel(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1202,11 +1305,11 @@ declare namespace gapi.client {
       /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1229,11 +1332,11 @@ declare namespace gapi.client {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1256,11 +1359,11 @@ declare namespace gapi.client {
       /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1293,11 +1396,11 @@ declare namespace gapi.client {
       /** Enable multiple services on a project. The operation is atomic: if enabling any service fails, then the entire batch fails, and no state changes occur. To enable a single service, use the `EnableService` method instead. */
       batchEnable(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1322,11 +1425,11 @@ declare namespace gapi.client {
       batchEnable(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1351,11 +1454,11 @@ declare namespace gapi.client {
       /** Returns the service configurations and enabled states for a given list of services. */
       batchGet(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1380,11 +1483,11 @@ declare namespace gapi.client {
       /** Disable a service so that it can no longer be used with a project. This prevents unintended usage that may cause unexpected billing charges or security leaks. It is not valid to call the disable method on a service that is not currently enabled. Callers will receive a `FAILED_PRECONDITION` status if the target service is not currently enabled. */
       disable(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1409,11 +1512,11 @@ declare namespace gapi.client {
       disable(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1438,11 +1541,11 @@ declare namespace gapi.client {
       /** Enable a service so that it can be used with a project. */
       enable(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1467,11 +1570,11 @@ declare namespace gapi.client {
       enable(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1496,11 +1599,11 @@ declare namespace gapi.client {
       /** Returns the service configuration and enabled state for a given service. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1523,11 +1626,11 @@ declare namespace gapi.client {
       /** List all services available to the specified project, and the current state of those services with respect to the project. The list includes all public services, all services for which the calling user has the `servicemanagement.services.bind` permission, and all services that have already been enabled on the project. The list can be filtered to only include services in a specific state, for example to only include services enabled on the project. WARNING: If you need to query enabled services frequently or across an organization, you should use [Cloud Asset Inventory API](https://cloud.google.com/asset-inventory/docs/apis), which provides higher throughput and richer filtering capability. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */

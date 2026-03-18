@@ -69,7 +69,7 @@ declare namespace gapi.client {
       /** Metadata like service latency, etc. */
       metadata?: {[P in string]: {[P in string]: any}};
       /** State of the connector. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'ACTIVE' | 'ERROR' | 'AUTH_ERROR';
     }
     interface DailyCycle {
       /** Output only. Duration of the time window, set by service producer. */
@@ -112,7 +112,13 @@ declare namespace gapi.client {
       metadata?: {[P in string]: {[P in string]: any}};
       /** The name of the entity type. */
       name?: string;
-      operations?: string[];
+      operations?:
+        | 'OPERATION_UNSPECIFIED'
+        | 'LIST'
+        | 'GET'
+        | 'CREATE'
+        | 'UPDATE'
+        | 'DELETE'[];
     }
     interface ExchangeAuthCodeRequest {
       /** Optional. AuthCodeData contains the data the runtime requires to exchange for access and refresh tokens. If the data is not provided, the runtime will read the data from the secret manager. */
@@ -169,7 +175,52 @@ declare namespace gapi.client {
       /** The following map contains fields that are not explicitly mentioned above,this give connectors the flexibility to add new metadata fields. */
       additionalDetails?: {[P in string]: any};
       /** The data type of the Field. */
-      dataType?: string;
+      dataType?:
+        | 'DATA_TYPE_UNSPECIFIED'
+        | 'INT'
+        | 'SMALLINT'
+        | 'DOUBLE'
+        | 'DATE'
+        | 'DATETIME'
+        | 'TIME'
+        | 'STRING'
+        | 'LONG'
+        | 'BOOLEAN'
+        | 'DECIMAL'
+        | 'UUID'
+        | 'BLOB'
+        | 'BIT'
+        | 'TINYINT'
+        | 'INTEGER'
+        | 'BIGINT'
+        | 'FLOAT'
+        | 'REAL'
+        | 'NUMERIC'
+        | 'CHAR'
+        | 'VARCHAR'
+        | 'LONGVARCHAR'
+        | 'TIMESTAMP'
+        | 'NCHAR'
+        | 'NVARCHAR'
+        | 'LONGNVARCHAR'
+        | 'NULL'
+        | 'OTHER'
+        | 'JAVA_OBJECT'
+        | 'DISTINCT'
+        | 'STRUCT'
+        | 'ARRAY'
+        | 'CLOB'
+        | 'REF'
+        | 'DATALINK'
+        | 'ROWID'
+        | 'BINARY'
+        | 'VARBINARY'
+        | 'LONGVARBINARY'
+        | 'NCLOB'
+        | 'SQLXML'
+        | 'REF_CURSOR'
+        | 'TIME_WITH_TIMEZONE'
+        | 'TIMESTAMP_WITH_TIMEZONE';
       /** The following field specifies the default value of the Field provided by the external system if a value is not provided. */
       defaultValue?: any;
       /** A brief description of the Field. */
@@ -211,7 +262,52 @@ declare namespace gapi.client {
       /** The following map contains fields that are not explicitly mentioned above,this give connectors the flexibility to add new metadata fields. */
       additionalDetails?: {[P in string]: any};
       /** The data type of the Parameter */
-      dataType?: string;
+      dataType?:
+        | 'DATA_TYPE_UNSPECIFIED'
+        | 'INT'
+        | 'SMALLINT'
+        | 'DOUBLE'
+        | 'DATE'
+        | 'DATETIME'
+        | 'TIME'
+        | 'STRING'
+        | 'LONG'
+        | 'BOOLEAN'
+        | 'DECIMAL'
+        | 'UUID'
+        | 'BLOB'
+        | 'BIT'
+        | 'TINYINT'
+        | 'INTEGER'
+        | 'BIGINT'
+        | 'FLOAT'
+        | 'REAL'
+        | 'NUMERIC'
+        | 'CHAR'
+        | 'VARCHAR'
+        | 'LONGVARCHAR'
+        | 'TIMESTAMP'
+        | 'NCHAR'
+        | 'NVARCHAR'
+        | 'LONGNVARCHAR'
+        | 'NULL'
+        | 'OTHER'
+        | 'JAVA_OBJECT'
+        | 'DISTINCT'
+        | 'STRUCT'
+        | 'ARRAY'
+        | 'CLOB'
+        | 'REF'
+        | 'DATALINK'
+        | 'ROWID'
+        | 'BINARY'
+        | 'VARBINARY'
+        | 'LONGVARBINARY'
+        | 'NCLOB'
+        | 'SQLXML'
+        | 'REF_CURSOR'
+        | 'TIME_WITH_TIMEZONE'
+        | 'TIMESTAMP_WITH_TIMEZONE';
       /** The following field specifies the default value of the Parameter provided by the external system if a value is not provided. */
       defaultValue?: any;
       /** A brief description of the Parameter. */
@@ -255,7 +351,14 @@ declare namespace gapi.client {
       /** Software versions that are used to deploy this instance. This can be mutated by rollout services. */
       softwareVersions?: {[P in string]: string};
       /** Output only. Current lifecycle state of the resource (e.g. if it's being created or ready to use). */
-      state?: string;
+      state?:
+        | 'STATE_UNSPECIFIED'
+        | 'CREATING'
+        | 'READY'
+        | 'UPDATING'
+        | 'REPAIRING'
+        | 'DELETING'
+        | 'ERROR';
       /** Output only. ID of the associated GCP tenant project. See go/get-instance-metadata. */
       tenantProjectId?: string;
       /** Output only. Timestamp when the resource was last modified. */
@@ -275,7 +378,52 @@ declare namespace gapi.client {
       /** Schema that applies to array values, applicable only if this is of type `array`. */
       items?: JsonSchema;
       /** JDBC datatype of the field. */
-      jdbcType?: string;
+      jdbcType?:
+        | 'DATA_TYPE_UNSPECIFIED'
+        | 'INT'
+        | 'SMALLINT'
+        | 'DOUBLE'
+        | 'DATE'
+        | 'DATETIME'
+        | 'TIME'
+        | 'STRING'
+        | 'LONG'
+        | 'BOOLEAN'
+        | 'DECIMAL'
+        | 'UUID'
+        | 'BLOB'
+        | 'BIT'
+        | 'TINYINT'
+        | 'INTEGER'
+        | 'BIGINT'
+        | 'FLOAT'
+        | 'REAL'
+        | 'NUMERIC'
+        | 'CHAR'
+        | 'VARCHAR'
+        | 'LONGVARCHAR'
+        | 'TIMESTAMP'
+        | 'NCHAR'
+        | 'NVARCHAR'
+        | 'LONGNVARCHAR'
+        | 'NULL'
+        | 'OTHER'
+        | 'JAVA_OBJECT'
+        | 'DISTINCT'
+        | 'STRUCT'
+        | 'ARRAY'
+        | 'CLOB'
+        | 'REF'
+        | 'DATALINK'
+        | 'ROWID'
+        | 'BINARY'
+        | 'VARBINARY'
+        | 'LONGVARBINARY'
+        | 'NCLOB'
+        | 'SQLXML'
+        | 'REF_CURSOR'
+        | 'TIME_WITH_TIMEZONE'
+        | 'TIMESTAMP_WITH_TIMEZONE';
       /** The child schemas, applicable only if this is of type `object`. The key is the name of the property and the value is the json schema that describes that property */
       properties?: {[P in string]: JsonSchema};
       /** Whether this property is required. */
@@ -351,7 +499,7 @@ declare namespace gapi.client {
       /** Required. MaintenancePolicy name using the form: `projects/{project_id}/locations/{location_id}/maintenancePolicies/{maintenance_policy_id}` where {project_id} refers to a GCP consumer project ID, {location_id} refers to a GCP region/zone, {maintenance_policy_id} must be 1-63 characters long and match the regular expression `[a-z0-9]([-a-z0-9]*[a-z0-9])?`. */
       name?: string;
       /** Optional. The state of the policy. */
-      state?: string;
+      state?: 'STATE_UNSPECIFIED' | 'READY' | 'DELETING';
       /** Maintenance policy applicable to instance update. */
       updatePolicy?: UpdatePolicy;
       /** Output only. The time when the resource was updated. */
@@ -424,7 +572,52 @@ declare namespace gapi.client {
       timeout?: string;
     }
     interface QueryParameter {
-      dataType?: string;
+      dataType?:
+        | 'DATA_TYPE_UNSPECIFIED'
+        | 'INT'
+        | 'SMALLINT'
+        | 'DOUBLE'
+        | 'DATE'
+        | 'DATETIME'
+        | 'TIME'
+        | 'STRING'
+        | 'LONG'
+        | 'BOOLEAN'
+        | 'DECIMAL'
+        | 'UUID'
+        | 'BLOB'
+        | 'BIT'
+        | 'TINYINT'
+        | 'INTEGER'
+        | 'BIGINT'
+        | 'FLOAT'
+        | 'REAL'
+        | 'NUMERIC'
+        | 'CHAR'
+        | 'VARCHAR'
+        | 'LONGVARCHAR'
+        | 'TIMESTAMP'
+        | 'NCHAR'
+        | 'NVARCHAR'
+        | 'LONGNVARCHAR'
+        | 'NULL'
+        | 'OTHER'
+        | 'JAVA_OBJECT'
+        | 'DISTINCT'
+        | 'STRUCT'
+        | 'ARRAY'
+        | 'CLOB'
+        | 'REF'
+        | 'DATALINK'
+        | 'ROWID'
+        | 'BINARY'
+        | 'VARBINARY'
+        | 'LONGVARBINARY'
+        | 'NCLOB'
+        | 'SQLXML'
+        | 'REF_CURSOR'
+        | 'TIME_WITH_TIMEZONE'
+        | 'TIMESTAMP_WITH_TIMEZONE';
       value?: any;
     }
     interface Reference {
@@ -460,7 +653,52 @@ declare namespace gapi.client {
     }
     interface ResultMetadata {
       /** The data type of the metadata field */
-      dataType?: string;
+      dataType?:
+        | 'DATA_TYPE_UNSPECIFIED'
+        | 'INT'
+        | 'SMALLINT'
+        | 'DOUBLE'
+        | 'DATE'
+        | 'DATETIME'
+        | 'TIME'
+        | 'STRING'
+        | 'LONG'
+        | 'BOOLEAN'
+        | 'DECIMAL'
+        | 'UUID'
+        | 'BLOB'
+        | 'BIT'
+        | 'TINYINT'
+        | 'INTEGER'
+        | 'BIGINT'
+        | 'FLOAT'
+        | 'REAL'
+        | 'NUMERIC'
+        | 'CHAR'
+        | 'VARCHAR'
+        | 'LONGVARCHAR'
+        | 'TIMESTAMP'
+        | 'NCHAR'
+        | 'NVARCHAR'
+        | 'LONGNVARCHAR'
+        | 'NULL'
+        | 'OTHER'
+        | 'JAVA_OBJECT'
+        | 'DISTINCT'
+        | 'STRUCT'
+        | 'ARRAY'
+        | 'CLOB'
+        | 'REF'
+        | 'DATALINK'
+        | 'ROWID'
+        | 'BINARY'
+        | 'VARBINARY'
+        | 'LONGVARBINARY'
+        | 'NCLOB'
+        | 'SQLXML'
+        | 'REF_CURSOR'
+        | 'TIME_WITH_TIMEZONE'
+        | 'TIMESTAMP_WITH_TIMEZONE';
       /** The following field specifies the default value of the Parameter provided by the external system if a value is not provided. */
       defaultValue?: any;
       /** A brief description of the metadata field. */
@@ -474,7 +712,15 @@ declare namespace gapi.client {
     }
     interface Schedule {
       /** Allows to define schedule that runs specified day of the week. */
-      day?: string;
+      day?:
+        | 'DAY_OF_WEEK_UNSPECIFIED'
+        | 'MONDAY'
+        | 'TUESDAY'
+        | 'WEDNESDAY'
+        | 'THURSDAY'
+        | 'FRIDAY'
+        | 'SATURDAY'
+        | 'SUNDAY';
       /** Output only. Duration of the time window, set by service producer. */
       duration?: string;
       /** Time within the window to start the operations. */
@@ -536,7 +782,13 @@ declare namespace gapi.client {
       /** Tool name that was generated in the list tools call. */
       name?: string;
       /** Operation for which the tool was generated. */
-      operation?: string;
+      operation?:
+        | 'OPERATION_UNSPECIFIED'
+        | 'LIST'
+        | 'GET'
+        | 'CREATE'
+        | 'UPDATE'
+        | 'DELETE';
     }
     interface ToolSpec {
       /** List of tool definitions. */
@@ -552,7 +804,13 @@ declare namespace gapi.client {
     }
     interface UpdatePolicy {
       /** Optional. Relative scheduling channel applied to resource. */
-      channel?: string;
+      channel?:
+        | 'UPDATE_CHANNEL_UNSPECIFIED'
+        | 'EARLIER'
+        | 'LATER'
+        | 'WEEK1'
+        | 'WEEK2'
+        | 'WEEK5';
       /** Deny Maintenance Period that is applied to resource to indicate when maintenance is forbidden. The protocol supports zero-to-many such periods, but the current SLM Rollout implementation only supports zero-to-one. */
       denyMaintenancePeriods?: DenyMaintenancePeriod[];
       /** Optional. Maintenance window that is applied to resources covered by this policy. */
@@ -566,11 +824,11 @@ declare namespace gapi.client {
       /** Executes an action with the name specified in the request. The input parameters for executing the action are passed through the body of the ExecuteAction request. */
       execute(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -595,11 +853,11 @@ declare namespace gapi.client {
       execute(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -624,11 +882,11 @@ declare namespace gapi.client {
       /** Gets the schema of the given action. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** headers to be used for the request. For example: headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}' */
@@ -650,16 +908,19 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Specified view of the action schema. */
-        view?: string;
+        view?:
+          | 'ACTION_SCHEMA_VIEW_UNSPECIFIED'
+          | 'ACTION_SCHEMA_VIEW_BASIC'
+          | 'ACTION_SCHEMA_VIEW_ENRICHED';
       }): Request<Action>;
       /** Gets the schema of all the actions supported by the connector. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** headers to be used for the request. For example: headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}' */
@@ -685,18 +946,21 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Specifies which fields of the Action are returned in the response. */
-        view?: string;
+        view?:
+          | 'ACTION_VIEW_UNSPECIFIED'
+          | 'ACTION_VIEW_BASIC'
+          | 'ACTION_VIEW_FULL';
       }): Request<ListActionsResponse>;
     }
     interface EntitiesResource {
       /** Creates a new entity row of the specified entity type in the external system. The field values for creating the row are contained in the body of the request. The response message contains a `Entity` message object returned as a response by the external system. */
       create(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** headers to be used for the request. For example: headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}' */
@@ -723,11 +987,11 @@ declare namespace gapi.client {
       create(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** headers to be used for the request. For example: headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}' */
@@ -754,11 +1018,11 @@ declare namespace gapi.client {
       /** Deletes an existing entity row matching the entity type and entity id specified in the request. */
       delete(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** headers to be used for the request. For example: headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}' */
@@ -783,11 +1047,11 @@ declare namespace gapi.client {
       /** Deletes entities based on conditions specified in the request and not on entity id. */
       deleteEntitiesWithConditions(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Conditions to be used when deleting entities. From a proto standpoint, There are no restrictions on what can be passed using this field. The connector documentation should have information about what format of filters/conditions are supported. Note: If this conditions field is left empty, an exception is thrown. We don't want to consider 'empty conditions' to be a match-all case. Connector developers can determine and document what a match-all case constraint would be. */
@@ -814,11 +1078,11 @@ declare namespace gapi.client {
       /** Gets a single entity row matching the entity type and entity id specified in the request. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** headers to be used for the request. For example: headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}' */
@@ -843,11 +1107,11 @@ declare namespace gapi.client {
       /** Lists entity rows of a particular entity type contained in the request. Note: 1. Currently, only max of one 'sort_by' column is supported. 2. If no 'sort_by' column is provided, the primary key of the table is used. If zero or more than one primary key is available, we default to the unpaginated list entities logic which only returns the first page. 3. The values of the 'sort_by' columns must uniquely identify an entity row, otherwise undefined behaviors may be observed during pagination. 4. Since transactions are not supported, any updates, inserts or deletes during pagination can lead to stale data being returned or other unexpected behaviors. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Conditions to be used when listing entities. From a proto standpoint, There are no restrictions on what can be passed using this field. The connector documentation should have information about what format of filters/conditions are supported. */
@@ -882,11 +1146,11 @@ declare namespace gapi.client {
       /** Updates an existing entity row matching the entity type and entity id specified in the request. The fields in the entity row that need to be modified are contained in the body of the request. All unspecified fields are left unchanged. The response message contains a `Entity` message object returned as a response by the external system. */
       patch(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** headers to be used for the request. For example: headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}' */
@@ -913,11 +1177,11 @@ declare namespace gapi.client {
       patch(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** headers to be used for the request. For example: headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}' */
@@ -944,11 +1208,11 @@ declare namespace gapi.client {
       /** Updates entities based on conditions specified in the request and not on entity id. */
       updateEntitiesWithConditions(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Conditions to be used when updating entities. From a proto standpoint, There are no restrictions on what can be passed using this field. The connector documentation should have information about what format of filters/conditions are supported. Note: If this conditions field is left empty, an exception is thrown. We don't want to consider 'empty conditions' to be a match-all case. Connector developers can determine and document what a match-all case constraint would be. */
@@ -977,11 +1241,11 @@ declare namespace gapi.client {
       updateEntitiesWithConditions(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. Conditions to be used when updating entities. From a proto standpoint, There are no restrictions on what can be passed using this field. The connector documentation should have information about what format of filters/conditions are supported. Note: If this conditions field is left empty, an exception is thrown. We don't want to consider 'empty conditions' to be a match-all case. Connector developers can determine and document what a match-all case constraint would be. */
@@ -1012,11 +1276,11 @@ declare namespace gapi.client {
       /** Gets metadata of given entity type */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Context metadata for request could be used to fetch customization of entity type schema. */
@@ -1040,16 +1304,19 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Specifies view for entity type schema. */
-        view?: string;
+        view?:
+          | 'ENTITY_TYPE_SCHEMA_VIEW_UNSPECIFIED'
+          | 'ENTITY_TYPE_SCHEMA_VIEW_BASIC'
+          | 'ENTITY_TYPE_SCHEMA_VIEW_ENRICHED';
       }): Request<EntityType>;
       /** Lists metadata related to all entity types present in the external system. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** headers to be used for the request. For example: headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}' */
@@ -1075,7 +1342,10 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
         /** Specifies which fields of the Entity Type are returned in the response. */
-        view?: string;
+        view?:
+          | 'ENTITY_TYPE_VIEW_UNSPECIFIED'
+          | 'ENTITY_TYPE_VIEW_BASIC'
+          | 'ENTITY_TYPE_VIEW_FULL';
       }): Request<ListEntityTypesResponse>;
       entities: EntitiesResource;
     }
@@ -1083,11 +1353,11 @@ declare namespace gapi.client {
       /** Gets a specific resource. */
       get(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** headers to be used for the request. For example: headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}' */
@@ -1112,11 +1382,11 @@ declare namespace gapi.client {
       /** Gets a specific resource with POST. */
       getResourcePost(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1141,11 +1411,11 @@ declare namespace gapi.client {
       getResourcePost(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1170,11 +1440,11 @@ declare namespace gapi.client {
       /** Lists all available resources. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** headers to be used for the request. For example: headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}' */
@@ -1205,11 +1475,11 @@ declare namespace gapi.client {
       /** Executes a specific tool. */
       execute(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1234,11 +1504,11 @@ declare namespace gapi.client {
       execute(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1263,11 +1533,11 @@ declare namespace gapi.client {
       /** Lists all available tools. */
       list(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** headers to be used for the request. For example: headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}' */
@@ -1298,11 +1568,11 @@ declare namespace gapi.client {
       /** Reports readiness status of the connector. Similar logic to GetStatus but modified for kubernetes health check to understand. */
       checkReadiness(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1324,11 +1594,11 @@ declare namespace gapi.client {
       /** Reports the status of the connection. Note that when the connection is in a state that is not ACTIVE, the implementation of this RPC method must return a Status with the corresponding State instead of returning a gRPC status code that is not "OK", which indicates that ConnectionStatus itself, not the connection, failed. */
       checkStatus(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** headers to be used for the request. For example: headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}' */
@@ -1352,11 +1622,11 @@ declare namespace gapi.client {
       /** ExchangeAuthCode exchanges the OAuth authorization code (and other necessary data) for an access token (and associated credentials). */
       exchangeAuthCode(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1380,11 +1650,11 @@ declare namespace gapi.client {
       exchangeAuthCode(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1408,11 +1678,11 @@ declare namespace gapi.client {
       /** Executes a SQL statement specified in the body of the request. An example of this SQL statement in the case of Salesforce connector would be 'select * from Account a, Order o where a.Id = o.AccountId'. */
       executeSqlQuery(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Required. Resource name of the Connection. Format: projects/{project}/locations/{location}/connections/{connection} */
@@ -1437,11 +1707,11 @@ declare namespace gapi.client {
       executeSqlQuery(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Required. Resource name of the Connection. Format: projects/{project}/locations/{location}/connections/{connection} */
@@ -1466,11 +1736,11 @@ declare namespace gapi.client {
       /** Generate toolspec override for the given list of toolNames. */
       generateConnectionToolspecOverride(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1495,11 +1765,11 @@ declare namespace gapi.client {
       generateConnectionToolspecOverride(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -1524,11 +1794,11 @@ declare namespace gapi.client {
       /** Lists custom tool names. */
       listCustomToolNames(request?: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1551,11 +1821,11 @@ declare namespace gapi.client {
       /** RefreshAccessToken exchanges the OAuth refresh token (and other necessary data) for a new access token (and new associated credentials). */
       refreshAccessToken(request: {
         /** V1 error format. */
-        '$.xgafv'?: string;
+        '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
         /** Data format for response. */
-        alt?: string;
+        alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -1579,11 +1849,11 @@ declare namespace gapi.client {
       refreshAccessToken(
         request: {
           /** V1 error format. */
-          '$.xgafv'?: string;
+          '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
           access_token?: string;
           /** Data format for response. */
-          alt?: string;
+          alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
           /** Selector specifying which fields to include in a partial response. */
