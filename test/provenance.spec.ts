@@ -1,3 +1,4 @@
+import {resolve} from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {describe, expect, it, vi} from 'vitest';
 import {GitHub} from '../bin/auto-publish/git-hub.js';
@@ -29,7 +30,7 @@ describe('NPM Provenance', () => {
     );
 
     // Create a test path
-    const testArchivePath = pathToFileURL('/test-package', {windows: false});
+    const testArchivePath = pathToFileURL(resolve('test-package.tgz'));
 
     // Call npmPublish
     await helpers.npmPublish(testArchivePath);
