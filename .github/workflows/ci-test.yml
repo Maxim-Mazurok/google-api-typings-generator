@@ -47,3 +47,17 @@ jobs:
         with:
           name: ${{ steps.lint.outputs.FAILED_TYPE }}
           path: types/${{ steps.lint.outputs.FAILED_TYPE }}
+
+  spellcheck-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Use Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Run spellcheck
+        run: npm run cspell

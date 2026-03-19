@@ -122,6 +122,16 @@ Unit tests for this generator project are written with [Vitest](https://vitest.d
 npm run test
 ```
 
+#### Spellcheck
+
+Run spellcheck with:
+
+```sh
+npm run cspell
+```
+
+The wrapper respects `.gitignore`, skips generated `test/restDocs` fixtures, and normalizes Windows path separators so the same exclusions apply on `windows-latest`.
+
 ### Fixing formatting
 
 This project leverages [Google's TypeScript Style (gts)](https://github.com/google/gts) to standardize formatting.
