@@ -9,6 +9,9 @@ type SpawnCommand = {
 export const normalizePathSeparators = (filePath: string): string =>
   filePath.replaceAll('\\', '/');
 
+export const parseGitFileList = (gitLsFilesOutput: string): string[] =>
+  gitLsFilesOutput.split('\0').filter(filePath => filePath !== '');
+
 export const getNpxSpawnCommand = (
   args: string[],
   platform = process.platform,
@@ -35,11 +38,8 @@ export const shouldIncludeInCspell = (filePath: string): boolean => {
   );
 };
 
-export const filterFilesForCspell = (lsIgnoreOutput: string): string[] =>
-  lsIgnoreOutput
-    .split(/\r?\n/u)
-    .filter(filePath => filePath !== '')
-    .filter(shouldIncludeInCspell);
+export const filterFilesForCspell = (filePaths: string[]): string[] =>
+  filePaths.filter(shouldIncludeInCspell);
 
 const spawnNpx = (
   args: string[],
@@ -48,6 +48,11 @@ const spawnNpx = (
   const spawnCommand = getNpxSpawnCommand(args);
   return spawn(spawnCommand.command, spawnCommand.args, {stdio});
 };
+
+const spawnGit = (
+  args: string[],
+  stdio: StdioOptions,
+): ReturnType<typeof spawn> => spawn('git', args, {stdio});
 
 const waitForSuccessfulExit = async (
   childProcess: ReturnType<typeof spawn>,
@@ -74,15 +79,15 @@ const waitForSuccessfulExit = async (
     });
   });
 
-const getLsIgnoreFiles = async (): Promise<string[]> => {
-  const childProcess = spawnNpx(
-    ['-y', 'ls-ignore', '--paths'],
+const getGitFiles = async (): Promise<string[]> => {
+  const childProcess = spawnGit(
+    ['ls-files', '--cached', '--others', '--exclude-standard', '-z'],
     ['ignore', 'pipe', 'inherit'],
   );
   const stdoutStream = childProcess.stdout;
 
   if (stdoutStream === null) {
-    throw new Error('ls-ignore stdout is not available');
+    throw new Error('git ls-files stdout is not available');
   }
 
   let stdout = '';
@@ -90,12 +95,12 @@ const getLsIgnoreFiles = async (): Promise<string[]> => {
     stdout += chunk.toString();
   });
 
-  await waitForSuccessfulExit(childProcess, 'ls-ignore');
-  return filterFilesForCspell(stdout);
+  await waitForSuccessfulExit(childProcess, 'git ls-files');
+  return parseGitFileList(stdout);
 };
 
 export const runCspell = async (): Promise<void> => {
-  const files = await getLsIgnoreFiles();
+  const files = filterFilesForCspell(await getGitFiles());
   const childProcess = spawnNpx(
     ['-y', 'cspell', '--file-list', 'stdin'],
     ['pipe', 'inherit', 'inherit'],

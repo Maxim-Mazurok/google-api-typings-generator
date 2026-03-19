@@ -2,6 +2,7 @@ import {
   filterFilesForCspell,
   getNpxSpawnCommand,
   normalizePathSeparators,
+  parseGitFileList,
   shouldIncludeInCspell,
 } from '../src/cspell.js';
 
@@ -36,10 +37,10 @@ describe('shouldIncludeInCspell', () => {
 describe('getNpxSpawnCommand', () => {
   it('uses cmd.exe on Windows', () => {
     expect(
-      getNpxSpawnCommand(['-y', 'ls-ignore', '--paths'], 'win32'),
+      getNpxSpawnCommand(['-y', 'cspell', '--file-list', 'stdin'], 'win32'),
     ).toStrictEqual({
       command: 'cmd.exe',
-      args: ['/d', '/s', '/c', 'npx', '-y', 'ls-ignore', '--paths'],
+      args: ['/d', '/s', '/c', 'npx', '-y', 'cspell', '--file-list', 'stdin'],
     });
   });
 
@@ -51,20 +52,32 @@ describe('getNpxSpawnCommand', () => {
   });
 });
 
-describe('filterFilesForCspell', () => {
-  it('filters ls-ignore output with mixed line endings and separators', () => {
-    const lsIgnoreOutput = [
+describe('parseGitFileList', () => {
+  it('parses null-separated git ls-files output', () => {
+    expect(
+      parseGitFileList(
+        ['src/app.ts', 'test\\restDocs\\calendar.json', 'README.md', ''].join(
+          '\0',
+        ),
+      ),
+    ).toStrictEqual([
       'src/app.ts',
       'test\\restDocs\\calendar.json',
-      'test/restDocs/results/gapi.client.drive-v3/index.d.ts',
-      'test/restDocs/__snapshots__/test.spec.ts.snap',
-      'test\\restDocs\\test.spec.ts',
-      '',
-    ].join('\r\n');
-
-    expect(filterFilesForCspell(lsIgnoreOutput)).toStrictEqual([
-      'src/app.ts',
-      'test\\restDocs\\test.spec.ts',
+      'README.md',
     ]);
+  });
+});
+
+describe('filterFilesForCspell', () => {
+  it('filters git-discovered files with mixed separator styles', () => {
+    expect(
+      filterFilesForCspell([
+        'src/app.ts',
+        'test\\restDocs\\calendar.json',
+        'test/restDocs/results/gapi.client.drive-v3/index.d.ts',
+        'test/restDocs/__snapshots__/test.spec.ts.snap',
+        'test\\restDocs\\test.spec.ts',
+      ]),
+    ).toStrictEqual(['src/app.ts', 'test\\restDocs\\test.spec.ts']);
   });
 });

@@ -130,7 +130,7 @@ Run spellcheck with:
 npm run cspell
 ```
 
-The wrapper respects `.gitignore`, skips generated `test/restDocs` fixtures, and normalizes Windows path separators so the same exclusions apply on `windows-latest`.
+The wrapper discovers files through Git, respects `.gitignore`, skips generated `test/restDocs` fixtures, and normalizes Windows path separators so the same exclusions apply on `windows-latest`.
 
 ### Fixing formatting
 
