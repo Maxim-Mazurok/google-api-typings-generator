@@ -1,9 +1,27 @@
 import {spawn} from 'node:child_process';
+import type {StdioOptions} from 'node:child_process';
 
-const NPX_COMMAND = process.platform === 'win32' ? 'npx.cmd' : 'npx';
+type SpawnCommand = {
+  command: string;
+  args: string[];
+};
 
 export const normalizePathSeparators = (filePath: string): string =>
   filePath.replaceAll('\\', '/');
+
+export const getNpxSpawnCommand = (
+  args: string[],
+  platform = process.platform,
+): SpawnCommand =>
+  platform === 'win32'
+    ? {
+        command: 'cmd.exe',
+        args: ['/d', '/s', '/c', 'npx', ...args],
+      }
+    : {
+        command: 'npx',
+        args,
+      };
 
 export const shouldIncludeInCspell = (filePath: string): boolean => {
   const normalizedPath = normalizePathSeparators(filePath);
@@ -22,6 +40,14 @@ export const filterFilesForCspell = (lsIgnoreOutput: string): string[] =>
     .split(/\r?\n/u)
     .filter(filePath => filePath !== '')
     .filter(shouldIncludeInCspell);
+
+const spawnNpx = (
+  args: string[],
+  stdio: StdioOptions,
+): ReturnType<typeof spawn> => {
+  const spawnCommand = getNpxSpawnCommand(args);
+  return spawn(spawnCommand.command, spawnCommand.args, {stdio});
+};
 
 const waitForSuccessfulExit = async (
   childProcess: ReturnType<typeof spawn>,
@@ -49,12 +75,18 @@ const waitForSuccessfulExit = async (
   });
 
 const getLsIgnoreFiles = async (): Promise<string[]> => {
-  const childProcess = spawn(NPX_COMMAND, ['-y', 'ls-ignore', '--paths'], {
-    stdio: ['ignore', 'pipe', 'inherit'],
-  });
+  const childProcess = spawnNpx(
+    ['-y', 'ls-ignore', '--paths'],
+    ['ignore', 'pipe', 'inherit'],
+  );
+  const stdoutStream = childProcess.stdout;
+
+  if (stdoutStream === null) {
+    throw new Error('ls-ignore stdout is not available');
+  }
 
   let stdout = '';
-  childProcess.stdout.on('data', chunk => {
+  stdoutStream.on('data', chunk => {
     stdout += chunk.toString();
   });
 
@@ -64,15 +96,17 @@ const getLsIgnoreFiles = async (): Promise<string[]> => {
 
 export const runCspell = async (): Promise<void> => {
   const files = await getLsIgnoreFiles();
-  const childProcess = spawn(
-    NPX_COMMAND,
+  const childProcess = spawnNpx(
     ['-y', 'cspell', '--file-list', 'stdin'],
-    {
-      stdio: ['pipe', 'inherit', 'inherit'],
-    },
+    ['pipe', 'inherit', 'inherit'],
   );
+  const stdinStream = childProcess.stdin;
 
-  childProcess.stdin.end(files.map(filePath => `${filePath}\n`).join(''));
+  if (stdinStream === null) {
+    throw new Error('cspell stdin is not available');
+  }
+
+  stdinStream.end(files.map(filePath => `${filePath}\n`).join(''));
 
   await waitForSuccessfulExit(childProcess, 'cspell');
 };

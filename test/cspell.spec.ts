@@ -1,5 +1,6 @@
 import {
   filterFilesForCspell,
+  getNpxSpawnCommand,
   normalizePathSeparators,
   shouldIncludeInCspell,
 } from '../src/cspell.js';
@@ -29,6 +30,24 @@ describe('shouldIncludeInCspell', () => {
   it('keeps non-generated project files', () => {
     expect(shouldIncludeInCspell('src/app.ts')).toBe(true);
     expect(shouldIncludeInCspell('test\\restDocs\\test.spec.ts')).toBe(true);
+  });
+});
+
+describe('getNpxSpawnCommand', () => {
+  it('uses cmd.exe on Windows', () => {
+    expect(
+      getNpxSpawnCommand(['-y', 'ls-ignore', '--paths'], 'win32'),
+    ).toStrictEqual({
+      command: 'cmd.exe',
+      args: ['/d', '/s', '/c', 'npx', '-y', 'ls-ignore', '--paths'],
+    });
+  });
+
+  it('uses npx directly on non-Windows platforms', () => {
+    expect(getNpxSpawnCommand(['-y', 'cspell'], 'linux')).toStrictEqual({
+      command: 'npx',
+      args: ['-y', 'cspell'],
+    });
   });
 });
 
