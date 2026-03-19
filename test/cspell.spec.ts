@@ -1,3 +1,4 @@
+import {readFileSync} from 'node:fs';
 import {
   filterFilesForCspell,
   getNpxSpawnCommand,
@@ -5,6 +6,12 @@ import {
   parseGitFileList,
   shouldIncludeInCspell,
 } from '../src/cspell.js';
+
+const cspellConfig = JSON.parse(
+  readFileSync(new URL('../cspell.json', import.meta.url), 'utf8'),
+) as {
+  ignorePaths: string[];
+};
 
 describe('normalizePathSeparators', () => {
   it('normalizes Windows separators for path matching', () => {
@@ -79,5 +86,16 @@ describe('filterFilesForCspell', () => {
         'test\\restDocs\\test.spec.ts',
       ]),
     ).toStrictEqual(['src/app.ts', 'test\\restDocs\\test.spec.ts']);
+  });
+});
+
+describe('cspell config', () => {
+  it('keeps handwritten restDocs files visible to cspell', () => {
+    expect(cspellConfig.ignorePaths).not.toContain('test/restDocs/**');
+    expect(cspellConfig.ignorePaths).toContain('test/restDocs/*.json');
+    expect(cspellConfig.ignorePaths).toContain('test/restDocs/results/**');
+    expect(cspellConfig.ignorePaths).toContain(
+      'test/restDocs/__snapshots__/**',
+    );
   });
 });
