@@ -123,9 +123,14 @@ class IndentedTextWriter {
 
 type TypescriptWriterCallback = (writer: TypescriptTextWriter) => void;
 
-function formatPropertyName(name: string) {
-  if (name.includes('.') || name.includes('-') || name.includes('@')) {
-    return `"${name}"`;
+const validIdentifierPattern = /^[a-zA-Z_$][a-zA-Z0-9_$]*$/;
+
+export function formatPropertyName(name: string) {
+  if (name === '[key: string]') {
+    return name;
+  }
+  if (!validIdentifierPattern.test(name)) {
+    return `"${name.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`;
   }
   return name;
 }
