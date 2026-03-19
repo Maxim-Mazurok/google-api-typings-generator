@@ -42,6 +42,8 @@
     "dist/**",
     "package-lock.json",
     "**/*.drawio.svg",
-    "test/restDocs/**"
+    "test/restDocs/*.json",
+    "test/restDocs/results/**",
+    "test/restDocs/__snapshots__/**"
   ]
 }
