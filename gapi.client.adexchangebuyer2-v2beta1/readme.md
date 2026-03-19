@@ -1,6 +1,6 @@
 # TypeScript typings for Ad Exchange Buyer API II v2beta1
 
-Accesses the latest features for managing Authorized Buyers accounts, Real-Time Bidding configurations and auction metrics, and Marketplace programmatic deals.
+Access the latest features for managing Authorized Buyers accounts, Real-Time Bidding configurations and auction metrics, and Marketplace programmatic deals.
 For detailed description please check [documentation](https://developers.google.com/authorized-buyers/apis/reference/rest/).
 
 ## Installing
