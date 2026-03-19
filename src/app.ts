@@ -124,10 +124,9 @@ class IndentedTextWriter {
 type TypescriptWriterCallback = (writer: TypescriptTextWriter) => void;
 
 const validIdentifierPattern = /^[a-zA-Z_$][a-zA-Z0-9_$]*$/;
-const indexSignaturePattern = /^\[.+\]$/;
 
 export function formatPropertyName(name: string) {
-  if (indexSignaturePattern.test(name)) {
+  if (name === '[key: string]') {
     return name;
   }
   if (!validIdentifierPattern.test(name)) {
