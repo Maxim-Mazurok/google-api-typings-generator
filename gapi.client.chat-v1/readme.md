@@ -135,12 +135,6 @@ var client_id = '',
     // View last read time for Google Chat conversations
     'https://www.googleapis.com/auth/chat.users.readstate.readonly',
 
-    // View, create, update, and delete your sections in Google Chat; move and list your section items in Google Chat
-    'https://www.googleapis.com/auth/chat.users.sections',
-
-    // View your sections and their section items in Google Chat
-    'https://www.googleapis.com/auth/chat.users.sections.readonly',
-
     // Read and update your space settings
     'https://www.googleapis.com/auth/chat.users.spacesettings',
   ],
