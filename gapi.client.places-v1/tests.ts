@@ -49,6 +49,7 @@ gapi.load('client', async () => {
       {
         includedPrimaryTypes: ['Test string'],
         includedRegionCodes: ['Test string'],
+        includeFutureOpeningBusinesses: true,
         includePureServiceAreaBusinesses: true,
         includeQueryPredictions: true,
         input: 'Test string',
@@ -115,6 +116,7 @@ gapi.load('client', async () => {
         excludedTypes: ['Test string'],
         includedPrimaryTypes: ['Test string'],
         includedTypes: ['Test string'],
+        includeFutureOpeningBusinesses: true,
         languageCode: 'Test string',
         locationRestriction: {
           circle: {
@@ -153,6 +155,7 @@ gapi.load('client', async () => {
           minimumChargingRateKw: 42,
         },
         includedType: 'Test string',
+        includeFutureOpeningBusinesses: true,
         includePureServiceAreaBusinesses: true,
         languageCode: 'Test string',
         locationBias: {

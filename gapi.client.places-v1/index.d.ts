@@ -82,6 +82,8 @@ declare namespace gapi.client {
       includedPrimaryTypes?: string[];
       /** Optional. Only include results in the specified regions, specified as up to 15 CLDR two-character region codes. An empty set will not restrict the results. If both `location_restriction` and `included_region_codes` are set, the results will be located in the area of intersection. */
       includedRegionCodes?: string[];
+      /** Optional. If true, include businesses that are not yet open but will open in the future. */
+      includeFutureOpeningBusinesses?: boolean;
       /** Optional. Include pure service area businesses if the field is set to true. Pure service area business is a business that visits or delivers to customers directly but does not serve customers at their business address. For example, businesses like cleaning services or plumbers. Those businesses do not have a physical address or location on Google Maps. Places will not return fields including `location`, `plus_code`, and other location related fields for these businesses. */
       includePureServiceAreaBusinesses?: boolean;
       /** Optional. If true, the response will include both Place and query predictions. Otherwise the response will only return Place predictions. */
@@ -313,7 +315,8 @@ declare namespace gapi.client {
         | 'BUSINESS_STATUS_UNSPECIFIED'
         | 'OPERATIONAL'
         | 'CLOSED_TEMPORARILY'
-        | 'CLOSED_PERMANENTLY';
+        | 'CLOSED_PERMANENTLY'
+        | 'FUTURE_OPENING';
       /** The consumer alert message for the place when we detect suspicious review activity on a business or a business violates our policies. */
       consumerAlert?: GoogleMapsPlacesV1PlaceConsumerAlert;
       /** List of places in which the current place is located. */
@@ -378,6 +381,8 @@ declare namespace gapi.client {
       nationalPhoneNumber?: string;
       /** A summary of points of interest near the place. */
       neighborhoodSummary?: GoogleMapsPlacesV1PlaceNeighborhoodSummary;
+      /** The date this place will open in the future. This field is only populated if the business status is FUTURE_OPENING. */
+      openingDate?: GoogleTypeDate;
       /** Place provides outdoor seating. */
       outdoorSeating?: boolean;
       /** Options of parking provided by the place. */
@@ -739,6 +744,8 @@ declare namespace gapi.client {
       includedPrimaryTypes?: string[];
       /** Included Place type (eg, "restaurant" or "gas_station") from https://developers.google.com/maps/documentation/places/web-service/place-types. Up to 50 types from [Table A](https://developers.google.com/maps/documentation/places/web-service/place-types#table-a) may be specified. If there are any conflicting types, i.e. a type appears in both included_types and excluded_types, an INVALID_ARGUMENT error is returned. If a Place type is specified with multiple type restrictions, only places that satisfy all of the restrictions are returned. For example, if we have {included_types = ["restaurant"], excluded_primary_types = ["restaurant"]}, the returned places provide "restaurant" related services but do not operate primarily as "restaurants". */
       includedTypes?: string[];
+      /** Optional. If true, include businesses that are not yet open but will open in the future. */
+      includeFutureOpeningBusinesses?: boolean;
       /** Place details will be displayed with the preferred language if available. If the language code is unspecified or unrecognized, place details of any language may be returned, with a preference for English if such details exist. Current list of supported languages: https://developers.google.com/maps/faq#languagesupport. */
       languageCode?: string;
       /** Required. The region to search. */
@@ -770,6 +777,8 @@ declare namespace gapi.client {
       evOptions?: GoogleMapsPlacesV1SearchTextRequestEVOptions;
       /** The requested place type. Full list of types supported: https://developers.google.com/maps/documentation/places/web-service/place-types. Only support one included type. */
       includedType?: string;
+      /** Optional. If true, include businesses that are not yet open but will open in the future. */
+      includeFutureOpeningBusinesses?: boolean;
       /** Optional. Include pure service area businesses if the field is set to true. Pure service area business is a business that visits or delivers to customers directly but does not serve customers at their business address. For example, businesses like cleaning services or plumbers. Those businesses do not have a physical address or location on Google Maps. Places will not return fields including `location`, `plus_code`, and other location related fields for these businesses. */
       includePureServiceAreaBusinesses?: boolean;
       /** Place details will be displayed with the preferred language if available. If the language code is unspecified or unrecognized, place details of any language may be returned, with a preference for English if such details exist. Current list of supported languages: https://developers.google.com/maps/faq#languagesupport. */
