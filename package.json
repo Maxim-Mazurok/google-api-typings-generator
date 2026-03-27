@@ -35,7 +35,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@definitelytyped/dtslint": "0.2.39",
+    "@definitelytyped/dtslint": "0.2.40",
     "@definitelytyped/eslint-plugin": "0.1.31",
     "@eslint/compat": "^2.0.3",
     "@expo/spawn-async": "^1.7.2",
