@@ -1,6 +1,6 @@
 # TypeScript typings for Certificate Manager API v1
 
-For detailed description please check [documentation](https://cloud.google.com/certificate-manager).
+For detailed description please check [documentation](https://docs.cloud.google.com/certificate-manager/docs/overview).
 
 ## Installing
 
