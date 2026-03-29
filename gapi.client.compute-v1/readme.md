@@ -2115,44 +2115,6 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.instanceTemplates.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-deletes a Zonal InstantSnapshotGroup resource
-*/
-await gapi.client.compute.instantSnapshotGroups.delete({ instantSnapshotGroup: "instantSnapshotGroup", project: "project", zone: "zone",  });
-
-/*
-returns the specified InstantSnapshotGroup resource in the specified zone.
-*/
-await gapi.client.compute.instantSnapshotGroups.get({ instantSnapshotGroup: "instantSnapshotGroup", project: "project", zone: "zone",  });
-
-/*
-Gets the access control policy for a resource. May be empty if no such
-policy or resource exists.
-*/
-await gapi.client.compute.instantSnapshotGroups.getIamPolicy({ project: "project", resource: "resource", zone: "zone",  });
-
-/*
-inserts a Zonal InstantSnapshotGroup resource
-*/
-await gapi.client.compute.instantSnapshotGroups.insert({ project: "project", zone: "zone",  });
-
-/*
-retrieves the list of InstantSnapshotGroup resources contained within
-the specified zone.
-*/
-await gapi.client.compute.instantSnapshotGroups.list({ project: "project", zone: "zone",  });
-
-/*
-Sets the access control policy on the specified resource.
-Replaces any existing policy.
-*/
-await gapi.client.compute.instantSnapshotGroups.setIamPolicy({ project: "project", resource: "resource", zone: "zone",  });
-
-/*
-Returns permissions that a caller has on the specified resource.
-*/
-await gapi.client.compute.instantSnapshotGroups.testIamPermissions({ project: "project", resource: "resource", zone: "zone",  });
-
-/*
 Retrieves an aggregated list of instantSnapshots.
 
 To prevent failure, Google recommends that you set the
@@ -4434,45 +4396,6 @@ specified project and region.
 await gapi.client.compute.regionInstanceTemplates.list({ project: "project", region: "region",  });
 
 /*
-deletes a Regional InstantSnapshotGroup resource
-*/
-await gapi.client.compute.regionInstantSnapshotGroups.delete({ instantSnapshotGroup: "instantSnapshotGroup", project: "project", region: "region",  });
-
-/*
-returns the specified InstantSnapshotGroup resource in the specified
-region.
-*/
-await gapi.client.compute.regionInstantSnapshotGroups.get({ instantSnapshotGroup: "instantSnapshotGroup", project: "project", region: "region",  });
-
-/*
-Gets the access control policy for a resource. May be empty if no such
-policy or resource exists.
-*/
-await gapi.client.compute.regionInstantSnapshotGroups.getIamPolicy({ project: "project", region: "region", resource: "resource",  });
-
-/*
-creates a Regional InstantSnapshotGroup resource
-*/
-await gapi.client.compute.regionInstantSnapshotGroups.insert({ project: "project", region: "region",  });
-
-/*
-retrieves the list of InstantSnapshotGroup resources contained within
-the specified region.
-*/
-await gapi.client.compute.regionInstantSnapshotGroups.list({ project: "project", region: "region",  });
-
-/*
-Sets the access control policy on the specified resource.
-Replaces any existing policy.
-*/
-await gapi.client.compute.regionInstantSnapshotGroups.setIamPolicy({ project: "project", region: "region", resource: "resource",  });
-
-/*
-Returns permissions that a caller has on the specified resource.
-*/
-await gapi.client.compute.regionInstantSnapshotGroups.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
-
-/*
 Deletes the specified InstantSnapshot resource. Keep in mind that deleting
 a single instantSnapshot might not necessarily delete all the data on that
 instantSnapshot. If any data on the instantSnapshot that is marked for
@@ -4835,75 +4758,6 @@ read the Labeling Resources
 documentation.
 */
 await gapi.client.compute.regionSecurityPolicies.setLabels({ project: "project", region: "region", resource: "resource",  });
-
-/*
-Deletes the specified Snapshot resource. Keep in mind that deleting
-a single snapshot might not necessarily delete all the data on that
-snapshot. If any data on the snapshot that is marked for deletion is
-needed for subsequent snapshots, the data will be moved to the next
-corresponding snapshot.
-
-For more information, seeDeleting
-snapshots.
-*/
-await gapi.client.compute.regionSnapshots.delete({ project: "project", region: "region", snapshot: "snapshot",  });
-
-/*
-Returns the specified Snapshot resource.
-*/
-await gapi.client.compute.regionSnapshots.get({ project: "project", region: "region", snapshot: "snapshot",  });
-
-/*
-Gets the access control policy for a resource. May be empty if no such
-policy or resource exists.
-*/
-await gapi.client.compute.regionSnapshots.getIamPolicy({ project: "project", region: "region", resource: "resource",  });
-
-/*
-Creates a snapshot in the specified region using the data included
-in the request.
-*/
-await gapi.client.compute.regionSnapshots.insert({ project: "project", region: "region",  });
-
-/*
-Retrieves the list of Snapshot resources contained within
-the specified region.
-*/
-await gapi.client.compute.regionSnapshots.list({ project: "project", region: "region",  });
-
-/*
-Sets the access control policy on the specified resource.
-Replaces any existing policy.
-*/
-await gapi.client.compute.regionSnapshots.setIamPolicy({ project: "project", region: "region", resource: "resource",  });
-
-/*
-Sets the labels on a regional snapshot. To learn more about labels, read
-the Labeling Resources
-documentation.
-*/
-await gapi.client.compute.regionSnapshots.setLabels({ project: "project", region: "region", resource: "resource",  });
-
-/*
-Returns permissions that a caller has on the specified resource.
-*/
-await gapi.client.compute.regionSnapshots.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
-
-/*
-Rotates the customer-managed
-encryption key to the latest version for the specified snapshot.
-*/
-await gapi.client.compute.regionSnapshots.updateKmsKey({ project: "project", region: "region", snapshot: "snapshot",  });
-
-/*
-Get region snapshot settings.
-*/
-await gapi.client.compute.regionSnapshotSettings.get({ project: "project", region: "region",  });
-
-/*
-Patch region snapshot settings.
-*/
-await gapi.client.compute.regionSnapshotSettings.patch({ project: "project", region: "region",  });
 
 /*
 Deletes the specified SslCertificate resource in the region.
