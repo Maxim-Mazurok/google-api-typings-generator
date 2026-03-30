@@ -53,6 +53,9 @@ var client_id = '',
 
     // See, edit, configure, and delete your Google Cloud Composer data and see the email address for your Google Account
     'https://www.googleapis.com/auth/cloudcomposer',
+
+    // See your Google Cloud Composer data and the email address of your Google Account
+    'https://www.googleapis.com/auth/cloudcomposer.readonly',
   ],
   immediate = true;
 // ...
