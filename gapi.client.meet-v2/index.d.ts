@@ -66,12 +66,6 @@ declare namespace gapi.client {
     }
     interface Empty {}
     interface EndActiveConferenceRequest {}
-    interface GatewaySipAccess {
-      /** Permanent numeric code for manual entry on specially configured devices. */
-      sipAccessCode?: string;
-      /** The SIP URI the conference can be reached through. The string is on one of the formats: "sip:@" "sips:@" where currently is the 13-digit universal pin, and is a valid address to be resolved using a DNS SRV lookup, or a dotted quad. */
-      uri?: string;
-    }
     interface ListConferenceRecordsResponse {
       /** List of conferences in one page. */
       conferenceRecords?: ConferenceRecord[];
@@ -160,16 +154,6 @@ declare namespace gapi.client {
       /** Output only. Timestamp when the user session starts. */
       startTime?: string;
     }
-    interface PhoneAccess {
-      /** The BCP 47/LDML language code for the language associated with this phone access. To be parsed by the i18n LanguageCode utility. Examples: "es-419" for Latin American Spanish, "fr-CA" for Canadian French. */
-      languageCode?: string;
-      /** The phone number to dial for this meeting space in E.164 format. Full phone number with a leading '+' character. */
-      phoneNumber?: string;
-      /** The PIN that users must enter after dialing the given number. The PIN consists of only decimal digits and the length may vary. */
-      pin?: string;
-      /** The CLDR/ISO 3166 region code for the country associated with this phone access. To be parsed by the i18n RegionCode utility. Example: "SE" for Sweden. */
-      regionCode?: string;
-    }
     interface PhoneUser {
       /** Output only. Partially redacted user's phone number when calling. */
       displayName?: string;
@@ -223,16 +207,12 @@ declare namespace gapi.client {
       activeConference?: ActiveConference;
       /** Configuration pertaining to the meeting space. */
       config?: SpaceConfig;
-      /** Output only. The SIP based access methods that can be used to join the conference. Can be empty. */
-      gatewaySipAccess?: GatewaySipAccess[];
       /** Output only. Type friendly unique string used to join the meeting. Format: `[a-z]+-[a-z]+-[a-z]+`. For example, `abc-mnop-xyz`. The maximum length is 128 characters. Can only be used as an alias of the space name to get the space. */
       meetingCode?: string;
       /** Output only. URI used to join meetings consisting of `https://meet.google.com/` followed by the `meeting_code`. For example, `https://meet.google.com/abc-mnop-xyz`. */
       meetingUri?: string;
       /** Immutable. Resource name of the space. Format: `spaces/{space}`. `{space}` is the resource identifier for the space. It's a unique, server-generated ID and is case sensitive. For example, `jQCFfuBOdN5z`. For more information, see [How Meet identifies a meeting space](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#identify-meeting-space). */
       name?: string;
-      /** Output only. All regional phone access methods for this meeting space. Can be empty. */
-      phoneAccess?: PhoneAccess[];
     }
     interface SpaceConfig {
       /** Access type of the meeting space that determines who can join without knocking. Default: The user's default access settings. Controlled by the user's admin for enterprise users or RESTRICTED. */

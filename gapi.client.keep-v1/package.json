@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.keep-v1",
-  "version": "0.0.20260326",
+  "version": "0.0.20260330",
   "description": "TypeScript typings for Google Keep API v1",
   "repository": {
     "type": "git",

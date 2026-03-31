@@ -141,23 +141,9 @@ gapi.load('client', async () => {
             reactionRestriction: 'Test string',
           },
         },
-        gatewaySipAccess: [
-          {
-            sipAccessCode: 'Test string',
-            uri: 'Test string',
-          },
-        ],
         meetingCode: 'Test string',
         meetingUri: 'Test string',
         name: 'Test string',
-        phoneAccess: [
-          {
-            languageCode: 'Test string',
-            phoneNumber: 'Test string',
-            pin: 'Test string',
-            regionCode: 'Test string',
-          },
-        ],
       },
     );
     /** Ends an active conference (if there's one). For an example, see [End active conference](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#end-active-conference). */
@@ -204,23 +190,9 @@ gapi.load('client', async () => {
             reactionRestriction: 'Test string',
           },
         },
-        gatewaySipAccess: [
-          {
-            sipAccessCode: 'Test string',
-            uri: 'Test string',
-          },
-        ],
         meetingCode: 'Test string',
         meetingUri: 'Test string',
         name: 'Test string',
-        phoneAccess: [
-          {
-            languageCode: 'Test string',
-            phoneNumber: 'Test string',
-            pin: 'Test string',
-            regionCode: 'Test string',
-          },
-        ],
       },
     );
   }
