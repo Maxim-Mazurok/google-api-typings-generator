@@ -745,6 +745,11 @@ gapi.load('client', async () => {
             },
           },
         },
+        dcmTrackingInfo: {
+          creativeId: 'Test string',
+          placementId: 'Test string',
+          trackingAdId: 'Test string',
+        },
         demandGenCarouselAd: {
           businessName: 'Test string',
           cards: [
@@ -1236,6 +1241,11 @@ gapi.load('client', async () => {
               videoAssetId: 'Test string',
             },
           },
+        },
+        dcmTrackingInfo: {
+          creativeId: 'Test string',
+          placementId: 'Test string',
+          trackingAdId: 'Test string',
         },
         demandGenCarouselAd: {
           businessName: 'Test string',

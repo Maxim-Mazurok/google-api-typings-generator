@@ -148,6 +148,8 @@ declare namespace gapi.client {
       audioAd?: AudioAd;
       /** Output only. Details of a [non-skippable short video ad](//support.google.com/displayvideo/answer/6274216), equal to or less than 6 seconds, used for reach. */
       bumperAd?: BumperAd;
+      /** Optional. The DCM tracking ad info. Only valid for Demand Gen ads. To remove the DCM tracking ad info, please leave this field empty. Retrieval and management of Demand Gen resources is currently in beta. This field is only available to allowlisted users. */
+      dcmTrackingInfo?: DcmTrackingInfo;
       /** Details of a [Demand Gen carousel ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#CarouselAd). */
       demandGenCarouselAd?: DemandGenCarouselAd;
       /** Details of a [Demand Gen image ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#ImageAd). */
@@ -2359,6 +2361,14 @@ declare namespace gapi.client {
         | 'TIME_ZONE_RESOLUTION_UNSPECIFIED'
         | 'TIME_ZONE_RESOLUTION_END_USER'
         | 'TIME_ZONE_RESOLUTION_ADVERTISER';
+    }
+    interface DcmTrackingInfo {
+      /** Required. The DCM creative id. */
+      creativeId?: string;
+      /** Required. The DCM placement id. */
+      placementId?: string;
+      /** Required. The DCM tracking ad id. */
+      trackingAdId?: string;
     }
     interface DeleteAssignedTargetingOptionsRequest {
       /** Required. The assigned targeting option IDs to delete. */
