@@ -50,6 +50,12 @@ var client_id = '',
   scope = [
     // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
     'https://www.googleapis.com/auth/cloud-platform',
+
+    // See, edit, configure, and delete your Google Cloud Dataproc data and see the email address for your Google Account
+    'https://www.googleapis.com/auth/dataproc',
+
+    // See your Google Cloud Dataproc data and the email address of your Google Account
+    'https://www.googleapis.com/auth/dataproc.read-only',
   ],
   immediate = true;
 // ...
