@@ -1,0 +1,74 @@
+# TypeScript typings for Google Health API v4
+
+The Google Health API lets you view and manage health and fitness metrics and measurement data.
+For detailed description please check [documentation](https://developers.google.com/health).
+
+## Installing
+
+Install typings for Google Health API:
+
+```
+npm install @types/gapi.client.health-v4 --save-dev
+```
+
+## Usage
+
+You need to initialize Google API client in your code:
+
+```typescript
+gapi.load('client', () => {
+  // now we can use gapi.client
+  // ...
+});
+```
+
+Then load api client wrapper:
+
+```typescript
+gapi.client.load(
+  'https://health.googleapis.com/$discovery/rest?version=v4',
+  () => {
+    // now we can use:
+    // gapi.client.health
+  },
+);
+```
+
+```typescript
+// Deprecated, use discovery document URL, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadname----version----callback--
+gapi.client.load('health', 'v4', () => {
+  // now we can use:
+  // gapi.client.health
+});
+```
+
+After that you can use Google Health API resources: <!-- TODO: make this work for multiple namespaces -->
+
+```typescript
+/*
+Gets the user's identity. It includes the legacy Fitbit user ID and the Google user ID and it can be used by migrating clients to map identifiers between the two systems.
+*/
+await gapi.client.health.users.getIdentity({name: 'name'});
+
+/*
+Returns user Profile details.
+*/
+await gapi.client.health.users.getProfile({name: 'name'});
+
+/*
+Returns user settings details.
+*/
+await gapi.client.health.users.getSettings({name: 'name'});
+
+/*
+Updates the user's profile details.
+*/
+await gapi.client.health.users.updateProfile({name: 'name'});
+
+/*
+Updates the user's settings details.
+*/
+await gapi.client.health.users.updateSettings({name: 'name'});
+```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.health-v4#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
