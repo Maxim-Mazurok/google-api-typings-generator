@@ -54,7 +54,7 @@
     "eslint-plugin-deprecation": "^3.0.0",
     "get-port": "^7.2.0",
     "get-proxy-settings": "^0.1.13",
-    "got": "^14.6.6",
+    "got": "^15.0.0",
     "gts": "^7.0.0",
     "hpagent": "^1.2.0",
     "lodash": "^4.18.1",
