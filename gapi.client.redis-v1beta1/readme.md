@@ -50,6 +50,12 @@ var client_id = '',
   scope = [
     // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
     'https://www.googleapis.com/auth/cloud-platform',
+
+    // See your Google Cloud Memorystore for Redis data and the email address of your Google Account
+    'https://www.googleapis.com/auth/redis.read-only',
+
+    // See, edit, configure, and delete your Google Cloud Memorystore for Redis data and see the email address for your Google Account
+    'https://www.googleapis.com/auth/redis.read-write',
   ],
   immediate = true;
 // ...
