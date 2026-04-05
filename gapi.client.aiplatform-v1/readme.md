@@ -135,7 +135,7 @@ Generate content with multimodal inputs.
 await gapi.client.aiplatform.endpoints.generateContent({model: 'model'});
 
 /*
-Perform an online prediction.
+
 */
 await gapi.client.aiplatform.endpoints.predict({endpoint: 'endpoint'});
 

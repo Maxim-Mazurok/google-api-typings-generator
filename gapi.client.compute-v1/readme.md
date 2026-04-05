@@ -214,6 +214,15 @@ bucket.
 await gapi.client.compute.backendBuckets.addSignedUrlKey({ backendBucket: "backendBucket", project: "project",  });
 
 /*
+Retrieves the list of all BackendBucket resources, regional and global,
+available to the specified project.
+
+To prevent failure, it is recommended that you set the
+`returnPartialSuccess` parameter to `true`.
+*/
+await gapi.client.compute.backendBuckets.aggregatedList({ project: "project",  });
+
+/*
 Deletes the specified BackendBucket resource.
 */
 await gapi.client.compute.backendBuckets.delete({ backendBucket: "backendBucket", project: "project",  });
@@ -246,6 +255,11 @@ Retrieves the list of BackendBucket resources available to the specified
 project.
 */
 await gapi.client.compute.backendBuckets.list({ project: "project",  });
+
+/*
+Retrieves a list of all usable backend buckets in the specified project.
+*/
+await gapi.client.compute.backendBuckets.listUsable({ project: "project",  });
 
 /*
 Updates the specified BackendBucket resource with the data included in the
@@ -538,6 +552,12 @@ The update is performed only on selected fields included as part
 of update-mask.
 */
 await gapi.client.compute.disks.update({ disk: "disk", project: "project", zone: "zone",  });
+
+/*
+Rotates the customer-managed
+encryption key to the latest version for the specified persistent disk.
+*/
+await gapi.client.compute.disks.updateKmsKey({ disk: "disk", project: "project", zone: "zone",  });
 
 /*
 Retrieves an aggregated list of disk types.
@@ -2085,6 +2105,44 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.instanceTemplates.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
+deletes a Zonal InstantSnapshotGroup resource
+*/
+await gapi.client.compute.instantSnapshotGroups.delete({ instantSnapshotGroup: "instantSnapshotGroup", project: "project", zone: "zone",  });
+
+/*
+returns the specified InstantSnapshotGroup resource in the specified zone.
+*/
+await gapi.client.compute.instantSnapshotGroups.get({ instantSnapshotGroup: "instantSnapshotGroup", project: "project", zone: "zone",  });
+
+/*
+Gets the access control policy for a resource. May be empty if no such
+policy or resource exists.
+*/
+await gapi.client.compute.instantSnapshotGroups.getIamPolicy({ project: "project", resource: "resource", zone: "zone",  });
+
+/*
+inserts a Zonal InstantSnapshotGroup resource
+*/
+await gapi.client.compute.instantSnapshotGroups.insert({ project: "project", zone: "zone",  });
+
+/*
+retrieves the list of InstantSnapshotGroup resources contained within
+the specified zone.
+*/
+await gapi.client.compute.instantSnapshotGroups.list({ project: "project", zone: "zone",  });
+
+/*
+Sets the access control policy on the specified resource.
+Replaces any existing policy.
+*/
+await gapi.client.compute.instantSnapshotGroups.setIamPolicy({ project: "project", resource: "resource", zone: "zone",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.instantSnapshotGroups.testIamPermissions({ project: "project", resource: "resource", zone: "zone",  });
+
+/*
 Retrieves an aggregated list of instantSnapshots.
 
 To prevent failure, Google recommends that you set the
@@ -3483,6 +3541,59 @@ the data included in the request.
 await gapi.client.compute.regionAutoscalers.update({ project: "project", region: "region",  });
 
 /*
+Deletes the specified regional BackendBucket resource.
+*/
+await gapi.client.compute.regionBackendBuckets.delete({ backendBucket: "backendBucket", project: "project", region: "region",  });
+
+/*
+Returns the specified regional BackendBucket resource.
+*/
+await gapi.client.compute.regionBackendBuckets.get({ backendBucket: "backendBucket", project: "project", region: "region",  });
+
+/*
+Gets the access control policy for a resource. May be empty if no such
+policy or resource exists.
+*/
+await gapi.client.compute.regionBackendBuckets.getIamPolicy({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Creates a RegionBackendBucket in the specified project in the given scope
+using the parameters that are included in the request.
+*/
+await gapi.client.compute.regionBackendBuckets.insert({ project: "project", region: "region",  });
+
+/*
+Retrieves the list of BackendBucket resources available to the specified
+project in the given region.
+*/
+await gapi.client.compute.regionBackendBuckets.list({ project: "project", region: "region",  });
+
+/*
+Retrieves a list of all usable backend buckets in the specified project in
+the given region.
+*/
+await gapi.client.compute.regionBackendBuckets.listUsable({ project: "project", region: "region",  });
+
+/*
+Updates the specified  BackendBucket resource with the data included in the
+request. This method supportsPATCH
+semantics and uses theJSON merge
+patch format and processing rules.
+*/
+await gapi.client.compute.regionBackendBuckets.patch({ backendBucket: "backendBucket", project: "project", region: "region",  });
+
+/*
+Sets the access control policy on the specified resource.
+Replaces any existing policy.
+*/
+await gapi.client.compute.regionBackendBuckets.setIamPolicy({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.regionBackendBuckets.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
+
+/*
 Deletes the specified regional BackendService resource.
 */
 await gapi.client.compute.regionBackendServices.delete({ backendService: "backendService", project: "project", region: "region",  });
@@ -3610,6 +3721,12 @@ Returns the specified CompositeHealthCheck resource in the given region.
 await gapi.client.compute.regionCompositeHealthChecks.get({ compositeHealthCheck: "compositeHealthCheck", project: "project", region: "region",  });
 
 /*
+Gets the most recent health check results for this
+regional CompositeHealthCheck.
+*/
+await gapi.client.compute.regionCompositeHealthChecks.getHealth({ compositeHealthCheck: "compositeHealthCheck", project: "project", region: "region",  });
+
+/*
 Create a CompositeHealthCheck in the specified project in the given region
 using the parameters that are included in the request.
 */
@@ -3734,6 +3851,12 @@ Update the specified disk with the data included in the request. Update is
 performed only on selected fields included as part of update-mask.
 */
 await gapi.client.compute.regionDisks.update({ disk: "disk", project: "project", region: "region",  });
+
+/*
+Rotates the customer-managed
+encryption key to the latest version for the specified persistent disk.
+*/
+await gapi.client.compute.regionDisks.updateKmsKey({ disk: "disk", project: "project", region: "region",  });
 
 /*
 Returns the specified regional disk type.
@@ -3893,6 +4016,12 @@ Returns the specified HealthSource resource in the given region.
 await gapi.client.compute.regionHealthSources.get({ healthSource: "healthSource", project: "project", region: "region",  });
 
 /*
+Gets the most recent health check results for this
+regional HealthSource.
+*/
+await gapi.client.compute.regionHealthSources.getHealth({ healthSource: "healthSource", project: "project", region: "region",  });
+
+/*
 Create a HealthSource in the specified project in the given region
 using the parameters that are included in the request.
 */
@@ -3915,6 +4044,38 @@ await gapi.client.compute.regionHealthSources.patch({ healthSource: "healthSourc
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.regionHealthSources.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Cancels the specified resize request.
+Cancelled resize request no longer waits for the resources to be
+provisioned. Cancel is only possible for requests that are in accepted
+state.
+*/
+await gapi.client.compute.regionInstanceGroupManagerResizeRequests.cancel({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region", resizeRequest: "resizeRequest",  });
+
+/*
+Deletes the specified, inactive resize request. Requests that are still
+active cannot be deleted. Deleting request does not delete instances that
+were provisioned previously.
+*/
+await gapi.client.compute.regionInstanceGroupManagerResizeRequests.delete({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region", resizeRequest: "resizeRequest",  });
+
+/*
+Returns all of the details about the specified resize request.
+*/
+await gapi.client.compute.regionInstanceGroupManagerResizeRequests.get({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region", resizeRequest: "resizeRequest",  });
+
+/*
+Creates a new Resize Request that starts provisioning VMs immediately
+or queues VM creation.
+*/
+await gapi.client.compute.regionInstanceGroupManagerResizeRequests.insert({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
+
+/*
+Retrieves a list of Resize Requests that are contained in the
+managed instance group.
+*/
+await gapi.client.compute.regionInstanceGroupManagerResizeRequests.list({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
 
 /*
 Flags the specified instances to be immediately removed from the managed
@@ -4261,6 +4422,45 @@ Retrieves a list of instance templates that are contained within the
 specified project and region.
 */
 await gapi.client.compute.regionInstanceTemplates.list({ project: "project", region: "region",  });
+
+/*
+deletes a Regional InstantSnapshotGroup resource
+*/
+await gapi.client.compute.regionInstantSnapshotGroups.delete({ instantSnapshotGroup: "instantSnapshotGroup", project: "project", region: "region",  });
+
+/*
+returns the specified InstantSnapshotGroup resource in the specified
+region.
+*/
+await gapi.client.compute.regionInstantSnapshotGroups.get({ instantSnapshotGroup: "instantSnapshotGroup", project: "project", region: "region",  });
+
+/*
+Gets the access control policy for a resource. May be empty if no such
+policy or resource exists.
+*/
+await gapi.client.compute.regionInstantSnapshotGroups.getIamPolicy({ project: "project", region: "region", resource: "resource",  });
+
+/*
+creates a Regional InstantSnapshotGroup resource
+*/
+await gapi.client.compute.regionInstantSnapshotGroups.insert({ project: "project", region: "region",  });
+
+/*
+retrieves the list of InstantSnapshotGroup resources contained within
+the specified region.
+*/
+await gapi.client.compute.regionInstantSnapshotGroups.list({ project: "project", region: "region",  });
+
+/*
+Sets the access control policy on the specified resource.
+Replaces any existing policy.
+*/
+await gapi.client.compute.regionInstantSnapshotGroups.setIamPolicy({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.regionInstantSnapshotGroups.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
 Deletes the specified InstantSnapshot resource. Keep in mind that deleting
@@ -4625,6 +4825,75 @@ read the Labeling Resources
 documentation.
 */
 await gapi.client.compute.regionSecurityPolicies.setLabels({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Deletes the specified Snapshot resource. Keep in mind that deleting
+a single snapshot might not necessarily delete all the data on that
+snapshot. If any data on the snapshot that is marked for deletion is
+needed for subsequent snapshots, the data will be moved to the next
+corresponding snapshot.
+
+For more information, seeDeleting
+snapshots.
+*/
+await gapi.client.compute.regionSnapshots.delete({ project: "project", region: "region", snapshot: "snapshot",  });
+
+/*
+Returns the specified Snapshot resource.
+*/
+await gapi.client.compute.regionSnapshots.get({ project: "project", region: "region", snapshot: "snapshot",  });
+
+/*
+Gets the access control policy for a resource. May be empty if no such
+policy or resource exists.
+*/
+await gapi.client.compute.regionSnapshots.getIamPolicy({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Creates a snapshot in the specified region using the data included
+in the request.
+*/
+await gapi.client.compute.regionSnapshots.insert({ project: "project", region: "region",  });
+
+/*
+Retrieves the list of Snapshot resources contained within
+the specified region.
+*/
+await gapi.client.compute.regionSnapshots.list({ project: "project", region: "region",  });
+
+/*
+Sets the access control policy on the specified resource.
+Replaces any existing policy.
+*/
+await gapi.client.compute.regionSnapshots.setIamPolicy({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Sets the labels on a regional snapshot. To learn more about labels, read
+the Labeling Resources
+documentation.
+*/
+await gapi.client.compute.regionSnapshots.setLabels({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.regionSnapshots.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Rotates the customer-managed
+encryption key to the latest version for the specified snapshot.
+*/
+await gapi.client.compute.regionSnapshots.updateKmsKey({ project: "project", region: "region", snapshot: "snapshot",  });
+
+/*
+Get region snapshot settings.
+*/
+await gapi.client.compute.regionSnapshotSettings.get({ project: "project", region: "region",  });
+
+/*
+Patch region snapshot settings.
+*/
+await gapi.client.compute.regionSnapshotSettings.patch({ project: "project", region: "region",  });
 
 /*
 Deletes the specified SslCertificate resource in the region.
@@ -5337,6 +5606,12 @@ await gapi.client.compute.snapshots.setLabels({ project: "project", resource: "r
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.snapshots.testIamPermissions({ project: "project", resource: "resource",  });
+
+/*
+Rotates the customer-managed
+encryption key to the latest version for the specified snapshot.
+*/
+await gapi.client.compute.snapshots.updateKmsKey({ project: "project", snapshot: "snapshot",  });
 
 /*
 Get snapshot settings.
@@ -6192,6 +6467,31 @@ await gapi.client.compute.zones.get({ project: "project", zone: "zone",  });
 Retrieves the list of Zone resources available to the specified project.
 */
 await gapi.client.compute.zones.list({ project: "project",  });
+
+/*
+Deletes a specified zone VM extension policy.
+*/
+await gapi.client.compute.zoneVmExtensionPolicies.delete({ project: "project", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
+
+/*
+Retrieves details of a specific zone VM extension policy.
+*/
+await gapi.client.compute.zoneVmExtensionPolicies.get({ project: "project", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
+
+/*
+Creates a new zone-level VM extension policy within a project.
+*/
+await gapi.client.compute.zoneVmExtensionPolicies.insert({ project: "project", zone: "zone",  });
+
+/*
+Lists all VM extension policies within a specific zone for a project.
+*/
+await gapi.client.compute.zoneVmExtensionPolicies.list({ project: "project", zone: "zone",  });
+
+/*
+Modifies an existing zone VM extension policy.
+*/
+await gapi.client.compute.zoneVmExtensionPolicies.update({ project: "project", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.compute-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
