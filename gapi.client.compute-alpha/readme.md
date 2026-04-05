@@ -166,11 +166,6 @@ capacity.
 await gapi.client.compute.advice.capacity({ project: "project", region: "region",  });
 
 /*
-Gets the capacity history for Spot VMs.
-*/
-await gapi.client.compute.advice.capacityHistory({ project: "project", region: "region",  });
-
-/*
 Retrieves an aggregated list of autoscalers.
 
 To prevent failure, it is recommended that you set the
@@ -1290,21 +1285,6 @@ Updates a HealthCheck resource in the specified project using the data
 included in the request.
 */
 await gapi.client.compute.healthChecks.update({ healthCheck: "healthCheck", project: "project",  });
-
-/*
-Retrieves information about the specified host.
-*/
-await gapi.client.compute.hosts.get({ association: "association", host: "host", project: "project", zone: "zone",  });
-
-/*
-Allows customers to get SBOM versions of a host.
-*/
-await gapi.client.compute.hosts.getVersion({ association: "association", host: "host", project: "project", zone: "zone",  });
-
-/*
-Retrieves a list of hosts.
-*/
-await gapi.client.compute.hosts.list({ association: "association", project: "project", zone: "zone",  });
 
 /*
 Deletes the specified HttpHealthCheck resource.
@@ -6057,11 +6037,6 @@ await gapi.client.compute.rollouts.pause({ project: "project", rollout: "rollout
 Resumes a Rollout.
 */
 await gapi.client.compute.rollouts.resume({ project: "project", rollout: "rollout",  });
-
-/*
-Starts the next wave of a Rollout.
-*/
-await gapi.client.compute.rollouts.startNextWave({ project: "project", rollout: "rollout",  });
 
 /*
 Retrieves an aggregated list of routers.
