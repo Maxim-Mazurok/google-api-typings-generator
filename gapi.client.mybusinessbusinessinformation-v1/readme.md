@@ -95,7 +95,7 @@ await gapi.client.mybusinessbusinessinformation.locations.getAttributes({
 });
 
 /*
-Gets the Google-updated version of the specified location.
+Gets the version of the specified location, returning a `GoogleUpdatedLocation` that provides the location view as it appears to consumers and masks indicating which fields are different than the merchant's information.
 */
 await gapi.client.mybusinessbusinessinformation.locations.getGoogleUpdated({
   name: 'name',
