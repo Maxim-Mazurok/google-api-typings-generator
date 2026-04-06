@@ -554,12 +554,6 @@ of update-mask.
 await gapi.client.compute.disks.update({ disk: "disk", project: "project", zone: "zone",  });
 
 /*
-Rotates the customer-managed
-encryption key to the latest version for the specified persistent disk.
-*/
-await gapi.client.compute.disks.updateKmsKey({ disk: "disk", project: "project", zone: "zone",  });
-
-/*
 Get Zonal Disk Settings.
 */
 await gapi.client.compute.diskSettings.get({ project: "project", zone: "zone",  });
@@ -3930,12 +3924,6 @@ Returns the specified CompositeHealthCheck resource in the given region.
 await gapi.client.compute.regionCompositeHealthChecks.get({ compositeHealthCheck: "compositeHealthCheck", project: "project", region: "region",  });
 
 /*
-Gets the most recent health check results for this
-regional CompositeHealthCheck.
-*/
-await gapi.client.compute.regionCompositeHealthChecks.getHealth({ compositeHealthCheck: "compositeHealthCheck", project: "project", region: "region",  });
-
-/*
 Create a CompositeHealthCheck in the specified project in the given region
 using the parameters that are included in the request.
 */
@@ -4060,12 +4048,6 @@ Update the specified disk with the data included in the request. Update is
 performed only on selected fields included as part of update-mask.
 */
 await gapi.client.compute.regionDisks.update({ disk: "disk", project: "project", region: "region",  });
-
-/*
-Rotates the customer-managed
-encryption key to the latest version for the specified persistent disk.
-*/
-await gapi.client.compute.regionDisks.updateKmsKey({ disk: "disk", project: "project", region: "region",  });
 
 /*
 Get Regional Disk Settings.
@@ -4233,12 +4215,6 @@ await gapi.client.compute.regionHealthSources.delete({ healthSource: "healthSour
 Returns the specified HealthSource resource in the given region.
 */
 await gapi.client.compute.regionHealthSources.get({ healthSource: "healthSource", project: "project", region: "region",  });
-
-/*
-Gets the most recent health check results for this
-regional HealthSource.
-*/
-await gapi.client.compute.regionHealthSources.getHealth({ healthSource: "healthSource", project: "project", region: "region",  });
 
 /*
 Create a HealthSource in the specified project in the given region
@@ -5265,12 +5241,6 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.regionSnapshots.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
-Rotates the customer-managed
-encryption key to the latest version for the specified snapshot.
-*/
-await gapi.client.compute.regionSnapshots.updateKmsKey({ project: "project", region: "region", snapshot: "snapshot",  });
-
-/*
 Get region snapshot settings.
 */
 await gapi.client.compute.regionSnapshotSettings.get({ project: "project", region: "region",  });
@@ -6154,12 +6124,6 @@ await gapi.client.compute.snapshots.setLabels({ project: "project", resource: "r
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.snapshots.testIamPermissions({ project: "project", resource: "resource",  });
-
-/*
-Rotates the customer-managed
-encryption key to the latest version for the specified snapshot.
-*/
-await gapi.client.compute.snapshots.updateKmsKey({ project: "project", snapshot: "snapshot",  });
 
 /*
 Get snapshot settings.
