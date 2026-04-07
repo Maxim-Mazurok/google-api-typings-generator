@@ -5,6 +5,7 @@
     "rootDir": ".",
     "outDir": "/tmp/google-api-typings-generator",
     "typeRoots": ["./node_modules/@types", "./typings"],
+    "types": ["*"],
     "esModuleInterop": true,
     "moduleResolution": "Node16",
     "module": "Node16",
