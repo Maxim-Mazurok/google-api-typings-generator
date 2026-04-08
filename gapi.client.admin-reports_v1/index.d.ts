@@ -62,11 +62,11 @@ declare namespace gapi.client {
       /** ETag of the entry. */
       etag?: string;
       /** Activity events in the report. */
-      events?: Array<{
+      events?: {
         /** Name of the event. This is the specific name of the activity reported by the API. And each `eventName` is related to a specific Google Workspace service or feature which the API organizes into types of events. For `eventName` request parameters in general: - If no `eventName` is given, the report returns all possible instances of an `eventName`. - When you request an `eventName`, the API's response returns all activities which contain that `eventName`. For more information about `eventName` properties, see the list of event names for various applications above in `applicationName`. */
         name?: string;
         /** Parameter value pairs for various applications. For more information about `eventName` parameters, see the list of event names for various applications above in `applicationName`. */
-        parameters?: Array<{
+        parameters?: {
           /** Boolean value of the parameter. */
           boolValue?: boolean;
           /** Integer value of the parameter. */
@@ -79,21 +79,21 @@ declare namespace gapi.client {
           /** Integer values of the parameter. */
           multiIntValue?: string[];
           /** List of `messageValue` objects. */
-          multiMessageValue?: Array<{
+          multiMessageValue?: {
             /** Parameter values */
             parameter?: NestedParameter[];
-          }>;
+          }[];
           /** String values of the parameter. */
           multiValue?: string[];
           /** The name of the parameter. */
           name?: string;
           /** String value of the parameter. */
           value?: string;
-        }>;
+        }[];
         /** Resource ids associated with the event. */
         resourceIds?: string[];
         /** Includes sensitive parameter value pairs for various applications. */
-        sensitiveParameters?: Array<{
+        sensitiveParameters?: {
           /** Boolean value of the parameter. */
           boolValue?: boolean;
           /** Integer value of the parameter. */
@@ -106,22 +106,22 @@ declare namespace gapi.client {
           /** Integer values of the parameter. */
           multiIntValue?: string[];
           /** List of `messageValue` objects. */
-          multiMessageValue?: Array<{
+          multiMessageValue?: {
             /** Parameter values */
             parameter?: NestedParameter[];
-          }>;
+          }[];
           /** String values of the parameter. */
           multiValue?: string[];
           /** The name of the parameter. */
           name?: string;
           /** String value of the parameter. */
           value?: string;
-        }>;
+        }[];
         /** Status of the event. Note: Not all events have status. */
         status?: ActivityEventsStatus;
         /** Type of event. The Google Workspace service or feature that an administrator changes is identified in the `type` property which identifies an event using the `eventName` property. For a full list of the API's `type` categories, see the list of event names for various applications above in `applicationName`. */
         type?: string;
-      }>;
+      }[];
       /** Unique identifier for each activity record. */
       id?: {
         /** Application name to which the event belongs. For possible values see the list of applications above in `applicationName`. */
@@ -335,7 +335,7 @@ declare namespace gapi.client {
       /** The type of API resource. For a usage report, the value is `admin#reports#usageReport`. */
       kind?: string;
       /** Output only. Parameter value pairs for various applications. For the Entity Usage Report parameters and values, see [the Entity Usage parameters reference](https://developers.google.com/workspace/admin/reports/v1/reference/usage-ref-appendix-a/entities). */
-      parameters?: Array<{
+      parameters?: {
         /** Output only. Boolean value of the parameter. */
         boolValue?: boolean;
         /** The RFC 3339 formatted value of the parameter, for example 2010-10-28T10:26:35.000Z. */
@@ -343,12 +343,12 @@ declare namespace gapi.client {
         /** Output only. Integer value of the parameter. */
         intValue?: string;
         /** Output only. Nested message value of the parameter. */
-        msgValue?: Array<{[P in string]: any}>;
+        msgValue?: {[P in string]: any}[];
         /** The name of the parameter. For the User Usage Report parameter names, see the User Usage parameters reference. */
         name?: string;
         /** Output only. String value of the parameter. */
         stringValue?: string;
-      }>;
+      }[];
     }
     interface UsageReports {
       /** ETag of the resource. */
@@ -360,19 +360,19 @@ declare namespace gapi.client {
       /** Various application parameter records. */
       usageReports?: UsageReport[];
       /** Warnings, if any. */
-      warnings?: Array<{
+      warnings?: {
         /** Machine readable code or warning type. The warning code value is `200`. */
         code?: string;
         /** Key-value pairs to give detailed information on the warning. */
-        data?: Array<{
+        data?: {
           /** Key associated with a key-value pair to give detailed information on the warning. */
           key?: string;
           /** Value associated with a key-value pair to give detailed information on the warning. */
           value?: string;
-        }>;
+        }[];
         /** The human readable messages for a warning are: - Data is not available warning - Sorry, data for date yyyy-mm-dd for application "`application name`" is not available. - Partial data is available warning - Data for date yyyy-mm-dd for application "`application name`" is not available right now, please try again after a few hours. */
         message?: string;
-      }>;
+      }[];
     }
     interface UserIdentity {
       /** User gaia id. */
@@ -474,11 +474,11 @@ declare namespace gapi.client {
       /** ETag of the entry. */
       etag?: string;
       /** Activity events in the report. */
-      events?: Array<{
+      events?: {
         /** Name of the event. This is the specific name of the activity reported by the API. And each `eventName` is related to a specific Google Workspace service or feature which the API organizes into types of events. For `eventName` request parameters in general: - If no `eventName` is given, the report returns all possible instances of an `eventName`. - When you request an `eventName`, the API's response returns all activities which contain that `eventName`. For more information about `eventName` properties, see the list of event names for various applications above in `applicationName`. */
         name?: string;
         /** Parameter value pairs for various applications. For more information about `eventName` parameters, see the list of event names for various applications above in `applicationName`. */
-        parameters?: Array<{
+        parameters?: {
           /** Boolean value of the parameter. */
           boolValue?: boolean;
           /** Integer value of the parameter. */
@@ -491,21 +491,21 @@ declare namespace gapi.client {
           /** Integer values of the parameter. */
           multiIntValue?: string[];
           /** List of `messageValue` objects. */
-          multiMessageValue?: Array<{
+          multiMessageValue?: {
             /** Parameter values */
             parameter?: NestedParameter[];
-          }>;
+          }[];
           /** String values of the parameter. */
           multiValue?: string[];
           /** The name of the parameter. */
           name?: string;
           /** String value of the parameter. */
           value?: string;
-        }>;
+        }[];
         /** Resource ids associated with the event. */
         resourceIds?: string[];
         /** Includes sensitive parameter value pairs for various applications. */
-        sensitiveParameters?: Array<{
+        sensitiveParameters?: {
           /** Boolean value of the parameter. */
           boolValue?: boolean;
           /** Integer value of the parameter. */
@@ -518,22 +518,22 @@ declare namespace gapi.client {
           /** Integer values of the parameter. */
           multiIntValue?: string[];
           /** List of `messageValue` objects. */
-          multiMessageValue?: Array<{
+          multiMessageValue?: {
             /** Parameter values */
             parameter?: NestedParameter[];
-          }>;
+          }[];
           /** String values of the parameter. */
           multiValue?: string[];
           /** The name of the parameter. */
           name?: string;
           /** String value of the parameter. */
           value?: string;
-        }>;
+        }[];
         /** Status of the event. Note: Not all events have status. */
         status?: ActivityEventsStatus;
         /** Type of event. The Google Workspace service or feature that an administrator changes is identified in the `type` property which identifies an event using the `eventName` property. For a full list of the API's `type` categories, see the list of event names for various applications above in `applicationName`. */
         type?: string;
-      }>;
+      }[];
       /** Unique identifier for each activity record. */
       id?: {
         /** Application name to which the event belongs. For possible values see the list of applications above in `applicationName`. */
@@ -747,7 +747,7 @@ declare namespace gapi.client {
       /** The type of API resource. For a usage report, the value is `admin#reports#usageReport`. */
       kind?: string;
       /** Output only. Parameter value pairs for various applications. For the Entity Usage Report parameters and values, see [the Entity Usage parameters reference](https://developers.google.com/workspace/admin/reports/v1/reference/usage-ref-appendix-a/entities). */
-      parameters?: Array<{
+      parameters?: {
         /** Output only. Boolean value of the parameter. */
         boolValue?: boolean;
         /** The RFC 3339 formatted value of the parameter, for example 2010-10-28T10:26:35.000Z. */
@@ -755,12 +755,12 @@ declare namespace gapi.client {
         /** Output only. Integer value of the parameter. */
         intValue?: string;
         /** Output only. Nested message value of the parameter. */
-        msgValue?: Array<{[P in string]: any}>;
+        msgValue?: {[P in string]: any}[];
         /** The name of the parameter. For the User Usage Report parameter names, see the User Usage parameters reference. */
         name?: string;
         /** Output only. String value of the parameter. */
         stringValue?: string;
-      }>;
+      }[];
     }
     interface UsageReports {
       /** ETag of the resource. */
@@ -772,19 +772,19 @@ declare namespace gapi.client {
       /** Various application parameter records. */
       usageReports?: UsageReport[];
       /** Warnings, if any. */
-      warnings?: Array<{
+      warnings?: {
         /** Machine readable code or warning type. The warning code value is `200`. */
         code?: string;
         /** Key-value pairs to give detailed information on the warning. */
-        data?: Array<{
+        data?: {
           /** Key associated with a key-value pair to give detailed information on the warning. */
           key?: string;
           /** Value associated with a key-value pair to give detailed information on the warning. */
           value?: string;
-        }>;
+        }[];
         /** The human readable messages for a warning are: - Data is not available warning - Sorry, data for date yyyy-mm-dd for application "`application name`" is not available. - Partial data is available warning - Data for date yyyy-mm-dd for application "`application name`" is not available right now, please try again after a few hours. */
         message?: string;
-      }>;
+      }[];
     }
     interface UserIdentity {
       /** User gaia id. */

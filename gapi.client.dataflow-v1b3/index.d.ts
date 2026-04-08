@@ -1530,7 +1530,7 @@ declare namespace gapi.client {
     }
     interface Source {
       /** While splitting, sources may specify the produced bundles as differences against another source, in order to save backend-side memory and allow bigger jobs. For details, see SourceSplitRequest. To support this use case, the full set of parameters of the source is logically obtained by taking the latest explicitly specified value of each parameter in the order: base_specs (later items win), spec (overrides anything in base_specs). */
-      baseSpecs?: Array<{[P in string]: any}>;
+      baseSpecs?: {[P in string]: any}[];
       /** The codec to use to decode data read from the source. */
       codec?: {[P in string]: any};
       /** Setting this value to true hints to the framework that the source doesn't need splitting, and using SourceSplitRequest on it would yield SOURCE_SPLIT_OUTCOME_USE_CURRENT. E.g. a file splitter may set this to true when splitting a single file into a set of byte ranges of appropriate size, and set this to false when splitting a filepattern into individual files. However, for efficiency, a file splitter may decide to produce file subranges directly from the filepattern to avoid a splitting round-trip. See SourceSplitRequest for an overview of the splitting process. This field is meaningful only in the Source objects populated by the user (e.g. when filling in a DerivedSource). Source objects supplied by the framework to the user don't have this field populated. */
@@ -1693,7 +1693,7 @@ declare namespace gapi.client {
       /** The status code, which should be an enum value of google.rpc.Code. */
       code?: number;
       /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-      details?: Array<{[P in string]: any}>;
+      details?: {[P in string]: any}[];
       /** A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. */
       message?: string;
     }
@@ -1986,7 +1986,7 @@ declare namespace gapi.client {
       /** Message describing any unusual health reports. */
       msg?: string;
       /** The pods running on the worker. See: http://kubernetes.io/v1.1/docs/api-reference/v1/definitions.html#_v1_pod This field is used by the worker to send the status of the indvidual containers running on each worker. */
-      pods?: Array<{[P in string]: any}>;
+      pods?: {[P in string]: any}[];
       /** The interval at which the worker is sending health reports. The default value of 0 should be interpreted as the field is not being explicitly set by the worker. */
       reportInterval?: string;
       /** Code to describe a specific reason, if known, that a VM has reported broken state. */

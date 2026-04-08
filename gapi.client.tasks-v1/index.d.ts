@@ -62,14 +62,14 @@ declare namespace gapi.client {
       /** Output only. Type of the resource. This is always "tasks#task". */
       kind?: string;
       /** Output only. Collection of links. This collection is read-only. */
-      links?: Array<{
+      links?: {
         /** The description (might be empty). */
         description?: string;
         /** The URL. */
         link?: string;
         /** Type of the link, e.g. "email", "generic", "chat_message", "keep_note". */
         type?: string;
-      }>;
+      }[];
       /** Notes describing the task. Tasks assigned from Google Docs cannot have notes. Optional. Maximum length allowed: 8192 characters. */
       notes?: string;
       /** Output only. Parent task identifier. This field is omitted if it is a top-level task. Use the "move" method to move the task under a different parent or to the top level. A parent task can never be an assigned task (from Chat Spaces, Docs). This field is read-only. */

@@ -398,7 +398,7 @@ declare namespace gapi.client {
       /** Output only. The time when the change was made. */
       createTime?: string;
       /** Output only. The dependent resources that were changed. */
-      dependentResources?: Array<{[P in string]: any}>;
+      dependentResources?: {[P in string]: any}[];
       /** Output only. Description of the change. which typically captures the changed fields in the resource. */
       description?: string;
       /** Output only. Display name of the change. It typically should be the display name of the resource that was changed. */
@@ -2561,7 +2561,7 @@ declare namespace gapi.client {
       /** The status code, which should be an enum value of google.rpc.Code. */
       code?: number;
       /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-      details?: Array<{[P in string]: any}>;
+      details?: {[P in string]: any}[];
       /** A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. */
       message?: string;
     }

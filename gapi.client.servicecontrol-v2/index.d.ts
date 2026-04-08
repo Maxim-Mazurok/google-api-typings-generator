@@ -44,7 +44,7 @@ declare namespace gapi.client {
       /** The destination of a network activity, such as accepting a TCP connection. In a multi hop network activity, the destination represents the receiver of the last hop. */
       destination?: Peer;
       /** Supports extensions for advanced use cases, such as logs and metrics. */
-      extensions?: Array<{[P in string]: any}>;
+      extensions?: {[P in string]: any}[];
       /** The origin of a network activity. In a multi hop network activity, the origin represents the sender of the first hop. For the first hop, the `source` and the `origin` must have the same content. */
       origin?: Peer;
       /** Represents a network request, such as an HTTP request. */
@@ -333,7 +333,7 @@ declare namespace gapi.client {
       /** The status code, which should be an enum value of google.rpc.Code. */
       code?: number;
       /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-      details?: Array<{[P in string]: any}>;
+      details?: {[P in string]: any}[];
       /** A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. */
       message?: string;
     }

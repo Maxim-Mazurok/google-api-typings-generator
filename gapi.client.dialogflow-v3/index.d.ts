@@ -1764,7 +1764,7 @@ declare namespace gapi.client {
       transcript?: string;
       triggerEvent?: string;
       triggerIntent?: string;
-      webhookPayloads?: Array<{[P in string]: any}>;
+      webhookPayloads?: {[P in string]: any}[];
       webhookStatuses?: GoogleRpcStatus[];
     }
     interface GoogleCloudDialogflowCxV3ResourceName {
@@ -4026,7 +4026,7 @@ declare namespace gapi.client {
     interface GoogleProtobufEmpty {}
     interface GoogleRpcStatus {
       code?: number;
-      details?: Array<{[P in string]: any}>;
+      details?: {[P in string]: any}[];
       message?: string;
     }
     interface GoogleTypeLatLng {

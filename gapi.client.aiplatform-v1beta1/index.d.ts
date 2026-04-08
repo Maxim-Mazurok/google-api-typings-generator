@@ -238,7 +238,7 @@ declare namespace gapi.client {
       /** The HTTP request/response body as raw binary. */
       data?: string;
       /** Application specific response metadata. Must be set in the first response for streaming APIs. */
-      extensions?: Array<{[P in string]: any}>;
+      extensions?: {[P in string]: any}[];
     }
     interface GoogleCloudAiplatformV1beta1A2aTask {
       /** Optional. A generic identifier for grouping related tasks (e.g., session_id, workflow_id). */
@@ -9648,7 +9648,7 @@ declare namespace gapi.client {
       /** Optional. The OSS agent framework used to develop the agent. Currently supported values: "google-adk", "langchain", "langgraph", "ag2", "llama-index", "custom". */
       agentFramework?: string;
       /** Optional. Declarations for object class methods in OpenAPI specification format. */
-      classMethods?: Array<{[P in string]: any}>;
+      classMethods?: {[P in string]: any}[];
       /** Deploy from a container image with a defined entrypoint and commands. */
       containerSpec?: GoogleCloudAiplatformV1beta1ReasoningEngineSpecContainerSpec;
       /** Optional. The specification of a Reasoning Engine deployment. */
@@ -14129,7 +14129,7 @@ declare namespace gapi.client {
       /** The status code, which should be an enum value of google.rpc.Code. */
       code?: number;
       /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-      details?: Array<{[P in string]: any}>;
+      details?: {[P in string]: any}[];
       /** A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. */
       message?: string;
     }

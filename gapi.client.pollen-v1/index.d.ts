@@ -56,7 +56,7 @@ declare namespace gapi.client {
       /** The HTTP request/response body as raw binary. */
       data?: string;
       /** Application specific response metadata. Must be set in the first response for streaming APIs. */
-      extensions?: Array<{[P in string]: any}>;
+      extensions?: {[P in string]: any}[];
     }
     interface IndexInfo {
       /** Text classification of index numerical score interpretation. The index consists of six categories: * 0: "None" * 1: "Very low" * 2: "Low" * 3: "Moderate" * 4: "High" * 5: "Very high */

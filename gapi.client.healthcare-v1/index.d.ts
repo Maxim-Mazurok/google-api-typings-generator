@@ -812,7 +812,7 @@ declare namespace gapi.client {
       /** The HTTP request/response body as raw binary. */
       data?: string;
       /** Application specific response metadata. Must be set in the first response for streaming APIs. */
-      extensions?: Array<{[P in string]: any}>;
+      extensions?: {[P in string]: any}[];
     }
     interface Image {
       /** Input only. Points to a Cloud Storage URI containing the consent artifact content. The URI must be in the following format: `gs://{bucket_id}/{object_id}`. The Cloud Healthcare API service account must have the `roles/storage.objectViewer` Cloud IAM role for this Cloud Storage location. The consent artifact content at this URI is copied to a Cloud Storage location managed by the Cloud Healthcare API. Responses to fetching requests return the consent artifact content in raw_bytes. */
@@ -1276,7 +1276,7 @@ declare namespace gapi.client {
       /** The status code, which should be an enum value of google.rpc.Code. */
       code?: number;
       /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-      details?: Array<{[P in string]: any}>;
+      details?: {[P in string]: any}[];
       /** A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. */
       message?: string;
     }

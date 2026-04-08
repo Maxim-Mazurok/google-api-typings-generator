@@ -190,7 +190,7 @@ declare namespace gapi.client {
       /** The name assigned to the scoped route configurations. */
       name?: string;
       /** The scoped route configurations. */
-      scopedRouteConfigs?: Array<{[P in string]: any}>;
+      scopedRouteConfigs?: {[P in string]: any}[];
       /** This is the per-resource version information. This version is currently taken from the :ref:`version_info ` field at the time that the scoped routes configuration was loaded. */
       versionInfo?: string;
     }
@@ -257,7 +257,7 @@ declare namespace gapi.client {
       /** The name assigned to the scoped route configurations. */
       name?: string;
       /** The scoped route configurations. */
-      scopedRouteConfigs?: Array<{[P in string]: any}>;
+      scopedRouteConfigs?: {[P in string]: any}[];
     }
     interface ListenersConfigDump {
       /** State for any warming, active, or draining listeners. */

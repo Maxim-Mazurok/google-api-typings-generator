@@ -32,14 +32,14 @@ declare namespace gapi.client {
       /** Deprecated: Use `canCreateDrives` instead. */
       canCreateTeamDrives?: boolean;
       /** A list of themes that are supported for shared drives. */
-      driveThemes?: Array<{
+      driveThemes?: {
         /** A link to this theme's background image. */
         backgroundImageLink?: string;
         /** The color of this theme as an RGB hex string. */
         colorRgb?: string;
         /** The ID of the theme. */
         id?: string;
-      }>;
+      }[];
       /** A map of source MIME type to possible targets for all supported exports. */
       exportFormats?: {[P in string]: string[]};
       /** The currently supported folder colors as RGB hex strings. */
@@ -64,14 +64,14 @@ declare namespace gapi.client {
         usageInDriveTrash?: string;
       };
       /** Deprecated: Use `driveThemes` instead. */
-      teamDriveThemes?: Array<{
+      teamDriveThemes?: {
         /** Deprecated: Use `driveThemes/backgroundImageLink` instead. */
         backgroundImageLink?: string;
         /** Deprecated: Use `driveThemes/colorRgb` instead. */
         colorRgb?: string;
         /** Deprecated: Use `driveThemes/id` instead. */
         id?: string;
-      }>;
+      }[];
       /** The authenticated user. */
       user?: User;
     }
@@ -867,7 +867,7 @@ declare namespace gapi.client {
       /** Whether the account associated with this permission is a pending owner. Only populated for permissions of type `user` for files that aren't in a shared drive. */
       pendingOwner?: boolean;
       /** Output only. Details of whether the permissions on this item are inherited or are directly on this item. */
-      permissionDetails?: Array<{
+      permissionDetails?: {
         /** Output only. Whether this permission is inherited. This field is always populated. This is an output-only field. */
         inherited?: boolean;
         /** Output only. The ID of the item from which this permission is inherited. This is only populated for items in shared drives. */
@@ -876,13 +876,13 @@ declare namespace gapi.client {
         permissionType?: string;
         /** Output only. The primary role for this user. Supported values include: * `owner` * `organizer` * `fileOrganizer` * `writer` * `commenter` * `reader` For more information, see [Roles and permissions](https://developers.google.com/workspace/drive/api/guides/ref-roles). */
         role?: string;
-      }>;
+      }[];
       /** Output only. A link to the user's profile photo, if available. */
       photoLink?: string;
       /** The role granted by this permission. Supported values include: * `owner` * `organizer` * `fileOrganizer` * `writer` * `commenter` * `reader` For more information, see [Roles and permissions](https://developers.google.com/workspace/drive/api/guides/ref-roles). */
       role?: string;
       /** Output only. Deprecated: Output only. Use `permissionDetails` instead. */
-      teamDrivePermissionDetails?: Array<{
+      teamDrivePermissionDetails?: {
         /** Deprecated: Output only. Use `permissionDetails/inherited` instead. */
         inherited?: boolean;
         /** Deprecated: Output only. Use `permissionDetails/inheritedFrom` instead. */
@@ -891,7 +891,7 @@ declare namespace gapi.client {
         role?: string;
         /** Deprecated: Output only. Use `permissionDetails/permissionType` instead. */
         teamDrivePermissionType?: string;
-      }>;
+      }[];
       /** The type of the grantee. Supported values include: * `user` * `group` * `domain` * `anyone` When creating a permission, if `type` is `user` or `group`, you must provide an `emailAddress` for the user or group. If `type` is `domain`, you must provide a `domain`. If `type` is `anyone`, no extra information is required. */
       type?: string;
       /** Indicates the view for this permission. Only populated for permissions that belong to a view. The only supported values are `published` and `metadata`: * `published`: The permission's role is `publishedReader`. * `metadata`: The item is only visible to the `metadata` view because the item has limited access and the scope has at least read access to the parent. The `metadata` view is only supported on folders. For more information, see [Views](https://developers.google.com/workspace/drive/api/guides/ref-roles#views). */
@@ -1007,7 +1007,7 @@ declare namespace gapi.client {
       /** The status code, which should be an enum value of google.rpc.Code. */
       code?: number;
       /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-      details?: Array<{[P in string]: any}>;
+      details?: {[P in string]: any}[];
       /** A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. */
       message?: string;
     }

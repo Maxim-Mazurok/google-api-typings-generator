@@ -137,12 +137,12 @@ declare namespace gapi.client {
     interface IdMappingFile {}
     interface Report {
       /** Asynchronous report only. Contains a list of generated report files once the report has successfully completed. */
-      files?: Array<{
+      files?: {
         /** The size of this report file in bytes. */
         byteCount?: string;
         /** Use this url to download the report file. */
         url?: string;
-      }>;
+      }[];
       /** Asynchronous report only. Id of the report. */
       id?: string;
       /** Asynchronous report only. True if and only if the report has completed successfully and the report files are ready to be downloaded. */
@@ -188,14 +188,14 @@ declare namespace gapi.client {
       /** Format that the report should be returned in. Currently `csv` or `tsv` is supported. */
       downloadFormat?: string;
       /** A list of filters to be applied to the report.\ The maximum number of filters per request is 300. */
-      filters?: Array<{
+      filters?: {
         /** Column to perform the filter on. This can be a DoubleClick Search column or a saved column. */
         column?: ReportApiColumnSpec;
         /** Operator to use in the filter. See the filter reference for a list of available operators. */
         operator?: string;
         /** A list of values to filter the column value against.\ The maximum number of filter values per request is 300. */
         values?: any[];
-      }>;
+      }[];
       /** Determines if removed entities should be included in the report. Defaults to `false`. Deprecated, please use `includeRemovedEntities` instead. */
       includeDeletedEntities?: boolean;
       /** Determines if removed entities should be included in the report. Defaults to `false`. */
@@ -203,12 +203,12 @@ declare namespace gapi.client {
       /** Asynchronous report only. The maximum number of rows per report file. A large report is split into many files based on this field. Acceptable values are `1000000` to `100000000`, inclusive. */
       maxRowsPerFile?: number;
       /** Synchronous report only. A list of columns and directions defining sorting to be performed on the report rows.\ The maximum number of orderings per request is 300. */
-      orderBy?: Array<{
+      orderBy?: {
         /** Column to perform the sort on. This can be a DoubleClick Search-defined column or a saved column. */
         column?: ReportApiColumnSpec;
         /** The sort direction, which is either `ascending` or `descending`. */
         sortOrder?: string;
-      }>;
+      }[];
       /** The reportScope is a set of IDs that are used to determine which subset of entities will be returned in the report. The full lineage of IDs from the lowest scoped level desired up through agency is required. */
       reportScope?: {
         /** DS ad group ID. */

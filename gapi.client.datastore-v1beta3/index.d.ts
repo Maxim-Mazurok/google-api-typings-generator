@@ -466,7 +466,7 @@ declare namespace gapi.client {
     }
     interface PlanSummary {
       /** The indexes selected for the query. For example: [ {"query_scope": "Collection", "properties": "(foo ASC, __name__ ASC)"}, {"query_scope": "Collection", "properties": "(bar ASC, __name__ ASC)"} ] */
-      indexesUsed?: Array<{[P in string]: any}>;
+      indexesUsed?: {[P in string]: any}[];
     }
     interface Projection {
       /** The property to project. */

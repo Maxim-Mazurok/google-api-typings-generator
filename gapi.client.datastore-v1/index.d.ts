@@ -539,7 +539,7 @@ declare namespace gapi.client {
     }
     interface PlanSummary {
       /** The indexes selected for the query. For example: [ {"query_scope": "Collection", "properties": "(foo ASC, __name__ ASC)"}, {"query_scope": "Collection", "properties": "(bar ASC, __name__ ASC)"} ] */
-      indexesUsed?: Array<{[P in string]: any}>;
+      indexesUsed?: {[P in string]: any}[];
     }
     interface Projection {
       /** The property to project. */
@@ -728,7 +728,7 @@ declare namespace gapi.client {
       /** The status code, which should be an enum value of google.rpc.Code. */
       code?: number;
       /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-      details?: Array<{[P in string]: any}>;
+      details?: {[P in string]: any}[];
       /** A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. */
       message?: string;
     }

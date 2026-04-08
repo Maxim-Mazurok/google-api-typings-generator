@@ -288,12 +288,12 @@ declare namespace gapi.client {
     }
     interface ChromeOsDevice {
       /** A list of active time ranges (Read-only). */
-      activeTimeRanges?: Array<{
+      activeTimeRanges?: {
         /** Duration of usage in milliseconds. */
         activeTime?: number;
         /** Date of usage */
         date?: string;
-      }>;
+      }[];
       /** The asset identifier as noted by an administrator or specified during enrollment. */
       annotatedAssetId?: string;
       /** The address or location of the device as noted by the administrator. Maximum length is `200` characters. Empty values are allowed. */
@@ -313,43 +313,43 @@ declare namespace gapi.client {
       /** Output only. Chrome OS type of the device. */
       chromeOsType?: 'chromeOsTypeUnspecified' | 'chromeOsFlex' | 'chromeOs';
       /** Information regarding CPU specs in the device. */
-      cpuInfo?: Array<{
+      cpuInfo?: {
         /** The CPU architecture. */
         architecture?: string;
         /** Information for the Logical CPUs */
-        logicalCpus?: Array<{
+        logicalCpus?: {
           /** C-States indicate the power consumption state of the CPU. For more information look at documentation published by the CPU maker. */
-          cStates?: Array<{
+          cStates?: {
             /** Name of the state. */
             displayName?: string;
             /** Time spent in the state since the last reboot. */
             sessionDuration?: string;
-          }>;
+          }[];
           /** Current frequency the CPU is running at. */
           currentScalingFrequencyKhz?: number;
           /** Idle time since last boot. */
           idleDuration?: string;
           /** Maximum frequency the CPU is allowed to run at, by policy. */
           maxScalingFrequencyKhz?: number;
-        }>;
+        }[];
         /** The max CPU clock speed in kHz. */
         maxClockSpeedKhz?: number;
         /** The CPU model name. */
         model?: string;
-      }>;
+      }[];
       /** Reports of CPU utilization and temperature (Read-only) */
-      cpuStatusReports?: Array<{
+      cpuStatusReports?: {
         /** A list of CPU temperature samples. */
-        cpuTemperatureInfo?: Array<{
+        cpuTemperatureInfo?: {
           /** CPU label */
           label?: string;
           /** Temperature in Celsius degrees. */
           temperature?: number;
-        }>;
+        }[];
         cpuUtilizationPercentageInfo?: number[];
         /** Date and time the report was received. */
         reportTime?: string;
-      }>;
+      }[];
       /** (Read-only) Deprovision reason. */
       deprovisionReason?:
         | 'DEPROVISION_REASON_UNSPECIFIED'
@@ -364,7 +364,7 @@ declare namespace gapi.client {
         | 'DEPROVISION_REASON_NOT_REQUIRED'
         | 'DEPROVISION_REASON_REPAIR_CENTER';
       /** A list of device files to download (Read-only) */
-      deviceFiles?: Array<{
+      deviceFiles?: {
         /** Date and time the file was created */
         createTime?: string;
         /** File download URL */
@@ -373,7 +373,7 @@ declare namespace gapi.client {
         name?: string;
         /** File type */
         type?: string;
-      }>;
+      }[];
       /** The unique ID of the Chrome device. */
       deviceId?: string;
       /** Output only. Device license type. */
@@ -391,17 +391,17 @@ declare namespace gapi.client {
       /** Output only. How much disk space the device has available and is currently using. */
       diskSpaceUsage?: ByteUsage;
       /** Reports of disk space and other info about mounted/connected volumes. */
-      diskVolumeReports?: Array<{
+      diskVolumeReports?: {
         /** Disk volumes */
-        volumeInfo?: Array<{
+        volumeInfo?: {
           /** Free disk space [in bytes] */
           storageFree?: string;
           /** Total disk space [in bytes] */
           storageTotal?: string;
           /** Volume id */
           volumeId?: string;
-        }>;
-      }>;
+        }[];
+      }[];
       /** (Read-only) Built-in MAC address for the docking station that the device connected to. Factory sets Media access control address (MAC address) assigned for use by a dock. It is reserved specifically for MAC pass through device policy. The format is twelve (12) hexadecimal digits without any delimiter (uppercase letters). This is only relevant for some devices. */
       dockMacAddress?: string;
       /** ETag of the resource. */
@@ -429,12 +429,12 @@ declare namespace gapi.client {
       /** Date and time the device was last enrolled (Read-only) */
       lastEnrollmentTime?: string;
       /** Contains last known network (Read-only) */
-      lastKnownNetwork?: Array<{
+      lastKnownNetwork?: {
         /** The IP address. */
         ipAddress?: string;
         /** The WAN IP address. */
         wanIpAddress?: string;
-      }>;
+      }[];
       /** Date and time the device was last synchronized with the policy settings in the G Suite administrator control panel (Read-only) */
       lastSync?: string;
       /** The device's wireless MAC address. If the device does not have this information, it is not included in the response. */
@@ -466,14 +466,14 @@ declare namespace gapi.client {
       /** The Chrome device's platform version. */
       platformVersion?: string;
       /** A list of recent device users, in descending order, by last login time. */
-      recentUsers?: Array<{
+      recentUsers?: {
         /** The user's email address. This is only present if the user type is `USER_TYPE_MANAGED`. */
         email?: string;
         /** The type of the user. */
         type?: string;
-      }>;
+      }[];
       /** A list of screenshot files to download. Type is always "SCREENSHOT_FILE". (Read-only) */
-      screenshotFiles?: Array<{
+      screenshotFiles?: {
         /** Date and time the file was created */
         createTime?: string;
         /** File download URL */
@@ -482,7 +482,7 @@ declare namespace gapi.client {
         name?: string;
         /** File type */
         type?: string;
-      }>;
+      }[];
       /** The Chrome device serial number entered when the device was enabled. This value is the same as the Admin console's *Serial Number* in the *Chrome OS Devices* tab. */
       serialNumber?: string;
       /** The status of the device. */
@@ -490,11 +490,11 @@ declare namespace gapi.client {
       /** Final date the device will be supported (Read-only) */
       supportEndDate?: string;
       /** Reports of amounts of available RAM memory (Read-only) */
-      systemRamFreeReports?: Array<{
+      systemRamFreeReports?: {
         /** Date and time the report was received. */
         reportTime?: string;
         systemRamFreeInfo?: string[];
-      }>;
+      }[];
       /** Total RAM on the device [in bytes] (Read-only) */
       systemRamTotal?: string;
       /** Trusted Platform Module (TPM) (Read-only) */
@@ -870,7 +870,7 @@ declare namespace gapi.client {
       /** Adb (USB debugging) enabled or disabled on device (Read-only) */
       adbStatus?: boolean;
       /** The list of applications installed on an Android mobile device. It is not applicable to Google Sync and iOS devices. The list includes any Android applications that access Google Workspace data. When updating an applications list, it is important to note that updates replace the existing list. If the Android device has two existing applications and the API updates the list with five applications, the is now the updated list of five applications. */
-      applications?: Array<{
+      applications?: {
         /** The application's display name. An example is `Browser`. */
         displayName?: string;
         /** The application's package name. An example is `com.android.browser`. */
@@ -881,7 +881,7 @@ declare namespace gapi.client {
         versionCode?: number;
         /** The application's version name. An example is `3.2-140714`. */
         versionName?: string;
-      }>;
+      }[];
       /** The device's baseband version. */
       basebandVersion?: string;
       /** Mobile Device Bootloader version (Read-only) */
@@ -1132,12 +1132,12 @@ declare namespace gapi.client {
       /** Name of the role. */
       roleName?: string;
       /** The set of privileges that are granted to this role. */
-      rolePrivileges?: Array<{
+      rolePrivileges?: {
         /** The name of the privilege. */
         privilegeName?: string;
         /** The obfuscated ID of the service this privilege is for. This value is returned with [`Privileges.list()`](https://developers.google.com/workspace/admin/directory/v1/reference/privileges/list). */
         serviceId?: string;
-      }>;
+      }[];
     }
     interface RoleAssignment {
       /** The unique ID of the entity this role is assigned to—either the `user_id` of a user, the `group_id` of a group, or the `uniqueId` of a service account as defined in [Identity and Access Management (IAM)](https://cloud.google.com/iam/docs/reference/rest/v1/projects.serviceAccounts). */
@@ -1230,7 +1230,7 @@ declare namespace gapi.client {
       /** The status code, which should be an enum value of google.rpc.Code. */
       code?: number;
       /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-      details?: Array<{[P in string]: any}>;
+      details?: {[P in string]: any}[];
       /** A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. */
       message?: string;
     }
@@ -2858,12 +2858,12 @@ declare namespace gapi.client {
     }
     interface ChromeOsDevice {
       /** A list of active time ranges (Read-only). */
-      activeTimeRanges?: Array<{
+      activeTimeRanges?: {
         /** Duration of usage in milliseconds. */
         activeTime?: number;
         /** Date of usage */
         date?: string;
-      }>;
+      }[];
       /** The asset identifier as noted by an administrator or specified during enrollment. */
       annotatedAssetId?: string;
       /** The address or location of the device as noted by the administrator. Maximum length is `200` characters. Empty values are allowed. */
@@ -2883,43 +2883,43 @@ declare namespace gapi.client {
       /** Output only. Chrome OS type of the device. */
       chromeOsType?: 'chromeOsTypeUnspecified' | 'chromeOsFlex' | 'chromeOs';
       /** Information regarding CPU specs in the device. */
-      cpuInfo?: Array<{
+      cpuInfo?: {
         /** The CPU architecture. */
         architecture?: string;
         /** Information for the Logical CPUs */
-        logicalCpus?: Array<{
+        logicalCpus?: {
           /** C-States indicate the power consumption state of the CPU. For more information look at documentation published by the CPU maker. */
-          cStates?: Array<{
+          cStates?: {
             /** Name of the state. */
             displayName?: string;
             /** Time spent in the state since the last reboot. */
             sessionDuration?: string;
-          }>;
+          }[];
           /** Current frequency the CPU is running at. */
           currentScalingFrequencyKhz?: number;
           /** Idle time since last boot. */
           idleDuration?: string;
           /** Maximum frequency the CPU is allowed to run at, by policy. */
           maxScalingFrequencyKhz?: number;
-        }>;
+        }[];
         /** The max CPU clock speed in kHz. */
         maxClockSpeedKhz?: number;
         /** The CPU model name. */
         model?: string;
-      }>;
+      }[];
       /** Reports of CPU utilization and temperature (Read-only) */
-      cpuStatusReports?: Array<{
+      cpuStatusReports?: {
         /** A list of CPU temperature samples. */
-        cpuTemperatureInfo?: Array<{
+        cpuTemperatureInfo?: {
           /** CPU label */
           label?: string;
           /** Temperature in Celsius degrees. */
           temperature?: number;
-        }>;
+        }[];
         cpuUtilizationPercentageInfo?: number[];
         /** Date and time the report was received. */
         reportTime?: string;
-      }>;
+      }[];
       /** (Read-only) Deprovision reason. */
       deprovisionReason?:
         | 'DEPROVISION_REASON_UNSPECIFIED'
@@ -2934,7 +2934,7 @@ declare namespace gapi.client {
         | 'DEPROVISION_REASON_NOT_REQUIRED'
         | 'DEPROVISION_REASON_REPAIR_CENTER';
       /** A list of device files to download (Read-only) */
-      deviceFiles?: Array<{
+      deviceFiles?: {
         /** Date and time the file was created */
         createTime?: string;
         /** File download URL */
@@ -2943,7 +2943,7 @@ declare namespace gapi.client {
         name?: string;
         /** File type */
         type?: string;
-      }>;
+      }[];
       /** The unique ID of the Chrome device. */
       deviceId?: string;
       /** Output only. Device license type. */
@@ -2961,17 +2961,17 @@ declare namespace gapi.client {
       /** Output only. How much disk space the device has available and is currently using. */
       diskSpaceUsage?: ByteUsage;
       /** Reports of disk space and other info about mounted/connected volumes. */
-      diskVolumeReports?: Array<{
+      diskVolumeReports?: {
         /** Disk volumes */
-        volumeInfo?: Array<{
+        volumeInfo?: {
           /** Free disk space [in bytes] */
           storageFree?: string;
           /** Total disk space [in bytes] */
           storageTotal?: string;
           /** Volume id */
           volumeId?: string;
-        }>;
-      }>;
+        }[];
+      }[];
       /** (Read-only) Built-in MAC address for the docking station that the device connected to. Factory sets Media access control address (MAC address) assigned for use by a dock. It is reserved specifically for MAC pass through device policy. The format is twelve (12) hexadecimal digits without any delimiter (uppercase letters). This is only relevant for some devices. */
       dockMacAddress?: string;
       /** ETag of the resource. */
@@ -2999,12 +2999,12 @@ declare namespace gapi.client {
       /** Date and time the device was last enrolled (Read-only) */
       lastEnrollmentTime?: string;
       /** Contains last known network (Read-only) */
-      lastKnownNetwork?: Array<{
+      lastKnownNetwork?: {
         /** The IP address. */
         ipAddress?: string;
         /** The WAN IP address. */
         wanIpAddress?: string;
-      }>;
+      }[];
       /** Date and time the device was last synchronized with the policy settings in the G Suite administrator control panel (Read-only) */
       lastSync?: string;
       /** The device's wireless MAC address. If the device does not have this information, it is not included in the response. */
@@ -3036,14 +3036,14 @@ declare namespace gapi.client {
       /** The Chrome device's platform version. */
       platformVersion?: string;
       /** A list of recent device users, in descending order, by last login time. */
-      recentUsers?: Array<{
+      recentUsers?: {
         /** The user's email address. This is only present if the user type is `USER_TYPE_MANAGED`. */
         email?: string;
         /** The type of the user. */
         type?: string;
-      }>;
+      }[];
       /** A list of screenshot files to download. Type is always "SCREENSHOT_FILE". (Read-only) */
-      screenshotFiles?: Array<{
+      screenshotFiles?: {
         /** Date and time the file was created */
         createTime?: string;
         /** File download URL */
@@ -3052,7 +3052,7 @@ declare namespace gapi.client {
         name?: string;
         /** File type */
         type?: string;
-      }>;
+      }[];
       /** The Chrome device serial number entered when the device was enabled. This value is the same as the Admin console's *Serial Number* in the *Chrome OS Devices* tab. */
       serialNumber?: string;
       /** The status of the device. */
@@ -3060,11 +3060,11 @@ declare namespace gapi.client {
       /** Final date the device will be supported (Read-only) */
       supportEndDate?: string;
       /** Reports of amounts of available RAM memory (Read-only) */
-      systemRamFreeReports?: Array<{
+      systemRamFreeReports?: {
         /** Date and time the report was received. */
         reportTime?: string;
         systemRamFreeInfo?: string[];
-      }>;
+      }[];
       /** Total RAM on the device [in bytes] (Read-only) */
       systemRamTotal?: string;
       /** Trusted Platform Module (TPM) (Read-only) */
@@ -3440,7 +3440,7 @@ declare namespace gapi.client {
       /** Adb (USB debugging) enabled or disabled on device (Read-only) */
       adbStatus?: boolean;
       /** The list of applications installed on an Android mobile device. It is not applicable to Google Sync and iOS devices. The list includes any Android applications that access Google Workspace data. When updating an applications list, it is important to note that updates replace the existing list. If the Android device has two existing applications and the API updates the list with five applications, the is now the updated list of five applications. */
-      applications?: Array<{
+      applications?: {
         /** The application's display name. An example is `Browser`. */
         displayName?: string;
         /** The application's package name. An example is `com.android.browser`. */
@@ -3451,7 +3451,7 @@ declare namespace gapi.client {
         versionCode?: number;
         /** The application's version name. An example is `3.2-140714`. */
         versionName?: string;
-      }>;
+      }[];
       /** The device's baseband version. */
       basebandVersion?: string;
       /** Mobile Device Bootloader version (Read-only) */
@@ -3702,12 +3702,12 @@ declare namespace gapi.client {
       /** Name of the role. */
       roleName?: string;
       /** The set of privileges that are granted to this role. */
-      rolePrivileges?: Array<{
+      rolePrivileges?: {
         /** The name of the privilege. */
         privilegeName?: string;
         /** The obfuscated ID of the service this privilege is for. This value is returned with [`Privileges.list()`](https://developers.google.com/workspace/admin/directory/v1/reference/privileges/list). */
         serviceId?: string;
-      }>;
+      }[];
     }
     interface RoleAssignment {
       /** The unique ID of the entity this role is assigned to—either the `user_id` of a user, the `group_id` of a group, or the `uniqueId` of a service account as defined in [Identity and Access Management (IAM)](https://cloud.google.com/iam/docs/reference/rest/v1/projects.serviceAccounts). */
@@ -3800,7 +3800,7 @@ declare namespace gapi.client {
       /** The status code, which should be an enum value of google.rpc.Code. */
       code?: number;
       /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-      details?: Array<{[P in string]: any}>;
+      details?: {[P in string]: any}[];
       /** A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. */
       message?: string;
     }

@@ -26,7 +26,7 @@ declare namespace gapi.client {
   namespace search {
     interface Promotion {
       /** An array of block objects for this promotion. */
-      bodyLines?: Array<{
+      bodyLines?: {
         /** The block object's text in HTML, if it has text. */
         htmlTitle?: string;
         /** The anchor text of the block object's link, if it has a link. */
@@ -35,7 +35,7 @@ declare namespace gapi.client {
         title?: string;
         /** The URL of the block object's link, if it has one. */
         url?: string;
-      }>;
+      }[];
       /** An abridged version of this search's result URL, e.g. www.example.com. */
       displayLink?: string;
       /** The title of the promotion, in HTML. */
@@ -89,14 +89,14 @@ declare namespace gapi.client {
       /** A unique identifier for the type of current object. For this API, it is `customsearch#result.` */
       kind?: string;
       /** Encapsulates all information about refinement labels. */
-      labels?: Array<{
+      labels?: {
         /** The display name of a refinement label. This is the name you should display in your user interface. */
         displayName?: string;
         /** Refinement label and the associated refinement operation. */
         label_with_op?: string;
         /** The name of a refinement label, which you can use to refine searches. Don't display this in your user interface; instead, use displayName. */
         name?: string;
-      }>;
+      }[];
       /** The full URL to which the search result is pointing, e.g. http://www.example.com/foo/bar. */
       link?: string;
       /** The MIME type of the search result. */
@@ -120,7 +120,7 @@ declare namespace gapi.client {
       /** Query metadata for the previous, current, and next pages of results. */
       queries?: {
         /** Metadata representing the next page of results, if applicable. */
-        nextPage?: Array<{
+        nextPage?: {
           /** Number of search results returned in this set. */
           count?: number;
           /** Restricts search results to documents originating in a particular country. You may use [Boolean operators](https://developers.google.com/custom-search/docs/json_api_reference#BooleanOrSearch) in the `cr` parameter's value. Google WebSearch determines the country of a document by analyzing the following: * The top-level domain (TLD) of the document's URL. * The geographic location of the web server's IP address. See [Country (cr) Parameter Values](https://developers.google.com/custom-search/docs/json_api_reference#countryCollections) for a list of valid values for this parameter. */
@@ -193,9 +193,9 @@ declare namespace gapi.client {
           title?: string;
           /** Estimated number of total search results. May not be accurate. */
           totalResults?: string;
-        }>;
+        }[];
         /** Metadata representing the previous page of results, if applicable. */
-        previousPage?: Array<{
+        previousPage?: {
           /** Number of search results returned in this set. */
           count?: number;
           /** Restricts search results to documents originating in a particular country. You may use [Boolean operators](https://developers.google.com/custom-search/docs/json_api_reference#BooleanOrSearch) in the `cr` parameter's value. Google WebSearch determines the country of a document by analyzing the following: * The top-level domain (TLD) of the document's URL. * The geographic location of the web server's IP address. See [Country (cr) Parameter Values](https://developers.google.com/custom-search/docs/json_api_reference#countryCollections) for a list of valid values for this parameter. */
@@ -268,9 +268,9 @@ declare namespace gapi.client {
           title?: string;
           /** Estimated number of total search results. May not be accurate. */
           totalResults?: string;
-        }>;
+        }[];
         /** Metadata representing the current request. */
-        request?: Array<{
+        request?: {
           /** Number of search results returned in this set. */
           count?: number;
           /** Restricts search results to documents originating in a particular country. You may use [Boolean operators](https://developers.google.com/custom-search/docs/json_api_reference#BooleanOrSearch) in the `cr` parameter's value. Google WebSearch determines the country of a document by analyzing the following: * The top-level domain (TLD) of the document's URL. * The geographic location of the web server's IP address. See [Country (cr) Parameter Values](https://developers.google.com/custom-search/docs/json_api_reference#countryCollections) for a list of valid values for this parameter. */
@@ -343,7 +343,7 @@ declare namespace gapi.client {
           title?: string;
           /** Estimated number of total search results. May not be accurate. */
           totalResults?: string;
-        }>;
+        }[];
       };
       /** Metadata about a search operation. */
       searchInformation?: {

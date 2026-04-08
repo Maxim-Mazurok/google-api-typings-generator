@@ -1075,7 +1075,7 @@ declare namespace gapi.client {
       /** Token to retrieve the next page of the results. */
       nextPageToken?: string;
       /** Each row hold a query result in the format of `Struct`. */
-      rows?: Array<{[P in string]: any}>;
+      rows?: {[P in string]: any}[];
       /** Describes the format of the [rows]. */
       schema?: TableSchema;
       /** Total rows of the whole query results. */
@@ -1253,7 +1253,7 @@ declare namespace gapi.client {
       /** The status code, which should be an enum value of google.rpc.Code. */
       code?: number;
       /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-      details?: Array<{[P in string]: any}>;
+      details?: {[P in string]: any}[];
       /** A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. */
       message?: string;
     }

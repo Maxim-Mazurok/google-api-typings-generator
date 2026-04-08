@@ -4226,7 +4226,7 @@ declare namespace gapi.client {
     interface GoogleProtobufEmpty {}
     interface GoogleRpcStatus {
       code?: number;
-      details?: Array<{[P in string]: any}>;
+      details?: {[P in string]: any}[];
       message?: string;
     }
     interface GoogleTypeLatLng {

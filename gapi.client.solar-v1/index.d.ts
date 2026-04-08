@@ -154,7 +154,7 @@ declare namespace gapi.client {
       /** The HTTP request/response body as raw binary. */
       data?: string;
       /** Application specific response metadata. Must be set in the first response for streaming APIs. */
-      extensions?: Array<{[P in string]: any}>;
+      extensions?: {[P in string]: any}[];
     }
     interface LatLng {
       /** The latitude in degrees. It must be in the range [-90.0, +90.0]. */

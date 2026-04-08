@@ -28,7 +28,7 @@ declare namespace gapi.client {
       /** Indicate the version of the Discovery API used to generate this doc. */
       discoveryVersion?: string;
       /** The individual directory entries. One entry per api/version pair. */
-      items?: Array<{
+      items?: {
         /** The description of this API. */
         description?: string;
         /** A link to the discovery document. */
@@ -58,7 +58,7 @@ declare namespace gapi.client {
         title?: string;
         /** The version of the API. */
         version?: string;
-      }>;
+      }[];
       /** The kind for this response. */
       kind?: string;
     }
@@ -113,10 +113,10 @@ declare namespace gapi.client {
         /** The name of the type discriminant property. */
         discriminant?: string;
         /** The map of discriminant value to schema to use for parsing.. */
-        map?: Array<{
+        map?: {
           $ref?: string;
           type_value?: string;
-        }>;
+        }[];
       };
     }
     interface RestDescription {
@@ -148,7 +148,7 @@ declare namespace gapi.client {
       /** A link to human readable documentation for the API. */
       documentationLink?: string;
       /** A list of location-based endpoint objects for this API. Each object contains the endpoint URL, location, description and deprecation status. */
-      endpoints?: Array<{
+      endpoints?: {
         /** Whether this endpoint is deprecated */
         deprecated?: boolean;
         /** A string describing the host designated by the URL */
@@ -157,7 +157,7 @@ declare namespace gapi.client {
         endpointUrl?: string;
         /** The location of the endpoint */
         location?: string;
-      }>;
+      }[];
       /** The ETag for this response. */
       etag?: string;
       /** Enable exponential backoff for suitable methods in the generated clients. */

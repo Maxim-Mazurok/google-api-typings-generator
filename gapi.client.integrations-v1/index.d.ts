@@ -858,7 +858,7 @@ declare namespace gapi.client {
         | 'EQUALS';
     }
     interface EnterpriseCrmEventbusProtoProtoParameterArray {
-      protoValues?: Array<{[P in string]: any}>;
+      protoValues?: {[P in string]: any}[];
     }
     interface EnterpriseCrmEventbusProtoScatterResponse {
       /** The error message of the failure if applicable. */
@@ -1538,7 +1538,7 @@ declare namespace gapi.client {
       parameters?: EnterpriseCrmFrontendsEventbusProtoParamSpecEntry[];
     }
     interface EnterpriseCrmFrontendsEventbusProtoProtoParameterArray {
-      protoValues?: Array<{[P in string]: any}>;
+      protoValues?: {[P in string]: any}[];
     }
     interface EnterpriseCrmFrontendsEventbusProtoRollbackStrategy {
       /** Optional. The customized parameters the user can pass to this task. */

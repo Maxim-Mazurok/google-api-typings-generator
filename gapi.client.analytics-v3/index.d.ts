@@ -475,7 +475,7 @@ declare namespace gapi.client {
       /** Time the experiment was last modified. This field is read-only. */
       updated?: string;
       /** Array of variations. The first variation in the array is the original. The number of variations may not change once an experiment is in the RUNNING state. At least two variations are required before status can be set to RUNNING. */
-      variations?: Array<{
+      variations?: {
         /** The name of the variation. This field is required when creating an experiment. This field may not be changed for an experiment whose status is ENDED. */
         name?: string;
         /** Status of the variation. Possible values: "ACTIVE", "INACTIVE". INACTIVE variations are not served. This field may not be changed for an experiment whose status is ENDED. */
@@ -486,7 +486,7 @@ declare namespace gapi.client {
         weight?: number;
         /** True if the experiment has ended and this variation performed (statistically) significantly better than the original. This field is read-only. */
         won?: boolean;
-      }>;
+      }[];
       /** Web property ID to which this experiment belongs. The web property ID is of the form UA-XXXXX-YY. This field is read-only. */
       webPropertyId?: string;
       /** A floating-point number in (0, 1). Specifies the necessary confidence level to choose a winner. This field may not be changed for an experiments whose status is ENDED. */
@@ -731,29 +731,29 @@ declare namespace gapi.client {
     }
     interface GaData {
       /** Column headers that list dimension names followed by the metric names. The order of dimensions and metrics is same as specified in the request. */
-      columnHeaders?: Array<{
+      columnHeaders?: {
         /** Column Type. Either DIMENSION or METRIC. */
         columnType?: string;
         /** Data type. Dimension column headers have only STRING as the data type. Metric column headers have data types for metric values such as INTEGER, DOUBLE, CURRENCY etc. */
         dataType?: string;
         /** Column name. */
         name?: string;
-      }>;
+      }[];
       /** Determines if Analytics data contains samples. */
       containsSampledData?: boolean;
       /** The last refreshed time in seconds for Analytics data. */
       dataLastRefreshed?: string;
       dataTable?: {
-        cols?: Array<{
+        cols?: {
           id?: string;
           label?: string;
           type?: string;
-        }>;
-        rows?: Array<{
-          c?: Array<{
+        }[];
+        rows?: {
+          c?: {
             v?: string;
-          }>;
-        }>;
+          }[];
+        }[];
       };
       /** Unique ID for this data response. */
       id?: string;
@@ -828,7 +828,7 @@ declare namespace gapi.client {
       /** Details for the goal of the type EVENT. */
       eventDetails?: {
         /** List of event conditions. */
-        eventConditions?: Array<{
+        eventConditions?: {
           /** Type of comparison. Possible values are LESS_THAN, GREATER_THAN or EQUAL. */
           comparisonType?: string;
           /** Value used for this comparison. */
@@ -839,7 +839,7 @@ declare namespace gapi.client {
           matchType?: string;
           /** Type of this event condition. Possible values are CATEGORY, ACTION, LABEL, or VALUE. */
           type?: string;
-        }>;
+        }[];
         /** Determines if the event value should be used as the value for this goal. */
         useEventValue?: boolean;
       };
@@ -875,14 +875,14 @@ declare namespace gapi.client {
         /** Match type for the goal URL. Possible values are HEAD, EXACT, or REGEX. */
         matchType?: string;
         /** List of steps configured for this goal funnel. */
-        steps?: Array<{
+        steps?: {
           /** Step name. */
           name?: string;
           /** Step number. */
           number?: number;
           /** URL for this step. */
           url?: string;
-        }>;
+        }[];
         /** URL for this goal. */
         url?: string;
       };
@@ -970,14 +970,14 @@ declare namespace gapi.client {
     }
     interface McfData {
       /** Column headers that list dimension names followed by the metric names. The order of dimensions and metrics is same as specified in the request. */
-      columnHeaders?: Array<{
+      columnHeaders?: {
         /** Column Type. Either DIMENSION or METRIC. */
         columnType?: string;
         /** Data type. Dimension and metric values data types such as INTEGER, DOUBLE, CURRENCY, MCF_SEQUENCE etc. */
         dataType?: string;
         /** Column name. */
         name?: string;
-      }>;
+      }[];
       /** Determines if the Analytics data contains sampled data. */
       containsSampledData?: boolean;
       /** Unique ID for this data response. */
@@ -1031,19 +1031,17 @@ declare namespace gapi.client {
         'start-index'?: number;
       };
       /** Analytics data rows, where each row contains a list of dimension values followed by the metric values. The order of dimensions and metrics is same as specified in the request. */
-      rows?: Array<
-        Array<{
-          /** A conversion path dimension value, containing a list of interactions with their attributes. */
-          conversionPathValue?: Array<{
-            /** Type of an interaction on conversion path. Such as CLICK, IMPRESSION etc. */
-            interactionType?: string;
-            /** Node value of an interaction on conversion path. Such as source, medium etc. */
-            nodeValue?: string;
-          }>;
-          /** A primitive dimension value. A primitive metric value. */
-          primitiveValue?: string;
-        }>
-      >;
+      rows?: {
+        /** A conversion path dimension value, containing a list of interactions with their attributes. */
+        conversionPathValue?: {
+          /** Type of an interaction on conversion path. Such as CLICK, IMPRESSION etc. */
+          interactionType?: string;
+          /** Node value of an interaction on conversion path. Such as source, medium etc. */
+          nodeValue?: string;
+        }[];
+        /** A primitive dimension value. A primitive metric value. */
+        primitiveValue?: string;
+      }[][];
       /** The number of samples used to calculate the result. */
       sampleSize?: string;
       /** Total size of the sample space from which the samples were selected. */
@@ -1209,14 +1207,14 @@ declare namespace gapi.client {
     }
     interface RealtimeData {
       /** Column headers that list dimension names followed by the metric names. The order of dimensions and metrics is same as specified in the request. */
-      columnHeaders?: Array<{
+      columnHeaders?: {
         /** Column Type. Either DIMENSION or METRIC. */
         columnType?: string;
         /** Data type. Dimension column headers have only STRING as the data type. Metric column headers have data types for metric values such as INTEGER, DOUBLE, CURRENCY etc. */
         dataType?: string;
         /** Column name. */
         name?: string;
-      }>;
+      }[];
       /** Unique ID for this data response. */
       id?: string;
       /** Resource type. */

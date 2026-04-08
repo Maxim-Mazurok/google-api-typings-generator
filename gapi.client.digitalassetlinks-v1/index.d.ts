@@ -94,7 +94,7 @@ declare namespace gapi.client {
       /** From serving time, how much longer the response should be considered valid barring further updates. REQUIRED */
       maxAge?: string;
       /** Statements may specify relation level extensions/payloads to express more details when declaring permissions to grant from the source asset to the target asset. When requested, the API will return relation_extensions specified in any and all statements linking the requested source and target assets by the relation specified in the request. */
-      relationExtensions?: Array<{[P in string]: any}>;
+      relationExtensions?: {[P in string]: any}[];
     }
     interface ListResponse {
       /** Human-readable message containing information intended to help end users understand, reproduce and debug the result. The message will be in English and we are currently not planning to offer any translations. Please note that no guarantees are made about the contents or format of this string. Any aspect of it may be subject to change without notice. You should not attempt to programmatically parse this data. For programmatic access, use the error_code field below. */

@@ -26,17 +26,17 @@ declare namespace gapi.client {
   namespace drive {
     interface About {
       /** Information about supported additional roles per file type. The most specific type takes precedence. */
-      additionalRoleInfo?: Array<{
+      additionalRoleInfo?: {
         /** The supported additional roles per primary role. */
-        roleSets?: Array<{
+        roleSets?: {
           /** The supported additional roles with the primary role. */
           additionalRoles?: string[];
           /** A primary permission role. */
           primaryRole?: string;
-        }>;
+        }[];
         /** The content type that this additional role info applies to. */
         type?: string;
-      }>;
+      }[];
       /** Whether the user can create shared drives. */
       canCreateDrives?: boolean;
       /** Deprecated: Use `canCreateDrives` instead. */
@@ -44,39 +44,39 @@ declare namespace gapi.client {
       /** Deprecated: Does not granularly represent allowlisted domains or Trust Rules. The domain sharing policy for the current user. Possible values are: * `allowed` * `allowedWithWarning` * `incomingOnly` * `disallowed` Note that if the user is enrolled in Trust Rules, `disallowed` will always be returned. If sharing is restricted to allowlisted domains, either `incomingOnly` or `allowedWithWarning` will be returned, depending on whether receiving files from outside the allowlisted domains is permitted. */
       domainSharingPolicy?: string;
       /** A list of themes that are supported for shared drives. */
-      driveThemes?: Array<{
+      driveThemes?: {
         /** A link to this theme's background image. */
         backgroundImageLink?: string;
         /** The color of this theme as an RGB hex string. */
         colorRgb?: string;
         /** The ID of the theme. */
         id?: string;
-      }>;
+      }[];
       /** The ETag of the item. */
       etag?: string;
       /** The allowable export formats. */
-      exportFormats?: Array<{
+      exportFormats?: {
         /** The content type to convert from. */
         source?: string;
         /** The possible content types to convert to. */
         targets?: string[];
-      }>;
+      }[];
       /** List of additional features enabled on this account. */
-      features?: Array<{
+      features?: {
         /** The name of the feature. */
         featureName?: string;
         /** The request limit rate for this feature, in queries per second. */
         featureRate?: number;
-      }>;
+      }[];
       /** The palette of allowable folder colors as RGB hex strings. */
       folderColorPalette?: string[];
       /** The allowable import formats. */
-      importFormats?: Array<{
+      importFormats?: {
         /** The imported file's content type to convert from. */
         source?: string;
         /** The possible content types to convert to. */
         targets?: string[];
-      }>;
+      }[];
       /** A boolean indicating whether the authenticated app is installed by the authenticated user. */
       isCurrentAppInstalled?: boolean;
       /** This is always `drive#about`. */
@@ -86,23 +86,23 @@ declare namespace gapi.client {
       /** The largest change id. */
       largestChangeId?: string;
       /** List of max upload sizes for each file type. The most specific type takes precedence. */
-      maxUploadSizes?: Array<{
+      maxUploadSizes?: {
         /** The max upload size for this type. */
         size?: string;
         /** The file type. */
         type?: string;
-      }>;
+      }[];
       /** The name of the current user. */
       name?: string;
       /** The current user's ID as visible in the permissions collection. */
       permissionId?: string;
       /** The amount of storage quota used by different Google services. */
-      quotaBytesByService?: Array<{
+      quotaBytesByService?: {
         /** The storage quota bytes used by the service. */
         bytesUsed?: string;
         /** The service's name, e.g. DRIVE, GMAIL, or PHOTOS. */
         serviceName?: string;
-      }>;
+      }[];
       /** The total number of quota bytes. This is only relevant when quotaType is LIMITED. */
       quotaBytesTotal?: string;
       /** The number of quota bytes used by Google Drive. */
@@ -120,14 +120,14 @@ declare namespace gapi.client {
       /** A link back to this item. */
       selfLink?: string;
       /** Deprecated: Use `driveThemes` instead. */
-      teamDriveThemes?: Array<{
+      teamDriveThemes?: {
         /** Deprecated: Use `driveThemes/backgroundImageLink` instead. */
         backgroundImageLink?: string;
         /** Deprecated: Use `driveThemes/colorRgb` instead. */
         colorRgb?: string;
         /** Deprecated: Use `driveThemes/id` instead. */
         id?: string;
-      }>;
+      }[];
       /** The authenticated user. */
       user?: User;
     }
@@ -141,14 +141,14 @@ declare namespace gapi.client {
       /** Whether the app has drive-wide scope. An app with drive-wide scope can access all files in the user's drive. */
       hasDriveWideScope?: boolean;
       /** The various icons for the app. */
-      icons?: Array<{
+      icons?: {
         /** Category of the icon. Allowed values are: * `application` - icon for the application * `document` - icon for a file associated with the app * `documentShared` - icon for a shared file associated with the app */
         category?: string;
         /** URL for the icon. */
         iconUrl?: string;
         /** Size of the icon. Represented as the maximum of the width and height. */
         size?: number;
-      }>;
+      }[];
       /** The ID of the app. */
       id?: string;
       /** Whether the app is installed. */
@@ -966,7 +966,7 @@ declare namespace gapi.client {
       /** Whether the account associated with this permission is a pending owner. Only populated for `user` type permissions for files that are not in a shared drive. */
       pendingOwner?: boolean;
       /** Output only. Details of whether the permissions on this item are inherited or directly on this item. */
-      permissionDetails?: Array<{
+      permissionDetails?: {
         /** Output only. Additional roles for this user. Only `commenter` is currently possible, though more may be supported in the future. */
         additionalRoles?: string[];
         /** Output only. Whether this permission is inherited. This field is always populated. */
@@ -977,7 +977,7 @@ declare namespace gapi.client {
         permissionType?: string;
         /** Output only. The primary role for this user. While new values may be added in the future, the following are currently possible: * `organizer` * `fileOrganizer` * `writer` * `reader` */
         role?: string;
-      }>;
+      }[];
       /** Output only. A link to the profile photo, if available. */
       photoLink?: string;
       /** The primary role for this user. While new values may be supported in the future, the following are currently allowed: * `owner` * `organizer` * `fileOrganizer` * `writer` * `reader` */
@@ -985,7 +985,7 @@ declare namespace gapi.client {
       /** Output only. A link back to this permission. */
       selfLink?: string;
       /** Output only. Deprecated: Use `permissionDetails` instead. */
-      teamDrivePermissionDetails?: Array<{
+      teamDrivePermissionDetails?: {
         /** Output only. Deprecated: Use `permissionDetails/additionalRoles` instead. */
         additionalRoles?: string[];
         /** Output only. Deprecated: Use `permissionDetails/inherited` instead. */
@@ -996,7 +996,7 @@ declare namespace gapi.client {
         role?: string;
         /** Output only. Deprecated: Use `permissionDetails/permissionType` instead. */
         teamDrivePermissionType?: string;
-      }>;
+      }[];
       /** The account type. Allowed values are: * `user` * `group` * `domain` * `anyone` */
       type?: string;
       /** The email address or domain name for the entity. This is used during inserts and is not populated in responses. When making a `drive.permissions.insert` request, exactly one of the `id` or `value` fields must be specified unless the permission type is `anyone`, in which case both `id` and `value` are ignored. */

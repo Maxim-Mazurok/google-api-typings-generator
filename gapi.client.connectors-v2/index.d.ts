@@ -143,7 +143,7 @@ declare namespace gapi.client {
       /** Metadata like service latency, etc. */
       metadata?: {[P in string]: {[P in string]: any}};
       /** In the case of successful invocation of the specified action, the results Struct contains values based on the response of the action invoked. 1. If the action execution produces any entities as a result, they are returned as an array of Structs with the 'key' being the field name and the 'value' being the value of that field in each result row. { 'results': [{'key': 'value'}, ...] } */
-      results?: Array<{[P in string]: any}>;
+      results?: {[P in string]: any}[];
     }
     interface ExecuteSqlQueryRequest {
       /** Required. SQL statement passed by clients like Integration Platform, the query is passed as-is to the driver used for interfacing with external systems. */
@@ -151,7 +151,7 @@ declare namespace gapi.client {
     }
     interface ExecuteSqlQueryResponse {
       /** In the case of successful execution of the query the response contains results returned by the external system. For example, the result rows of the query are contained in the 'results' Struct list - "results": [ { "field1": "val1", "field2": "val2",.. },.. ] Each Struct row can contain fields any type of like nested Structs or lists. */
-      results?: Array<{[P in string]: any}>;
+      results?: {[P in string]: any}[];
     }
     interface ExecuteToolRequest {
       /** execution config for the request. */
@@ -820,7 +820,7 @@ declare namespace gapi.client {
     }
     interface ToolSpec {
       /** List of tool definitions. */
-      toolDefinitions?: Array<{[P in string]: any}>;
+      toolDefinitions?: {[P in string]: any}[];
       /** Version of the tool spec. Format: providerId/connectorId/versionId/toolSpecId */
       toolSpecVersion?: string;
     }

@@ -110,13 +110,13 @@ declare namespace gapi.client {
     }
     interface AnnotationsSummary {
       kind?: string;
-      layers?: Array<{
+      layers?: {
         allowedCharacterCount?: number;
         layerId?: string;
         limitType?: string;
         remainingCharacterCount?: number;
         updated?: string;
-      }>;
+      }[];
     }
     interface BooksAnnotationsRange {
       /** The offset from the ending position. */
@@ -167,11 +167,11 @@ declare namespace gapi.client {
     }
     interface Category {
       /** A list of onboarding categories. */
-      items?: Array<{
+      items?: {
         badgeUrl?: string;
         categoryId?: string;
         name?: string;
-      }>;
+      }[];
       /** Resource type. */
       kind?: string;
     }
@@ -230,36 +230,36 @@ declare namespace gapi.client {
           attribution?: string;
           url?: string;
         };
-        words?: Array<{
-          derivatives?: Array<{
+        words?: {
+          derivatives?: {
             source?: {
               attribution?: string;
               url?: string;
             };
             text?: string;
-          }>;
-          examples?: Array<{
+          }[];
+          examples?: {
             source?: {
               attribution?: string;
               url?: string;
             };
             text?: string;
-          }>;
-          senses?: Array<{
-            conjugations?: Array<{
+          }[];
+          senses?: {
+            conjugations?: {
               type?: string;
               value?: string;
-            }>;
-            definitions?: Array<{
+            }[];
+            definitions?: {
               definition?: string;
-              examples?: Array<{
+              examples?: {
                 source?: {
                   attribution?: string;
                   url?: string;
                 };
                 text?: string;
-              }>;
-            }>;
+              }[];
+            }[];
             partOfSpeech?: string;
             pronunciation?: string;
             pronunciationUrl?: string;
@@ -268,25 +268,25 @@ declare namespace gapi.client {
               url?: string;
             };
             syllabification?: string;
-            synonyms?: Array<{
+            synonyms?: {
               source?: {
                 attribution?: string;
                 url?: string;
               };
               text?: string;
-            }>;
-          }>;
+            }[];
+          }[];
           /** The words with different meanings but not related words, e.g. "go" (game) and "go" (verb). */
           source?: {
             attribution?: string;
             url?: string;
           };
-        }>;
+        }[];
       };
       kind?: string;
     }
     interface Discoveryclusters {
-      clusters?: Array<{
+      clusters?: {
         banner_with_content_container?: {
           fillColorArgb?: string;
           imageUrl?: string;
@@ -300,7 +300,7 @@ declare namespace gapi.client {
         totalVolumes?: number;
         uid?: string;
         volumes?: Volume[];
-      }>;
+      }[];
       /** Resorce type. */
       kind?: string;
       totalClusters?: number;
@@ -454,13 +454,13 @@ declare namespace gapi.client {
     }
     interface Metadata {
       /** A list of offline dictionary metadata. */
-      items?: Array<{
+      items?: {
         download_url?: string;
         encrypted_key?: string;
         language?: string;
         size?: string;
         version?: string;
-      }>;
+      }[];
       /** Resource type. */
       kind?: string;
     }
@@ -486,19 +486,19 @@ declare namespace gapi.client {
     }
     interface Offers {
       /** A list of offers. */
-      items?: Array<{
+      items?: {
         artUrl?: string;
         gservicesKey?: string;
         id?: string;
-        items?: Array<{
+        items?: {
           author?: string;
           canonicalVolumeLink?: string;
           coverUrl?: string;
           description?: string;
           title?: string;
           volumeId?: string;
-        }>;
-      }>;
+        }[];
+      }[];
       /** Resource type. */
       kind?: string;
     }
@@ -561,7 +561,7 @@ declare namespace gapi.client {
     interface Series {
       /** Resource type. */
       kind?: string;
-      series?: Array<{
+      series?: {
         bannerImageUrl?: string;
         eligibleForSubscription?: boolean;
         imageUrl?: string;
@@ -587,7 +587,7 @@ declare namespace gapi.client {
         seriesType?: string;
         subscriptionId?: string;
         title?: string;
-      }>;
+      }[];
     }
     interface Seriesmembership {
       /** Resorce type. */
@@ -676,12 +676,12 @@ declare namespace gapi.client {
       /** What layers exist in this volume and high level information about them. */
       layerInfo?: {
         /** A layer should appear here if and only if the layer exists for this book. */
-        layers?: Array<{
+        layers?: {
           /** The layer id of this layer (e.g. "geo"). */
           layerId?: string;
           /** The current version of this layer's volume annotations. Note that this version applies only to the data in the books.layers.volumeAnnotations.* responses. The actual annotation data is versioned separately. */
           volumeAnnotationsVersion?: string;
-        }>;
+        }[];
       };
       /** Recommendation related information for this volume. */
       recommendedInfo?: {
@@ -704,7 +704,7 @@ declare namespace gapi.client {
           currencyCode?: string;
         };
         /** Offers available for this volume (sales and rentals). */
-        offers?: Array<{
+        offers?: {
           /** The finsky offer type (e.g., PURCHASE=0 RENTAL=3) */
           finskyOfferType?: number;
           /** Indicates whether the offer is giftable. */
@@ -724,7 +724,7 @@ declare namespace gapi.client {
             amountInMicros?: number;
             currencyCode?: string;
           };
-        }>;
+        }[];
         /** The date on which this book is available for sale. */
         onSaleDate?: string;
         /** The actual selling price of the book. This is the same as the suggested retail or list price unless there are offers or discounts on this volume. (In LITE projection.) */
@@ -844,12 +844,12 @@ declare namespace gapi.client {
           thumbnail?: string;
         };
         /** Industry standard identifiers for this volume. */
-        industryIdentifiers?: Array<{
+        industryIdentifiers?: {
           /** Industry specific volume identifier. */
           identifier?: string;
           /** Identifier type. Possible values are ISBN_10, ISBN_13, ISSN and OTHER. */
           type?: string;
-        }>;
+        }[];
         /** URL to view information about this volume on the Google Books site. (In LITE projection) */
         infoLink?: string;
         /** Best language for this volume (based on content). It is the two-letter ISO 639-1 code such as 'fr', 'en', etc. */
@@ -965,19 +965,19 @@ declare namespace gapi.client {
       kind?: string;
       /** Short book title in the context of the series. */
       shortSeriesBookTitle?: string;
-      volumeSeries?: Array<{
+      volumeSeries?: {
         /** List of issues. Applicable only for Collection Edition and Omnibus. */
-        issue?: Array<{
+        issue?: {
           issueDisplayNumber?: string;
           issueOrderNumber?: number;
-        }>;
+        }[];
         /** The book order number in the series. */
         orderNumber?: number;
         /** The book type in the context of series. Examples - Single Issue, Collection Edition, etc. */
         seriesBookType?: string;
         /** The series id. */
         seriesId?: string;
-      }>;
+      }[];
     }
     interface VolumesResource {
       /** Retrieves volumes in a specific bookshelf for the specified user. */

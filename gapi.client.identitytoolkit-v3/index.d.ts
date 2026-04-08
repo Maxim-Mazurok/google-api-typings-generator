@@ -541,7 +541,7 @@ declare namespace gapi.client {
       /** The photo url of the user. */
       photoUrl?: string;
       /** The user's profiles at the associated IdPs. */
-      providerUserInfo?: Array<{
+      providerUserInfo?: {
         /** The user's display name at the IDP. */
         displayName?: string;
         /** User's identifier at IDP. */
@@ -550,7 +550,7 @@ declare namespace gapi.client {
         photoUrl?: string;
         /** The IdP ID. For whitelisted IdPs it's a short domain name, e.g., google.com, aol.com, live.net and yahoo.com. For other OpenID IdPs it's the OP identifier. */
         providerId?: string;
-      }>;
+      }[];
       /** If idToken is STS id token, then this field will be refresh token. */
       refreshToken?: string;
     }
@@ -572,12 +572,12 @@ declare namespace gapi.client {
     }
     interface UploadAccountResponse {
       /** The error encountered while processing the account info. */
-      error?: Array<{
+      error?: {
         /** The index of the malformed account, starting from 0. */
         index?: number;
         /** Detailed error message for the account info. */
         message?: string;
-      }>;
+      }[];
       /** The fixed string "identitytoolkit#UploadAccountResponse". */
       kind?: string;
     }
@@ -609,7 +609,7 @@ declare namespace gapi.client {
       /** The URL of the user profile photo. */
       photoUrl?: string;
       /** The IDP of the user. */
-      providerUserInfo?: Array<{
+      providerUserInfo?: {
         /** The user's display name at the IDP. */
         displayName?: string;
         /** User's email at IDP. */
@@ -626,7 +626,7 @@ declare namespace gapi.client {
         rawId?: string;
         /** User's screen name at Twitter or login name at Github. */
         screenName?: string;
-      }>;
+      }[];
       /** The user's plain text password. */
       rawPassword?: string;
       /** The user's password salt. */

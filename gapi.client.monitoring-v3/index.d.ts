@@ -361,7 +361,7 @@ declare namespace gapi.client {
     }
     interface Exemplar {
       /** Contextual information about the example value. Examples are:Trace: type.googleapis.com/google.monitoring.v3.SpanContextLiteral string: type.googleapis.com/google.protobuf.StringValueLabels dropped during aggregation: type.googleapis.com/google.monitoring.v3.DroppedLabelsThere may be only a single attachment of any given message type in a single exemplar, and this is enforced by the system. */
-      attachments?: Array<{[P in string]: any}>;
+      attachments?: {[P in string]: any}[];
       /** The observation (sampling) time of the above value. */
       timestamp?: string;
       /** Value of the exemplar point. This value determines to which bucket the exemplar belongs. */
@@ -1186,7 +1186,7 @@ declare namespace gapi.client {
       /** The status code, which should be an enum value of google.rpc.Code. */
       code?: number;
       /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-      details?: Array<{[P in string]: any}>;
+      details?: {[P in string]: any}[];
       /** A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. */
       message?: string;
     }

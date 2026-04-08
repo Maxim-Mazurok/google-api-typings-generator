@@ -241,24 +241,24 @@ declare namespace gapi.client {
       /** [Output Only] If errors are generated during processing of the operation, this field will be populated. */
       error?: {
         /** [Output Only] The array of errors encountered while processing this operation. */
-        errors?: Array<{
+        errors?: {
           /** Output only. [Output Only] Optional error details WARNING: DO NOT MAKE VISIBLE This is for internal use-only (like componentization) (thus the visibility "none") and in case of public exposure it is strongly recommended to follow pattern of: https://aip.dev/193 and expose as details field. */
           arguments?: string[];
           /** [Output Only] The error type identifier for this error. */
           code?: string;
           debugInfo?: DebugInfo;
           /** [Output Only] An optional list of messages that contain the error details. There is a set of defined message types to use for providing details.The syntax depends on the error code. For example, QuotaExceededInfo will have details when the error code is QUOTA_EXCEEDED. */
-          errorDetails?: Array<{
+          errorDetails?: {
             errorInfo?: ErrorInfo;
             help?: Help;
             localizedMessage?: LocalizedMessage;
             quotaInfo?: QuotaExceededInfo;
-          }>;
+          }[];
           /** [Output Only] Indicates the field in the request that caused the error. This property is optional. */
           location?: string;
           /** [Output Only] An optional, human-readable error message. */
           message?: string;
-        }>;
+        }[];
       };
       firewallPolicyRuleOperationMetadata?: FirewallPolicyRuleOperationMetadata;
       getVersionOperationMetadata?: GetVersionOperationMetadata;
@@ -304,7 +304,7 @@ declare namespace gapi.client {
       /** [Output Only] User who requested the operation, for example: `user@example.com` or `alice_smith_identifier (global/workforcePools/example-com-us-employees)`. */
       user?: string;
       /** [Output Only] If warning messages are generated during processing of the operation, this field will be populated. */
-      warnings?: Array<{
+      warnings?: {
         /** [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response. */
         code?:
           | 'DEPRECATED_RESOURCE_USED'
@@ -349,15 +349,15 @@ declare namespace gapi.client {
           | 'RESERVED_ENTRY_142'
           | 'RESERVED_ENTRY_143';
         /** [Output Only] Metadata about this warning in key: value format. For example: "data": [ { "key": "scope", "value": "zones/us-east1-d" } */
-        data?: Array<{
+        data?: {
           /** [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled for IP forwarding). */
           key?: string;
           /** [Output Only] A warning data value corresponding to the key. */
           value?: string;
-        }>;
+        }[];
         /** [Output Only] A human-readable description of the warning code. */
         message?: string;
-      }>;
+      }[];
       /** [Output Only] The URL of the zone where the operation resides. Only applicable when performing per-zone operations. */
       zone?: string;
     }
@@ -414,7 +414,7 @@ declare namespace gapi.client {
       /** Output only. The URL of the actual resource. */
       url?: string;
       /** Output only. If warning messages are generated during processing of this resource, this field will be populated. */
-      warnings?: Array<{
+      warnings?: {
         /** [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response. */
         code?:
           | 'DEPRECATED_RESOURCE_USED'
@@ -459,15 +459,15 @@ declare namespace gapi.client {
           | 'RESERVED_ENTRY_142'
           | 'RESERVED_ENTRY_143';
         /** [Output Only] Metadata about this warning in key: value format. For example: "data": [ { "key": "scope", "value": "zones/us-east1-d" } */
-        data?: Array<{
+        data?: {
           /** [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled for IP forwarding). */
           key?: string;
           /** [Output Only] A warning data value corresponding to the key. */
           value?: string;
-        }>;
+        }[];
         /** [Output Only] A human-readable description of the warning code. */
         message?: string;
-      }>;
+      }[];
     }
     interface ResourceAccessControl {
       /** The GCP IAM Policy to set on the resource. */
@@ -485,24 +485,24 @@ declare namespace gapi.client {
       /** Output only. If errors are generated during update of the resource, this field will be populated. */
       error?: {
         /** [Output Only] The array of errors encountered while processing this operation. */
-        errors?: Array<{
+        errors?: {
           /** Output only. [Output Only] Optional error details WARNING: DO NOT MAKE VISIBLE This is for internal use-only (like componentization) (thus the visibility "none") and in case of public exposure it is strongly recommended to follow pattern of: https://aip.dev/193 and expose as details field. */
           arguments?: string[];
           /** [Output Only] The error type identifier for this error. */
           code?: string;
           debugInfo?: DebugInfo;
           /** [Output Only] An optional list of messages that contain the error details. There is a set of defined message types to use for providing details.The syntax depends on the error code. For example, QuotaExceededInfo will have details when the error code is QUOTA_EXCEEDED. */
-          errorDetails?: Array<{
+          errorDetails?: {
             errorInfo?: ErrorInfo;
             help?: Help;
             localizedMessage?: LocalizedMessage;
             quotaInfo?: QuotaExceededInfo;
-          }>;
+          }[];
           /** [Output Only] Indicates the field in the request that caused the error. This property is optional. */
           location?: string;
           /** [Output Only] An optional, human-readable error message. */
           message?: string;
-        }>;
+        }[];
       };
       /** Output only. The expanded properties of the resource with reference values expanded. Returned as serialized YAML. */
       finalProperties?: string;
@@ -521,7 +521,7 @@ declare namespace gapi.client {
       /** Output only. The state of the resource. */
       state?: 'PENDING' | 'IN_PROGRESS' | 'IN_PREVIEW' | 'FAILED' | 'ABORTED';
       /** Output only. If warning messages are generated during processing of this resource, this field will be populated. */
-      warnings?: Array<{
+      warnings?: {
         /** [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response. */
         code?:
           | 'DEPRECATED_RESOURCE_USED'
@@ -566,15 +566,15 @@ declare namespace gapi.client {
           | 'RESERVED_ENTRY_142'
           | 'RESERVED_ENTRY_143';
         /** [Output Only] Metadata about this warning in key: value format. For example: "data": [ { "key": "scope", "value": "zones/us-east1-d" } */
-        data?: Array<{
+        data?: {
           /** [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled for IP forwarding). */
           key?: string;
           /** [Output Only] A warning data value corresponding to the key. */
           value?: string;
-        }>;
+        }[];
         /** [Output Only] A human-readable description of the warning code. */
         message?: string;
-      }>;
+      }[];
     }
     interface SetAutoscalerLinkOperationMetadata {
       /** List of zonal IGM IDs part of the RMIG. */
@@ -606,7 +606,7 @@ declare namespace gapi.client {
       /** The status code, which should be an enum value of google.rpc.Code. */
       code?: number;
       /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-      details?: Array<{[P in string]: any}>;
+      details?: {[P in string]: any}[];
       /** A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. */
       message?: string;
     }
