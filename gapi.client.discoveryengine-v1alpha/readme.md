@@ -59,6 +59,9 @@ var client_id = '',
 
     // View, edit, create, and delete all your data associated with any Discovery Engine API product, such as Agentspace, Vertex AI Search, or NotebookLM Enterprise, including both end user data and administration or configuration data.
     'https://www.googleapis.com/auth/discoveryengine.readwrite',
+
+    // Interact with Discovery Engine API products, such as Agentspace, Vertex AI Search, or NotebookLM Enterprise, on your behalf. It will also allow the app to view all data that you have access to when you use or interact with a Discovery Engine API product.
+    'https://www.googleapis.com/auth/discoveryengine.serving.readwrite',
   ],
   immediate = true;
 // ...
