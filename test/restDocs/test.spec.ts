@@ -1,5 +1,6 @@
 import {readdirSync, readFileSync, rmSync} from 'node:fs';
 import {join} from 'node:path';
+import {vi} from 'vitest';
 import {App} from '../../src/app.js';
 import {RestDescription} from '../../src/discovery.js';
 import {App as DtApp} from '../../src/dt/app.js';
@@ -108,4 +109,43 @@ it('uses method ID instead of resource name/key', async () => {
   await mySnapshotTest(folder, () =>
     app.processService(restDescription, new URL('http://x.com'), false),
   );
+});
+
+it('warns when schema names shadow TypeScript globals', async () => {
+  const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+  try {
+    const restDescription = JSON.parse(
+      readFileSyncAsUTF8(join(import.meta.dirname, 'calendar.json')),
+    ) as RestDescription;
+
+    const resultFolder = join(
+      import.meta.dirname,
+      'results',
+      getPackageNameFromRestDescription(restDescription),
+    );
+    rmSync(resultFolder, {force: true, recursive: true});
+
+    await app.processService(
+      restDescription,
+      new URL('http://localhost:3000/calendar.json'),
+      false,
+    );
+
+    const warnings = warnSpy.mock.calls.map(call => call[0] as string);
+    const shadowWarnings = warnings.filter(
+      message => typeof message === 'string' && message.startsWith('WARNING:'),
+    );
+
+    // Calendar API has schemas named "Error" and "Event" which
+    // shadow TypeScript global types
+    expect(shadowWarnings).toContainEqual(
+      expect.stringContaining('schema "Error"'),
+    );
+    expect(shadowWarnings).toContainEqual(
+      expect.stringContaining('schema "Event"'),
+    );
+  } finally {
+    warnSpy.mockRestore();
+  }
 });

@@ -17,6 +17,7 @@ import {
   getRestDescriptionsForService,
 } from './discovery.js';
 import {Template, TemplateData} from './template/index.js';
+import {extractTypescriptGlobalTypeNames} from './typescript-globals.js';
 import {
   checkExists,
   ensureDirectoryExists,
@@ -338,10 +339,14 @@ function getType(
     if (typeof child === 'string') {
       return `${child}[]`;
     } else if (typeof child === 'function') {
+      // Wrap complex child types in parentheses with [] suffix instead of
+      // using Array<T>, which would break if a Google API schema named
+      // "Array" shadows the built-in Array type within the namespace.
+      // See: https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/1274
       return (writer: TypescriptTextWriter) => {
-        writer.write('Array<');
+        writer.write('(');
         child(writer);
-        writer.write('>');
+        writer.write(')[]');
       };
     } else {
       return '[]';
@@ -460,6 +465,8 @@ export interface Configuration {
 
 export class App {
   private seenSchemaRefs: Set<string> = new Set();
+  private readonly typescriptGlobalTypeNames =
+    extractTypescriptGlobalTypeNames();
 
   constructor(private readonly config: Configuration) {
     ensureDirectoryExists(config.typesDirectory);
@@ -735,6 +742,16 @@ export class App {
       namespaces.forEach(namespace => {
         writer.namespace(namespace, () => {
           const schemas = checkExists(restDescription.schemas);
+
+          for (const schemaName of Object.keys(schemas)) {
+            if (this.typescriptGlobalTypeNames.has(schemaName)) {
+              console.warn(
+                `WARNING: ${restDescription.id} has schema "${schemaName}" that shadows a TypeScript global type. ` +
+                  `This may cause type errors in generated declarations.`,
+              );
+            }
+          }
+
           _.forEach(schemas, schema => {
             writer.interface(checkExists(schema.id), () => {
               if (schema.properties) {
