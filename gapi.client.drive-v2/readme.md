@@ -243,6 +243,11 @@ Exports a Google Workspace document to the requested MIME type and returns expor
 await gapi.client.drive.files.export({ fileId: "fileId", mimeType: "mimeType",  });
 
 /*
+Generates a CSE token which can be used to create or update CSE files.
+*/
+await gapi.client.drive.files.generateCseToken({  });
+
+/*
 Generates a set of file IDs which can be provided in insert or copy requests.
 */
 await gapi.client.drive.files.generateIds({  });
