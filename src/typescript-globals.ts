@@ -19,9 +19,7 @@ export function extractTypescriptGlobalTypeNames(): Set<string> {
   const typescriptDirectory = path.dirname(require.resolve('typescript'));
   const libraryFilePaths = fs
     .readdirSync(typescriptDirectory)
-    .filter(
-      (file: string) => file.startsWith('lib.') && file.endsWith('.d.ts'),
-    )
+    .filter((file: string) => file.startsWith('lib.') && file.endsWith('.d.ts'))
     .map((file: string) => path.join(typescriptDirectory, file));
 
   const libraryFilePathSet = new Set(libraryFilePaths);

@@ -465,7 +465,8 @@ export interface Configuration {
 
 export class App {
   private seenSchemaRefs: Set<string> = new Set();
-  private readonly typescriptGlobalTypeNames = extractTypescriptGlobalTypeNames();
+  private readonly typescriptGlobalTypeNames =
+    extractTypescriptGlobalTypeNames();
 
   constructor(private readonly config: Configuration) {
     ensureDirectoryExists(config.typesDirectory);
