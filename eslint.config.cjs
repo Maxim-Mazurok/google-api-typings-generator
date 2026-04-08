@@ -1,8 +1,3 @@
-const {fixupPluginRules} = require('@eslint/compat');
-const deprecationPlugin = fixupPluginRules(
-  require('eslint-plugin-deprecation'), // TODO: migrate to https://typescript-eslint.io/rules/no-deprecated/
-);
-
 const googleTypeScriptStyleConfig = require('gts/build/eslint.config.js');
 
 module.exports = [
@@ -18,9 +13,8 @@ module.exports = [
   },
   {
     files: ['**/*.{js,cjs,mjs,ts,tsx}'],
-    plugins: {deprecation: deprecationPlugin},
     rules: {
-      'deprecation/deprecation': 'error',
+      '@typescript-eslint/no-deprecated': 'error',
       'require-await': 'warn',
       '@typescript-eslint/no-floating-promises': 'warn',
     },
