@@ -222,6 +222,40 @@ While we do generate typings for Google APIs, we can't generate `gapi` typings f
 
 The **server-side** libraries are open-sourced and are available [here](https://github.com/googleapis/google-api-nodejs-client). Since they are written in TS, you don't need any additional type definitions to use them.
 
+## TypeScript 6.0+ Compatibility
+
+TypeScript 6.0 changed the default value of the `types` compiler option from `undefined` (auto-include all `@types` packages) to `[]` (include none). This means the global `gapi.client.*` namespaces provided by our packages are no longer automatically available.
+
+### Fix: add types explicitly
+
+Add the required type packages to your `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "types": ["gapi", "gapi.auth2", "gapi.client", "gapi.client.sheets-v4"]
+  }
+}
+```
+
+Replace `gapi.client.sheets-v4` with whichever API packages you use. You also need `gapi` and `gapi.client` for the base `gapi.load()` and `gapi.client.*` types.
+
+### Alternative: restore the old behavior
+
+If you prefer the pre-6.0 behavior where all `@types` packages are included automatically:
+
+```json
+{
+  "compilerOptions": {
+    "types": ["*"]
+  }
+}
+```
+
+### Long-term
+
+Issue [#1276](https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/1276) tracks migrating from global namespaces to module-based type definitions, which would eliminate the need for `types` configuration entirely.
+
 ## Troubleshooting
 
 ### npm install - 404 Not Found
