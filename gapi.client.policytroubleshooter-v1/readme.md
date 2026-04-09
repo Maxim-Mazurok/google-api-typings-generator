@@ -10,6 +10,23 @@ Install typings for Policy Troubleshooter API:
 npm install @types/gapi.client.policytroubleshooter-v1 --save-dev
 ```
 
+## TypeScript 6.0+
+
+TypeScript 6.0 changed `types` to default to `[]`. You must now explicitly list type packages in `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "types": [
+      "gapi",
+      "gapi.auth2",
+      "gapi.client",
+      "gapi.client.policytroubleshooter-v1"
+    ]
+  }
+}
+```
+
 ## Usage
 
 You need to initialize Google API client in your code:

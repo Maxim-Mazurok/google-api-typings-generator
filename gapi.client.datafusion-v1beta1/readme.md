@@ -11,6 +11,23 @@ Install typings for Cloud Data Fusion API:
 npm install @types/gapi.client.datafusion-v1beta1 --save-dev
 ```
 
+## TypeScript 6.0+
+
+TypeScript 6.0 changed `types` to default to `[]`. You must now explicitly list type packages in `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "types": [
+      "gapi",
+      "gapi.auth2",
+      "gapi.client",
+      "gapi.client.datafusion-v1beta1"
+    ]
+  }
+}
+```
+
 ## Usage
 
 You need to initialize Google API client in your code:

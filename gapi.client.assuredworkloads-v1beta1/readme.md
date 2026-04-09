@@ -10,6 +10,23 @@ Install typings for Assured Workloads API:
 npm install @types/gapi.client.assuredworkloads-v1beta1 --save-dev
 ```
 
+## TypeScript 6.0+
+
+TypeScript 6.0 changed `types` to default to `[]`. You must now explicitly list type packages in `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "types": [
+      "gapi",
+      "gapi.auth2",
+      "gapi.client",
+      "gapi.client.assuredworkloads-v1beta1"
+    ]
+  }
+}
+```
+
 ## Usage
 
 You need to initialize Google API client in your code:
