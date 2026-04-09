@@ -42,6 +42,7 @@ gapi.load('client', async () => {
       },
       {
         account: 'Test string',
+        base64EncodedName: 'Test string',
         localInventoryAttributes: {
           availability: 'Test string',
           instoreProductLocation: 'Test string',
@@ -102,6 +103,7 @@ gapi.load('client', async () => {
       },
       {
         account: 'Test string',
+        base64EncodedName: 'Test string',
         name: 'Test string',
         region: 'Test string',
         regionalInventoryAttributes: {

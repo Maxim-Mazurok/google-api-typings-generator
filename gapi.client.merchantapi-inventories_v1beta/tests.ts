@@ -43,6 +43,7 @@ gapi.load('client', async () => {
       {
         account: 'Test string',
         availability: 'Test string',
+        base64EncodedName: 'Test string',
         customAttributes: [
           {
             groupValues: undefined,
@@ -88,6 +89,7 @@ gapi.load('client', async () => {
       {
         account: 'Test string',
         availability: 'Test string',
+        base64EncodedName: 'Test string',
         customAttributes: [
           {
             groupValues: undefined,

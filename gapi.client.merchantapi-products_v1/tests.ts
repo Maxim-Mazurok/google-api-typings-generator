@@ -43,6 +43,8 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
+        base64EncodedName: 'Test string',
+        base64EncodedProduct: 'Test string',
         contentLanguage: 'Test string',
         customAttributes: [
           {
@@ -360,6 +362,8 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
+        base64EncodedName: 'Test string',
+        base64EncodedProduct: 'Test string',
         contentLanguage: 'Test string',
         customAttributes: [
           {

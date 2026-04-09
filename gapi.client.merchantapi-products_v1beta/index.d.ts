@@ -402,6 +402,8 @@ declare namespace gapi.client {
       attributes?: Attributes;
       /** Output only. The automated discounts information for the product. */
       automatedDiscounts?: AutomatedDiscounts;
+      /** Output only. The **unpadded base64url encoded name** of the product. Format: `accounts/{account}/products/{product}` where the last section `product` is the unpadded base64url encoding of the `content_language~feed_label~offer_id` name. Example: `accounts/123/products/ZW5-VVN-c2t1LzEyMw` for the decoded product name `accounts/123/products/en~US~sku/123`. This field can be used directly as input to the API methods that require the product name to be encoded if it contains special characters, for example [`GetProduct`](https://developers.google.com/merchant/api/reference/rest/products_v1beta/accounts.products/get). */
+      base64EncodedName?: string;
       /** Output only. The [channel](https://support.google.com/merchants/answer/7361332) of the product. */
       channel?: 'CHANNEL_ENUM_UNSPECIFIED' | 'ONLINE' | 'LOCAL';
       /** Output only. The two-letter [ISO 639-1](http://en.wikipedia.org/wiki/ISO_639-1) language code for the product. */
@@ -468,6 +470,10 @@ declare namespace gapi.client {
     interface ProductInput {
       /** Optional. A list of product attributes. */
       attributes?: Attributes;
+      /** Output only. The **unpadded base64url encoded name** of the product input. Format: `accounts/{account}/productInputs/{productinput}` where the last section `productinput` is the unpadded base64url encoding of the `content_language~feed_label~offer_id` name. Example: `accounts/123/productInputs/ZW5-VVN-c2t1LzEyMw` for the decoded product input name `accounts/123/productInputs/en~US~sku/123`. This field can be used directly as input to the API methods that require the product input name to be encoded if it contains special characters, for example [`GetProductInput`](https://developers.google.com/merchant/api/reference/rest/products_v1beta/accounts.productInputs/get). */
+      base64EncodedName?: string;
+      /** Output only. The **unpadded base64url encoded name** of the processed product. Format: `accounts/{account}/products/{product}` where the last section `product` is the unpadded base64url encoding of the `content_language~feed_label~offer_id` name. Example: `accounts/123/products/ZW5-VVN-c2t1LzEyMw` for the decoded product name `accounts/123/products/en~US~sku/123`. This field can be used directly as input to the API methods that require the product name to be encoded if it contains special characters, for example [`GetProduct`](https://developers.google.com/merchant/api/reference/rest/products_v1beta/accounts.products/get). */
+      base64EncodedProduct?: string;
       /** Immutable. The [channel](https://support.google.com/merchants/answer/7361332) of the product. */
       channel?: 'CHANNEL_ENUM_UNSPECIFIED' | 'ONLINE' | 'LOCAL';
       /** Required. Immutable. The two-letter [ISO 639-1](http://en.wikipedia.org/wiki/ISO_639-1) language code for the product. */

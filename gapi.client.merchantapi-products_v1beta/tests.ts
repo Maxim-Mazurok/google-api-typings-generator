@@ -304,6 +304,8 @@ gapi.load('client', async () => {
           },
           virtualModelLink: 'Test string',
         },
+        base64EncodedName: 'Test string',
+        base64EncodedProduct: 'Test string',
         channel: 'Test string',
         contentLanguage: 'Test string',
         customAttributes: [
@@ -589,6 +591,8 @@ gapi.load('client', async () => {
           },
           virtualModelLink: 'Test string',
         },
+        base64EncodedName: 'Test string',
+        base64EncodedProduct: 'Test string',
         channel: 'Test string',
         contentLanguage: 'Test string',
         customAttributes: [
