@@ -11279,6 +11279,18 @@ Install typings for Admin SDK API:
 npm install @types/gapi.client.admin-directory_v1 --save-dev
 \`\`\`
 
+## TypeScript 6.0+
+
+TypeScript 6.0 changed \`types\` to default to \`[]\`. You must now explicitly list type packages in \`tsconfig.json\`:
+
+\`\`\`json
+{
+  "compilerOptions": {
+    "types": ["gapi", "gapi.auth2", "gapi.client", "gapi.client.admin-directory_v1"]
+  }
+}
+\`\`\`
+
 ## Usage
 
 You need to initialize Google API client in your code:
@@ -16816,6 +16828,18 @@ Install typings for Calendar API:
 npm install @types/gapi.client.calendar-v3 --save-dev
 \`\`\`
 
+## TypeScript 6.0+
+
+TypeScript 6.0 changed \`types\` to default to \`[]\`. You must now explicitly list type packages in \`tsconfig.json\`:
+
+\`\`\`json
+{
+  "compilerOptions": {
+    "types": ["gapi", "gapi.auth2", "gapi.client", "gapi.client.calendar-v3"]
+  }
+}
+\`\`\`
+
 ## Usage
 
 You need to initialize Google API client in your code:
@@ -22018,6 +22042,18 @@ Install typings for Drive API:
 
 \`\`\`
 npm install @types/gapi.client.drive-v3 --save-dev
+\`\`\`
+
+## TypeScript 6.0+
+
+TypeScript 6.0 changed \`types\` to default to \`[]\`. You must now explicitly list type packages in \`tsconfig.json\`:
+
+\`\`\`json
+{
+  "compilerOptions": {
+    "types": ["gapi", "gapi.auth2", "gapi.client", "gapi.client.drive-v3"]
+  }
+}
 \`\`\`
 
 ## Usage
@@ -34075,6 +34111,18 @@ Install typings for Application Integration API:
 
 \`\`\`
 npm install @types/gapi.client.integrations-v1 --save-dev
+\`\`\`
+
+## TypeScript 6.0+
+
+TypeScript 6.0 changed \`types\` to default to \`[]\`. You must now explicitly list type packages in \`tsconfig.json\`:
+
+\`\`\`json
+{
+  "compilerOptions": {
+    "types": ["gapi", "gapi.auth2", "gapi.client", "gapi.client.integrations-v1"]
+  }
+}
 \`\`\`
 
 ## Usage
@@ -47274,6 +47322,18 @@ Install typings for Google Sheets API:
 npm install @types/gapi.client.sheets-v4 --save-dev
 \`\`\`
 
+## TypeScript 6.0+
+
+TypeScript 6.0 changed \`types\` to default to \`[]\`. You must now explicitly list type packages in \`tsconfig.json\`:
+
+\`\`\`json
+{
+  "compilerOptions": {
+    "types": ["gapi", "gapi.auth2", "gapi.client", "gapi.client.sheets-v4"]
+  }
+}
+\`\`\`
+
 ## Usage
 
 You need to initialize Google API client in your code:
@@ -59483,6 +59543,18 @@ Install typings for Some Name:
 
 \`\`\`
 npm install @types/gapi.client.some-name-v1 --save-dev
+\`\`\`
+
+## TypeScript 6.0+
+
+TypeScript 6.0 changed \`types\` to default to \`[]\`. You must now explicitly list type packages in \`tsconfig.json\`:
+
+\`\`\`json
+{
+  "compilerOptions": {
+    "types": ["gapi", "gapi.auth2", "gapi.client", "gapi.client.some-name-v1"]
+  }
+}
 \`\`\`
 
 ## Usage
