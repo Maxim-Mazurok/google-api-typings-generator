@@ -136,7 +136,7 @@ await gapi.client.storage.anywhereCaches.resume({
 });
 
 /*
-Updates the config(ttl and admissionPolicy) of an Anywhere Cache instance.
+Updates the config of an Anywhere Cache instance.
 */
 await gapi.client.storage.anywhereCaches.update({
   anywhereCacheId: 'anywhereCacheId',
