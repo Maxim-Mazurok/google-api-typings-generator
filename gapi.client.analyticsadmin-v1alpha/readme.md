@@ -200,6 +200,13 @@ await gapi.client.analyticsadmin.properties.getReportingIdentitySettings({
 });
 
 /*
+Looks up settings related to user-provided data for a property.
+*/
+await gapi.client.analyticsadmin.properties.getUserProvidedDataSettings({
+  name: 'name',
+});
+
+/*
 Returns child Properties under the specified parent Account. Properties will be excluded if the caller does not have access. Soft-deleted (ie: "trashed") properties are excluded by default. Returns an empty list if no relevant properties are found.
 */
 await gapi.client.analyticsadmin.properties.list({});
