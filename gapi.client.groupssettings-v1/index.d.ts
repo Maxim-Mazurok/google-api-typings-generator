@@ -178,12 +178,6 @@ declare namespace gapi.client {
        * - NONE_CAN_ADD: No one can directly add new members.
        */
       whoCanAdd?: string;
-      /**
-       * Specifies who can add external members. UPDATE and PATCH requests ignore this field if allowExternalMembers is false. Possible values are:
-       * - ONLY_ADMINS_CAN_ADD_EXTERNAL_MEMBERS
-       * - END_USERS_CAN_ADD_EXTERNAL_MEMBERS
-       */
-      whoCanAddExternalMembers?: string;
       /** Deprecated. This functionality is no longer supported in the Google Groups UI. The value is always "NONE". */
       whoCanAddReferences?: string;
       /**
