@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.saasservicemgmt-v1",
-  "version": "0.0.20260407",
+  "version": "0.0.20260415",
   "description": "TypeScript typings for App Lifecycle Manager API v1",
   "repository": {
     "type": "git",
