@@ -43,6 +43,77 @@ const typesMap: {[key: string]: string} = {
   string: 'string',
 };
 
+// JavaScript reserved keywords that cannot be used as identifiers in declarations
+// (e.g., `const debugger: Type;` is a syntax error). Property names in interfaces
+// are fine, so these are handled via declaration merging when they appear as
+// top-level resource names.
+const jsReservedKeywords = new Set([
+  'abstract',
+  'arguments',
+  'await',
+  'boolean',
+  'break',
+  'byte',
+  'case',
+  'catch',
+  'char',
+  'class',
+  'const',
+  'continue',
+  'debugger',
+  'default',
+  'delete',
+  'do',
+  'double',
+  'else',
+  'enum',
+  'eval',
+  'export',
+  'extends',
+  'false',
+  'final',
+  'finally',
+  'float',
+  'for',
+  'function',
+  'goto',
+  'if',
+  'implements',
+  'import',
+  'in',
+  'instanceof',
+  'int',
+  'interface',
+  'let',
+  'long',
+  'native',
+  'new',
+  'null',
+  'package',
+  'private',
+  'protected',
+  'public',
+  'return',
+  'short',
+  'static',
+  'super',
+  'switch',
+  'synchronized',
+  'this',
+  'throw',
+  'throws',
+  'transient',
+  'true',
+  'try',
+  'typeof',
+  'var',
+  'void',
+  'volatile',
+  'while',
+  'with',
+  'yield',
+]);
+
 export const excludedRestDescriptionIds: NonNullable<RestDescription['id']>[] =
   [
     'poly:v1', // Google Poly was shut down on June 30, 2021; The Discovery API returns 5xx error
@@ -740,6 +811,9 @@ export class App {
       writer.endLine();
 
       namespaces.forEach(namespace => {
+        const allResources: string[] = [];
+        let hasReservedKeywordResource = false;
+
         writer.namespace(namespace, () => {
           const schemas = checkExists(restDescription.schemas);
 
@@ -786,13 +860,41 @@ export class App {
             );
 
             writtenResources.forEach(resourceName => {
-              writer.endLine();
-              writer.writeLine(
-                `const ${resourceName}: ${getResourceTypeName(resourceName)};`,
-              );
+              allResources.push(resourceName);
+              if (jsReservedKeywords.has(resourceName)) {
+                hasReservedKeywordResource = true;
+              }
             });
+
+            // When no reserved keywords, emit const declarations inside the
+            // namespace (the normal path).
+            if (!hasReservedKeywordResource) {
+              writtenResources.forEach(resourceName => {
+                writer.endLine();
+                writer.writeLine(
+                  `const ${resourceName}: ${getResourceTypeName(resourceName)};`,
+                );
+              });
+            }
           }
         });
+
+        // When at least one resource name is a JS reserved keyword, we can't
+        // use `const` declarations inside the namespace (e.g. `const debugger`
+        // is a syntax error). Instead, emit a `var` declaration that merges
+        // with the namespace — the namespace keeps only type members
+        // (interfaces) and the var provides value-level access to all
+        // resources, including reserved-keyword ones.
+        if (hasReservedKeywordResource && allResources.length > 0) {
+          writer.endLine();
+          writer.writeLine(`var ${namespace}: {`);
+          allResources.forEach(resourceName => {
+            writer.writeLine(
+              `    readonly ${resourceName}: ${namespace}.${getResourceTypeName(resourceName)};`,
+            );
+          });
+          writer.writeLine(`};`);
+        }
       });
     });
 

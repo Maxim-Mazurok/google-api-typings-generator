@@ -149,3 +149,51 @@ it('warns when schema names shadow TypeScript globals', async () => {
     warnSpy.mockRestore();
   }
 });
+
+it('handles reserved JS keyword resource names via declaration merging', async () => {
+  const restDescription = {
+    name: 'debugger-api',
+    title: 'Debugger API',
+    id: 'debugger-api:v1',
+    version: 'v1',
+    documentationLink: 'https://example.com',
+    schemas: {},
+    resources: {
+      debugger: {
+        methods: {
+          list: {
+            httpMethod: 'GET',
+            path: 'debugger/list',
+            id: 'debuggerApi.list',
+          },
+        },
+        resources: {
+          breakpoints: {
+            methods: {
+              get: {
+                httpMethod: 'GET',
+                path: 'debugger/breakpoints/get',
+                id: 'debuggerApi.get',
+              },
+            },
+          },
+        },
+      },
+      controller: {
+        methods: {
+          update: {
+            httpMethod: 'PUT',
+            path: 'controller/update',
+            id: 'debuggerApi.update',
+          },
+        },
+      },
+    },
+  } as RestDescription;
+
+  const folder = getPackageNameFromRestDescription(restDescription);
+
+  await mySnapshotTest(folder, () =>
+    app.processService(restDescription, new URL('http://x.com'), false),
+  );
+});
