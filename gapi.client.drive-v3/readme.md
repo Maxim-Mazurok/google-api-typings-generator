@@ -130,6 +130,26 @@ Approves or denies an access proposal. For more information, see [Manage pending
 await gapi.client.drive.accessproposals.resolve({ fileId: "fileId", proposalId: "proposalId",  });
 
 /*
+Approves an Approval. This is used to update the ReviewerResponse of the requesting user with a Response of `APPROVED`. If this is the last required reviewer response, this will also complete the Approval and set the Status to `APPROVED`.
+*/
+await gapi.client.drive.approvals.approve({ approvalId: "approvalId", fileId: "fileId",  });
+
+/*
+Cancels an Approval. This is used to update the Approval Status to `CANCELLED`. This can only be done by the Approval initiator while the Approval Status is still `IN_PROGRESS`.
+*/
+await gapi.client.drive.approvals.cancel({ approvalId: "approvalId", fileId: "fileId",  });
+
+/*
+Comments on an Approval. This sends a notification to the initiator and reviewers with a message that is also added to the Approval activity log.
+*/
+await gapi.client.drive.approvals.comment({ approvalId: "approvalId", fileId: "fileId",  });
+
+/*
+Declines an Approval. This is used to update the ReviewerResponse of the requesting user with a Response of `DECLINED`. This will also complete the Approval and set the Approval Status to `DECLINED`.
+*/
+await gapi.client.drive.approvals.decline({ approvalId: "approvalId", fileId: "fileId",  });
+
+/*
 Gets an Approval by ID.
 */
 await gapi.client.drive.approvals.get({ approvalId: "approvalId", fileId: "fileId",  });
@@ -138,6 +158,16 @@ await gapi.client.drive.approvals.get({ approvalId: "approvalId", fileId: "fileI
 Lists the Approvals on a file.
 */
 await gapi.client.drive.approvals.list({ fileId: "fileId",  });
+
+/*
+Reassigns the reviewers on an Approval. This allows the initiator to add or replace reviewers in the ReviewerResponse of the Approval. Removing a reviewer is not allowed. Reviewers can only be reassigned while the Approval Status is `IN_PROGRESS` and the Response for the reviewer being reassigned is `NO_RESPONSE`.
+*/
+await gapi.client.drive.approvals.reassign({ approvalId: "approvalId", fileId: "fileId",  });
+
+/*
+Starts an Approval on a file.
+*/
+await gapi.client.drive.approvals.start({ fileId: "fileId",  });
 
 /*
 Gets a specific app. For more information, see [Return user info](https://developers.google.com/workspace/drive/api/guides/user-info).
