@@ -101,6 +101,16 @@ await gapi.client.playdeveloperreporting.apps.fetchReleaseFilterOptions({
 Searches for Apps accessible by the user.
 */
 await gapi.client.playdeveloperreporting.apps.search({});
+
+/*
+Describes the properties of the metric set.
+*/
+await gapi.client.playdeveloperreporting.ratings.get({name: 'name'});
+
+/*
+Queries the metrics in the metric set.
+*/
+await gapi.client.playdeveloperreporting.ratings.query({name: 'name'});
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.playdeveloperreporting-v1beta1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
