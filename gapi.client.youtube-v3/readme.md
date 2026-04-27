@@ -333,6 +333,11 @@ Updates an existing stream for the authenticated user.
 await gapi.client.youtube.liveStreams.update({part: 'part'});
 
 /*
+Inserts a new AudioTrack for a video.
+*/
+await gapi.client.youtube.media.upload({});
+
+/*
 Retrieves a list of members that match the request criteria for a channel.
 */
 await gapi.client.youtube.members.list({part: 'part'});
