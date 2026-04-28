@@ -130,14 +130,44 @@ Approves or denies an access proposal. For more information, see [Manage pending
 await gapi.client.drive.accessproposals.resolve({ fileId: "fileId", proposalId: "proposalId",  });
 
 /*
-Gets an Approval by ID.
+Approves an approval. For more information, see [Manage approvals](https://developers.google.com/workspace/drive/api/guides/approvals). This is used to update the ReviewerResponse of the requesting user with a Response of `APPROVED`. If this is the last required reviewer response, this also completes the approval and sets the approval Status to `APPROVED`.
+*/
+await gapi.client.drive.approvals.approve({ approvalId: "approvalId", fileId: "fileId",  });
+
+/*
+Cancels an approval. For more information, see [Manage approvals](https://developers.google.com/workspace/drive/api/guides/approvals). Updates the approval Status to `CANCELLED`. This can be called by any user with the `writer` permission on the file while the approval Status is `IN_PROGRESS`.
+*/
+await gapi.client.drive.approvals.cancel({ approvalId: "approvalId", fileId: "fileId",  });
+
+/*
+Comments on an approval. For more information, see [Manage approvals](https://developers.google.com/workspace/drive/api/guides/approvals). This sends a notification to both the initiator and the reviewers. Additionally, a message is also added to the approval activity log.
+*/
+await gapi.client.drive.approvals.comment({ approvalId: "approvalId", fileId: "fileId",  });
+
+/*
+Declines an approval. For more information, see [Manage approvals](https://developers.google.com/workspace/drive/api/guides/approvals). This is used to update the ReviewerResponse of the requesting user with a Response of `DECLINED`. This also completes the approval and sets the approval Status to `DECLINED`.
+*/
+await gapi.client.drive.approvals.decline({ approvalId: "approvalId", fileId: "fileId",  });
+
+/*
+Gets an approval by ID. For more information, see [Manage approvals](https://developers.google.com/workspace/drive/api/guides/approvals).
 */
 await gapi.client.drive.approvals.get({ approvalId: "approvalId", fileId: "fileId",  });
 
 /*
-Lists the Approvals on a file.
+Lists the approvals on a file. For more information, see [Manage approvals](https://developers.google.com/workspace/drive/api/guides/approvals).
 */
 await gapi.client.drive.approvals.list({ fileId: "fileId",  });
+
+/*
+Reassigns the reviewers on an approval. For more information, see [Manage approvals](https://developers.google.com/workspace/drive/api/guides/approvals). Adds or replaces reviewers in the ReviewerResponse of the approval. This can be called by any user with the `writer` permission on the file while the approval Status is `IN_PROGRESS` and the Response for the reviewer being reassigned is `NO_RESPONSE`. A user with the `reader` permission can only reassign an approval that's assigned to themselves. Removing a reviewer isn't allowed.
+*/
+await gapi.client.drive.approvals.reassign({ approvalId: "approvalId", fileId: "fileId",  });
+
+/*
+Starts an approval on a file. For more information, see [Manage approvals](https://developers.google.com/workspace/drive/api/guides/approvals).
+*/
+await gapi.client.drive.approvals.start({ fileId: "fileId",  });
 
 /*
 Gets a specific app. For more information, see [Return user info](https://developers.google.com/workspace/drive/api/guides/user-info).
