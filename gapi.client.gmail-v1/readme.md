@@ -126,12 +126,12 @@ Gets the current user's Gmail profile.
 await gapi.client.gmail.users.getProfile({userId: 'userId'});
 
 /*
-Stop receiving push notifications for the given user mailbox.
+Turn off push notification delivery for the given user mailbox. For more information, see [Configure push notifications in Gmail API](https://developers.google.com/workspace/gmail/api/guides/push).
 */
 await gapi.client.gmail.users.stop({userId: 'userId'});
 
 /*
-Set up or update a push notification watch on the given user mailbox.
+Set up or update a push notification watch on the given user mailbox. For more information, see [Configure push notifications in Gmail API](https://developers.google.com/workspace/gmail/api/guides/push).
 */
 await gapi.client.gmail.users.watch({userId: 'userId'});
 ```
