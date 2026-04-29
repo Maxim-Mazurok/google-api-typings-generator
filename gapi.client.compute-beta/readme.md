@@ -171,6 +171,18 @@ resources.
 await gapi.client.compute.advice.calendarMode({ project: "project", region: "region",  });
 
 /*
+Advice on making real-time decisions (such as choosing zone or
+machine types) during deployment to maximize your chances of obtaining
+capacity.
+*/
+await gapi.client.compute.advice.capacity({ project: "project", region: "region",  });
+
+/*
+Gets the capacity history.
+*/
+await gapi.client.compute.advice.capacityHistory({ project: "project", region: "region",  });
+
+/*
 Retrieves an aggregated list of autoscalers.
 
 To prevent failure, it is recommended that you set the
@@ -2637,6 +2649,24 @@ for use only by third-party partners who are creatingCloud Marketplace
 images.
 */
 await gapi.client.compute.licenseCodes.get({ licenseCode: "licenseCode", project: "project",  });
+
+/*
+Gets the access control policy for a resource. May be empty if no such
+policy or resource exists.
+ *Caution* This resource is intended
+for use only by third-party partners who are creatingCloud Marketplace
+images.
+*/
+await gapi.client.compute.licenseCodes.getIamPolicy({ project: "project", resource: "resource",  });
+
+/*
+Sets the access control policy on the specified resource.
+Replaces any existing policy.
+ *Caution* This resource is intended
+for use only by third-party partners who are creatingCloud Marketplace
+images.
+*/
+await gapi.client.compute.licenseCodes.setIamPolicy({ project: "project", resource: "resource",  });
 
 /*
 Returns permissions that a caller has on the specified resource.
@@ -7064,12 +7094,12 @@ Retrieves the list of Zone resources available to the specified project.
 await gapi.client.compute.zones.list({ project: "project",  });
 
 /*
-Deletes a specified zone VM extension policy.
+Deletes a specified zone VM extension policy within a project.
 */
 await gapi.client.compute.zoneVmExtensionPolicies.delete({ project: "project", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
 
 /*
-Retrieves details of a specific zone VM extension policy.
+Retrieves details of a specific zone VM extension policy within a project.
 */
 await gapi.client.compute.zoneVmExtensionPolicies.get({ project: "project", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
 
@@ -7084,7 +7114,7 @@ Lists all VM extension policies within a specific zone for a project.
 await gapi.client.compute.zoneVmExtensionPolicies.list({ project: "project", zone: "zone",  });
 
 /*
-Modifies an existing zone VM extension policy.
+Modifies an existing zone VM extension policy within a project.
 */
 await gapi.client.compute.zoneVmExtensionPolicies.update({ project: "project", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
 ```
