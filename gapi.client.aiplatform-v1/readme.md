@@ -1,11 +1,11 @@
-# TypeScript typings for Vertex AI API v1
+# TypeScript typings for Agent Platform API v1
 
-Train high-quality custom machine learning models with minimal machine learning expertise and effort.
+Build, scale, govern, and optimize sophisticated agents and models.
 For detailed description please check [documentation](https://cloud.google.com/vertex-ai/).
 
 ## Installing
 
-Install typings for Vertex AI API:
+Install typings for Agent Platform API:
 
 ```
 npm install @types/gapi.client.aiplatform-v1 --save-dev
@@ -81,7 +81,7 @@ gapi.auth.authorize(
 );
 ```
 
-After that you can use Vertex AI API resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use Agent Platform API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 /*
@@ -202,6 +202,11 @@ await gapi.client.aiplatform.projects.getCacheConfig({name: 'name'});
 Updates a cache config.
 */
 await gapi.client.aiplatform.projects.updateCacheConfig({name: 'name'});
+
+/*
+Async query using a reasoning engine.
+*/
+await gapi.client.aiplatform.reasoningEngines.asyncQuery({name: 'name'});
 
 /*
 Creates a reasoning engine.

@@ -1,11 +1,11 @@
-# TypeScript typings for Vertex AI API v1beta1
+# TypeScript typings for Agent Platform API v1beta1
 
-Train high-quality custom machine learning models with minimal machine learning expertise and effort.
+Build, scale, govern, and optimize sophisticated agents and models.
 For detailed description please check [documentation](https://cloud.google.com/vertex-ai/).
 
 ## Installing
 
-Install typings for Vertex AI API:
+Install typings for Agent Platform API:
 
 ```
 npm install @types/gapi.client.aiplatform-v1beta1 --save-dev
@@ -86,7 +86,7 @@ gapi.auth.authorize(
 );
 ```
 
-After that you can use Vertex AI API resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use Agent Platform API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 /*
@@ -219,6 +219,11 @@ Updates a cache config.
 await gapi.client.aiplatform.projects.updateCacheConfig({name: 'name'});
 
 /*
+Async query using a reasoning engine.
+*/
+await gapi.client.aiplatform.reasoningEngines.asyncQuery({name: 'name'});
+
+/*
 Creates a reasoning engine.
 */
 await gapi.client.aiplatform.reasoningEngines.create({});
@@ -272,6 +277,16 @@ await gapi.client.aiplatform.evaluateInstances({});
 Generates rubrics for a given prompt. A rubric represents a single testable criterion for evaluation. One input prompt could have multiple rubrics This RPC allows users to get suggested rubrics based on provided prompt, which can then be reviewed and used for subsequent evaluations.
 */
 await gapi.client.aiplatform.generateInstanceRubrics({});
+
+/*
+Retrieves the project for Vertex AI Express Mode.
+*/
+await gapi.client.aiplatform.vertexExpress.retrieveExpressProject({});
+
+/*
+Signs up the user for Vertex AI Express Mode. If the user is already signed up, the existing ExpressProject will be returned.
+*/
+await gapi.client.aiplatform.vertexExpress.signUp({});
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.aiplatform-v1beta1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
