@@ -85,7 +85,17 @@ gapi.auth.authorize(
 After that you can use Assured Workloads API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
+/*
+Finds orphan ResourceEvents matching the criteria and moves them to the ArchivedResourceEvents table.
+*/
+await gapi.client.assuredworkloads.assuredworkloads.archiveResourceEvents({});
 
+/*
+Finds matching ArchivedResourceEvents and moves them back to the ResourceEvents table.
+*/
+await gapi.client.assuredworkloads.assuredworkloads.revertArchivedResourceEvents(
+  {},
+);
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.assuredworkloads-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
