@@ -178,7 +178,7 @@ capacity.
 await gapi.client.compute.advice.capacity({ project: "project", region: "region",  });
 
 /*
-Gets the capacity history.
+Gets the capacity history for Spot VMs.
 */
 await gapi.client.compute.advice.capacityHistory({ project: "project", region: "region",  });
 
@@ -1476,19 +1476,6 @@ await gapi.client.compute.images.setLabels({ project: "project", resource: "reso
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.images.testIamPermissions({ project: "project", resource: "resource",  });
-
-/*
-Returns the specified global Image resource by providing a regional
-context to read the metadata from the Global Clone in the region.
-*/
-await gapi.client.compute.imageViews.get({ project: "project", region: "region", resourceId: "resourceId",  });
-
-/*
-Retrieves the list of global Image resources available to the project by
-providing a regional context to read the metadata from the Global Clone in
-the region.
-*/
-await gapi.client.compute.imageViews.list({ project: "project", region: "region",  });
 
 /*
 Cancels the specified resize request and removes it from the queue.
@@ -3840,12 +3827,6 @@ method, the usage export feature will be disabled.
 await gapi.client.compute.projects.setUsageExportBucket({ project: "project",  });
 
 /*
-Returns the specified global ProjectViews resource, with a regional
-context.
-*/
-await gapi.client.compute.projectViews.get({ project: "project", region: "region",  });
-
-/*
 Announces the specified PublicAdvertisedPrefix
 */
 await gapi.client.compute.publicAdvertisedPrefixes.announce({ project: "project", publicAdvertisedPrefix: "publicAdvertisedPrefix",  });
@@ -6060,11 +6041,6 @@ Lists RolloutPlans in a given project and location.
 await gapi.client.compute.rolloutPlans.list({ project: "project",  });
 
 /*
-Advances a Rollout to the next wave, or completes it if no waves remain.
-*/
-await gapi.client.compute.rollouts.advance({ project: "project", rollout: "rollout",  });
-
-/*
 Cancels a Rollout.
 */
 await gapi.client.compute.rollouts.cancel({ project: "project", rollout: "rollout",  });
@@ -6093,6 +6069,11 @@ await gapi.client.compute.rollouts.pause({ project: "project", rollout: "rollout
 Resumes a Rollout.
 */
 await gapi.client.compute.rollouts.resume({ project: "project", rollout: "rollout",  });
+
+/*
+Starts the next wave of a Rollout.
+*/
+await gapi.client.compute.rollouts.startNextWave({ project: "project", rollout: "rollout",  });
 
 /*
 Retrieves an aggregated list of routers.
@@ -7465,17 +7446,17 @@ Retrieves the list of Zone resources available to the specified project.
 await gapi.client.compute.zones.list({ project: "project",  });
 
 /*
-Deletes a specified zone VM extension policy within a project.
+Deletes a specified zone VM extension policy.
 */
 await gapi.client.compute.zoneVmExtensionPolicies.delete({ project: "project", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
 
 /*
-Retrieves details of a specific zone VM extension policy within a project.
+Retrieves details of a specific zone VM extension policy.
 */
 await gapi.client.compute.zoneVmExtensionPolicies.get({ project: "project", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
 
 /*
-Retrieves details of a specific VM extension within a project.
+Retrieves details of a specific VM extension.
 */
 await gapi.client.compute.zoneVmExtensionPolicies.getVmExtension({ extensionName: "extensionName", project: "project", zone: "zone",  });
 
@@ -7496,7 +7477,7 @@ This is a read-only API.
 await gapi.client.compute.zoneVmExtensionPolicies.listVmExtensions({ project: "project", zone: "zone",  });
 
 /*
-Modifies an existing zone VM extension policy within a project.
+Modifies an existing zone VM extension policy.
 */
 await gapi.client.compute.zoneVmExtensionPolicies.update({ project: "project", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
 ```
