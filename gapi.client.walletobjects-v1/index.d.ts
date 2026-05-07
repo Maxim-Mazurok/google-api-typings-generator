@@ -1759,6 +1759,8 @@ declare namespace gapi.client {
       sha1Hash?: string;
       /** Scotty-provided SHA256 hash for an upload. */
       sha256Hash?: string;
+      /** Scotty-provided SHA512 hash for an upload. */
+      sha512Hash?: string;
       /** Time at which the media data was last updated, in milliseconds since UNIX epoch */
       timestamp?: string;
       /** A unique fingerprint/version id for the media data */

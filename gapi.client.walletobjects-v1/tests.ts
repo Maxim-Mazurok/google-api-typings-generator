@@ -43794,6 +43794,7 @@ gapi.load('client', async () => {
           referenceType: 'Test string',
           sha1Hash: 'Test string',
           sha256Hash: 'Test string',
+          sha512Hash: 'Test string',
           timestamp: 'Test string',
           token: 'Test string',
         },
