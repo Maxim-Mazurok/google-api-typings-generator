@@ -224,6 +224,11 @@ Async query using a reasoning engine.
 await gapi.client.aiplatform.reasoningEngines.asyncQuery({name: 'name'});
 
 /*
+Cancels an AsyncQueryReasoningEngine operation.
+*/
+await gapi.client.aiplatform.reasoningEngines.cancelAsyncQuery({name: 'name'});
+
+/*
 Creates a reasoning engine.
 */
 await gapi.client.aiplatform.reasoningEngines.create({});
