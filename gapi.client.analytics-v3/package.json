@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.doubleclicksearch-v2",
-  "version": "0.0.20260505",
-  "description": "TypeScript typings for Search Ads 360 API v2",
+  "name": "@maxim_mazurok/gapi.client.analytics-v3",
+  "version": "0.0.20190807",
+  "description": "TypeScript typings for Google Analytics API v3",
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
