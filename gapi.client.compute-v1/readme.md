@@ -1078,45 +1078,6 @@ patch format and processing rules.
 await gapi.client.compute.globalPublicDelegatedPrefixes.patch({ project: "project", publicDelegatedPrefix: "publicDelegatedPrefix",  });
 
 /*
-Retrieves the list of all VM Extension Policy resources
-available to the specified project.
-
-To prevent failure, it's recommended that you set the
-`returnPartialSuccess` parameter to `true`.
-*/
-await gapi.client.compute.globalVmExtensionPolicies.aggregatedList({ project: "project",  });
-
-/*
-Purge scoped resources (zonal policies) from a global VM extension
-policy, and then delete the global VM extension policy. Purge of the scoped
-resources is a pre-condition of the global VM extension policy deletion.
-The deletion of the global VM extension policy happens after the purge
-rollout is done, so it's not a part of the LRO. It's an automatic process
-that triggers in the backend.
-*/
-await gapi.client.compute.globalVmExtensionPolicies.delete({ globalVmExtensionPolicy: "globalVmExtensionPolicy", project: "project",  });
-
-/*
-Gets details of a global VM extension policy.
-*/
-await gapi.client.compute.globalVmExtensionPolicies.get({ globalVmExtensionPolicy: "globalVmExtensionPolicy", project: "project",  });
-
-/*
-Creates a new project level GlobalVmExtensionPolicy.
-*/
-await gapi.client.compute.globalVmExtensionPolicies.insert({ project: "project",  });
-
-/*
-Lists global VM extension policies.
-*/
-await gapi.client.compute.globalVmExtensionPolicies.list({ project: "project",  });
-
-/*
-Updates a global VM extension policy.
-*/
-await gapi.client.compute.globalVmExtensionPolicies.update({ globalVmExtensionPolicy: "globalVmExtensionPolicy", project: "project",  });
-
-/*
 Retrieves the list of all HealthCheck resources, regional and global,
 available to the specified project.
 
@@ -2500,24 +2461,6 @@ images.
 await gapi.client.compute.licenseCodes.get({ licenseCode: "licenseCode", project: "project",  });
 
 /*
-Gets the access control policy for a resource. May be empty if no such
-policy or resource exists.
- *Caution* This resource is intended
-for use only by third-party partners who are creatingCloud Marketplace
-images.
-*/
-await gapi.client.compute.licenseCodes.getIamPolicy({ project: "project", resource: "resource",  });
-
-/*
-Sets the access control policy on the specified resource.
-Replaces any existing policy.
- *Caution* This resource is intended
-for use only by third-party partners who are creatingCloud Marketplace
-images.
-*/
-await gapi.client.compute.licenseCodes.setIamPolicy({ project: "project", resource: "resource",  });
-
-/*
 Returns permissions that a caller has on the specified resource.
  *Caution* This resource is intended
 for use only by third-party partners who are creatingCloud Marketplace
@@ -2945,13 +2888,6 @@ await gapi.client.compute.networkProfiles.list({ project: "project",  });
 Adds a peering to the specified network.
 */
 await gapi.client.compute.networks.addPeering({ network: "network", project: "project",  });
-
-/*
-Cancel requests to remove a peering from the specified network. Applicable
-only for PeeringConnection with update_strategy=CONSENSUS.  Cancels a
-request to remove a peering from the specified network.
-*/
-await gapi.client.compute.networks.cancelRequestRemovePeering({ network: "network", project: "project",  });
 
 /*
 Deletes the specified network.
@@ -5378,46 +5314,6 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.resourcePolicies.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
-Deletes a RolloutPlan.
-*/
-await gapi.client.compute.rolloutPlans.delete({ project: "project", rolloutPlan: "rolloutPlan",  });
-
-/*
-Gets details of a single project-scoped RolloutPlan.
-*/
-await gapi.client.compute.rolloutPlans.get({ project: "project", rolloutPlan: "rolloutPlan",  });
-
-/*
-Creates a new RolloutPlan in a given project and location.
-*/
-await gapi.client.compute.rolloutPlans.insert({ project: "project",  });
-
-/*
-Lists RolloutPlans in a given project and location.
-*/
-await gapi.client.compute.rolloutPlans.list({ project: "project",  });
-
-/*
-Cancels a Rollout.
-*/
-await gapi.client.compute.rollouts.cancel({ project: "project", rollout: "rollout",  });
-
-/*
-Deletes a Rollout.
-*/
-await gapi.client.compute.rollouts.delete({ project: "project", rollout: "rollout",  });
-
-/*
-Gets details of a single project-scoped Rollout.
-*/
-await gapi.client.compute.rollouts.get({ project: "project", rollout: "rollout",  });
-
-/*
-Lists Rollouts in a given project and location.
-*/
-await gapi.client.compute.rollouts.list({ project: "project",  });
-
-/*
 Retrieves an aggregated list of routers.
 
 To prevent failure, Google recommends that you set the
@@ -6585,12 +6481,12 @@ Retrieves the list of Zone resources available to the specified project.
 await gapi.client.compute.zones.list({ project: "project",  });
 
 /*
-Deletes a specified zone VM extension policy within a project.
+Deletes a specified zone VM extension policy.
 */
 await gapi.client.compute.zoneVmExtensionPolicies.delete({ project: "project", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
 
 /*
-Retrieves details of a specific zone VM extension policy within a project.
+Retrieves details of a specific zone VM extension policy.
 */
 await gapi.client.compute.zoneVmExtensionPolicies.get({ project: "project", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
 
@@ -6605,7 +6501,7 @@ Lists all VM extension policies within a specific zone for a project.
 await gapi.client.compute.zoneVmExtensionPolicies.list({ project: "project", zone: "zone",  });
 
 /*
-Modifies an existing zone VM extension policy within a project.
+Modifies an existing zone VM extension policy.
 */
 await gapi.client.compute.zoneVmExtensionPolicies.update({ project: "project", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
 ```
