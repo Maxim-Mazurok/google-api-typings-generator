@@ -126,7 +126,7 @@ await gapi.client.accesscontextmanager.accessPolicies.setIamPolicy({
 });
 
 /*
-Returns the IAM permissions that the caller has on the specified Access Context Manager resource. The resource can be an AccessPolicy, AccessLevel, or ServicePerimeter. This method does not support other resources. **IAM Permissions**: No specific IAM permission is required to call this method. It returns the subset of the requested permissions that the caller possesses.
+Returns the IAM permissions that the caller has on the specified Access Context Manager resource. The resource can be an AccessPolicy, AccessLevel, or ServicePerimeter. This method does not support other resources.
 */
 await gapi.client.accesscontextmanager.accessPolicies.testIamPermissions({
   resource: 'resource',
@@ -158,12 +158,12 @@ Lists all supported permissions in VPC Service Controls ingress and egress rules
 await gapi.client.accesscontextmanager.permissions.list({});
 
 /*
-Returns a VPC-SC supported service based on the service name. **IAM Permissions**: Requires the following IAM permissions to use this method: - `serviceusage.services.use` on the project.
+Returns a VPC-SC supported service based on the service name.
 */
 await gapi.client.accesscontextmanager.services.get({name: 'name'});
 
 /*
-Lists all VPC-SC supported services. **IAM Permissions**: Requires the following IAM permissions to use this method: - `serviceusage.services.use` on the project.
+Lists all VPC-SC supported services.
 */
 await gapi.client.accesscontextmanager.services.list({});
 ```
