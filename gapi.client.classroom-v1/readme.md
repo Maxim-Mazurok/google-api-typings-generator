@@ -183,7 +183,7 @@ Updates one or more fields in a course. This method returns the following error 
 await gapi.client.classroom.courses.patch({id: 'id'});
 
 /*
-Updates a course. Note: Unlike other fields, `levels` is not cleared if omitted from the request. The `UpdateCourse` method only modifies `levels` if it is explicitly provided; otherwise, the existing value is preserved. Use the `PatchCourse` method to clear the `levels` field. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to modify the requested course or for access errors. * `NOT_FOUND` if no course exists with the requested ID. * `FAILED_PRECONDITION` for the following request errors: * CourseNotModifiable * CourseTitleCannotContainUrl
+Updates a course. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to modify the requested course or for access errors. * `NOT_FOUND` if no course exists with the requested ID. * `FAILED_PRECONDITION` for the following request errors: * CourseNotModifiable * CourseTitleCannotContainUrl
 */
 await gapi.client.classroom.courses.update({id: 'id'});
 
