@@ -62,6 +62,24 @@ var client_id = '',
   scope = [
     // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
     'https://www.googleapis.com/auth/cloud-platform',
+
+    // See your Google Health activity and fitness data
+    'https://www.googleapis.com/auth/googlehealth.activity_and_fitness.readonly',
+
+    // See your Google Health health metrics and measurement data
+    'https://www.googleapis.com/auth/googlehealth.health_metrics_and_measurements.readonly',
+
+    // See exercise GPS location data in Google Health
+    'https://www.googleapis.com/auth/googlehealth.location.readonly',
+
+    // See your Google Health profile data
+    'https://www.googleapis.com/auth/googlehealth.profile.readonly',
+
+    // See your Google Health settings
+    'https://www.googleapis.com/auth/googlehealth.settings.readonly',
+
+    // See your Google Health sleep data
+    'https://www.googleapis.com/auth/googlehealth.sleep.readonly',
   ],
   immediate = true;
 // ...
