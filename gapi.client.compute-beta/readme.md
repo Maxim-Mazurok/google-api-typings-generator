@@ -5788,11 +5788,6 @@ Lists RolloutPlans in a given project and location.
 await gapi.client.compute.rolloutPlans.list({ project: "project",  });
 
 /*
-Advances a Rollout to the next wave, or completes it if no waves remain.
-*/
-await gapi.client.compute.rollouts.advance({ project: "project", rollout: "rollout",  });
-
-/*
 Cancels a Rollout.
 */
 await gapi.client.compute.rollouts.cancel({ project: "project", rollout: "rollout",  });
@@ -5811,16 +5806,6 @@ await gapi.client.compute.rollouts.get({ project: "project", rollout: "rollout",
 Lists Rollouts in a given project and location.
 */
 await gapi.client.compute.rollouts.list({ project: "project",  });
-
-/*
-Pauses a Rollout.
-*/
-await gapi.client.compute.rollouts.pause({ project: "project", rollout: "rollout",  });
-
-/*
-Resumes a Rollout.
-*/
-await gapi.client.compute.rollouts.resume({ project: "project", rollout: "rollout",  });
 
 /*
 Retrieves an aggregated list of routers.
