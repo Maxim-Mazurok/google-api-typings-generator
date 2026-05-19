@@ -107,6 +107,12 @@ var client_id = '',
     // View chat and spaces in Google Chat
     'https://www.googleapis.com/auth/chat.spaces.readonly',
 
+    // See and change your availability status in Google Chat.
+    'https://www.googleapis.com/auth/chat.users.availability',
+
+    // See your availability status in Google Chat.
+    'https://www.googleapis.com/auth/chat.users.availability.readonly',
+
     // View and modify last read time for Google Chat conversations
     'https://www.googleapis.com/auth/chat.users.readstate',
 
