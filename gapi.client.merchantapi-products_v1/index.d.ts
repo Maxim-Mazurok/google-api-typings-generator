@@ -598,7 +598,7 @@ declare namespace gapi.client {
       isBundle?: boolean;
       /** Shared identifier for all variants of the same product. */
       itemGroupId?: string;
-      /** Optional. Represents the [product group title](https://support.google.com/merchants/answer/17085146) to which this variant product belongs. This can be used along with the [item group id](https://support.google.com/merchants/answer/6324507) attribute. It lets you perform better grouping of variant products, and helps identifying common product characteristics more efficiently. */
+      /** Optional. Represents the [title of the product group](https://support.google.com/merchants/answer/17085146) to which this variant product belongs. This can be used along with the [item group id](https://support.google.com/merchants/answer/6324507) attribute. It lets you perform better grouping of variant products, and helps identifying common product characteristics more efficiently. */
       itemGroupTitle?: string;
       /** Additional URLs of lifestyle images of the item, used to explicitly identify images that showcase your item in a real-world context. See the [Help Center article](https://support.google.com/merchants/answer/9103186) for more information. */
       lifestyleImageLinks?: string[];
@@ -702,7 +702,7 @@ declare namespace gapi.client {
       productWidth?: ProductDimension;
       /** The unique ID of a promotion. */
       promotionIds?: string[];
-      /** Optional. Contains merchant authored [questions and answers](https://support.google.com/merchants/answer/17085211) about the product. Max 30 question and answer pairs. Max 5000 characters total. Each question can have max 1000 characters. Each answer can have max 1000 characters. */
+      /** Optional. Contains user-, merchant-, and manufacturer-authored [questions and answers](https://support.google.com/merchants/answer/17085211) about the product. Max 30 question and answer pairs. Max 5000 characters total. Each question can have max 1000 characters. Each answer can have max 1000 characters. */
       questionsAndAnswers?: QuestionAndAnswer[];
       /** Optional. Specifies how other [products are related](https://support.google.com/merchants/answer/17085213) to this product. */
       relatedProducts?: RelatedProduct[];
@@ -775,7 +775,7 @@ declare namespace gapi.client {
       unitPricingBaseMeasure?: UnitPricingBaseMeasure;
       /** The measure and dimension of an item. */
       unitPricingMeasure?: UnitPricingMeasure;
-      /** Optional. Contains a list of [additional variants](https://support.google.com/merchants/answer/17085214) for the product. */
+      /** Optional. Contains the [list of all variant-identifying options](https://support.google.com/merchants/answer/17085214) of this product. */
       variantOptions?: VariantOption[];
       /** The all-in advertised price for a vehicle, which includes costs for the following – any accessories attached to the vehicle, environmental levies, extra warranty, fuel, freight, pre-delivery inspection (PDI), dealer fees for handling licensing, provincial regulatory fees, miscellaneous dealer charges for security etching and nitrogen tire fill, and factory-to-customer or dealer-to-customer discounts or incentives. See the [Vehicle all-in price](https://support.google.com/google-ads/answer/14156981) for more information. */
       vehicleAllInPrice?: Price;
