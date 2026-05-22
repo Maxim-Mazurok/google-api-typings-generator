@@ -1,11 +1,11 @@
-# TypeScript typings for Blogger API v3
+# TypeScript typings for blogger API v3
 
 The Blogger API provides access to posts, comments and pages of a Blogger blog.
 For detailed description please check [documentation](https://developers.google.com/blogger/docs/3.0/getting_started).
 
 ## Installing
 
-Install typings for Blogger API:
+Install typings for blogger API:
 
 ```
 npm install @types/gapi.client.blogger-v3 --save-dev
@@ -81,7 +81,7 @@ gapi.auth.authorize(
 );
 ```
 
-After that you can use Blogger API resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use blogger API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 /*

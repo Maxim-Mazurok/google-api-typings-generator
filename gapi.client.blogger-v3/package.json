@@ -1,7 +1,7 @@
 {
   "name": "@maxim_mazurok/gapi.client.blogger-v3",
-  "version": "0.0.20260517",
-  "description": "TypeScript typings for Blogger API v3",
+  "version": "0.0.20260521",
+  "description": "TypeScript typings for blogger API v3",
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
