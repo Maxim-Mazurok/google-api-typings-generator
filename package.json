@@ -37,7 +37,7 @@
   "dependencies": {
     "@definitelytyped/dtslint": "0.2.43",
     "@definitelytyped/eslint-plugin": "0.1.32",
-    "@expo/spawn-async": "^1.7.2",
+    "@expo/spawn-async": "^1.8.0",
     "@octokit/rest": "^22.0.1",
     "@types/dedent": "^0.7.2",
     "@types/dot": "^1.1.7",
