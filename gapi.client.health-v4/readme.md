@@ -69,6 +69,9 @@ var client_id = '',
     // See your Google Health health metrics and measurement data
     'https://www.googleapis.com/auth/googlehealth.health_metrics_and_measurements.readonly',
 
+    // See your Google Health Irregular Rhythm Notifications data
+    'https://www.googleapis.com/auth/googlehealth.irn.readonly',
+
     // See exercise GPS location data in Google Health
     'https://www.googleapis.com/auth/googlehealth.location.readonly',
 
@@ -103,6 +106,11 @@ After that you can use Google Health API resources: <!-- TODO: make this work fo
 Gets the user's identity. It includes the legacy Fitbit user ID and the Google user ID and it can be used by migrating clients to map identifiers between the two systems.
 */
 await gapi.client.health.users.getIdentity({name: 'name'});
+
+/*
+Returns user's IRN Profile details.
+*/
+await gapi.client.health.users.getIrnProfile({name: 'name'});
 
 /*
 Returns user Profile details.
