@@ -594,7 +594,7 @@ Turns off 2-Step Verification for user.
 await gapi.client.directory.twoStepVerification.turnOff({userKey: 'userKey'});
 
 /*
-Create a guest user with access to a [subset of Workspace capabilities](https://support.google.com/a/answer/16558545). This feature is currently in Alpha. Please reach out to support if you are interested in trying this feature.
+Create a guest user with access to a [subset of Workspace capabilities](https://support.google.com/a/answer/16558545). This feature is currently in Open Beta.
 */
 await gapi.client.directory.users.createGuest({});
 
