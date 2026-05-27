@@ -66,6 +66,9 @@ var client_id = '',
     // See your Google Health activity and fitness data
     'https://www.googleapis.com/auth/googlehealth.activity_and_fitness.readonly',
 
+    // See your Google Health ECG data
+    'https://www.googleapis.com/auth/googlehealth.ecg.readonly',
+
     // See your Google Health health metrics and measurement data
     'https://www.googleapis.com/auth/googlehealth.health_metrics_and_measurements.readonly',
 
