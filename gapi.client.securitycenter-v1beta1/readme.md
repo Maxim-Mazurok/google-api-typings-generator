@@ -87,14 +87,14 @@ After that you can use Security Command Center API resources: <!-- TODO: make th
 
 ```typescript
 /*
-Gets the settings for an organization.
+
 */
 await gapi.client.securitycenter.organizations.getOrganizationSettings({
   name: 'name',
 });
 
 /*
-Updates an organization's settings.
+
 */
 await gapi.client.securitycenter.organizations.updateOrganizationSettings({
   name: 'name',
