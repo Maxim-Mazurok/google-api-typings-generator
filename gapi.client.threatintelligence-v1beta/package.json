@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.threatintelligence-v1beta",
-  "version": "0.0.20260527",
+  "version": "0.0.20260517",
   "description": "TypeScript typings for Threat Intelligence API v1beta",
   "repository": {
     "type": "git",
