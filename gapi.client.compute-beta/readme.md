@@ -3322,6 +3322,61 @@ project.
 await gapi.client.compute.nodeTypes.list({ project: "project", zone: "zone",  });
 
 /*
+Deletes an OrganizationRolloutPlan.
+*/
+await gapi.client.compute.organizationRolloutPlans.delete({ organization: "organization", rolloutPlan: "rolloutPlan",  });
+
+/*
+Gets details of a single organization-scoped RolloutPlan.
+*/
+await gapi.client.compute.organizationRolloutPlans.get({ organization: "organization", rolloutPlan: "rolloutPlan",  });
+
+/*
+Creates a new RolloutPlan in a given organization and location.
+*/
+await gapi.client.compute.organizationRolloutPlans.insert({ organization: "organization",  });
+
+/*
+Lists OrganizationRolloutPlans in a given organization and location.
+*/
+await gapi.client.compute.organizationRolloutPlans.list({ organization: "organization",  });
+
+/*
+Advances a Rollout to the next wave, or completes it if no waves remain.
+*/
+await gapi.client.compute.organizationRollouts.advance({ organization: "organization", rollout: "rollout",  });
+
+/*
+Cancels a Rollout.
+*/
+await gapi.client.compute.organizationRollouts.cancel({ organization: "organization", rollout: "rollout",  });
+
+/*
+Deletes a Rollout.
+*/
+await gapi.client.compute.organizationRollouts.delete({ organization: "organization", rollout: "rollout",  });
+
+/*
+Gets details of a single organization-scoped Rollout.
+*/
+await gapi.client.compute.organizationRollouts.get({ organization: "organization", rollout: "rollout",  });
+
+/*
+Lists Rollouts in a given organization and location.
+*/
+await gapi.client.compute.organizationRollouts.list({ organization: "organization",  });
+
+/*
+Pauses a Rollout.
+*/
+await gapi.client.compute.organizationRollouts.pause({ organization: "organization", rollout: "rollout",  });
+
+/*
+Resumes a Rollout.
+*/
+await gapi.client.compute.organizationRollouts.resume({ organization: "organization", rollout: "rollout",  });
+
+/*
 Inserts an association for the specified security policy.
 
 This has billing implications.  Projects in the hierarchy with effective
