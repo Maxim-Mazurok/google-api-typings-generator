@@ -826,6 +826,42 @@ specified. To update individual fields, please use PATCH instead.
 await gapi.client.compute.firewalls.update({ firewall: "firewall", project: "project",  });
 
 /*
+Deletes a specified zone VM extension policy within a folder.
+*/
+await gapi.client.compute.folderZoneVmExtensionPolicies.delete({ folder: "folder", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
+
+/*
+Retrieves details of a specific zone VM extension policy within a folder.
+*/
+await gapi.client.compute.folderZoneVmExtensionPolicies.get({ folder: "folder", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
+
+/*
+Retrieves details of a specific VM extension within a folder.
+*/
+await gapi.client.compute.folderZoneVmExtensionPolicies.getVmExtension({ extensionName: "extensionName", folder: "folder", zone: "zone",  });
+
+/*
+Creates a new zone-level VM extension policy within a folder.
+*/
+await gapi.client.compute.folderZoneVmExtensionPolicies.insert({ folder: "folder", zone: "zone",  });
+
+/*
+Lists all VM extension policies within a specific zone for a folder.
+*/
+await gapi.client.compute.folderZoneVmExtensionPolicies.list({ folder: "folder", zone: "zone",  });
+
+/*
+Lists all VM extensions within a specific zone for a folder.
+This is a read-only API.
+*/
+await gapi.client.compute.folderZoneVmExtensionPolicies.listVmExtensions({ folder: "folder", zone: "zone",  });
+
+/*
+Modifies an existing zone VM extension policy within a folder.
+*/
+await gapi.client.compute.folderZoneVmExtensionPolicies.update({ folder: "folder", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
+
+/*
 Retrieves an aggregated list of forwarding rules.
 
 To prevent failure, it is recommended that you set the
@@ -1478,15 +1514,14 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.images.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-Returns the specified global Image resource by providing a regional
-context to read the metadata from the Global Clone in the region.
+Returns the specified global ImageView resource, with a regional
+context.
 */
 await gapi.client.compute.imageViews.get({ project: "project", region: "region", resourceId: "resourceId",  });
 
 /*
-Retrieves the list of global Image resources available to the project by
-providing a regional context to read the metadata from the Global Clone in
-the region.
+Returns a list of global ImageView resources, with a regional
+context.
 */
 await gapi.client.compute.imageViews.list({ project: "project", region: "region",  });
 
@@ -3492,6 +3527,61 @@ project.
 await gapi.client.compute.nodeTypes.list({ project: "project", zone: "zone",  });
 
 /*
+Deletes an OrganizationRolloutPlan.
+*/
+await gapi.client.compute.organizationRolloutPlans.delete({ organization: "organization", rolloutPlan: "rolloutPlan",  });
+
+/*
+Gets details of a single organization-scoped RolloutPlan.
+*/
+await gapi.client.compute.organizationRolloutPlans.get({ organization: "organization", rolloutPlan: "rolloutPlan",  });
+
+/*
+Creates a new RolloutPlan in a given organization and location.
+*/
+await gapi.client.compute.organizationRolloutPlans.insert({ organization: "organization",  });
+
+/*
+Lists OrganizationRolloutPlans in a given organization and location.
+*/
+await gapi.client.compute.organizationRolloutPlans.list({ organization: "organization",  });
+
+/*
+Advances a Rollout to the next wave, or completes it if no waves remain.
+*/
+await gapi.client.compute.organizationRollouts.advance({ organization: "organization", rollout: "rollout",  });
+
+/*
+Cancels a Rollout.
+*/
+await gapi.client.compute.organizationRollouts.cancel({ organization: "organization", rollout: "rollout",  });
+
+/*
+Deletes a Rollout.
+*/
+await gapi.client.compute.organizationRollouts.delete({ organization: "organization", rollout: "rollout",  });
+
+/*
+Gets details of a single organization-scoped Rollout.
+*/
+await gapi.client.compute.organizationRollouts.get({ organization: "organization", rollout: "rollout",  });
+
+/*
+Lists Rollouts in a given organization and location.
+*/
+await gapi.client.compute.organizationRollouts.list({ organization: "organization",  });
+
+/*
+Pauses a Rollout.
+*/
+await gapi.client.compute.organizationRollouts.pause({ organization: "organization", rollout: "rollout",  });
+
+/*
+Resumes a Rollout.
+*/
+await gapi.client.compute.organizationRollouts.resume({ organization: "organization", rollout: "rollout",  });
+
+/*
 Inserts an association for the specified security policy.
 
 This has billing implications.  Projects in the hierarchy with effective
@@ -3654,6 +3744,43 @@ await gapi.client.compute.organizationSnapshotRecycleBinPolicy.get({ organizatio
 Patches the SnapshotRecycleBinPolicy.
 */
 await gapi.client.compute.organizationSnapshotRecycleBinPolicy.patch({ organization: "organization",  });
+
+/*
+Retrieves details of a specific zone VM extension policy within an
+organization.
+*/
+await gapi.client.compute.organizationZoneVmExtensionPolicies.get({ organization: "organization", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
+
+/*
+Retrieves details of a specific VM extension within an organization.
+*/
+await gapi.client.compute.organizationZoneVmExtensionPolicies.getVmExtension({ extensionName: "extensionName", organization: "organization", zone: "zone",  });
+
+/*
+Creates a new zone-level VM extension policy within an organization.
+*/
+await gapi.client.compute.organizationZoneVmExtensionPolicies.insert({ organization: "organization", zone: "zone",  });
+
+/*
+Lists all VM extension policies within a specific zone for an organization.
+*/
+await gapi.client.compute.organizationZoneVmExtensionPolicies.list({ organization: "organization", zone: "zone",  });
+
+/*
+Lists all VM extensions within a specific zone for an organization.
+This is a read-only API.
+*/
+await gapi.client.compute.organizationZoneVmExtensionPolicies.listVmExtensions({ organization: "organization", zone: "zone",  });
+
+/*
+Modifies an existing zone VM extension policy within an organization.
+*/
+await gapi.client.compute.organizationZoneVmExtensionPolicies.update({ organization: "organization", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
+
+/*
+Deletes a specified zone VM extension policy within an organization.
+*/
+await gapi.client.compute.orgVmExtensionPolicies.delete({ organization: "organization", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
 
 /*
 Retrieves an aggregated list of packetMirrorings.
