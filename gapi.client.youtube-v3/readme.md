@@ -471,6 +471,11 @@ Retrieves a list of resources, possibly filtered.
 await gapi.client.youtube.videoCategories.list({part: 'part'});
 
 /*
+Retrieves a batch of VideoStat resources, possibly filtered. BatchGetStats is intentionally not atomic to provide a better user experience.
+*/
+await gapi.client.youtube.videos.batchGetStats({});
+
+/*
 Deletes a resource.
 */
 await gapi.client.youtube.videos.delete({id: 'id'});
