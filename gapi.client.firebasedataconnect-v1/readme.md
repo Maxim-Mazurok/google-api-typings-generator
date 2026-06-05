@@ -1,11 +1,11 @@
-# TypeScript typings for Firebase Data Connect API v1
+# TypeScript typings for Firebase SQL Connect API v1
 
 Firebase SQL Connect is a relational database service for mobile and web apps that lets you build and scale using a fully-managed PostgreSQL database powered by Cloud SQL. The REST API lets developers manage the connections to their database, change the schema of their database, and query the database.
 For detailed description please check [documentation](https://firebase.google.com/docs/data-connect).
 
 ## Installing
 
-Install typings for Firebase Data Connect API:
+Install typings for Firebase SQL Connect API:
 
 ```
 npm install @types/gapi.client.firebasedataconnect-v1 --save-dev
@@ -83,7 +83,7 @@ gapi.auth.authorize(
 );
 ```
 
-After that you can use Firebase Data Connect API resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use Firebase SQL Connect API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 
