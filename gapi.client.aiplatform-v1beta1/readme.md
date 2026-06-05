@@ -174,11 +174,6 @@ Cancels an interaction.
 await gapi.client.aiplatform.interactions.cancel({name: 'name'});
 
 /*
-Deletes an interaction.
-*/
-await gapi.client.aiplatform.interactions.delete({name: 'name'});
-
-/*
 Fully typed proto, unary version of GetInteraction that returns Interaction proto.
 */
 await gapi.client.aiplatform.interactions.getPoll({name: 'name'});
