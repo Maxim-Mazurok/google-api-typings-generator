@@ -92,6 +92,20 @@ interface TrustConfig {
   };
 }
 
+export class NpmPackageNotFoundError extends Error {
+  constructor(packageName: string, status: number, responseBody: string) {
+    super(
+      `Package ${packageName} does not exist in npm yet (${status}): ${responseBody}`,
+    );
+    this.name = 'NpmPackageNotFoundError';
+  }
+}
+
+export const isNpmPackageNotFoundError = (
+  error: unknown,
+): error is NpmPackageNotFoundError =>
+  error instanceof Error && error.name === 'NpmPackageNotFoundError';
+
 async function getTrustConfigs(
   packageName: string,
   token: string,
@@ -109,6 +123,9 @@ async function getTrustConfigs(
 
   if (!response.ok) {
     const text = await response.text();
+    if (response.status === 404) {
+      throw new NpmPackageNotFoundError(packageName, response.status, text);
+    }
     throw new Error(
       `Failed to get trust configs for ${packageName} (${response.status}): ${text}`,
     );

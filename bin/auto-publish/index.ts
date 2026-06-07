@@ -1,4 +1,6 @@
-import {basename, dirname} from 'node:path';
+import {rmSync, writeFileSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {basename, dirname, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {NpmArchivesToPublishHelper} from '../../src/archives-to-publish.js';
 import {
@@ -6,7 +8,11 @@ import {
   generateTotp,
   npmApiLogin,
 } from '../../src/npm-trusted-publishing.js';
-import {getFullPackageName, getNpmArchivesToPublish} from '../../src/utils.js';
+import {
+  getFullPackageName,
+  getNpmArchivesToPublish,
+  sleep,
+} from '../../src/utils.js';
 import {GitHub, GitHubSettings} from './git-hub.js';
 import {Helpers} from './helpers.js';
 import {SH} from './sh.js';
@@ -55,30 +61,44 @@ void (async () => {
   const hasNpmCredentials = npmUsername && npmPassword && npmTotpSecret;
 
   let npmToken: string | undefined;
+  let npmrcPath: string | undefined;
   if (hasNpmCredentials && npmArchivesToPublish.length > 0) {
     const loginOtp = generateTotp(npmTotpSecret);
     npmToken = await npmApiLogin(npmUsername, npmPassword, loginOtp);
+    npmrcPath = join(tmpdir(), `.npmrc-auto-publish-${Date.now()}`); // cspell:words npmrc
+    writeFileSync(npmrcPath, `//registry.npmjs.org/:_authToken=${npmToken}\n`, {
+      mode: 0o600,
+    });
   }
 
+  const publishHelpers = new Helpers(sh, gitHub, settings, npmrcPath);
   const repository = `${settings.user}/${settings.thisRepo}`;
   const workflowFile = 'auto-publish.yml';
 
-  for (const npmArchivePath of npmArchivesToPublish) {
-    const shortPackageName = basename(dirname(fileURLToPath(npmArchivePath)));
-    const fullPackageName = getFullPackageName(shortPackageName);
+  try {
+    for (const npmArchivePath of npmArchivesToPublish) {
+      const shortPackageName = basename(dirname(fileURLToPath(npmArchivePath)));
+      const fullPackageName = getFullPackageName(shortPackageName);
 
-    // Ensure trusted publishing is configured before publishing
-    if (npmToken && npmTotpSecret) {
-      await ensureTrustedPublishing(
-        fullPackageName,
-        repository,
-        workflowFile,
-        npmToken,
-        npmTotpSecret,
-      );
+      // Ensure trusted publishing is configured before publishing
+      if (npmToken && npmTotpSecret) {
+        await publishHelpers.ensureNpmPackagePublished(fullPackageName);
+        sleep(3);
+        await ensureTrustedPublishing(
+          fullPackageName,
+          repository,
+          workflowFile,
+          npmToken,
+          npmTotpSecret,
+        );
+      }
+
+      console.log(`Publishing ${npmArchivePath}...`);
+      await helpers.npmPublish(npmArchivePath);
     }
-
-    console.log(`Publishing ${npmArchivePath}...`);
-    await helpers.npmPublish(npmArchivePath);
+  } finally {
+    if (npmrcPath) {
+      rmSync(npmrcPath, {force: true});
+    }
   }
 })();

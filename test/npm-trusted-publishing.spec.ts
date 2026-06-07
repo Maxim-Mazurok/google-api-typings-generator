@@ -4,6 +4,7 @@ import {
   generateTotp,
   npmApiLogin,
   ensureTrustedPublishing,
+  isNpmPackageNotFoundError,
 } from '../src/npm-trusted-publishing.js';
 
 describe('base32Decode', () => {
@@ -294,5 +295,34 @@ describe('ensureTrustedPublishing', () => {
       'https://registry.npmjs.org/-/package/%40scope%2Fpackage/trust/trust-old',
     );
     expect((deleteCall[1] as RequestInit).method).toBe('DELETE');
+  });
+
+  it('throws a typed error when the package does not exist yet', async () => {
+    // cspell:disable-next-line
+    const totpSecret = 'JBSWY3DPEHPK3PXP';
+
+    globalThis.fetch = vi.fn().mockResolvedValue({
+      ok: false,
+      status: 404,
+      text: () => Promise.resolve('{"message":"Package not found"}'),
+    });
+
+    let thrownError: unknown;
+    try {
+      await ensureTrustedPublishing(
+        '@scope/package',
+        'owner/repo',
+        'publish.yml',
+        'fake-token',
+        totpSecret,
+      );
+    } catch (error) {
+      thrownError = error;
+    }
+
+    expect(isNpmPackageNotFoundError(thrownError)).toBe(true);
+    expect(thrownError).toMatchObject({
+      name: 'NpmPackageNotFoundError',
+    });
   });
 });

@@ -1,6 +1,7 @@
 import {Octokit} from '@octokit/rest';
-import {readdirSync} from 'node:fs';
-import {basename} from 'node:path';
+import {mkdtempSync, readdirSync, rmSync, writeFileSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {basename, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {
   ensureDirectoryExists,
@@ -12,6 +13,8 @@ import {
 import {GitHub, GitHubSettings} from './git-hub.js';
 import {Settings} from './index.js';
 import {SH} from './sh.js';
+
+const NPM_REGISTRY_URL = 'https://registry.npmjs.org';
 
 export const createOctokit = ({
   auth,
@@ -29,7 +32,30 @@ export class Helpers {
     private readonly sh: SH,
     private readonly gitHub: GitHub,
     private readonly settings: Settings,
+    private readonly npmrcPath?: string,
   ) {}
+
+  private readonly getUserConfigFlag = (): string =>
+    this.npmrcPath ? ` --userconfig ${this.npmrcPath}` : ''; // cspell:words userconfig
+
+  private readonly npmPackageIsPublished = async (
+    packageName: string,
+  ): Promise<boolean> => {
+    const response = await fetch(
+      `${NPM_REGISTRY_URL}/${encodeURIComponent(packageName)}`,
+    );
+
+    if (response.ok) {
+      return true;
+    }
+    if (response.status === 404) {
+      return false;
+    }
+
+    throw new Error(
+      `Failed to check whether ${packageName} is published (${response.status}): ${await response.text()}`,
+    );
+  };
 
   npmPublish = async (
     npmArchivePath: URL,
@@ -37,7 +63,7 @@ export class Helpers {
     retryTimeout = 60, // seconds
   ): Promise<void> => {
     retriesLeft--;
-    const cmd = `npm publish --access public --provenance ${fileURLToPath(npmArchivePath)}`;
+    const cmd = `npm publish --access public --provenance${this.getUserConfigFlag()} ${fileURLToPath(npmArchivePath)}`;
     const apiName = basename(fileURLToPath(npmArchivePath));
     const error503 = '503 Service Unavailable';
     const error404 = '404 Not Found';
@@ -79,6 +105,53 @@ export class Helpers {
       } else {
         throw SH.error(exception);
       }
+    }
+  };
+
+  ensureNpmPackagePublished = async (packageName: string): Promise<void> => {
+    if (await this.npmPackageIsPublished(packageName)) {
+      console.log(`${packageName} is already published`);
+      return;
+    }
+
+    console.log(
+      `${packageName} is not published yet; publishing initializer package...`,
+    );
+    await this.npmPublishInitializer(packageName);
+  };
+
+  npmPublishInitializer = async (packageName: string): Promise<void> => {
+    if (!this.npmrcPath) {
+      throw new Error(
+        `Cannot publish initializer package for ${packageName}: npm credentials were not provided`,
+      );
+    }
+
+    const packageDir = mkdtempSync(join(tmpdir(), 'npm-initializer-'));
+    const packageJson = {
+      name: packageName,
+      version: '0.0.0',
+      description:
+        'Initializer package used to configure npm trusted publishing.',
+      license: 'MIT',
+      types: 'index.d.ts',
+    };
+    writeFileSync(
+      join(packageDir, 'package.json'),
+      `${JSON.stringify(packageJson, null, 2)}\n`,
+    );
+    writeFileSync(
+      join(packageDir, 'README.md'),
+      `# ${packageName}\n\nThis temporary initializer version exists so npm trusted publishing can be configured for this package.\n`,
+    );
+    writeFileSync(join(packageDir, 'index.d.ts'), 'export {};\n');
+
+    const cmd = `npm publish --access public${this.getUserConfigFlag()} ${packageDir}`;
+
+    try {
+      await this.sh.runSh(cmd);
+    } finally {
+      rmSync(packageDir, {recursive: true, force: true});
     }
   };
 
