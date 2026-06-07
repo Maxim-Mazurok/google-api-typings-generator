@@ -175,6 +175,7 @@ async function createTrustConfig(
         repository,
         workflow_ref: {file: workflowFile},
       },
+      permissions: ['createPackage'],
     },
   ]);
 

@@ -235,6 +235,7 @@ describe('ensureTrustedPublishing', () => {
           repository: 'owner/repo',
           workflow_ref: {file: 'publish.yml'},
         },
+        permissions: ['createPackage'],
       },
     ]);
   });
