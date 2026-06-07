@@ -1,4 +1,5 @@
-import {readFileSync} from 'node:fs';
+import {mkdtempSync, readFileSync, rmSync, writeFileSync} from 'node:fs';
+import {tmpdir} from 'node:os';
 import {resolve} from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {describe, expect, it, vi} from 'vitest';
@@ -68,6 +69,9 @@ describe('NPM Provenance', () => {
     const mockSh: Partial<SH> = {
       runSh: runShMock,
     };
+    const npmrcDir = mkdtempSync(resolve(tmpdir(), 'test-npmrc-'));
+    const npmrcPath = resolve(npmrcDir, '.npmrc');
+    writeFileSync(npmrcPath, '//registry.npmjs.org/:_authToken=test\n');
     const mockSettings: Settings = {
       typesDirName: 'types',
       typesBranchName: 'types',
@@ -79,7 +83,8 @@ describe('NPM Provenance', () => {
       mockSh as unknown as SH,
       {} as unknown as GitHub,
       mockSettings,
-      '/tmp/test-npmrc',
+      npmrcPath,
+      'JBSWY3DPEHPK3PXP', // cspell:disable-line
     );
 
     try {
@@ -95,8 +100,11 @@ describe('NPM Provenance', () => {
     const calledCommand = runShMock.mock.calls[0][0];
     expect(calledCommand).toContain('npm publish');
     expect(calledCommand).toContain('--access public');
-    expect(calledCommand).toContain('--userconfig /tmp/test-npmrc'); // cspell:words userconfig
+    expect(calledCommand).toContain(`--userconfig ${npmrcPath}`); // cspell:words userconfig
+    expect(calledCommand).not.toContain('--otp');
     expect(calledCommand).not.toContain('--provenance');
+    expect(readFileSync(npmrcPath, 'utf8')).toMatch(/otp=\d{6}/);
+    rmSync(npmrcDir, {recursive: true, force: true});
     expect(initializerPackageJson).toMatchObject({
       name: '@scope/package',
       version: '0.0.0',
@@ -123,6 +131,7 @@ describe('NPM Provenance', () => {
       {} as unknown as GitHub,
       mockSettings,
       '/tmp/test-npmrc',
+      'JBSWY3DPEHPK3PXP', // cspell:disable-line
     );
 
     try {

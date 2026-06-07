@@ -1,5 +1,11 @@
 import {Octokit} from '@octokit/rest';
-import {mkdtempSync, readdirSync, rmSync, writeFileSync} from 'node:fs';
+import {
+  appendFileSync,
+  mkdtempSync,
+  readdirSync,
+  rmSync,
+  writeFileSync,
+} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {basename, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -10,6 +16,7 @@ import {
   rootFolder,
   sleep,
 } from '../../src/utils.js';
+import {generateTotp} from '../../src/npm-trusted-publishing.js';
 import {GitHub, GitHubSettings} from './git-hub.js';
 import {Settings} from './index.js';
 import {SH} from './sh.js';
@@ -33,6 +40,7 @@ export class Helpers {
     private readonly gitHub: GitHub,
     private readonly settings: Settings,
     private readonly npmrcPath?: string,
+    private readonly npmTotpSecret?: string,
   ) {}
 
   private readonly getUserConfigFlag = (): string =>
@@ -126,6 +134,11 @@ export class Helpers {
         `Cannot publish initializer package for ${packageName}: npm credentials were not provided`,
       );
     }
+    if (!this.npmTotpSecret) {
+      throw new Error(
+        `Cannot publish initializer package for ${packageName}: npm TOTP secret was not provided`,
+      );
+    }
 
     const packageDir = mkdtempSync(join(tmpdir(), 'npm-initializer-'));
     const packageJson = {
@@ -145,11 +158,14 @@ export class Helpers {
       `# ${packageName}\n\nThis temporary initializer version exists so npm trusted publishing can be configured for this package.\n`,
     );
     writeFileSync(join(packageDir, 'index.d.ts'), 'export {};\n');
+    appendFileSync(this.npmrcPath, `otp=${generateTotp(this.npmTotpSecret)}\n`);
 
     const cmd = `npm publish --access public${this.getUserConfigFlag()} ${packageDir}`;
 
     try {
       await this.sh.runSh(cmd);
+    } catch (exception) {
+      throw SH.error(exception);
     } finally {
       rmSync(packageDir, {recursive: true, force: true});
     }

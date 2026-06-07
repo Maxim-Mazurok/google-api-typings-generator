@@ -71,7 +71,13 @@ void (async () => {
     });
   }
 
-  const publishHelpers = new Helpers(sh, gitHub, settings, npmrcPath);
+  const publishHelpers = new Helpers(
+    sh,
+    gitHub,
+    settings,
+    npmrcPath,
+    npmTotpSecret,
+  );
   const repository = `${settings.user}/${settings.thisRepo}`;
   const workflowFile = 'auto-publish.yml';
 
