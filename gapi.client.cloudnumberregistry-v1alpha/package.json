@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.cloudnumberregistry-v1alpha",
-  "version": "0.0.20260527",
+  "version": "0.0.20260603",
   "description": "TypeScript typings for Cloud Number Registry API v1alpha",
   "repository": {
     "type": "git",
