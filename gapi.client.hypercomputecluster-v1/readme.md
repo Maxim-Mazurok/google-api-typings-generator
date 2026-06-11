@@ -1,6 +1,6 @@
 # TypeScript typings for Cluster Director API v1
 
-The Cluster Director API allows you to deploy, manage, and monitor clusters that run AI, ML, or HPC workloads.
+The Cluster Director API lets you deploy, manage, and monitor clusters that run artificial intelligence (AI), machine learning (ML), or high performance computing (HPC) workloads.
 For detailed description please check [documentation](https://docs.cloud.google.com/cluster-director/docs).
 
 ## Installing
