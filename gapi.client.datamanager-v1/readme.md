@@ -85,6 +85,11 @@ After that you can use Data Manager API resources: <!-- TODO: make this work for
 
 ```typescript
 /*
+Uploads a list of AdEvent resources to Google Analytics. This feature is only available to accounts on an allowlist.
+*/
+await gapi.client.datamanager.adEvents.ingest({});
+
+/*
 Uploads a list of AudienceMember resources to the provided Destination.
 */
 await gapi.client.datamanager.audienceMembers.ingest({});
