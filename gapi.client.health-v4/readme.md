@@ -66,11 +66,17 @@ var client_id = '',
     // See your Google Health activity and fitness data
     'https://www.googleapis.com/auth/googlehealth.activity_and_fitness.readonly',
 
+    // Add activity and fitness data to Google Health, and edit or delete the data it adds.
+    'https://www.googleapis.com/auth/googlehealth.activity_and_fitness.writeonly',
+
     // See your Google Health ECG data
     'https://www.googleapis.com/auth/googlehealth.ecg.readonly',
 
     // See your Google Health health metrics and measurement data
     'https://www.googleapis.com/auth/googlehealth.health_metrics_and_measurements.readonly',
+
+    // Add health metric and measurements data to Google Health, and edit or delete the data it adds.
+    'https://www.googleapis.com/auth/googlehealth.health_metrics_and_measurements.writeonly',
 
     // See your Google Health Irregular Rhythm Notifications data
     'https://www.googleapis.com/auth/googlehealth.irn.readonly',
@@ -78,14 +84,29 @@ var client_id = '',
     // See exercise GPS location data in Google Health
     'https://www.googleapis.com/auth/googlehealth.location.readonly',
 
+    // Add exercise GPS location data to Google Health, and edit or delete the data it adds.
+    'https://www.googleapis.com/auth/googlehealth.location.writeonly',
+
+    // Add nutrition data to Google Health, and edit or delete the data it adds.
+    'https://www.googleapis.com/auth/googlehealth.nutrition.writeonly',
+
     // See your Google Health profile data
     'https://www.googleapis.com/auth/googlehealth.profile.readonly',
+
+    // Add profile data to Google Health, and edit or delete the data it adds.
+    'https://www.googleapis.com/auth/googlehealth.profile.writeonly',
 
     // See your Google Health settings
     'https://www.googleapis.com/auth/googlehealth.settings.readonly',
 
+    // Add settings data to Google Health, and edit or delete the data it adds.
+    'https://www.googleapis.com/auth/googlehealth.settings.writeonly',
+
     // See your Google Health sleep data
     'https://www.googleapis.com/auth/googlehealth.sleep.readonly',
+
+    // Add sleep data to Google Health, and edit or delete the data it adds.
+    'https://www.googleapis.com/auth/googlehealth.sleep.writeonly',
   ],
   immediate = true;
 // ...
