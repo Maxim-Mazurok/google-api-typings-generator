@@ -1392,58 +1392,60 @@ export class App {
 
       let failedFetchesCount = 0;
 
-      for (const discoveryItem of discoveryItems) {
-        const restDescriptionSource = new URL(
-          checkExists(discoveryItem.discoveryRestUrl),
-        );
-        let restDescription;
-        try {
-          restDescription = await getRestDescriptionIfPossible(
-            restDescriptionSource,
-            this.config.proxy,
+      await Promise.all(
+        discoveryItems.map(async discoveryItem => {
+          const restDescriptionSource = new URL(
+            checkExists(discoveryItem.discoveryRestUrl),
           );
-        } catch (e) {
-          console.warn(e);
-          failedFetchesCount++;
-          if (failedFetchesCount >= 5) {
-            throw Error(
-              `Failed to fetch ${failedFetchesCount} services, potentially something is wrong, please check.`,
+          let restDescription;
+          try {
+            restDescription = await getRestDescriptionIfPossible(
+              restDescriptionSource,
+              this.config.proxy,
             );
+          } catch (e) {
+            console.warn(e);
+            failedFetchesCount++;
+            if (failedFetchesCount >= 5) {
+              throw Error(
+                `Failed to fetch ${failedFetchesCount} services, potentially something is wrong, please check.`,
+              );
+            }
+            return;
           }
-          continue;
-        }
 
-        if (!restDescription) continue;
+          if (!restDescription) return;
 
-        try {
-          await this.processService(
-            restDescription,
-            restDescriptionSource,
-            newRevisionsOnly,
-          );
-          processedServicesCount++;
-        } catch (error) {
-          const packageName =
-            getPackageNameFromRestDescription(restDescription);
-          const reason = getErrorMessage(error);
+          try {
+            await this.processService(
+              restDescription,
+              restDescriptionSource,
+              newRevisionsOnly,
+            );
+            processedServicesCount++;
+          } catch (error) {
+            const packageName =
+              getPackageNameFromRestDescription(restDescription);
+            const reason = getErrorMessage(error);
 
-          console.error(
-            `Error processing service ${restDescription.name} (${packageName}):`,
-            error,
-          );
-          this.writeGenerationFailureDiagnostics(
-            restDescription,
-            packageName,
-            error,
-          );
-          failures.push({
-            packageName,
-            phase: 'generation',
-            reason,
-            serviceName: restDescription.name ?? 'unknown',
-          });
-        }
-      }
+            console.error(
+              `Error processing service ${restDescription.name} (${packageName}):`,
+              error,
+            );
+            this.writeGenerationFailureDiagnostics(
+              restDescription,
+              packageName,
+              error,
+            );
+            failures.push({
+              packageName,
+              phase: 'generation',
+              reason,
+              serviceName: restDescription.name ?? 'unknown',
+            });
+          }
+        }),
+      );
     }
 
     if (!service && processedServicesCount === 0 && failures.length === 0) {
