@@ -826,56 +826,6 @@ specified. To update individual fields, please use PATCH instead.
 await gapi.client.compute.firewalls.update({ firewall: "firewall", project: "project",  });
 
 /*
-Retrieves the list of all folder level VM Extension Policy resources
-available to the specified folder.
-
-To prevent failure, it's recommended that you set the
-`returnPartialSuccess` parameter to `true`.
-*/
-await gapi.client.compute.folderGlobalVmExtensionPolicies.aggregatedList({ folder: "folder",  });
-
-/*
-Purge scoped resources (zonal policies) from a folder level global
-VM extension policy, and then delete the global VM extension policy. Purge
-of the scoped resources is a pre-condition of the global VM extension
-policy deletion. The deletion of the global VM extension policy happens
-after the purge rollout is done, so it's not a part of the LRO. It's an
-automatic process that triggers in the backend.
-*/
-await gapi.client.compute.folderGlobalVmExtensionPolicies.delete({ folder: "folder", globalVmExtensionPolicy: "globalVmExtensionPolicy",  });
-
-/*
-Gets details of a folder level GlobalVmExtensionPolicy.
-*/
-await gapi.client.compute.folderGlobalVmExtensionPolicies.get({ folder: "folder", globalVmExtensionPolicy: "globalVmExtensionPolicy",  });
-
-/*
-Retrieves details of a specific VM extension.
-*/
-await gapi.client.compute.folderGlobalVmExtensionPolicies.getVmExtension({ extensionName: "extensionName", folder: "folder",  });
-
-/*
-Creates a new folder level GlobalVmExtensionPolicy.
-*/
-await gapi.client.compute.folderGlobalVmExtensionPolicies.insert({ folder: "folder",  });
-
-/*
-Lists folder level GlobalVmExtensionPolicies.
-*/
-await gapi.client.compute.folderGlobalVmExtensionPolicies.list({ folder: "folder",  });
-
-/*
-Lists all VM extensions within a folder.
-This is a read-only API.
-*/
-await gapi.client.compute.folderGlobalVmExtensionPolicies.listVmExtensions({ folder: "folder",  });
-
-/*
-Updates a folder level GlobalVmExtensionPolicy.
-*/
-await gapi.client.compute.folderGlobalVmExtensionPolicies.update({ folder: "folder", globalVmExtensionPolicy: "globalVmExtensionPolicy",  });
-
-/*
 Deletes a specified zone VM extension policy within a folder.
 */
 await gapi.client.compute.folderZoneVmExtensionPolicies.delete({ folder: "folder", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
@@ -3575,56 +3525,6 @@ Retrieves a list of node types available to the specified
 project.
 */
 await gapi.client.compute.nodeTypes.list({ project: "project", zone: "zone",  });
-
-/*
-Retrieves the list of all organization level VM Extension Policy resources
-available to the specified organization.
-
-To prevent failure, it's recommended that you set the
-`returnPartialSuccess` parameter to `true`.
-*/
-await gapi.client.compute.organizationGlobalVmExtensionPolicies.aggregatedList({ organization: "organization",  });
-
-/*
-Purge scoped resources (zonal policies) from an organization level global
-VM extension policy, and then delete the global VM extension policy. Purge
-of the scoped resources is a pre-condition of the global VM extension
-policy deletion. The deletion of the global VM extension policy happens
-after the purge rollout is done, so it's not a part of the LRO. It's an
-automatic process that triggers in the backend.
-*/
-await gapi.client.compute.organizationGlobalVmExtensionPolicies.delete({ globalVmExtensionPolicy: "globalVmExtensionPolicy", organization: "organization",  });
-
-/*
-Gets details of an organization level GlobalVmExtensionPolicy.
-*/
-await gapi.client.compute.organizationGlobalVmExtensionPolicies.get({ globalVmExtensionPolicy: "globalVmExtensionPolicy", organization: "organization",  });
-
-/*
-Retrieves details of a specific VM extension.
-*/
-await gapi.client.compute.organizationGlobalVmExtensionPolicies.getVmExtension({ extensionName: "extensionName", organization: "organization",  });
-
-/*
-Creates a new organization level GlobalVmExtensionPolicy.
-*/
-await gapi.client.compute.organizationGlobalVmExtensionPolicies.insert({ organization: "organization",  });
-
-/*
-Lists organization level GlobalVmExtensionPolicies.
-*/
-await gapi.client.compute.organizationGlobalVmExtensionPolicies.list({ organization: "organization",  });
-
-/*
-Lists all VM extensions within an organization.
-This is a read-only API.
-*/
-await gapi.client.compute.organizationGlobalVmExtensionPolicies.listVmExtensions({ organization: "organization",  });
-
-/*
-Updates an organization level GlobalVmExtensionPolicy.
-*/
-await gapi.client.compute.organizationGlobalVmExtensionPolicies.update({ globalVmExtensionPolicy: "globalVmExtensionPolicy", organization: "organization",  });
 
 /*
 Deletes an OrganizationRolloutPlan.
