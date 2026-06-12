@@ -1,6 +1,6 @@
 # TypeScript typings for Cloud SQL Admin API v1beta4
 
-API for Cloud SQL database instance management
+Cloud SQL Admin API
 For detailed description please check [documentation](https://cloud.google.com/sql/docs).
 
 ## Installing
@@ -160,6 +160,14 @@ await gapi.client.sql.connect.generateEphemeral({
 Retrieves connect settings about a Cloud SQL instance.
 */
 await gapi.client.sql.connect.get({instance: 'instance', project: 'project'});
+
+/*
+Retrieves connect settings about a Cloud SQL instance using the instance DNS name.
+*/
+await gapi.client.sql.connect.resolve({
+  dnsName: 'dnsName',
+  location: 'location',
+});
 
 /*
 Deletes a database from a Cloud SQL instance.
