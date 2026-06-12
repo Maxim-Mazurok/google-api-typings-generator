@@ -77,6 +77,12 @@ var client_id = '',
     // See reports about devices and Chrome browsers managed within your organization
     'https://www.googleapis.com/auth/chrome.management.reports.readonly',
 
+    // Turn Chrome Security Insights on and off and view the data it generates
+    'https://www.googleapis.com/auth/chrome.management.securityinsights',
+
+    // See Chrome Security Insights reports
+    'https://www.googleapis.com/auth/chrome.management.securityinsights.readonly',
+
     // See basic device and telemetry information collected from ChromeOS devices or users managed within your organization
     'https://www.googleapis.com/auth/chrome.management.telemetry.readonly',
   ],
