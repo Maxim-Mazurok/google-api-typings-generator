@@ -1,8 +1,18 @@
-import {readFileSync, readdirSync, writeFileSync} from 'node:fs';
+import {
+  cpSync,
+  mkdirSync,
+  readFileSync,
+  readdirSync,
+  writeFileSync,
+} from 'node:fs';
 import {cpus} from 'node:os';
 import {basename, join} from 'node:path';
 import runAll from 'npm-run-all';
-import {setOutputGHActions} from '../src/utils.js';
+import {
+  setOutputGHActions,
+  SkippedPackage,
+  writeSkippedPackagesSummary,
+} from '../src/utils.js';
 
 const MAX_PARALLEL =
   Number(process.env.GAPI_MAX_PARALLEL) || Math.max(cpus().length - 1, 1);
@@ -15,6 +25,8 @@ process.on('unhandledRejection', reason => {
 });
 
 const path = process.argv[2];
+const bestEffort = process.env.GAPI_BEST_EFFORT === 'true';
+const diagnosticsDirectory = process.env.GAPI_DIAGNOSTICS_DIR;
 
 console.log(`Reading project directories in ${path}...`);
 
@@ -25,6 +37,8 @@ const scripts = readdirSync(path, {withFileTypes: true})
     dir =>
       `${dtslintCommand.start}${join(path, dir.name)}${dtslintCommand.end}`,
   );
+
+const originalScriptCount = scripts.length;
 
 const options = {
   maxParallel: MAX_PARALLEL,
@@ -44,32 +58,97 @@ const newEslintConfig = originalEslintConfig.replace("'types/',", '');
 console.log(`Updating ${eslintConfigPath}...`);
 writeFileSync(eslintConfigPath, newEslintConfig);
 
-runAll([scripts.shift()], options) // run first synchronously to install TypeScript
-  .then(() => runAll(scripts, options))
-  .catch(error => {
-    if (error.results) {
-      const results: Array<{name: string; code: number}> = error.results;
-      const failedTypeCommand = results.find(result => result.code === 1);
+const failedPackages = new Map<string, SkippedPackage>();
 
-      if (failedTypeCommand !== undefined) {
-        const failedTypeMatches = failedTypeCommand.name.match(
-          new RegExp(`${dtslintCommand.start}(.*)${dtslintCommand.end}`),
+function recordFailures(error: unknown) {
+  if (
+    error === null ||
+    typeof error !== 'object' ||
+    !('results' in error) ||
+    !Array.isArray(error.results)
+  ) {
+    throw error;
+  }
+
+  const results = error.results as Array<{name: string; code: number}>;
+
+  results
+    .filter(result => result.code !== 0)
+    .forEach(result => {
+      const failedTypeMatches = result.name.match(
+        new RegExp(`${dtslintCommand.start}(.*)${dtslintCommand.end}`),
+      );
+
+      if (failedTypeMatches === null) {
+        console.error('Unable to match failedType', {failedTypeMatches});
+        return;
+      }
+
+      const failedType = failedTypeMatches[1];
+      const packageName = basename(failedType);
+
+      failedPackages.set(packageName, {
+        packageName,
+        phase: 'lint',
+        reason: `dtslint exited with code ${result.code}`,
+      });
+
+      if (diagnosticsDirectory !== undefined) {
+        const lintDiagnosticsDirectory = join(
+          diagnosticsDirectory,
+          'lint-failures',
+          packageName,
         );
 
-        if (failedTypeMatches !== null) {
-          const failedType = failedTypeMatches[1];
-          setOutputGHActions('FAILED_TYPE', basename(failedType));
-        } else {
-          console.error('Unable to match failedType', {failedTypeMatches});
-        }
-      } else {
-        console.error('Unable to find failedTypeCommand', {results});
+        mkdirSync(lintDiagnosticsDirectory, {recursive: true});
+        cpSync(failedType, join(lintDiagnosticsDirectory, packageName), {
+          recursive: true,
+        });
+        writeFileSync(
+          join(lintDiagnosticsDirectory, 'error.txt'),
+          `dtslint exited with code ${result.code}`,
+        );
       }
+    });
+}
+
+async function runLint() {
+  const firstScript = scripts.shift();
+
+  if (firstScript !== undefined) {
+    try {
+      // Run first synchronously to install TypeScript before parallel linting.
+      await runAll([firstScript], options);
+    } catch (error) {
+      recordFailures(error);
+    }
+  }
+
+  try {
+    await runAll(scripts, options);
+  } catch (error) {
+    recordFailures(error);
+  }
+
+  const failures = [...failedPackages.values()];
+
+  if (failures.length > 0) {
+    const failedNames = failures.map(failure => failure.packageName);
+    setOutputGHActions('FAILED_TYPE', failedNames[0]);
+    setOutputGHActions('FAILED_TYPES', failedNames.join(','));
+    writeSkippedPackagesSummary(failures);
+
+    if (failures.length === originalScriptCount) {
+      throw Error(`Failed to lint all ${failures.length} package(s)`);
     }
 
-    throw error;
-  })
-  .finally(() => {
-    console.log(`Restoring ${eslintConfigPath}...`);
-    writeFileSync(eslintConfigPath, originalEslintConfig);
-  });
+    if (!bestEffort) {
+      throw Error(`Failed to lint ${failures.length} package(s)`);
+    }
+  }
+}
+
+void runLint().finally(() => {
+  console.log(`Restoring ${eslintConfigPath}...`);
+  writeFileSync(eslintConfigPath, originalEslintConfig);
+});

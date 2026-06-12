@@ -206,15 +206,54 @@ export const sameNamespace = (
  * https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
  * https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#environment-files
  */
-export const setOutputGHActions = (key: 'FAILED_TYPE', value: string) => {
+export const setOutputGHActions = (
+  key: 'FAILED_TYPE' | 'FAILED_TYPES',
+  value: string,
+) => {
   console.log(
-    // TODO: maybe remove this?
     `Trying to write ${key}=${value} to the ${process.env.GITHUB_OUTPUT}`,
   );
   if (process.env.GITHUB_OUTPUT !== undefined) {
     appendFileSync(process.env.GITHUB_OUTPUT, `${key}=${value}${EOL}`);
   }
 };
+
+export interface SkippedPackage {
+  packageName: string;
+  phase: 'generation' | 'lint';
+  reason: string;
+  serviceName?: string;
+}
+
+export function writeSkippedPackagesSummary(skippedPackages: SkippedPackage[]) {
+  if (skippedPackages.length === 0) {
+    return;
+  }
+
+  const summary = [
+    '## Skipped generated types',
+    '',
+    '| Package | Phase | Service | Reason |',
+    '| --- | --- | --- | --- |',
+    ...skippedPackages.map(
+      skippedPackage =>
+        `| \`${skippedPackage.packageName}\` | ${skippedPackage.phase} | ${
+          skippedPackage.serviceName ?? ''
+        } | ${skippedPackage.reason.replaceAll(/\s+/g, ' ')} |`,
+    ),
+    '',
+  ].join(EOL);
+
+  if (process.env.GITHUB_STEP_SUMMARY !== undefined) {
+    appendFileSync(process.env.GITHUB_STEP_SUMMARY, summary);
+  } else {
+    console.warn(summary);
+  }
+}
+
+export function getErrorMessage(error: unknown) {
+  return error instanceof Error ? error.message : String(error);
+}
 
 export const hasValueRecursive = <T>(
   someObjectOrArray: object | unknown[],

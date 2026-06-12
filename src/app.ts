@@ -23,11 +23,14 @@ import {
   ensureDirectoryExists,
   getAllNamespaces,
   getPackageNameFromRestDescription,
+  getErrorMessage,
   getResourceTypeName,
   getRevision,
   majorAndMinorVersion,
   sameNamespace,
   setOutputGHActions,
+  SkippedPackage,
+  writeSkippedPackagesSummary,
 } from './utils.js';
 import {StreamWriter, TextWriter} from './writer.js';
 
@@ -529,6 +532,7 @@ function isEmptySchema(schema: JsonSchema) {
 
 export interface Configuration {
   discoveryJsonDirectory?: string; // temporary directory to cache discovery service JSON
+  diagnosticsDirectory?: string;
   proxy?: ProxySetting;
   typesDirectory: string;
   owners: string[];
@@ -541,6 +545,12 @@ export class App {
 
   constructor(private readonly config: Configuration) {
     ensureDirectoryExists(config.typesDirectory);
+    if (config.discoveryJsonDirectory) {
+      ensureDirectoryExists(config.discoveryJsonDirectory);
+    }
+    if (config.diagnosticsDirectory) {
+      ensureDirectoryExists(config.diagnosticsDirectory);
+    }
 
     console.log(`types directory: ${config.typesDirectory}\n`);
   }
@@ -1308,8 +1318,44 @@ export class App {
     await writer.end();
   }
 
-  async discover(service: string | undefined, newRevisionsOnly = false) {
+  private writeGenerationFailureDiagnostics(
+    restDescription: RestDescription,
+    packageName: string,
+    error: unknown,
+  ) {
+    const diagnosticsRoot =
+      this.config.diagnosticsDirectory ?? this.config.discoveryJsonDirectory;
+
+    if (!diagnosticsRoot) {
+      return;
+    }
+
+    const diagnosticsDirectory = join(
+      diagnosticsRoot,
+      'generation-failures',
+      packageName,
+    );
+
+    ensureDirectoryExists(diagnosticsDirectory);
+    fs.writeFileSync(
+      join(diagnosticsDirectory, 'discovery.json'),
+      JSON.stringify(restDescription, null, 2),
+    );
+    fs.writeFileSync(
+      join(diagnosticsDirectory, 'error.txt'),
+      getErrorMessage(error),
+    );
+  }
+
+  async discover(
+    service: string | undefined,
+    newRevisionsOnly = false,
+    bestEffort = false,
+  ) {
     console.log('Discovering Google services...');
+
+    const failures: SkippedPackage[] = [];
+    let processedServicesCount = 0;
 
     if (service) {
       const serviceRestDescriptions = await getRestDescriptionsForService(
@@ -1345,7 +1391,7 @@ export class App {
 
       let failedFetchesCount = 0;
 
-      discoveryItems.forEach(async discoveryItem => {
+      for (const discoveryItem of discoveryItems) {
         const restDescriptionSource = new URL(
           checkExists(discoveryItem.discoveryRestUrl),
         );
@@ -1363,9 +1409,10 @@ export class App {
               `Failed to fetch ${failedFetchesCount} services, potentially something is wrong, please check.`,
             );
           }
+          continue;
         }
 
-        if (!restDescription) return;
+        if (!restDescription) continue;
 
         try {
           await this.processService(
@@ -1373,15 +1420,55 @@ export class App {
             restDescriptionSource,
             newRevisionsOnly,
           );
-        } catch (e) {
-          console.error(e);
-          setOutputGHActions(
-            'FAILED_TYPE',
-            getPackageNameFromRestDescription(restDescription),
+          processedServicesCount++;
+        } catch (error) {
+          const packageName =
+            getPackageNameFromRestDescription(restDescription);
+          const reason = getErrorMessage(error);
+
+          console.error(
+            `Error processing service ${restDescription.name} (${packageName}):`,
+            error,
           );
-          throw Error(`Error processing service: ${restDescription.name}`);
+          this.writeGenerationFailureDiagnostics(
+            restDescription,
+            packageName,
+            error,
+          );
+          failures.push({
+            packageName,
+            phase: 'generation',
+            reason,
+            serviceName: restDescription.name ?? 'unknown',
+          });
         }
-      });
+      }
+    }
+
+    if (failures.length > 0) {
+      const failedNames = failures.map(failure => failure.packageName);
+      setOutputGHActions('FAILED_TYPE', failedNames[0]);
+      setOutputGHActions('FAILED_TYPES', failedNames.join(','));
+      writeSkippedPackagesSummary(failures);
+
+      console.error('\n' + '='.repeat(72));
+      console.error(`GENERATION COMPLETED WITH ${failures.length} FAILURE(S):`);
+      console.error('='.repeat(72));
+      for (const {serviceName, packageName, reason} of failures) {
+        console.error(`\n  - ${packageName} (service: ${serviceName})`);
+        console.error(`    ${reason}`);
+      }
+      console.error('\n' + '='.repeat(72));
+      console.error('All other types were generated successfully.');
+      console.error('='.repeat(72) + '\n');
+
+      if (processedServicesCount === 0) {
+        throw Error(`Failed to process all ${failures.length} service(s)`);
+      }
+
+      if (!bestEffort) {
+        throw Error(`Failed to process ${failures.length} service(s)`);
+      }
     }
   }
 }
