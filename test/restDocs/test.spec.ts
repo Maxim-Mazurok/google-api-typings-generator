@@ -5,7 +5,10 @@ import {App} from '../../src/app.js';
 import * as discovery from '../../src/discovery.js';
 import {RestDescription} from '../../src/discovery.js';
 import {App as DtApp} from '../../src/dt/app.js';
-import {getPackageNameFromRestDescription} from '../../src/utils.js';
+import {
+  DEFAULT_DIAGNOSTICS_DIRECTORY,
+  getPackageNameFromRestDescription,
+} from '../../src/utils.js';
 
 const readFileSyncAsUTF8 = (path: string) => readFileSync(path, 'utf-8');
 
@@ -201,16 +204,25 @@ it('handles reserved JS keyword resource names via declaration merging', async (
 
 describe('discover best-effort', () => {
   let testApp: App;
+  let githubStepSummary: string | undefined;
   const testTypesDir = join(import.meta.dirname, 'results', 'best-effort-test');
   const diagnosticsDir = join(
     import.meta.dirname,
     'results',
     'best-effort-diagnostics',
   );
+  const defaultDiagnosticsPackageDir = join(
+    DEFAULT_DIAGNOSTICS_DIRECTORY,
+    'generation-failures',
+    'gapi.client.broken-api-v1',
+  );
 
   beforeEach(() => {
+    githubStepSummary = process.env.GITHUB_STEP_SUMMARY;
+    delete process.env.GITHUB_STEP_SUMMARY;
     rmSync(testTypesDir, {force: true, recursive: true});
     rmSync(diagnosticsDir, {force: true, recursive: true});
+    rmSync(defaultDiagnosticsPackageDir, {force: true, recursive: true});
     testApp = new App({
       typesDirectory: testTypesDir,
       diagnosticsDirectory: diagnosticsDir,
@@ -220,6 +232,12 @@ describe('discover best-effort', () => {
 
   afterEach(() => {
     vi.restoreAllMocks();
+    if (githubStepSummary === undefined) {
+      delete process.env.GITHUB_STEP_SUMMARY;
+    } else {
+      process.env.GITHUB_STEP_SUMMARY = githubStepSummary;
+    }
+    rmSync(defaultDiagnosticsPackageDir, {force: true, recursive: true});
   });
 
   it('keeps explicit service runs strict when the requested service fails', async () => {
@@ -350,5 +368,66 @@ describe('discover best-effort', () => {
       'Failed to process all 1 service(s)',
     );
     expect(readdirSync(testTypesDir).length).toBe(0);
+  });
+
+  it('fails best-effort discovery mode when every service is skipped', async () => {
+    vi.spyOn(discovery, 'getAllDiscoveryItems').mockResolvedValue([
+      {
+        id: 'missing-api:v1',
+        name: 'missing-api',
+        discoveryRestUrl: 'http://localhost/missing.json',
+      },
+    ]);
+    vi.spyOn(discovery, 'getRestDescriptionIfPossible').mockResolvedValue();
+
+    await expect(testApp.discover(undefined, false, true)).rejects.toThrow(
+      'Failed to process any services',
+    );
+  });
+
+  it('writes local diagnostics to the OS temp directory by default', async () => {
+    const localApp = new App({
+      typesDirectory: testTypesDir,
+      owners: ['Test Owner <https://github.com/test>'],
+    });
+    const badDescription = {
+      name: 'broken-api',
+      title: 'Broken API',
+      id: 'broken-api:v1',
+      version: 'v1',
+      schemas: {},
+      resources: {},
+    } as RestDescription;
+
+    vi.spyOn(discovery, 'getAllDiscoveryItems').mockResolvedValue([
+      {
+        id: 'broken-api:v1',
+        name: 'broken-api',
+        discoveryRestUrl: 'http://localhost/broken.json',
+      },
+      {
+        id: 'calendar:v3',
+        name: 'calendar',
+        discoveryRestUrl: 'http://localhost/calendar.json',
+      },
+    ]);
+
+    const goodDescription = JSON.parse(
+      readFileSyncAsUTF8(join(import.meta.dirname, 'calendar.json')),
+    ) as RestDescription;
+    vi.spyOn(discovery, 'getRestDescriptionIfPossible').mockImplementation(
+      (url: URL) =>
+        Promise.resolve(
+          url.toString().includes('broken') ? badDescription : goodDescription,
+        ),
+    );
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    await localApp.discover(undefined, false, true);
+
+    expect(existsSync(join(defaultDiagnosticsPackageDir, 'error.txt'))).toBe(
+      true,
+    );
   });
 });

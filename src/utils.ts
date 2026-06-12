@@ -3,7 +3,8 @@ import {HttpProxyAgent, HttpsProxyAgent} from 'hpagent';
 import _ from 'lodash';
 import LineByLine from 'n-readlines';
 import fs, {appendFileSync} from 'node:fs';
-import {EOL} from 'node:os';
+import {EOL, tmpdir} from 'node:os';
+import {join} from 'node:path';
 import {fileURLToPath, URL} from 'node:url';
 import validateNpmPackageName from 'validate-npm-package-name';
 import {NpmArchivesToPublishHelper} from './archives-to-publish.js';
@@ -225,21 +226,36 @@ export interface SkippedPackage {
   serviceName?: string;
 }
 
+export const DEFAULT_DIAGNOSTICS_DIRECTORY = join(
+  tmpdir(),
+  'google-api-typings-generator-diagnostics',
+);
+
+export function getDiagnosticsDirectory(diagnosticsDirectory?: string) {
+  return diagnosticsDirectory ?? DEFAULT_DIAGNOSTICS_DIRECTORY;
+}
+
+function formatMarkdownTableCell(value: string) {
+  return value.replaceAll(/\s+/g, ' ').replaceAll('|', '\\|');
+}
+
 export function writeSkippedPackagesSummary(skippedPackages: SkippedPackage[]) {
   if (skippedPackages.length === 0) {
     return;
   }
 
   const summary = [
-    '## Skipped generated types',
+    '## Skipped package updates',
     '',
     '| Package | Phase | Service | Reason |',
     '| --- | --- | --- | --- |',
     ...skippedPackages.map(
       skippedPackage =>
-        `| \`${skippedPackage.packageName}\` | ${skippedPackage.phase} | ${
-          skippedPackage.serviceName ?? ''
-        } | ${skippedPackage.reason.replaceAll(/\s+/g, ' ')} |`,
+        `| \`${formatMarkdownTableCell(skippedPackage.packageName)}\` | ${
+          skippedPackage.phase
+        } | ${formatMarkdownTableCell(skippedPackage.serviceName ?? '')} | ${formatMarkdownTableCell(
+          skippedPackage.reason,
+        )} |`,
     ),
     '',
   ].join(EOL);

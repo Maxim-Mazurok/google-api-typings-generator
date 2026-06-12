@@ -22,8 +22,9 @@ import {
   checkExists,
   ensureDirectoryExists,
   getAllNamespaces,
-  getPackageNameFromRestDescription,
+  getDiagnosticsDirectory,
   getErrorMessage,
+  getPackageNameFromRestDescription,
   getResourceTypeName,
   getRevision,
   majorAndMinorVersion,
@@ -1323,12 +1324,9 @@ export class App {
     packageName: string,
     error: unknown,
   ) {
-    const diagnosticsRoot =
-      this.config.diagnosticsDirectory ?? this.config.discoveryJsonDirectory;
-
-    if (!diagnosticsRoot) {
-      return;
-    }
+    const diagnosticsRoot = getDiagnosticsDirectory(
+      this.config.diagnosticsDirectory,
+    );
 
     const diagnosticsDirectory = join(
       diagnosticsRoot,
@@ -1344,6 +1342,9 @@ export class App {
     fs.writeFileSync(
       join(diagnosticsDirectory, 'error.txt'),
       getErrorMessage(error),
+    );
+    console.error(
+      `Wrote generation failure diagnostics to ${diagnosticsDirectory}`,
     );
   }
 
@@ -1443,6 +1444,10 @@ export class App {
           });
         }
       }
+    }
+
+    if (!service && processedServicesCount === 0 && failures.length === 0) {
+      throw Error('Failed to process any services');
     }
 
     if (failures.length > 0) {

@@ -9,6 +9,7 @@ import {cpus} from 'node:os';
 import {basename, join} from 'node:path';
 import runAll from 'npm-run-all';
 import {
+  getDiagnosticsDirectory,
   setOutputGHActions,
   SkippedPackage,
   writeSkippedPackagesSummary,
@@ -26,7 +27,9 @@ process.on('unhandledRejection', reason => {
 
 const path = process.argv[2];
 const bestEffort = process.env.GAPI_BEST_EFFORT === 'true';
-const diagnosticsDirectory = process.env.GAPI_DIAGNOSTICS_DIR;
+const diagnosticsDirectory = getDiagnosticsDirectory(
+  process.env.GAPI_DIAGNOSTICS_DIR,
+);
 
 console.log(`Reading project directories in ${path}...`);
 
@@ -93,22 +96,23 @@ function recordFailures(error: unknown) {
         reason: `dtslint exited with code ${result.code}`,
       });
 
-      if (diagnosticsDirectory !== undefined) {
-        const lintDiagnosticsDirectory = join(
-          diagnosticsDirectory,
-          'lint-failures',
-          packageName,
-        );
+      const lintDiagnosticsDirectory = join(
+        diagnosticsDirectory,
+        'lint-failures',
+        packageName,
+      );
 
-        mkdirSync(lintDiagnosticsDirectory, {recursive: true});
-        cpSync(failedType, join(lintDiagnosticsDirectory, packageName), {
-          recursive: true,
-        });
-        writeFileSync(
-          join(lintDiagnosticsDirectory, 'error.txt'),
-          `dtslint exited with code ${result.code}`,
-        );
-      }
+      mkdirSync(lintDiagnosticsDirectory, {recursive: true});
+      cpSync(failedType, join(lintDiagnosticsDirectory, packageName), {
+        recursive: true,
+      });
+      writeFileSync(
+        join(lintDiagnosticsDirectory, 'error.txt'),
+        `dtslint exited with code ${result.code}`,
+      );
+      console.error(
+        `Wrote lint failure diagnostics to ${lintDiagnosticsDirectory}`,
+      );
     });
 }
 
