@@ -1219,6 +1219,21 @@ included in the request.
 await gapi.client.compute.healthChecks.update({ healthCheck: "healthCheck", project: "project",  });
 
 /*
+Retrieves information about the specified host.
+*/
+await gapi.client.compute.hosts.get({ association: "association", host: "host", project: "project", zone: "zone",  });
+
+/*
+Allows customers to get SBOM versions of a host.
+*/
+await gapi.client.compute.hosts.getVersion({ association: "association", host: "host", project: "project", zone: "zone",  });
+
+/*
+Retrieves a list of hosts.
+*/
+await gapi.client.compute.hosts.list({ association: "association", project: "project", zone: "zone",  });
+
+/*
 Deletes the specified HttpHealthCheck resource.
 */
 await gapi.client.compute.httpHealthChecks.delete({ httpHealthCheck: "httpHealthCheck", project: "project",  });
@@ -3706,6 +3721,12 @@ where reports are stored. If you provide an empty request body using this
 method, the usage export feature will be disabled.
 */
 await gapi.client.compute.projects.setUsageExportBucket({ project: "project",  });
+
+/*
+Returns the specified global ProjectViews resource, with a regional
+context.
+*/
+await gapi.client.compute.projectViews.get({ project: "project", region: "region",  });
 
 /*
 Announces the specified PublicAdvertisedPrefix
