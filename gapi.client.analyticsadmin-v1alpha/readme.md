@@ -251,6 +251,13 @@ Updates Google Signals settings for a property.
 await gapi.client.analyticsadmin.properties.updateGoogleSignalsSettings({
   name: 'name',
 });
+
+/*
+Updates the reporting identity settings for this property.
+*/
+await gapi.client.analyticsadmin.properties.updateReportingIdentitySettings({
+  name: 'name',
+});
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.analyticsadmin-v1alpha#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
