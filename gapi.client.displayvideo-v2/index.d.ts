@@ -1098,7 +1098,7 @@ declare namespace gapi.client {
       floodlightActivityConfigs?: TrackingFloodlightActivityConfig[];
       /** The percentage of post-view conversions to count, in millis (1/1000 of a percent). Must be between 0 and 100000 inclusive. For example, to track 50% of the post-click conversions, set a value of 50000. */
       postViewCountPercentageMillis?: string;
-      /** Optional. The attribution model to use for conversion measurement. This attribution model will determine how conversions are counted. The Primary model can be set by you for a floodlight config or group. More details [here](https://support.google.com/displayvideo/answer/7409983). Only applicable to Demand Gen line items. Retrieval and management of Demand Gen resources is currently in beta. This field will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
+      /** Optional. The attribution model to use for conversion measurement. This attribution model will determine how conversions are counted. The Primary model can be set by you for a floodlight config or group. More details [here](https://support.google.com/displayvideo/answer/7409983). Only applicable to Demand Gen line items. Retrieval and management of Demand Gen resources is currently rolling out. This field will be available to all partners by *June 24, 2026*. */
       primaryAttributionModelId?: string;
     }
     interface CounterEvent {
@@ -2875,7 +2875,7 @@ declare namespace gapi.client {
       conversionCounting?: ConversionCountingConfig;
       /** The IDs of the creatives associated with the line item. */
       creativeIds?: string[];
-      /** Optional. Settings specific to Demand Gen line items. Only applicable to Demand Gen line items. Retrieval and management of Demand Gen resources is currently in beta. This field will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
+      /** Optional. Settings specific to Demand Gen line items. Only applicable to Demand Gen line items. Retrieval and management of Demand Gen resources is currently rolling out. This field will be available to all partners by *June 24, 2026*. */
       demandGenSettings?: DemandGenSettings;
       /** Required. The display name of the line item. Must be UTF-8 encoded with a maximum size of 240 bytes. */
       displayName?: string;
@@ -3939,7 +3939,7 @@ declare namespace gapi.client {
       timeUnitCount?: number;
     }
     interface TargetingExpansionConfig {
-      /** Optional. Whether to exclude demographic expansion for Optimized Targeting. This field can only be set for Demand Gen ad groups. Retrieval and management of Demand Gen resources is currently in beta. This field will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
+      /** Optional. Whether to exclude demographic expansion for Optimized Targeting. This field can only be set for Demand Gen ad groups. Retrieval and management of Demand Gen resources is currently rolling out. This field will be available to all partners by *June 24, 2026*. */
       excludeDemographicExpansion?: boolean;
       /** Whether to exclude first-party audiences from use in targeting expansion. This field was deprecated with the launch of [optimized targeting](//support.google.com/displayvideo/answer/12060859). This field will be set to `false`. If this field is set to `true` when deprecated, all positive first-party audience targeting assigned to this line item will be replaced with negative targeting of the same first-party audiences to ensure the continued exclusion of those audiences. */
       excludeFirstPartyAudience?: boolean;

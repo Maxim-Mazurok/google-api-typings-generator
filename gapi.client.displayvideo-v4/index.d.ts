@@ -148,15 +148,15 @@ declare namespace gapi.client {
       audioAd?: AudioAd;
       /** Output only. Details of a [non-skippable short video ad](//support.google.com/displayvideo/answer/6274216), equal to or less than 6 seconds, used for reach. */
       bumperAd?: BumperAd;
-      /** Optional. The DCM tracking ad info. Only valid for Demand Gen ads. To remove the DCM tracking ad info, please leave this field empty. Retrieval and management of Demand Gen resources is currently in beta. This field will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
+      /** Optional. The DCM tracking ad info. Only valid for Demand Gen ads. To remove the DCM tracking ad info, please leave this field empty. Retrieval and management of Demand Gen resources is currently rolling out. This field will be available to all partners by *June 24, 2026*. */
       dcmTrackingInfo?: DcmTrackingInfo;
-      /** Details of a [Demand Gen carousel ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#CarouselAd). Retrieval and management of Demand Gen resources is currently in beta. This field will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
+      /** Details of a [Demand Gen carousel ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#CarouselAd). Retrieval and management of Demand Gen resources is currently rolling out. This field will be available to all partners by *June 24, 2026*. */
       demandGenCarouselAd?: DemandGenCarouselAd;
-      /** Details of a [Demand Gen image ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#ImageAd). Retrieval and management of Demand Gen resources is currently in beta. This field will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
+      /** Details of a [Demand Gen image ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#ImageAd). Retrieval and management of Demand Gen resources is currently rolling out. This field will be available to all partners by *June 24, 2026*. */
       demandGenImageAd?: DemandGenImageAd;
-      /** Details of a [Demand Gen product ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#Product-onlyAd). Retrieval and management of Demand Gen resources is currently in beta. This field will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
+      /** Details of a [Demand Gen product ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#Product-onlyAd). Retrieval and management of Demand Gen resources is currently rolling out. This field will be available to all partners by *June 24, 2026*. */
       demandGenProductAd?: DemandGenProductAd;
-      /** Details of a [Demand Gen video ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#VideoAd). Retrieval and management of Demand Gen resources is currently in beta. This field will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
+      /** Details of a [Demand Gen video ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#VideoAd). Retrieval and management of Demand Gen resources is currently rolling out. This field will be available to all partners by *June 24, 2026*. */
       demandGenVideoAd?: DemandGenVideoAd;
       /** Required. The display name of the ad. Must be UTF-8 encoded with a maximum size of 255 bytes. */
       displayName?: string;
@@ -864,7 +864,8 @@ declare namespace gapi.client {
         | 'VIDEO_COMPLETED'
         | 'TIME_ON_SCREEN'
         | 'VIDEO_PLAYER_SIZE'
-        | 'COMPLETED_IN_VIEW_AUDIBLE';
+        | 'COMPLETED_IN_VIEW_AUDIBLE'
+        | 'AUDIO_COMPLETED';
       /** Signal based on clicks. This field is only supported for allowlisted partners. */
       clickSignal?: 'CLICK_SIGNAL_UNSPECIFIED' | 'CLICK';
       /** Signal based on impressions. */
@@ -909,7 +910,8 @@ declare namespace gapi.client {
         | 'VIDEO_COMPLETED'
         | 'TIME_ON_SCREEN'
         | 'VIDEO_PLAYER_SIZE'
-        | 'COMPLETED_IN_VIEW_AUDIBLE';
+        | 'COMPLETED_IN_VIEW_AUDIBLE'
+        | 'AUDIO_COMPLETED';
       /** Signal based on floodlight conversion events. This field is only supported for allowlisted partners. */
       floodlightActivityConversionSignal?: AlgorithmRulesFloodlightActivityConversionSignal;
       /** Value to use as result. */
@@ -1918,7 +1920,7 @@ declare namespace gapi.client {
       floodlightActivityConfigs?: TrackingFloodlightActivityConfig[];
       /** The percentage of post-view conversions to count, in millis (1/1000 of a percent). Must be between 0 and 100000 inclusive. For example, to track 50% of the post-click conversions, set a value of 50000. */
       postViewCountPercentageMillis?: string;
-      /** Optional. The attribution model to use for conversion measurement. This attribution model will determine how conversions are counted. The Primary model can be set by you for a floodlight config or group. More details [here](https://support.google.com/displayvideo/answer/7409983). Only applicable to Demand Gen line items. Retrieval and management of Demand Gen resources is currently in beta. This field will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
+      /** Optional. The attribution model to use for conversion measurement. This attribution model will determine how conversions are counted. The Primary model can be set by you for a floodlight config or group. More details [here](https://support.google.com/displayvideo/answer/7409983). Only applicable to Demand Gen line items. Retrieval and management of Demand Gen resources is currently rolling out. This field will be available to all partners by *June 24, 2026*. */
       primaryAttributionModelId?: string;
     }
     interface CounterEvent {
@@ -4304,7 +4306,7 @@ declare namespace gapi.client {
       conversionCounting?: ConversionCountingConfig;
       /** The IDs of the creatives associated with the line item. */
       creativeIds?: string[];
-      /** Optional. Settings specific to Demand Gen line items. Only applicable to Demand Gen line items. Retrieval and management of Demand Gen resources is currently in beta. This field will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
+      /** Optional. Settings specific to Demand Gen line items. Only applicable to Demand Gen line items. Retrieval and management of Demand Gen resources is currently rolling out. This field will be available to all partners by *June 24, 2026*. */
       demandGenSettings?: DemandGenSettings;
       /** Required. The display name of the line item. Must be UTF-8 encoded with a maximum size of 240 bytes. */
       displayName?: string;
@@ -5428,7 +5430,7 @@ declare namespace gapi.client {
       audienceExpansionSeedListExcluded?: boolean;
       /** Required. Whether to enable Optimized Targeting for the line item. Optimized targeting is not compatible with all bid strategies. Attempting to set this field to `true` for a line item using the BiddingStrategy field fixed_bid or one of the following combinations of BiddingStrategy fields and BiddingStrategyPerformanceGoalType will result in an error: maximize_auto_spend_bid: * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CIVA` * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_IVO_TEN` * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_AV_VIEWED` performance_goal_auto_bid: * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM` This also applies if the line item inherits one of the above bid strategies from the parent insertion order. Bid strategies set at the insertion order-level will be inherited by their line items if the `InsertionOrder` budget field automationType is set to `INSERTION_ORDER_AUTOMATION_TYPE_BUDGET` or `INSERTION_ORDER_AUTOMATION_TYPE_BID_BUDGET`. */
       enableOptimizedTargeting?: boolean;
-      /** Optional. Whether to exclude demographic expansion for Optimized Targeting. This field can only be set for Demand Gen ad groups. Retrieval and management of Demand Gen resources is currently in beta. This field will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
+      /** Optional. Whether to exclude demographic expansion for Optimized Targeting. This field can only be set for Demand Gen ad groups. Retrieval and management of Demand Gen resources is currently rolling out. This field will be available to all partners by *June 24, 2026*. */
       excludeDemographicExpansion?: boolean;
     }
     interface TargetingOption {
@@ -6256,7 +6258,7 @@ declare namespace gapi.client {
       ): Request<UploadAdAssetResponse>;
     }
     interface AdGroupAdsResource {
-      /** Creates an ad group ad. This method is only supported for Demand Gen ads. Retrieval and management of Demand Gen resources is currently in beta. This method will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
+      /** Creates an ad group ad. This method is only supported for Demand Gen ads. Retrieval and management of Demand Gen resources is currently rolling out. This method will be available to all partners by *June 24, 2026*. */
       create(request: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -6314,7 +6316,7 @@ declare namespace gapi.client {
         },
         body: AdGroupAd,
       ): Request<AdGroupAd>;
-      /** Deletes an ad group ad. This method is only supported for Demand Gen ads. Retrieval and management of Demand Gen resources is currently in beta. This method will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
+      /** Deletes an ad group ad. This method is only supported for Demand Gen ads. Retrieval and management of Demand Gen resources is currently rolling out. This method will be available to all partners by *June 24, 2026*. */
       delete(request?: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -6407,7 +6409,7 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ListAdGroupAdsResponse>;
-      /** Updates an ad group ad. This method is only supported for Demand Gen ads. Retrieval and management of Demand Gen resources is currently in beta. This method will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
+      /** Updates an ad group ad. This method is only supported for Demand Gen ads. Retrieval and management of Demand Gen resources is currently rolling out. This method will be available to all partners by *June 24, 2026*. */
       patch(request: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -6475,7 +6477,7 @@ declare namespace gapi.client {
       ): Request<AdGroupAd>;
     }
     interface AssignedTargetingOptionsResource {
-      /** Assigns a targeting option to an ad group. Returns the assigned targeting option if successful. This method is only supported for Demand Gen ad groups. Retrieval and management of Demand Gen resources is currently in beta. This method will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
+      /** Assigns a targeting option to an ad group. Returns the assigned targeting option if successful. This method is only supported for Demand Gen ad groups. Retrieval and management of Demand Gen resources is currently rolling out. This method will be available to all partners by *June 24, 2026*. */
       create(request: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -6643,7 +6645,7 @@ declare namespace gapi.client {
         },
         body: AssignedTargetingOption,
       ): Request<AssignedTargetingOption>;
-      /** Deletes an assigned targeting option from an ad group. This method is only supported for Demand Gen ad groups with the AdGroupFormat `AD_GROUP_FORMAT_DEMAND_GEN`. Retrieval and management of Demand Gen resources is currently in beta. This method will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
+      /** Deletes an assigned targeting option from an ad group. This method is only supported for Demand Gen ad groups with the AdGroupFormat `AD_GROUP_FORMAT_DEMAND_GEN`. Retrieval and management of Demand Gen resources is currently rolling out. This method will be available to all partners by *June 24, 2026*. */
       delete(request?: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -7071,7 +7073,7 @@ declare namespace gapi.client {
       youtubeAssetAssociations: YoutubeAssetAssociationsResource;
     }
     interface AdGroupsResource {
-      /** Bulk edits targeting options for multiple ad groups. The same set of delete and create requests will be applied to all specified ad groups. Specifically, the operation will delete the assigned targeting options provided in BulkEditAdGroupAssignedTargetingOptionsRequest.delete_requests from each ad group, and then create the assigned targeting options provided in BulkEditAdGroupAssignedTargetingOptionsRequest.create_requests. This method is only supported for Demand Gen ad groups. Retrieval and management of Demand Gen resources is currently in beta. This method will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
+      /** Bulk edits targeting options for multiple ad groups. The same set of delete and create requests will be applied to all specified ad groups. Specifically, the operation will delete the assigned targeting options provided in BulkEditAdGroupAssignedTargetingOptionsRequest.delete_requests from each ad group, and then create the assigned targeting options provided in BulkEditAdGroupAssignedTargetingOptionsRequest.create_requests. This method is only supported for Demand Gen ad groups. Retrieval and management of Demand Gen resources is currently rolling out. This method will be available to all partners by *June 24, 2026*. */
       bulkEditAssignedTargetingOptions(request: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -7166,7 +7168,7 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<BulkListAdGroupAssignedTargetingOptionsResponse>;
-      /** Creates a new ad group. Returns the newly created ad group if successful. This method is only supported for Demand Gen ad groups. Retrieval and management of Demand Gen resources is currently in beta. This method will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
+      /** Creates a new ad group. Returns the newly created ad group if successful. This method is only supported for Demand Gen ad groups. Retrieval and management of Demand Gen resources is currently rolling out. This method will be available to all partners by *June 24, 2026*. */
       create(request: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -7224,7 +7226,7 @@ declare namespace gapi.client {
         },
         body: AdGroup,
       ): Request<AdGroup>;
-      /** Deletes a AdGroup. Returns error code `NOT_FOUND` if the ad group does not exist. This method is only supported for Demand Gen ad groups. Retrieval and management of Demand Gen resources is currently in beta. This method will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
+      /** Deletes a AdGroup. Returns error code `NOT_FOUND` if the ad group does not exist. This method is only supported for Demand Gen ad groups. Retrieval and management of Demand Gen resources is currently rolling out. This method will be available to all partners by *June 24, 2026*. */
       delete(request?: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -7317,7 +7319,7 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ListAdGroupsResponse>;
-      /** Updates an existing ad group. Returns the updated ad group if successful. This method is only supported for Demand Gen ad groups. Retrieval and management of Demand Gen resources is currently in beta. This method will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
+      /** Updates an existing ad group. Returns the updated ad group if successful. This method is only supported for Demand Gen ad groups. Retrieval and management of Demand Gen resources is currently rolling out. This method will be available to all partners by *June 24, 2026*. */
       patch(request: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';

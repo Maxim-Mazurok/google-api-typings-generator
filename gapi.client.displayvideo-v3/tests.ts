@@ -524,7 +524,7 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
       },
     );
-    /** Creates an ad group ad. This method is only supported for Demand Gen ads. Retrieval and management of Demand Gen resources is currently rolling out. This method will be available to all partners by *June 24, 2026*. */
+    /** Creates an ad group ad. This method is only supported for Demand Gen ads. Retrieval and management of Demand Gen resources is currently in beta. This method will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
     await gapi.client.displayvideo.advertisers.adGroupAds.create(
       {
         advertiserId: 'Test string',
@@ -1001,7 +1001,7 @@ gapi.load('client', async () => {
         },
       },
     );
-    /** Deletes an ad group ad. This method is only supported for Demand Gen ads. Retrieval and management of Demand Gen resources is currently rolling out. This method will be available to all partners by *June 24, 2026*. */
+    /** Deletes an ad group ad. This method is only supported for Demand Gen ads. Retrieval and management of Demand Gen resources is currently in beta. This method will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
     await gapi.client.displayvideo.advertisers.adGroupAds.delete({
       adGroupAdId: 'Test string',
       advertiserId: 'Test string',
@@ -1019,7 +1019,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
     });
-    /** Updates an ad group ad. This method is only supported for Demand Gen ads. Retrieval and management of Demand Gen resources is currently rolling out. This method will be available to all partners by *June 24, 2026*. */
+    /** Updates an ad group ad. This method is only supported for Demand Gen ads. Retrieval and management of Demand Gen resources is currently in beta. This method will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
     await gapi.client.displayvideo.advertisers.adGroupAds.patch(
       {
         adGroupAdId: 'Test string',
@@ -1498,7 +1498,7 @@ gapi.load('client', async () => {
         },
       },
     );
-    /** Bulk edits targeting options for multiple ad groups. The same set of delete and create requests will be applied to all specified ad groups. Specifically, the operation will delete the assigned targeting options provided in BulkEditAdGroupAssignedTargetingOptionsRequest.delete_requests from each ad group, and then create the assigned targeting options provided in BulkEditAdGroupAssignedTargetingOptionsRequest.create_requests. This method is only supported for Demand Gen ad groups. Retrieval and management of Demand Gen resources is currently rolling out. This method will be available to all partners by *June 24, 2026*. */
+    /** Bulk edits targeting options for multiple ad groups. The same set of delete and create requests will be applied to all specified ad groups. Specifically, the operation will delete the assigned targeting options provided in BulkEditAdGroupAssignedTargetingOptionsRequest.delete_requests from each ad group, and then create the assigned targeting options provided in BulkEditAdGroupAssignedTargetingOptionsRequest.create_requests. This method is only supported for Demand Gen ad groups. Retrieval and management of Demand Gen resources is currently in beta. This method will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
     await gapi.client.displayvideo.advertisers.adGroups.bulkEditAssignedTargetingOptions(
       {
         advertiserId: 'Test string',
@@ -1849,7 +1849,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
       },
     );
-    /** Creates a new ad group. Returns the newly created ad group if successful. This method is only supported for Demand Gen ad groups. Retrieval and management of Demand Gen resources is currently rolling out. This method will be available to all partners by *June 24, 2026*. */
+    /** Creates a new ad group. Returns the newly created ad group if successful. This method is only supported for Demand Gen ad groups. Retrieval and management of Demand Gen resources is currently in beta. This method will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
     await gapi.client.displayvideo.advertisers.adGroups.create(
       {
         advertiserId: 'Test string',
@@ -1923,7 +1923,7 @@ gapi.load('client', async () => {
         },
       },
     );
-    /** Deletes a AdGroup. Returns error code `NOT_FOUND` if the ad group does not exist. This method is only supported for Demand Gen ad groups. Retrieval and management of Demand Gen resources is currently rolling out. This method will be available to all partners by *June 24, 2026*. */
+    /** Deletes a AdGroup. Returns error code `NOT_FOUND` if the ad group does not exist. This method is only supported for Demand Gen ad groups. Retrieval and management of Demand Gen resources is currently in beta. This method will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
     await gapi.client.displayvideo.advertisers.adGroups.delete({
       adGroupId: 'Test string',
       advertiserId: 'Test string',
@@ -1941,7 +1941,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
     });
-    /** Updates an existing ad group. Returns the updated ad group if successful. This method is only supported for Demand Gen ad groups. Retrieval and management of Demand Gen resources is currently rolling out. This method will be available to all partners by *June 24, 2026*. */
+    /** Updates an existing ad group. Returns the updated ad group if successful. This method is only supported for Demand Gen ad groups. Retrieval and management of Demand Gen resources is currently in beta. This method will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
     await gapi.client.displayvideo.advertisers.adGroups.patch(
       {
         adGroupId: 'Test string',
@@ -2017,7 +2017,7 @@ gapi.load('client', async () => {
         },
       },
     );
-    /** Assigns a targeting option to an ad group. Returns the assigned targeting option if successful. This method is only supported for Demand Gen ad groups. Retrieval and management of Demand Gen resources is currently rolling out. This method will be available to all partners by *June 24, 2026*. */
+    /** Assigns a targeting option to an ad group. Returns the assigned targeting option if successful. This method is only supported for Demand Gen ad groups. Retrieval and management of Demand Gen resources is currently in beta. This method will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
     await gapi.client.displayvideo.advertisers.adGroups.targetingTypes.assignedTargetingOptions.create(
       {
         adGroupId: 'Test string',
@@ -2342,7 +2342,7 @@ gapi.load('client', async () => {
         },
       },
     );
-    /** Deletes an assigned targeting option from an ad group. This method is only supported for Demand Gen ad groups with the AdGroupFormat `AD_GROUP_FORMAT_DEMAND_GEN`. Retrieval and management of Demand Gen resources is currently rolling out. This method will be available to all partners by *June 24, 2026*. */
+    /** Deletes an assigned targeting option from an ad group. This method is only supported for Demand Gen ad groups with the AdGroupFormat `AD_GROUP_FORMAT_DEMAND_GEN`. Retrieval and management of Demand Gen resources is currently in beta. This method will begin rolling out to all partners on *June 10, 2026* and be available to all partners on *June 24, 2026*. */
     await gapi.client.displayvideo.advertisers.adGroups.targetingTypes.assignedTargetingOptions.delete(
       {
         adGroupId: 'Test string',
