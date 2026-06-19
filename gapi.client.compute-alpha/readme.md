@@ -6216,11 +6216,6 @@ Allows customers to report a faulty subBlock.
 await gapi.client.compute.reservationSubBlocks.reportFaulty({ parentName: "parentName", project: "project", reservationSubBlock: "reservationSubBlock", zone: "zone",  });
 
 /*
-Updates a reservation subBlock.
-*/
-await gapi.client.compute.reservationSubBlocks.update({ parentName: "parentName", project: "project", reservationSubBlock: "reservationSubBlock", zone: "zone",  });
-
-/*
 Retrieves an aggregated list of resource policies.
 
 To prevent failure, Google recommends that you set the
