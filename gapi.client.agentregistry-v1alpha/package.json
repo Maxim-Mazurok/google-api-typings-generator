@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.agentregistry-v1alpha",
-  "version": "0.0.20260608",
+  "version": "0.0.20260617",
   "description": "TypeScript typings for Agent Registry API v1alpha",
   "repository": {
     "type": "git",
