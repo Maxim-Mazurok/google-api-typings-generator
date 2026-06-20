@@ -1393,6 +1393,12 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.images.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
+Returns the specified global ImageView resource, with a regional
+context.
+*/
+await gapi.client.compute.imageViews.get({ project: "project", region: "region", resourceId: "resourceId",  });
+
+/*
 Cancels the specified resize request and removes it from the queue.
 Cancelled resize request does no longer wait for the resources to be
 provisioned. Cancel is only possible for requests that are accepted in the
