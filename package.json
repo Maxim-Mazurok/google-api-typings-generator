@@ -70,7 +70,7 @@
     "zod": "^4.4.3"
   },
   "engines": {
-    "node": "26.3.0",
+    "node": "26.3.1",
     "npm": "11.16.0"
   },
   "dependencyComments": {
