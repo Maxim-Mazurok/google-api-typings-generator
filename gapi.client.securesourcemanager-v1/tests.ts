@@ -195,6 +195,13 @@ gapi.load('client', async () => {
         },
         instance: 'Test string',
         name: 'Test string',
+        scanConfig: {
+          secretScanConfig: {
+            enabled: true,
+            inspectTemplate: 'Test string',
+          },
+        },
+        serviceAccount: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
         uris: {
@@ -266,6 +273,13 @@ gapi.load('client', async () => {
         },
         instance: 'Test string',
         name: 'Test string',
+        scanConfig: {
+          secretScanConfig: {
+            enabled: true,
+            inspectTemplate: 'Test string',
+          },
+        },
+        serviceAccount: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
         uris: {
