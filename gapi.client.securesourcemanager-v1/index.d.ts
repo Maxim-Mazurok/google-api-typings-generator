@@ -473,6 +473,10 @@ declare namespace gapi.client {
       instance?: string;
       /** Identifier. A unique identifier for a repository. The name should be of the format: `projects/{project}/locations/{location_id}/repositories/{repository_id}` */
       name?: string;
+      /** Optional. Provides configuration for scanning. */
+      scanConfig?: ScanConfig;
+      /** Optional. Repository level service account (BYOSA). */
+      serviceAccount?: string;
       /** Output only. Unique identifier of the repository. */
       uid?: string;
       /** Output only. Update timestamp. */
@@ -501,6 +505,16 @@ declare namespace gapi.client {
       body?: string;
       /** Output only. The effective commit sha this review is pointing to. */
       effectiveCommitSha?: string;
+    }
+    interface ScanConfig {
+      /** Optional. Configuration for secret scanning. */
+      secretScanConfig?: SecretScanConfig;
+    }
+    interface SecretScanConfig {
+      /** Optional. Enables secret scanning for the repository. */
+      enabled?: boolean;
+      /** Optional. The DLP inspect template to use for secret scanning. */
+      inspectTemplate?: string;
     }
     interface SetIamPolicyRequest {
       /** REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Google Cloud services (such as Projects) might reject them. */
