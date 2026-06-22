@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.webcontentpublisher-v1",
-  "version": "0.0.20260617",
+  "version": "0.0.20260621",
   "description": "TypeScript typings for Web Content Publisher API v1",
   "repository": {
     "type": "git",
