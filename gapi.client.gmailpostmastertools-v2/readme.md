@@ -73,6 +73,9 @@ var client_id = '',
 
     // Get email traffic metrics for the domains you have registered with Postmaster Tools
     'https://www.googleapis.com/auth/postmaster.traffic.readonly',
+
+    // View and manage users for the domains you have registered with Postmaster Tools
+    'https://www.googleapis.com/auth/postmaster.user',
   ],
   immediate = true;
 // ...
@@ -93,6 +96,16 @@ After that you can use Gmail Postmaster Tools API resources: <!-- TODO: make thi
 
 ```typescript
 /*
+[Developer Preview](https://developers.google.com/workspace/preview): Adds a domain to the user's account. Returns INVALID_ARGUMENT if a domain is not provided. Returns ALREADY_EXISTS if the domain is already registered by the user.
+*/
+await gapi.client.gmailpostmastertools.domains.create({});
+
+/*
+[Developer Preview](https://developers.google.com/workspace/preview): Deletes a domain from the user's account. Returns NOT_FOUND if the domain is not registered by the user.
+*/
+await gapi.client.gmailpostmastertools.domains.delete({name: 'name'});
+
+/*
 Retrieves detailed information about a domain registered by you. Returns NOT_FOUND if the domain is not registered by you. Domain represents the metadata of a domain that has been registered within the system and linked to a user.
 */
 await gapi.client.gmailpostmastertools.domains.get({name: 'name'});
@@ -105,9 +118,21 @@ await gapi.client.gmailpostmastertools.domains.getComplianceStatus({
 });
 
 /*
+[Developer Preview](https://developers.google.com/workspace/preview): Gets a verification token used for verifying a user's ownership over a domain.
+*/
+await gapi.client.gmailpostmastertools.domains.getVerificationToken({
+  name: 'name',
+});
+
+/*
 Retrieves a list of all domains registered by you, along with their corresponding metadata. The order of domains in the response is unspecified and non-deterministic. Newly registered domains will not necessarily be added to the end of this list.
 */
 await gapi.client.gmailpostmastertools.domains.list({});
+
+/*
+[Developer Preview](https://developers.google.com/workspace/preview): Verifies a user's ownership of a domain at the DNS level. Note that this is distinct from checking if the user has OWNER status within IRDB.
+*/
+await gapi.client.gmailpostmastertools.domains.verify({name: 'name'});
 
 /*
 Executes a batch of QueryDomainStats requests for multiple domains. Returns PERMISSION_DENIED if you don't have permission to access DomainStats for any of the requested domains.
