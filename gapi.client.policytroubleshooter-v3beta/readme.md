@@ -89,6 +89,11 @@ After that you can use Policy Troubleshooter API resources: <!-- TODO: make this
 Checks whether a principal has a specific permission for a specific resource, and explains why the principal does or doesn't have that permission.
 */
 await gapi.client.policytroubleshooter.iam.troubleshoot({});
+
+/*
+Checks the access request associated with the error identifier and explains why the access is denied by IAM policies.
+*/
+await gapi.client.policytroubleshooter.iam.troubleshootError({});
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.policytroubleshooter-v3beta#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
