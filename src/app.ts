@@ -832,7 +832,7 @@ export class App {
             if (this.typescriptGlobalTypeNames.has(schemaName)) {
               console.warn(
                 `WARNING: ${restDescription.id} has schema "${schemaName}" that shadows a TypeScript global type. ` +
-                  `This may cause type errors in generated declarations.`,
+                  'This may cause type errors in generated declarations.',
               );
             }
           }
@@ -904,7 +904,7 @@ export class App {
               `    readonly ${resourceName}: ${namespace}.${getResourceTypeName(resourceName)};`,
             );
           });
-          writer.writeLine(`};`);
+          writer.writeLine('};');
         }
       });
     });
