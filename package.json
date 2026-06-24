@@ -35,7 +35,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@definitelytyped/dtslint": "0.2.44",
+    "@definitelytyped/dtslint": "0.2.45",
     "@definitelytyped/eslint-plugin": "0.1.32",
     "@expo/spawn-async": "^1.8.0",
     "@octokit/rest": "^22.0.1",
@@ -43,7 +43,7 @@
     "@types/dot": "^1.1.7",
     "@types/gapi.client.discovery-v1": "^0.0.4",
     "@types/lodash": "^4.17.24",
-    "@types/node": "^25.9.2",
+    "@types/node": "^26.0.0",
     "@types/semver": "^7.7.1",
     "@types/validate-npm-package-name": "^4.0.2",
     "commander": "^15.0.0",
@@ -62,15 +62,15 @@
     "package-json": "^10.0.1",
     "patch-package": "^8.0.1",
     "prettier-plugin-packagejson": "^3.0.2",
-    "semver": "^7.8.2",
+    "semver": "^7.8.5",
     "tsx": "^4.22.4",
     "typescript": "^6.0.3",
     "validate-npm-package-name": "^8.0.0",
-    "vitest": "^4.1.8",
+    "vitest": "^4.1.9",
     "zod": "^4.4.3"
   },
   "engines": {
-    "node": "26.3.0",
+    "node": "26.3.1",
     "npm": "11.16.0"
   },
   "dependencyComments": {
