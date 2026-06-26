@@ -147,6 +147,12 @@ var client_id = '',
     // View chat and spaces in Google Chat
     'https://www.googleapis.com/auth/chat.spaces.readonly',
 
+    // See and change your availability status in Google Chat.
+    'https://www.googleapis.com/auth/chat.users.availability',
+
+    // See your availability status in Google Chat.
+    'https://www.googleapis.com/auth/chat.users.availability.readonly',
+
     // View and modify last read time for Google Chat conversations
     'https://www.googleapis.com/auth/chat.users.readstate',
 
@@ -251,7 +257,7 @@ Updates a space. For an example, see [Update a space](https://developers.google.
 await gapi.client.chat.spaces.patch({name: 'name'});
 
 /*
-Returns a list of spaces in a Google Workspace organization. For an example, see [Search for and manage spaces](https://developers.google.com/workspace/chat/search-manage-admin). When `use_admin_access` is set to `false`, the results are limited to spaces where the calling user is a joined member. To search with administrator privileges, set `use_admin_access` to `true`. Supports the following types of [authentication](https://developers.google.com/workspace/chat/authenticate-authorize): - [User authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user) with one of the following authorization scopes: - `https://www.googleapis.com/auth/chat.spaces.readonly` - `https://www.googleapis.com/auth/chat.spaces` - [User authentication with administrator privileges](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user#admin-privileges) and one of the following [authorization scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes): - `https://www.googleapis.com/auth/chat.admin.spaces.readonly` - `https://www.googleapis.com/auth/chat.admin.spaces`
+Returns a list of spaces in a Google Workspace organization. For an example, see [Search for and manage spaces](https://developers.google.com/workspace/chat/search-manage-admin). When `use_admin_access` is set to `false`, the results are limited to spaces where the calling user is a joined member. To search with administrator privileges, set `use_admin_access` to `true`. Setting `use_admin_access` to `false` is available under Developer Preview. Supports the following types of [authentication](https://developers.google.com/workspace/chat/authenticate-authorize): - [User authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user) with one of the following authorization scopes: - `https://www.googleapis.com/auth/chat.spaces.readonly` - `https://www.googleapis.com/auth/chat.spaces` - [User authentication with administrator privileges](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user#admin-privileges) and one of the following [authorization scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes): - `https://www.googleapis.com/auth/chat.admin.spaces.readonly` - `https://www.googleapis.com/auth/chat.admin.spaces`
 */
 await gapi.client.chat.spaces.search({});
 
