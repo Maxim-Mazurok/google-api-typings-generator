@@ -1,7 +1,7 @@
 {
   "name": "@maxim_mazurok/gapi.client.biglake-v1",
-  "version": "0.0.20260618",
-  "description": "TypeScript typings for BigLake API v1",
+  "version": "0.0.20260625",
+  "description": "TypeScript typings for Lakehouse API v1",
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
