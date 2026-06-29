@@ -107,7 +107,7 @@ await gapi.client.analyticsadmin.accounts.getDataSharingSettings({
 });
 
 /*
-Returns all accounts accessible by the caller. Note that these accounts might not currently have GA properties. Soft-deleted (ie: "trashed") accounts are excluded by default. Returns an empty list if no relevant accounts are found.
+Returns all accounts accessible by the caller. Note that these accounts might not currently have GA properties. Soft-deleted (ie: "trashed") accounts are excluded by default. Returns an empty list if no relevant accounts are found. Note: The easiest way to retrieve a list of all properties you have access to is by using `ListAccountSummaries`.
 */
 await gapi.client.analyticsadmin.accounts.list({});
 
