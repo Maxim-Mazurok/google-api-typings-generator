@@ -3,6 +3,7 @@ import _ from 'lodash';
 import assert from 'node:assert';
 import {existsSync, readFileSync, statSync, writeFileSync} from 'node:fs';
 import http, {Server} from 'node:http';
+import {AddressInfo} from 'node:net';
 import {join} from 'node:path';
 import {
   DiscoveryItem,
@@ -16,7 +17,7 @@ import {getPackageNameFromRestDescription, getProxy} from '../src/utils.js';
 let proxy: ProxySetting | undefined;
 
 const apiHttpHost = 'localhost';
-let apiPort: number;
+let apiServerPort: number;
 let apiServer: Server;
 
 beforeAll(async () => {
@@ -25,8 +26,6 @@ beforeAll(async () => {
 
 describe('getRestDescriptionIfPossible', () => {
   beforeAll(async () => {
-    const getPort = (await import('get-port')).default;
-    apiPort = await getPort();
     apiServer = http // TODO: @low-value @medium-cost Replace with MSW?
       .createServer((request, response) => {
         if (request.url === '/status/402') {
@@ -39,14 +38,35 @@ describe('getRestDescriptionIfPossible', () => {
           throw new Error(`Unexpected request.url: ${request.url}`);
         }
         response.end();
-      })
-      .listen(apiPort, () => {
-        if (process.env.DEBUG)
-          console.log(`api listening on ${apiHttpHost}:${apiPort}`);
       });
+    await new Promise<void>((resolve, reject) => {
+      apiServer.once('error', reject);
+      apiServer.listen(0, apiHttpHost, () => {
+        apiServer.off('error', reject);
+        const apiServerAddress = apiServer.address();
+        if (apiServerAddress === null || typeof apiServerAddress === 'string') {
+          reject(new Error('Expected API test server to listen on a TCP port'));
+          return;
+        }
+
+        apiServerPort = (apiServerAddress as AddressInfo).port;
+        if (process.env.DEBUG)
+          console.log(`api listening on ${apiHttpHost}:${apiServerPort}`);
+        resolve();
+      });
+    });
   });
-  afterAll(() => {
-    apiServer.close();
+  afterAll(async () => {
+    await new Promise<void>((resolve, reject) => {
+      apiServer.close(error => {
+        if (error) {
+          reject(error);
+          return;
+        }
+
+        resolve();
+      });
+    });
     if (process.env.DEBUG) console.log('close apiServer');
   });
   ['403', '404'].map(httpStatusCode =>
@@ -55,19 +75,21 @@ describe('getRestDescriptionIfPossible', () => {
       let consoleWarnCalledWith;
       console.warn = (...args) => (consoleWarnCalledWith = args);
       await getRestDescriptionIfPossible(
-        new URL(`http://${apiHttpHost}:${apiPort}/status/${httpStatusCode}`),
+        new URL(
+          `http://${apiHttpHost}:${apiServerPort}/status/${httpStatusCode}`,
+        ),
         proxy,
       );
       console.warn = originalConsoleWarn;
 
       expect(consoleWarnCalledWith).toStrictEqual([
-        `http://${apiHttpHost}:${apiPort}/status/${httpStatusCode} returned ${httpStatusCode}, skipping...`,
+        `http://${apiHttpHost}:${apiServerPort}/status/${httpStatusCode} returned ${httpStatusCode}, skipping...`,
       ]);
     }),
   );
   it('rejects on non-404 and non-403', async () => {
     const promise = getRestDescriptionIfPossible(
-      new URL(`http://${apiHttpHost}:${apiPort}/status/402`),
+      new URL(`http://${apiHttpHost}:${apiServerPort}/status/402`),
       proxy,
     );
 
