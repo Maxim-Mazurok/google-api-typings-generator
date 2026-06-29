@@ -356,10 +356,7 @@ declare namespace gapi.client {
       resolution?: string;
       /** How this issue affects serving of the offer. */
       severity?:
-        | 'SEVERITY_UNSPECIFIED'
-        | 'NOT_IMPACTED'
-        | 'DEMOTED'
-        | 'DISAPPROVED';
+        'SEVERITY_UNSPECIFIED' | 'NOT_IMPACTED' | 'DEMOTED' | 'DISAPPROVED';
     }
     interface ListProductsResponse {
       /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */

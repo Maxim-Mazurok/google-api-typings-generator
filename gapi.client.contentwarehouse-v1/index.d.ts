@@ -208,11 +208,7 @@ declare namespace gapi.client {
       message?: string;
       /** The state of the project initialization process. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'SUCCEEDED'
-        | 'FAILED'
-        | 'CANCELLED'
-        | 'RUNNING';
+        'STATE_UNSPECIFIED' | 'SUCCEEDED' | 'FAILED' | 'CANCELLED' | 'RUNNING';
     }
     interface GoogleCloudContentwarehouseV1beta1UpdateDocumentMetadata {}
     interface GoogleCloudContentwarehouseV1CloudAIDocumentOption {
@@ -451,11 +447,7 @@ declare namespace gapi.client {
     interface GoogleCloudContentwarehouseV1FileTypeFilter {
       /** The type of files to return. */
       fileType?:
-        | 'FILE_TYPE_UNSPECIFIED'
-        | 'ALL'
-        | 'FOLDER'
-        | 'DOCUMENT'
-        | 'ROOT_FOLDER';
+        'FILE_TYPE_UNSPECIFIED' | 'ALL' | 'FOLDER' | 'DOCUMENT' | 'ROOT_FOLDER';
     }
     interface GoogleCloudContentwarehouseV1FloatArray {
       /** List of float values. */
@@ -533,9 +525,7 @@ declare namespace gapi.client {
         | 'ACL_MODE_DOCUMENT_LEVEL_ACCESS_CONTROL_GCI';
       /** Required. The type of database used to store customer data */
       databaseType?:
-        | 'DB_UNKNOWN'
-        | 'DB_INFRA_SPANNER'
-        | 'DB_CLOUD_SQL_POSTGRES';
+        'DB_UNKNOWN' | 'DB_INFRA_SPANNER' | 'DB_CLOUD_SQL_POSTGRES';
       /** Optional. The default role for the person who create a document. */
       documentCreatorDefaultRole?:
         | 'DOCUMENT_CREATOR_DEFAULT_ROLE_UNSPECIFIED'
@@ -552,11 +542,7 @@ declare namespace gapi.client {
       message?: string;
       /** The state of the project initialization process. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'SUCCEEDED'
-        | 'FAILED'
-        | 'CANCELLED'
-        | 'RUNNING';
+        'STATE_UNSPECIFIED' | 'SUCCEEDED' | 'FAILED' | 'CANCELLED' | 'RUNNING';
     }
     interface GoogleCloudContentwarehouseV1IntegerArray {
       /** List of integer values. */
@@ -655,9 +641,7 @@ declare namespace gapi.client {
         | 'ACL_MODE_DOCUMENT_LEVEL_ACCESS_CONTROL_GCI';
       /** Database type. */
       databaseType?:
-        | 'DB_UNKNOWN'
-        | 'DB_INFRA_SPANNER'
-        | 'DB_CLOUD_SQL_POSTGRES';
+        'DB_UNKNOWN' | 'DB_INFRA_SPANNER' | 'DB_CLOUD_SQL_POSTGRES';
       /** The default role for the person who create a document. */
       documentCreatorDefaultRole?: string;
       /** The location of the queried project. */
@@ -912,9 +896,7 @@ declare namespace gapi.client {
       requireTotalSize?: boolean;
       /** Controls if the search document request requires the return of a total size of matched documents. See SearchDocumentsResponse.total_size. */
       totalResultSize?:
-        | 'TOTAL_RESULT_SIZE_UNSPECIFIED'
-        | 'ESTIMATED_SIZE'
-        | 'ACTUAL_SIZE';
+        'TOTAL_RESULT_SIZE_UNSPECIFIED' | 'ESTIMATED_SIZE' | 'ACTUAL_SIZE';
     }
     interface GoogleCloudContentwarehouseV1SearchDocumentsResponse {
       /** The histogram results that match with the specified SearchDocumentsRequest.histogram_queries. */
@@ -1631,10 +1613,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface GoogleIamV1Binding {
       /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */

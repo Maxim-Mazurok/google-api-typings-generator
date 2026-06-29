@@ -49,28 +49,19 @@ declare namespace gapi.client {
         | 'ATTACK_VECTOR_PHYSICAL';
       /** This metric measures the impact to the availability of the impacted component resulting from a successfully exploited vulnerability. */
       availabilityImpact?:
-        | 'IMPACT_UNSPECIFIED'
-        | 'IMPACT_HIGH'
-        | 'IMPACT_LOW'
-        | 'IMPACT_NONE';
+        'IMPACT_UNSPECIFIED' | 'IMPACT_HIGH' | 'IMPACT_LOW' | 'IMPACT_NONE';
       /** The base score is a function of the base metric scores. https://www.first.org/cvss/specification-document#Base-Metrics */
       baseScore?: number;
       /** This metric measures the impact to the confidentiality of the information resources managed by a software component due to a successfully exploited vulnerability. */
       confidentialityImpact?:
-        | 'IMPACT_UNSPECIFIED'
-        | 'IMPACT_HIGH'
-        | 'IMPACT_LOW'
-        | 'IMPACT_NONE';
+        'IMPACT_UNSPECIFIED' | 'IMPACT_HIGH' | 'IMPACT_LOW' | 'IMPACT_NONE';
       /** The Exploitability sub-score equation is derived from the Base Exploitability metrics. https://www.first.org/cvss/specification-document#2-1-Exploitability-Metrics */
       exploitabilityScore?: number;
       /** The Impact sub-score equation is derived from the Base Impact metrics. */
       impactScore?: number;
       /** This metric measures the impact to integrity of a successfully exploited vulnerability. */
       integrityImpact?:
-        | 'IMPACT_UNSPECIFIED'
-        | 'IMPACT_HIGH'
-        | 'IMPACT_LOW'
-        | 'IMPACT_NONE';
+        'IMPACT_UNSPECIFIED' | 'IMPACT_HIGH' | 'IMPACT_LOW' | 'IMPACT_NONE';
       /** This metric describes the level of privileges an attacker must possess before successfully exploiting the vulnerability. */
       privilegesRequired?:
         | 'PRIVILEGES_REQUIRED_UNSPECIFIED'
@@ -601,10 +592,7 @@ declare namespace gapi.client {
       permissions?: string;
       /** Required. Desired state of the file. */
       state?:
-        | 'DESIRED_STATE_UNSPECIFIED'
-        | 'PRESENT'
-        | 'ABSENT'
-        | 'CONTENTS_MATCH';
+        'DESIRED_STATE_UNSPECIFIED' | 'PRESENT' | 'ABSENT' | 'CONTENTS_MATCH';
     }
     interface OSPolicyResourceGroup {
       /** List of inventory filters for the resource group. The resources in this resource group are applied to the target VM if it satisfies at least one of the following inventory filters. For example, to apply this resource group to VMs running either `RHEL` or `CentOS` operating systems, specify 2 items for the list with following values: inventory_filters[0].os_short_name='rhel' and inventory_filters[1].os_short_name='centos' If the list is empty, this resource group will be applied to the target VM unconditionally. */
@@ -725,10 +713,7 @@ declare namespace gapi.client {
       preStep?: ExecStep;
       /** Post-patch reboot settings. */
       rebootConfig?:
-        | 'REBOOT_CONFIG_UNSPECIFIED'
-        | 'DEFAULT'
-        | 'ALWAYS'
-        | 'NEVER';
+        'REBOOT_CONFIG_UNSPECIFIED' | 'DEFAULT' | 'ALWAYS' | 'NEVER';
       /** Optional. Enables enhanced reporting for the patch job: 1. The patch job skips instances that cannot be patched and reports them as `SKIPPED`. An instance cannot be patched for two reasons: 1. The instance runs Container-Optimized OS (COS), which cannot be patched. 2. The instance is part of a managed instance group (MIG), and patching MIG instances is disabled in the patch job's configuration (PatchConfig.migInstancesAllowed is `false`). 2. The patch job is reported as `SUCCEEDED` if it completes without errors, even if some instances are `SKIPPED`. 3. The patch job is reported as `COMPLETED_WITH_INACTIVE_VMS` if it completes without errors, but does not patch instances that are `INACTIVE`. */
       skipUnpatchableVms?: boolean;
       /** Windows update settings. Use this override the default windows patch rules. */

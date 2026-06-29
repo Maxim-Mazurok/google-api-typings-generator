@@ -113,10 +113,7 @@ declare namespace gapi.client {
       agentTaskSpec?: AgentTaskSpec;
       /** The intended state of the task. */
       intendedState?:
-        | 'INTENDED_STATE_UNSPECIFIED'
-        | 'ASSIGNED'
-        | 'CANCELLED'
-        | 'DELETED';
+        'INTENDED_STATE_UNSPECIFIED' | 'ASSIGNED' | 'CANCELLED' | 'DELETED';
       /** The highest barrier reached by all tasks in the task's TaskGroup. */
       reachedBarrier?: string;
       /** Task Spec. This field will be replaced by agent_task_spec below in future. */
@@ -614,9 +611,7 @@ declare namespace gapi.client {
       runAsNonRoot?: boolean;
       /** Scheduling policy for Tasks in the TaskGroup. The default value is AS_SOON_AS_POSSIBLE. */
       schedulingPolicy?:
-        | 'SCHEDULING_POLICY_UNSPECIFIED'
-        | 'AS_SOON_AS_POSSIBLE'
-        | 'IN_ORDER';
+        'SCHEDULING_POLICY_UNSPECIFIED' | 'AS_SOON_AS_POSSIBLE' | 'IN_ORDER';
       /** Number of Tasks in the TaskGroup. Default is 1. */
       taskCount?: string;
       /** Max number of tasks that can be run on a VM at the same time. If not specified, the system will decide a value based on available compute resources on a VM and task requirements. */

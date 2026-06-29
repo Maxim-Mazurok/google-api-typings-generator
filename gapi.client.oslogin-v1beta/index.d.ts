@@ -70,9 +70,7 @@ declare namespace gapi.client {
       name?: string;
       /** The operating system type where this account applies. */
       operatingSystemType?:
-        | 'OPERATING_SYSTEM_TYPE_UNSPECIFIED'
-        | 'LINUX'
-        | 'WINDOWS';
+        'OPERATING_SYSTEM_TYPE_UNSPECIFIED' | 'LINUX' | 'WINDOWS';
       /** Only one POSIX account can be marked as primary. */
       primary?: boolean;
       /** The path to the logic shell for this account. */

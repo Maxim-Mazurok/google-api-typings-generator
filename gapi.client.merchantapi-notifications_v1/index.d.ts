@@ -47,8 +47,7 @@ declare namespace gapi.client {
       name?: string;
       /** The event that the merchant wants to be notified about. */
       registeredEvent?:
-        | 'NOTIFICATION_EVENT_TYPE_UNSPECIFIED'
-        | 'PRODUCT_STATUS_CHANGE';
+        'NOTIFICATION_EVENT_TYPE_UNSPECIFIED' | 'PRODUCT_STATUS_CHANGE';
       /** The `name` of the account you want to receive notifications for. Format: `accounts/{account}` */
       targetAccount?: string;
     }

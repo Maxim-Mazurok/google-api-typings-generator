@@ -354,9 +354,7 @@ declare namespace gapi.client {
       name?: string;
       /** Optional. The optimization strategy of the job. The default is `AUTODETECT`. */
       optimization?:
-        | 'OPTIMIZATION_STRATEGY_UNSPECIFIED'
-        | 'AUTODETECT'
-        | 'DISABLED';
+        'OPTIMIZATION_STRATEGY_UNSPECIFIED' | 'AUTODETECT' | 'DISABLED';
       /** Input only. Specify the `output_uri` to populate an empty `Job.config.output.uri` or `JobTemplate.config.output.uri` when using template. URI for the output file(s). For example, `gs://my-bucket/outputs/`. See [Supported input and output formats](https://cloud.google.com/transcoder/docs/concepts/supported-input-and-output-formats). */
       outputUri?: string;
       /** Output only. The time the transcoding started. */

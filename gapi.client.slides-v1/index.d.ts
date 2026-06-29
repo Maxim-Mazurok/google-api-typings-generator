@@ -43,10 +43,7 @@ declare namespace gapi.client {
     interface Autofit {
       /** The autofit type of the shape. If the autofit type is AUTOFIT_TYPE_UNSPECIFIED, the autofit type is inherited from a parent placeholder if it exists. The field is automatically set to NONE if a request is made that might affect text fitting within its bounding text box. In this case, the font_scale is applied to the font_size and the line_spacing_reduction is applied to the line_spacing. Both properties are also reset to default values. */
       autofitType?:
-        | 'AUTOFIT_TYPE_UNSPECIFIED'
-        | 'NONE'
-        | 'TEXT_AUTOFIT'
-        | 'SHAPE_AUTOFIT';
+        'AUTOFIT_TYPE_UNSPECIFIED' | 'NONE' | 'TEXT_AUTOFIT' | 'SHAPE_AUTOFIT';
       /** The font scale applied to the shape. For shapes with autofit_type NONE or SHAPE_AUTOFIT, this value is the default value of 1. For TEXT_AUTOFIT, this value multiplied by the font_size gives the font size that's rendered in the editor. This property is read-only. */
       fontScale?: number;
       /** The line spacing reduction applied to the shape. For shapes with autofit_type NONE or SHAPE_AUTOFIT, this value is the default value of 0. For TEXT_AUTOFIT, this value subtracted from the line_spacing gives the line spacing that's rendered in the editor. This property is read-only. */
@@ -529,10 +526,7 @@ declare namespace gapi.client {
     interface Line {
       /** The category of the line. It matches the `category` specified in CreateLineRequest, and can be updated with UpdateLineCategoryRequest. */
       lineCategory?:
-        | 'LINE_CATEGORY_UNSPECIFIED'
-        | 'STRAIGHT'
-        | 'BENT'
-        | 'CURVED';
+        'LINE_CATEGORY_UNSPECIFIED' | 'STRAIGHT' | 'BENT' | 'CURVED';
       /** The properties of the line. */
       lineProperties?: LineProperties;
       /** The type of the line. */
@@ -774,16 +768,10 @@ declare namespace gapi.client {
     interface ParagraphStyle {
       /** The text alignment for this paragraph. */
       alignment?:
-        | 'ALIGNMENT_UNSPECIFIED'
-        | 'START'
-        | 'CENTER'
-        | 'END'
-        | 'JUSTIFIED';
+        'ALIGNMENT_UNSPECIFIED' | 'START' | 'CENTER' | 'END' | 'JUSTIFIED';
       /** The text direction of this paragraph. If unset, the value defaults to LEFT_TO_RIGHT since text direction is not inherited. */
       direction?:
-        | 'TEXT_DIRECTION_UNSPECIFIED'
-        | 'LEFT_TO_RIGHT'
-        | 'RIGHT_TO_LEFT';
+        'TEXT_DIRECTION_UNSPECIFIED' | 'LEFT_TO_RIGHT' | 'RIGHT_TO_LEFT';
       /** The amount indentation for the paragraph on the side that corresponds to the end of the text, based on the current text direction. If unset, the value is inherited from the parent. */
       indentEnd?: Dimension;
       /** The amount of indentation for the start of the first line of the paragraph. If unset, the value is inherited from the parent. */
@@ -798,9 +786,7 @@ declare namespace gapi.client {
       spaceBelow?: Dimension;
       /** The spacing mode for the paragraph. */
       spacingMode?:
-        | 'SPACING_MODE_UNSPECIFIED'
-        | 'NEVER_COLLAPSE'
-        | 'COLLAPSE_LISTS';
+        'SPACING_MODE_UNSPECIFIED' | 'NEVER_COLLAPSE' | 'COLLAPSE_LISTS';
     }
     interface Placeholder {
       /** The index of the placeholder. If the same placeholder types are present in the same page, they would have different index values. */
@@ -854,10 +840,7 @@ declare namespace gapi.client {
       startIndex?: number;
       /** The type of range. */
       type?:
-        | 'RANGE_TYPE_UNSPECIFIED'
-        | 'FIXED_RANGE'
-        | 'FROM_START_INDEX'
-        | 'ALL';
+        'RANGE_TYPE_UNSPECIFIED' | 'FIXED_RANGE' | 'FROM_START_INDEX' | 'ALL';
     }
     interface Recolor {
       /** The name of the recolor effect. The name is determined from the `recolor_stops` by matching the gradient against the colors in the page's current color scheme. This property is read-only. */
@@ -899,9 +882,7 @@ declare namespace gapi.client {
       containsText?: SubstringMatchCriteria;
       /** The image replace method. If you specify both a `replace_method` and an `image_replace_method`, the `image_replace_method` takes precedence. If you do not specify a value for `image_replace_method`, but specify a value for `replace_method`, then the specified `replace_method` value is used. If you do not specify either, then CENTER_INSIDE is used. */
       imageReplaceMethod?:
-        | 'IMAGE_REPLACE_METHOD_UNSPECIFIED'
-        | 'CENTER_INSIDE'
-        | 'CENTER_CROP';
+        'IMAGE_REPLACE_METHOD_UNSPECIFIED' | 'CENTER_INSIDE' | 'CENTER_CROP';
       /** The image URL. The image is fetched once at insertion time and a copy is stored for display inside the presentation. Images must be less than 50MB in size, cannot exceed 25 megapixels, and must be in one of PNG, JPEG, or GIF format. The provided URL can be at most 2 kB in length. The URL itself is saved with the image, and exposed via the Image.source_url field. */
       imageUrl?: string;
       /** If non-empty, limits the matches to page elements only on the given pages. Returns a 400 bad request error if given the page object ID of a notes page or a notes master, or if a page with that object ID doesn't exist in the presentation. */
@@ -946,9 +927,7 @@ declare namespace gapi.client {
       imageObjectId?: string;
       /** The replacement method. */
       imageReplaceMethod?:
-        | 'IMAGE_REPLACE_METHOD_UNSPECIFIED'
-        | 'CENTER_INSIDE'
-        | 'CENTER_CROP';
+        'IMAGE_REPLACE_METHOD_UNSPECIFIED' | 'CENTER_INSIDE' | 'CENTER_CROP';
       /** The image URL. The image is fetched once at insertion time and a copy is stored for display inside the presentation. Images must be less than 50MB, cannot exceed 25 megapixels, and must be in PNG, JPEG, or GIF format. The provided URL can't surpass 2 KB in length. The URL is saved with the image, and exposed through the Image.source_url field. */
       url?: string;
     }
@@ -1477,10 +1456,7 @@ declare namespace gapi.client {
       backgroundColor?: OptionalColor;
       /** The text's vertical offset from its normal position. Text with `SUPERSCRIPT` or `SUBSCRIPT` baseline offsets is automatically rendered in a smaller font size, computed based on the `font_size` field. The `font_size` itself is not affected by changes in this field. */
       baselineOffset?:
-        | 'BASELINE_OFFSET_UNSPECIFIED'
-        | 'NONE'
-        | 'SUPERSCRIPT'
-        | 'SUBSCRIPT';
+        'BASELINE_OFFSET_UNSPECIFIED' | 'NONE' | 'SUPERSCRIPT' | 'SUBSCRIPT';
       /** Whether or not the text is rendered as bold. */
       bold?: boolean;
       /** The font family of the text. The font family can be any font from the Font menu in Slides or from [Google Fonts] (https://fonts.google.com/). If the font name is unrecognized, the text is rendered in `Arial`. Some fonts can affect the weight of the text. If an update request specifies values for both `font_family` and `bold`, the explicitly-set `bold` value is used. */
@@ -1554,10 +1530,7 @@ declare namespace gapi.client {
     interface UpdateLineCategoryRequest {
       /** The line category to update to. The exact line type is determined based on the category to update to and how it's routed to connect to other page elements. */
       lineCategory?:
-        | 'LINE_CATEGORY_UNSPECIFIED'
-        | 'STRAIGHT'
-        | 'BENT'
-        | 'CURVED';
+        'LINE_CATEGORY_UNSPECIFIED' | 'STRAIGHT' | 'BENT' | 'CURVED';
       /** The object ID of the line the update is applied to. Only a line with a category indicating it is a "connector" can be updated. The line may be rerouted after updating its category. */
       objectId?: string;
     }

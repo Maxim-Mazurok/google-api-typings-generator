@@ -572,9 +572,7 @@ declare namespace gapi.client {
       baseProcessorVersionId?: string;
       /** The type of custom model created by the user. */
       customModelType?:
-        | 'CUSTOM_MODEL_TYPE_UNSPECIFIED'
-        | 'VERSIONED_FOUNDATION'
-        | 'FINE_TUNED';
+        'CUSTOM_MODEL_TYPE_UNSPECIFIED' | 'VERSIONED_FOUNDATION' | 'FINE_TUNED';
     }
     interface GoogleCloudDocumentaiUiv1beta3ProcessorVersionGenAiModelInfoFoundationGenAiModelInfo {
       /** Whether fine tuning is allowed for this base processor version. */
@@ -921,10 +919,7 @@ declare namespace gapi.client {
       satisfiesPzs?: boolean;
       /** Required. State of the dataset. Ignored when updating dataset. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'UNINITIALIZED'
-        | 'INITIALIZING'
-        | 'INITIALIZED';
+        'STATE_UNSPECIFIED' | 'UNINITIALIZED' | 'INITIALIZING' | 'INITIALIZED';
       /** Optional. Unmanaged dataset configuration. Use this configuration if the dataset documents are managed by the document service internally (not user-managed). */
       unmanagedDatasetConfig?: any;
     }
@@ -1761,7 +1756,9 @@ declare namespace gapi.client {
       documentCounters?: GoogleCloudDocumentaiV1beta3EvaluationCounters;
       /** Metrics across confidence levels, for different entities. */
       entityMetrics?: {
-        [P in string]: GoogleCloudDocumentaiV1beta3EvaluationMultiConfidenceMetrics;
+        [
+          P in string
+        ]: GoogleCloudDocumentaiV1beta3EvaluationMultiConfidenceMetrics;
       };
       /** The KMS key name used for encryption. */
       kmsKeyName?: string;
@@ -1795,7 +1792,9 @@ declare namespace gapi.client {
       documentCounters?: GoogleCloudDocumentaiV1beta3EvaluationCounters;
       /** Output only. Metrics across confidence levels, for different entities. */
       entityMetrics?: {
-        [P in string]: GoogleCloudDocumentaiV1beta3EvaluationMultiConfidenceMetrics;
+        [
+          P in string
+        ]: GoogleCloudDocumentaiV1beta3EvaluationMultiConfidenceMetrics;
       };
       /** Output only. The revision ID of the evaluation. */
       revisionId?: string;
@@ -2256,9 +2255,7 @@ declare namespace gapi.client {
       baseProcessorVersionId?: string;
       /** The type of custom model created by the user. */
       customModelType?:
-        | 'CUSTOM_MODEL_TYPE_UNSPECIFIED'
-        | 'VERSIONED_FOUNDATION'
-        | 'FINE_TUNED';
+        'CUSTOM_MODEL_TYPE_UNSPECIFIED' | 'VERSIONED_FOUNDATION' | 'FINE_TUNED';
     }
     interface GoogleCloudDocumentaiV1beta3ProcessorVersionGenAiModelInfoFoundationGenAiModelInfo {
       /** Whether fine tuning is allowed for this base processor version. */
@@ -2438,9 +2435,7 @@ declare namespace gapi.client {
     interface GoogleCloudDocumentaiV1beta3TrainProcessorVersionRequestCustomDocumentExtractionOptions {
       /** Optional. Training method to use for CDE training. */
       trainingMethod?:
-        | 'TRAINING_METHOD_UNSPECIFIED'
-        | 'MODEL_BASED'
-        | 'TEMPLATE_BASED';
+        'TRAINING_METHOD_UNSPECIFIED' | 'MODEL_BASED' | 'TEMPLATE_BASED';
     }
     interface GoogleCloudDocumentaiV1beta3TrainProcessorVersionRequestFoundationModelTuningOptions {
       /** Optional. The multiplier to apply to the recommended learning rate. Valid values are between 0.1 and 10. If not provided, recommended learning rate will be used. */

@@ -50,9 +50,7 @@ declare namespace gapi.client {
       configConflicts?: ConfigConflict[];
       /** Output only. Whether build has succeeded or failed on modules conflicts. */
       containsPypiModulesConflict?:
-        | 'CONFLICT_RESULT_UNSPECIFIED'
-        | 'CONFLICT'
-        | 'NO_CONFLICT';
+        'CONFLICT_RESULT_UNSPECIFIED' | 'CONFLICT' | 'NO_CONFLICT';
       /** Composer image for which the build was happening. */
       imageVersion?: string;
       /** Output only. Extract from a docker image build log containing information about pypi modules conflicts. */

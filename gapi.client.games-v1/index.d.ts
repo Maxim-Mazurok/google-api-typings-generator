@@ -470,8 +470,7 @@ declare namespace gapi.client {
       cardinalityConstraint?: 'ONE_PERSONA_TO_ONE_PLAYER';
       /** Required. Resolution policy to apply when the linking of a persona to a player would result in violating the specified cardinality constraint. */
       conflictingLinksResolutionPolicy?:
-        | 'KEEP_EXISTING_LINKS'
-        | 'CREATE_NEW_LINK';
+        'KEEP_EXISTING_LINKS' | 'CREATE_NEW_LINK';
       /** Input only. Optional expiration time. */
       expireTime?: string;
       /** Required. Stable identifier of the in-game account. Please refrain from re-using the same persona for different games. */

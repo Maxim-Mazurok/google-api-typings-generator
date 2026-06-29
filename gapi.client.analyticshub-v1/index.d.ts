@@ -44,10 +44,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface AvroConfig {
       /** Optional. When true, the output Cloud Storage file will be serialized using the topic schema, if it exists. */
@@ -126,9 +123,7 @@ declare namespace gapi.client {
       compressionAlgorithm?: 'COMPRESSION_ALGORITHM_UNSPECIFIED' | 'ZLIB';
       /** Required. Specifies whether to compress or decompress the message. */
       compressionMode?:
-        | 'COMPRESSION_MODE_UNSPECIFIED'
-        | 'COMPRESS'
-        | 'DECOMPRESS';
+        'COMPRESSION_MODE_UNSPECIFIED' | 'COMPRESS' | 'DECOMPRESS';
     }
     interface DataExchange {
       /** Optional. Description of the data exchange. The description must not contain Unicode non-characters as well as C0 and C1 control codes except tabs (HT), new lines (LF), carriage returns (CR), and page breaks (FF). Default value is an empty string. Max length: 2000 bytes. */
@@ -228,9 +223,7 @@ declare namespace gapi.client {
     interface GoogleCloudBigqueryAnalyticshubV1ListingCommercialInfoGoogleCloudMarketplaceInfo {
       /** Output only. Commercial state of the Marketplace Data Product. */
       commercialState?:
-        | 'COMMERCIAL_STATE_UNSPECIFIED'
-        | 'ONBOARDING'
-        | 'ACTIVE';
+        'COMMERCIAL_STATE_UNSPECIFIED' | 'ONBOARDING' | 'ACTIVE';
       /** Output only. Resource name of the commercial service associated with the Marketplace Data Product. e.g. example.com */
       service?: string;
     }
@@ -503,11 +496,7 @@ declare namespace gapi.client {
       routine?: Routine;
       /** Output only. The QueryTemplate lifecycle state. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'DRAFTED'
-        | 'PENDING'
-        | 'DELETED'
-        | 'APPROVED';
+        'STATE_UNSPECIFIED' | 'DRAFTED' | 'PENDING' | 'DELETED' | 'APPROVED';
       /** Output only. Timestamp when the QueryTemplate was last modified. */
       updateTime?: string;
     }
@@ -523,9 +512,7 @@ declare namespace gapi.client {
       primaryState?: 'PRIMARY_STATE_UNSPECIFIED' | 'PRIMARY_REPLICA';
       /** Output only. Assigned by Analytics Hub based on real BigQuery replication state. */
       replicaState?:
-        | 'REPLICA_STATE_UNSPECIFIED'
-        | 'READY_TO_USE'
-        | 'UNAVAILABLE';
+        'REPLICA_STATE_UNSPECIFIED' | 'READY_TO_USE' | 'UNAVAILABLE';
     }
     interface RestrictedExportConfig {
       /** Optional. If true, enable restricted export. */
@@ -589,8 +576,7 @@ declare namespace gapi.client {
     interface StoredProcedureConfig {
       /** Output only. Types of stored procedure supported to share. */
       allowedStoredProcedureTypes?:
-        | 'STORED_PROCEDURE_TYPE_UNSPECIFIED'
-        | 'SQL_PROCEDURE'[];
+        'STORED_PROCEDURE_TYPE_UNSPECIFIED' | 'SQL_PROCEDURE'[];
       /** Optional. If true, enable sharing of stored procedure. */
       enabled?: boolean;
     }
@@ -651,10 +637,7 @@ declare namespace gapi.client {
         | 'PUBSUB_TOPIC';
       /** Output only. Current state of the subscription. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'STATE_ACTIVE'
-        | 'STATE_STALE'
-        | 'STATE_INACTIVE';
+        'STATE_UNSPECIFIED' | 'STATE_ACTIVE' | 'STATE_STALE' | 'STATE_INACTIVE';
       /** Output only. Email of the subscriber. */
       subscriberContact?: string;
     }

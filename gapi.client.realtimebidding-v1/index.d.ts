@@ -127,10 +127,7 @@ declare namespace gapi.client {
       apiUpdateTime?: string;
       /** Output only. The format of this creative. Can be used to filter the response of the creatives.list method. */
       creativeFormat?:
-        | 'CREATIVE_FORMAT_UNSPECIFIED'
-        | 'HTML'
-        | 'VIDEO'
-        | 'NATIVE';
+        'CREATIVE_FORMAT_UNSPECIFIED' | 'HTML' | 'VIDEO' | 'NATIVE';
       /** Buyer-specific creative ID that references this creative in bid responses. This field is Ignored in update operations. Can be used to filter the response of the creatives.list method. The maximum length of the creative ID is 128 bytes. */
       creativeId?: string;
       /** Output only. Top level status and detected attributes of a creative (for example domain, language, advertiser, product category, etc.) that affect whether (status) and where (context) a creative will be allowed to serve. */
@@ -182,8 +179,7 @@ declare namespace gapi.client {
       declaredClickThroughUrls?: string[];
       /** All declared restricted categories for the ads that may be shown from this creative. Can be used to filter the response of the creatives.list method. */
       declaredRestrictedCategories?:
-        | 'RESTRICTED_CATEGORY_UNSPECIFIED'
-        | 'ALCOHOL'[];
+        'RESTRICTED_CATEGORY_UNSPECIFIED' | 'ALCOHOL'[];
       /** IDs for the declared ad technology vendors that may be used by this creative. See https://storage.googleapis.com/adx-rtb-dictionaries/vendors.txt for possible values. Can be used to filter the response of the creatives.list method. */
       declaredVendorIds?: number[];
       /** An HTML creative. */
@@ -311,9 +307,7 @@ declare namespace gapi.client {
     interface DestinationNotWorkingEvidence {
       /** DNS lookup errors. */
       dnsError?:
-        | 'DNS_ERROR_UNSPECIFIED'
-        | 'ERROR_DNS'
-        | 'GOOGLE_CRAWLER_DNS_ISSUE';
+        'DNS_ERROR_UNSPECIFIED' | 'ERROR_DNS' | 'GOOGLE_CRAWLER_DNS_ISSUE';
       /** The full non-working URL. */
       expandedUrl?: string;
       /** HTTP error code (for example, 404 or 5xx) */
@@ -324,10 +318,7 @@ declare namespace gapi.client {
       lastCheckTime?: string;
       /** Platform of the non-working URL. */
       platform?:
-        | 'PLATFORM_UNSPECIFIED'
-        | 'PERSONAL_COMPUTER'
-        | 'ANDROID'
-        | 'IOS';
+        'PLATFORM_UNSPECIFIED' | 'PERSONAL_COMPUTER' | 'ANDROID' | 'IOS';
       /** HTTP redirect chain error. */
       redirectionError?:
         | 'REDIRECTION_ERROR_UNSPECIFIED'
@@ -576,10 +567,7 @@ declare namespace gapi.client {
       includedEnvironments?: 'ENVIRONMENT_UNSPECIFIED' | 'APP' | 'WEB'[];
       /** Creative formats included by this config. Only bid requests eligible for at least one of the specified creative formats will be sent. An unset value will allow all bid requests to be sent, regardless of format. */
       includedFormats?:
-        | 'CREATIVE_FORMAT_UNSPECIFIED'
-        | 'HTML'
-        | 'VAST'
-        | 'NATIVE'[];
+        'CREATIVE_FORMAT_UNSPECIFIED' | 'HTML' | 'VAST' | 'NATIVE'[];
       /** The languages included in this config, represented by their language code. See https://developers.google.com/adwords/api/docs/appendix/languagecodes. */
       includedLanguages?: string[];
       /** The mobile operating systems included in this config as defined in https://storage.googleapis.com/adx-rtb-dictionaries/mobile-os.csv */
@@ -634,9 +622,7 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. Whether the publisher is an Ad Manager or AdMob publisher. */
       publisherPlatform?:
-        | 'PUBLISHER_PLATFORM_UNSPECIFIED'
-        | 'GOOGLE_AD_MANAGER'
-        | 'ADMOB';
+        'PUBLISHER_PLATFORM_UNSPECIFIED' | 'GOOGLE_AD_MANAGER' | 'ADMOB';
     }
     interface RemoveTargetedAppsRequest {
       /** A list of app IDs to stop targeting in the pretargeting configuration. These values will be removed from the list of targeted app IDs in PretargetingConfig.appTargeting.mobileAppTargeting.values. */

@@ -228,9 +228,7 @@ declare namespace gapi.client {
       compressionAlgorithm?: 'COMPRESSION_ALGORITHM_UNSPECIFIED' | 'ZLIB';
       /** Required. Specifies whether to compress or decompress the message. */
       compressionMode?:
-        | 'COMPRESSION_MODE_UNSPECIFIED'
-        | 'COMPRESS'
-        | 'DECOMPRESS';
+        'COMPRESSION_MODE_UNSPECIFIED' | 'COMPRESS' | 'DECOMPRESS';
     }
     interface ConfluentCloud {
       /** Required. The address of the bootstrap server. The format is url:port. */

@@ -39,10 +39,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface AwsAccessRole {
       /** The user’s AWS IAM Role that trusts the Google-owned AWS IAM user Connection. */

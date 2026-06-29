@@ -93,10 +93,7 @@ declare namespace gapi.client {
       serialNumber?: string;
       /** Output only. Device state. */
       state?:
-        | 'DEVICE_STATE_UNSPECIFIED'
-        | 'RESERVED'
-        | 'REGISTERED'
-        | 'DEREGISTERED';
+        'DEVICE_STATE_UNSPECIFIED' | 'RESERVED' | 'REGISTERED' | 'DEREGISTERED';
     }
     interface SasPortalDeviceAirInterface {
       /** Conditional. This field specifies the radio access technology that is used for the CBSD. */
@@ -145,9 +142,7 @@ declare namespace gapi.client {
     interface SasPortalDeviceGrant {
       /** Type of channel used. */
       channelType?:
-        | 'CHANNEL_TYPE_UNSPECIFIED'
-        | 'CHANNEL_TYPE_GAA'
-        | 'CHANNEL_TYPE_PAL';
+        'CHANNEL_TYPE_UNSPECIFIED' | 'CHANNEL_TYPE_GAA' | 'CHANNEL_TYPE_PAL';
       /** The expiration time of the grant. */
       expireTime?: string;
       /** The transmission frequency range. */
@@ -242,9 +237,7 @@ declare namespace gapi.client {
       height?: number;
       /** Specifies how the height is measured. */
       heightType?:
-        | 'HEIGHT_TYPE_UNSPECIFIED'
-        | 'HEIGHT_TYPE_AGL'
-        | 'HEIGHT_TYPE_AMSL';
+        'HEIGHT_TYPE_UNSPECIFIED' | 'HEIGHT_TYPE_AGL' | 'HEIGHT_TYPE_AMSL';
       /** A positive number in meters to indicate accuracy of the device antenna horizontal location. This optional parameter should only be present if its value is less than the FCC requirement of 50 meters. */
       horizontalAccuracy?: number;
       /** Whether the device antenna is indoor or not. `true`: indoor. `false`: outdoor. */

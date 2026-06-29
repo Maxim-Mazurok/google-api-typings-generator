@@ -272,9 +272,7 @@ declare namespace gapi.client {
         | 'STEPPED_AREA';
       /** The behavior of tooltips and data highlighting when hovering on data and chart area. */
       compareMode?:
-        | 'BASIC_CHART_COMPARE_MODE_UNSPECIFIED'
-        | 'DATUM'
-        | 'CATEGORY';
+        'BASIC_CHART_COMPARE_MODE_UNSPECIFIED' | 'DATUM' | 'CATEGORY';
       /** The domain of data this is charting. Only a single domain is supported. */
       domains?: BasicChartDomain[];
       /** The number of rows or columns in the data that are "headers". If not set, Google Sheets will guess how many rows are headers based on the data. (Note that BasicChartAxis.title may override the axis title inferred from the header values.) */
@@ -395,14 +393,10 @@ declare namespace gapi.client {
       responseDateTimeRenderOption?: 'SERIAL_NUMBER' | 'FORMATTED_STRING';
       /** Determines how values in the response should be rendered. The default render option is FORMATTED_VALUE. */
       responseValueRenderOption?:
-        | 'FORMATTED_VALUE'
-        | 'UNFORMATTED_VALUE'
-        | 'FORMULA';
+        'FORMATTED_VALUE' | 'UNFORMATTED_VALUE' | 'FORMULA';
       /** How the input data should be interpreted. */
       valueInputOption?:
-        | 'INPUT_VALUE_OPTION_UNSPECIFIED'
-        | 'RAW'
-        | 'USER_ENTERED';
+        'INPUT_VALUE_OPTION_UNSPECIFIED' | 'RAW' | 'USER_ENTERED';
     }
     interface BatchUpdateValuesByDataFilterResponse {
       /** The response for each range updated. */
@@ -427,14 +421,10 @@ declare namespace gapi.client {
       responseDateTimeRenderOption?: 'SERIAL_NUMBER' | 'FORMATTED_STRING';
       /** Determines how values in the response should be rendered. The default render option is FORMATTED_VALUE. */
       responseValueRenderOption?:
-        | 'FORMATTED_VALUE'
-        | 'UNFORMATTED_VALUE'
-        | 'FORMULA';
+        'FORMATTED_VALUE' | 'UNFORMATTED_VALUE' | 'FORMULA';
       /** How the input data should be interpreted. */
       valueInputOption?:
-        | 'INPUT_VALUE_OPTION_UNSPECIFIED'
-        | 'RAW'
-        | 'USER_ENTERED';
+        'INPUT_VALUE_OPTION_UNSPECIFIED' | 'RAW' | 'USER_ENTERED';
     }
     interface BatchUpdateValuesResponse {
       /** One UpdateValuesResponse per requested range, in the same order as the requests appeared. */
@@ -657,34 +647,24 @@ declare namespace gapi.client {
       borders?: Borders;
       /** The horizontal alignment of the value in the cell. */
       horizontalAlignment?:
-        | 'HORIZONTAL_ALIGN_UNSPECIFIED'
-        | 'LEFT'
-        | 'CENTER'
-        | 'RIGHT';
+        'HORIZONTAL_ALIGN_UNSPECIFIED' | 'LEFT' | 'CENTER' | 'RIGHT';
       /** If one exists, how a hyperlink should be displayed in the cell. */
       hyperlinkDisplayType?:
-        | 'HYPERLINK_DISPLAY_TYPE_UNSPECIFIED'
-        | 'LINKED'
-        | 'PLAIN_TEXT';
+        'HYPERLINK_DISPLAY_TYPE_UNSPECIFIED' | 'LINKED' | 'PLAIN_TEXT';
       /** A format describing how number values should be represented to the user. */
       numberFormat?: NumberFormat;
       /** The padding of the cell. */
       padding?: Padding;
       /** The direction of the text in the cell. */
       textDirection?:
-        | 'TEXT_DIRECTION_UNSPECIFIED'
-        | 'LEFT_TO_RIGHT'
-        | 'RIGHT_TO_LEFT';
+        'TEXT_DIRECTION_UNSPECIFIED' | 'LEFT_TO_RIGHT' | 'RIGHT_TO_LEFT';
       /** The format of the text in the cell (unless overridden by a format run). Setting a cell-level link here clears the cell's existing links. Setting the link field in a TextFormatRun takes precedence over the cell-level link. */
       textFormat?: TextFormat;
       /** The rotation applied to text in the cell. */
       textRotation?: TextRotation;
       /** The vertical alignment of the value in the cell. */
       verticalAlignment?:
-        | 'VERTICAL_ALIGN_UNSPECIFIED'
-        | 'TOP'
-        | 'MIDDLE'
-        | 'BOTTOM';
+        'VERTICAL_ALIGN_UNSPECIFIED' | 'TOP' | 'MIDDLE' | 'BOTTOM';
       /** The wrap strategy for the value in the cell. */
       wrapStrategy?:
         | 'WRAP_STRATEGY_UNSPECIFIED'
@@ -1083,8 +1063,7 @@ declare namespace gapi.client {
       nextRun?: Interval;
       /** The scope of the refresh. Must be ALL_DATA_SOURCES. */
       refreshScope?:
-        | 'DATA_SOURCE_REFRESH_SCOPE_UNSPECIFIED'
-        | 'ALL_DATA_SOURCES';
+        'DATA_SOURCE_REFRESH_SCOPE_UNSPECIFIED' | 'ALL_DATA_SOURCES';
       /** Weekly refresh schedule. */
       weeklySchedule?: DataSourceRefreshWeeklySchedule;
     }
@@ -1262,9 +1241,7 @@ declare namespace gapi.client {
       metadataValue?: string;
       /** The metadata visibility. Developer metadata must always have visibility specified. */
       visibility?:
-        | 'DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED'
-        | 'DOCUMENT'
-        | 'PROJECT';
+        'DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED' | 'DOCUMENT' | 'PROJECT';
     }
     interface DeveloperMetadataLocation {
       /** Represents the row or column when metadata is associated with a dimension. The specified DimensionRange must represent a single row or column. It cannot be unbounded or span multiple rows or columns. */
@@ -1304,9 +1281,7 @@ declare namespace gapi.client {
       metadataValue?: string;
       /** Limits the selected developer metadata to that which has a matching DeveloperMetadata.visibility. If left unspecified, all developer metadata visible to the requesting project is considered. */
       visibility?:
-        | 'DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED'
-        | 'DOCUMENT'
-        | 'PROJECT';
+        'DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED' | 'DOCUMENT' | 'PROJECT';
     }
     interface DimensionGroup {
       /** This field is true if this group is collapsed. A collapsed group remains collapsed if an overlapping group at a shallower depth is expanded. A true value does not imply that all dimensions within the group are hidden, since a dimension's visibility can change independently from this group property. However, when this property is updated, all dimensions within it are set to hidden if this field is true, or set to visible if this field is false. */
@@ -1730,10 +1705,7 @@ declare namespace gapi.client {
       nodeColorStyle?: ColorStyle;
       /** The size of the org chart nodes. */
       nodeSize?:
-        | 'ORG_CHART_LABEL_SIZE_UNSPECIFIED'
-        | 'SMALL'
-        | 'MEDIUM'
-        | 'LARGE';
+        'ORG_CHART_LABEL_SIZE_UNSPECIFIED' | 'SMALL' | 'MEDIUM' | 'LARGE';
       /** The data containing the label of the parent for the corresponding node. A blank value indicates that the node has no parent and is a top-level node. This field is optional. */
       parentLabels?: ChartData;
       /** The color of the selected org chart nodes. Deprecated: Use selected_node_color_style. */
@@ -2237,9 +2209,7 @@ declare namespace gapi.client {
       keyValueFormat?: KeyValueFormat;
       /** The number format source used in the scorecard chart. This field is optional. */
       numberFormatSource?:
-        | 'CHART_NUMBER_FORMAT_SOURCE_UNDEFINED'
-        | 'FROM_DATA'
-        | 'CUSTOM';
+        'CHART_NUMBER_FORMAT_SOURCE_UNDEFINED' | 'FROM_DATA' | 'CUSTOM';
       /** Value to scale scorecard key and baseline value. For example, a factor of 10 can be used to divide all values in the chart by 10. This field is optional. */
       scaleFactor?: number;
     }
@@ -2338,10 +2308,7 @@ declare namespace gapi.client {
       filterCriteria?: FilterCriteria;
       /** The horizontal alignment of title in the slicer. If unspecified, defaults to `LEFT` */
       horizontalAlignment?:
-        | 'HORIZONTAL_ALIGN_UNSPECIFIED'
-        | 'LEFT'
-        | 'CENTER'
-        | 'RIGHT';
+        'HORIZONTAL_ALIGN_UNSPECIFIED' | 'LEFT' | 'CENTER' | 'RIGHT';
       /** The text format of title in the slicer. The link field is not supported. */
       textFormat?: TextFormat;
       /** The title of the slicer. */
@@ -2398,10 +2365,7 @@ declare namespace gapi.client {
     interface SpreadsheetProperties {
       /** The amount of time to wait before volatile functions are recalculated. */
       autoRecalc?:
-        | 'RECALCULATION_INTERVAL_UNSPECIFIED'
-        | 'ON_CHANGE'
-        | 'MINUTE'
-        | 'HOUR';
+        'RECALCULATION_INTERVAL_UNSPECIFIED' | 'ON_CHANGE' | 'MINUTE' | 'HOUR';
       /** The default format of all cells in the spreadsheet. CellData.effectiveFormat will not be set if the cell's format is equal to this default format. This field is read-only. */
       defaultFormat?: CellFormat;
       /** Whether to allow external URL access for image and import functions. Read only when true. When false, you can set to true. This value will be bypassed and always return true if the admin has enabled the [allowlisting feature](https://support.google.com/a?p=url_allowlist). */
@@ -2503,10 +2467,7 @@ declare namespace gapi.client {
     interface TextPosition {
       /** Horizontal alignment setting for the piece of text. */
       horizontalAlignment?:
-        | 'HORIZONTAL_ALIGN_UNSPECIFIED'
-        | 'LEFT'
-        | 'CENTER'
-        | 'RIGHT';
+        'HORIZONTAL_ALIGN_UNSPECIFIED' | 'LEFT' | 'CENTER' | 'RIGHT';
     }
     interface TextRotation {
       /** The angle between the standard orientation and the desired orientation. Measured in degrees. Valid values are between -90 and 90. Positive angles are angled upwards, negative are angled downwards. Note: For LTR text direction positive angles are in the counterclockwise direction, whereas for RTL they are in the clockwise direction */
@@ -2862,9 +2823,7 @@ declare namespace gapi.client {
       series?: WaterfallChartSeries[];
       /** The stacked type. */
       stackedType?:
-        | 'WATERFALL_STACKED_TYPE_UNSPECIFIED'
-        | 'STACKED'
-        | 'SEQUENTIAL';
+        'WATERFALL_STACKED_TYPE_UNSPECIFIED' | 'STACKED' | 'SEQUENTIAL';
       /** Controls whether to display additional data labels on stacked charts which sum the total value of all stacked values at each value along the domain axis. stacked_type must be STACKED and neither CUSTOM nor placement can be set on the total_data_label. */
       totalDataLabel?: DataLabel;
     }
@@ -3052,9 +3011,7 @@ declare namespace gapi.client {
         responseDateTimeRenderOption?: 'SERIAL_NUMBER' | 'FORMATTED_STRING';
         /** Determines how values in the response should be rendered. The default render option is FORMATTED_VALUE. */
         responseValueRenderOption?:
-          | 'FORMATTED_VALUE'
-          | 'UNFORMATTED_VALUE'
-          | 'FORMULA';
+          'FORMATTED_VALUE' | 'UNFORMATTED_VALUE' | 'FORMULA';
         /** The ID of the spreadsheet to update. */
         spreadsheetId: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -3063,9 +3020,7 @@ declare namespace gapi.client {
         uploadType?: string;
         /** How the input data should be interpreted. */
         valueInputOption?:
-          | 'INPUT_VALUE_OPTION_UNSPECIFIED'
-          | 'RAW'
-          | 'USER_ENTERED';
+          'INPUT_VALUE_OPTION_UNSPECIFIED' | 'RAW' | 'USER_ENTERED';
         /** Request body */
         resource: ValueRange;
       }): client.Request<AppendValuesResponse>;
@@ -3099,9 +3054,7 @@ declare namespace gapi.client {
           responseDateTimeRenderOption?: 'SERIAL_NUMBER' | 'FORMATTED_STRING';
           /** Determines how values in the response should be rendered. The default render option is FORMATTED_VALUE. */
           responseValueRenderOption?:
-            | 'FORMATTED_VALUE'
-            | 'UNFORMATTED_VALUE'
-            | 'FORMULA';
+            'FORMATTED_VALUE' | 'UNFORMATTED_VALUE' | 'FORMULA';
           /** The ID of the spreadsheet to update. */
           spreadsheetId: string;
           /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -3110,9 +3063,7 @@ declare namespace gapi.client {
           uploadType?: string;
           /** How the input data should be interpreted. */
           valueInputOption?:
-            | 'INPUT_VALUE_OPTION_UNSPECIFIED'
-            | 'RAW'
-            | 'USER_ENTERED';
+            'INPUT_VALUE_OPTION_UNSPECIFIED' | 'RAW' | 'USER_ENTERED';
         },
         body: ValueRange,
       ): client.Request<AppendValuesResponse>;
@@ -3566,9 +3517,7 @@ declare namespace gapi.client {
         responseDateTimeRenderOption?: 'SERIAL_NUMBER' | 'FORMATTED_STRING';
         /** Determines how values in the response should be rendered. The default render option is FORMATTED_VALUE. */
         responseValueRenderOption?:
-          | 'FORMATTED_VALUE'
-          | 'UNFORMATTED_VALUE'
-          | 'FORMULA';
+          'FORMATTED_VALUE' | 'UNFORMATTED_VALUE' | 'FORMULA';
         /** The ID of the spreadsheet to update. */
         spreadsheetId: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -3577,9 +3526,7 @@ declare namespace gapi.client {
         uploadType?: string;
         /** How the input data should be interpreted. */
         valueInputOption?:
-          | 'INPUT_VALUE_OPTION_UNSPECIFIED'
-          | 'RAW'
-          | 'USER_ENTERED';
+          'INPUT_VALUE_OPTION_UNSPECIFIED' | 'RAW' | 'USER_ENTERED';
         /** Request body */
         resource: ValueRange;
       }): client.Request<UpdateValuesResponse>;
@@ -3611,9 +3558,7 @@ declare namespace gapi.client {
           responseDateTimeRenderOption?: 'SERIAL_NUMBER' | 'FORMATTED_STRING';
           /** Determines how values in the response should be rendered. The default render option is FORMATTED_VALUE. */
           responseValueRenderOption?:
-            | 'FORMATTED_VALUE'
-            | 'UNFORMATTED_VALUE'
-            | 'FORMULA';
+            'FORMATTED_VALUE' | 'UNFORMATTED_VALUE' | 'FORMULA';
           /** The ID of the spreadsheet to update. */
           spreadsheetId: string;
           /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -3622,9 +3567,7 @@ declare namespace gapi.client {
           uploadType?: string;
           /** How the input data should be interpreted. */
           valueInputOption?:
-            | 'INPUT_VALUE_OPTION_UNSPECIFIED'
-            | 'RAW'
-            | 'USER_ENTERED';
+            'INPUT_VALUE_OPTION_UNSPECIFIED' | 'RAW' | 'USER_ENTERED';
         },
         body: ValueRange,
       ): client.Request<UpdateValuesResponse>;

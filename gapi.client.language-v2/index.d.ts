@@ -857,9 +857,7 @@ declare namespace gapi.client {
       document?: Document;
       /** Optional. The model version to use for ModerateText. */
       modelVersion?:
-        | 'MODEL_VERSION_UNSPECIFIED'
-        | 'MODEL_VERSION_1'
-        | 'MODEL_VERSION_2';
+        'MODEL_VERSION_UNSPECIFIED' | 'MODEL_VERSION_1' | 'MODEL_VERSION_2';
     }
     interface ModerateTextResponse {
       /** The language of the text, which will be the same as the language specified in the request or, if not specified, the automatically-detected language. See Document.language_code field for more details. */
@@ -1453,12 +1451,10 @@ declare namespace gapi.client {
     interface XPSDockerFormat {
       /** Optional. Additional cpu information describing the requirements for the to be exported model files. */
       cpuArchitecture?:
-        | 'CPU_ARCHITECTURE_UNSPECIFIED'
-        | 'CPU_ARCHITECTURE_X86_64';
+        'CPU_ARCHITECTURE_UNSPECIFIED' | 'CPU_ARCHITECTURE_X86_64';
       /** Optional. Additional gpu information describing the requirements for the to be exported model files. */
       gpuArchitecture?:
-        | 'GPU_ARCHITECTURE_UNSPECIFIED'
-        | 'GPU_ARCHITECTURE_NVIDIA';
+        'GPU_ARCHITECTURE_UNSPECIFIED' | 'GPU_ARCHITECTURE_NVIDIA';
     }
     interface XPSEdgeTpuTfLiteFormat {}
     interface XPSEvaluationMetrics {

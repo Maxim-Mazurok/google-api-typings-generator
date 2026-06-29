@@ -386,9 +386,7 @@ declare namespace gapi.client {
         | 'UNSTRUCTURED'
         | 'STRUCTURED';
       documentProcessingMode?:
-        | 'DOCUMENT_PROCESSING_MODE_UNSPECIFIED'
-        | 'DOCUMENTS'
-        | 'CHUNKS';
+        'DOCUMENT_PROCESSING_MODE_UNSPECIFIED' | 'DOCUMENTS' | 'CHUNKS';
     }
     interface GoogleCloudDialogflowCxV3beta1DataStoreConnectionSignals {
       answer?: string;
@@ -497,8 +495,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowCxV3beta1EntityType {
       autoExpansionMode?:
-        | 'AUTO_EXPANSION_MODE_UNSPECIFIED'
-        | 'AUTO_EXPANSION_MODE_DEFAULT';
+        'AUTO_EXPANSION_MODE_UNSPECIFIED' | 'AUTO_EXPANSION_MODE_DEFAULT';
       displayName?: string;
       enableFuzzyExtraction?: boolean;
       entities?: GoogleCloudDialogflowCxV3beta1EntityTypeEntity[];
@@ -586,11 +583,7 @@ declare namespace gapi.client {
       rolloutState?: GoogleCloudDialogflowCxV3beta1RolloutState;
       startTime?: string;
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'DRAFT'
-        | 'RUNNING'
-        | 'DONE'
-        | 'ROLLOUT_FAILED';
+        'STATE_UNSPECIFIED' | 'DRAFT' | 'RUNNING' | 'DONE' | 'ROLLOUT_FAILED';
       variantsHistory?: GoogleCloudDialogflowCxV3beta1VariantsHistory[];
     }
     interface GoogleCloudDialogflowCxV3beta1ExperimentDefinition {
@@ -950,11 +943,7 @@ declare namespace gapi.client {
     interface GoogleCloudDialogflowCxV3beta1InlineSchema {
       items?: GoogleCloudDialogflowCxV3beta1TypeSchema;
       type?:
-        | 'DATA_TYPE_UNSPECIFIED'
-        | 'STRING'
-        | 'NUMBER'
-        | 'BOOLEAN'
-        | 'ARRAY';
+        'DATA_TYPE_UNSPECIFIED' | 'STRING' | 'NUMBER' | 'BOOLEAN' | 'ARRAY';
     }
     interface GoogleCloudDialogflowCxV3beta1InlineSource {
       content?: string;
@@ -1139,10 +1128,7 @@ declare namespace gapi.client {
       exampleId?: string;
       matchedRetrievalLabel?: string;
       retrievalStrategy?:
-        | 'RETRIEVAL_STRATEGY_UNSPECIFIED'
-        | 'DEFAULT'
-        | 'STATIC'
-        | 'NEVER';
+        'RETRIEVAL_STRATEGY_UNSPECIFIED' | 'DEFAULT' | 'STATIC' | 'NEVER';
     }
     interface GoogleCloudDialogflowCxV3beta1LlmCallTokenCount {
       conversationContextTokenCount?: string;
@@ -1521,9 +1507,7 @@ declare namespace gapi.client {
     interface GoogleCloudDialogflowCxV3beta1SafetySettings {
       bannedPhrases?: GoogleCloudDialogflowCxV3beta1SafetySettingsPhrase[];
       defaultBannedPhraseMatchStrategy?:
-        | 'PHRASE_MATCH_STRATEGY_UNSPECIFIED'
-        | 'PARTIAL_MATCH'
-        | 'WORD_MATCH';
+        'PHRASE_MATCH_STRATEGY_UNSPECIFIED' | 'PARTIAL_MATCH' | 'WORD_MATCH';
       defaultRaiSettings?: GoogleCloudDialogflowCxV3beta1SafetySettingsRaiSettings;
       promptSecuritySettings?: GoogleCloudDialogflowCxV3beta1SafetySettingsPromptSecuritySettings;
       raiSettings?: GoogleCloudDialogflowCxV3beta1SafetySettingsRaiSettings;
@@ -1566,11 +1550,9 @@ declare namespace gapi.client {
       purgeDataTypes?: 'PURGE_DATA_TYPE_UNSPECIFIED' | 'DIALOGFLOW_HISTORY'[];
       redactionScope?: 'REDACTION_SCOPE_UNSPECIFIED' | 'REDACT_DISK_STORAGE';
       redactionStrategy?:
-        | 'REDACTION_STRATEGY_UNSPECIFIED'
-        | 'REDACT_WITH_SERVICE';
+        'REDACTION_STRATEGY_UNSPECIFIED' | 'REDACT_WITH_SERVICE';
       retentionStrategy?:
-        | 'RETENTION_STRATEGY_UNSPECIFIED'
-        | 'REMOVE_AFTER_CONVERSATION';
+        'RETENTION_STRATEGY_UNSPECIFIED' | 'REMOVE_AFTER_CONVERSATION';
       retentionWindowDays?: number;
     }
     interface GoogleCloudDialogflowCxV3beta1SecuritySettingsAudioExportSettings {
@@ -1700,9 +1682,7 @@ declare namespace gapi.client {
       apiKey?: string;
       keyName?: string;
       requestLocation?:
-        | 'REQUEST_LOCATION_UNSPECIFIED'
-        | 'HEADER'
-        | 'QUERY_STRING';
+        'REQUEST_LOCATION_UNSPECIFIED' | 'HEADER' | 'QUERY_STRING';
       secretVersionForApiKey?: string;
     }
     interface GoogleCloudDialogflowCxV3beta1ToolAuthenticationBearerTokenConfig {
@@ -1722,9 +1702,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowCxV3beta1ToolAuthenticationServiceAgentAuthConfig {
       serviceAgentAuth?:
-        | 'SERVICE_AGENT_AUTH_UNSPECIFIED'
-        | 'ID_TOKEN'
-        | 'ACCESS_TOKEN';
+        'SERVICE_AGENT_AUTH_UNSPECIFIED' | 'ID_TOKEN' | 'ACCESS_TOKEN';
     }
     interface GoogleCloudDialogflowCxV3beta1ToolCall {
       action?: string;
@@ -1889,9 +1867,7 @@ declare namespace gapi.client {
       agentEscalated?: boolean;
       dtmfUsed?: boolean;
       failureReasons?:
-        | 'FAILURE_REASON_UNSPECIFIED'
-        | 'FAILED_INTENT'
-        | 'FAILED_WEBHOOK'[];
+        'FAILURE_REASON_UNSPECIFIED' | 'FAILED_INTENT' | 'FAILED_WEBHOOK'[];
       noMatch?: boolean;
       noUserInput?: boolean;
       reachedEndPage?: boolean;
@@ -1995,14 +1971,13 @@ declare namespace gapi.client {
       requestHeaders?: {[P in string]: string};
       secretVersionForUsernamePassword?: string;
       secretVersionsForRequestHeaders?: {
-        [P in string]: GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceSecretVersionHeaderValue;
+        [
+          P in string
+        ]: GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceSecretVersionHeaderValue;
       };
       serviceAccountAuthConfig?: GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceServiceAccountAuthConfig;
       serviceAgentAuth?:
-        | 'SERVICE_AGENT_AUTH_UNSPECIFIED'
-        | 'NONE'
-        | 'ID_TOKEN'
-        | 'ACCESS_TOKEN';
+        'SERVICE_AGENT_AUTH_UNSPECIFIED' | 'NONE' | 'ID_TOKEN' | 'ACCESS_TOKEN';
       uri?: string;
       username?: string;
       webhookType?: 'WEBHOOK_TYPE_UNSPECIFIED' | 'STANDARD' | 'FLEXIBLE';
@@ -2045,7 +2020,9 @@ declare namespace gapi.client {
       displayName?: string;
       lastMatchedIntent?: string;
       parameters?: {
-        [P in string]: GoogleCloudDialogflowCxV3beta1WebhookRequestIntentInfoIntentParameterValue;
+        [
+          P in string
+        ]: GoogleCloudDialogflowCxV3beta1WebhookRequestIntentInfoIntentParameterValue;
       };
     }
     interface GoogleCloudDialogflowCxV3beta1WebhookRequestIntentInfoIntentParameterValue {
@@ -2111,9 +2088,7 @@ declare namespace gapi.client {
         | 'UNSTRUCTURED'
         | 'STRUCTURED';
       documentProcessingMode?:
-        | 'DOCUMENT_PROCESSING_MODE_UNSPECIFIED'
-        | 'DOCUMENTS'
-        | 'CHUNKS';
+        'DOCUMENT_PROCESSING_MODE_UNSPECIFIED' | 'DOCUMENTS' | 'CHUNKS';
     }
     interface GoogleCloudDialogflowCxV3DeployFlowMetadata {
       testErrors?: GoogleCloudDialogflowCxV3TestError[];
@@ -2499,9 +2474,7 @@ declare namespace gapi.client {
       agentEscalated?: boolean;
       dtmfUsed?: boolean;
       failureReasons?:
-        | 'FAILURE_REASON_UNSPECIFIED'
-        | 'FAILED_INTENT'
-        | 'FAILED_WEBHOOK'[];
+        'FAILURE_REASON_UNSPECIFIED' | 'FAILED_INTENT' | 'FAILED_WEBHOOK'[];
       noMatch?: boolean;
       noUserInput?: boolean;
       reachedEndPage?: boolean;
@@ -2536,14 +2509,13 @@ declare namespace gapi.client {
       requestHeaders?: {[P in string]: string};
       secretVersionForUsernamePassword?: string;
       secretVersionsForRequestHeaders?: {
-        [P in string]: GoogleCloudDialogflowCxV3WebhookGenericWebServiceSecretVersionHeaderValue;
+        [
+          P in string
+        ]: GoogleCloudDialogflowCxV3WebhookGenericWebServiceSecretVersionHeaderValue;
       };
       serviceAccountAuthConfig?: GoogleCloudDialogflowCxV3WebhookGenericWebServiceServiceAccountAuthConfig;
       serviceAgentAuth?:
-        | 'SERVICE_AGENT_AUTH_UNSPECIFIED'
-        | 'NONE'
-        | 'ID_TOKEN'
-        | 'ACCESS_TOKEN';
+        'SERVICE_AGENT_AUTH_UNSPECIFIED' | 'NONE' | 'ID_TOKEN' | 'ACCESS_TOKEN';
       uri?: string;
       username?: string;
       webhookType?: 'WEBHOOK_TYPE_UNSPECIFIED' | 'STANDARD' | 'FLEXIBLE';
@@ -2586,7 +2558,9 @@ declare namespace gapi.client {
       displayName?: string;
       lastMatchedIntent?: string;
       parameters?: {
-        [P in string]: GoogleCloudDialogflowCxV3WebhookRequestIntentInfoIntentParameterValue;
+        [
+          P in string
+        ]: GoogleCloudDialogflowCxV3WebhookRequestIntentInfoIntentParameterValue;
       };
     }
     interface GoogleCloudDialogflowCxV3WebhookRequestIntentInfoIntentParameterValue {
@@ -2760,10 +2734,7 @@ declare namespace gapi.client {
       conversationProfile?: string;
       createTime?: string;
       participantRole?:
-        | 'ROLE_UNSPECIFIED'
-        | 'HUMAN_AGENT'
-        | 'AUTOMATED_AGENT'
-        | 'END_USER';
+        'ROLE_UNSPECIFIED' | 'HUMAN_AGENT' | 'AUTOMATED_AGENT' | 'END_USER';
       suggestionFeatureType?:
         | 'TYPE_UNSPECIFIED'
         | 'ARTICLE_SUGGESTION'
@@ -2804,8 +2775,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowV2beta1EntityType {
       autoExpansionMode?:
-        | 'AUTO_EXPANSION_MODE_UNSPECIFIED'
-        | 'AUTO_EXPANSION_MODE_DEFAULT';
+        'AUTO_EXPANSION_MODE_UNSPECIFIED' | 'AUTO_EXPANSION_MODE_DEFAULT';
       displayName?: string;
       enableFuzzyExtraction?: boolean;
       entities?: GoogleCloudDialogflowV2beta1EntityTypeEntity[];
@@ -3022,10 +2992,7 @@ declare namespace gapi.client {
     interface GoogleCloudDialogflowV2beta1IntentMessageColumnProperties {
       header?: string;
       horizontalAlignment?:
-        | 'HORIZONTAL_ALIGNMENT_UNSPECIFIED'
-        | 'LEADING'
-        | 'CENTER'
-        | 'TRAILING';
+        'HORIZONTAL_ALIGNMENT_UNSPECIFIED' | 'LEADING' | 'CENTER' | 'TRAILING';
     }
     interface GoogleCloudDialogflowV2beta1IntentMessageImage {
       accessibilityText?: string;
@@ -3079,13 +3046,9 @@ declare namespace gapi.client {
     interface GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard {
       cardContent?: GoogleCloudDialogflowV2beta1IntentMessageRbmCardContent;
       cardOrientation?:
-        | 'CARD_ORIENTATION_UNSPECIFIED'
-        | 'HORIZONTAL'
-        | 'VERTICAL';
+        'CARD_ORIENTATION_UNSPECIFIED' | 'HORIZONTAL' | 'VERTICAL';
       thumbnailImageAlignment?:
-        | 'THUMBNAIL_IMAGE_ALIGNMENT_UNSPECIFIED'
-        | 'LEFT'
-        | 'RIGHT';
+        'THUMBNAIL_IMAGE_ALIGNMENT_UNSPECIFIED' | 'LEFT' | 'RIGHT';
     }
     interface GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedAction {
       dial?: GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedActionRbmSuggestedActionDial;
@@ -3194,10 +3157,7 @@ declare namespace gapi.client {
       faqQuestion?: string;
       matchConfidence?: number;
       matchConfidenceLevel?:
-        | 'MATCH_CONFIDENCE_LEVEL_UNSPECIFIED'
-        | 'LOW'
-        | 'MEDIUM'
-        | 'HIGH';
+        'MATCH_CONFIDENCE_LEVEL_UNSPECIFIED' | 'LOW' | 'MEDIUM' | 'HIGH';
       source?: string;
     }
     interface GoogleCloudDialogflowV2beta1KnowledgeAssistAnswer {
@@ -3314,10 +3274,7 @@ declare namespace gapi.client {
       name?: string;
       participant?: string;
       participantRole?:
-        | 'ROLE_UNSPECIFIED'
-        | 'HUMAN_AGENT'
-        | 'AUTOMATED_AGENT'
-        | 'END_USER';
+        'ROLE_UNSPECIFIED' | 'HUMAN_AGENT' | 'AUTOMATED_AGENT' | 'END_USER';
       responseMessages?: GoogleCloudDialogflowV2beta1ResponseMessage[];
       sendTime?: string;
       sentimentAnalysis?: GoogleCloudDialogflowV2beta1SentimentAnalysisResult;
@@ -3405,10 +3362,7 @@ declare namespace gapi.client {
       conversationProfile?: string;
       createTime?: string;
       participantRole?:
-        | 'ROLE_UNSPECIFIED'
-        | 'HUMAN_AGENT'
-        | 'AUTOMATED_AGENT'
-        | 'END_USER';
+        'ROLE_UNSPECIFIED' | 'HUMAN_AGENT' | 'AUTOMATED_AGENT' | 'END_USER';
       suggestionFeatureType?:
         | 'TYPE_UNSPECIFIED'
         | 'ARTICLE_SUGGESTION'
@@ -3559,10 +3513,7 @@ declare namespace gapi.client {
       conversationProfile?: string;
       createTime?: string;
       participantRole?:
-        | 'ROLE_UNSPECIFIED'
-        | 'HUMAN_AGENT'
-        | 'AUTOMATED_AGENT'
-        | 'END_USER';
+        'ROLE_UNSPECIFIED' | 'HUMAN_AGENT' | 'AUTOMATED_AGENT' | 'END_USER';
       suggestionFeatureType?:
         | 'TYPE_UNSPECIFIED'
         | 'ARTICLE_SUGGESTION'
@@ -3657,8 +3608,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudDialogflowV2EntityType {
       autoExpansionMode?:
-        | 'AUTO_EXPANSION_MODE_UNSPECIFIED'
-        | 'AUTO_EXPANSION_MODE_DEFAULT';
+        'AUTO_EXPANSION_MODE_UNSPECIFIED' | 'AUTO_EXPANSION_MODE_DEFAULT';
       displayName?: string;
       enableFuzzyExtraction?: boolean;
       entities?: GoogleCloudDialogflowV2EntityTypeEntity[];
@@ -3878,10 +3828,7 @@ declare namespace gapi.client {
     interface GoogleCloudDialogflowV2IntentMessageColumnProperties {
       header?: string;
       horizontalAlignment?:
-        | 'HORIZONTAL_ALIGNMENT_UNSPECIFIED'
-        | 'LEADING'
-        | 'CENTER'
-        | 'TRAILING';
+        'HORIZONTAL_ALIGNMENT_UNSPECIFIED' | 'LEADING' | 'CENTER' | 'TRAILING';
     }
     interface GoogleCloudDialogflowV2IntentMessageImage {
       accessibilityText?: string;
@@ -4089,10 +4036,7 @@ declare namespace gapi.client {
       name?: string;
       participant?: string;
       participantRole?:
-        | 'ROLE_UNSPECIFIED'
-        | 'HUMAN_AGENT'
-        | 'AUTOMATED_AGENT'
-        | 'END_USER';
+        'ROLE_UNSPECIFIED' | 'HUMAN_AGENT' | 'AUTOMATED_AGENT' | 'END_USER';
       sendTime?: string;
       sentimentAnalysis?: GoogleCloudDialogflowV2SentimentAnalysisResult;
     }
@@ -4151,10 +4095,7 @@ declare namespace gapi.client {
       conversationProfile?: string;
       createTime?: string;
       participantRole?:
-        | 'ROLE_UNSPECIFIED'
-        | 'HUMAN_AGENT'
-        | 'AUTOMATED_AGENT'
-        | 'END_USER';
+        'ROLE_UNSPECIFIED' | 'HUMAN_AGENT' | 'AUTOMATED_AGENT' | 'END_USER';
       suggestionFeatureType?:
         | 'TYPE_UNSPECIFIED'
         | 'ARTICLE_SUGGESTION'
@@ -4186,9 +4127,7 @@ declare namespace gapi.client {
       isFinal?: boolean;
       languageCode?: string;
       messageType?:
-        | 'MESSAGE_TYPE_UNSPECIFIED'
-        | 'TRANSCRIPT'
-        | 'END_OF_SINGLE_UTTERANCE';
+        'MESSAGE_TYPE_UNSPECIFIED' | 'TRANSCRIPT' | 'END_OF_SINGLE_UTTERANCE';
       speechEndOffset?: string;
       speechWordInfo?: GoogleCloudDialogflowV2SpeechWordInfo[];
       transcript?: string;
@@ -4284,9 +4223,7 @@ declare namespace gapi.client {
       agentEscalated?: boolean;
       dtmfUsed?: boolean;
       failureReasons?:
-        | 'FAILURE_REASON_UNSPECIFIED'
-        | 'FAILED_INTENT'
-        | 'FAILED_WEBHOOK'[];
+        'FAILURE_REASON_UNSPECIFIED' | 'FAILED_INTENT' | 'FAILED_WEBHOOK'[];
       noMatch?: boolean;
       noUserInput?: boolean;
       reachedEndPage?: boolean;

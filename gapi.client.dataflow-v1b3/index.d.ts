@@ -548,9 +548,7 @@ declare namespace gapi.client {
         | 'FLEXRS_COST_OPTIMIZED';
       /** Configuration for VM IPs. */
       ipConfiguration?:
-        | 'WORKER_IP_UNSPECIFIED'
-        | 'WORKER_IP_PUBLIC'
-        | 'WORKER_IP_PRIVATE';
+        'WORKER_IP_UNSPECIFIED' | 'WORKER_IP_PUBLIC' | 'WORKER_IP_PRIVATE';
       /** Name for the Cloud KMS key for the job. Key format is: projects//locations//keyRings//cryptoKeys/ */
       kmsKeyName?: string;
       /** The machine type to use for launching the job. If not set, Dataflow will select a default machine type. */
@@ -1326,9 +1324,7 @@ declare namespace gapi.client {
       enableStreamingEngine?: boolean;
       /** Optional. Configuration for VM IPs. */
       ipConfiguration?:
-        | 'WORKER_IP_UNSPECIFIED'
-        | 'WORKER_IP_PUBLIC'
-        | 'WORKER_IP_PRIVATE';
+        'WORKER_IP_UNSPECIFIED' | 'WORKER_IP_PUBLIC' | 'WORKER_IP_PRIVATE';
       /** Optional. Name for the Cloud KMS key for the job. Key format is: projects//locations//keyRings//cryptoKeys/ */
       kmsKeyName?: string;
       /** Optional. The machine type to use for the job. Defaults to the value from the template if not specified. */
@@ -1412,11 +1408,7 @@ declare namespace gapi.client {
       bugs?: SdkBug[];
       /** The support status for this SDK version. */
       sdkSupportStatus?:
-        | 'UNKNOWN'
-        | 'SUPPORTED'
-        | 'STALE'
-        | 'DEPRECATED'
-        | 'UNSUPPORTED';
+        'UNKNOWN' | 'SUPPORTED' | 'STALE' | 'DEPRECATED' | 'UNSUPPORTED';
       /** The version of the SDK used to run the job. */
       version?: string;
       /** A readable string describing the version of the SDK. */
@@ -1429,11 +1421,7 @@ declare namespace gapi.client {
       data?: string;
       /** Format for the data field above (id=5). */
       dataFormat?:
-        | 'DATA_FORMAT_UNSPECIFIED'
-        | 'RAW'
-        | 'JSON'
-        | 'ZLIB'
-        | 'BROTLI';
+        'DATA_FORMAT_UNSPECIFIED' | 'RAW' | 'JSON' | 'ZLIB' | 'BROTLI';
       /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains the job specified by job_id. */
       location?: string;
       /** The worker id, i.e., VM hostname. */
@@ -2087,9 +2075,7 @@ declare namespace gapi.client {
       diskType?: string;
       /** Configuration for VM IPs. */
       ipConfiguration?:
-        | 'WORKER_IP_UNSPECIFIED'
-        | 'WORKER_IP_PUBLIC'
-        | 'WORKER_IP_PRIVATE';
+        'WORKER_IP_UNSPECIFIED' | 'WORKER_IP_PUBLIC' | 'WORKER_IP_PRIVATE';
       /** The kind of the worker pool; currently only `harness` and `shuffle` are supported. */
       kind?: string;
       /** Machine type (e.g. "n1-standard-1"). If empty or unspecified, the service will attempt to choose a reasonable default. */

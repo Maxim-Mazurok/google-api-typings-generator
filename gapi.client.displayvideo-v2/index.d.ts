@@ -1352,8 +1352,7 @@ declare namespace gapi.client {
       customBiddingAlgorithmId?: string;
       /** Required. Immutable. The type of custom bidding algorithm. */
       customBiddingAlgorithmType?:
-        | 'CUSTOM_BIDDING_ALGORITHM_TYPE_UNSPECIFIED'
-        | 'SCRIPT_BASED';
+        'CUSTOM_BIDDING_ALGORITHM_TYPE_UNSPECIFIED' | 'SCRIPT_BASED';
       /** Required. The display name of the custom bidding algorithm. Must be UTF-8 encoded with a maximum size of 240 bytes. */
       displayName?: string;
       /** Controls whether or not the custom bidding algorithm can be used as a bidding strategy. Accepted values are: * `ENTITY_STATUS_ACTIVE` * `ENTITY_STATUS_ARCHIVED` */
@@ -2548,9 +2547,7 @@ declare namespace gapi.client {
     interface GuaranteedOrderStatus {
       /** Output only. The configuration status of the guaranteed order. Acceptable values are `PENDING` and `COMPLETED`. A guaranteed order must be configured (fill in the required fields, choose creatives, and select a default campaign) before it can serve. Currently the configuration action can only be performed via UI. */
       configStatus?:
-        | 'GUARANTEED_ORDER_CONFIG_STATUS_UNSPECIFIED'
-        | 'PENDING'
-        | 'COMPLETED';
+        'GUARANTEED_ORDER_CONFIG_STATUS_UNSPECIFIED' | 'PENDING' | 'COMPLETED';
       /** The user-provided reason for pausing this guaranteed order. Must be UTF-8 encoded with a maximum length of 100 bytes. Only applicable when entity_status is set to `ENTITY_STATUS_PAUSED`. */
       entityPauseReason?: string;
       /** Whether or not the guaranteed order is servable. Acceptable values are `ENTITY_STATUS_ACTIVE`, `ENTITY_STATUS_ARCHIVED`, and `ENTITY_STATUS_PAUSED`. Default value is `ENTITY_STATUS_ACTIVE`. */
@@ -2641,9 +2638,7 @@ declare namespace gapi.client {
       insertionOrderId?: string;
       /** Optional. The type of insertion order. If this field is unspecified in creation, the value defaults to `RTB`. */
       insertionOrderType?:
-        | 'INSERTION_ORDER_TYPE_UNSPECIFIED'
-        | 'RTB'
-        | 'OVER_THE_TOP';
+        'INSERTION_ORDER_TYPE_UNSPECIFIED' | 'RTB' | 'OVER_THE_TOP';
       /** Optional. Additional integration details of the insertion order. */
       integrationDetails?: IntegrationDetails;
       /** Output only. The resource name of the insertion order. */
@@ -2716,21 +2711,15 @@ declare namespace gapi.client {
       excludedAdultRisk?: 'ADULT_UNSPECIFIED' | 'ADULT_HR' | 'ADULT_HMR';
       /** Brand Safety - **Alcohol**. */
       excludedAlcoholRisk?:
-        | 'ALCOHOL_UNSPECIFIED'
-        | 'ALCOHOL_HR'
-        | 'ALCOHOL_HMR';
+        'ALCOHOL_UNSPECIFIED' | 'ALCOHOL_HR' | 'ALCOHOL_HMR';
       /** Brand Safety - **Drugs**. */
       excludedDrugsRisk?: 'DRUGS_UNSPECIFIED' | 'DRUGS_HR' | 'DRUGS_HMR';
       /** Brand Safety - **Gambling**. */
       excludedGamblingRisk?:
-        | 'GAMBLING_UNSPECIFIED'
-        | 'GAMBLING_HR'
-        | 'GAMBLING_HMR';
+        'GAMBLING_UNSPECIFIED' | 'GAMBLING_HR' | 'GAMBLING_HMR';
       /** Brand Safety - **Hate speech**. */
       excludedHateSpeechRisk?:
-        | 'HATE_SPEECH_UNSPECIFIED'
-        | 'HATE_SPEECH_HR'
-        | 'HATE_SPEECH_HMR';
+        'HATE_SPEECH_UNSPECIFIED' | 'HATE_SPEECH_HR' | 'HATE_SPEECH_HMR';
       /** Brand Safety - **Illegal downloads**. */
       excludedIllegalDownloadsRisk?:
         | 'ILLEGAL_DOWNLOADS_UNSPECIFIED'
@@ -2743,9 +2732,7 @@ declare namespace gapi.client {
         | 'OFFENSIVE_LANGUAGE_HMR';
       /** Brand Safety - **Violence**. */
       excludedViolenceRisk?:
-        | 'VIOLENCE_UNSPECIFIED'
-        | 'VIOLENCE_HR'
-        | 'VIOLENCE_HMR';
+        'VIOLENCE_UNSPECIFIED' | 'VIOLENCE_HR' | 'VIOLENCE_HMR';
       /** Brand Safety - **Unrateable**. */
       excludeUnrateable?: boolean;
       /** True advertising quality (applicable to Display line items only). */
@@ -3898,8 +3885,7 @@ declare namespace gapi.client {
     interface SessionPositionAssignedTargetingOptionDetails {
       /** The position where the ad will show in a session. */
       sessionPosition?:
-        | 'SESSION_POSITION_UNSPECIFIED'
-        | 'SESSION_POSITION_FIRST_IMPRESSION';
+        'SESSION_POSITION_UNSPECIFIED' | 'SESSION_POSITION_FIRST_IMPRESSION';
     }
     interface Site {
       /** Output only. The resource name of the site. */

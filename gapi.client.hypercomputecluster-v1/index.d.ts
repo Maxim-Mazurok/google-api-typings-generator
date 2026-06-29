@@ -176,9 +176,7 @@ declare namespace gapi.client {
       enabled?: boolean;
       /** Optional. Terminal storage class of the autoclass bucket */
       terminalStorageClass?:
-        | 'TERMINAL_STORAGE_CLASS_UNSPECIFIED'
-        | 'NEARLINE'
-        | 'ARCHIVE';
+        'TERMINAL_STORAGE_CLASS_UNSPECIFIED' | 'NEARLINE' | 'ARCHIVE';
     }
     interface GcsHierarchicalNamespaceConfig {
       /** Required. Enables hierarchical namespace setup for the bucket. */

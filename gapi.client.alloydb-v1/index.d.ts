@@ -94,11 +94,7 @@ declare namespace gapi.client {
       sizeBytes?: string;
       /** Output only. The current state of the backup. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'READY'
-        | 'CREATING'
-        | 'FAILED'
-        | 'DELETING';
+        'STATE_UNSPECIFIED' | 'READY' | 'CREATING' | 'FAILED' | 'DELETING';
       /** Optional. Input only. Immutable. Tag keys/values directly bound to this resource. For example: ``` "123/environment": "production", "123/costCenter": "marketing" ``` */
       tags?: {[P in string]: string};
       /** The backup type, which suggests the trigger for the backup. */
@@ -512,10 +508,7 @@ declare namespace gapi.client {
       gceZone?: string;
       /** Required. The type of the instance. Specified at creation time. */
       instanceType?:
-        | 'INSTANCE_TYPE_UNSPECIFIED'
-        | 'PRIMARY'
-        | 'READ_POOL'
-        | 'SECONDARY';
+        'INSTANCE_TYPE_UNSPECIFIED' | 'PRIMARY' | 'READ_POOL' | 'SECONDARY';
       /** Output only. The IP address for the Instance. This is the connection endpoint for an end-user application. */
       ipAddress?: string;
       /** Labels as key value pairs */
@@ -582,10 +575,7 @@ declare namespace gapi.client {
     interface InstanceUpgradeDetails {
       /** Instance type. */
       instanceType?:
-        | 'INSTANCE_TYPE_UNSPECIFIED'
-        | 'PRIMARY'
-        | 'READ_POOL'
-        | 'SECONDARY';
+        'INSTANCE_TYPE_UNSPECIFIED' | 'PRIMARY' | 'READ_POOL' | 'SECONDARY';
       /** Normalized name of the instance. */
       name?: string;
       /** Upgrade status of the instance. */
@@ -1108,11 +1098,7 @@ declare namespace gapi.client {
       signalId?: string;
       /** The severity of the signal, such as if it's a HIGH or LOW severity. */
       signalSeverity?:
-        | 'SIGNAL_SEVERITY_UNSPECIFIED'
-        | 'CRITICAL'
-        | 'HIGH'
-        | 'MEDIUM'
-        | 'LOW';
+        'SIGNAL_SEVERITY_UNSPECIFIED' | 'CRITICAL' | 'HIGH' | 'MEDIUM' | 'LOW';
       /** Required. Type of signal, for example, `AVAILABLE_IN_MULTIPLE_ZONES`, `LOGGING_MOST_ERRORS`, etc. */
       signalType?:
         | 'SIGNAL_TYPE_UNSPECIFIED'
@@ -1498,10 +1484,7 @@ declare namespace gapi.client {
       signalMetadataList?: StorageDatabasecenterPartnerapiV1mainSignalMetadata[];
       /** Required. Output only. Signal state of the signal */
       signalState?:
-        | 'SIGNAL_STATE_UNSPECIFIED'
-        | 'ACTIVE'
-        | 'INACTIVE'
-        | 'DISMISSED';
+        'SIGNAL_STATE_UNSPECIFIED' | 'ACTIVE' | 'INACTIVE' | 'DISMISSED';
       /** Required. Signal type of the signal */
       signalType?:
         | 'SIGNAL_TYPE_UNSPECIFIED'
@@ -1519,15 +1502,10 @@ declare namespace gapi.client {
     interface StorageDatabasecenterPartnerapiV1mainEntitlement {
       /** The current state of user's accessibility to a feature/benefit. */
       entitlementState?:
-        | 'ENTITLEMENT_STATE_UNSPECIFIED'
-        | 'ENTITLED'
-        | 'REVOKED';
+        'ENTITLEMENT_STATE_UNSPECIFIED' | 'ENTITLED' | 'REVOKED';
       /** An enum that represents the type of this entitlement. */
       type?:
-        | 'ENTITLEMENT_TYPE_UNSPECIFIED'
-        | 'GEMINI'
-        | 'NATIVE'
-        | 'GCA_STANDARD';
+        'ENTITLEMENT_TYPE_UNSPECIFIED' | 'GEMINI' | 'NATIVE' | 'GCA_STANDARD';
     }
     interface StorageDatabasecenterPartnerapiV1mainGCBDRConfiguration {
       /** Whether the resource is managed by GCBDR. */
@@ -1568,11 +1546,7 @@ declare namespace gapi.client {
     interface StorageDatabasecenterPartnerapiV1mainObservabilityMetricData {
       /** Required. Type of aggregation performed on the metric. */
       aggregationType?:
-        | 'AGGREGATION_TYPE_UNSPECIFIED'
-        | 'PEAK'
-        | 'P99'
-        | 'P95'
-        | 'CURRENT';
+        'AGGREGATION_TYPE_UNSPECIFIED' | 'PEAK' | 'P99' | 'P95' | 'CURRENT';
       /** Required. Type of metric like CPU, Memory, etc. */
       metricType?:
         | 'METRIC_TYPE_UNSPECIFIED'
@@ -1782,11 +1756,7 @@ declare namespace gapi.client {
         | 'POSTGRES_17'
         | 'POSTGRES_18'[];
       valueType?:
-        | 'VALUE_TYPE_UNSPECIFIED'
-        | 'STRING'
-        | 'INTEGER'
-        | 'FLOAT'
-        | 'NONE';
+        'VALUE_TYPE_UNSPECIFIED' | 'STRING' | 'INTEGER' | 'FLOAT' | 'NONE';
     }
     interface SwitchoverClusterRequest {
       /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server ignores the request if it has already been completed. The server guarantees that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if the original operation with the same request ID was received, and if so, ignores the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
@@ -1886,9 +1856,7 @@ declare namespace gapi.client {
       password?: string;
       /** Optional. Type of this user. */
       userType?:
-        | 'USER_TYPE_UNSPECIFIED'
-        | 'ALLOYDB_BUILT_IN'
-        | 'ALLOYDB_IAM_USER';
+        'USER_TYPE_UNSPECIFIED' | 'ALLOYDB_BUILT_IN' | 'ALLOYDB_IAM_USER';
     }
     interface UserPassword {
       /** The initial password for the user. */

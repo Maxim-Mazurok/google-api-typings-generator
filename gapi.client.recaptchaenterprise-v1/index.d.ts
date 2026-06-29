@@ -519,9 +519,7 @@ declare namespace gapi.client {
     interface GoogleCloudRecaptchaenterpriseV1TestingOptions {
       /** Optional. For challenge-based keys only (CHECKBOX, INVISIBLE), all challenge requests for this site return nocaptcha if NOCAPTCHA, or an unsolvable challenge if CHALLENGE. */
       testingChallenge?:
-        | 'TESTING_CHALLENGE_UNSPECIFIED'
-        | 'NOCAPTCHA'
-        | 'UNSOLVABLE_CHALLENGE';
+        'TESTING_CHALLENGE_UNSPECIFIED' | 'NOCAPTCHA' | 'UNSOLVABLE_CHALLENGE';
       /** Optional. All assessments for this Key return this score. Must be between 0 (likely not legitimate) and 1 (likely legitimate) inclusive. */
       testingScore?: number;
     }
@@ -682,11 +680,7 @@ declare namespace gapi.client {
         | 'EXPRESS';
       /** Required. The Web Application Firewall (WAF) service that uses this key. */
       wafService?:
-        | 'WAF_SERVICE_UNSPECIFIED'
-        | 'CA'
-        | 'FASTLY'
-        | 'CLOUDFLARE'
-        | 'AKAMAI';
+        'WAF_SERVICE_UNSPECIFIED' | 'CA' | 'FASTLY' | 'CLOUDFLARE' | 'AKAMAI';
     }
     interface GoogleCloudRecaptchaenterpriseV1WebKeySettings {
       /** Optional. If set to true, it means allowed_domains are not enforced. */
@@ -718,7 +712,9 @@ declare namespace gapi.client {
     interface GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSettings {
       /** Optional. The action to score threshold map. The action name should be the same as the action name passed in the `data-action` attribute (see https://cloud.google.com/recaptcha/docs/actions-website). Action names are case-insensitive. There is a maximum of 100 action settings. An action name has a maximum length of 100. */
       actionSettings?: {
-        [P in string]: GoogleCloudRecaptchaenterpriseV1WebKeySettingsActionSettings;
+        [
+          P in string
+        ]: GoogleCloudRecaptchaenterpriseV1WebKeySettingsActionSettings;
       };
       /** Required. Defines when a challenge is triggered (unless the default threshold is overridden for the given action, see `action_settings`). */
       defaultSettings?: GoogleCloudRecaptchaenterpriseV1WebKeySettingsActionSettings;

@@ -187,10 +187,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface AvroOptions {
       /** Optional. If sourceFormat is set to "AVRO", indicates whether to interpret logical types as the corresponding BigQuery data type (for example, TIMESTAMP), instead of using the raw type (for example, INTEGER). */
@@ -225,10 +222,7 @@ declare namespace gapi.client {
         | 'FULL_QUERY';
       /** Output only. Specifies which mode of BI Engine acceleration was performed (if any). */
       biEngineMode?:
-        | 'ACCELERATION_MODE_UNSPECIFIED'
-        | 'DISABLED'
-        | 'PARTIAL'
-        | 'FULL';
+        'ACCELERATION_MODE_UNSPECIFIED' | 'DISABLED' | 'PARTIAL' | 'FULL';
       /** In case of DISABLED or PARTIAL bi_engine_mode, these contain the explanatory reasons as to why BI Engine could not accelerate. In case the full query was accelerated, this field is not populated. */
       biEngineReasons?: BiEngineReason[];
     }
@@ -547,9 +541,7 @@ declare namespace gapi.client {
       selfLink?: string;
       /** Optional. Updates storage_billing_model for the dataset. */
       storageBillingModel?:
-        | 'STORAGE_BILLING_MODEL_UNSPECIFIED'
-        | 'LOGICAL'
-        | 'PHYSICAL';
+        'STORAGE_BILLING_MODEL_UNSPECIFIED' | 'LOGICAL' | 'PHYSICAL';
       /** Output only. Tags for the dataset. To provide tags as inputs, use the `resourceTags` field. */
       tags?: {
         /** Required. The namespaced friendly name of the tag key, e.g. "12345/environment" where 12345 is org id. */
@@ -648,9 +640,7 @@ declare namespace gapi.client {
       deletedRowCount?: string;
       /** Output only. DML mode used. */
       dmlMode?:
-        | 'DML_MODE_UNSPECIFIED'
-        | 'COARSE_GRAINED_DML'
-        | 'FINE_GRAINED_DML';
+        'DML_MODE_UNSPECIFIED' | 'COARSE_GRAINED_DML' | 'FINE_GRAINED_DML';
       /** Output only. Reason for disabling fine-grained DML if applicable. */
       fineGrainedDmlUnusedReason?:
         | 'FINE_GRAINED_DML_UNUSED_REASON_UNSPECIFIED'
@@ -861,9 +851,7 @@ declare namespace gapi.client {
       maxBadRecords?: number;
       /** Optional. Metadata Cache Mode for the table. Set this to enable caching of metadata from external data source. */
       metadataCacheMode?:
-        | 'METADATA_CACHE_MODE_UNSPECIFIED'
-        | 'AUTOMATIC'
-        | 'MANUAL';
+        'METADATA_CACHE_MODE_UNSPECIFIED' | 'AUTOMATIC' | 'MANUAL';
       /** Optional. ObjectMetadata is used to create Object Tables. Object Tables contain a listing of objects (with their metadata) found at the source_uris. If ObjectMetadata is set, source_format should be omitted. Currently SIMPLE is the only supported Object Metadata type. */
       objectMetadata?: 'OBJECT_METADATA_UNSPECIFIED' | 'DIRECTORY' | 'SIMPLE';
       /** Optional. Additional properties to set if sourceFormat is set to PARQUET. */
@@ -1144,9 +1132,7 @@ declare namespace gapi.client {
     interface IncrementalResultStats {
       /** Output only. Reason why incremental query results are/were not written by the query. */
       disabledReason?:
-        | 'DISABLED_REASON_UNSPECIFIED'
-        | 'OTHER'
-        | 'UNSUPPORTED_OPERATOR';
+        'DISABLED_REASON_UNSPECIFIED' | 'OTHER' | 'UNSUPPORTED_OPERATOR';
       /** Output only. Additional human-readable clarification, if available, for DisabledReason. */
       disabledReasonDetails?: string;
       /** Output only. The time at which the first incremental result was written. If the query needed to restart internally, this only describes the final attempt. */
@@ -1333,10 +1319,7 @@ declare namespace gapi.client {
       clustering?: Clustering;
       /** Optional. Character map supported for column names in CSV/Parquet loads. Defaults to STRICT and can be overridden by Project Config Service. Using this option with unsupporting load formats will result in an error. */
       columnNameCharacterMap?:
-        | 'COLUMN_NAME_CHARACTER_MAP_UNSPECIFIED'
-        | 'STRICT'
-        | 'V1'
-        | 'V2';
+        'COLUMN_NAME_CHARACTER_MAP_UNSPECIFIED' | 'STRICT' | 'V1' | 'V2';
       /** Optional. Connection properties which can modify the load job behavior. Currently, only the 'session_id' connection property is supported, and is used to resolve _SESSION appearing as the dataset id. */
       connectionProperties?: ConnectionProperty[];
       /** Optional. [Experimental] Configures the load job to copy files directly to the destination BigLake managed table, bypassing file content reading and rewriting. Copying files only is supported when all the following are true: * `source_uris` are located in the same Cloud Storage location as the destination table's `storage_uri` location. * `source_format` is `PARQUET`. * `destination_table` is an existing BigLake managed table. The table's schema does not have flexible column names. The table's columns do not have type parameters other than precision and scale. * No options other than the above are specified. */
@@ -1405,9 +1388,7 @@ declare namespace gapi.client {
       skipLeadingRows?: number;
       /** Optional. Controls the strategy used to match loaded columns to the schema. If not set, a sensible default is chosen based on how the schema is provided. If autodetect is used, then columns are matched by name. Otherwise, columns are matched by position. This is done to keep the behavior backward-compatible. */
       sourceColumnMatch?:
-        | 'SOURCE_COLUMN_MATCH_UNSPECIFIED'
-        | 'POSITION'
-        | 'NAME';
+        'SOURCE_COLUMN_MATCH_UNSPECIFIED' | 'POSITION' | 'NAME';
       /** Optional. The format of the data files. For CSV files, specify "CSV". For datastore backups, specify "DATASTORE_BACKUP". For newline-delimited JSON, specify "NEWLINE_DELIMITED_JSON". For Avro, specify "AVRO". For parquet, specify "PARQUET". For orc, specify "ORC". The default value is CSV. */
       sourceFormat?: string;
       /** [Required] The fully-qualified URIs that point to your data in Google Cloud. For Google Cloud Storage URIs: Each URI can contain one '*' wildcard character and it must come after the 'bucket' name. Size limits related to load jobs apply to external data sources. For Google Cloud Bigtable URIs: Exactly one URI can be specified and it has be a fully specified and valid HTTPS URL for a Google Cloud Bigtable table. For Google Cloud Datastore backups: Exactly one URI can be specified. Also, the '*' wildcard character is not allowed. */
@@ -1910,9 +1891,7 @@ declare namespace gapi.client {
         | 'CONTRIBUTION_ANALYSIS';
       /** Output only. Training type of the job. */
       trainingType?:
-        | 'TRAINING_TYPE_UNSPECIFIED'
-        | 'SINGLE_TRAINING'
-        | 'HPARAM_TUNING';
+        'TRAINING_TYPE_UNSPECIFIED' | 'SINGLE_TRAINING' | 'HPARAM_TUNING';
     }
     interface Model {
       /** The best trial_id across all training runs. */
@@ -2364,9 +2343,7 @@ declare namespace gapi.client {
       description?: string;
       /** Optional. The determinism level of the JavaScript UDF, if defined. */
       determinismLevel?:
-        | 'DETERMINISM_LEVEL_UNSPECIFIED'
-        | 'DETERMINISTIC'
-        | 'NOT_DETERMINISTIC';
+        'DETERMINISM_LEVEL_UNSPECIFIED' | 'DETERMINISTIC' | 'NOT_DETERMINISTIC';
       /** Output only. A hash of this resource. */
       etag?: string;
       /** Optional. Options for the runtime of the external system executing the routine. This field is only applicable for Python UDFs. [Preview](https://cloud.google.com/products/#product-launch-stages) */
@@ -2412,10 +2389,7 @@ declare namespace gapi.client {
       buildDuration?: string;
       /** Output only. The current build state of the routine. */
       buildState?:
-        | 'BUILD_STATE_UNSPECIFIED'
-        | 'IN_PROGRESS'
-        | 'SUCCEEDED'
-        | 'FAILED';
+        'BUILD_STATE_UNSPECIFIED' | 'IN_PROGRESS' | 'SUCCEEDED' | 'FAILED';
       /** Output only. The time when the build state was updated last. */
       buildStateUpdateTime?: string;
       /** Output only. A result object that will be present only if the build has failed. */
@@ -2468,9 +2442,7 @@ declare namespace gapi.client {
     interface ScriptOptions {
       /** Determines which statement in the script represents the "key result", used to populate the schema and query results of the script job. Default is LAST. */
       keyResultStatement?:
-        | 'KEY_RESULT_STATEMENT_KIND_UNSPECIFIED'
-        | 'LAST'
-        | 'FIRST_SELECT';
+        'KEY_RESULT_STATEMENT_KIND_UNSPECIFIED' | 'LAST' | 'FIRST_SELECT';
       /** Limit on the number of bytes billed per statement. Exceeding this budget results in an error. */
       statementByteBudget?: string;
       /** Timeout period for each statement in a script. */
@@ -2493,9 +2465,7 @@ declare namespace gapi.client {
     interface ScriptStatistics {
       /** Whether this child job was a statement or expression. */
       evaluationKind?:
-        | 'EVALUATION_KIND_UNSPECIFIED'
-        | 'STATEMENT'
-        | 'EXPRESSION';
+        'EVALUATION_KIND_UNSPECIFIED' | 'STATEMENT' | 'EXPRESSION';
       /** Stack trace showing the line/column/procedure name of each frame on the stack at the point where the current evaluation happened. The leaf frame is first, the primary script is last. Never empty. */
       stackFrames?: ScriptStackFrame[];
     }
@@ -2736,9 +2706,7 @@ declare namespace gapi.client {
       location?: string;
       /** Optional. If set, overrides the default managed table type configured in the dataset. */
       managedTableType?:
-        | 'MANAGED_TABLE_TYPE_UNSPECIFIED'
-        | 'NATIVE'
-        | 'BIGLAKE';
+        'MANAGED_TABLE_TYPE_UNSPECIFIED' | 'NATIVE' | 'BIGLAKE';
       /** Optional. The materialized view definition. */
       materializedView?: MaterializedViewDefinition;
       /** Output only. The materialized view status. */
@@ -3087,12 +3055,7 @@ declare namespace gapi.client {
       cleanSpikesAndDips?: boolean;
       /** Enums for color space, used for processing images in Object Table. See more details at https://www.tensorflow.org/io/tutorials/colorspace. */
       colorSpace?:
-        | 'COLOR_SPACE_UNSPECIFIED'
-        | 'RGB'
-        | 'HSV'
-        | 'YIQ'
-        | 'YUV'
-        | 'GRAYSCALE';
+        'COLOR_SPACE_UNSPECIFIED' | 'RGB' | 'HSV' | 'YIQ' | 'YUV' | 'GRAYSCALE';
       /** Subsample ratio of columns for each level for boosted tree models. */
       colsampleBylevel?: number;
       /** Subsample ratio of columns for each node(split) for boosted tree models. */
@@ -3349,14 +3312,10 @@ declare namespace gapi.client {
       learnRate?: number;
       /** The strategy to determine learn rate for the current iteration. */
       learnRateStrategy?:
-        | 'LEARN_RATE_STRATEGY_UNSPECIFIED'
-        | 'LINE_SEARCH'
-        | 'CONSTANT';
+        'LEARN_RATE_STRATEGY_UNSPECIFIED' | 'LINE_SEARCH' | 'CONSTANT';
       /** Type of loss function used during training run. */
       lossType?:
-        | 'LOSS_TYPE_UNSPECIFIED'
-        | 'MEAN_SQUARED_LOSS'
-        | 'MEAN_LOG_LOSS';
+        'LOSS_TYPE_UNSPECIFIED' | 'MEAN_SQUARED_LOSS' | 'MEAN_LOG_LOSS';
       /** The type of the machine used to deploy and serve the model. */
       machineType?: string;
       /** The maximum number of iterations in training. Used only for iterative training algorithms. */
@@ -3442,11 +3401,7 @@ declare namespace gapi.client {
       timeSeriesTimestampColumn?: string;
       /** Tree construction algorithm for boosted tree models. */
       treeMethod?:
-        | 'TREE_METHOD_UNSPECIFIED'
-        | 'AUTO'
-        | 'EXACT'
-        | 'APPROX'
-        | 'HIST';
+        'TREE_METHOD_UNSPECIFIED' | 'AUTO' | 'EXACT' | 'APPROX' | 'HIST';
       /** Smoothing window size for the trend component. When a positive value is specified, a center moving average smoothing is applied on the history trend. When the smoothing window is out of the boundary at the beginning or the end of the trend, the first element or the last element is padded to fill the smoothing window before the average is applied. */
       trendSmoothingWindowSize?: string;
       /** User column specified for matrix factorization models. */
@@ -4148,10 +4103,7 @@ declare namespace gapi.client {
         quotaUser?: string;
         /** Filter for job state */
         stateFilter?:
-          | 'done'
-          | 'pending'
-          | 'running'
-          | ('done' | 'pending' | 'running')[];
+          'done' | 'pending' | 'running' | ('done' | 'pending' | 'running')[];
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */

@@ -55,10 +55,7 @@ declare namespace gapi.client {
       reportingDimensionId?: string;
       /** Output only. State of the ad client. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'READY'
-        | 'GETTING_READY'
-        | 'REQUIRES_REVIEW';
+        'STATE_UNSPECIFIED' | 'READY' | 'GETTING_READY' | 'REQUIRES_REVIEW';
     }
     interface AdClientAdCode {
       /** Output only. The AdSense code snippet to add to the head of an HTML page. */

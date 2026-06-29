@@ -573,18 +573,14 @@ declare namespace gapi.client {
     interface ClusterAutoscaling {
       /** Autopilot general profile for the cluster, which defines the configuration for the cluster. */
       autopilotGeneralProfile?:
-        | 'AUTOPILOT_GENERAL_PROFILE_UNSPECIFIED'
-        | 'NO_PERFORMANCE'
-        | 'NONE';
+        'AUTOPILOT_GENERAL_PROFILE_UNSPECIFIED' | 'NO_PERFORMANCE' | 'NONE';
       /** The list of Google Compute Engine [zones](https://cloud.google.com/compute/docs/zones#available) in which the NodePool's nodes can be created by NAP. */
       autoprovisioningLocations?: string[];
       /** AutoprovisioningNodePoolDefaults contains defaults for a node pool created by NAP. */
       autoprovisioningNodePoolDefaults?: AutoprovisioningNodePoolDefaults;
       /** Defines autoscaling behaviour. */
       autoscalingProfile?:
-        | 'PROFILE_UNSPECIFIED'
-        | 'OPTIMIZE_UTILIZATION'
-        | 'BALANCED';
+        'PROFILE_UNSPECIFIED' | 'OPTIMIZE_UTILIZATION' | 'BALANCED';
       /** Default compute class is a configuration for default compute class. */
       defaultComputeClassConfig?: DefaultComputeClassConfig;
       /** Enables automatic node pool creation and deletion. */
@@ -813,10 +809,7 @@ declare namespace gapi.client {
     interface ClusterUpgradeInfo {
       /** The auto upgrade status. */
       autoUpgradeStatus?:
-        | 'UNKNOWN'
-        | 'ACTIVE'
-        | 'MINOR_UPGRADE_PAUSED'
-        | 'UPGRADE_PAUSED'[];
+        'UNKNOWN' | 'ACTIVE' | 'MINOR_UPGRADE_PAUSED' | 'UPGRADE_PAUSED'[];
       /** The cluster's current minor version's end of extended support timestamp. */
       endOfExtendedSupportTimestamp?: string;
       /** The cluster's current minor version's end of standard support timestamp. */
@@ -873,10 +866,7 @@ declare namespace gapi.client {
     interface ConfidentialNodes {
       /** Defines the type of technology used by the confidential node. */
       confidentialInstanceType?:
-        | 'CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED'
-        | 'SEV'
-        | 'SEV_SNP'
-        | 'TDX';
+        'CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED' | 'SEV' | 'SEV_SNP' | 'TDX';
       /** Whether Confidential Nodes feature is enabled. */
       enabled?: boolean;
     }
@@ -985,9 +975,7 @@ declare namespace gapi.client {
     interface DataplaneV2Config {
       /** Optional. Scalability mode for the cluster. */
       scalabilityMode?:
-        | 'SCALABILITY_MODE_UNSPECIFIED'
-        | 'DISABLED'
-        | 'SCALE_OPTIMIZED';
+        'SCALABILITY_MODE_UNSPECIFIED' | 'DISABLED' | 'SCALE_OPTIMIZED';
     }
     interface Date {
       /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
@@ -1049,10 +1037,7 @@ declare namespace gapi.client {
       additiveVpcScopeDnsDomain?: string;
       /** cluster_dns indicates which in-cluster DNS provider should be used. */
       clusterDns?:
-        | 'PROVIDER_UNSPECIFIED'
-        | 'PLATFORM_DEFAULT'
-        | 'CLOUD_DNS'
-        | 'KUBE_DNS';
+        'PROVIDER_UNSPECIFIED' | 'PLATFORM_DEFAULT' | 'CLOUD_DNS' | 'KUBE_DNS';
       /** cluster_dns_domain is the suffix used for all cluster service records. */
       clusterDnsDomain?: string;
       /** cluster_dns_scope indicates the scope of access to cluster DNS records. */
@@ -1243,9 +1228,7 @@ declare namespace gapi.client {
     interface GPUSharingConfig {
       /** The type of GPU sharing strategy to enable on the GPU node. */
       gpuSharingStrategy?:
-        | 'GPU_SHARING_STRATEGY_UNSPECIFIED'
-        | 'TIME_SHARING'
-        | 'MPS';
+        'GPU_SHARING_STRATEGY_UNSPECIFIED' | 'TIME_SHARING' | 'MPS';
       /** The max number of containers that can share a physical GPU. */
       maxSharedClientsPerGpu?: string;
     }
@@ -1280,9 +1263,7 @@ declare namespace gapi.client {
     interface HostMaintenancePolicy {
       /** Specifies the frequency of planned maintenance events. */
       maintenanceInterval?:
-        | 'MAINTENANCE_INTERVAL_UNSPECIFIED'
-        | 'AS_NEEDED'
-        | 'PERIODIC';
+        'MAINTENANCE_INTERVAL_UNSPECIFIED' | 'AS_NEEDED' | 'PERIODIC';
       /** Strategy that will trigger maintenance on behalf of the customer. */
       opportunisticMaintenanceStrategy?: OpportunisticMaintenanceStrategy;
     }
@@ -1439,9 +1420,7 @@ declare namespace gapi.client {
       accurateTimeConfig?: AccurateTimeConfig;
       /** cgroup_mode specifies the cgroup mode to be used on the node. */
       cgroupMode?:
-        | 'CGROUP_MODE_UNSPECIFIED'
-        | 'CGROUP_MODE_V1'
-        | 'CGROUP_MODE_V2';
+        'CGROUP_MODE_UNSPECIFIED' | 'CGROUP_MODE_V1' | 'CGROUP_MODE_V2';
       /** Optional. Allow users to run arbitrary bash script or container on the node. */
       customNodeInit?: CustomNodeInit;
       /** Optional. Amounts for 2M and 1G hugepages */
@@ -1540,8 +1519,7 @@ declare namespace gapi.client {
     interface MaintenanceExclusionOptions {
       /** EndTimeBehavior specifies the behavior of the exclusion end time. */
       endTimeBehavior?:
-        | 'END_TIME_BEHAVIOR_UNSPECIFIED'
-        | 'UNTIL_END_OF_SUPPORT';
+        'END_TIME_BEHAVIOR_UNSPECIFIED' | 'UNTIL_END_OF_SUPPORT';
       /** Scope specifies the upgrade scope which upgrades are blocked by the exclusion. */
       scope?: 'NO_UPGRADES' | 'NO_MINOR_UPGRADES' | 'NO_MINOR_OR_NODE_UPGRADES';
     }
@@ -1867,9 +1845,7 @@ declare namespace gapi.client {
     interface NodeCreationConfig {
       /** The mode of node creation. */
       nodeCreationMode?:
-        | 'MODE_UNSPECIFIED'
-        | 'VIA_KUBELET'
-        | 'VIA_CONTROL_PLANE';
+        'MODE_UNSPECIFIED' | 'VIA_KUBELET' | 'VIA_CONTROL_PLANE';
     }
     interface NodeDrainConfig {
       /** The duration of the grace termination period for node drain. */
@@ -2076,10 +2052,7 @@ declare namespace gapi.client {
     interface NodePoolUpgradeInfo {
       /** The auto upgrade status. */
       autoUpgradeStatus?:
-        | 'UNKNOWN'
-        | 'ACTIVE'
-        | 'MINOR_UPGRADE_PAUSED'
-        | 'UPGRADE_PAUSED'[];
+        'UNKNOWN' | 'ACTIVE' | 'MINOR_UPGRADE_PAUSED' | 'UPGRADE_PAUSED'[];
       /** Output only. Upgrade info for the node pool specific to the usage of custom images. */
       customImageInfo?: CustomImageInfo;
       /** The node pool's current minor version's end of extended support timestamp. */
@@ -2168,11 +2141,7 @@ declare namespace gapi.client {
       startTime?: string;
       /** Output only. The current status of the operation. */
       status?:
-        | 'STATUS_UNSPECIFIED'
-        | 'PENDING'
-        | 'RUNNING'
-        | 'DONE'
-        | 'ABORTING';
+        'STATUS_UNSPECIFIED' | 'PENDING' | 'RUNNING' | 'DONE' | 'ABORTING';
       /** Output only. If an error has occurred, a textual description of the error. Deprecated. Use field error instead. */
       statusMessage?: string;
       /** Output only. Server-defined URI for the target of the operation. The format of this is a URI to the resource being modified (such as a cluster, node pool, or node). For node pool repairs, there may be multiple nodes being repaired, but only one will be the target. Examples: - ## `https://container.googleapis.com/v1/projects/123/locations/us-central1/clusters/my-cluster` ## `https://container.googleapis.com/v1/projects/123/zones/us-central1-c/clusters/my-cluster/nodePools/my-np` `https://container.googleapis.com/v1/projects/123/zones/us-central1-c/clusters/my-cluster/nodePools/my-np/node/my-node` */
@@ -2197,11 +2166,7 @@ declare namespace gapi.client {
       stages?: OperationProgress[];
       /** Status of an operation stage. Unset for single-stage operations. */
       status?:
-        | 'STATUS_UNSPECIFIED'
-        | 'PENDING'
-        | 'RUNNING'
-        | 'DONE'
-        | 'ABORTING';
+        'STATUS_UNSPECIFIED' | 'PENDING' | 'RUNNING' | 'DONE' | 'ABORTING';
     }
     interface OpportunisticMaintenanceStrategy {
       /** The window of time that opportunistic maintenance can run. Example: A setting of 14 days implies that opportunistic maintenance can only be ran in the 2 weeks leading up to the scheduled maintenance date. Setting 28 days allows opportunistic maintenance to run at any time in the scheduled maintenance window (all `PERIODIC` maintenance is set 28 days in advance). */
@@ -2292,9 +2257,7 @@ declare namespace gapi.client {
       workloadConfig?: WorkloadConfig;
       /** Sets which mode to use for Protect workload vulnerability scanning feature. */
       workloadVulnerabilityMode?:
-        | 'WORKLOAD_VULNERABILITY_MODE_UNSPECIFIED'
-        | 'DISABLED'
-        | 'BASIC';
+        'WORKLOAD_VULNERABILITY_MODE_UNSPECIFIED' | 'DISABLED' | 'BASIC';
     }
     interface PubSub {
       /** Enable notifications for Pub/Sub. */
@@ -2609,10 +2572,7 @@ declare namespace gapi.client {
     interface SetMasterAuthRequest {
       /** Required. The exact form of action to be taken on the master auth. */
       action?:
-        | 'UNKNOWN'
-        | 'SET_PASSWORD'
-        | 'GENERATE_PASSWORD'
-        | 'SET_USERNAME';
+        'UNKNOWN' | 'SET_PASSWORD' | 'GENERATE_PASSWORD' | 'SET_USERNAME';
       /** Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
       clusterId?: string;
       /** The name (project, location, cluster) of the cluster to set auth. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
@@ -2801,9 +2761,7 @@ declare namespace gapi.client {
     interface TaintConfig {
       /** Optional. Controls architecture tainting behavior. */
       architectureTaintBehavior?:
-        | 'ARCHITECTURE_TAINT_BEHAVIOR_UNSPECIFIED'
-        | 'NONE'
-        | 'ARM';
+        'ARCHITECTURE_TAINT_BEHAVIOR_UNSPECIFIED' | 'NONE' | 'ARM';
     }
     interface TimeOfDay {
       /** Hours of a day in 24 hour format. Must be greater than or equal to 0 and typically must be less than or equal to 23. An API may choose to allow the value "24:00:00" for scenarios like business closing time. */
@@ -2956,9 +2914,7 @@ declare namespace gapi.client {
       resource?: string;
       /** The resource type of the release version. */
       resourceType?:
-        | 'UPGRADE_RESOURCE_TYPE_UNSPECIFIED'
-        | 'MASTER'
-        | 'NODE_POOL';
+        'UPGRADE_RESOURCE_TYPE_UNSPECIFIED' | 'MASTER' | 'NODE_POOL';
       /** The release version available for upgrade. */
       version?: string;
       /** Windows node versions info. */
@@ -2995,9 +2951,7 @@ declare namespace gapi.client {
       resource?: string;
       /** The resource type that is upgrading. */
       resourceType?:
-        | 'UPGRADE_RESOURCE_TYPE_UNSPECIFIED'
-        | 'MASTER'
-        | 'NODE_POOL';
+        'UPGRADE_RESOURCE_TYPE_UNSPECIFIED' | 'MASTER' | 'NODE_POOL';
       /** The target emulated version for the upgrade. */
       targetEmulatedVersion?: string;
       /** The target version for the upgrade. */
@@ -3029,9 +2983,7 @@ declare namespace gapi.client {
       resource?: string;
       /** The resource type associated with the upgrade. */
       resourceType?:
-        | 'UPGRADE_RESOURCE_TYPE_UNSPECIFIED'
-        | 'MASTER'
-        | 'NODE_POOL';
+        'UPGRADE_RESOURCE_TYPE_UNSPECIFIED' | 'MASTER' | 'NODE_POOL';
       /** The end of standard support timestamp. */
       standardSupportEndTime?: string;
       /** The time when the operation was started. */
@@ -3146,11 +3098,7 @@ declare namespace gapi.client {
     interface WorkloadConfig {
       /** Sets which mode of auditing should be used for the cluster's workloads. */
       auditMode?:
-        | 'MODE_UNSPECIFIED'
-        | 'DISABLED'
-        | 'BASIC'
-        | 'BASELINE'
-        | 'RESTRICTED';
+        'MODE_UNSPECIFIED' | 'DISABLED' | 'BASIC' | 'BASELINE' | 'RESTRICTED';
     }
     interface WorkloadIdentityConfig {
       /** IAM Identity Namespace to attach all Kubernetes Service Accounts to. */
@@ -3165,10 +3113,7 @@ declare namespace gapi.client {
       mode?: 'MODE_UNSPECIFIED' | 'GCE_METADATA' | 'GKE_METADATA';
       /** NodeMetadata is the configuration for how to expose metadata to the workloads running on the node. */
       nodeMetadata?:
-        | 'UNSPECIFIED'
-        | 'SECURE'
-        | 'EXPOSE'
-        | 'GKE_METADATA_SERVER';
+        'UNSPECIFIED' | 'SECURE' | 'EXPOSE' | 'GKE_METADATA_SERVER';
     }
     interface WorkloadPolicyConfig {
       /** If true, workloads can use NET_ADMIN capability. */

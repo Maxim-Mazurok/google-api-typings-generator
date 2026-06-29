@@ -69,7 +69,9 @@ declare namespace gapi.client {
         | 'GOVERN_TAGS'[];
       /** Stores the structure of `Parameters` used by the constraint condition. The key of `map` represents the name of the parameter. */
       parameters?: {
-        [P in string]: GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter;
+        [
+          P in string
+        ]: GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter;
       };
       /** The resource instance type that this policy applies to, in the format `/`. Example: * `compute.googleapis.com/Instance`. */
       resourceTypes?: string[];

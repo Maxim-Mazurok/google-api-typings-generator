@@ -67,9 +67,7 @@ declare namespace gapi.client {
     interface AutomatedBackupConfig {
       /** Optional. The automated backup mode. If the mode is disabled, the other fields will be ignored. */
       automatedBackupMode?:
-        | 'AUTOMATED_BACKUP_MODE_UNSPECIFIED'
-        | 'DISABLED'
-        | 'ENABLED';
+        'AUTOMATED_BACKUP_MODE_UNSPECIFIED' | 'DISABLED' | 'ENABLED';
       /** Optional. Trigger automated backups at a fixed frequency. */
       fixedFrequencySchedule?: FixedFrequencySchedule;
       /** Optional. How long to keep automated backups before the backups are deleted. The value should be between 1 day and 365 days. If not specified, the default value is 35 days. */
@@ -125,11 +123,7 @@ declare namespace gapi.client {
       shardCount?: number;
       /** Output only. State of the backup. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATING'
-        | 'ACTIVE'
-        | 'DELETING'
-        | 'SUSPENDED';
+        'STATE_UNSPECIFIED' | 'CREATING' | 'ACTIVE' | 'DELETING' | 'SUSPENDED';
       /** Output only. Total size of the backup in bytes. */
       totalSizeBytes?: string;
       /** Output only. System assigned unique identifier of the backup. */
@@ -313,11 +307,7 @@ declare namespace gapi.client {
       sizeGb?: number;
       /** Output only. The current state of this cluster. Can be CREATING, READY, UPDATING, DELETING and SUSPENDED */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATING'
-        | 'ACTIVE'
-        | 'UPDATING'
-        | 'DELETING';
+        'STATE_UNSPECIFIED' | 'CREATING' | 'ACTIVE' | 'UPDATING' | 'DELETING';
       /** Output only. Additional information about the current state of the cluster. */
       stateInfo?: StateInfo;
       /** Optional. The in-transit encryption for the Redis cluster. If not provided, encryption is disabled for the cluster. */
@@ -408,10 +398,7 @@ declare namespace gapi.client {
     interface CrossClusterReplicationConfig {
       /** Output only. The role of the cluster in cross cluster replication. */
       clusterRole?:
-        | 'CLUSTER_ROLE_UNSPECIFIED'
-        | 'NONE'
-        | 'PRIMARY'
-        | 'SECONDARY';
+        'CLUSTER_ROLE_UNSPECIFIED' | 'NONE' | 'PRIMARY' | 'SECONDARY';
       /** Output only. An output only view of all the member clusters participating in the cross cluster replication. This view will be provided by every member cluster irrespective of its cluster role(primary or secondary). A primary cluster can provide information about all the secondary clusters replicating from it. However, a secondary cluster only knows about the primary cluster from which it is replicating. However, for scenarios, where the primary cluster is unavailable(e.g. regional outage), a GetCluster request can be sent to any other member cluster and this field will list all the member clusters participating in cross cluster replication. */
       membership?: Membership;
       /** Details of the primary cluster that is used as the replication source for this secondary cluster. This field is only set for a secondary cluster. */
@@ -497,11 +484,7 @@ declare namespace gapi.client {
       signalId?: string;
       /** The severity of the signal, such as if it's a HIGH or LOW severity. */
       signalSeverity?:
-        | 'SIGNAL_SEVERITY_UNSPECIFIED'
-        | 'CRITICAL'
-        | 'HIGH'
-        | 'MEDIUM'
-        | 'LOW';
+        'SIGNAL_SEVERITY_UNSPECIFIED' | 'CRITICAL' | 'HIGH' | 'MEDIUM' | 'LOW';
       /** Required. Type of signal, for example, `AVAILABLE_IN_MULTIPLE_ZONES`, `LOGGING_MOST_ERRORS`, etc. */
       signalType?:
         | 'SIGNAL_TYPE_UNSPECIFIED'
@@ -894,10 +877,7 @@ declare namespace gapi.client {
       signalMetadataList?: SignalMetadata[];
       /** Required. Output only. Signal state of the signal */
       signalState?:
-        | 'SIGNAL_STATE_UNSPECIFIED'
-        | 'ACTIVE'
-        | 'INACTIVE'
-        | 'DISMISSED';
+        'SIGNAL_STATE_UNSPECIFIED' | 'ACTIVE' | 'INACTIVE' | 'DISMISSED';
       /** Required. Signal type of the signal */
       signalType?:
         | 'SIGNAL_TYPE_UNSPECIFIED'
@@ -954,15 +934,10 @@ declare namespace gapi.client {
     interface Entitlement {
       /** The current state of user's accessibility to a feature/benefit. */
       entitlementState?:
-        | 'ENTITLEMENT_STATE_UNSPECIFIED'
-        | 'ENTITLED'
-        | 'REVOKED';
+        'ENTITLEMENT_STATE_UNSPECIFIED' | 'ENTITLED' | 'REVOKED';
       /** An enum that represents the type of this entitlement. */
       type?:
-        | 'ENTITLEMENT_TYPE_UNSPECIFIED'
-        | 'GEMINI'
-        | 'NATIVE'
-        | 'GCA_STANDARD';
+        'ENTITLEMENT_TYPE_UNSPECIFIED' | 'GEMINI' | 'NATIVE' | 'GCA_STANDARD';
     }
     interface ExportBackupRequest {
       /** Google Cloud Storage bucket, like "my-bucket". */
@@ -1114,8 +1089,7 @@ declare namespace gapi.client {
       statusMessage?: string;
       /** Optional. reasons that causes instance in "SUSPENDED" state. */
       suspensionReasons?:
-        | 'SUSPENSION_REASON_UNSPECIFIED'
-        | 'CUSTOMER_MANAGED_KEY_ISSUE'[];
+        'SUSPENSION_REASON_UNSPECIFIED' | 'CUSTOMER_MANAGED_KEY_ISSUE'[];
       /** Optional. Input only. Immutable. Tag keys/values directly bound to this resource. For example: "123/environment": "production", "123/costCenter": "marketing" */
       tags?: {[P in string]: string};
       /** Required. The service tier of the instance. */
@@ -1288,11 +1262,7 @@ declare namespace gapi.client {
     interface ObservabilityMetricData {
       /** Required. Type of aggregation performed on the metric. */
       aggregationType?:
-        | 'AGGREGATION_TYPE_UNSPECIFIED'
-        | 'PEAK'
-        | 'P99'
-        | 'P95'
-        | 'CURRENT';
+        'AGGREGATION_TYPE_UNSPECIFIED' | 'PEAK' | 'P99' | 'P95' | 'CURRENT';
       /** Required. Type of metric like CPU, Memory, etc. */
       metricType?:
         | 'METRIC_TYPE_UNSPECIFIED'
@@ -1517,9 +1487,7 @@ declare namespace gapi.client {
     interface RescheduleClusterMaintenanceRequest {
       /** Required. If reschedule type is SPECIFIC_TIME, must set up schedule_time as well. */
       rescheduleType?:
-        | 'RESCHEDULE_TYPE_UNSPECIFIED'
-        | 'IMMEDIATE'
-        | 'SPECIFIC_TIME';
+        'RESCHEDULE_TYPE_UNSPECIFIED' | 'IMMEDIATE' | 'SPECIFIC_TIME';
       /** Optional. Timestamp when the maintenance shall be rescheduled to if reschedule_type=SPECIFIC_TIME, in RFC 3339 format, for example `2012-11-15T16:19:00.094Z`. */
       scheduleTime?: string;
     }
@@ -1660,11 +1628,7 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. The state of the token based auth user. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'ACTIVE'
-        | 'CREATING'
-        | 'UPDATING'
-        | 'DELETING';
+        'STATE_UNSPECIFIED' | 'ACTIVE' | 'CREATING' | 'UPDATING' | 'DELETING';
     }
     interface TypedValue {
       /** For boolean value */
@@ -1724,9 +1688,7 @@ declare namespace gapi.client {
     interface ZoneDistributionConfig {
       /** Optional. The mode of zone distribution. Defaults to MULTI_ZONE, when not specified. */
       mode?:
-        | 'ZONE_DISTRIBUTION_MODE_UNSPECIFIED'
-        | 'MULTI_ZONE'
-        | 'SINGLE_ZONE';
+        'ZONE_DISTRIBUTION_MODE_UNSPECIFIED' | 'MULTI_ZONE' | 'SINGLE_ZONE';
       /** Optional. When SINGLE ZONE distribution is selected, zone field would be used to allocate all resources in that zone. This is not applicable to MULTI_ZONE, and would be ignored for MULTI_ZONE clusters. */
       zone?: string;
       /** Optional. Specify the zones of a multi-zone cluster where Redis Cluster allocates resources. This flag isn't applicable for single-zone clusters. */

@@ -240,11 +240,7 @@ declare namespace gapi.client {
       networkConfigs?: GoogleCloudApigeeV1ApimServiceExtensionNetworkConfig[];
       /** Output only. State of the APIM service extension. Values other than `ACTIVE` mean the resource is not ready to use. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATING'
-        | 'ACTIVE'
-        | 'DELETING'
-        | 'UPDATING';
+        'STATE_UNSPECIFIED' | 'CREATING' | 'ACTIVE' | 'DELETING' | 'UPDATING';
       /** Output only. The time that this resource was updated on the server. */
       updateTime?: string;
     }
@@ -314,10 +310,7 @@ declare namespace gapi.client {
       quota?: string;
       /** Scope of the quota decides how the quota counter gets applied and evaluate for quota violation. If the Scope is set as PROXY, then all the operations defined for the APIproduct that are associated with the same proxy will share the same quota counter set at the APIproduct level, making it a global counter at a proxy level. If the Scope is set as OPERATION, then each operations get the counter set at the API product dedicated, making it a local counter. Note that, the QuotaCounterScope applies only when an operation does not have dedicated quota set for itself. */
       quotaCounterScope?:
-        | 'QUOTA_COUNTER_SCOPE_UNSPECIFIED'
-        | 'PROXY'
-        | 'OPERATION'
-        | 'PRODUCT';
+        'QUOTA_COUNTER_SCOPE_UNSPECIFIED' | 'PROXY' | 'OPERATION' | 'PRODUCT';
       /** Time interval over which the number of request messages is calculated. */
       quotaInterval?: string;
       /** Time unit defined for the `quotaInterval`. Valid values include `minute`, `hour`, `day`, or `month`. */
@@ -342,9 +335,7 @@ declare namespace gapi.client {
     interface GoogleCloudApigeeV1ApiProxy {
       /** Output only. The type of the API proxy. */
       apiProxyType?:
-        | 'API_PROXY_TYPE_UNSPECIFIED'
-        | 'PROGRAMMABLE'
-        | 'CONFIGURABLE';
+        'API_PROXY_TYPE_UNSPECIFIED' | 'PROGRAMMABLE' | 'CONFIGURABLE';
       /** User labels applied to this API Proxy. */
       labels?: {[P in string]: string};
       /** Output only. The id of the most recently created revision for this api proxy. */
@@ -1008,9 +999,7 @@ declare namespace gapi.client {
       pods?: GoogleCloudApigeeV1PodStatus[];
       /** Output only. The type of the deployment (standard or extensible) Deployed proxy revision will be marked as extensible in following 2 cases. 1. The deployed proxy revision uses extensible policies. 2. If a environment supports flowhooks and flow hook is configured. */
       proxyDeploymentType?:
-        | 'PROXY_DEPLOYMENT_TYPE_UNSPECIFIED'
-        | 'STANDARD'
-        | 'EXTENSIBLE';
+        'PROXY_DEPLOYMENT_TYPE_UNSPECIFIED' | 'STANDARD' | 'EXTENSIBLE';
       /** API proxy revision. */
       revision?: string;
       /** Conflicts in the desired state routing configuration. The presence of conflicts does not cause the state to be `ERROR`, but it will mean that some of the deployment's base paths are not routed to its environment. If the conflicts change, the state will transition to `PROGRESSING` until the latest configuration is rolled out to all instances. **Note**: This field is displayed only when viewing deployment status. */
@@ -1081,9 +1070,7 @@ declare namespace gapi.client {
     interface GoogleCloudApigeeV1DeploymentGroupConfig {
       /** Type of the deployment group, which will be either Standard or Extensible. */
       deploymentGroupType?:
-        | 'DEPLOYMENT_GROUP_TYPE_UNSPECIFIED'
-        | 'STANDARD'
-        | 'EXTENSIBLE';
+        'DEPLOYMENT_GROUP_TYPE_UNSPECIFIED' | 'STANDARD' | 'EXTENSIBLE';
       /** Name of the deployment group in the following format: `organizations/{org}/environments/{env}/deploymentGroups/{group}`. */
       name?: string;
       /** Revision number which can be used by the runtime to detect if the deployment group has changed between two versions. */
@@ -1219,11 +1206,7 @@ declare namespace gapi.client {
       peeringConfig?: GoogleCloudApigeeV1DnsZonePeeringConfig;
       /** Output only. State of the DNS Peering. Values other than `ACTIVE` mean the resource is not ready to use. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATING'
-        | 'ACTIVE'
-        | 'DELETING'
-        | 'UPDATING';
+        'STATE_UNSPECIFIED' | 'CREATING' | 'ACTIVE' | 'DELETING' | 'UPDATING';
       /** Output only. The time that this resource was updated on the server. */
       updateTime?: string;
     }
@@ -1262,11 +1245,7 @@ declare namespace gapi.client {
       serviceAttachment?: string;
       /** Output only. State of the endpoint attachment. Values other than `ACTIVE` mean the resource is not ready to use. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATING'
-        | 'ACTIVE'
-        | 'DELETING'
-        | 'UPDATING';
+        'STATE_UNSPECIFIED' | 'CREATING' | 'ACTIVE' | 'DELETING' | 'UPDATING';
     }
     interface GoogleCloudApigeeV1EndpointChainingRule {
       /** The deployment group to target for cross-shard chaining calls to these proxies. */
@@ -1285,9 +1264,7 @@ declare namespace gapi.client {
     interface GoogleCloudApigeeV1Environment {
       /** Optional. API Proxy type supported by the environment. The type can be set when creating the Environment and cannot be changed. */
       apiProxyType?:
-        | 'API_PROXY_TYPE_UNSPECIFIED'
-        | 'PROGRAMMABLE'
-        | 'CONFIGURABLE';
+        'API_PROXY_TYPE_UNSPECIFIED' | 'PROGRAMMABLE' | 'CONFIGURABLE';
       /** Optional. The algorithm to resolve IP. This will affect Analytics, API Security, and other features that use the client ip. To remove a client ip resolution config, update the field to an empty value. Example: '{ "clientIpResolutionConfig" = {} }' For more information, see: https://cloud.google.com/apigee/docs/api-platform/system-administration/client-ip-resolution. */
       clientIpResolutionConfig?: GoogleCloudApigeeV1EnvironmentClientIPResolutionConfig;
       /** Output only. Creation time of this environment as milliseconds since epoch. */
@@ -1311,11 +1288,7 @@ declare namespace gapi.client {
       properties?: GoogleCloudApigeeV1Properties;
       /** Output only. State of the environment. Values other than ACTIVE means the resource is not ready to use. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATING'
-        | 'ACTIVE'
-        | 'DELETING'
-        | 'UPDATING';
+        'STATE_UNSPECIFIED' | 'CREATING' | 'ACTIVE' | 'DELETING' | 'UPDATING';
       /** Optional. EnvironmentType selected for the environment. */
       type?:
         | 'ENVIRONMENT_TYPE_UNSPECIFIED'
@@ -1404,11 +1377,7 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. State of the environment group. Values other than ACTIVE means the resource is not ready to use. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATING'
-        | 'ACTIVE'
-        | 'DELETING'
-        | 'UPDATING';
+        'STATE_UNSPECIFIED' | 'CREATING' | 'ACTIVE' | 'DELETING' | 'UPDATING';
     }
     interface GoogleCloudApigeeV1EnvironmentGroupAttachment {
       /** Output only. The time at which the environment group attachment was created as milliseconds since epoch. */
@@ -1616,11 +1585,7 @@ declare namespace gapi.client {
       serviceAttachment?: string;
       /** Output only. State of the instance. Values other than `ACTIVE` means the resource is not ready to use. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATING'
-        | 'ACTIVE'
-        | 'DELETING'
-        | 'UPDATING';
+        'STATE_UNSPECIFIED' | 'CREATING' | 'ACTIVE' | 'DELETING' | 'UPDATING';
     }
     interface GoogleCloudApigeeV1InstanceAttachment {
       /** Output only. Time the attachment was created in milliseconds since epoch. */
@@ -1975,9 +1940,7 @@ declare namespace gapi.client {
     interface GoogleCloudApigeeV1MaintenanceUpdatePolicy {
       /** Optional. Maintenance channel to specify relative scheduling for maintenance. */
       maintenanceChannel?:
-        | 'MAINTENANCE_CHANNEL_UNSPECIFIED'
-        | 'WEEK1'
-        | 'WEEK2';
+        'MAINTENANCE_CHANNEL_UNSPECIFIED' | 'WEEK1' | 'WEEK2';
       /** Optional. Preferred windows to perform maintenance. Currently limited to 1. */
       maintenanceWindows?: GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow[];
     }
@@ -2044,11 +2007,7 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. State of the nat address. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATING'
-        | 'RESERVED'
-        | 'ACTIVE'
-        | 'DELETING';
+        'STATE_UNSPECIFIED' | 'CREATING' | 'RESERVED' | 'ACTIVE' | 'DELETING';
     }
     interface GoogleCloudApigeeV1NodeConfig {
       /** Output only. The current total number of gateway nodes that each environment currently has across all instances. */
@@ -2088,10 +2047,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudApigeeV1OperationMetadata {
       operationType?:
-        | 'OPERATION_TYPE_UNSPECIFIED'
-        | 'INSERT'
-        | 'DELETE'
-        | 'UPDATE';
+        'OPERATION_TYPE_UNSPECIFIED' | 'INSERT' | 'DELETE' | 'UPDATE';
       /** Progress of the operation. */
       progress?: GoogleCloudApigeeV1OperationMetadataProgress;
       state?: 'STATE_UNSPECIFIED' | 'NOT_STARTED' | 'IN_PROGRESS' | 'FINISHED';
@@ -2145,10 +2101,7 @@ declare namespace gapi.client {
       authorizedNetwork?: string;
       /** Optional. Billing type of the Apigee organization. See [Apigee pricing](https://cloud.google.com/apigee/pricing). */
       billingType?:
-        | 'BILLING_TYPE_UNSPECIFIED'
-        | 'SUBSCRIPTION'
-        | 'EVALUATION'
-        | 'PAYG';
+        'BILLING_TYPE_UNSPECIFIED' | 'SUBSCRIPTION' | 'EVALUATION' | 'PAYG';
       /** Output only. Deprecated: Use `ca_certificates` instead. Base64-encoded public certificate for the root CA of the Apigee organization. Valid only when [RuntimeType](#RuntimeType) is `CLOUD`. */
       caCertificate?: string;
       /** Output only. Base64-encoded public certificates for the root CA of the Apigee organization. Valid only when [RuntimeType](#RuntimeType) is `CLOUD`. Multiple certificates are used to support certificate rotation. */
@@ -2187,11 +2140,7 @@ declare namespace gapi.client {
       runtimeType?: 'RUNTIME_TYPE_UNSPECIFIED' | 'CLOUD' | 'HYBRID';
       /** Output only. State of the organization. Values other than ACTIVE means the resource is not ready to use. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATING'
-        | 'ACTIVE'
-        | 'DELETING'
-        | 'UPDATING';
+        'STATE_UNSPECIFIED' | 'CREATING' | 'ACTIVE' | 'DELETING' | 'UPDATING';
       /** Output only. Subscription plan that the customer has purchased. Output only. */
       subscriptionPlan?:
         | 'SUBSCRIPTION_PLAN_UNSPECIFIED'
@@ -2389,11 +2338,7 @@ declare namespace gapi.client {
       timestampOrder?: 'ORDER_UNSPECIFIED' | 'ASCENDING' | 'DESCENDING';
       /** Time buckets to group the stats by. */
       windowSize?:
-        | 'WINDOW_SIZE_UNSPECIFIED'
-        | 'MINUTE'
-        | 'HOUR'
-        | 'DAY'
-        | 'MONTH';
+        'WINDOW_SIZE_UNSPECIFIED' | 'MINUTE' | 'HOUR' | 'DAY' | 'MONTH';
     }
     interface GoogleCloudApigeeV1QueryTimeSeriesStatsResponse {
       /** Column names corresponding to the same order as the inner values in the stats field. */
@@ -2451,16 +2396,12 @@ declare namespace gapi.client {
       name?: string;
       /** DEPRECATED: This field is no longer supported and will eventually be removed when Apigee Hybrid 1.5/1.6 is no longer supported. Instead, use the `billingType` field inside `DeveloperMonetizationConfig` resource. Flag that specifies the billing account type, prepaid or postpaid. */
       paymentFundingModel?:
-        | 'PAYMENT_FUNDING_MODEL_UNSPECIFIED'
-        | 'PREPAID'
-        | 'POSTPAID';
+        'PAYMENT_FUNDING_MODEL_UNSPECIFIED' | 'PREPAID' | 'POSTPAID';
       /** Details of the revenue sharing model. */
       revenueShareRates?: GoogleCloudApigeeV1RevenueShareRange[];
       /** Method used to calculate the revenue that is shared with developers. */
       revenueShareType?:
-        | 'REVENUE_SHARE_TYPE_UNSPECIFIED'
-        | 'FIXED'
-        | 'VOLUME_BANDED';
+        'REVENUE_SHARE_TYPE_UNSPECIFIED' | 'FIXED' | 'VOLUME_BANDED';
       /** Initial, one-time fee paid when purchasing the API product. */
       setupFee?: GoogleTypeMoney;
       /** Time when the rate plan becomes active in milliseconds since epoch. */
@@ -2858,7 +2799,9 @@ declare namespace gapi.client {
     interface GoogleCloudApigeeV1SecurityAssessmentResultScoringResult {
       /** The recommendations of the assessment. The key is the "name" of the assessment (not display_name), and the value are the recommendations. */
       assessmentRecommendations?: {
-        [P in string]: GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation;
+        [
+          P in string
+        ]: GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation;
       };
       /** The time when resource data was last fetched for this resource. This time may be different than when the resource was actually updated due to lag in data collection. */
       dataUpdateTime?: string;
@@ -2960,9 +2903,7 @@ declare namespace gapi.client {
       profile?: string;
       /** Optional. The risk assessment type of the security monitoring condition. Defaults to ADVANCED_API_SECURITY. */
       riskAssessmentType?:
-        | 'RISK_ASSESSMENT_TYPE_UNSPECIFIED'
-        | 'APIGEE'
-        | 'API_HUB';
+        'RISK_ASSESSMENT_TYPE_UNSPECIFIED' | 'APIGEE' | 'API_HUB';
       /** Optional. Scope of the security monitoring condition. When RiskAssessmentType is APIGEE, the scope should be set to the environment of the resources. When RiskAssessmentType is API_HUB, the scope should not be set. */
       scope?: string;
       /** Output only. Total number of deployed resources within scope. */
@@ -3031,13 +2972,13 @@ declare namespace gapi.client {
       name?: string;
       /** Required. The configuration for each assessment in this profile. Key is the name/id of the assessment. */
       profileAssessmentConfigs?: {
-        [P in string]: GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig;
+        [
+          P in string
+        ]: GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig;
       };
       /** Optional. The risk assessment type of the security profile. Defaults to ADVANCED_API_SECURITY. */
       riskAssessmentType?:
-        | 'RISK_ASSESSMENT_TYPE_UNSPECIFIED'
-        | 'APIGEE'
-        | 'API_HUB';
+        'RISK_ASSESSMENT_TYPE_UNSPECIFIED' | 'APIGEE' | 'API_HUB';
       /** Output only. The time of the security profile update. */
       updateTime?: string;
     }
@@ -3445,10 +3386,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface GoogleIamV1Binding {
       /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
@@ -16133,9 +16071,7 @@ declare namespace gapi.client {
         quotaUser?: string;
         /** Optional. The risk assessment type of the security monitoring condition. Defaults to ADVANCED_API_SECURITY. */
         riskAssessmentType?:
-          | 'RISK_ASSESSMENT_TYPE_UNSPECIFIED'
-          | 'APIGEE'
-          | 'API_HUB';
+          'RISK_ASSESSMENT_TYPE_UNSPECIFIED' | 'APIGEE' | 'API_HUB';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -16165,9 +16101,7 @@ declare namespace gapi.client {
         quotaUser?: string;
         /** Optional. The risk assessment type of the security monitoring condition. Defaults to ADVANCED_API_SECURITY. */
         riskAssessmentType?:
-          | 'RISK_ASSESSMENT_TYPE_UNSPECIFIED'
-          | 'APIGEE'
-          | 'API_HUB';
+          'RISK_ASSESSMENT_TYPE_UNSPECIFIED' | 'APIGEE' | 'API_HUB';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -16203,9 +16137,7 @@ declare namespace gapi.client {
         quotaUser?: string;
         /** Optional. The risk assessment type of the security monitoring condition. Defaults to ADVANCED_API_SECURITY. */
         riskAssessmentType?:
-          | 'RISK_ASSESSMENT_TYPE_UNSPECIFIED'
-          | 'APIGEE'
-          | 'API_HUB';
+          'RISK_ASSESSMENT_TYPE_UNSPECIFIED' | 'APIGEE' | 'API_HUB';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -16749,9 +16681,7 @@ declare namespace gapi.client {
         quotaUser?: string;
         /** Optional. The risk assessment type of the security profile. Defaults to ADVANCED_API_SECURITY. */
         riskAssessmentType?:
-          | 'RISK_ASSESSMENT_TYPE_UNSPECIFIED'
-          | 'APIGEE'
-          | 'API_HUB';
+          'RISK_ASSESSMENT_TYPE_UNSPECIFIED' | 'APIGEE' | 'API_HUB';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -16781,9 +16711,7 @@ declare namespace gapi.client {
         quotaUser?: string;
         /** Optional. The risk assessment type of the security profile. Defaults to ADVANCED_API_SECURITY. */
         riskAssessmentType?:
-          | 'RISK_ASSESSMENT_TYPE_UNSPECIFIED'
-          | 'APIGEE'
-          | 'API_HUB';
+          'RISK_ASSESSMENT_TYPE_UNSPECIFIED' | 'APIGEE' | 'API_HUB';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -16817,9 +16745,7 @@ declare namespace gapi.client {
         quotaUser?: string;
         /** Optional. The risk assessment type of the security profiles. Defaults to ADVANCED_API_SECURITY. */
         riskAssessmentType?:
-          | 'RISK_ASSESSMENT_TYPE_UNSPECIFIED'
-          | 'APIGEE'
-          | 'API_HUB';
+          'RISK_ASSESSMENT_TYPE_UNSPECIFIED' | 'APIGEE' | 'API_HUB';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */

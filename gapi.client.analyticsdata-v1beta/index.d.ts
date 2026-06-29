@@ -33,9 +33,7 @@ declare namespace gapi.client {
       metricName?: string;
       /** The reason for this metric's restriction. */
       restrictedMetricTypes?:
-        | 'RESTRICTED_METRIC_TYPE_UNSPECIFIED'
-        | 'COST_DATA'
-        | 'REVENUE_DATA'[];
+        'RESTRICTED_METRIC_TYPE_UNSPECIFIED' | 'COST_DATA' | 'REVENUE_DATA'[];
     }
     interface AudienceExport {
       /** Required. The audience resource name. This resource name identifies the audience being listed and is shared between the Analytics Data & Admin APIs. Format: `properties/{property}/audiences/{audience}` */
@@ -93,9 +91,7 @@ declare namespace gapi.client {
     interface CheckCompatibilityRequest {
       /** Filters the dimensions and metrics in the response to just this compatibility. Commonly used as `”compatibilityFilter”: “COMPATIBLE”` to only return compatible dimensions & metrics. */
       compatibilityFilter?:
-        | 'COMPATIBILITY_UNSPECIFIED'
-        | 'COMPATIBLE'
-        | 'INCOMPATIBLE';
+        'COMPATIBILITY_UNSPECIFIED' | 'COMPATIBLE' | 'INCOMPATIBLE';
       /** The filter clause of dimensions. `dimensionFilter` should be the same value as in your `runReport` request. */
       dimensionFilter?: FilterExpression;
       /** The dimensions in this report. `dimensions` should be the same value as in your `runReport` request. */
@@ -178,9 +174,7 @@ declare namespace gapi.client {
     interface DimensionCompatibility {
       /** The compatibility of this dimension. If the compatibility is COMPATIBLE, this dimension can be successfully added to the report. */
       compatibility?:
-        | 'COMPATIBILITY_UNSPECIFIED'
-        | 'COMPATIBLE'
-        | 'INCOMPATIBLE';
+        'COMPATIBILITY_UNSPECIFIED' | 'COMPATIBLE' | 'INCOMPATIBLE';
       /** The dimension metadata contains the API name for this compatibility information. The dimension metadata also contains other helpful information like the UI name and description. */
       dimensionMetadata?: DimensionMetadata;
     }
@@ -286,9 +280,7 @@ declare namespace gapi.client {
     interface MetricCompatibility {
       /** The compatibility of this metric. If the compatibility is COMPATIBLE, this metric can be successfully added to the report. */
       compatibility?:
-        | 'COMPATIBILITY_UNSPECIFIED'
-        | 'COMPATIBLE'
-        | 'INCOMPATIBLE';
+        'COMPATIBILITY_UNSPECIFIED' | 'COMPATIBLE' | 'INCOMPATIBLE';
       /** The metric metadata contains the API name for this compatibility information. The metric metadata also contains other helpful information like the UI name and description. */
       metricMetadata?: MetricMetadata;
     }

@@ -35,10 +35,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface BatchCreateRepositoriesRequest {
       /** Required. The request messages specifying the repositories to create. */
@@ -425,8 +422,7 @@ declare namespace gapi.client {
       pipelineRef?: PipelineRef;
       /** Pipelinerun status the user can provide. Used for cancellation. */
       pipelineRunStatus?:
-        | 'PIPELINE_RUN_STATUS_UNSPECIFIED'
-        | 'PIPELINE_RUN_CANCELLED';
+        'PIPELINE_RUN_STATUS_UNSPECIFIED' | 'PIPELINE_RUN_CANCELLED';
       /** PipelineSpec defines the desired state of Pipeline. */
       pipelineSpec?: PipelineSpec;
       /** Output only. Inline pipelineSpec yaml string, used by workflow run requests. */
@@ -593,9 +589,7 @@ declare namespace gapi.client {
     interface Security {
       /** Optional. Privilege mode. */
       privilegeMode?:
-        | 'PRIVILEGE_MODE_UNSPECIFIED'
-        | 'PRIVILEGED'
-        | 'UNPRIVILEGED';
+        'PRIVILEGE_MODE_UNSPECIFIED' | 'PRIVILEGED' | 'UNPRIVILEGED';
       /** IAM service account whose credentials will be used at runtime. */
       serviceAccount?: string;
     }
@@ -734,8 +728,7 @@ declare namespace gapi.client {
       description?: string;
       /** Sidecars that run alongside the Task’s step containers that should be added to this Task. */
       managedSidecars?:
-        | 'MANAGED_SIDECAR_UNSPECIFIED'
-        | 'PRIVILEGED_DOCKER_DAEMON'[];
+        'MANAGED_SIDECAR_UNSPECIFIED' | 'PRIVILEGED_DOCKER_DAEMON'[];
       /** List of parameters. */
       params?: ParamSpec[];
       /** Values that this Task can output. */

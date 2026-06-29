@@ -28,13 +28,9 @@ declare namespace gapi.client {
       /** The number of intervals to aggregate over. Example: If aggregation_level is "DAILY" and aggregation_count is 14, aggregation will be over 14 days. */
       aggregationCount?: number;
       aggregationInterval?:
-        | 'AGGREGATION_INTERVAL_UNSPECIFIED'
-        | 'DAILY'
-        | 'MONTHLY';
+        'AGGREGATION_INTERVAL_UNSPECIFIED' | 'DAILY' | 'MONTHLY';
       aggregationLevel?:
-        | 'AGGREGATION_LEVEL_UNSPECIFIED'
-        | 'ACCOUNT'
-        | 'PROJECT';
+        'AGGREGATION_LEVEL_UNSPECIFIED' | 'ACCOUNT' | 'PROJECT';
     }
     interface AuditConfig {
       /** The configuration for logging of each type of permission. */
@@ -47,10 +43,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface BillingAccount {
       /** Optional. The currency in which the billing account is billed and charged, represented as an ISO 4217 code such as `USD`. Billing account currency is determined at the time of billing account creation and cannot be updated subsequently, so this field should not be set on update requests. In addition, a subaccount always matches the currency of its parent billing account, so this field should not be set on subaccount creation requests. Clients can read this field to determine the currency of an existing billing account. */

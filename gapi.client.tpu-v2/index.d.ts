@@ -29,13 +29,7 @@ declare namespace gapi.client {
       topology?: string;
       /** Required. Type of TPU. */
       type?:
-        | 'TYPE_UNSPECIFIED'
-        | 'V2'
-        | 'V3'
-        | 'V4'
-        | 'V5LITE_POD'
-        | 'V5P'
-        | 'V6E';
+        'TYPE_UNSPECIFIED' | 'V2' | 'V3' | 'V4' | 'V5LITE_POD' | 'V5P' | 'V6E';
     }
     interface AcceleratorType {
       /** The accelerator config. */
@@ -206,11 +200,7 @@ declare namespace gapi.client {
       acceleratorType?: string;
       /** Output only. The API version that created this Node. */
       apiVersion?:
-        | 'API_VERSION_UNSPECIFIED'
-        | 'V1_ALPHA1'
-        | 'V1'
-        | 'V2_ALPHA1'
-        | 'V2';
+        'API_VERSION_UNSPECIFIED' | 'V1_ALPHA1' | 'V1' | 'V2_ALPHA1' | 'V2';
       /** Optional. Boot disk configuration. */
       bootDiskConfig?: BootDiskConfig;
       /** The CIDR block that the TPU node will use when selecting an IP address. This CIDR block must be a /29 block; the Compute Engine networks API forbids a smaller block, and using a larger block would be wasteful (a node can only consume one IP address). Errors will occur if the CIDR block has already been used for a currently existing TPU node, the CIDR block conflicts with any subnetworks in the user's provided network, or the provided network is peered with another network that is using that CIDR block. */

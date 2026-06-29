@@ -43,19 +43,12 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. The current state of the backup. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATING'
-        | 'ACTIVE'
-        | 'FAILED'
-        | 'DELETING';
+        'STATE_UNSPECIFIED' | 'CREATING' | 'ACTIVE' | 'FAILED' | 'DELETING';
       /** Output only. Additional information about the current status of this backup, if available. */
       statusMessage?: string;
       /** Output only. Indicates whether it’s an on-demand backup or scheduled. */
       type?:
-        | 'TYPE_UNSPECIFIED'
-        | 'ON_DEMAND'
-        | 'SCHEDULED'
-        | 'SCHEMA_EXTENSION';
+        'TYPE_UNSPECIFIED' | 'ON_DEMAND' | 'SCHEDULED' | 'SCHEMA_EXTENSION';
       /** Output only. Last update time. */
       updateTime?: string;
     }
@@ -86,10 +79,7 @@ declare namespace gapi.client {
       onpremDomains?: OnPremDomainSIDDetails[];
       /** The state of DomainMigration. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'DISABLED'
-        | 'ENABLED'
-        | 'NEEDS_MAINTENANCE';
+        'STATE_UNSPECIFIED' | 'DISABLED' | 'ENABLED' | 'NEEDS_MAINTENANCE';
     }
     interface DailyCycle {
       /** Output only. Duration of the time window, set by service producer. */
@@ -248,7 +238,9 @@ declare namespace gapi.client {
       maintenancePolicyNames?: {[P in string]: string};
       /** The MaintenanceSchedule contains the scheduling information of published maintenance schedule with same key as software_versions. */
       maintenanceSchedules?: {
-        [P in string]: GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule;
+        [
+          P in string
+        ]: GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule;
       };
       /** Optional. The MaintenanceSettings associated with instance. */
       maintenanceSettings?: GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings;
@@ -256,7 +248,9 @@ declare namespace gapi.client {
       name?: string;
       /** Optional. notification_parameter are information that service producers may like to include that is not relevant to Rollout. This parameter will only be passed to Gamma and Cloud Logging for notification/logging purpose. */
       notificationParameters?: {
-        [P in string]: GoogleCloudSaasacceleratorManagementProvidersV1NotificationParameter;
+        [
+          P in string
+        ]: GoogleCloudSaasacceleratorManagementProvidersV1NotificationParameter;
       };
       /** Output only. Custom string attributes used primarily to expose producer-specific information in monitoring dashboards. See go/get-instance-metadata. */
       producerMetadata?: {[P in string]: string};
@@ -317,7 +311,9 @@ declare namespace gapi.client {
     interface GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility {
       /** An entry in the eligibilities map specifies an eligibility for a particular SLI for the given instance. The SLI key in the name must be a valid SLI name specified in the Eligibility Exporter binary flags otherwise an error will be emitted by Eligibility Exporter and the oncaller will be alerted. If an SLI has been defined in the binary flags but the eligibilities map does not contain it, the corresponding SLI time series will not be emitted by the Eligibility Exporter. This ensures a smooth rollout and compatibility between the data produced by different versions of the Eligibility Exporters. If eligibilities map contains a key for an SLI which has not been declared in the binary flags, there will be an error message emitted in the Eligibility Exporter log and the metric for the SLI in question will not be emitted. */
       eligibilities?: {
-        [P in string]: GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility;
+        [
+          P in string
+        ]: GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility;
       };
     }
     interface GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource {
@@ -445,9 +441,7 @@ declare namespace gapi.client {
       name?: string;
       /** Current SID filtering state. */
       sidFilteringState?:
-        | 'SID_FILTERING_STATE_UNSPECIFIED'
-        | 'ENABLED'
-        | 'DISABLED';
+        'SID_FILTERING_STATE_UNSPECIFIED' | 'ENABLED' | 'DISABLED';
     }
     interface Operation {
       /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */

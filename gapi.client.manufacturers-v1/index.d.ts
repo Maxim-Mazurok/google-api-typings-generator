@@ -237,9 +237,7 @@ declare namespace gapi.client {
       destination?: string;
       /** What needs to happen to resolve the issue. */
       resolution?:
-        | 'RESOLUTION_UNSPECIFIED'
-        | 'USER_ACTION'
-        | 'PENDING_PROCESSING';
+        'RESOLUTION_UNSPECIFIED' | 'USER_ACTION' | 'PENDING_PROCESSING';
       /** The severity of the issue. */
       severity?: 'SEVERITY_UNSPECIFIED' | 'ERROR' | 'WARNING' | 'INFO';
       /** The timestamp when this issue appeared. */

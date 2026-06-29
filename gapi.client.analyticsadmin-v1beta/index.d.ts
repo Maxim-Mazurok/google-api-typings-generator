@@ -307,9 +307,7 @@ declare namespace gapi.client {
       parameterName?: string;
       /** Optional. Types of restricted data that this metric may contain. Required for metrics with CURRENCY measurement unit. Must be empty for metrics with a non-CURRENCY measurement unit. */
       restrictedMetricType?:
-        | 'RESTRICTED_METRIC_TYPE_UNSPECIFIED'
-        | 'COST_DATA'
-        | 'REVENUE_DATA'[];
+        'RESTRICTED_METRIC_TYPE_UNSPECIFIED' | 'COST_DATA' | 'REVENUE_DATA'[];
       /** Required. Immutable. The scope of this custom metric. */
       scope?: 'METRIC_SCOPE_UNSPECIFIED' | 'EVENT';
     }
@@ -418,9 +416,7 @@ declare namespace gapi.client {
     interface GoogleAnalyticsAdminV1betaKeyEvent {
       /** Required. The method by which Key Events will be counted across multiple events within a session. */
       countingMethod?:
-        | 'COUNTING_METHOD_UNSPECIFIED'
-        | 'ONCE_PER_EVENT'
-        | 'ONCE_PER_SESSION';
+        'COUNTING_METHOD_UNSPECIFIED' | 'ONCE_PER_EVENT' | 'ONCE_PER_SESSION';
       /** Output only. Time when this key event was created in the property. */
       createTime?: string;
       /** Output only. If set to true, this key event refers to a custom event. If set to false, this key event refers to a default event in GA. Default events typically have special meaning in GA. Default events are usually created for you by the GA system, but in some cases can be created by property admins. Custom events count towards the maximum number of custom key events that may be created per property. */

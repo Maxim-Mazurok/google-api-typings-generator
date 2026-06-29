@@ -91,10 +91,7 @@ declare namespace gapi.client {
       serviceAccount?: string;
       /** Serving status of this application. */
       servingStatus?:
-        | 'UNSPECIFIED'
-        | 'SERVING'
-        | 'USER_DISABLED'
-        | 'SYSTEM_DISABLED';
+        'UNSPECIFIED' | 'SERVING' | 'USER_DISABLED' | 'SYSTEM_DISABLED';
       /** The SSL policy that will be applied to the application. If set to Modern it will restrict traffic with TLS < 1.2 and allow only Modern Ciphers suite */
       sslPolicy?: 'SSL_POLICY_UNSPECIFIED' | 'DEFAULT' | 'MODERN';
     }
@@ -1012,16 +1009,12 @@ declare namespace gapi.client {
       networkInterfaces?: VpcNetworkInterface[];
       /** The traffic egress setting for the VPC network interface, controlling what traffic is diverted through it. */
       vpcEgress?:
-        | 'VPC_EGRESS_UNSPECIFIED'
-        | 'ALL_TRAFFIC'
-        | 'PRIVATE_IP_RANGES';
+        'VPC_EGRESS_UNSPECIFIED' | 'ALL_TRAFFIC' | 'PRIVATE_IP_RANGES';
     }
     interface VpcAccessConnector {
       /** The egress setting for the connector, controlling what traffic is diverted through it. */
       egressSetting?:
-        | 'EGRESS_SETTING_UNSPECIFIED'
-        | 'ALL_TRAFFIC'
-        | 'PRIVATE_IP_RANGES';
+        'EGRESS_SETTING_UNSPECIFIED' | 'ALL_TRAFFIC' | 'PRIVATE_IP_RANGES';
       /** Full Serverless VPC Access Connector name e.g. projects/my-project/locations/us-central1/connectors/c1. */
       name?: string;
     }
@@ -1312,9 +1305,7 @@ declare namespace gapi.client {
         oauth_token?: string;
         /** Whether the domain creation should override any existing mappings for this domain. By default, overrides are rejected. */
         overrideStrategy?:
-          | 'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY'
-          | 'STRICT'
-          | 'OVERRIDE';
+          'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY' | 'STRICT' | 'OVERRIDE';
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
@@ -1346,9 +1337,7 @@ declare namespace gapi.client {
           oauth_token?: string;
           /** Whether the domain creation should override any existing mappings for this domain. By default, overrides are rejected. */
           overrideStrategy?:
-            | 'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY'
-            | 'STRICT'
-            | 'OVERRIDE';
+            'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY' | 'STRICT' | 'OVERRIDE';
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
           /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
@@ -3122,9 +3111,7 @@ declare namespace gapi.client {
         oauth_token?: string;
         /** Whether the domain creation should override any existing mappings for this domain. By default, overrides are rejected. */
         overrideStrategy?:
-          | 'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY'
-          | 'STRICT'
-          | 'OVERRIDE';
+          'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY' | 'STRICT' | 'OVERRIDE';
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */
@@ -3160,9 +3147,7 @@ declare namespace gapi.client {
           oauth_token?: string;
           /** Whether the domain creation should override any existing mappings for this domain. By default, overrides are rejected. */
           overrideStrategy?:
-            | 'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY'
-            | 'STRICT'
-            | 'OVERRIDE';
+            'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY' | 'STRICT' | 'OVERRIDE';
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
           /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */

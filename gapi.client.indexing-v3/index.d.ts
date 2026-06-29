@@ -33,9 +33,7 @@ declare namespace gapi.client {
       notifyTime?: string;
       /** The URL life cycle event that Google is being notified about. */
       type?:
-        | 'URL_NOTIFICATION_TYPE_UNSPECIFIED'
-        | 'URL_UPDATED'
-        | 'URL_DELETED';
+        'URL_NOTIFICATION_TYPE_UNSPECIFIED' | 'URL_UPDATED' | 'URL_DELETED';
       /** The object of this notification. The URL must be owned by the publisher of this notification and, in case of `URL_UPDATED` notifications, it _must_ be crawlable by Google. */
       url?: string;
     }

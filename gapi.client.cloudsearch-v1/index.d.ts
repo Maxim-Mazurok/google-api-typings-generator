@@ -102,18 +102,10 @@ declare namespace gapi.client {
       startDayOffsetSec?: string;
       /** [Optional] Surface where the card should be shown in. If missing, the card will be shown in any surface. */
       surface?:
-        | 'UNKNOWN_SURFACE'
-        | 'DESKTOP'
-        | 'ANDROID'
-        | 'IOS'
-        | 'MOBILE'
-        | 'ANY'[];
+        'UNKNOWN_SURFACE' | 'DESKTOP' | 'ANDROID' | 'IOS' | 'MOBILE' | 'ANY'[];
       /** [Required] Type of the card (homepage, Answer or RHS). */
       type?:
-        | 'UNKNOWN_CARD_TYPE'
-        | 'HOMEPAGE_CARD'
-        | 'ANSWER_CARD'
-        | 'RHS_CARD'[];
+        'UNKNOWN_CARD_TYPE' | 'HOMEPAGE_CARD' | 'ANSWER_CARD' | 'RHS_CARD'[];
     }
     interface ContextAttribute {
       /** The name of the attribute. It should not be empty. The maximum length is 32 characters. The name must start with a letter and can only contain letters (A-Z, a-z) or numbers (0-9). The name will be normalized (lower-cased) before being matched. */
@@ -822,10 +814,7 @@ declare namespace gapi.client {
       header?: EnterpriseTopazSidekickPeopleAnswerPeopleAnswerCardHeader;
       /** The response status. */
       responseStatus?:
-        | 'UNKNOWN'
-        | 'SUCCESS'
-        | 'MISSING_PERSON'
-        | 'MISSING_DATA';
+        'UNKNOWN' | 'SUCCESS' | 'MISSING_PERSON' | 'MISSING_DATA';
       /** Localized user friendly message to display to the user in the case of missing data or an error. */
       statusMessage?: string;
       /** The profile of the person that was the subject of the query. */
@@ -842,10 +831,7 @@ declare namespace gapi.client {
       relationType?: 'UNKNOWN' | 'DIRECT_REPORTS' | 'MANAGER' | 'PEERS';
       /** The response status. */
       responseStatus?:
-        | 'UNKNOWN'
-        | 'SUCCESS'
-        | 'MISSING_PERSON'
-        | 'MISSING_DATA';
+        'UNKNOWN' | 'SUCCESS' | 'MISSING_PERSON' | 'MISSING_DATA';
       /** Localized user friendly message to display to the user in the case of missing data or an error. */
       statusMessage?: string;
       /** The profile of the person that was the subject of the query. */
@@ -1163,10 +1149,7 @@ declare namespace gapi.client {
     interface ItemAcl {
       /** Sets the type of access rules to apply when an item inherits its ACL from a parent. This should always be set in tandem with the inheritAclFrom field. Also, when the inheritAclFrom field is set, this field should be set to a valid AclInheritanceType. */
       aclInheritanceType?:
-        | 'NOT_APPLICABLE'
-        | 'CHILD_OVERRIDE'
-        | 'PARENT_OVERRIDE'
-        | 'BOTH_PERMIT';
+        'NOT_APPLICABLE' | 'CHILD_OVERRIDE' | 'PARENT_OVERRIDE' | 'BOTH_PERMIT';
       /** List of principals who are explicitly denied access to the item in search results. While principals are denied access by default, use denied readers to handle exceptions and override the list allowed readers. The maximum number of elements is 100. */
       deniedReaders?: Principal[];
       /** The name of the item to inherit the Access Permission List (ACL) from. Note: ACL inheritance *only* provides access permissions to child items and does not define structural relationships, nor does it provide convenient ways to delete large groups of items. Deleting an ACL parent from the index only alters the access permissions of child items that reference the parent in the inheritAclFrom field. The item is still in the index, but may not visible in search results. By contrast, deletion of a container item also deletes all items that reference the container via the containerName field. The maximum length for this field is 1536 characters. */
@@ -1192,11 +1175,7 @@ declare namespace gapi.client {
       indexedItemsCount?: string;
       /** Status of the items. */
       statusCode?:
-        | 'CODE_UNSPECIFIED'
-        | 'ERROR'
-        | 'MODIFIED'
-        | 'NEW_ITEM'
-        | 'ACCEPTED';
+        'CODE_UNSPECIFIED' | 'ERROR' | 'MODIFIED' | 'NEW_ITEM' | 'ACCEPTED';
     }
     interface ItemMetadata {
       /** The name of the container for this item. Deletion of the container item leads to automatic deletion of this item. Note: ACLs are not inherited from a container item. To provide ACL inheritance for an item, use the inheritAclFrom field. The maximum length is 1536 characters. */
@@ -1229,11 +1208,7 @@ declare namespace gapi.client {
     interface ItemStatus {
       /** Status code. */
       code?:
-        | 'CODE_UNSPECIFIED'
-        | 'ERROR'
-        | 'MODIFIED'
-        | 'NEW_ITEM'
-        | 'ACCEPTED';
+        'CODE_UNSPECIFIED' | 'ERROR' | 'MODIFIED' | 'NEW_ITEM' | 'ACCEPTED';
       /** Error details in case the item is in ERROR state. */
       processingErrors?: ProcessingError[];
       /** Repository error reported by connector. */
@@ -1423,10 +1398,7 @@ declare namespace gapi.client {
       /** People the profile owner is an admin to. Note that not all fields of these PersonCores will be set, in particular, relationships will be empty. */
       adminTo?: PersonCore[];
       availabilityStatus?:
-        | 'UNKNOWN'
-        | 'OUT_OF_OFFICE'
-        | 'OUTSIDE_WORKING_HOURS'
-        | 'AVAILABLE';
+        'UNKNOWN' | 'OUT_OF_OFFICE' | 'OUTSIDE_WORKING_HOURS' | 'AVAILABLE';
       /** Person birthday. */
       birthday?: Date;
       /** The URL to open the profile owner's primary calendar. */
@@ -1508,11 +1480,7 @@ declare namespace gapi.client {
       queue?: string;
       /** Limit the items polled to the ones with these statuses. */
       statusCodes?:
-        | 'CODE_UNSPECIFIED'
-        | 'ERROR'
-        | 'MODIFIED'
-        | 'NEW_ITEM'
-        | 'ACCEPTED'[];
+        'CODE_UNSPECIFIED' | 'ERROR' | 'MODIFIED' | 'NEW_ITEM' | 'ACCEPTED'[];
     }
     interface PollItemsResponse {
       /** Set of items from the queue available for connector to process. These items have the following subset of fields populated: version metadata.hash structured_data.hash content.hash payload status queue */
@@ -1690,11 +1658,7 @@ declare namespace gapi.client {
       lastQueryTime?: string;
       /** Source corpus of the suggestion. */
       sourceCorpus?:
-        | 'SOURCE_CORPUS_UNSPECIFIED'
-        | 'GMAIL'
-        | 'DRIVE'
-        | 'CHAT'
-        | 'CALENDAR';
+        'SOURCE_CORPUS_UNSPECIFIED' | 'GMAIL' | 'DRIVE' | 'CHAT' | 'CALENDAR';
     }
     interface RemoveActivityRequest {
       /** Request options, such as the search application and clientId. */

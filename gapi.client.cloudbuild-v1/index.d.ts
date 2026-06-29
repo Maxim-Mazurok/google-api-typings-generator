@@ -263,11 +263,7 @@ declare namespace gapi.client {
       result?: ApprovalResult;
       /** Output only. The state of this build's approval. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'PENDING'
-        | 'APPROVED'
-        | 'REJECTED'
-        | 'CANCELLED';
+        'STATE_UNSPECIFIED' | 'PENDING' | 'APPROVED' | 'REJECTED' | 'CANCELLED';
     }
     interface BuildOperationMetadata {
       /** The build that the operation is tracking. */
@@ -403,11 +399,7 @@ declare namespace gapi.client {
       disabled?: boolean;
       /** EventType allows the user to explicitly set the type of event to which this BuildTrigger should respond. This field will be validated against the rest of the configuration if it is set. */
       eventType?:
-        | 'EVENT_TYPE_UNSPECIFIED'
-        | 'REPO'
-        | 'WEBHOOK'
-        | 'PUBSUB'
-        | 'MANUAL';
+        'EVENT_TYPE_UNSPECIFIED' | 'REPO' | 'WEBHOOK' | 'PUBSUB' | 'MANUAL';
       /** Path, from the source root, to the build configuration file (i.e. cloudbuild.yaml). */
       filename?: string;
       /** A Common Expression Language string. */
@@ -424,8 +416,7 @@ declare namespace gapi.client {
       ignoredFiles?: string[];
       /** If set to INCLUDE_BUILD_LOGS_WITH_STATUS, log url will be shown on GitHub page when build status is final. Setting this field to INCLUDE_BUILD_LOGS_WITH_STATUS for non GitHub triggers results in INVALID_ARGUMENT error. */
       includeBuildLogs?:
-        | 'INCLUDE_BUILD_LOGS_UNSPECIFIED'
-        | 'INCLUDE_BUILD_LOGS_WITH_STATUS';
+        'INCLUDE_BUILD_LOGS_UNSPECIFIED' | 'INCLUDE_BUILD_LOGS_WITH_STATUS';
       /** If any of the files altered in the commit pass the ignored_files filter and included_files is empty, then as far as this filter is concerned, we should trigger the build. If any of the files altered in the commit pass the ignored_files filter and included_files is not empty, then we make sure that at least one of those files matches a included_files glob. If not, then we do not trigger a build. */
       includedFiles?: string[];
       /** User-assigned name of the trigger. Must be unique within the project. Trigger names must meet the following requirements: + They must contain only alphanumeric characters and dashes. + They can be 1-64 characters long. + They must begin and end with an alphanumeric character. */
@@ -458,9 +449,7 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. The OCI media type of the artifact. Non-OCI images, such as Docker images, will have an unspecified value. */
       ociMediaType?:
-        | 'OCI_MEDIA_TYPE_UNSPECIFIED'
-        | 'IMAGE_MANIFEST'
-        | 'IMAGE_INDEX';
+        'OCI_MEDIA_TYPE_UNSPECIFIED' | 'IMAGE_MANIFEST' | 'IMAGE_INDEX';
       /** Output only. Stores timing information for pushing the specified image. */
       pushTiming?: TimeSpan;
     }
@@ -839,12 +828,7 @@ declare namespace gapi.client {
     interface Hash {
       /** The type of hash that was performed. */
       type?:
-        | 'NONE'
-        | 'SHA256'
-        | 'MD5'
-        | 'GO_MODULE_H1'
-        | 'SHA512'
-        | 'DIRSUM_SHA256';
+        'NONE' | 'SHA256' | 'MD5' | 'GO_MODULE_H1' | 'SHA512' | 'DIRSUM_SHA256';
       /** The hash value. */
       value?: string;
     }
@@ -929,9 +913,7 @@ declare namespace gapi.client {
     interface NetworkConfig {
       /** Option to configure network egress for the workers. */
       egressOption?:
-        | 'EGRESS_OPTION_UNSPECIFIED'
-        | 'NO_PUBLIC_EGRESS'
-        | 'PUBLIC_EGRESS';
+        'EGRESS_OPTION_UNSPECIFIED' | 'NO_PUBLIC_EGRESS' | 'PUBLIC_EGRESS';
       /** Required. Immutable. The network definition that the workers are peered to. If this section is left empty, the workers will be peered to `WorkerPool.project_id` on the service producer network. Must be in the format `projects/{project}/global/networks/{network}`, where `{project}` is a project number, such as `12345`, and `{network}` is the name of a VPC network in the project. See [Understanding network configuration options](https://cloud.google.com/build/docs/private-pools/set-up-private-pool-environment) */
       peeredNetwork?: string;
       /** Immutable. Subnet IP range within the peered network. This is specified in CIDR notation with a slash and the subnet prefix size. You can optionally specify an IP address before the subnet prefix value. e.g. `192.168.0.0/29` would specify an IP range starting at 192.168.0.0 with a prefix size of 29 bits. `/16` would specify a prefix size of 16 bits, with an automatically determined IP within the peered VPC. If unspecified, a value of `/24` will be used. */

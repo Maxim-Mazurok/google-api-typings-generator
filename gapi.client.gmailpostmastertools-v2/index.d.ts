@@ -84,11 +84,7 @@ declare namespace gapi.client {
     interface CreateUserRequest {
       /** Optional. Specifies the permission level to give the user for the specified domain. If not specified, the default value for this field is READER. */
       permission?:
-        | 'PERMISSION_UNSPECIFIED'
-        | 'READER'
-        | 'ADMIN'
-        | 'OWNER'
-        | 'NONE';
+        'PERMISSION_UNSPECIFIED' | 'READER' | 'ADMIN' | 'OWNER' | 'NONE';
       /** Required. The user to create. */
       userId?: string;
     }
@@ -137,16 +133,10 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. User's permission of this domain. */
       permission?:
-        | 'PERMISSION_UNSPECIFIED'
-        | 'READER'
-        | 'ADMIN'
-        | 'OWNER'
-        | 'NONE';
+        'PERMISSION_UNSPECIFIED' | 'READER' | 'ADMIN' | 'OWNER' | 'NONE';
       /** Output only. Information about a user's verification history and properties for the domain. */
       verificationState?:
-        | 'VERIFICATION_STATE_UNSPECIFIED'
-        | 'UNVERIFIED'
-        | 'VERIFIED';
+        'VERIFICATION_STATE_UNSPECIFIED' | 'UNVERIFIED' | 'VERIFIED';
     }
     interface DomainComplianceData {
       /** Output only. Deliverability status verdict. */
@@ -185,9 +175,7 @@ declare namespace gapi.client {
       token?: string;
       /** The verification method used. */
       verificationMethod?:
-        | 'DOMAIN_VERIFICATION_METHOD_UNSPECIFIED'
-        | 'TXT'
-        | 'CNAME';
+        'DOMAIN_VERIFICATION_METHOD_UNSPECIFIED' | 'TXT' | 'CNAME';
     }
     interface Empty {}
     interface HonorUnsubscribeVerdict {
@@ -233,9 +221,7 @@ declare namespace gapi.client {
     interface QueryDomainStatsRequest {
       /** Optional. The granularity at which to aggregate the statistics. If unspecified, defaults to DAILY. */
       aggregationGranularity?:
-        | 'AGGREGATION_GRANULARITY_UNSPECIFIED'
-        | 'DAILY'
-        | 'OVERALL';
+        'AGGREGATION_GRANULARITY_UNSPECIFIED' | 'DAILY' | 'OVERALL';
       /** Required. The specific metrics to query. You can define a custom name for each metric, which will be used in the response. */
       metricDefinitions?: MetricDefinition[];
       /** Optional. The maximum number of DomainStats resources to return in the response. The server may return fewer than this value. If unspecified, a default value of 10 will be used. The maximum value is 200. */
@@ -292,20 +278,14 @@ declare namespace gapi.client {
       name?: string;
       /** The permission level that the user has for the specified domain. */
       permission?:
-        | 'PERMISSION_UNSPECIFIED'
-        | 'READER'
-        | 'ADMIN'
-        | 'OWNER'
-        | 'NONE';
+        'PERMISSION_UNSPECIFIED' | 'READER' | 'ADMIN' | 'OWNER' | 'NONE';
       /** The user's email address. */
       user?: string;
     }
     interface VerifyDomainRequest {
       /** Required. The verification method used. Must be specified, i.e. TXT or CNAME. */
       verificationMethod?:
-        | 'DOMAIN_VERIFICATION_METHOD_UNSPECIFIED'
-        | 'TXT'
-        | 'CNAME';
+        'DOMAIN_VERIFICATION_METHOD_UNSPECIFIED' | 'TXT' | 'CNAME';
     }
     interface VerifyDomainResponse {}
     interface DomainStatsResource {
@@ -739,9 +719,7 @@ declare namespace gapi.client {
         uploadType?: string;
         /** Required. The verification method used. Must be specified, i.e. TXT or CNAME. */
         verificationMethod?:
-          | 'DOMAIN_VERIFICATION_METHOD_UNSPECIFIED'
-          | 'TXT'
-          | 'CNAME';
+          'DOMAIN_VERIFICATION_METHOD_UNSPECIFIED' | 'TXT' | 'CNAME';
       }): Request<DomainVerificationToken>;
       /** Retrieves a list of all domains registered by you, along with their corresponding metadata. The order of domains in the response is unspecified and non-deterministic. Newly registered domains will not necessarily be added to the end of this list. */
       list(request?: {

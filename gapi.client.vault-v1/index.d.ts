@@ -73,12 +73,7 @@ declare namespace gapi.client {
     interface CalendarExportOptions {
       /** The file format for exported text messages. */
       exportFormat?:
-        | 'EXPORT_FORMAT_UNSPECIFIED'
-        | 'MBOX'
-        | 'PST'
-        | 'ICS'
-        | 'XML'
-        | 'JSON';
+        'EXPORT_FORMAT_UNSPECIFIED' | 'MBOX' | 'PST' | 'ICS' | 'XML' | 'JSON';
     }
     interface CalendarOptions {
       /** Matches only those events whose location contains all of the words in the given set. If the string contains quoted phrases, this method only matches those events whose location contain the exact phrase. Entries in the set are considered in "and". Word splitting example: ["New Zealand"] vs ["New","Zealand"] "New Zealand": matched by both "New and better Zealand": only matched by the later */
@@ -213,10 +208,7 @@ declare namespace gapi.client {
       stats?: ExportStats;
       /** Output only. The status of the export. */
       status?:
-        | 'EXPORT_STATUS_UNSPECIFIED'
-        | 'COMPLETED'
-        | 'FAILED'
-        | 'IN_PROGRESS';
+        'EXPORT_STATUS_UNSPECIFIED' | 'COMPLETED' | 'FAILED' | 'IN_PROGRESS';
     }
     interface ExportOptions {
       /** Option available for Calendar export. */
@@ -247,12 +239,7 @@ declare namespace gapi.client {
     interface GeminiExportOptions {
       /** The file format for exported messages. */
       exportFormat?:
-        | 'EXPORT_FORMAT_UNSPECIFIED'
-        | 'MBOX'
-        | 'PST'
-        | 'ICS'
-        | 'XML'
-        | 'JSON';
+        'EXPORT_FORMAT_UNSPECIFIED' | 'MBOX' | 'PST' | 'ICS' | 'XML' | 'JSON';
     }
     interface GeminiOptions {}
     interface GroupsCountResult {
@@ -270,22 +257,12 @@ declare namespace gapi.client {
     interface GroupsExportOptions {
       /** The file format for exported messages. */
       exportFormat?:
-        | 'EXPORT_FORMAT_UNSPECIFIED'
-        | 'MBOX'
-        | 'PST'
-        | 'ICS'
-        | 'XML'
-        | 'JSON';
+        'EXPORT_FORMAT_UNSPECIFIED' | 'MBOX' | 'PST' | 'ICS' | 'XML' | 'JSON';
     }
     interface HangoutsChatExportOptions {
       /** The file format for exported messages. */
       exportFormat?:
-        | 'EXPORT_FORMAT_UNSPECIFIED'
-        | 'MBOX'
-        | 'PST'
-        | 'ICS'
-        | 'XML'
-        | 'JSON';
+        'EXPORT_FORMAT_UNSPECIFIED' | 'MBOX' | 'PST' | 'ICS' | 'XML' | 'JSON';
     }
     interface HangoutsChatInfo {
       /** A list of Chat spaces IDs, as provided by the [Chat API](https://developers.google.com/workspace/chat). There is a limit of exporting from 500 Chat spaces per request. */
@@ -424,12 +401,7 @@ declare namespace gapi.client {
     interface MailExportOptions {
       /** The file format for exported messages. */
       exportFormat?:
-        | 'EXPORT_FORMAT_UNSPECIFIED'
-        | 'MBOX'
-        | 'PST'
-        | 'ICS'
-        | 'XML'
-        | 'JSON';
+        'EXPORT_FORMAT_UNSPECIFIED' | 'MBOX' | 'PST' | 'ICS' | 'XML' | 'JSON';
       /** Optional. To enable exporting linked Drive files, set to **true**. */
       exportLinkedDriveFiles?: boolean;
       /** To export confidential mode content, set to **true**. */
@@ -616,12 +588,7 @@ declare namespace gapi.client {
     interface VoiceExportOptions {
       /** The file format for exported text messages. */
       exportFormat?:
-        | 'EXPORT_FORMAT_UNSPECIFIED'
-        | 'MBOX'
-        | 'PST'
-        | 'ICS'
-        | 'XML'
-        | 'JSON';
+        'EXPORT_FORMAT_UNSPECIFIED' | 'MBOX' | 'PST' | 'ICS' | 'XML' | 'JSON';
     }
     interface VoiceOptions {
       /** Datatypes to search */

@@ -456,9 +456,7 @@ declare namespace gapi.client {
       rewrites?: Rewrite[];
       /** Defines how to handle a trailing slash in the URL path. */
       trailingSlashBehavior?:
-        | 'TRAILING_SLASH_BEHAVIOR_UNSPECIFIED'
-        | 'ADD'
-        | 'REMOVE';
+        'TRAILING_SLASH_BEHAVIOR_UNSPECIFIED' | 'ADD' | 'REMOVE';
     }
     interface Site {
       /** Optional. The [ID of a Web App](https://firebase.google.com/docs/reference/firebase-management/rest/v1beta1/projects.webApps#WebApp.FIELDS.app_id) associated with the Hosting site. */

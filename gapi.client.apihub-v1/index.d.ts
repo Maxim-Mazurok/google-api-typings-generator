@@ -257,9 +257,7 @@ declare namespace gapi.client {
       dataType?: 'DATA_TYPE_UNSPECIFIED' | 'ENUM' | 'JSON' | 'STRING' | 'URI';
       /** Output only. The definition type of the attribute. */
       definitionType?:
-        | 'DEFINITION_TYPE_UNSPECIFIED'
-        | 'SYSTEM_DEFINED'
-        | 'USER_DEFINED';
+        'DEFINITION_TYPE_UNSPECIFIED' | 'SYSTEM_DEFINED' | 'USER_DEFINED';
       /** Optional. The description of the attribute. */
       description?: string;
       /** Required. The display name of the attribute. */
@@ -420,16 +418,12 @@ declare namespace gapi.client {
       endpoint?: GoogleCloudApihubV1Endpoint;
       /** Output only. The error code of the last execution of the curation. The error code is populated only when the last execution state is failed. */
       lastExecutionErrorCode?:
-        | 'ERROR_CODE_UNSPECIFIED'
-        | 'INTERNAL_ERROR'
-        | 'UNAUTHORIZED';
+        'ERROR_CODE_UNSPECIFIED' | 'INTERNAL_ERROR' | 'UNAUTHORIZED';
       /** Output only. Error message describing the failure, if any, during the last execution of the curation. */
       lastExecutionErrorMessage?: string;
       /** Output only. The last execution state of the curation. */
       lastExecutionState?:
-        | 'LAST_EXECUTION_STATE_UNSPECIFIED'
-        | 'SUCCEEDED'
-        | 'FAILED';
+        'LAST_EXECUTION_STATE_UNSPECIFIED' | 'SUCCEEDED' | 'FAILED';
       /** Identifier. The name of the curation. Format: `projects/{project}/locations/{location}/curations/{curation}` */
       name?: string;
       /** Output only. The plugin instances and associated actions that are using the curation. Note: A particular curation could be used by multiple plugin instances or multiple actions in a plugin instance. */
@@ -637,9 +631,7 @@ declare namespace gapi.client {
     interface GoogleCloudApihubV1ExecutionStatus {
       /** Output only. The current state of the execution. */
       currentExecutionState?:
-        | 'CURRENT_EXECUTION_STATE_UNSPECIFIED'
-        | 'RUNNING'
-        | 'NOT_RUNNING';
+        'CURRENT_EXECUTION_STATE_UNSPECIFIED' | 'RUNNING' | 'NOT_RUNNING';
       /** Output only. The last execution of the plugin instance. */
       lastExecution?: GoogleCloudApihubV1LastExecution;
     }
@@ -806,9 +798,7 @@ declare namespace gapi.client {
       source?: string;
       /** Required. Lint state represents success or failure for linting. */
       state?:
-        | 'LINT_STATE_UNSPECIFIED'
-        | 'LINT_STATE_SUCCESS'
-        | 'LINT_STATE_ERROR';
+        'LINT_STATE_UNSPECIFIED' | 'LINT_STATE_SUCCESS' | 'LINT_STATE_ERROR';
       /** Optional. Summary of all issue types and counts for each severity level. */
       summary?: GoogleCloudApihubV1SummaryEntry[];
     }
@@ -1070,14 +1060,10 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. The type of the plugin, indicating whether it is 'SYSTEM_OWNED' or 'USER_OWNED'. */
       ownershipType?:
-        | 'OWNERSHIP_TYPE_UNSPECIFIED'
-        | 'SYSTEM_OWNED'
-        | 'USER_OWNED';
+        'OWNERSHIP_TYPE_UNSPECIFIED' | 'SYSTEM_OWNED' | 'USER_OWNED';
       /** Optional. The category of the plugin, identifying its primary category or purpose. This field is required for all plugins. */
       pluginCategory?:
-        | 'PLUGIN_CATEGORY_UNSPECIFIED'
-        | 'API_GATEWAY'
-        | 'API_PRODUCER';
+        'PLUGIN_CATEGORY_UNSPECIFIED' | 'API_GATEWAY' | 'API_PRODUCER';
       /** Output only. Represents the state of the plugin. Note this field will not be set for plugins developed via plugin framework as the state will be managed at plugin instance level. */
       state?: 'STATE_UNSPECIFIED' | 'ENABLED' | 'DISABLED';
       /** Optional. The type of the API. This maps to the following system defined attribute: `projects/{project}/locations/{location}/attributes/system-plugin-type` attribute. The number of allowed values for this attribute will be based on the cardinality of the attribute. The same can be retrieved via GetAttribute API. All values should be from the list of allowed values defined for the attribute. Note this field is not required for plugins developed via plugin framework. */
@@ -1197,9 +1183,7 @@ declare namespace gapi.client {
     interface GoogleCloudApihubV1ResourceConfig {
       /** Output only. The type of the action. */
       actionType?:
-        | 'ACTION_TYPE_UNSPECIFIED'
-        | 'SYNC_METADATA'
-        | 'SYNC_RUNTIME_DATA';
+        'ACTION_TYPE_UNSPECIFIED' | 'SYNC_METADATA' | 'SYNC_RUNTIME_DATA';
       /** Output only. The pubsub topic to publish the data to. Format is projects/{project}/topics/{topic} */
       pubsubTopic?: string;
     }

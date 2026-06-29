@@ -38,9 +38,7 @@ declare namespace gapi.client {
       activationCode?: string;
       /** Required. The activation state of the eSIM profile once it is downloaded. */
       activationState?:
-        | 'ACTIVATION_STATE_UNSPECIFIED'
-        | 'ACTIVATED'
-        | 'NOT_ACTIVATED';
+        'ACTIVATION_STATE_UNSPECIFIED' | 'ACTIVATED' | 'NOT_ACTIVATED';
     }
     interface AdvancedSecurityOverrides {
       /** Controls Common Criteria Mode—security standards defined in the Common Criteria for Information Technology Security Evaluation (https://www.commoncriteriaportal.org/) (CC). Enabling Common Criteria Mode increases certain security components on a device, see CommonCriteriaMode for details.Warning: Common Criteria Mode enforces a strict security model typically only required for IT products used in national security systems and other highly sensitive organizations. Standard device use may be affected. Only enabled if required. If Common Criteria Mode is turned off after being enabled previously, all user-configured Wi-Fi networks may be lost and any enterprise-configured Wi-Fi networks that require user input may need to be reconfigured. */
@@ -101,9 +99,7 @@ declare namespace gapi.client {
     interface ApnSetting {
       /** Optional. Whether User Plane resources have to be activated during every transition from CM-IDLE mode to CM-CONNECTED state for this APN. See 3GPP TS 23.501 section 5.6.13. */
       alwaysOnSetting?:
-        | 'ALWAYS_ON_SETTING_UNSPECIFIED'
-        | 'NOT_ALWAYS_ON'
-        | 'ALWAYS_ON';
+        'ALWAYS_ON_SETTING_UNSPECIFIED' | 'NOT_ALWAYS_ON' | 'ALWAYS_ON';
       /** Required. Name of the APN. Policy will be rejected if this field is empty. */
       apn?: string;
       /** Required. Usage categories for the APN. Policy will be rejected if this field is empty or contains APN_TYPE_UNSPECIFIED or duplicates. Multiple APN types can be set on fully managed devices. ENTERPRISE is the only allowed APN type on work profiles. A NonComplianceDetail with MANAGEMENT_MODE is reported for any other value on work profiles. APN types that are not supported on the device or management mode will be ignored. If this results in the empty list, the APN setting will be ignored, because apnTypes is a required field. A NonComplianceDetail with INVALID_VALUE is reported if none of the APN types are supported on the device or management mode. */
@@ -127,11 +123,7 @@ declare namespace gapi.client {
         | 'XCAP'[];
       /** Optional. Authentication type of the APN. */
       authType?:
-        | 'AUTH_TYPE_UNSPECIFIED'
-        | 'NONE'
-        | 'PAP'
-        | 'CHAP'
-        | 'PAP_OR_CHAP';
+        'AUTH_TYPE_UNSPECIFIED' | 'NONE' | 'PAP' | 'CHAP' | 'PAP_OR_CHAP';
       /** Optional. Carrier ID for the APN. A value of 0 (default) means not set and negative values are rejected. */
       carrierId?: number;
       /** Required. Human-readable name that describes the APN. Policy will be rejected if this field is empty. */
@@ -302,10 +294,7 @@ declare namespace gapi.client {
       customAppConfig?: CustomAppConfig;
       /** The default policy for all permissions requested by the app. If specified, this overrides the policy-level default_permission_policy which applies to all apps. It does not override the permission_grants which applies to all apps. */
       defaultPermissionPolicy?:
-        | 'PERMISSION_POLICY_UNSPECIFIED'
-        | 'PROMPT'
-        | 'GRANT'
-        | 'DENY';
+        'PERMISSION_POLICY_UNSPECIFIED' | 'PROMPT' | 'GRANT' | 'DENY';
       /** The scopes delegated to the app from Android Device Policy. These provide additional privileges for the applications they are applied to. */
       delegatedScopes?:
         | 'DELEGATED_SCOPE_UNSPECIFIED'
@@ -406,9 +395,7 @@ declare namespace gapi.client {
       state?: 'APPLICATION_STATE_UNSPECIFIED' | 'REMOVED' | 'INSTALLED';
       /** Whether the app is user facing. */
       userFacingType?:
-        | 'USER_FACING_TYPE_UNSPECIFIED'
-        | 'NOT_USER_FACING'
-        | 'USER_FACING';
+        'USER_FACING_TYPE_UNSPECIFIED' | 'NOT_USER_FACING' | 'USER_FACING';
       /** The app version code, which can be used to determine whether one version is more recent than another. */
       versionCode?: number;
       /** The app version as displayed to the user. */
@@ -804,9 +791,7 @@ declare namespace gapi.client {
       lastStatusReportTime?: string;
       /** The type of management mode Android Device Policy takes on the device. This influences which policy settings are supported. */
       managementMode?:
-        | 'MANAGEMENT_MODE_UNSPECIFIED'
-        | 'DEVICE_OWNER'
-        | 'PROFILE_OWNER';
+        'MANAGEMENT_MODE_UNSPECIFIED' | 'DEVICE_OWNER' | 'PROFILE_OWNER';
       /** Events related to memory and storage measurements in chronological order. This information is only available if memoryInfoEnabled is true in the device's policy.Events are retained for a certain period of time and old events are deleted. */
       memoryEvents?: MemoryEvent[];
       /** Memory information: contains information about device memory and storage. */
@@ -819,9 +804,7 @@ declare namespace gapi.client {
       nonComplianceDetails?: NonComplianceDetail[];
       /** Ownership of the managed device. */
       ownership?:
-        | 'OWNERSHIP_UNSPECIFIED'
-        | 'COMPANY_OWNED'
-        | 'PERSONALLY_OWNED';
+        'OWNERSHIP_UNSPECIFIED' | 'COMPANY_OWNED' | 'PERSONALLY_OWNED';
       /** Whether the device is compliant with its policy. */
       policyCompliant?: boolean;
       /** The name of the policy applied to the device, in the form enterprises/{enterpriseId}/policies/{policyId}. If not specified, the policy_name for the device's user is applied. This field can be modified by a patch request. You can specify only the policyId when calling enterprises.devices.patch, as long as the policyId doesn’t contain any slashes. The rest of the policy name is inferred. */
@@ -1052,9 +1035,7 @@ declare namespace gapi.client {
       logo?: ExternalData;
       /** Output only. The type of managed Google domain. */
       managedGoogleDomainType?:
-        | 'MANAGED_GOOGLE_DOMAIN_TYPE_UNSPECIFIED'
-        | 'TYPE_TEAM'
-        | 'TYPE_DOMAIN';
+        'MANAGED_GOOGLE_DOMAIN_TYPE_UNSPECIFIED' | 'TYPE_TEAM' | 'TYPE_DOMAIN';
       /** Output only. The type of a managed Google Play Accounts enterprise. */
       managedGooglePlayAccountsEnterpriseType?:
         | 'MANAGED_GOOGLE_PLAY_ACCOUNTS_ENTERPRISE_TYPE_UNSPECIFIED'
@@ -1141,9 +1122,7 @@ declare namespace gapi.client {
     interface GoogleAuthenticationOptions {
       /** Optional. Specifies whether user should authenticate with Google during enrollment. If this is set to any value other than AUTHENTICATION_REQUIREMENT_UNSPECIFIED, the enterprise-level setting googleAuthenticationSettings is ignored for devices enrolled with this token. */
       authenticationRequirement?:
-        | 'AUTHENTICATION_REQUIREMENT_UNSPECIFIED'
-        | 'OPTIONAL'
-        | 'REQUIRED';
+        'AUTHENTICATION_REQUIREMENT_UNSPECIFIED' | 'OPTIONAL' | 'REQUIRED';
       /** Optional. Specifies the managed Google account that the user must use during enrollment. This field can only be set if AuthenticationRequirement is set to REQUIRED. */
       requiredAccountEmail?: string;
     }
@@ -1633,16 +1612,10 @@ declare namespace gapi.client {
     interface OsStartupEvent {
       /** Verified Boot state. */
       verifiedBootState?:
-        | 'VERIFIED_BOOT_STATE_UNSPECIFIED'
-        | 'GREEN'
-        | 'YELLOW'
-        | 'ORANGE';
+        'VERIFIED_BOOT_STATE_UNSPECIFIED' | 'GREEN' | 'YELLOW' | 'ORANGE';
       /** dm-verity mode. */
       verityMode?:
-        | 'DM_VERITY_MODE_UNSPECIFIED'
-        | 'ENFORCING'
-        | 'IO_ERROR'
-        | 'DISABLED';
+        'DM_VERITY_MODE_UNSPECIFIED' | 'ENFORCING' | 'IO_ERROR' | 'DISABLED';
     }
     interface PackageNameList {
       /** A list of package names. */
@@ -1651,9 +1624,7 @@ declare namespace gapi.client {
     interface PasswordPoliciesContext {
       /** The scope of non-compliant password. */
       passwordPolicyScope?:
-        | 'SCOPE_UNSPECIFIED'
-        | 'SCOPE_DEVICE'
-        | 'SCOPE_PROFILE';
+        'SCOPE_UNSPECIFIED' | 'SCOPE_DEVICE' | 'SCOPE_PROFILE';
     }
     interface PasswordRequirements {
       /** Number of incorrect device-unlock passwords that can be entered before a device is wiped. A value of 0 means there is no restriction. */
@@ -1747,10 +1718,7 @@ declare namespace gapi.client {
       personalApplications?: PersonalApplicationPolicy[];
       /** Used together with personalApplications to control how apps in the personal profile are allowed or blocked. */
       personalPlayStoreMode?:
-        | 'PLAY_STORE_MODE_UNSPECIFIED'
-        | 'BLACKLIST'
-        | 'BLOCKLIST'
-        | 'ALLOWLIST';
+        'PLAY_STORE_MODE_UNSPECIFIED' | 'BLACKLIST' | 'BLOCKLIST' | 'ALLOWLIST';
       /** Optional. Controls whether a private space is allowed on the device. */
       privateSpacePolicy?:
         | 'PRIVATE_SPACE_POLICY_UNSPECIFIED'
@@ -1772,9 +1740,7 @@ declare namespace gapi.client {
       alwaysOnVpnPackage?: AlwaysOnVpnPackage;
       /** This setting is not supported. Any value is ignored. */
       androidDevicePolicyTracks?:
-        | 'APP_TRACK_UNSPECIFIED'
-        | 'PRODUCTION'
-        | 'BETA'[];
+        'APP_TRACK_UNSPECIFIED' | 'PRODUCTION' | 'BETA'[];
       /** Recommended alternative: autoUpdateMode which is set per app, provides greater flexibility around update frequency.When autoUpdateMode is set to AUTO_UPDATE_POSTPONED or AUTO_UPDATE_HIGH_PRIORITY, this field has no effect.The app auto update policy, which controls when automatic app updates can be applied. */
       appAutoUpdatePolicy?:
         | 'APP_AUTO_UPDATE_POLICY_UNSPECIFIED'
@@ -1847,10 +1813,7 @@ declare namespace gapi.client {
       defaultApplicationSettings?: DefaultApplicationSetting[];
       /** The default permission policy for runtime permission requests. */
       defaultPermissionPolicy?:
-        | 'PERMISSION_POLICY_UNSPECIFIED'
-        | 'PROMPT'
-        | 'GRANT'
-        | 'DENY';
+        'PERMISSION_POLICY_UNSPECIFIED' | 'PROMPT' | 'GRANT' | 'DENY';
       /** Covers controls for device connectivity such as Wi-Fi, USB data access, keyboard/mouse connections, and more. */
       deviceConnectivityManagement?: DeviceConnectivityManagement;
       /** The device owner information to be shown on the lock screen. */
@@ -2001,10 +1964,7 @@ declare namespace gapi.client {
       statusReportingSettings?: StatusReportingSettings;
       /** The battery plugged in modes for which the device stays on. When using this setting, it is recommended to clear maximum_time_to_lock so that the device doesn't lock itself while it stays on. */
       stayOnPluggedModes?:
-        | 'BATTERY_PLUGGED_MODE_UNSPECIFIED'
-        | 'AC'
-        | 'USB'
-        | 'WIRELESS'[];
+        'BATTERY_PLUGGED_MODE_UNSPECIFIED' | 'AC' | 'USB' | 'WIRELESS'[];
       /** The system update policy, which controls how OS updates are applied. If the update type is WINDOWED, the update window will automatically apply to Play app updates as well.Note: Google Play system updates (https://source.android.com/docs/core/ota/modular-system) (also called Mainline updates) are automatically downloaded and require a device reboot to be installed. Refer to the mainline section in Manage system updates (https://developer.android.com/work/dpc/system-updates#mainline) for further details. */
       systemUpdate?: SystemUpdate;
       /** Whether configuring tethering and portable hotspots is disabled. If tetheringSettings is set to anything other than TETHERING_SETTINGS_UNSPECIFIED, this setting is ignored. */
@@ -2123,9 +2083,7 @@ declare namespace gapi.client {
       imei?: string;
       /** The management mode of the device or profile. */
       managementMode?:
-        | 'MANAGEMENT_MODE_UNSPECIFIED'
-        | 'DEVICE_OWNER'
-        | 'PROFILE_OWNER';
+        'MANAGEMENT_MODE_UNSPECIFIED' | 'DEVICE_OWNER' | 'PROFILE_OWNER';
       /** For corporate-owned devices, MEID number of the CDMA device. For example, A00000292788E1. */
       meid?: string;
       /** The model of the device. For example, Asus Nexus 7. */
@@ -2134,9 +2092,7 @@ declare namespace gapi.client {
       name?: string;
       /** Ownership of the managed device. */
       ownership?:
-        | 'OWNERSHIP_UNSPECIFIED'
-        | 'COMPANY_OWNED'
-        | 'PERSONALLY_OWNED';
+        'OWNERSHIP_UNSPECIFIED' | 'COMPANY_OWNED' | 'PERSONALLY_OWNED';
       /** For corporate-owned devices, The device serial number. */
       serialNumber?: string;
     }
@@ -2257,9 +2213,7 @@ declare namespace gapi.client {
     interface SigninDetailGoogleAuthenticationOptions {
       /** Optional. Specifies whether user should authenticate with Google during enrollment. If this is set to any value other than AUTHENTICATION_REQUIREMENT_UNSPECIFIED, the enterprise-level setting googleAuthenticationSettings is ignored for devices enrolled with this sign-in detail. */
       authenticationRequirement?:
-        | 'AUTHENTICATION_REQUIREMENT_UNSPECIFIED'
-        | 'OPTIONAL'
-        | 'REQUIRED';
+        'AUTHENTICATION_REQUIREMENT_UNSPECIFIED' | 'OPTIONAL' | 'REQUIRED';
     }
     interface SignupUrl {
       /** The name of the resource. Use this value in the signupUrl field when calling enterprises.create to complete the enterprise signup flow. */
@@ -2391,16 +2345,12 @@ declare namespace gapi.client {
     interface TelephonyInfo {
       /** Output only. Activation state of the SIM card on the device. This is applicable for eSIMs only. This is supported on all devices for Android 15 and above. This is always ACTIVATION_STATE_UNSPECIFIED for physical SIMs and for devices below Android 15. */
       activationState?:
-        | 'ACTIVATION_STATE_UNSPECIFIED'
-        | 'ACTIVATED'
-        | 'NOT_ACTIVATED';
+        'ACTIVATION_STATE_UNSPECIFIED' | 'ACTIVATED' | 'NOT_ACTIVATED';
       /** The carrier name associated with this SIM card. */
       carrierName?: string;
       /** Output only. The configuration mode of the SIM card on the device. This is applicable for eSIMs only. This is supported on all devices for Android 15 and above. This is always CONFIG_MODE_UNSPECIFIED for physical SIMs and for devices below Android 15. */
       configMode?:
-        | 'CONFIG_MODE_UNSPECIFIED'
-        | 'ADMIN_CONFIGURED'
-        | 'USER_CONFIGURED';
+        'CONFIG_MODE_UNSPECIFIED' | 'ADMIN_CONFIGURED' | 'USER_CONFIGURED';
       /** Output only. The ICCID associated with this SIM card. */
       iccId?: string;
       /** The phone number associated with this SIM card. */
@@ -2415,14 +2365,10 @@ declare namespace gapi.client {
     interface UsageLog {
       /** Specifies which log types are enabled. Note that users will receive on-device messaging when usage logging is enabled. */
       enabledLogTypes?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'SECURITY_LOGS'
-        | 'NETWORK_ACTIVITY_LOGS'[];
+        'LOG_TYPE_UNSPECIFIED' | 'SECURITY_LOGS' | 'NETWORK_ACTIVITY_LOGS'[];
       /** Specifies which of the enabled log types can be uploaded over mobile data. By default logs are queued for upload when the device connects to WiFi. */
       uploadOnCellularAllowed?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'SECURITY_LOGS'
-        | 'NETWORK_ACTIVITY_LOGS'[];
+        'LOG_TYPE_UNSPECIFIED' | 'SECURITY_LOGS' | 'NETWORK_ACTIVITY_LOGS'[];
     }
     interface UsageLogEvent {
       /** A shell command was issued over ADB via “adb shell command”. Part of SECURITY_LOGS. */

@@ -73,9 +73,7 @@ declare namespace gapi.client {
       serviceAccount?: string;
       /** Required. Immutable. Specifies how App Hosting will serve the content for this backend. It will either be contained to a single region (REGIONAL_STRICT) or allowed to use App Hosting's global-replicated serving infrastructure (GLOBAL_ACCESS). */
       servingLocality?:
-        | 'SERVING_LOCALITY_UNSPECIFIED'
-        | 'REGIONAL_STRICT'
-        | 'GLOBAL_ACCESS';
+        'SERVING_LOCALITY_UNSPECIFIED' | 'REGIONAL_STRICT' | 'GLOBAL_ACCESS';
       /** Output only. System-assigned, unique identifier. */
       uid?: string;
       /** Output only. Time at which the backend was last updated. */

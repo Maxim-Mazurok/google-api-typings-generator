@@ -385,10 +385,7 @@ declare namespace gapi.client {
       sshAuthenticationConfig?: SshAuthenticationConfig;
       /** Output only. Deprecated: The field does not contain any token status information. Instead use https://cloud.google.com/dataform/reference/rest/v1beta1/projects.locations.repositories/computeAccessTokenStatus */
       tokenStatus?:
-        | 'TOKEN_STATUS_UNSPECIFIED'
-        | 'NOT_FOUND'
-        | 'INVALID'
-        | 'VALID';
+        'TOKEN_STATUS_UNSPECIFIED' | 'NOT_FOUND' | 'INVALID' | 'VALID';
       /** Required. The Git remote's URL. */
       url?: string;
     }

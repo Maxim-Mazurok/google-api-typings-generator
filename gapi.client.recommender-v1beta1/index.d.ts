@@ -105,11 +105,7 @@ declare namespace gapi.client {
       observationPeriod?: string;
       /** Insight's severity. */
       severity?:
-        | 'SEVERITY_UNSPECIFIED'
-        | 'LOW'
-        | 'MEDIUM'
-        | 'HIGH'
-        | 'CRITICAL';
+        'SEVERITY_UNSPECIFIED' | 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
       /** Information state and metadata. */
       stateInfo?: GoogleCloudRecommenderV1beta1InsightStateInfo;
       /** Fully qualified resource names that this insight is targeting. */

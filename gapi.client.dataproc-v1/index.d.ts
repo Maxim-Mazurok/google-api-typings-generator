@@ -348,10 +348,7 @@ declare namespace gapi.client {
         | 'CLUSTER_TIER_PREMIUM';
       /** Optional. The type of the cluster. */
       clusterType?:
-        | 'CLUSTER_TYPE_UNSPECIFIED'
-        | 'STANDARD'
-        | 'SINGLE_NODE'
-        | 'ZERO_SCALE';
+        'CLUSTER_TYPE_UNSPECIFIED' | 'STANDARD' | 'SINGLE_NODE' | 'ZERO_SCALE';
       /** Optional. A Cloud Storage bucket used to stage job dependencies, config files, and job driver console output. If you do not specify a staging bucket, the service will determine a Cloud Storage location (US, ASIA, or EU) for your cluster's staging bucket according to the Compute Engine zone where your cluster is deployed, and then create and manage this project-level, per-location bucket (see staging and temp buckets (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/staging-bucket)). This field requires a Cloud Storage bucket name, not a gs://... URI to a Cloud Storage bucket. */
       configBucket?: string;
       /** Optional. The config for metrics. */
@@ -474,10 +471,7 @@ declare namespace gapi.client {
     interface ConfidentialInstanceConfig {
       /** Optional. Defines the type of Confidential Compute technology to use. */
       confidentialInstanceType?:
-        | 'CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED'
-        | 'SEV'
-        | 'SEV_SNP'
-        | 'TDX';
+        'CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED' | 'SEV' | 'SEV_SNP' | 'TDX';
       /** Optional. Deprecated: Use 'confidential_instance_type' instead. Defines whether the instance should have confidential compute enabled. */
       enableConfidentialCompute?: boolean;
     }
@@ -6233,9 +6227,7 @@ declare namespace gapi.client {
         access_token?: string;
         /** Optional. Failure action when primary worker creation fails. */
         actionOnFailedPrimaryWorkers?:
-          | 'FAILURE_ACTION_UNSPECIFIED'
-          | 'NO_ACTION'
-          | 'DELETE';
+          'FAILURE_ACTION_UNSPECIFIED' | 'NO_ACTION' | 'DELETE';
         /** Data format for response. */
         alt?: 'json' | 'media' | 'proto';
         /** JSONP */
@@ -6271,9 +6263,7 @@ declare namespace gapi.client {
           access_token?: string;
           /** Optional. Failure action when primary worker creation fails. */
           actionOnFailedPrimaryWorkers?:
-            | 'FAILURE_ACTION_UNSPECIFIED'
-            | 'NO_ACTION'
-            | 'DELETE';
+            'FAILURE_ACTION_UNSPECIFIED' | 'NO_ACTION' | 'DELETE';
           /** Data format for response. */
           alt?: 'json' | 'media' | 'proto';
           /** JSONP */

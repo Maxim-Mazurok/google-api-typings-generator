@@ -158,10 +158,7 @@ declare namespace gapi.client {
     interface FindNearest {
       /** Required. The Distance Measure to use, required. */
       distanceMeasure?:
-        | 'DISTANCE_MEASURE_UNSPECIFIED'
-        | 'EUCLIDEAN'
-        | 'COSINE'
-        | 'DOT_PRODUCT';
+        'DISTANCE_MEASURE_UNSPECIFIED' | 'EUCLIDEAN' | 'COSINE' | 'DOT_PRODUCT';
       /** Optional. Optional name of the field to output the result of the vector distance calculation. Must conform to entity property limitations. */
       distanceResultProperty?: string;
       /** Optional. Option to specify a threshold for which no less similar documents will be returned. The behavior of the specified `distance_measure` will affect the meaning of the distance threshold. Since DOT_PRODUCT distances increase when the vectors are more similar, the comparison is inverted. * For EUCLIDEAN, COSINE: WHERE distance <= distance_threshold * For DOT_PRODUCT: WHERE distance >= distance_threshold */
@@ -180,9 +177,7 @@ declare namespace gapi.client {
       labels?: {[P in string]: string};
       /** The type of the operation. Can be used as a filter in ListOperationsRequest. */
       operationType?:
-        | 'OPERATION_TYPE_UNSPECIFIED'
-        | 'EXPORT_ENTITIES'
-        | 'IMPORT_ENTITIES';
+        'OPERATION_TYPE_UNSPECIFIED' | 'EXPORT_ENTITIES' | 'IMPORT_ENTITIES';
       /** The time that work began on the operation. */
       startTime?: string;
       /** The current state of the Operation. */
@@ -264,10 +259,7 @@ declare namespace gapi.client {
     interface GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata {
       /** The current state of migration from Cloud Datastore to Cloud Firestore in Datastore mode. */
       migrationState?:
-        | 'MIGRATION_STATE_UNSPECIFIED'
-        | 'RUNNING'
-        | 'PAUSED'
-        | 'COMPLETE';
+        'MIGRATION_STATE_UNSPECIFIED' | 'RUNNING' | 'PAUSED' | 'COMPLETE';
       /** The current step of migration from Cloud Datastore to Cloud Firestore in Datastore mode. */
       migrationStep?:
         | 'MIGRATION_STEP_UNSPECIFIED'
@@ -418,9 +410,7 @@ declare namespace gapi.client {
       baseVersion?: string;
       /** The strategy to use when a conflict is detected. Defaults to `SERVER_VALUE`. If this is set, then `conflict_detection_strategy` must also be set. */
       conflictResolutionStrategy?:
-        | 'STRATEGY_UNSPECIFIED'
-        | 'SERVER_VALUE'
-        | 'FAIL';
+        'STRATEGY_UNSPECIFIED' | 'SERVER_VALUE' | 'FAIL';
       /** The key of the entity to delete. The entity may or may not already exist. Must have a complete key path and must not be reserved/read-only. */
       delete?: Key;
       /** The entity to insert. The entity must not already exist. The entity key's final path element may be incomplete. */
@@ -549,10 +539,7 @@ declare namespace gapi.client {
       entityResults?: EntityResult[];
       /** The result type for every entity in `entity_results`. */
       entityResultType?:
-        | 'RESULT_TYPE_UNSPECIFIED'
-        | 'FULL'
-        | 'PROJECTION'
-        | 'KEY_ONLY';
+        'RESULT_TYPE_UNSPECIFIED' | 'FULL' | 'PROJECTION' | 'KEY_ONLY';
       /** The state of the query after the current batch. */
       moreResults?:
         | 'MORE_RESULTS_TYPE_UNSPECIFIED'

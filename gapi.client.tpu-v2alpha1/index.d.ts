@@ -29,13 +29,7 @@ declare namespace gapi.client {
       topology?: string;
       /** Required. Type of TPU. */
       type?:
-        | 'TYPE_UNSPECIFIED'
-        | 'V2'
-        | 'V3'
-        | 'V4'
-        | 'V5LITE_POD'
-        | 'V5P'
-        | 'V6E';
+        'TYPE_UNSPECIFIED' | 'V2' | 'V3' | 'V4' | 'V5LITE_POD' | 'V5P' | 'V6E';
     }
     interface AcceleratorType {
       /** The accelerator config. */

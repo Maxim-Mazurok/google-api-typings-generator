@@ -301,9 +301,7 @@ declare namespace gapi.client {
       displayName?: string;
       /** Output only. The state of the mediation a/b experiment that belongs to this mediation group. */
       mediationAbExperimentState?:
-        | 'EXPERIMENT_STATE_UNSPECIFIED'
-        | 'RUNNING'
-        | 'NOT_RUNNING';
+        'EXPERIMENT_STATE_UNSPECIFIED' | 'RUNNING' | 'NOT_RUNNING';
       /** The ID of the mediation group. Example: "0123456789". This is a read only property. */
       mediationGroupId?: string;
       /** The mediation lines used for serving for this mediation group. Key is the ID of the mediation group line. For creation, use distinct negative values as placeholder. */
@@ -328,10 +326,7 @@ declare namespace gapi.client {
       displayName?: string;
       /** Output only. The Mediation A/B experiment variant to which the mediation group line belongs to. */
       experimentVariant?:
-        | 'VARIANT_UNSPECIFIED'
-        | 'VARIANT_A'
-        | 'VARIANT_B'
-        | 'ORIGINAL';
+        'VARIANT_UNSPECIFIED' | 'VARIANT_A' | 'VARIANT_B' | 'ORIGINAL';
       /** The 16 digit ID for this mediation line e.g. 0123456789012345. When creating a new mediation group line, use a distinct negative integer as the ID place holder. */
       id?: string;
       /** The status of the mediation group line. Only enabled mediation group lines will be served. */
@@ -346,10 +341,7 @@ declare namespace gapi.client {
       format?: string;
       /** The parameter can be used to target ad requests based on the availability of the IDFA. If set to ALL, the mediation group applies to all ad requests (with or without IDFA). If set to AVAILABLE, the mediation group applies to ad requests with IDFA. If set to NOT_AVAILABLE, the mediation group applies to ad requests without IDFA. Doesn't need to be specified for an ANDROID device. */
       idfaTargeting?:
-        | 'IDFA_TARGETING_UNSPECIFIED'
-        | 'ALL'
-        | 'AVAILABLE'
-        | 'NOT_AVAILABLE';
+        'IDFA_TARGETING_UNSPECIFIED' | 'ALL' | 'AVAILABLE' | 'NOT_AVAILABLE';
       /** Describes the platform of the app. Examples: "IOS", "ANDROID". */
       platform?: string;
       /** The Unicode country/region code (CLDR) of a location, such as "US". Unset if this mediation group targets all available regions. For more information, see http://www.unicode.org/reports/tr35/#unicode_region_subtag. */
@@ -605,9 +597,7 @@ declare namespace gapi.client {
     interface StopMediationAbExperimentRequest {
       /** The choice for the winning variant. */
       variantChoice?:
-        | 'VARIANT_CHOICE_UNSPECIFIED'
-        | 'VARIANT_CHOICE_A'
-        | 'VARIANT_CHOICE_B';
+        'VARIANT_CHOICE_UNSPECIFIED' | 'VARIANT_CHOICE_A' | 'VARIANT_CHOICE_B';
     }
     interface StringList {
       /** The string values. */

@@ -153,10 +153,7 @@ declare namespace gapi.client {
     interface Interface {
       /** Required. The protocol binding of the interface. */
       protocolBinding?:
-        | 'PROTOCOL_BINDING_UNSPECIFIED'
-        | 'JSONRPC'
-        | 'GRPC'
-        | 'HTTP_JSON';
+        'PROTOCOL_BINDING_UNSPECIFIED' | 'JSONRPC' | 'GRPC' | 'HTTP_JSON';
       /** Required. The destination URL. */
       url?: string;
     }

@@ -236,10 +236,7 @@ declare namespace gapi.client {
     interface AssetModuleMetadata {
       /** Indicates the delivery type for persistent install. */
       deliveryType?:
-        | 'UNKNOWN_DELIVERY_TYPE'
-        | 'INSTALL_TIME'
-        | 'ON_DEMAND'
-        | 'FAST_FOLLOW';
+        'UNKNOWN_DELIVERY_TYPE' | 'INSTALL_TIME' | 'ON_DEMAND' | 'FAST_FOLLOW';
       /** Module name. */
       name?: string;
     }
@@ -658,9 +655,7 @@ declare namespace gapi.client {
     interface DeobfuscationFile {
       /** The type of the deobfuscation file. */
       symbolType?:
-        | 'deobfuscationFileTypeUnspecified'
-        | 'proguard'
-        | 'nativeCode';
+        'deobfuscationFileTypeUnspecified' | 'proguard' | 'nativeCode';
     }
     interface DeobfuscationFilesUploadResponse {
       /** The uploaded Deobfuscation File configuration. */
@@ -830,9 +825,7 @@ declare namespace gapi.client {
       appDownloadEventExternalTransactionId?: string;
       /** Optional. The category of the downloaded app though this transaction. This must match the category provided in Play Console during the external app verification process. Only required for app downloads. */
       installedAppCategory?:
-        | 'EXTERNAL_OFFER_APP_CATEGORY_UNSPECIFIED'
-        | 'APP'
-        | 'GAME';
+        'EXTERNAL_OFFER_APP_CATEGORY_UNSPECIFIED' | 'APP' | 'GAME';
       /** Optional. The package name of the app downloaded through this transaction. Required when link_type is LINK_TO_APP_DOWNLOAD. */
       installedAppPackage?: string;
       /** Optional. The type of content being reported by this transaction. Required when reporting app downloads or purchased digital content offers made in app installed through Google Play. */
@@ -844,9 +837,7 @@ declare namespace gapi.client {
     interface ExternalSubscription {
       /** Required. The type of the external subscription. */
       subscriptionType?:
-        | 'SUBSCRIPTION_TYPE_UNSPECIFIED'
-        | 'RECURRING'
-        | 'PREPAID';
+        'SUBSCRIPTION_TYPE_UNSPECIFIED' | 'RECURRING' | 'PREPAID';
     }
     interface ExternalTransaction {
       /** Output only. The time when this transaction was created. This is the time when Google was notified of the transaction. */
@@ -1333,10 +1324,7 @@ declare namespace gapi.client {
     interface ModuleMetadata {
       /** Indicates the delivery type (e.g. on-demand) of the module. */
       deliveryType?:
-        | 'UNKNOWN_DELIVERY_TYPE'
-        | 'INSTALL_TIME'
-        | 'ON_DEMAND'
-        | 'FAST_FOLLOW';
+        'UNKNOWN_DELIVERY_TYPE' | 'INSTALL_TIME' | 'ON_DEMAND' | 'FAST_FOLLOW';
       /** Names of the modules that this module directly depends on. Each module implicitly depends on the base module. */
       dependencies?: string[];
       /** Indicates the type of this feature module. */
@@ -1470,11 +1458,7 @@ declare namespace gapi.client {
       regionsVersion?: RegionsVersion;
       /** Output only. The current state of this offer. This field cannot be changed by updating the resource. Use the dedicated endpoints instead. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'DRAFT'
-        | 'ACTIVE'
-        | 'CANCELLED'
-        | 'INACTIVE';
+        'STATE_UNSPECIFIED' | 'DRAFT' | 'ACTIVE' | 'CANCELLED' | 'INACTIVE';
     }
     interface OneTimeProductOfferNoPriceOverrideOptions {}
     interface OneTimeProductOfferRegionalPricingAndAvailabilityConfig {
@@ -1482,9 +1466,7 @@ declare namespace gapi.client {
       absoluteDiscount?: Money;
       /** Required. The availability for this region. */
       availability?:
-        | 'AVAILABILITY_UNSPECIFIED'
-        | 'AVAILABLE'
-        | 'NO_LONGER_AVAILABLE';
+        'AVAILABILITY_UNSPECIFIED' | 'AVAILABLE' | 'NO_LONGER_AVAILABLE';
       /** The price defined in the purchase option for this region will be used. */
       noOverride?: any;
       /** Required. Region code this configuration applies to, as defined by ISO 3166-2, e.g., "US". */
@@ -1531,9 +1513,7 @@ declare namespace gapi.client {
     interface OneTimeProductPurchaseOptionNewRegionsConfig {
       /** Required. The regional availability for the new regions config. When set to AVAILABLE, the pricing information will be used for any new regions Play may launch in the future. */
       availability?:
-        | 'AVAILABILITY_UNSPECIFIED'
-        | 'AVAILABLE'
-        | 'NO_LONGER_AVAILABLE';
+        'AVAILABILITY_UNSPECIFIED' | 'AVAILABLE' | 'NO_LONGER_AVAILABLE';
       /** Required. Price in EUR to use for any new regions Play may launch in. */
       eurPrice?: Money;
       /** Required. Price in USD to use for any new regions Play may launch in. */
@@ -1748,10 +1728,7 @@ declare namespace gapi.client {
       newPrice?: Money;
       /** Output only. The state of the price step-up consent. */
       state?:
-        | 'CONSENT_STATE_UNSPECIFIED'
-        | 'PENDING'
-        | 'CONFIRMED'
-        | 'COMPLETED';
+        'CONSENT_STATE_UNSPECIFIED' | 'PENDING' | 'CONFIRMED' | 'COMPLETED';
     }
     interface ProcessedEvent {
       /** The time when the order was processed. */
@@ -1850,10 +1827,7 @@ declare namespace gapi.client {
     interface ProrationPeriodDetails {
       /** Represent the original offer phase from the purchased the line item if the proration period contains any of them. For example, a proration period from CHARGE_FULL_PRICE plan change may merge the 1st offer phase of the subscription offer of the new product user purchased. In this case, the original offer phase will be set here. */
       originalOfferPhase?:
-        | 'OFFER_PHASE_UNSPECIFIED'
-        | 'BASE'
-        | 'INTRODUCTORY'
-        | 'FREE_TRIAL';
+        'OFFER_PHASE_UNSPECIFIED' | 'BASE' | 'INTRODUCTORY' | 'FREE_TRIAL';
     }
     interface ProrationPeriodOfferPhase {
       /** The original offer phase type before the proration period. Only set when the proration period is updated from an existing offer phase. */
@@ -1873,10 +1847,7 @@ declare namespace gapi.client {
     interface PurchaseStateContext {
       /** Output only. The purchase state of the purchase. */
       purchaseState?:
-        | 'PURCHASE_STATE_UNSPECIFIED'
-        | 'PURCHASED'
-        | 'CANCELLED'
-        | 'PENDING';
+        'PURCHASE_STATE_UNSPECIFIED' | 'PURCHASED' | 'CANCELLED' | 'PENDING';
     }
     interface RecurringExternalTransaction {
       /** Details of an external subscription. */
@@ -2216,10 +2187,7 @@ declare namespace gapi.client {
       offerId?: string;
       /** Deprecated: Use offer_phase_details instead. The pricing phase for the billing period funded by this order. */
       offerPhase?:
-        | 'OFFER_PHASE_UNSPECIFIED'
-        | 'BASE'
-        | 'INTRODUCTORY'
-        | 'FREE_TRIAL';
+        'OFFER_PHASE_UNSPECIFIED' | 'BASE' | 'INTRODUCTORY' | 'FREE_TRIAL';
       /** The pricing phase details for the entitlement period funded by this order. */
       offerPhaseDetails?: OfferPhaseDetails;
       /** The end of the billing period funded by this order. This is a snapshot of the billing/service period end time at the moment the order was processed, and should be used only for accounting. To get the current end time of the subscription service period, use purchases.subscriptionsv2.get. */
@@ -2572,10 +2540,7 @@ declare namespace gapi.client {
     interface TrackConfig {
       /** Required. Form factor of the new track. Defaults to the default track. */
       formFactor?:
-        | 'FORM_FACTOR_UNSPECIFIED'
-        | 'DEFAULT'
-        | 'WEAR'
-        | 'AUTOMOTIVE';
+        'FORM_FACTOR_UNSPECIFIED' | 'DEFAULT' | 'WEAR' | 'AUTOMOTIVE';
       /** Required. Identifier of the new track. For default tracks, this field consists of the track alias only. Form factor tracks have a special prefix as an identifier, for example `wear:production`, `automotive:production`. This prefix must match the value of the `form_factor` field, if it is not a default track. [More on track name](https://developers.google.com/android-publisher/tracks#ff-track-name) */
       track?: string;
       /** Required. Type of the new track. Currently, the only supported value is closedTesting. */
@@ -2600,11 +2565,7 @@ declare namespace gapi.client {
       releaseNotes?: LocalizedText[];
       /** The status of the release. */
       status?:
-        | 'statusUnspecified'
-        | 'draft'
-        | 'inProgress'
-        | 'halted'
-        | 'completed';
+        'statusUnspecified' | 'draft' | 'inProgress' | 'halted' | 'completed';
       /** Fraction of users who are eligible for a staged release. 0 < fraction < 1. Can only be set when status is "inProgress" or "halted". */
       userFraction?: number;
       /** Version codes of all APKs in the release. Must include version codes to retain from previous releases. */
@@ -3582,9 +3543,7 @@ declare namespace gapi.client {
         callback?: string;
         /** The type of the deobfuscation file. */
         deobfuscationFileType:
-          | 'deobfuscationFileTypeUnspecified'
-          | 'proguard'
-          | 'nativeCode';
+          'deobfuscationFileTypeUnspecified' | 'proguard' | 'nativeCode';
         /** Unique identifier for this edit. */
         editId: string;
         /** Selector specifying which fields to include in a partial response. */

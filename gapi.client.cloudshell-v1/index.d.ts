@@ -64,11 +64,7 @@ declare namespace gapi.client {
       sshUsername?: string;
       /** Output only. Current execution state of this environment. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'SUSPENDED'
-        | 'PENDING'
-        | 'RUNNING'
-        | 'DELETING';
+        'STATE_UNSPECIFIED' | 'SUSPENDED' | 'PENDING' | 'RUNNING' | 'DELETING';
       /** Output only. Host to which clients can connect to initiate HTTPS or WSS connections with the environment. */
       webHost?: string;
     }

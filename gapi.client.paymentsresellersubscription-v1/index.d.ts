@@ -966,10 +966,7 @@ declare namespace gapi.client {
         'cycleOptions.initialCycleDuration.count'?: number;
         /** The unit used for the duration */
         'cycleOptions.initialCycleDuration.unit'?:
-          | 'UNIT_UNSPECIFIED'
-          | 'MONTH'
-          | 'DAY'
-          | 'HOUR';
+          'UNIT_UNSPECIFIED' | 'MONTH' | 'DAY' | 'HOUR';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1005,10 +1002,7 @@ declare namespace gapi.client {
           'cycleOptions.initialCycleDuration.count'?: number;
           /** The unit used for the duration */
           'cycleOptions.initialCycleDuration.unit'?:
-            | 'UNIT_UNSPECIFIED'
-            | 'MONTH'
-            | 'DAY'
-            | 'HOUR';
+            'UNIT_UNSPECIFIED' | 'MONTH' | 'DAY' | 'HOUR';
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */

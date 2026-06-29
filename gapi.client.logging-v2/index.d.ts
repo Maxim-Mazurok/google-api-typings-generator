@@ -303,9 +303,7 @@ declare namespace gapi.client {
       fieldPath?: string;
       /** Required. The type of data in this index. */
       type?:
-        | 'INDEX_TYPE_UNSPECIFIED'
-        | 'INDEX_TYPE_STRING'
-        | 'INDEX_TYPE_INTEGER';
+        'INDEX_TYPE_UNSPECIFIED' | 'INDEX_TYPE_STRING' | 'INDEX_TYPE_INTEGER';
     }
     interface LabelDescriptor {
       /** A human-readable description for the label. */
@@ -853,10 +851,7 @@ declare namespace gapi.client {
       field?: string;
       /** Specifies the role of this field (direct selection, grouping, or aggregation). */
       operation?:
-        | 'FIELD_OPERATION_UNSPECIFIED'
-        | 'NO_SETTING'
-        | 'GROUP_BY'
-        | 'AGGREGATE';
+        'FIELD_OPERATION_UNSPECIFIED' | 'NO_SETTING' | 'GROUP_BY' | 'AGGREGATE';
       /** The re2 extraction for the field. This will be used to extract the value from the field using REGEXP_EXTRACT. More information on re2 can be found here: https://github.com/google/re2/wiki/Syntax. Meta characters like +?()| will need to be escaped. Examples: - ".(autoscaler.*)$" will be converted to REGEXP_EXTRACT(JSON_VALUE(field),"request(.*(autoscaler.*)$)")in SQL. - "\(test_value\)$" will be converted to REGEXP_EXTRACT(JSON_VALUE(field),"request(\(test_value\)$)") in SQL. */
       regexExtraction?: string;
       /** The function to apply to the field. */

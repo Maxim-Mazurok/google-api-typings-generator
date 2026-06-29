@@ -39,10 +39,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface BadRequest {
       /** Describes all violations in a client request. */
@@ -70,9 +67,7 @@ declare namespace gapi.client {
     interface CloudSqlSettings {
       /** The activation policy specifies when the instance is activated; it is applicable only when the instance state is 'RUNNABLE'. Valid values: 'ALWAYS': The instance is on, and remains so even in the absence of connection requests. `NEVER`: The instance is off; it is not activated, even if a connection request arrives. */
       activationPolicy?:
-        | 'SQL_ACTIVATION_POLICY_UNSPECIFIED'
-        | 'ALWAYS'
-        | 'NEVER';
+        'SQL_ACTIVATION_POLICY_UNSPECIFIED' | 'ALWAYS' | 'NEVER';
       /** [default: ON] If you enable this setting, Cloud SQL checks your available storage every 30 seconds. If the available storage falls below a threshold size, Cloud SQL automatically adds additional storage capacity. If the available storage repeatedly falls below the threshold size, Cloud SQL continues to add storage until it reaches the maximum of 30 TB. */
       autoStorageIncrease?: boolean;
       /** The database flags passed to the Cloud SQL instance at startup. An object containing a list of "key": value pairs. Example: { "name": "wrench", "mass": "1.3kg", "count": "3" }. */

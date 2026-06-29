@@ -87,10 +87,7 @@ declare namespace gapi.client {
       serviceAccount?: string;
       /** Serving status of this application. */
       servingStatus?:
-        | 'UNSPECIFIED'
-        | 'SERVING'
-        | 'USER_DISABLED'
-        | 'SYSTEM_DISABLED';
+        'UNSPECIFIED' | 'SERVING' | 'USER_DISABLED' | 'SYSTEM_DISABLED';
       /** The SSL policy that will be applied to the application. If set to Modern it will restrict traffic with TLS < 1.2 and allow only Modern Ciphers suite */
       sslPolicy?: 'SSL_POLICY_UNSPECIFIED' | 'DEFAULT' | 'MODERN';
     }
@@ -776,9 +773,7 @@ declare namespace gapi.client {
       pendingManagedCertificateId?: string;
       /** SSL management type for this domain. If AUTOMATIC, a managed certificate is automatically provisioned. If MANUAL, certificate_id must be manually specified in order to configure SSL for this domain. */
       sslManagementType?:
-        | 'SSL_MANAGEMENT_TYPE_UNSPECIFIED'
-        | 'AUTOMATIC'
-        | 'MANUAL';
+        'SSL_MANAGEMENT_TYPE_UNSPECIFIED' | 'AUTOMATIC' | 'MANUAL';
     }
     interface StandardSchedulerSettings {
       /** Maximum number of instances to run for this version. Set to 2147483647 to disable max_instances configuration. */
@@ -969,9 +964,7 @@ declare namespace gapi.client {
     interface VpcAccessConnector {
       /** The egress setting for the connector, controlling what traffic is diverted through it. */
       egressSetting?:
-        | 'EGRESS_SETTING_UNSPECIFIED'
-        | 'ALL_TRAFFIC'
-        | 'PRIVATE_IP_RANGES';
+        'EGRESS_SETTING_UNSPECIFIED' | 'ALL_TRAFFIC' | 'PRIVATE_IP_RANGES';
       /** Full Serverless VPC Access Connector name e.g. projects/my-project/locations/us-central1/connectors/c1. */
       name?: string;
     }
@@ -1254,9 +1247,7 @@ declare namespace gapi.client {
         oauth_token?: string;
         /** Whether the domain creation should override any existing mappings for this domain. By default, overrides are rejected. */
         overrideStrategy?:
-          | 'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY'
-          | 'STRICT'
-          | 'OVERRIDE';
+          'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY' | 'STRICT' | 'OVERRIDE';
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
@@ -1288,9 +1279,7 @@ declare namespace gapi.client {
           oauth_token?: string;
           /** Whether the domain creation should override any existing mappings for this domain. By default, overrides are rejected. */
           overrideStrategy?:
-            | 'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY'
-            | 'STRICT'
-            | 'OVERRIDE';
+            'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY' | 'STRICT' | 'OVERRIDE';
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
           /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
@@ -3054,9 +3043,7 @@ declare namespace gapi.client {
         oauth_token?: string;
         /** Whether the domain creation should override any existing mappings for this domain. By default, overrides are rejected. */
         overrideStrategy?:
-          | 'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY'
-          | 'STRICT'
-          | 'OVERRIDE';
+          'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY' | 'STRICT' | 'OVERRIDE';
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */
@@ -3092,9 +3079,7 @@ declare namespace gapi.client {
           oauth_token?: string;
           /** Whether the domain creation should override any existing mappings for this domain. By default, overrides are rejected. */
           overrideStrategy?:
-            | 'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY'
-            | 'STRICT'
-            | 'OVERRIDE';
+            'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY' | 'STRICT' | 'OVERRIDE';
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
           /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */

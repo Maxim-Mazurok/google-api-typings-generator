@@ -226,9 +226,7 @@ declare namespace gapi.client {
       brands?: string[];
       /** Optional. The method used to collect the review. */
       collectionMethod?:
-        | 'COLLECTION_METHOD_UNSPECIFIED'
-        | 'UNSOLICITED'
-        | 'POST_FULFILLMENT';
+        'COLLECTION_METHOD_UNSPECIFIED' | 'UNSOLICITED' | 'POST_FULFILLMENT';
       /** Optional. Contains the disadvantages based on the opinion of the reviewer. Omit boilerplate text like "con:" unless it was written by the reviewer. */
       cons?: string[];
       /** Optional. The content of the review. If empty, the content might still get populated from pros and cons. */

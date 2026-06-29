@@ -402,9 +402,7 @@ declare namespace gapi.client {
       scheme?: 'SCHEME_UNSPECIFIED' | 'HTTP' | 'HTTPS';
       /** URI Override Enforce Mode When specified, determines the Target UriOverride mode. If not specified, it defaults to ALWAYS. */
       uriOverrideEnforceMode?:
-        | 'URI_OVERRIDE_ENFORCE_MODE_UNSPECIFIED'
-        | 'IF_NOT_EXISTS'
-        | 'ALWAYS';
+        'URI_OVERRIDE_ENFORCE_MODE_UNSPECIFIED' | 'IF_NOT_EXISTS' | 'ALWAYS';
     }
     interface QueueResource {
       /** Update queue list by uploading a queue.yaml file. The queue.yaml file is supplied in the request body as a YAML encoded string. This method was added to support gcloud clients versions before 322.0.0. New clients should use CreateQueue instead of this method. */

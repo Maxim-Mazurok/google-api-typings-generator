@@ -328,11 +328,7 @@ declare namespace gapi.client {
       matchScore?: number;
       /** Required. The severity of the Data Leak finding. This indicates the potential impact of the threat. */
       severity?:
-        | 'SEVERITY_UNSPECIFIED'
-        | 'LOW'
-        | 'MEDIUM'
-        | 'HIGH'
-        | 'CRITICAL';
+        'SEVERITY_UNSPECIFIED' | 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
     }
     interface EnumerateAlertFacetsResponse {
       /** List of facets and the counts. */
@@ -421,11 +417,7 @@ declare namespace gapi.client {
       matchScore?: number;
       /** Required. The severity of the IAB finding. This indicates the potential impact of the threat. */
       severity?:
-        | 'SEVERITY_UNSPECIFIED'
-        | 'LOW'
-        | 'MEDIUM'
-        | 'HIGH'
-        | 'CRITICAL';
+        'SEVERITY_UNSPECIFIED' | 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
     }
     interface InsiderThreatAlertDetail {
       /** Required. Array of ids to accommodate multiple discovery documents */
@@ -440,11 +432,7 @@ declare namespace gapi.client {
       matchScore?: number;
       /** Required. The severity of the InsiderThreat finding. This indicates the potential impact of the threat. */
       severity?:
-        | 'SEVERITY_UNSPECIFIED'
-        | 'LOW'
-        | 'MEDIUM'
-        | 'HIGH'
-        | 'CRITICAL';
+        'SEVERITY_UNSPECIFIED' | 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
     }
     interface ListAlertsResponse {
       /** List of alerts. */
@@ -619,12 +607,7 @@ declare namespace gapi.client {
         | 'EXPLOITATION_STATE_WIDESPREAD'[];
       /** Optional. The minimum priority for the alert. */
       priorityMinimum?:
-        | 'PRIORITY_UNSPECIFIED'
-        | 'P0'
-        | 'P1'
-        | 'P2'
-        | 'P3'
-        | 'P4';
+        'PRIORITY_UNSPECIFIED' | 'P0' | 'P1' | 'P2' | 'P3' | 'P4';
       /** Optional. The minimum risk rating for the alert. */
       riskRatingMinimum?:
         | 'RISK_RATING_UNSPECIFIED'

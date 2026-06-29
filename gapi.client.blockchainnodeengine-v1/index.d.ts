@@ -109,9 +109,7 @@ declare namespace gapi.client {
     interface GethDetails {
       /** Immutable. Blockchain garbage collection mode. */
       garbageCollectionMode?:
-        | 'GARBAGE_COLLECTION_MODE_UNSPECIFIED'
-        | 'FULL'
-        | 'ARCHIVE';
+        'GARBAGE_COLLECTION_MODE_UNSPECIFIED' | 'FULL' | 'ARCHIVE';
     }
     interface GoogleProtobufEmpty {}
     interface ListBlockchainNodesResponse {

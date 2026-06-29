@@ -62,10 +62,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface BatchGetAssetsHistoryResponse {
       /** A list of assets with valid time windows. */
@@ -267,10 +264,7 @@ declare namespace gapi.client {
     interface GoogleIdentityAccesscontextmanagerV1DevicePolicy {
       /** Allowed device management levels, an empty list allows all management levels. */
       allowedDeviceManagementLevels?:
-        | 'MANAGEMENT_UNSPECIFIED'
-        | 'NONE'
-        | 'BASIC'
-        | 'COMPLETE'[];
+        'MANAGEMENT_UNSPECIFIED' | 'NONE' | 'BASIC' | 'COMPLETE'[];
       /** Allowed encryptions statuses, an empty list allows all statuses. */
       allowedEncryptionStatuses?:
         | 'ENCRYPTION_UNSPECIFIED'

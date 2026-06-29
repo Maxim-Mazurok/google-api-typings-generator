@@ -39,11 +39,7 @@ declare namespace gapi.client {
       imageryProcessedDate?: Date;
       /** The quality of the imagery used to compute the data for this building. */
       imageryQuality?:
-        | 'IMAGERY_QUALITY_UNSPECIFIED'
-        | 'HIGH'
-        | 'MEDIUM'
-        | 'LOW'
-        | 'BASE';
+        'IMAGERY_QUALITY_UNSPECIFIED' | 'HIGH' | 'MEDIUM' | 'LOW' | 'BASE';
       /** The resource name for the building, of the format `buildings/{place_id}`. */
       name?: string;
       /** Postal code (e.g., US zip code) this building is contained by. */
@@ -90,11 +86,7 @@ declare namespace gapi.client {
       imageryProcessedDate?: Date;
       /** The quality of the result's imagery. */
       imageryQuality?:
-        | 'IMAGERY_QUALITY_UNSPECIFIED'
-        | 'HIGH'
-        | 'MEDIUM'
-        | 'LOW'
-        | 'BASE';
+        'IMAGERY_QUALITY_UNSPECIFIED' | 'HIGH' | 'MEDIUM' | 'LOW' | 'BASE';
       /** The URL for the building mask image: one bit per pixel saying whether that pixel is considered to be part of a rooftop or not. */
       maskUrl?: string;
       /** The URL for the monthly flux map (sunlight on roofs, broken down by month) of the region. Values are kWh/kW/year. The GeoTIFF pointed to by this URL will contain twelve bands, corresponding to January...December, in order. */
@@ -251,9 +243,7 @@ declare namespace gapi.client {
       center?: LatLng;
       /** The orientation of the panel. */
       orientation?:
-        | 'SOLAR_PANEL_ORIENTATION_UNSPECIFIED'
-        | 'LANDSCAPE'
-        | 'PORTRAIT';
+        'SOLAR_PANEL_ORIENTATION_UNSPECIFIED' | 'LANDSCAPE' | 'PORTRAIT';
       /** Index in roof_segment_stats of the `RoofSegmentSizeAndSunshineStats` which corresponds to the roof segment that this panel is placed on. */
       segmentIndex?: number;
       /** How much sunlight energy this layout captures over the course of a year, in DC kWh. */
@@ -336,11 +326,7 @@ declare namespace gapi.client {
         quotaUser?: string;
         /** Optional. The minimum quality level allowed in the results. No result with lower quality than this will be returned. Not specifying this is equivalent to restricting to HIGH quality only. */
         requiredQuality?:
-          | 'IMAGERY_QUALITY_UNSPECIFIED'
-          | 'HIGH'
-          | 'MEDIUM'
-          | 'LOW'
-          | 'BASE';
+          'IMAGERY_QUALITY_UNSPECIFIED' | 'HIGH' | 'MEDIUM' | 'LOW' | 'BASE';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -385,11 +371,7 @@ declare namespace gapi.client {
         radiusMeters?: number;
         /** Optional. The minimum quality level allowed in the results. No result with lower quality than this will be returned. Not specifying this is equivalent to restricting to HIGH quality only. */
         requiredQuality?:
-          | 'IMAGERY_QUALITY_UNSPECIFIED'
-          | 'HIGH'
-          | 'MEDIUM'
-          | 'LOW'
-          | 'BASE';
+          'IMAGERY_QUALITY_UNSPECIFIED' | 'HIGH' | 'MEDIUM' | 'LOW' | 'BASE';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */

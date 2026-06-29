@@ -86,8 +86,7 @@ declare namespace gapi.client {
     interface AndroidModel {
       /** Reasons for access denial. This model is accessible if this list is empty, otherwise the model is viewable only. */
       accessDeniedReasons?:
-        | 'ACCESS_DENIED_REASON_UNSPECIFIED'
-        | 'EULA_NOT_ACCEPTED'[];
+        'ACCESS_DENIED_REASON_UNSPECIFIED' | 'EULA_NOT_ACCEPTED'[];
       /** The company that this device is branded with. Example: "Google", "Samsung". */
       brand?: string;
       /** The name of the industrial design. This corresponds to android.os.Build.DEVICE. */
@@ -604,10 +603,7 @@ declare namespace gapi.client {
     interface RoboDirective {
       /** Required. The type of action that Robo should perform on the specified element. */
       actionType?:
-        | 'ACTION_TYPE_UNSPECIFIED'
-        | 'SINGLE_CLICK'
-        | 'ENTER_TEXT'
-        | 'IGNORE';
+        'ACTION_TYPE_UNSPECIFIED' | 'SINGLE_CLICK' | 'ENTER_TEXT' | 'IGNORE';
       /** The text that Robo is directed to set. If left empty, the directive will be treated as a CLICK on the element matching the resource_name. */
       inputText?: string;
       /** Required. The android resource name of the target UI element. For example, in Java: R.string.foo in xml: @string/foo Only the "foo" part is needed. Reference doc: https://developer.android.com/guide/topics/resources/accessing-resources.html */

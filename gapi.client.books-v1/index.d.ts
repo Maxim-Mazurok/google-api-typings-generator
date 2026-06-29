@@ -1658,10 +1658,7 @@ declare namespace gapi.client {
         key?: string;
         /** The type of access license to request. If not specified, the default is BOTH. */
         licenseTypes?:
-          | 'LICENSE_TYPES_UNDEFINED'
-          | 'BOTH'
-          | 'CONCURRENT'
-          | 'DOWNLOAD';
+          'LICENSE_TYPES_UNDEFINED' | 'BOTH' | 'CONCURRENT' | 'DOWNLOAD';
         /** ISO-639-1, ISO-3166-1 codes for message localization, i.e. en_US. */
         locale?: string;
         /** The client nonce value. */
@@ -2414,9 +2411,7 @@ declare namespace gapi.client {
         locale?: string;
         /** The maximum allowed maturity rating of returned volumes. Books with a higher maturity rating are filtered out. */
         maxAllowedMaturityRating?:
-          | 'MAX_ALLOWED_MATURITY_RATING_UNDEFINED'
-          | 'MATURE'
-          | 'not-mature';
+          'MAX_ALLOWED_MATURITY_RATING_UNDEFINED' | 'MATURE' | 'not-mature';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Number of maximum results per page to be included in the response. */
@@ -2452,9 +2447,7 @@ declare namespace gapi.client {
         locale?: string;
         /** The maximum allowed maturity rating of returned recommendations. Books with a higher maturity rating are filtered out. */
         maxAllowedMaturityRating?:
-          | 'MAX_ALLOWED_MATURITY_RATING_UNDEFINED'
-          | 'MATURE'
-          | 'not-mature';
+          'MAX_ALLOWED_MATURITY_RATING_UNDEFINED' | 'MATURE' | 'not-mature';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Returns response with indentations and line breaks. */
@@ -2675,9 +2668,7 @@ declare namespace gapi.client {
         locale?: string;
         /** The maximum allowed maturity rating of returned recommendations. Books with a higher maturity rating are filtered out. */
         maxAllowedMaturityRating?:
-          | 'MAX_ALLOWED_MATURITY_RATING_UNDEFINED'
-          | 'MATURE'
-          | 'not-mature';
+          'MAX_ALLOWED_MATURITY_RATING_UNDEFINED' | 'MATURE' | 'not-mature';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Returns response with indentations and line breaks. */
@@ -2784,9 +2775,7 @@ declare namespace gapi.client {
         locale?: string;
         /** The maximum allowed maturity rating of returned recommendations. Books with a higher maturity rating are filtered out. */
         maxAllowedMaturityRating?:
-          | 'MAX_ALLOWED_MATURITY_RATING_UNDEFINED'
-          | 'MATURE'
-          | 'not-mature';
+          'MAX_ALLOWED_MATURITY_RATING_UNDEFINED' | 'MATURE' | 'not-mature';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Returns response with indentations and line breaks. */
@@ -2950,14 +2939,10 @@ declare namespace gapi.client {
         langRestrict?: string;
         /** Restrict search to this user's library. */
         libraryRestrict?:
-          | 'LIBRARY_RESTRICT_UNDEFINED'
-          | 'my-library'
-          | 'no-restrict';
+          'LIBRARY_RESTRICT_UNDEFINED' | 'my-library' | 'no-restrict';
         /** The maximum allowed maturity rating of returned recommendations. Books with a higher maturity rating are filtered out. */
         maxAllowedMaturityRating?:
-          | 'MAX_ALLOWED_MATURITY_RATING_UNDEFINED'
-          | 'MATURE'
-          | 'not-mature';
+          'MAX_ALLOWED_MATURITY_RATING_UNDEFINED' | 'MATURE' | 'not-mature';
         /** Maximum number of results to return. */
         maxResults?: number;
         /** OAuth 2.0 token for the current user. */

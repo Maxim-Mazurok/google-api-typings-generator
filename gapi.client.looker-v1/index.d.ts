@@ -202,10 +202,7 @@ declare namespace gapi.client {
       publicIpEnabled?: boolean;
       /** Optional. The selected release channel for the instance. */
       releaseChannel?:
-        | 'RELEASE_CHANNEL_UNSPECIFIED'
-        | 'RAPID'
-        | 'REGULAR'
-        | 'STABLE';
+        'RELEASE_CHANNEL_UNSPECIFIED' | 'RAPID' | 'REGULAR' | 'STABLE';
       /** Name of a reserved IP address range within the Instance.consumer_network, to be used for private services access connection. May or may not be specified in a create request. */
       reservedRange?: string;
       /** Output only. Reserved for future use. */
@@ -247,11 +244,7 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. The current state of the backup. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATING'
-        | 'DELETING'
-        | 'ACTIVE'
-        | 'FAILED';
+        'STATE_UNSPECIFIED' | 'CREATING' | 'DELETING' | 'ACTIVE' | 'FAILED';
     }
     interface ListInstanceBackupsResponse {
       /** The list of instances matching the request filters, up to the requested `page_size`. */

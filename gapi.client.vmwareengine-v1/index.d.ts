@@ -49,11 +49,7 @@ declare namespace gapi.client {
       privateCloud?: string;
       /** Output only. State of the resource. New values may be added to this enum when appropriate. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'ACTIVE'
-        | 'INACTIVE'
-        | 'DELETING'
-        | 'CREATING';
+        'STATE_UNSPECIFIED' | 'ACTIVE' | 'INACTIVE' | 'DELETING' | 'CREATING';
       /** Output only. Target Resource Type defines the type of the target for the announcement */
       targetResourceType?: string;
       /** Output only. Last update time of this resource. */
@@ -70,10 +66,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface AutoscalingPolicy {
       /** Optional. Utilization thresholds pertaining to amount of consumed memory. */
@@ -166,11 +159,7 @@ declare namespace gapi.client {
       nfsDatastore?: NfsDatastore;
       /** Output only. The state of the Datastore. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATING'
-        | 'ACTIVE'
-        | 'UPDATING'
-        | 'DELETING';
+        'STATE_UNSPECIFIED' | 'CREATING' | 'ACTIVE' | 'UPDATING' | 'DELETING';
       /** Output only. System-generated unique identifier for the resource. */
       uid?: string;
       /** Output only. Last update time of this resource. */
@@ -256,11 +245,7 @@ declare namespace gapi.client {
       sourcePorts?: string[];
       /** Output only. The state of the resource. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'ACTIVE'
-        | 'CREATING'
-        | 'UPDATING'
-        | 'DELETING';
+        'STATE_UNSPECIFIED' | 'ACTIVE' | 'CREATING' | 'UPDATING' | 'DELETING';
       /** Output only. System-generated unique identifier for the resource. */
       uid?: string;
       /** Output only. Last update time of this resource. */
@@ -279,11 +264,7 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. The state of the resource. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'ACTIVE'
-        | 'CREATING'
-        | 'UPDATING'
-        | 'DELETING';
+        'STATE_UNSPECIFIED' | 'ACTIVE' | 'CREATING' | 'UPDATING' | 'DELETING';
       /** Output only. System-generated unique identifier for the resource. */
       uid?: string;
       /** Output only. Last update time of this resource. */
@@ -537,12 +518,7 @@ declare namespace gapi.client {
       port?: number;
       /** Required. Protocol used by vCenter to send logs to a logging server. */
       protocol?:
-        | 'PROTOCOL_UNSPECIFIED'
-        | 'UDP'
-        | 'TCP'
-        | 'TLS'
-        | 'SSL'
-        | 'RELP';
+        'PROTOCOL_UNSPECIFIED' | 'UDP' | 'TCP' | 'TLS' | 'SSL' | 'RELP';
       /** Required. The type of component that produces logs that will be forwarded to this logging server. */
       sourceType?: 'SOURCE_TYPE_UNSPECIFIED' | 'ESXI' | 'VCSA';
       /** Output only. System-generated unique identifier for the resource. */
@@ -646,11 +622,7 @@ declare namespace gapi.client {
         | 'GOOGLE_CLOUD_FILESTORE_INSTANCES';
       /** Output only. State of the network peering. This field has a value of 'ACTIVE' when there's a matching configuration in the peer network. New values may be added to this enum when appropriate. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'INACTIVE'
-        | 'ACTIVE'
-        | 'CREATING'
-        | 'DELETING';
+        'STATE_UNSPECIFIED' | 'INACTIVE' | 'ACTIVE' | 'CREATING' | 'DELETING';
       /** Output only. Output Only. Details about the current state of the network peering. */
       stateDetails?: string;
       /** Output only. System-generated unique identifier for the resource. */
@@ -709,11 +681,7 @@ declare namespace gapi.client {
       nodeTypeId?: string;
       /** Output only. The state of the appliance. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'ACTIVE'
-        | 'CREATING'
-        | 'FAILED'
-        | 'UPGRADING';
+        'STATE_UNSPECIFIED' | 'ACTIVE' | 'CREATING' | 'FAILED' | 'UPGRADING';
       /** Output only. The version number of the VMware ESXi management component in this cluster. */
       version?: string;
     }
@@ -869,9 +837,7 @@ declare namespace gapi.client {
       peeringId?: string;
       /** Output only. Peering state between service network and VMware Engine network. */
       peeringState?:
-        | 'PEERING_STATE_UNSPECIFIED'
-        | 'PEERING_ACTIVE'
-        | 'PEERING_INACTIVE';
+        'PEERING_STATE_UNSPECIFIED' | 'PEERING_ACTIVE' | 'PEERING_INACTIVE';
       /** Optional. Routing Mode. Default value is set to GLOBAL. For type = PRIVATE_SERVICE_ACCESS, this field can be set to GLOBAL or REGIONAL, for other types only GLOBAL is supported. */
       routingMode?: 'ROUTING_MODE_UNSPECIFIED' | 'GLOBAL' | 'REGIONAL';
       /** Required. Service network to create private connection. Specify the name in the following form: `projects/{project}/global/networks/{network_id}` For type = PRIVATE_SERVICE_ACCESS, this field represents servicenetworking VPC, e.g. projects/project-tp/global/networks/servicenetworking. For type = NETAPP_CLOUD_VOLUME, this field represents NetApp service VPC, e.g. projects/project-tp/global/networks/netapp-tenant-vpc. For type = DELL_POWERSCALE, this field represent Dell service VPC, e.g. projects/project-tp/global/networks/dell-tenant-vpc. For type= THIRD_PARTY_SERVICE, this field could represent a consumer VPC or any other producer VPC to which the VMware Engine Network needs to be connected, e.g. projects/project/global/networks/vpc. */
@@ -1104,11 +1070,7 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. State of the VMware Engine network. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATING'
-        | 'ACTIVE'
-        | 'UPDATING'
-        | 'DELETING';
+        'STATE_UNSPECIFIED' | 'CREATING' | 'ACTIVE' | 'UPDATING' | 'DELETING';
       /** Required. VMware Engine network type. */
       type?: 'TYPE_UNSPECIFIED' | 'LEGACY' | 'STANDARD';
       /** Output only. System-generated unique identifier for the resource. */

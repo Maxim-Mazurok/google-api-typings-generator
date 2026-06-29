@@ -246,9 +246,7 @@ declare namespace gapi.client {
       assetTags?: string[];
       /** The compliance state of the resource as specified by the API client. */
       complianceState?:
-        | 'COMPLIANCE_STATE_UNSPECIFIED'
-        | 'COMPLIANT'
-        | 'NON_COMPLIANT';
+        'COMPLIANCE_STATE_UNSPECIFIED' | 'COMPLIANT' | 'NON_COMPLIANT';
       /** Output only. The time the client state data was created. */
       createTime?: string;
       /** This field may be used to store a unique identifier for the API resource within which these CustomAttributes are a field. */
@@ -275,9 +273,7 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. The owner of the ClientState */
       ownerType?:
-        | 'OWNER_TYPE_UNSPECIFIED'
-        | 'OWNER_TYPE_CUSTOMER'
-        | 'OWNER_TYPE_PARTNER';
+        'OWNER_TYPE_UNSPECIFIED' | 'OWNER_TYPE_CUSTOMER' | 'OWNER_TYPE_PARTNER';
       /** A descriptive cause of the health score. */
       scoreReason?: string;
     }
@@ -307,9 +303,7 @@ declare namespace gapi.client {
       buildNumber?: string;
       /** Output only. Represents whether the Device is compromised. */
       compromisedState?:
-        | 'COMPROMISED_STATE_UNSPECIFIED'
-        | 'COMPROMISED'
-        | 'UNCOMPROMISED';
+        'COMPROMISED_STATE_UNSPECIFIED' | 'COMPROMISED' | 'UNCOMPROMISED';
       /** Output only. When the Company-Owned device was imported. This field is empty for BYOD devices. */
       createTime?: string;
       /** Unique identifier for the device. */
@@ -383,9 +377,7 @@ declare namespace gapi.client {
     interface GoogleAppsCloudidentityDevicesV1DeviceUser {
       /** Compromised State of the DeviceUser object */
       compromisedState?:
-        | 'COMPROMISED_STATE_UNSPECIFIED'
-        | 'COMPROMISED'
-        | 'NOT_COMPROMISED';
+        'COMPROMISED_STATE_UNSPECIFIED' | 'COMPROMISED' | 'NOT_COMPROMISED';
       /** When the user first signed in to the device */
       createTime?: string;
       /** Output only. Most recent time when user registered with this service. */
@@ -407,9 +399,7 @@ declare namespace gapi.client {
       name?: string;
       /** Password state of the DeviceUser object */
       passwordState?:
-        | 'PASSWORD_STATE_UNSPECIFIED'
-        | 'PASSWORD_SET'
-        | 'PASSWORD_NOT_SET';
+        'PASSWORD_STATE_UNSPECIFIED' | 'PASSWORD_SET' | 'PASSWORD_NOT_SET';
       /** Output only. User agent on the device for this specific user */
       userAgent?: string;
       /** Email address of the user registered on the device. */
@@ -1831,9 +1821,7 @@ declare namespace gapi.client {
         uploadType?: string;
         /** Optional. The view to use for the List request. */
         view?:
-          | 'VIEW_UNSPECIFIED'
-          | 'COMPANY_INVENTORY'
-          | 'USER_ASSIGNED_DEVICES';
+          'VIEW_UNSPECIFIED' | 'COMPANY_INVENTORY' | 'USER_ASSIGNED_DEVICES';
       }): Request<GoogleAppsCloudidentityDevicesV1ListDevicesResponse>;
       /** Wipes all data on the specified device. */
       wipe(request: {
@@ -2303,9 +2291,7 @@ declare namespace gapi.client {
         fields?: string;
         /** Optional. The initial configuration option for the `Group`. */
         initialGroupConfig?:
-          | 'INITIAL_GROUP_CONFIG_UNSPECIFIED'
-          | 'WITH_INITIAL_OWNER'
-          | 'EMPTY';
+          'INITIAL_GROUP_CONFIG_UNSPECIFIED' | 'WITH_INITIAL_OWNER' | 'EMPTY';
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** OAuth 2.0 token for the current user. */
@@ -2335,9 +2321,7 @@ declare namespace gapi.client {
           fields?: string;
           /** Optional. The initial configuration option for the `Group`. */
           initialGroupConfig?:
-            | 'INITIAL_GROUP_CONFIG_UNSPECIFIED'
-            | 'WITH_INITIAL_OWNER'
-            | 'EMPTY';
+            'INITIAL_GROUP_CONFIG_UNSPECIFIED' | 'WITH_INITIAL_OWNER' | 'EMPTY';
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
           key?: string;
           /** OAuth 2.0 token for the current user. */

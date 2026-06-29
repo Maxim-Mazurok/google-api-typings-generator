@@ -157,9 +157,7 @@ declare namespace gapi.client {
       forwardingEmail?: string;
       /** Indicates whether this address has been verified and is usable for forwarding. Read-only. */
       verificationStatus?:
-        | 'verificationStatusUnspecified'
-        | 'accepted'
-        | 'pending';
+        'verificationStatusUnspecified' | 'accepted' | 'pending';
     }
     interface HardwareKeyMetadata {
       /** Description about the hardware key. */
@@ -202,10 +200,7 @@ declare namespace gapi.client {
       enabled?: boolean;
       /** The action that will be executed on a message when it is marked as deleted and expunged from the last visible IMAP folder. */
       expungeBehavior?:
-        | 'expungeBehaviorUnspecified'
-        | 'archive'
-        | 'trash'
-        | 'deleteForever';
+        'expungeBehaviorUnspecified' | 'archive' | 'trash' | 'deleteForever';
       /** An optional limit on the number of messages that an IMAP folder may contain. Legal values are 0, 1000, 2000, 5000 or 10000. A value of zero is interpreted to mean that there is no limit. */
       maxFolderSize?: number;
     }
@@ -385,10 +380,7 @@ declare namespace gapi.client {
     interface PopSettings {
       /** The range of messages which are accessible via POP. */
       accessWindow?:
-        | 'accessWindowUnspecified'
-        | 'disabled'
-        | 'fromNowOn'
-        | 'allMail';
+        'accessWindowUnspecified' | 'disabled' | 'fromNowOn' | 'allMail';
       /** The action that will be executed on a message after it has been fetched via POP. */
       disposition?:
         | 'dispositionUnspecified'
@@ -426,9 +418,7 @@ declare namespace gapi.client {
       treatAsAlias?: boolean;
       /** Indicates whether this address has been verified for use as a send-as alias. Read-only. This setting only applies to custom "from" aliases. */
       verificationStatus?:
-        | 'verificationStatusUnspecified'
-        | 'accepted'
-        | 'pending';
+        'verificationStatusUnspecified' | 'accepted' | 'pending';
     }
     interface SignAndEncryptKeyPairs {
       /** The ID of the CseKeyPair that encrypts signed outgoing mail. */
@@ -803,10 +793,7 @@ declare namespace gapi.client {
           | 'labelAdded'
           | 'labelRemoved'
           | (
-              | 'messageAdded'
-              | 'messageDeleted'
-              | 'labelAdded'
-              | 'labelRemoved'
+              'messageAdded' | 'messageDeleted' | 'labelAdded' | 'labelRemoved'
             )[];
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;

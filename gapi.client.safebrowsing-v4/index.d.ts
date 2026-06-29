@@ -129,9 +129,7 @@ declare namespace gapi.client {
       removals?: GoogleSecuritySafebrowsingV4ThreatEntrySet[];
       /** The type of response. This may indicate that an action is required by the client when the response is received. */
       responseType?:
-        | 'RESPONSE_TYPE_UNSPECIFIED'
-        | 'PARTIAL_UPDATE'
-        | 'FULL_UPDATE';
+        'RESPONSE_TYPE_UNSPECIFIED' | 'PARTIAL_UPDATE' | 'FULL_UPDATE';
       /** The format of the threats. */
       threatEntryType?:
         | 'THREAT_ENTRY_TYPE_UNSPECIFIED'

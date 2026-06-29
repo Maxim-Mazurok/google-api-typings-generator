@@ -761,9 +761,7 @@ declare namespace gapi.client {
       disableKeywordMatch?: boolean;
       /** Optional. Controls whether highly similar jobs are returned next to each other in the search results. Jobs are identified as highly similar based on their titles, job categories, and locations. Highly similar results are clustered so that only one representative job of the cluster is displayed to the job seeker higher up in the results, with the other jobs being displayed lower down in the results. Defaults to DiversificationLevel.SIMPLE if no value is specified. */
       diversificationLevel?:
-        | 'DIVERSIFICATION_LEVEL_UNSPECIFIED'
-        | 'DISABLED'
-        | 'SIMPLE';
+        'DIVERSIFICATION_LEVEL_UNSPECIFIED' | 'DISABLED' | 'SIMPLE';
       /** Optional. Controls whether to broaden the search when it produces sparse results. Broadened queries append results to the end of the matching results list. Defaults to false. */
       enableBroadening?: boolean;
       /** Optional. Histogram requests for jobs matching JobQuery. */
@@ -793,9 +791,7 @@ declare namespace gapi.client {
       requirePreciseResultSize?: boolean;
       /** Optional. Mode of a search. Defaults to SearchMode.JOB_SEARCH. */
       searchMode?:
-        | 'SEARCH_MODE_UNSPECIFIED'
-        | 'JOB_SEARCH'
-        | 'FEATURED_JOB_SEARCH';
+        'SEARCH_MODE_UNSPECIFIED' | 'JOB_SEARCH' | 'FEATURED_JOB_SEARCH';
     }
     interface SearchJobsResponse {
       /** If query broadening is enabled, we may append additional results from the broadened query. This number indicates how many of the jobs returned in the jobs field are from the broadened query. These results are always at the end of the jobs list. In particular, a value of 0, or if the field isn't set, all the jobs in the jobs list are from the original (without broadening) query. If this field is non-zero, subsequent requests with offset after this result set should contain all broadened results. */

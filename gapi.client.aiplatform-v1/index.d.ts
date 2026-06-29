@@ -2533,7 +2533,9 @@ declare namespace gapi.client {
       agentConfig?: GoogleCloudAiplatformV1EvaluationInstanceDeprecatedAgentConfig;
       /** Optional. The static Agent Configuration. This map defines the graph structure of the agent system. Key: agent_id (matches the `author` field in events). Value: The static configuration of the agent (tools, instructions, sub-agents). */
       agents?: {
-        [P in string]: GoogleCloudAiplatformV1EvaluationInstanceDeprecatedAgentConfig;
+        [
+          P in string
+        ]: GoogleCloudAiplatformV1EvaluationInstanceDeprecatedAgentConfig;
       };
       /** Optional. Deprecated: Use `agents.developer_instruction` or `turns.events.active_instruction` instead. A field containing instructions from the developer for the agent. */
       developerInstruction?: GoogleCloudAiplatformV1EvaluationInstanceInstanceData;
@@ -2599,9 +2601,7 @@ declare namespace gapi.client {
       error?: GoogleRpcStatus;
       /** Required. The type of the EvaluationItem. */
       evaluationItemType?:
-        | 'EVALUATION_ITEM_TYPE_UNSPECIFIED'
-        | 'REQUEST'
-        | 'RESULT';
+        'EVALUATION_ITEM_TYPE_UNSPECIFIED' | 'REQUEST' | 'RESULT';
       /** The request to evaluate. */
       evaluationRequest?: GoogleCloudAiplatformV1EvaluationRequest;
       /** Output only. The response from evaluation. */
@@ -3156,7 +3156,9 @@ declare namespace gapi.client {
     interface GoogleCloudAiplatformV1ExplanationMetadataOverride {
       /** Required. Overrides the input metadata of the features. The key is the name of the feature to be overridden. The keys specified here must exist in the input metadata to be overridden. If a feature is not specified here, the corresponding feature's input metadata is not overridden. */
       inputs?: {
-        [P in string]: GoogleCloudAiplatformV1ExplanationMetadataOverrideInputMetadataOverride;
+        [
+          P in string
+        ]: GoogleCloudAiplatformV1ExplanationMetadataOverrideInputMetadataOverride;
       };
     }
     interface GoogleCloudAiplatformV1ExplanationMetadataOverrideInputMetadataOverride {
@@ -3801,9 +3803,7 @@ declare namespace gapi.client {
     interface GoogleCloudAiplatformV1FetchFeatureValuesRequest {
       /** Optional. Response data format. If not set, FeatureViewDataFormat.KEY_VALUE will be used. */
       dataFormat?:
-        | 'FEATURE_VIEW_DATA_FORMAT_UNSPECIFIED'
-        | 'KEY_VALUE'
-        | 'PROTO_STRUCT';
+        'FEATURE_VIEW_DATA_FORMAT_UNSPECIFIED' | 'KEY_VALUE' | 'PROTO_STRUCT';
       /** Optional. The request key to fetch feature values for. */
       dataKey?: GoogleCloudAiplatformV1FeatureViewDataKey;
     }
@@ -3992,10 +3992,7 @@ declare namespace gapi.client {
       response?: {[P in string]: any};
       /** Optional. Specifies how the response should be scheduled in the conversation. Only applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE. */
       scheduling?:
-        | 'SCHEDULING_UNSPECIFIED'
-        | 'SILENT'
-        | 'WHEN_IDLE'
-        | 'INTERRUPT';
+        'SCHEDULING_UNSPECIFIED' | 'SILENT' | 'WHEN_IDLE' | 'INTERRUPT';
     }
     interface GoogleCloudAiplatformV1FunctionResponseBlob {
       /** Required. Raw bytes. */
@@ -4324,11 +4321,7 @@ declare namespace gapi.client {
       responseMimeType?: string;
       /** Optional. The modalities of the response. The model will generate a response that includes all the specified modalities. For example, if this is set to `[TEXT, IMAGE]`, the response will include both text and an image. */
       responseModalities?:
-        | 'MODALITY_UNSPECIFIED'
-        | 'TEXT'
-        | 'IMAGE'
-        | 'AUDIO'
-        | 'VIDEO'[];
+        'MODALITY_UNSPECIFIED' | 'TEXT' | 'IMAGE' | 'AUDIO' | 'VIDEO'[];
       /** Optional. Lets you to specify a schema for the model's response, ensuring that the output conforms to a particular structure. This is useful for generating structured data such as JSON. The schema is a subset of the [OpenAPI 3.0 schema object](https://spec.openapis.org/oas/v3.0.3#schema) object. When this field is set, you must also set the `response_mime_type` to `application/json`. Deprecated: Use `response_format` instead. */
       responseSchema?: GoogleCloudAiplatformV1Schema;
       /** Optional. Routing configuration. */
@@ -4357,10 +4350,7 @@ declare namespace gapi.client {
     interface GoogleCloudAiplatformV1GenerationConfigRoutingConfigAutoRoutingMode {
       /** The model routing preference. */
       modelRoutingPreference?:
-        | 'UNKNOWN'
-        | 'PRIORITIZE_QUALITY'
-        | 'BALANCED'
-        | 'PRIORITIZE_COST';
+        'UNKNOWN' | 'PRIORITIZE_QUALITY' | 'BALANCED' | 'PRIORITIZE_COST';
     }
     interface GoogleCloudAiplatformV1GenerationConfigRoutingConfigManualRoutingMode {
       /** The name of the model to use. Only public LLM models are accepted. */
@@ -4373,11 +4363,7 @@ declare namespace gapi.client {
       thinkingBudget?: number;
       /** Optional. The number of thoughts tokens that the model should generate. */
       thinkingLevel?:
-        | 'THINKING_LEVEL_UNSPECIFIED'
-        | 'LOW'
-        | 'MEDIUM'
-        | 'HIGH'
-        | 'MINIMAL';
+        'THINKING_LEVEL_UNSPECIFIED' | 'LOW' | 'MEDIUM' | 'HIGH' | 'MINIMAL';
     }
     interface GoogleCloudAiplatformV1GenericOperationMetadata {
       /** Output only. Time when the operation was created. */
@@ -4715,10 +4701,7 @@ declare namespace gapi.client {
     interface GoogleCloudAiplatformV1ImportEvaluationSetRequestImportSchemaConfig {
       /** Required. The format of the input data. */
       dataFormat?:
-        | 'DATA_FORMAT_UNSPECIFIED'
-        | 'OTEL_PROTO'
-        | 'OTEL_JSON'
-        | 'JSONL';
+        'DATA_FORMAT_UNSPECIFIED' | 'OTEL_PROTO' | 'OTEL_JSON' | 'JSONL';
       /** Optional. Version of the data format. */
       dataFormatVersion?: string;
     }
@@ -4832,9 +4815,7 @@ declare namespace gapi.client {
       indexStats?: GoogleCloudAiplatformV1IndexStats;
       /** Immutable. The update method to use with this Index. If not set, BATCH_UPDATE will be used by default. */
       indexUpdateMethod?:
-        | 'INDEX_UPDATE_METHOD_UNSPECIFIED'
-        | 'BATCH_UPDATE'
-        | 'STREAM_UPDATE';
+        'INDEX_UPDATE_METHOD_UNSPECIFIED' | 'BATCH_UPDATE' | 'STREAM_UPDATE';
       /** The labels with user-defined metadata to organize your Indexes. Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. See https://goo.gl/xmQnxf for more information and examples of labels. */
       labels?: {[P in string]: string};
       /** An additional information about the Index; the schema of the metadata can be found in metadata_schema. */
@@ -6264,7 +6245,9 @@ declare namespace gapi.client {
     interface GoogleCloudAiplatformV1ModelEvaluationSliceSliceSliceSpec {
       /** Mapping configuration for this SliceSpec. The key is the name of the feature. By default, the key will be prefixed by "instance" as a dictionary prefix for Vertex Batch Predictions output format. */
       configs?: {
-        [P in string]: GoogleCloudAiplatformV1ModelEvaluationSliceSliceSliceSpecSliceConfig;
+        [
+          P in string
+        ]: GoogleCloudAiplatformV1ModelEvaluationSliceSliceSliceSpecSliceConfig;
       };
     }
     interface GoogleCloudAiplatformV1ModelEvaluationSliceSliceSliceSpecRange {
@@ -6294,9 +6277,7 @@ declare namespace gapi.client {
     interface GoogleCloudAiplatformV1ModelExportFormat {
       /** Output only. The content of this Model that may be exported. */
       exportableContents?:
-        | 'EXPORTABLE_CONTENT_UNSPECIFIED'
-        | 'ARTIFACT'
-        | 'IMAGE'[];
+        'EXPORTABLE_CONTENT_UNSPECIFIED' | 'ARTIFACT' | 'IMAGE'[];
       /** Output only. The ID of the export format. The possible format IDs are: * `tflite` Used for Android mobile devices. * `edgetpu-tflite` Used for [Edge TPU](https://cloud.google.com/edge-tpu/) devices. * `tf-saved-model` A tensorflow model in SavedModel format. * `tf-js` A [TensorFlow.js](https://www.tensorflow.org/js) model that can be used in the browser and in Node.js using JavaScript. * `core-ml` Used for iOS mobile devices. * `custom-trained` A Model that was uploaded or trained by custom code. * `genie` A tuned Model Garden model. */
       id?: string;
     }
@@ -6862,9 +6843,7 @@ declare namespace gapi.client {
       notebookRuntimeTemplateRef?: GoogleCloudAiplatformV1NotebookRuntimeTemplateRef;
       /** Output only. The type of the notebook runtime. */
       notebookRuntimeType?:
-        | 'NOTEBOOK_RUNTIME_TYPE_UNSPECIFIED'
-        | 'USER_DEFINED'
-        | 'ONE_CLICK';
+        'NOTEBOOK_RUNTIME_TYPE_UNSPECIFIED' | 'USER_DEFINED' | 'ONE_CLICK';
       /** Output only. The proxy endpoint used to access the NotebookRuntime. */
       proxyUri?: string;
       /** Output only. Reservation Affinity of the notebook runtime. */
@@ -6927,9 +6906,7 @@ declare namespace gapi.client {
       networkTags?: string[];
       /** Optional. Immutable. The type of the notebook runtime template. */
       notebookRuntimeType?:
-        | 'NOTEBOOK_RUNTIME_TYPE_UNSPECIFIED'
-        | 'USER_DEFINED'
-        | 'ONE_CLICK';
+        'NOTEBOOK_RUNTIME_TYPE_UNSPECIFIED' | 'USER_DEFINED' | 'ONE_CLICK';
       /** Optional. Reservation Affinity of the notebook runtime template. */
       reservationAffinity?: GoogleCloudAiplatformV1NotebookReservationAffinity;
       /** Deprecated: This field is ignored and the "Vertex AI Notebook Service Account" (service-PROJECT_NUMBER@gcp-sa-aiplatform-vm.iam.gserviceaccount.com) is used for the runtime workload identity. See https://cloud.google.com/iam/docs/service-agents#vertex-ai-notebook-service-account for more details. For NotebookExecutionJob, use NotebookExecutionJob.service_account instead. The service account that the runtime workload runs as. You can use any service account within the same project, but you must have the service account user permission to use the instance. If not specified, the [Compute Engine default service account](https://cloud.google.com/compute/docs/access/service-accounts#default_service_account) is used. */
@@ -6970,11 +6947,7 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. The state of the OnlineEvaluator. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'ACTIVE'
-        | 'SUSPENDED'
-        | 'FAILED'
-        | 'WARNING';
+        'STATE_UNSPECIFIED' | 'ACTIVE' | 'SUSPENDED' | 'FAILED' | 'WARNING';
       /** Output only. Contains additional information about the state of the OnlineEvaluator. This is used to provide more details in the event of a failure. */
       stateDetails?: GoogleCloudAiplatformV1OnlineEvaluatorStateDetails[];
       /** Output only. Timestamp when the OnlineEvaluator was last updated. */
@@ -7040,11 +7013,7 @@ declare namespace gapi.client {
       fieldName?: string;
       /** Optional. The data type of the field. Defaults to CONTENT if not set. */
       fieldType?:
-        | 'FIELD_TYPE_UNSPECIFIED'
-        | 'CONTENT'
-        | 'TEXT'
-        | 'IMAGE'
-        | 'AUDIO';
+        'FIELD_TYPE_UNSPECIFIED' | 'CONTENT' | 'TEXT' | 'IMAGE' | 'AUDIO';
       /** Optional. Specific instructions for the large language model on how to generate content for this particular field. While the LLM can sometimes infer content from the field name, providing explicit guidance is preferred. For example, for a field named "review", the guidance could be "A positive review about a coffee maker." */
       guidance?: string;
     }
@@ -7071,10 +7040,7 @@ declare namespace gapi.client {
       explanation?: string;
       /** Output only. Pairwise metric choice. */
       pairwiseChoice?:
-        | 'PAIRWISE_CHOICE_UNSPECIFIED'
-        | 'BASELINE'
-        | 'CANDIDATE'
-        | 'TIE';
+        'PAIRWISE_CHOICE_UNSPECIFIED' | 'BASELINE' | 'CANDIDATE' | 'TIE';
     }
     interface GoogleCloudAiplatformV1PairwiseMetricSpec {
       /** Optional. The field name of the baseline response. */
@@ -7113,10 +7079,7 @@ declare namespace gapi.client {
       explanation?: string;
       /** Output only. Pairwise question answering prediction choice. */
       pairwiseChoice?:
-        | 'PAIRWISE_CHOICE_UNSPECIFIED'
-        | 'BASELINE'
-        | 'CANDIDATE'
-        | 'TIE';
+        'PAIRWISE_CHOICE_UNSPECIFIED' | 'BASELINE' | 'CANDIDATE' | 'TIE';
     }
     interface GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualitySpec {
       /** Optional. Whether to use instance.reference to compute question answering quality. */
@@ -7149,10 +7112,7 @@ declare namespace gapi.client {
       explanation?: string;
       /** Output only. Pairwise summarization prediction choice. */
       pairwiseChoice?:
-        | 'PAIRWISE_CHOICE_UNSPECIFIED'
-        | 'BASELINE'
-        | 'CANDIDATE'
-        | 'TIE';
+        'PAIRWISE_CHOICE_UNSPECIFIED' | 'BASELINE' | 'CANDIDATE' | 'TIE';
     }
     interface GoogleCloudAiplatformV1PairwiseSummarizationQualitySpec {
       /** Optional. Whether to use instance.reference to compute pairwise summarization quality. */
@@ -7330,7 +7290,9 @@ declare namespace gapi.client {
       gcsOutputDirectory?: string;
       /** The runtime artifacts of the PipelineJob. The key will be the input artifact name and the value would be one of the InputArtifact. */
       inputArtifacts?: {
-        [P in string]: GoogleCloudAiplatformV1PipelineJobRuntimeConfigInputArtifact;
+        [
+          P in string
+        ]: GoogleCloudAiplatformV1PipelineJobRuntimeConfigInputArtifact;
       };
       /** Deprecated. Use RuntimeConfig.parameter_values instead. The runtime parameters of the PipelineJob. The parameters will be passed into PipelineJob.pipeline_spec to replace the placeholders at runtime. This field is used by pipelines built using `PipelineJob.pipeline_spec.schema_version` 2.0.0 or lower, such as pipelines built using Kubeflow Pipelines SDK 1.8 or lower. */
       parameters?: {[P in string]: GoogleCloudAiplatformV1Value};
@@ -8379,7 +8341,9 @@ declare namespace gapi.client {
     interface GoogleCloudAiplatformV1ReadTensorboardUsageResponse {
       /** Maps year-month (YYYYMM) string to per month usage data. */
       monthlyUsageData?: {
-        [P in string]: GoogleCloudAiplatformV1ReadTensorboardUsageResponsePerMonthUsageData;
+        [
+          P in string
+        ]: GoogleCloudAiplatformV1ReadTensorboardUsageResponsePerMonthUsageData;
       };
     }
     interface GoogleCloudAiplatformV1ReadTensorboardUsageResponsePerMonthUsageData {
@@ -8469,9 +8433,7 @@ declare namespace gapi.client {
       effectiveIdentity?: string;
       /** Optional. The identity type to use for the Reasoning Engine. If not specified, the `service_account` field will be used if set, otherwise the default Vertex AI Reasoning Engine Service Agent in the project will be used. */
       identityType?:
-        | 'IDENTITY_TYPE_UNSPECIFIED'
-        | 'SERVICE_ACCOUNT'
-        | 'AGENT_IDENTITY';
+        'IDENTITY_TYPE_UNSPECIFIED' | 'SERVICE_ACCOUNT' | 'AGENT_IDENTITY';
       /** Optional. User provided package spec of the ReasoningEngine. Ignored when users directly specify a deployment image through `deployment_spec.first_party_image_override`, but keeping the field_behavior to avoid introducing breaking changes. The `deployment_source` field should not be set if `package_spec` is specified. */
       packageSpec?: GoogleCloudAiplatformV1ReasoningEngineSpecPackageSpec;
       /** Optional. The service account that the Reasoning Engine artifact runs as. It should have "roles/storage.objectViewer" for reading the user project's Cloud Storage and "roles/aiplatform.user" for using Vertex extensions. If not specified, the Vertex AI Reasoning Engine Service Agent in the project will be used. */
@@ -9033,9 +8995,7 @@ declare namespace gapi.client {
       parentSnapshot?: string;
       /** Optional. Input only. Action to take on the source SandboxEnvironment after the snapshot is taken. This field is only used in CreateSandboxEnvironmentSnapshotRequest and it is not stored in the resource. */
       postSnapshotAction?:
-        | 'POST_SNAPSHOT_ACTION_UNSPECIFIED'
-        | 'RUNNING'
-        | 'PAUSE';
+        'POST_SNAPSHOT_ACTION_UNSPECIFIED' | 'RUNNING' | 'PAUSE';
       /** Optional. Output only. Size of the snapshot data in bytes. */
       sizeBytes?: string;
       /** Required. The resource name of the source SandboxEnvironment this snapshot was taken from. */
@@ -9052,13 +9012,10 @@ declare namespace gapi.client {
     interface GoogleCloudAiplatformV1SandboxEnvironmentSpecCodeExecutionEnvironment {
       /** The coding language supported in this environment. */
       codeLanguage?:
-        | 'LANGUAGE_UNSPECIFIED'
-        | 'LANGUAGE_PYTHON'
-        | 'LANGUAGE_JAVASCRIPT';
+        'LANGUAGE_UNSPECIFIED' | 'LANGUAGE_PYTHON' | 'LANGUAGE_JAVASCRIPT';
       /** The machine config of the code execution environment. */
       machineConfig?:
-        | 'MACHINE_CONFIG_UNSPECIFIED'
-        | 'MACHINE_CONFIG_VCPU4_RAM4GIB';
+        'MACHINE_CONFIG_UNSPECIFIED' | 'MACHINE_CONFIG_VCPU4_RAM4GIB';
     }
     interface GoogleCloudAiplatformV1SandboxEnvironmentTemplate {
       /** Output only. The timestamp when this SandboxEnvironmentTemplate was created. */
@@ -9742,11 +9699,7 @@ declare namespace gapi.client {
       inlineContext?: string;
       /** The type of the grounding checking source. */
       type?:
-        | 'UNSPECIFIED'
-        | 'WEB'
-        | 'ENTERPRISE'
-        | 'VERTEX_AI_SEARCH'
-        | 'INLINE';
+        'UNSPECIFIED' | 'WEB' | 'ENTERPRISE' | 'VERTEX_AI_SEARCH' | 'INLINE';
       /** The uri of the Vertex AI Search data source. */
       vertexAiSearchDatastore?: string;
     }
@@ -10381,9 +10334,7 @@ declare namespace gapi.client {
       /** Customizable trainer settings, used in the `model_garden_trainer`. */
       trainerConfig?: {[P in string]: string};
       trainerType?:
-        | 'TRAINER_TYPE_UNSPECIFIED'
-        | 'AUTOML_TRAINER'
-        | 'MODEL_GARDEN_TRAINER';
+        'TRAINER_TYPE_UNSPECIFIED' | 'AUTOML_TRAINER' | 'MODEL_GARDEN_TRAINER';
     }
     interface GoogleCloudAiplatformV1SchemaTrainingjobDefinitionAutoMlTables {
       /** The input parameters of this TrainingJob. */
@@ -11692,10 +11643,7 @@ declare namespace gapi.client {
       updateTime?: string;
       /** Required. Immutable. Type of TensorboardTimeSeries value. */
       valueType?:
-        | 'VALUE_TYPE_UNSPECIFIED'
-        | 'SCALAR'
-        | 'TENSOR'
-        | 'BLOB_SEQUENCE';
+        'VALUE_TYPE_UNSPECIFIED' | 'SCALAR' | 'TENSOR' | 'BLOB_SEQUENCE';
     }
     interface GoogleCloudAiplatformV1TensorboardTimeSeriesMetadata {
       /** Output only. The largest blob sequence length (number of blobs) of all data points in this time series, if its ValueType is BLOB_SEQUENCE. */
@@ -11726,10 +11674,7 @@ declare namespace gapi.client {
       values?: GoogleCloudAiplatformV1TimeSeriesDataPoint[];
       /** Required. Immutable. The value type of this time series. All the values in this time series data must match this value type. */
       valueType?:
-        | 'VALUE_TYPE_UNSPECIFIED'
-        | 'SCALAR'
-        | 'TENSOR'
-        | 'BLOB_SEQUENCE';
+        'VALUE_TYPE_UNSPECIFIED' | 'SCALAR' | 'TENSOR' | 'BLOB_SEQUENCE';
     }
     interface GoogleCloudAiplatformV1TimeSeriesDataPoint {
       /** A blob sequence value. */

@@ -414,11 +414,7 @@ declare namespace gapi.client {
         hq?: string;
         /** Returns black and white, grayscale, transparent, or color images. Acceptable values are: * `"color"` * `"gray"` * `"mono"`: black and white * `"trans"`: transparent background */
         imgColorType?:
-          | 'imgColorTypeUndefined'
-          | 'mono'
-          | 'gray'
-          | 'color'
-          | 'trans';
+          'imgColorTypeUndefined' | 'mono' | 'gray' | 'color' | 'trans';
         /** Returns images of a specific dominant color. Acceptable values are: * `"black"` * `"blue"` * `"brown"` * `"gray"` * `"green"` * `"orange"` * `"pink"` * `"purple"` * `"red"` * `"teal"` * `"white"` * `"yellow"` */
         imgDominantColor?:
           | 'imgDominantColorUndefined'
@@ -540,11 +536,7 @@ declare namespace gapi.client {
         hq?: string;
         /** Returns black and white, grayscale, transparent, or color images. Acceptable values are: * `"color"` * `"gray"` * `"mono"`: black and white * `"trans"`: transparent background */
         imgColorType?:
-          | 'imgColorTypeUndefined'
-          | 'mono'
-          | 'gray'
-          | 'color'
-          | 'trans';
+          'imgColorTypeUndefined' | 'mono' | 'gray' | 'color' | 'trans';
         /** Returns images of a specific dominant color. Acceptable values are: * `"black"` * `"blue"` * `"brown"` * `"gray"` * `"green"` * `"orange"` * `"pink"` * `"purple"` * `"red"` * `"teal"` * `"white"` * `"yellow"` */
         imgDominantColor?:
           | 'imgDominantColorUndefined'

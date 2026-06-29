@@ -31,11 +31,7 @@ declare namespace gapi.client {
     interface AmpInspectionResult {
       /** Index status of the AMP URL. */
       ampIndexStatusVerdict?:
-        | 'VERDICT_UNSPECIFIED'
-        | 'PASS'
-        | 'PARTIAL'
-        | 'FAIL'
-        | 'NEUTRAL';
+        'VERDICT_UNSPECIFIED' | 'PASS' | 'PARTIAL' | 'FAIL' | 'NEUTRAL';
       /** URL of the AMP that was inspected. If the submitted URL is a desktop page that refers to an AMP version, the AMP version will be inspected. */
       ampUrl?: string;
       /** Whether or not the page blocks indexing through a noindex rule. */
@@ -64,9 +60,7 @@ declare namespace gapi.client {
         | 'INVALID_URL';
       /** Whether or not the page is blocked to Google by a robots.txt rule. */
       robotsTxtState?:
-        | 'ROBOTS_TXT_STATE_UNSPECIFIED'
-        | 'ALLOWED'
-        | 'DISALLOWED';
+        'ROBOTS_TXT_STATE_UNSPECIFIED' | 'ALLOWED' | 'DISALLOWED';
       /** The status of the most severe error on the page. If a page has both warnings and errors, the page status is error. Error status means the page cannot be shown in Search results. */
       verdict?: 'VERDICT_UNSPECIFIED' | 'PASS' | 'PARTIAL' | 'FAIL' | 'NEUTRAL';
     }
@@ -148,9 +142,7 @@ declare namespace gapi.client {
       referringUrls?: string[];
       /** Whether or not the page is blocked to Google by a robots.txt rule. */
       robotsTxtState?:
-        | 'ROBOTS_TXT_STATE_UNSPECIFIED'
-        | 'ALLOWED'
-        | 'DISALLOWED';
+        'ROBOTS_TXT_STATE_UNSPECIFIED' | 'ALLOWED' | 'DISALLOWED';
       /** Any sitemaps that this URL was listed in, as known by Google. Not guaranteed to be an exhaustive list, especially if Google did not discover this URL through a sitemap. Absent if no sitemaps were found. */
       sitemap?: string[];
       /** The URL that your page or site [declares as canonical](https://developers.google.com/search/docs/advanced/crawling/consolidate-duplicate-urls?#define-canonical). If you did not declare a canonical URL, this field is absent. */
@@ -254,10 +246,7 @@ declare namespace gapi.client {
     interface SearchAnalyticsQueryRequest {
       /** [Optional; Default is \"auto\"] How data is aggregated. If aggregated by property, all data for the same property is aggregated; if aggregated by page, all data is aggregated by canonical URI. If you filter or group by page, choose AUTO; otherwise you can aggregate either by property or by page, depending on how you want your data calculated; see the help documentation to learn how data is calculated differently by site versus by page. **Note:** If you group or filter by page, you cannot aggregate by property. If you specify any value other than AUTO, the aggregation type in the result will match the requested type, or if you request an invalid type, you will get an error. The API will never change your aggregation type if the requested type is invalid. */
       aggregationType?:
-        | 'AUTO'
-        | 'BY_PROPERTY'
-        | 'BY_PAGE'
-        | 'BY_NEWS_SHOWCASE_PANEL';
+        'AUTO' | 'BY_PROPERTY' | 'BY_PAGE' | 'BY_NEWS_SHOWCASE_PANEL';
       /** The data state to be fetched, can be full or all, the latter including full and partial data. */
       dataState?: 'DATA_STATE_UNSPECIFIED' | 'FINAL' | 'ALL' | 'HOURLY_ALL';
       /** [Optional] Zero or more filters to apply to the dimension grouping values; for example, 'query contains \"buy\"' to see only data where the query string contains the substring \"buy\" (not case-sensitive). You can filter by a dimension without grouping by it. */
@@ -277,12 +266,7 @@ declare namespace gapi.client {
       rowLimit?: number;
       /** [Optional; Default is \"web\"] The search type to filter for. */
       searchType?:
-        | 'WEB'
-        | 'IMAGE'
-        | 'VIDEO'
-        | 'NEWS'
-        | 'DISCOVER'
-        | 'GOOGLE_NEWS';
+        'WEB' | 'IMAGE' | 'VIDEO' | 'NEWS' | 'DISCOVER' | 'GOOGLE_NEWS';
       /** [Required] Start date of the requested date range, in YYYY-MM-DD format, in PST time (UTC - 8:00). Must be less than or equal to the end date. This value is included in the range. */
       startDate?: string;
       /** [Optional; Default is 0] Zero-based index of the first row in the response. Must be a non-negative number. */
@@ -295,10 +279,7 @@ declare namespace gapi.client {
       metadata?: Metadata;
       /** How the results were aggregated. */
       responseAggregationType?:
-        | 'AUTO'
-        | 'BY_PROPERTY'
-        | 'BY_PAGE'
-        | 'BY_NEWS_SHOWCASE_PANEL';
+        'AUTO' | 'BY_PROPERTY' | 'BY_PAGE' | 'BY_NEWS_SHOWCASE_PANEL';
       /** A list of rows grouped by the key values in the order given in the query. */
       rows?: ApiDataRow[];
     }
@@ -514,11 +495,7 @@ declare namespace gapi.client {
     interface AmpInspectionResult {
       /** Index status of the AMP URL. */
       ampIndexStatusVerdict?:
-        | 'VERDICT_UNSPECIFIED'
-        | 'PASS'
-        | 'PARTIAL'
-        | 'FAIL'
-        | 'NEUTRAL';
+        'VERDICT_UNSPECIFIED' | 'PASS' | 'PARTIAL' | 'FAIL' | 'NEUTRAL';
       /** URL of the AMP that was inspected. If the submitted URL is a desktop page that refers to an AMP version, the AMP version will be inspected. */
       ampUrl?: string;
       /** Whether or not the page blocks indexing through a noindex rule. */
@@ -547,9 +524,7 @@ declare namespace gapi.client {
         | 'INVALID_URL';
       /** Whether or not the page is blocked to Google by a robots.txt rule. */
       robotsTxtState?:
-        | 'ROBOTS_TXT_STATE_UNSPECIFIED'
-        | 'ALLOWED'
-        | 'DISALLOWED';
+        'ROBOTS_TXT_STATE_UNSPECIFIED' | 'ALLOWED' | 'DISALLOWED';
       /** The status of the most severe error on the page. If a page has both warnings and errors, the page status is error. Error status means the page cannot be shown in Search results. */
       verdict?: 'VERDICT_UNSPECIFIED' | 'PASS' | 'PARTIAL' | 'FAIL' | 'NEUTRAL';
     }
@@ -631,9 +606,7 @@ declare namespace gapi.client {
       referringUrls?: string[];
       /** Whether or not the page is blocked to Google by a robots.txt rule. */
       robotsTxtState?:
-        | 'ROBOTS_TXT_STATE_UNSPECIFIED'
-        | 'ALLOWED'
-        | 'DISALLOWED';
+        'ROBOTS_TXT_STATE_UNSPECIFIED' | 'ALLOWED' | 'DISALLOWED';
       /** Any sitemaps that this URL was listed in, as known by Google. Not guaranteed to be an exhaustive list, especially if Google did not discover this URL through a sitemap. Absent if no sitemaps were found. */
       sitemap?: string[];
       /** The URL that your page or site [declares as canonical](https://developers.google.com/search/docs/advanced/crawling/consolidate-duplicate-urls?#define-canonical). If you did not declare a canonical URL, this field is absent. */
@@ -737,10 +710,7 @@ declare namespace gapi.client {
     interface SearchAnalyticsQueryRequest {
       /** [Optional; Default is \"auto\"] How data is aggregated. If aggregated by property, all data for the same property is aggregated; if aggregated by page, all data is aggregated by canonical URI. If you filter or group by page, choose AUTO; otherwise you can aggregate either by property or by page, depending on how you want your data calculated; see the help documentation to learn how data is calculated differently by site versus by page. **Note:** If you group or filter by page, you cannot aggregate by property. If you specify any value other than AUTO, the aggregation type in the result will match the requested type, or if you request an invalid type, you will get an error. The API will never change your aggregation type if the requested type is invalid. */
       aggregationType?:
-        | 'AUTO'
-        | 'BY_PROPERTY'
-        | 'BY_PAGE'
-        | 'BY_NEWS_SHOWCASE_PANEL';
+        'AUTO' | 'BY_PROPERTY' | 'BY_PAGE' | 'BY_NEWS_SHOWCASE_PANEL';
       /** The data state to be fetched, can be full or all, the latter including full and partial data. */
       dataState?: 'DATA_STATE_UNSPECIFIED' | 'FINAL' | 'ALL' | 'HOURLY_ALL';
       /** [Optional] Zero or more filters to apply to the dimension grouping values; for example, 'query contains \"buy\"' to see only data where the query string contains the substring \"buy\" (not case-sensitive). You can filter by a dimension without grouping by it. */
@@ -760,12 +730,7 @@ declare namespace gapi.client {
       rowLimit?: number;
       /** [Optional; Default is \"web\"] The search type to filter for. */
       searchType?:
-        | 'WEB'
-        | 'IMAGE'
-        | 'VIDEO'
-        | 'NEWS'
-        | 'DISCOVER'
-        | 'GOOGLE_NEWS';
+        'WEB' | 'IMAGE' | 'VIDEO' | 'NEWS' | 'DISCOVER' | 'GOOGLE_NEWS';
       /** [Required] Start date of the requested date range, in YYYY-MM-DD format, in PST time (UTC - 8:00). Must be less than or equal to the end date. This value is included in the range. */
       startDate?: string;
       /** [Optional; Default is 0] Zero-based index of the first row in the response. Must be a non-negative number. */
@@ -778,10 +743,7 @@ declare namespace gapi.client {
       metadata?: Metadata;
       /** How the results were aggregated. */
       responseAggregationType?:
-        | 'AUTO'
-        | 'BY_PROPERTY'
-        | 'BY_PAGE'
-        | 'BY_NEWS_SHOWCASE_PANEL';
+        'AUTO' | 'BY_PROPERTY' | 'BY_PAGE' | 'BY_NEWS_SHOWCASE_PANEL';
       /** A list of rows grouped by the key values in the order given in the query. */
       rows?: ApiDataRow[];
     }

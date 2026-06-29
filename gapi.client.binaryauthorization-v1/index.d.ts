@@ -171,18 +171,12 @@ declare namespace gapi.client {
       results?: PodResult[];
       /** The result of evaluating all Pods in the request. */
       verdict?:
-        | 'VERDICT_UNSPECIFIED'
-        | 'CONFORMANT'
-        | 'NON_CONFORMANT'
-        | 'ERROR';
+        'VERDICT_UNSPECIFIED' | 'CONFORMANT' | 'NON_CONFORMANT' | 'ERROR';
     }
     interface EvaluationResult {
       /** The result of evaluating this check. */
       verdict?:
-        | 'CHECK_VERDICT_UNSPECIFIED'
-        | 'CONFORMANT'
-        | 'NON_CONFORMANT'
-        | 'ERROR';
+        'CHECK_VERDICT_UNSPECIFIED' | 'CONFORMANT' | 'NON_CONFORMANT' | 'ERROR';
     }
     interface Expr {
       /** Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI. */
@@ -227,10 +221,7 @@ declare namespace gapi.client {
       imageUri?: string;
       /** The result of evaluating this image. */
       verdict?:
-        | 'IMAGE_VERDICT_UNSPECIFIED'
-        | 'CONFORMANT'
-        | 'NON_CONFORMANT'
-        | 'ERROR';
+        'IMAGE_VERDICT_UNSPECIFIED' | 'CONFORMANT' | 'NON_CONFORMANT' | 'ERROR';
     }
     interface Jwt {
       /** The compact encoding of a JWS, which is always three base64 encoded strings joined by periods. For details, see: https://tools.ietf.org/html/rfc7515.html#section-3.1 */
@@ -302,10 +293,7 @@ declare namespace gapi.client {
       podName?: string;
       /** The result of evaluating this Pod. */
       verdict?:
-        | 'POD_VERDICT_UNSPECIFIED'
-        | 'CONFORMANT'
-        | 'NON_CONFORMANT'
-        | 'ERROR';
+        'POD_VERDICT_UNSPECIFIED' | 'CONFORMANT' | 'NON_CONFORMANT' | 'ERROR';
     }
     interface Policy {
       /** Optional. Admission policy allowlisting. A matching admission request will always be permitted. This feature is typically used to exclude Google or third-party infrastructure images from Binary Authorization policies. */
@@ -320,9 +308,7 @@ declare namespace gapi.client {
       etag?: string;
       /** Optional. Controls the evaluation of a Google-maintained global admission policy for common system-level images. Images not covered by the global policy will be subject to the project admission policy. This setting has no effect when specified inside a global admission policy. */
       globalPolicyEvaluationMode?:
-        | 'GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED'
-        | 'ENABLE'
-        | 'DISABLE';
+        'GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED' | 'ENABLE' | 'DISABLE';
       /** Optional. Per-istio-service-identity admission rules. Istio service identity spec format: `spiffe:///ns//sa/` or `/ns//sa/` e.g. `spiffe://example.com/ns/test-ns/sa/default` */
       istioServiceIdentityAdmissionRules?: {[P in string]: AdmissionRule};
       /** Optional. Per-kubernetes-namespace admission rules. K8s namespace spec format: `[a-z.-]+`, e.g. `some-namespace` */

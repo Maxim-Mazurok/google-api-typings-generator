@@ -45,20 +45,14 @@ declare namespace gapi.client {
       activeMinutes?: string;
       /** Required. The level of activity. */
       activityLevel?:
-        | 'ACTIVITY_LEVEL_UNSPECIFIED'
-        | 'LIGHT'
-        | 'MODERATE'
-        | 'VIGOROUS';
+        'ACTIVITY_LEVEL_UNSPECIFIED' | 'LIGHT' | 'MODERATE' | 'VIGOROUS';
     }
     interface ActiveMinutesRollupByActivityLevel {
       /** Number of whole minutes spent in activity. */
       activeMinutesSum?: string;
       /** The level of activity. */
       activityLevel?:
-        | 'ACTIVITY_LEVEL_UNSPECIFIED'
-        | 'LIGHT'
-        | 'MODERATE'
-        | 'VIGOROUS';
+        'ACTIVITY_LEVEL_UNSPECIFIED' | 'LIGHT' | 'MODERATE' | 'VIGOROUS';
     }
     interface ActiveMinutesRollupValue {
       /** Active minutes by activity level. At most one record per activity level is allowed. */
@@ -69,10 +63,7 @@ declare namespace gapi.client {
       activeZoneMinutes?: string;
       /** Required. Heart rate zone in which the active zone minutes have been earned, in the given time interval. */
       heartRateZone?:
-        | 'HEART_RATE_ZONE_UNSPECIFIED'
-        | 'FAT_BURN'
-        | 'CARDIO'
-        | 'PEAK';
+        'HEART_RATE_ZONE_UNSPECIFIED' | 'FAT_BURN' | 'CARDIO' | 'PEAK';
       /** Required. Observed interval. */
       interval?: ObservationTimeInterval;
     }
@@ -161,11 +152,7 @@ declare namespace gapi.client {
       bloodGlucoseMilligramsPerDeciliter?: number;
       /** Optional. Meal type of the measurement. */
       mealType?:
-        | 'MEAL_TYPE_UNSPECIFIED'
-        | 'BREAKFAST'
-        | 'LUNCH'
-        | 'DINNER'
-        | 'SNACK';
+        'MEAL_TYPE_UNSPECIFIED' | 'BREAKFAST' | 'LUNCH' | 'DINNER' | 'SNACK';
       /** Optional. Source of the measurement. */
       measurementSource?:
         | 'MEASUREMENT_SOURCE_UNSPECIFIED'
@@ -1650,9 +1637,7 @@ declare namespace gapi.client {
         | 'STRIDE_LENGTH_TYPE_AUTO';
       /** Optional. The measurement unit defined in the user's account settings. */
       swimUnit?:
-        | 'SWIM_UNIT_UNSPECIFIED'
-        | 'SWIM_UNIT_METERS'
-        | 'SWIM_UNIT_YARDS';
+        'SWIM_UNIT_UNSPECIFIED' | 'SWIM_UNIT_METERS' | 'SWIM_UNIT_YARDS';
       /** Optional. The measurement unit defined in the user's account settings. */
       temperatureUnit?:
         | 'TEMPERATURE_UNIT_UNSPECIFIED'
@@ -1827,9 +1812,7 @@ declare namespace gapi.client {
       dataTypes?: string[];
       /** Required. Policy for subscription creation. */
       subscriptionCreatePolicy?:
-        | 'SUBSCRIPTION_CREATE_POLICY_UNSPECIFIED'
-        | 'AUTOMATIC'
-        | 'MANUAL';
+        'SUBSCRIPTION_CREATE_POLICY_UNSPECIFIED' | 'AUTOMATIC' | 'MANUAL';
     }
     interface Subscription {
       /** Optional. Data types subscribed to. A subscriber will only receive notifications for data types that are declared here. A subscription can only subscribe to the data types of the subscriber. The values should be in the format "users/{health_user_id}/dataTypes/{data_type}" where `{data_type}` is one of "altitude", "distance", "floors", "sleep", "steps", "weight". */

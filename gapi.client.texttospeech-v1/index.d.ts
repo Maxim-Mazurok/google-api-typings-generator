@@ -217,10 +217,7 @@ declare namespace gapi.client {
       naturalSampleRateHertz?: number;
       /** The gender of this voice. */
       ssmlGender?:
-        | 'SSML_VOICE_GENDER_UNSPECIFIED'
-        | 'MALE'
-        | 'FEMALE'
-        | 'NEUTRAL';
+        'SSML_VOICE_GENDER_UNSPECIFIED' | 'MALE' | 'FEMALE' | 'NEUTRAL';
     }
     interface VoiceCloneParams {
       /** Required. Created by GenerateVoiceCloningKey. */
@@ -239,10 +236,7 @@ declare namespace gapi.client {
       name?: string;
       /** The preferred gender of the voice. If not set, the service will choose a voice based on the other parameters such as language_code and name. Note that this is only a preference, not requirement; if a voice of the appropriate gender is not available, the synthesizer should substitute a voice with a different gender rather than failing the request. */
       ssmlGender?:
-        | 'SSML_VOICE_GENDER_UNSPECIFIED'
-        | 'MALE'
-        | 'FEMALE'
-        | 'NEUTRAL';
+        'SSML_VOICE_GENDER_UNSPECIFIED' | 'MALE' | 'FEMALE' | 'NEUTRAL';
       /** Optional. The configuration for a voice clone. If [VoiceCloneParams.voice_clone_key] is set, the service chooses the voice clone matching the specified configuration. */
       voiceClone?: VoiceCloneParams;
     }

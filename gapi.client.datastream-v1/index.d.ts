@@ -1207,10 +1207,7 @@ declare namespace gapi.client {
       maxConcurrentCdcTasks?: number;
       /** Optional. The RPC priority to use for the stream. */
       spannerRpcPriority?:
-        | 'SPANNER_RPC_PRIORITY_UNSPECIFIED'
-        | 'LOW'
-        | 'MEDIUM'
-        | 'HIGH';
+        'SPANNER_RPC_PRIORITY_UNSPECIFIED' | 'LOW' | 'MEDIUM' | 'HIGH';
     }
     interface SpannerTable {
       /** Optional. Spanner columns in the table. */
@@ -1443,11 +1440,7 @@ declare namespace gapi.client {
       message?: ValidationMessage[];
       /** Output only. Validation execution status. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'NOT_EXECUTED'
-        | 'FAILED'
-        | 'PASSED'
-        | 'WARNING';
+        'STATE_UNSPECIFIED' | 'NOT_EXECUTED' | 'FAILED' | 'PASSED' | 'WARNING';
     }
     interface ValidationMessage {
       /** A custom code identifying this specific message. */

@@ -739,9 +739,7 @@ declare namespace gapi.client {
       requestMetadata?: RequestMetadata;
       /** Mode of a search. Defaults to SearchMode.JOB_SEARCH. */
       searchMode?:
-        | 'SEARCH_MODE_UNSPECIFIED'
-        | 'JOB_SEARCH'
-        | 'FEATURED_JOB_SEARCH';
+        'SEARCH_MODE_UNSPECIFIED' | 'JOB_SEARCH' | 'FEATURED_JOB_SEARCH';
     }
     interface SearchJobsResponse {
       /** If query broadening is enabled, we may append additional results from the broadened query. This number indicates how many of the jobs returned in the jobs field are from the broadened query. These results are always at the end of the jobs list. In particular, a value of 0, or if the field isn't set, all the jobs in the jobs list are from the original (without broadening) query. If this field is non-zero, subsequent requests with offset after this result set should contain all broadened results. */

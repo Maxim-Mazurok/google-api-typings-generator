@@ -281,18 +281,10 @@ declare namespace gapi.client {
     interface Package {
       /** The desired_state the agent should maintain for this package. The default is to ensure the package is installed. */
       desiredState?:
-        | 'DESIRED_STATE_UNSPECIFIED'
-        | 'INSTALLED'
-        | 'UPDATED'
-        | 'REMOVED';
+        'DESIRED_STATE_UNSPECIFIED' | 'INSTALLED' | 'UPDATED' | 'REMOVED';
       /** Type of package manager that can be used to install this package. If a system does not have the package manager, the package is not installed or removed no error message is returned. By default, or if you specify `ANY`, the agent attempts to install and remove this package using the default package manager. This is useful when creating a policy that applies to different types of systems. The default behavior is ANY. */
       manager?:
-        | 'MANAGER_UNSPECIFIED'
-        | 'ANY'
-        | 'APT'
-        | 'YUM'
-        | 'ZYPPER'
-        | 'GOO';
+        'MANAGER_UNSPECIFIED' | 'ANY' | 'APT' | 'YUM' | 'ZYPPER' | 'GOO';
       /** Required. The name of the package. A package is uniquely identified for conflict validation by checking the package name and the manager(s) that the package targets. */
       name?: string;
     }
@@ -319,10 +311,7 @@ declare namespace gapi.client {
       preStep?: ExecStep;
       /** Post-patch reboot settings. */
       rebootConfig?:
-        | 'REBOOT_CONFIG_UNSPECIFIED'
-        | 'DEFAULT'
-        | 'ALWAYS'
-        | 'NEVER';
+        'REBOOT_CONFIG_UNSPECIFIED' | 'DEFAULT' | 'ALWAYS' | 'NEVER';
       /** Optional. Enables enhanced reporting for the patch job: 1. The patch job skips instances that cannot be patched and reports them as `SKIPPED`. An instance cannot be patched for two reasons: 1. The instance runs Container-Optimized OS (COS), which cannot be patched. 2. The instance is part of a managed instance group (MIG), and patching MIG instances is disabled in the patch job's configuration (PatchConfig.migInstancesAllowed is `false`). 2. The patch job is reported as `SUCCEEDED` if it completes without errors, even if some instances are `SKIPPED`. 3. The patch job is reported as `COMPLETED_WITH_INACTIVE_VMS` if it completes without errors, but does not patch instances that are `INACTIVE`. */
       skipUnpatchableVms?: boolean;
       /** Windows update settings. Use this override the default windows patch rules. */
@@ -511,10 +500,7 @@ declare namespace gapi.client {
       artifacts?: SoftwareRecipeArtifact[];
       /** Default is INSTALLED. The desired state the agent should maintain for this recipe. INSTALLED: The software recipe is installed on the instance but won't be updated to new versions. UPDATED: The software recipe is installed on the instance. The recipe is updated to a higher version, if a higher version of the recipe is assigned to this instance. REMOVE: Remove is unsupported for software recipes and attempts to create or update a recipe to the REMOVE state is rejected. */
       desiredState?:
-        | 'DESIRED_STATE_UNSPECIFIED'
-        | 'INSTALLED'
-        | 'UPDATED'
-        | 'REMOVED';
+        'DESIRED_STATE_UNSPECIFIED' | 'INSTALLED' | 'UPDATED' | 'REMOVED';
       /** Actions to be taken for installing this recipe. On failure it stops executing steps and does not attempt another installation. Any steps taken (including partially completed steps) are not rolled back. */
       installSteps?: SoftwareRecipeStep[];
       /** Required. Unique identifier for the recipe. Only one recipe with a given name is installed on an instance. Names are also used to identify resources which helps to determine whether guest policies have conflicts. This means that requests to create multiple recipes with the same name and version are rejected since they could potentially have conflicting assignments. */

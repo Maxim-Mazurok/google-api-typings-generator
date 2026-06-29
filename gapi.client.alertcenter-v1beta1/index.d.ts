@@ -573,16 +573,10 @@ declare namespace gapi.client {
       agentType?: 'AGENT_TYPE_UNSPECIFIED' | 'STUDIO';
       /** Source of the data. */
       dataSource?:
-        | 'DATA_SOURCE_UNSPECIFIED'
-        | 'DRIVE'
-        | 'GMAIL'
-        | 'CHROME'
-        | 'CHAT';
+        'DATA_SOURCE_UNSPECIFIED' | 'DRIVE' | 'GMAIL' | 'CHROME' | 'CHAT';
       /** Event associated with this alert after applying the rule. */
       eventType?:
-        | 'EVENT_TYPE_UNSPECIFIED'
-        | 'ACCESS_BLOCKED'
-        | 'SHARING_BLOCKED';
+        'EVENT_TYPE_UNSPECIFIED' | 'ACCESS_BLOCKED' | 'SHARING_BLOCKED';
       /** List of matches that were found in the resource content. */
       matchInfo?: MatchInfo[];
       /** Resource recipients. For Drive, they are grantees that the Drive file was shared with at the time of rule triggering. Valid values include user emails, group emails, domains, or 'anyone' if the file was publicly accessible. If the file was private the recipients list will be empty. For Gmail, they are emails of the users or groups that the Gmail message was sent to. */

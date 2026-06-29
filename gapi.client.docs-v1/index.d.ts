@@ -845,10 +845,7 @@ declare namespace gapi.client {
     interface NestingLevel {
       /** The alignment of the bullet within the space allotted for rendering the bullet. */
       bulletAlignment?:
-        | 'BULLET_ALIGNMENT_UNSPECIFIED'
-        | 'START'
-        | 'CENTER'
-        | 'END';
+        'BULLET_ALIGNMENT_UNSPECIFIED' | 'START' | 'CENTER' | 'END';
       /** The format string used by bullets at this level of nesting. The glyph format contains one or more placeholders, and these placeholders are replaced with the appropriate values depending on the glyph_type or glyph_symbol. The placeholders follow the pattern `%[nesting_level]`. Furthermore, placeholders can have prefixes and suffixes. Thus, the glyph format follows the pattern `%[nesting_level]`. Note that the prefix and suffix are optional and can be arbitrary strings. For example, the glyph format `%0.` indicates that the rendered glyph will replace the placeholder with the corresponding glyph for nesting level 0 followed by a period as the suffix. So a list with a glyph type of UPPER_ALPHA and glyph format `%0.` at nesting level 0 will result in a list with rendered glyphs `A.` `B.` `C.` The glyph format can contain placeholders for the current nesting level as well as placeholders for parent nesting levels. For example, a list can have a glyph format of `%0.` at nesting level 0 and a glyph format of `%0.%1.` at nesting level 1. Assuming both nesting levels have DECIMAL glyph types, this would result in a list with rendered glyphs `1.` `2.` ` 2.1.` ` 2.2.` `3.` For nesting levels that are ordered, the string that replaces a placeholder in the glyph format for a particular paragraph depends on the paragraph's order within the list. */
       glyphFormat?: string;
       /** A custom glyph symbol used by bullets when paragraphs at this level of nesting is unordered. The glyph symbol replaces placeholders within the glyph_format. For example, if the glyph_symbol is the solid circle corresponding to Unicode U+25cf code point and the glyph_format is `%0`, the rendered glyph would be the solid circle. */
@@ -965,11 +962,7 @@ declare namespace gapi.client {
     interface ParagraphStyle {
       /** The text alignment for this paragraph. */
       alignment?:
-        | 'ALIGNMENT_UNSPECIFIED'
-        | 'START'
-        | 'CENTER'
-        | 'END'
-        | 'JUSTIFIED';
+        'ALIGNMENT_UNSPECIFIED' | 'START' | 'CENTER' | 'END' | 'JUSTIFIED';
       /** Whether to avoid widows and orphans for the paragraph. If unset, the value is inherited from the parent. */
       avoidWidowAndOrphan?: boolean;
       /** The border between this paragraph and the next and previous paragraphs. If unset, the value is inherited from the parent. The between border is rendered when the adjacent paragraph has the same border and indent properties. Paragraph borders cannot be partially updated. When changing a paragraph border, the new border must be specified in its entirety. */
@@ -984,9 +977,7 @@ declare namespace gapi.client {
       borderTop?: ParagraphBorder;
       /** The text direction of this paragraph. If unset, the value defaults to LEFT_TO_RIGHT since paragraph direction is not inherited. */
       direction?:
-        | 'CONTENT_DIRECTION_UNSPECIFIED'
-        | 'LEFT_TO_RIGHT'
-        | 'RIGHT_TO_LEFT';
+        'CONTENT_DIRECTION_UNSPECIFIED' | 'LEFT_TO_RIGHT' | 'RIGHT_TO_LEFT';
       /** The heading ID of the paragraph. If empty, then this paragraph is not a heading. This property is read-only. */
       headingId?: string;
       /** The amount of indentation for the paragraph on the side that corresponds to the end of the text, based on the current paragraph direction. If unset, the value is inherited from the parent. */
@@ -1023,9 +1014,7 @@ declare namespace gapi.client {
       spaceBelow?: Dimension;
       /** The spacing mode for the paragraph. */
       spacingMode?:
-        | 'SPACING_MODE_UNSPECIFIED'
-        | 'NEVER_COLLAPSE'
-        | 'COLLAPSE_LISTS';
+        'SPACING_MODE_UNSPECIFIED' | 'NEVER_COLLAPSE' | 'COLLAPSE_LISTS';
       /** A list of the tab stops for this paragraph. The list of tab stops is not inherited. This property is read-only. */
       tabStops?: TabStop[];
     }
@@ -1339,14 +1328,10 @@ declare namespace gapi.client {
       columnProperties?: SectionColumnProperties[];
       /** The style of column separators. This style can be set even when there's one column in the section. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error. */
       columnSeparatorStyle?:
-        | 'COLUMN_SEPARATOR_STYLE_UNSPECIFIED'
-        | 'NONE'
-        | 'BETWEEN_EACH_COLUMN';
+        'COLUMN_SEPARATOR_STYLE_UNSPECIFIED' | 'NONE' | 'BETWEEN_EACH_COLUMN';
       /** The content direction of this section. If unset, the value defaults to LEFT_TO_RIGHT. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error. */
       contentDirection?:
-        | 'CONTENT_DIRECTION_UNSPECIFIED'
-        | 'LEFT_TO_RIGHT'
-        | 'RIGHT_TO_LEFT';
+        'CONTENT_DIRECTION_UNSPECIFIED' | 'LEFT_TO_RIGHT' | 'RIGHT_TO_LEFT';
       /** The ID of the default footer. If unset, the value inherits from the previous SectionBreak's SectionStyle. If the value is unset in the first SectionBreak, it inherits from DocumentStyle's default_footer_id. If DocumentMode is PAGELESS, this property will not be rendered. This property is read-only. */
       defaultFooterId?: string;
       /** The ID of the default header. If unset, the value inherits from the previous SectionBreak's SectionStyle. If the value is unset in the first SectionBreak, it inherits from DocumentStyle's default_header_id. If DocumentMode is PAGELESS, this property will not be rendered. This property is read-only. */
@@ -1616,9 +1601,7 @@ declare namespace gapi.client {
       width?: Dimension;
       /** The width type of the column. */
       widthType?:
-        | 'WIDTH_TYPE_UNSPECIFIED'
-        | 'EVENLY_DISTRIBUTED'
-        | 'FIXED_WIDTH';
+        'WIDTH_TYPE_UNSPECIFIED' | 'EVENLY_DISTRIBUTED' | 'FIXED_WIDTH';
     }
     interface TableOfContents {
       /** The content of the table of contents. */
@@ -1709,10 +1692,7 @@ declare namespace gapi.client {
       backgroundColor?: OptionalColor;
       /** The text's vertical offset from its normal position. Text with `SUPERSCRIPT` or `SUBSCRIPT` baseline offsets is automatically rendered in a smaller font size, computed based on the `font_size` field. Changes in this field don't affect the `font_size`. */
       baselineOffset?:
-        | 'BASELINE_OFFSET_UNSPECIFIED'
-        | 'NONE'
-        | 'SUPERSCRIPT'
-        | 'SUBSCRIPT';
+        'BASELINE_OFFSET_UNSPECIFIED' | 'NONE' | 'SUPERSCRIPT' | 'SUBSCRIPT';
       /** Whether or not the text is rendered as bold. */
       bold?: boolean;
       /** The size of the text's font. */

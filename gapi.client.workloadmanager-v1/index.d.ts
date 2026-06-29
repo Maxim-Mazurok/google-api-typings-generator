@@ -39,9 +39,7 @@ declare namespace gapi.client {
       secretManagerSecret?: string;
       /** Required. Active Directory type. */
       type?:
-        | 'ACTIVE_DIRECTORY_TYPE_UNSPECIFIED'
-        | 'GCP_MANAGED'
-        | 'SELF_MANAGED';
+        'ACTIVE_DIRECTORY_TYPE_UNSPECIFIED' | 'GCP_MANAGED' | 'SELF_MANAGED';
     }
     interface Actuation {
       /** Output only. Actuation output. */
@@ -126,20 +124,14 @@ declare namespace gapi.client {
       availableVersion?: string;
       /** Output only. Whether the agent has full access to Cloud APIs. */
       cloudApiAccessFullScopesGranted?:
-        | 'UNSPECIFIED_STATE'
-        | 'SUCCESS_STATE'
-        | 'FAILURE_STATE'
-        | 'ERROR_STATE';
+        'UNSPECIFIED_STATE' | 'SUCCESS_STATE' | 'FAILURE_STATE' | 'ERROR_STATE';
       /** Output only. The error message for the agent configuration if invalid. */
       configurationErrorMessage?: string;
       /** Output only. The path to the agent configuration file. */
       configurationFilePath?: string;
       /** Output only. Whether the agent configuration is valid. */
       configurationValid?:
-        | 'UNSPECIFIED_STATE'
-        | 'SUCCESS_STATE'
-        | 'FAILURE_STATE'
-        | 'ERROR_STATE';
+        'UNSPECIFIED_STATE' | 'SUCCESS_STATE' | 'FAILURE_STATE' | 'ERROR_STATE';
       /** Output only. The installed version of the agent on the host. */
       installedVersion?: string;
       /** Output only. The URI of the instance. Format: projects//zones//instances/ */
@@ -152,16 +144,10 @@ declare namespace gapi.client {
       services?: AgentStatusServiceStatus[];
       /** Output only. Whether the agent service is enabled in systemd. */
       systemdServiceEnabled?:
-        | 'UNSPECIFIED_STATE'
-        | 'SUCCESS_STATE'
-        | 'FAILURE_STATE'
-        | 'ERROR_STATE';
+        'UNSPECIFIED_STATE' | 'SUCCESS_STATE' | 'FAILURE_STATE' | 'ERROR_STATE';
       /** Output only. Whether the agent service is running in systemd. */
       systemdServiceRunning?:
-        | 'UNSPECIFIED_STATE'
-        | 'SUCCESS_STATE'
-        | 'FAILURE_STATE'
-        | 'ERROR_STATE';
+        'UNSPECIFIED_STATE' | 'SUCCESS_STATE' | 'FAILURE_STATE' | 'ERROR_STATE';
     }
     interface AgentStatusConfigValue {
       /** Output only. Whether the configuration value is the default value or overridden. */
@@ -174,10 +160,7 @@ declare namespace gapi.client {
     interface AgentStatusIAMPermission {
       /** Output only. Whether the permission is granted. */
       granted?:
-        | 'UNSPECIFIED_STATE'
-        | 'SUCCESS_STATE'
-        | 'FAILURE_STATE'
-        | 'ERROR_STATE';
+        'UNSPECIFIED_STATE' | 'SUCCESS_STATE' | 'FAILURE_STATE' | 'ERROR_STATE';
       /** Output only. The name of the permission. */
       name?: string;
     }
@@ -194,20 +177,14 @@ declare namespace gapi.client {
       errorMessage?: string;
       /** Output only. Whether the service is fully functional (all checks passed). */
       fullyFunctional?:
-        | 'UNSPECIFIED_STATE'
-        | 'SUCCESS_STATE'
-        | 'FAILURE_STATE'
-        | 'ERROR_STATE';
+        'UNSPECIFIED_STATE' | 'SUCCESS_STATE' | 'FAILURE_STATE' | 'ERROR_STATE';
       /** Output only. The permissions required for the service. */
       iamPermissions?: AgentStatusIAMPermission[];
       /** Output only. The name of the service. */
       name?: string;
       /** Output only. The state of the service (enabled or disabled in the configuration). */
       state?:
-        | 'UNSPECIFIED_STATE'
-        | 'SUCCESS_STATE'
-        | 'FAILURE_STATE'
-        | 'ERROR_STATE';
+        'UNSPECIFIED_STATE' | 'SUCCESS_STATE' | 'FAILURE_STATE' | 'ERROR_STATE';
       /** Output only. The message to display when the service state is unspecified. */
       unspecifiedStateMessage?: string;
     }
@@ -294,10 +271,7 @@ declare namespace gapi.client {
       componentHealthChecks?: HealthCheck[];
       /** Output only. The type of the component health. */
       componentHealthType?:
-        | 'TYPE_UNSPECIFIED'
-        | 'TYPE_REQUIRED'
-        | 'TYPE_OPTIONAL'
-        | 'TYPE_SPECIAL';
+        'TYPE_UNSPECIFIED' | 'TYPE_REQUIRED' | 'TYPE_OPTIONAL' | 'TYPE_SPECIAL';
       /** Output only. The health state of the component. */
       state?:
         | 'HEALTH_STATE_UNSPECIFIED'
@@ -394,10 +368,7 @@ declare namespace gapi.client {
       workerPool?: string;
       /** Optional. Workload type of the deployment. */
       workloadType?:
-        | 'WORKLOAD_TYPE_UNSPECIFIED'
-        | 'SAP_S4'
-        | 'SQL_SERVER'
-        | 'ORACLE';
+        'WORKLOAD_TYPE_UNSPECIFIED' | 'SAP_S4' | 'SQL_SERVER' | 'ORACLE';
     }
     interface DeploymentOutput {
       /** Name of the resource. */
@@ -417,10 +388,7 @@ declare namespace gapi.client {
       description?: string;
       /** Evaluation type. */
       evaluationType?:
-        | 'EVALUATION_TYPE_UNSPECIFIED'
-        | 'SAP'
-        | 'SQL_SERVER'
-        | 'OTHER';
+        'EVALUATION_TYPE_UNSPECIFIED' | 'SAP' | 'SQL_SERVER' | 'OTHER';
       /** Optional. Immutable. Customer-managed encryption key name, in the format projects/*‍/locations/*‍/keyRings/*‍/cryptoKeys/*. The key will be used for CMEK encryption of the evaluation resource. */
       kmsKey?: string;
       /** Labels as key value pairs. */
@@ -654,9 +622,7 @@ declare namespace gapi.client {
       /** Optional. DNS zone name suffix. */
       dnsZoneNameSuffix?: string;
       internetAccess?:
-        | 'INTERNETACCESS_UNSPECIFIED'
-        | 'ALLOW_EXTERNAL_IP'
-        | 'CONFIGURE_NAT';
+        'INTERNETACCESS_UNSPECIFIED' | 'ALLOW_EXTERNAL_IP' | 'CONFIGURE_NAT';
       /** Optional. Network project. */
       networkProject?: string;
       /** Required. Region name. */
@@ -1061,14 +1027,10 @@ declare namespace gapi.client {
       database?: DatabaseDetails;
       /** Required. Supports non-HA and HA models. */
       deploymentModel?:
-        | 'DEPLOYMENT_MODEL_UNSPECIFIED'
-        | 'DISTRIBUTED'
-        | 'DISTRIBUTED_HA';
+        'DEPLOYMENT_MODEL_UNSPECIFIED' | 'DISTRIBUTED' | 'DISTRIBUTED_HA';
       /** Required. Deployment environment. */
       environmentType?:
-        | 'ENVIRONMENT_TYPE_UNSPECIFIED'
-        | 'NON_PRODUCTION'
-        | 'PRODUCTION';
+        'ENVIRONMENT_TYPE_UNSPECIFIED' | 'NON_PRODUCTION' | 'PRODUCTION';
       /** The project that infrastructure is deployed in. Currently only supports the same project where the deployment resource exists. */
       gcpProjectId?: string;
       /** Database details. */
@@ -1164,9 +1126,7 @@ declare namespace gapi.client {
       gcpProjectId?: string;
       /** Required. Internet Access. */
       internetAccess?:
-        | 'INTERNET_ACCESS_UNSPECIFIED'
-        | 'ALLOW_EXTERNAL_IP'
-        | 'CONFIGURE_NAT';
+        'INTERNET_ACCESS_UNSPECIFIED' | 'ALLOW_EXTERNAL_IP' | 'CONFIGURE_NAT';
       /** Required. Network name. */
       network?: string;
       /** Required. Primary zone. */
@@ -1227,9 +1187,7 @@ declare namespace gapi.client {
         | 'SINGLE_INSTANCE';
       /** Required. Deployment environment. */
       environmentType?:
-        | 'ENVIRONMENT_TYPE_UNSPECIFIED'
-        | 'NON_PRODUCTION'
-        | 'PRODUCTION';
+        'ENVIRONMENT_TYPE_UNSPECIFIED' | 'NON_PRODUCTION' | 'PRODUCTION';
       /** Optional. SHARED_DISK or S2D. */
       fciType?: 'FCI_TYPE_UNSPECIFIED' | 'SHARED_DISK' | 'S2D';
       /** Optional. AOAG or FCI. It is only needed for the High Availability deployment mode. */
@@ -1251,9 +1209,7 @@ declare namespace gapi.client {
       osImage?: string;
       /** Optional. OS image type. It's used to create boot disks for VM instances. When either Windows licensing type or SQL licensing type is BYOL, this option is disabled and defaults to a custom image. */
       osImageType?:
-        | 'OS_IMAGE_TYPE_UNSPECIFIED'
-        | 'PUBLIC_IMAGE'
-        | 'CUSTOM_IMAGE';
+        'OS_IMAGE_TYPE_UNSPECIFIED' | 'PUBLIC_IMAGE' | 'CUSTOM_IMAGE';
       /** Optional. Pacemaker configuration, only applicable for Linux HA deployments. */
       pacemaker?: Pacemaker;
       /** Optional. SQL Server Edition type, only applicable when the operating system is Linux. */
@@ -2473,10 +2429,7 @@ declare namespace gapi.client {
         customRulesBucket?: string;
         /** Optional. The evaluation type of the rules will be applied to. The Cloud Storage bucket name for custom rules. */
         evaluationType?:
-          | 'EVALUATION_TYPE_UNSPECIFIED'
-          | 'SAP'
-          | 'SQL_SERVER'
-          | 'OTHER';
+          'EVALUATION_TYPE_UNSPECIFIED' | 'SAP' | 'SQL_SERVER' | 'OTHER';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** Filter based on primary_category, secondary_category. */

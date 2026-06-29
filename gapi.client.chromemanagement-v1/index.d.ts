@@ -198,11 +198,7 @@ declare namespace gapi.client {
     interface GoogleChromeManagementV1BrowserVersion {
       /** Output only. The release channel of the installed browser. */
       channel?:
-        | 'RELEASE_CHANNEL_UNSPECIFIED'
-        | 'CANARY'
-        | 'DEV'
-        | 'BETA'
-        | 'STABLE';
+        'RELEASE_CHANNEL_UNSPECIFIED' | 'CANARY' | 'DEV' | 'BETA' | 'STABLE';
       /** Output only. Count grouped by device_system and major version */
       count?: string;
       /** Output only. Version of the system-specified operating system. */
@@ -437,10 +433,7 @@ declare namespace gapi.client {
     interface GoogleChromeManagementV1DeviceActivityReport {
       /** Output only. Device activity state. */
       deviceActivityState?:
-        | 'DEVICE_ACTIVITY_STATE_UNSPECIFIED'
-        | 'ACTIVE'
-        | 'IDLE'
-        | 'LOCKED';
+        'DEVICE_ACTIVITY_STATE_UNSPECIFIED' | 'ACTIVE' | 'IDLE' | 'LOCKED';
       /** Output only. Timestamp of when the report was collected. */
       reportTime?: string;
     }
@@ -1257,9 +1250,7 @@ declare namespace gapi.client {
       httpsLatencyRoutineData?: GoogleChromeManagementV1HttpsLatencyRoutineData;
       /** Current HTTPS latency state. */
       httpsLatencyState?:
-        | 'HTTPS_LATENCY_STATE_UNSPECIFIED'
-        | 'RECOVERY'
-        | 'PROBLEM';
+        'HTTPS_LATENCY_STATE_UNSPECIFIED' | 'RECOVERY' | 'PROBLEM';
     }
     interface GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent {
       /** Current connection state of the network. */
@@ -1582,10 +1573,7 @@ declare namespace gapi.client {
       resultCode?: string;
       /** Output only. Result type of the remote command. */
       resultType?:
-        | 'COMMAND_RESULT_TYPE_UNSPECIFIED'
-        | 'IGNORED'
-        | 'FAILURE'
-        | 'SUCCESS';
+        'COMMAND_RESULT_TYPE_UNSPECIFIED' | 'IGNORED' | 'FAILURE' | 'SUCCESS';
     }
     interface GoogleChromeManagementVersionsV1ChromeOsDevice {
       /** Output only. The unique Directory API ID of the device. This value is the same as the Admin Console's Directory API ID in the ChromeOS Devices tab. */

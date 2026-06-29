@@ -102,10 +102,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface AuthzExtension {
       /** Optional. The `:authority` header in the gRPC request sent from Envoy to the extension service. It is required when the `service` field points to a backend service or a wasm plugin. */
@@ -139,9 +136,7 @@ declare namespace gapi.client {
       updateTime?: string;
       /** Optional. The format of communication supported by the callout extension. This field is supported only for regional `AuthzExtension` resources. If not specified, the default value `EXT_PROC_GRPC` is used. Global `AuthzExtension` resources use the `EXT_PROC_GRPC` wire format. */
       wireFormat?:
-        | 'WIRE_FORMAT_UNSPECIFIED'
-        | 'EXT_PROC_GRPC'
-        | 'EXT_AUTHZ_GRPC';
+        'WIRE_FORMAT_UNSPECIFIED' | 'EXT_PROC_GRPC' | 'EXT_AUTHZ_GRPC';
     }
     interface Binding {
       /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
@@ -160,9 +155,7 @@ declare namespace gapi.client {
     interface EndpointMatcherMetadataLabelMatcher {
       /** Specifies how matching should be done. Supported values are: MATCH_ANY: At least one of the Labels specified in the matcher should match the metadata presented by xDS client. MATCH_ALL: The metadata presented by the xDS client should contain all of the labels specified here. The selection is determined based on the best match. For example, suppose there are three EndpointPolicy resources P1, P2 and P3 and if P1 has a the matcher as MATCH_ANY , P2 has MATCH_ALL , and P3 has MATCH_ALL . If a client with label connects, the config from P1 will be selected. If a client with label connects, the config from P2 will be selected. If a client with label connects, the config from P3 will be selected. If there is more than one best match, (for example, if a config P4 with selector exists and if a client with label connects), pick up the one with older creation time. */
       metadataLabelMatchCriteria?:
-        | 'METADATA_LABEL_MATCH_CRITERIA_UNSPECIFIED'
-        | 'MATCH_ANY'
-        | 'MATCH_ALL';
+        'METADATA_LABEL_MATCH_CRITERIA_UNSPECIFIED' | 'MATCH_ANY' | 'MATCH_ALL';
       /** The list of label value pairs that must match labels in the provided metadata based on filterMatchCriteria This list can have at most 64 entries. The list can be empty if the match criteria is MATCH_ANY, to specify a wildcard match (i.e this matches any client). */
       metadataLabels?: EndpointMatcherMetadataLabelMatcherMetadataLabels[];
     }
@@ -193,9 +186,7 @@ declare namespace gapi.client {
       trafficPortSelector?: TrafficPortSelector;
       /** Required. The type of endpoint policy. This is primarily used to validate the configuration. */
       type?:
-        | 'ENDPOINT_POLICY_TYPE_UNSPECIFIED'
-        | 'SIDECAR_PROXY'
-        | 'GRPC_SERVER';
+        'ENDPOINT_POLICY_TYPE_UNSPECIFIED' | 'SIDECAR_PROXY' | 'GRPC_SERVER';
       /** Output only. The timestamp when the resource was updated. */
       updateTime?: string;
     }
@@ -940,9 +931,7 @@ declare namespace gapi.client {
       placementPolicy?: string;
       /** Output only. [Deprecated] The resource state of the multicast consumer association. Use the state field instead. */
       resourceState?:
-        | 'CONSUMER_RESOURCE_STATE_UNSPECIFIED'
-        | 'ACTIVE'
-        | 'OBSOLETE';
+        'CONSUMER_RESOURCE_STATE_UNSPECIFIED' | 'ACTIVE' | 'OBSOLETE';
       /** Output only. [Output only] The state of the resource. */
       state?: MulticastResourceState;
       /** Output only. [Output only] The Google-generated UUID for the resource. This value is unique across all multicast consumer association resources. If a consumer association is deleted and another with the same name is created, the new consumer association is assigned a different unique_id. */
@@ -969,9 +958,7 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. [Deprecated] The resource state of the multicast group consumer activation. Use the state field instead. */
       resourceState?:
-        | 'CONSUMER_RESOURCE_STATE_UNSPECIFIED'
-        | 'ACTIVE'
-        | 'OBSOLETE';
+        'CONSUMER_RESOURCE_STATE_UNSPECIFIED' | 'ACTIVE' | 'OBSOLETE';
       /** Output only. [Output only] The state of the resource. */
       state?: MulticastResourceState;
       /** Output only. [Output only] The Google-generated UUID for the resource. This value is unique across all multicast group consumer activation resources. If a group consumer activation is deleted and another with the same name is created, the new group consumer activation is assigned a different unique_id. */

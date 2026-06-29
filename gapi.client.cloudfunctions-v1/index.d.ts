@@ -39,10 +39,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface AutomaticUpdatePolicy {}
     interface Binding {
@@ -200,9 +197,7 @@ declare namespace gapi.client {
     interface HttpsTrigger {
       /** The security level for the function. */
       securityLevel?:
-        | 'SECURITY_LEVEL_UNSPECIFIED'
-        | 'SECURE_ALWAYS'
-        | 'SECURE_OPTIONAL';
+        'SECURITY_LEVEL_UNSPECIFIED' | 'SECURE_ALWAYS' | 'SECURE_OPTIONAL';
       /** Output only. The deployed url for the function. */
       url?: string;
     }

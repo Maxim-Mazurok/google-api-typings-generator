@@ -127,10 +127,7 @@ declare namespace gapi.client {
       fetchSettings?: FetchSettings;
       /** Output only. The type of file input. */
       fileInputType?:
-        | 'FILE_INPUT_TYPE_UNSPECIFIED'
-        | 'UPLOAD'
-        | 'FETCH'
-        | 'GOOGLE_SHEETS';
+        'FILE_INPUT_TYPE_UNSPECIFIED' | 'UPLOAD' | 'FETCH' | 'GOOGLE_SHEETS';
       /** Optional. The file name of the data source. Required for `UPLOAD` file input type. */
       fileName?: string;
     }
@@ -149,10 +146,7 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. The processing state of the data source. */
       processingState?:
-        | 'PROCESSING_STATE_UNSPECIFIED'
-        | 'FAILED'
-        | 'IN_PROGRESS'
-        | 'SUCCEEDED';
+        'PROCESSING_STATE_UNSPECIFIED' | 'FAILED' | 'IN_PROGRESS' | 'SUCCEEDED';
       /** Output only. The date at which the file of the data source was uploaded. */
       uploadTime?: string;
     }

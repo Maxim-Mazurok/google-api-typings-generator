@@ -61,10 +61,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface Aws {
       /** Required. The AWS account ID. */
@@ -97,9 +94,7 @@ declare namespace gapi.client {
     interface CreateServiceAccountKeyRequest {
       /** Which type of key and algorithm to use for the key. The default is currently a 2K RSA key. However this may change in the future. */
       keyAlgorithm?:
-        | 'KEY_ALG_UNSPECIFIED'
-        | 'KEY_ALG_RSA_1024'
-        | 'KEY_ALG_RSA_2048';
+        'KEY_ALG_UNSPECIFIED' | 'KEY_ALG_RSA_1024' | 'KEY_ALG_RSA_2048';
       /** The output format of the private key. The default value is `TYPE_GOOGLE_CREDENTIALS_FILE`, which is the Google Credentials File format. */
       privateKeyType?:
         | 'TYPE_UNSPECIFIED'
@@ -384,9 +379,7 @@ declare namespace gapi.client {
       clientId?: string;
       /** Immutable. The type of OauthClient. Either public or private. For private clients, the client secret can be managed using the dedicated OauthClientCredential resource. */
       clientType?:
-        | 'CLIENT_TYPE_UNSPECIFIED'
-        | 'PUBLIC_CLIENT'
-        | 'CONFIDENTIAL_CLIENT';
+        'CLIENT_TYPE_UNSPECIFIED' | 'PUBLIC_CLIENT' | 'CONFIDENTIAL_CLIENT';
       /** Optional. A user-specified description of the OauthClient. Cannot exceed 256 characters. */
       description?: string;
       /** Optional. Whether the OauthClient is disabled. You cannot use a disabled OAuth client. */
@@ -591,9 +584,7 @@ declare namespace gapi.client {
       extendedStatus?: ExtendedStatus[];
       /** Specifies the algorithm (and possibly key size) for the key. */
       keyAlgorithm?:
-        | 'KEY_ALG_UNSPECIFIED'
-        | 'KEY_ALG_RSA_1024'
-        | 'KEY_ALG_RSA_2048';
+        'KEY_ALG_UNSPECIFIED' | 'KEY_ALG_RSA_1024' | 'KEY_ALG_RSA_2048';
       /** The key origin. */
       keyOrigin?: 'ORIGIN_UNSPECIFIED' | 'USER_PROVIDED' | 'GOOGLE_PROVIDED';
       /** The key type. */
@@ -5661,9 +5652,7 @@ declare namespace gapi.client {
         prettyPrint?: boolean;
         /** Optional. The output format of the public key. The default is `TYPE_NONE`, which means that the public key is not returned. */
         publicKeyType?:
-          | 'TYPE_NONE'
-          | 'TYPE_X509_PEM_FILE'
-          | 'TYPE_RAW_PUBLIC_KEY';
+          'TYPE_NONE' | 'TYPE_X509_PEM_FILE' | 'TYPE_RAW_PUBLIC_KEY';
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */

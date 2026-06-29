@@ -136,9 +136,7 @@ declare namespace gapi.client {
     interface ClassificationModelOptionsV2Model {
       /** The content categories used for classification. */
       contentCategoriesVersion?:
-        | 'CONTENT_CATEGORIES_VERSION_UNSPECIFIED'
-        | 'V1'
-        | 'V2';
+        'CONTENT_CATEGORIES_VERSION_UNSPECIFIED' | 'V1' | 'V2';
     }
     interface ClassifyTextRequest {
       /** Optional. Model options to use for classification. Defaults to v1 options if not specified. */
@@ -1047,11 +1045,7 @@ declare namespace gapi.client {
       number?: 'NUMBER_UNKNOWN' | 'SINGULAR' | 'PLURAL' | 'DUAL';
       /** The grammatical person. */
       person?:
-        | 'PERSON_UNKNOWN'
-        | 'FIRST'
-        | 'SECOND'
-        | 'THIRD'
-        | 'REFLEXIVE_PERSON';
+        'PERSON_UNKNOWN' | 'FIRST' | 'SECOND' | 'THIRD' | 'REFLEXIVE_PERSON';
       /** The grammatical properness. */
       proper?: 'PROPER_UNKNOWN' | 'PROPER' | 'NOT_PROPER';
       /** The grammatical reciprocity. */
@@ -1678,12 +1672,10 @@ declare namespace gapi.client {
     interface XPSDockerFormat {
       /** Optional. Additional cpu information describing the requirements for the to be exported model files. */
       cpuArchitecture?:
-        | 'CPU_ARCHITECTURE_UNSPECIFIED'
-        | 'CPU_ARCHITECTURE_X86_64';
+        'CPU_ARCHITECTURE_UNSPECIFIED' | 'CPU_ARCHITECTURE_X86_64';
       /** Optional. Additional gpu information describing the requirements for the to be exported model files. */
       gpuArchitecture?:
-        | 'GPU_ARCHITECTURE_UNSPECIFIED'
-        | 'GPU_ARCHITECTURE_NVIDIA';
+        'GPU_ARCHITECTURE_UNSPECIFIED' | 'GPU_ARCHITECTURE_NVIDIA';
     }
     interface XPSEdgeTpuTfLiteFormat {}
     interface XPSEvaluationMetrics {

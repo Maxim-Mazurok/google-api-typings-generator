@@ -335,9 +335,7 @@ declare namespace gapi.client {
       scheme?: 'SCHEME_UNSPECIFIED' | 'HTTP' | 'HTTPS';
       /** URI Override Enforce Mode When specified, determines the Target UriOverride mode. If not specified, it defaults to ALWAYS. */
       uriOverrideEnforceMode?:
-        | 'URI_OVERRIDE_ENFORCE_MODE_UNSPECIFIED'
-        | 'IF_NOT_EXISTS'
-        | 'ALWAYS';
+        'URI_OVERRIDE_ENFORCE_MODE_UNSPECIFIED' | 'IF_NOT_EXISTS' | 'ALWAYS';
     }
     interface TasksResource {
       /** Creates and buffers a new task without the need to explicitly define a Task message. The queue must have HTTP target. To create the task with a custom ID, use the following format and set TASK_ID to your desired ID: projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID:buffer To create the task with an automatically generated ID, use the following format: projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks:buffer. */

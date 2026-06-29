@@ -41,9 +41,7 @@ declare namespace gapi.client {
     interface GoogleChecksAisafetyV1alphaClassifyContentRequest {
       /** Optional. Version of the classifier to use. If not specified, the latest version will be used. */
       classifierVersion?:
-        | 'CLASSIFIER_VERSION_UNSPECIFIED'
-        | 'STABLE'
-        | 'LATEST';
+        'CLASSIFIER_VERSION_UNSPECIFIED' | 'STABLE' | 'LATEST';
       /** Optional. Context about the input that will be used to help on the classification. */
       context?: GoogleChecksAisafetyV1alphaClassifyContentRequestContext;
       /** Required. Content to be classified. */
@@ -122,9 +120,7 @@ declare namespace gapi.client {
       codeReferenceId?: string;
       /** Identifies the type of release. */
       releaseType?:
-        | 'APP_BUNDLE_RELEASE_TYPE_UNSPECIFIED'
-        | 'PUBLIC'
-        | 'PRE_RELEASE';
+        'APP_BUNDLE_RELEASE_TYPE_UNSPECIFIED' | 'PUBLIC' | 'PRE_RELEASE';
       /** The user-visible version of the bundle such as the Android `versionName` or iOS `CFBundleShortVersionString`. For example: "7.21.1". */
       version?: string;
       /** The version used throughout the operating system and store to identify the build such as the Android `versionCode` or iOS `CFBundleVersion`. */
@@ -139,10 +135,7 @@ declare namespace gapi.client {
       regionCodes?: string[];
       /** The urgency or risk level of the check. */
       severity?:
-        | 'CHECK_SEVERITY_UNSPECIFIED'
-        | 'PRIORITY'
-        | 'POTENTIAL'
-        | 'OPPORTUNITY';
+        'CHECK_SEVERITY_UNSPECIFIED' | 'PRIORITY' | 'POTENTIAL' | 'OPPORTUNITY';
       /** The result after running the check. */
       state?: 'CHECK_STATE_UNSPECIFIED' | 'PASSED' | 'FAILED' | 'UNCHECKED';
       /** Additional information about the check state in relation to past reports. */

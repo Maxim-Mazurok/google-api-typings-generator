@@ -59,9 +59,7 @@ declare namespace gapi.client {
     interface Concentration {
       /** Units for measuring this pollutant concentration. */
       units?:
-        | 'UNIT_UNSPECIFIED'
-        | 'PARTS_PER_BILLION'
-        | 'MICROGRAMS_PER_CUBIC_METER';
+        'UNIT_UNSPECIFIED' | 'PARTS_PER_BILLION' | 'MICROGRAMS_PER_CUBIC_METER';
       /** Value of the pollutant concentration. */
       value?: number;
     }

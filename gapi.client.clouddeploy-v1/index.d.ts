@@ -132,10 +132,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface Automation {
       /** Optional. User annotations. These attributes can only be set and used by the user, and not by Cloud Deploy. Annotations must meet the following constraints: * Annotations are key/value pairs. * Valid annotation keys have two segments: an optional prefix and name, separated by a slash (`/`). * The name segment is required and must be 63 characters or less, beginning and ending with an alphanumeric character (`[a-z0-9A-Z]`) with dashes (`-`), underscores (`_`), dots (`.`), and alphanumerics between. * The prefix is optional. If specified, the prefix must be a DNS subdomain: a series of DNS labels separated by dots(`.`), not longer than 253 characters in total, followed by a slash (`/`). See https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/#syntax-and-character-set for more details. */
@@ -668,9 +665,7 @@ declare namespace gapi.client {
       targetUid?: string;
       /** The policy verdict of the request. */
       verdict?:
-        | 'POLICY_VERDICT_UNSPECIFIED'
-        | 'ALLOWED_BY_POLICY'
-        | 'DENIED_BY_POLICY';
+        'POLICY_VERDICT_UNSPECIFIED' | 'ALLOWED_BY_POLICY' | 'DENIED_BY_POLICY';
     }
     interface DeployPolicyNotificationEvent {
       /** The name of the `DeployPolicy`. */
@@ -1250,10 +1245,7 @@ declare namespace gapi.client {
       renderStartTime?: string;
       /** Output only. Current state of the render operation. */
       renderState?:
-        | 'RENDER_STATE_UNSPECIFIED'
-        | 'SUCCEEDED'
-        | 'FAILED'
-        | 'IN_PROGRESS';
+        'RENDER_STATE_UNSPECIFIED' | 'SUCCEEDED' | 'FAILED' | 'IN_PROGRESS';
       /** Optional. Filepath of the Skaffold config inside of the config URI. */
       skaffoldConfigPath?: string;
       /** Optional. Cloud Storage URI of tar.gz archive containing Skaffold configuration. */
@@ -1323,10 +1315,7 @@ declare namespace gapi.client {
       release?: string;
       /** The state of the release render. */
       releaseRenderState?:
-        | 'RENDER_STATE_UNSPECIFIED'
-        | 'SUCCEEDED'
-        | 'FAILED'
-        | 'IN_PROGRESS';
+        'RENDER_STATE_UNSPECIFIED' | 'SUCCEEDED' | 'FAILED' | 'IN_PROGRESS';
       /** Type of this notification, e.g. for a release render state change event. */
       type?:
         | 'TYPE_UNSPECIFIED'

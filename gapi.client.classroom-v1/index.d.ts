@@ -87,9 +87,7 @@ declare namespace gapi.client {
       alternateLink?: string;
       /** Assignee mode of the announcement. If unspecified, the default value is `ALL_STUDENTS`. */
       assigneeMode?:
-        | 'ASSIGNEE_MODE_UNSPECIFIED'
-        | 'ALL_STUDENTS'
-        | 'INDIVIDUAL_STUDENTS';
+        'ASSIGNEE_MODE_UNSPECIFIED' | 'ALL_STUDENTS' | 'INDIVIDUAL_STUDENTS';
       /** Identifier of the course. Read-only. */
       courseId?: string;
       /** Timestamp when this announcement was created. Read-only. */
@@ -106,10 +104,7 @@ declare namespace gapi.client {
       scheduledTime?: string;
       /** Status of this announcement. If unspecified, the default state is `DRAFT`. */
       state?:
-        | 'ANNOUNCEMENT_STATE_UNSPECIFIED'
-        | 'PUBLISHED'
-        | 'DRAFT'
-        | 'DELETED';
+        'ANNOUNCEMENT_STATE_UNSPECIFIED' | 'PUBLISHED' | 'DRAFT' | 'DELETED';
       /** Description of this announcement. The text must be a valid UTF-8 string containing no more than 30,000 characters. */
       text?: string;
       /** Timestamp of the most recent change to this announcement. Read-only. */
@@ -226,9 +221,7 @@ declare namespace gapi.client {
       alternateLink?: string;
       /** Assignee mode of the coursework. If unspecified, the default value is `ALL_STUDENTS`. */
       assigneeMode?:
-        | 'ASSIGNEE_MODE_UNSPECIFIED'
-        | 'ALL_STUDENTS'
-        | 'INDIVIDUAL_STUDENTS';
+        'ASSIGNEE_MODE_UNSPECIFIED' | 'ALL_STUDENTS' | 'INDIVIDUAL_STUDENTS';
       /** Assignment details. This is populated only when `work_type` is `ASSIGNMENT`. Read-only. */
       assignment?: Assignment;
       /** Whether this course work item is associated with the Developer Console project making the request. See CreateCourseWork for more details. Read-only. */
@@ -263,10 +256,7 @@ declare namespace gapi.client {
       scheduledTime?: string;
       /** Status of this course work. If unspecified, the default state is `DRAFT`. */
       state?:
-        | 'COURSE_WORK_STATE_UNSPECIFIED'
-        | 'PUBLISHED'
-        | 'DRAFT'
-        | 'DELETED';
+        'COURSE_WORK_STATE_UNSPECIFIED' | 'PUBLISHED' | 'DRAFT' | 'DELETED';
       /** Setting to determine when students are allowed to modify submissions. If unspecified, the default value is `MODIFIABLE_UNTIL_TURNED_IN`. */
       submissionModificationMode?:
         | 'SUBMISSION_MODIFICATION_MODE_UNSPECIFIED'
@@ -294,9 +284,7 @@ declare namespace gapi.client {
       alternateLink?: string;
       /** Assignee mode of the course work material. If unspecified, the default value is `ALL_STUDENTS`. */
       assigneeMode?:
-        | 'ASSIGNEE_MODE_UNSPECIFIED'
-        | 'ALL_STUDENTS'
-        | 'INDIVIDUAL_STUDENTS';
+        'ASSIGNEE_MODE_UNSPECIFIED' | 'ALL_STUDENTS' | 'INDIVIDUAL_STUDENTS';
       /** Identifier of the course. Read-only. */
       courseId?: string;
       /** Timestamp when this course work material was created. Read-only. */
@@ -404,9 +392,7 @@ declare namespace gapi.client {
     interface GradebookSettings {
       /** Indicates how the overall grade is calculated. */
       calculationType?:
-        | 'CALCULATION_TYPE_UNSPECIFIED'
-        | 'TOTAL_POINTS'
-        | 'WEIGHTED_CATEGORIES';
+        'CALCULATION_TYPE_UNSPECIFIED' | 'TOTAL_POINTS' | 'WEIGHTED_CATEGORIES';
       /** Indicates who can see the overall grade.. */
       displaySetting?:
         | 'DISPLAY_SETTING_UNSPECIFIED'
@@ -625,9 +611,7 @@ declare namespace gapi.client {
     interface ModifyAnnouncementAssigneesRequest {
       /** Mode of the announcement describing whether it is accessible by all students or specified individual students. */
       assigneeMode?:
-        | 'ASSIGNEE_MODE_UNSPECIFIED'
-        | 'ALL_STUDENTS'
-        | 'INDIVIDUAL_STUDENTS';
+        'ASSIGNEE_MODE_UNSPECIFIED' | 'ALL_STUDENTS' | 'INDIVIDUAL_STUDENTS';
       /** Set which students can view or cannot view the announcement. Must be specified only when `assigneeMode` is `INDIVIDUAL_STUDENTS`. */
       modifyIndividualStudentsOptions?: ModifyIndividualStudentsOptions;
     }
@@ -638,9 +622,7 @@ declare namespace gapi.client {
     interface ModifyCourseWorkAssigneesRequest {
       /** Mode of the coursework describing whether it will be assigned to all students or specified individual students. */
       assigneeMode?:
-        | 'ASSIGNEE_MODE_UNSPECIFIED'
-        | 'ALL_STUDENTS'
-        | 'INDIVIDUAL_STUDENTS';
+        'ASSIGNEE_MODE_UNSPECIFIED' | 'ALL_STUDENTS' | 'INDIVIDUAL_STUDENTS';
       /** Set which students are assigned or not assigned to the coursework. Must be specified only when `assigneeMode` is `INDIVIDUAL_STUDENTS`. */
       modifyIndividualStudentsOptions?: ModifyIndividualStudentsOptions;
     }
@@ -5478,9 +5460,7 @@ declare namespace gapi.client {
           | 'PENDING'
           | 'COMPLETE'
           | (
-              | 'GUARDIAN_INVITATION_STATE_UNSPECIFIED'
-              | 'PENDING'
-              | 'COMPLETE'
+              'GUARDIAN_INVITATION_STATE_UNSPECIFIED' | 'PENDING' | 'COMPLETE'
             )[];
         /** The ID of the student whose guardian invitations are to be returned. The identifier can be one of the following: * the numeric identifier for the user * the email address of the user * the string literal `"me"`, indicating the requesting user * the string literal `"-"`, indicating that results should be returned for all students that the requesting user is permitted to view guardian invitations. */
         studentId: string;

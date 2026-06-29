@@ -218,10 +218,7 @@ declare namespace gapi.client {
       flowControlElementLimit?: number;
       /** The behavior to take when the flow control limit is exceeded. */
       flowControlLimitExceededBehavior?:
-        | 'UNSET_BEHAVIOR'
-        | 'THROW_EXCEPTION'
-        | 'BLOCK'
-        | 'IGNORE';
+        'UNSET_BEHAVIOR' | 'THROW_EXCEPTION' | 'BLOCK' | 'IGNORE';
       /** The maximum size of the request that could be accepted by server. */
       requestByteLimit?: number;
       /** The aggregated size of the batched field which, if exceeded, causes the batch to be sent. This size is computed by aggregating the sizes of the request field to be batched, not of the entire request message. */
@@ -439,10 +436,7 @@ declare namespace gapi.client {
     interface EnableRule {
       /** Client and resource project enable type. */
       enableType?:
-        | 'ENABLE_TYPE_UNSPECIFIED'
-        | 'CLIENT'
-        | 'RESOURCE'
-        | 'V1_COMPATIBLE';
+        'ENABLE_TYPE_UNSPECIFIED' | 'CLIENT' | 'RESOURCE' | 'V1_COMPATIBLE';
       /** DEPRECATED: Please use field `values`. Service group should have prefix `groups/`. The names of the service groups that are enabled (Not Implemented). Example: `groups/googleServices`. */
       groups?: string[];
       /** DEPRECATED: Please use field `values`. Service should have prefix `services/`. The names of the services that are enabled. Example: `storage.googleapis.com`. */
@@ -727,8 +721,7 @@ declare namespace gapi.client {
       detail?: string;
       /** Output only. The type of impact. */
       impactType?:
-        | 'IMPACT_TYPE_UNSPECIFIED'
-        | 'DEPENDENCY_MISSING_DEPENDENCIES';
+        'IMPACT_TYPE_UNSPECIFIED' | 'DEPENDENCY_MISSING_DEPENDENCIES';
       /** Output only. This field will be populated only for the `DEPENDENCY_MISSING_DEPENDENCIES` impact type. Example: `services/compute.googleapis.com`. Impact.detail will be in format : `missing service dependency: {missing_dependency}.` */
       missingDependency?: string;
     }

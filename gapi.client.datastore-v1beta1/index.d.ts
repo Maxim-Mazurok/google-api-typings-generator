@@ -35,9 +35,7 @@ declare namespace gapi.client {
       labels?: {[P in string]: string};
       /** The type of the operation. Can be used as a filter in ListOperationsRequest. */
       operationType?:
-        | 'OPERATION_TYPE_UNSPECIFIED'
-        | 'EXPORT_ENTITIES'
-        | 'IMPORT_ENTITIES';
+        'OPERATION_TYPE_UNSPECIFIED' | 'EXPORT_ENTITIES' | 'IMPORT_ENTITIES';
       /** The time that work began on the operation. */
       startTime?: string;
       /** The current state of the Operation. */
@@ -135,10 +133,7 @@ declare namespace gapi.client {
     interface GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata {
       /** The current state of migration from Cloud Datastore to Cloud Firestore in Datastore mode. */
       migrationState?:
-        | 'MIGRATION_STATE_UNSPECIFIED'
-        | 'RUNNING'
-        | 'PAUSED'
-        | 'COMPLETE';
+        'MIGRATION_STATE_UNSPECIFIED' | 'RUNNING' | 'PAUSED' | 'COMPLETE';
       /** The current step of migration from Cloud Datastore to Cloud Firestore in Datastore mode. */
       migrationStep?:
         | 'MIGRATION_STEP_UNSPECIFIED'

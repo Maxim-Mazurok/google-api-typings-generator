@@ -51,11 +51,7 @@ declare namespace gapi.client {
       height?: string;
       /** The size type of the ad slot. */
       sizeType?:
-        | 'SIZE_TYPE_UNSPECIFIED'
-        | 'PIXEL'
-        | 'INTERSTITIAL'
-        | 'NATIVE'
-        | 'FLUID';
+        'SIZE_TYPE_UNSPECIFIED' | 'PIXEL' | 'INTERSTITIAL' | 'NATIVE' | 'FLUID';
       /** The width of the ad slot in pixels. This field will be present only when size type is `PIXEL`. */
       width?: string;
     }
@@ -440,9 +436,7 @@ declare namespace gapi.client {
       isSetupComplete?: boolean;
       /** Output only. Specifies the creative source for programmatic deals. PUBLISHER means creative is provided by seller and ADVERTISER means creative is provided by buyer. */
       programmaticCreativeSource?:
-        | 'PROGRAMMATIC_CREATIVE_SOURCE_UNSPECIFIED'
-        | 'ADVERTISER'
-        | 'PUBLISHER';
+        'PROGRAMMATIC_CREATIVE_SOURCE_UNSPECIFIED' | 'ADVERTISER' | 'PUBLISHER';
       /** Output only. ID of the proposal that this deal is part of. */
       proposalId?: string;
       /** Output only. Seller contact information for the deal. */
@@ -482,9 +476,7 @@ declare namespace gapi.client {
     interface DealTerms {
       /** Visibility of the URL in bid requests. (default: BRANDED) */
       brandingType?:
-        | 'BRANDING_TYPE_UNSPECIFIED'
-        | 'BRANDED'
-        | 'SEMI_TRANSPARENT';
+        'BRANDING_TYPE_UNSPECIFIED' | 'BRANDED' | 'SEMI_TRANSPARENT';
       /** Publisher provided description for the terms. */
       description?: string;
       /** Non-binding estimate of the estimated gross spend for this deal. Can be set by buyer or seller. */
@@ -647,8 +639,7 @@ declare namespace gapi.client {
       absoluteDateRange?: AbsoluteDateRange;
       /** The set of dimensions along which to break down the response; may be empty. If multiple dimensions are requested, the breakdown is along the Cartesian product of the requested dimensions. */
       breakdownDimensions?:
-        | 'BREAKDOWN_DIMENSION_UNSPECIFIED'
-        | 'PUBLISHER_IDENTIFIER'[];
+        'BREAKDOWN_DIMENSION_UNSPECIFIED' | 'PUBLISHER_IDENTIFIER'[];
       /** The ID of the creative on which to filter; optional. This field may be set only for a filter set that accesses account-level troubleshooting data, for example, one whose name matches the `bidders/*‍/accounts/*‍/filterSets/*` pattern. */
       creativeId?: string;
       /** The ID of the deal on which to filter; optional. This field may be set only for a filter set that accesses account-level troubleshooting data, for example, one whose name matches the `bidders/*‍/accounts/*‍/filterSets/*` pattern. */
@@ -683,9 +674,7 @@ declare namespace gapi.client {
       sellerNetworkIds?: number[];
       /** The granularity of time intervals if a time series breakdown is preferred; optional. */
       timeSeriesGranularity?:
-        | 'TIME_SERIES_GRANULARITY_UNSPECIFIED'
-        | 'HOURLY'
-        | 'DAILY';
+        'TIME_SERIES_GRANULARITY_UNSPECIFIED' | 'HOURLY' | 'DAILY';
     }
     interface FirstPartyMobileApplicationTargeting {
       /** A list of application IDs to be excluded. */
@@ -725,9 +714,7 @@ declare namespace gapi.client {
       percentShareOfVoice?: string;
       /** The reservation type for a Programmatic Guaranteed deal. This indicates whether the number of impressions is fixed, or a percent of available impressions. If not specified, the default reservation type is STANDARD. */
       reservationType?:
-        | 'RESERVATION_TYPE_UNSPECIFIED'
-        | 'STANDARD'
-        | 'SPONSORSHIP';
+        'RESERVATION_TYPE_UNSPECIFIED' | 'STANDARD' | 'SPONSORSHIP';
     }
     interface HtmlContent {
       /** The height of the HTML snippet in pixels. */
@@ -1020,9 +1007,7 @@ declare namespace gapi.client {
       amount?: Money;
       /** The pricing type for the deal/product. (default: CPM) */
       pricingType?:
-        | 'PRICING_TYPE_UNSPECIFIED'
-        | 'COST_PER_MILLE'
-        | 'COST_PER_DAY';
+        'PRICING_TYPE_UNSPECIFIED' | 'COST_PER_MILLE' | 'COST_PER_DAY';
     }
     interface PricePerBuyer {
       /** The list of advertisers for this price when associated with this buyer. If empty, all advertisers with this buyer pay this price. */
@@ -1092,9 +1077,7 @@ declare namespace gapi.client {
       isSetupComplete?: boolean;
       /** Output only. The role of the last user that either updated the proposal or left a comment. */
       lastUpdaterOrCommentorRole?:
-        | 'BUYER_SELLER_ROLE_UNSPECIFIED'
-        | 'BUYER'
-        | 'SELLER';
+        'BUYER_SELLER_ROLE_UNSPECIFIED' | 'BUYER' | 'SELLER';
       /** Output only. The notes associated with this proposal. */
       notes?: Note[];
       /** Output only. Indicates whether the buyer/seller created the proposal. */
@@ -1303,16 +1286,10 @@ declare namespace gapi.client {
     interface VideoTargeting {
       /** A list of video positions to be excluded. Position types can either be included or excluded (XOR). */
       excludedPositionTypes?:
-        | 'POSITION_TYPE_UNSPECIFIED'
-        | 'PREROLL'
-        | 'MIDROLL'
-        | 'POSTROLL'[];
+        'POSITION_TYPE_UNSPECIFIED' | 'PREROLL' | 'MIDROLL' | 'POSTROLL'[];
       /** A list of video positions to be included. When the included list is present, the excluded list must be empty. When the excluded list is present, the included list must be empty. */
       targetedPositionTypes?:
-        | 'POSITION_TYPE_UNSPECIFIED'
-        | 'PREROLL'
-        | 'MIDROLL'
-        | 'POSTROLL'[];
+        'POSITION_TYPE_UNSPECIFIED' | 'PREROLL' | 'MIDROLL' | 'POSTROLL'[];
     }
     interface WatchCreativeRequest {
       /** The Pub/Sub topic to publish notifications to. This topic must already exist and must give permission to ad-exchange-buyside-reports@google.com to write to the topic. This should be the full resource name in "projects/{project_id}/topics/{topic_id}" format. */

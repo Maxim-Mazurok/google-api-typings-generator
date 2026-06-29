@@ -39,10 +39,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface BatchCreatePullRequestCommentsRequest {
       /** Required. The request message specifying the resources to create. There should be exactly one CreatePullRequestCommentRequest with CommentDetail being REVIEW in the list, and no more than 100 CreatePullRequestCommentRequests with CommentDetail being CODE in the list */
@@ -497,10 +494,7 @@ declare namespace gapi.client {
     interface Review {
       /** Required. The review action type. */
       actionType?:
-        | 'ACTION_TYPE_UNSPECIFIED'
-        | 'COMMENT'
-        | 'CHANGE_REQUESTED'
-        | 'APPROVED';
+        'ACTION_TYPE_UNSPECIFIED' | 'COMMENT' | 'CHANGE_REQUESTED' | 'APPROVED';
       /** Optional. The comment body. */
       body?: string;
       /** Output only. The effective commit sha this review is pointing to. */

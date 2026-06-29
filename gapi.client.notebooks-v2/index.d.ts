@@ -104,8 +104,7 @@ declare namespace gapi.client {
     interface ConfidentialInstanceConfig {
       /** Optional. Defines the type of technology used by the confidential instance. */
       confidentialInstanceType?:
-        | 'CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED'
-        | 'SEV';
+        'CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED' | 'SEV';
     }
     interface Config {
       /** Output only. The list of available images to create a WbI. */

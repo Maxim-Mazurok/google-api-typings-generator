@@ -50,9 +50,7 @@ declare namespace gapi.client {
         | 'FLEXRS_COST_OPTIMIZED';
       /** Configuration for VM IPs. */
       ipConfiguration?:
-        | 'WORKER_IP_UNSPECIFIED'
-        | 'WORKER_IP_PUBLIC'
-        | 'WORKER_IP_PRIVATE';
+        'WORKER_IP_UNSPECIFIED' | 'WORKER_IP_PUBLIC' | 'WORKER_IP_PRIVATE';
       /** Name for the Cloud KMS key for the job. Key format is: projects//locations//keyRings//cryptoKeys/ */
       kmsKeyName?: string;
       /** The machine type to use for the job. Defaults to the value from the template if not specified. */
@@ -209,9 +207,7 @@ declare namespace gapi.client {
       enableStreamingEngine?: boolean;
       /** Configuration for VM IPs. */
       ipConfiguration?:
-        | 'WORKER_IP_UNSPECIFIED'
-        | 'WORKER_IP_PUBLIC'
-        | 'WORKER_IP_PRIVATE';
+        'WORKER_IP_UNSPECIFIED' | 'WORKER_IP_PUBLIC' | 'WORKER_IP_PRIVATE';
       /** Name for the Cloud KMS key for the job. The key format is: projects//locations//keyRings//cryptoKeys/ */
       kmsKeyName?: string;
       /** The machine type to use for the job. Defaults to the value from the template if not specified. */
@@ -246,11 +242,7 @@ declare namespace gapi.client {
     interface GoogleCloudDatapipelinesV1SdkVersion {
       /** The support status for this SDK version. */
       sdkSupportStatus?:
-        | 'UNKNOWN'
-        | 'SUPPORTED'
-        | 'STALE'
-        | 'DEPRECATED'
-        | 'UNSUPPORTED';
+        'UNKNOWN' | 'SUPPORTED' | 'STALE' | 'DEPRECATED' | 'UNSUPPORTED';
       /** The version of the SDK used to run the job. */
       version?: string;
       /** A readable string describing the version of the SDK. */

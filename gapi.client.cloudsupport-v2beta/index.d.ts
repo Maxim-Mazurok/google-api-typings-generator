@@ -445,9 +445,7 @@ declare namespace gapi.client {
         prettyPrint?: boolean;
         /** The product line of the Product. */
         'product.productLine'?:
-          | 'PRODUCT_LINE_UNSPECIFIED'
-          | 'GOOGLE_CLOUD'
-          | 'GOOGLE_MAPS';
+          'PRODUCT_LINE_UNSPECIFIED' | 'GOOGLE_CLOUD' | 'GOOGLE_MAPS';
         /** An expression used to filter case classifications. If it's an empty string, then no filtering happens. Otherwise, case classifications will be returned that match the filter. */
         query?: string;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
@@ -866,9 +864,7 @@ declare namespace gapi.client {
         prettyPrint?: boolean;
         /** The product line to request cases for. If unspecified, only Google Cloud cases will be returned. */
         productLine?:
-          | 'PRODUCT_LINE_UNSPECIFIED'
-          | 'GOOGLE_CLOUD'
-          | 'GOOGLE_MAPS';
+          'PRODUCT_LINE_UNSPECIFIED' | 'GOOGLE_CLOUD' | 'GOOGLE_MAPS';
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */

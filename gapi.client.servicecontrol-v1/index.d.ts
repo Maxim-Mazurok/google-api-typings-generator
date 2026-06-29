@@ -532,11 +532,7 @@ declare namespace gapi.client {
       quotaMetrics?: MetricValueSet[];
       /** Quota mode for this operation. */
       quotaMode?:
-        | 'UNSPECIFIED'
-        | 'NORMAL'
-        | 'BEST_EFFORT'
-        | 'CHECK_ONLY'
-        | 'ADJUST_ONLY';
+        'UNSPECIFIED' | 'NORMAL' | 'BEST_EFFORT' | 'CHECK_ONLY' | 'ADJUST_ONLY';
     }
     interface QuotaProperties {
       /** Quota mode for this operation. */

@@ -131,8 +131,7 @@ declare namespace gapi.client {
       createTime?: string;
       /** Optional. Immutable. Stores data classification of the aspect. */
       dataClassification?:
-        | 'DATA_CLASSIFICATION_UNSPECIFIED'
-        | 'METADATA_AND_DATA';
+        'DATA_CLASSIFICATION_UNSPECIFIED' | 'METADATA_AND_DATA';
       /** Optional. Description of the AspectType. */
       description?: string;
       /** Optional. User friendly display name. */
@@ -1158,7 +1157,9 @@ declare namespace gapi.client {
       dimension?: string;
       /** Output only. Description for input parameters */
       inputParameters?: {
-        [P in string]: GoogleCloudDataplexV1DataQualityRuleTemplateParameterDescription;
+        [
+          P in string
+        ]: GoogleCloudDataplexV1DataQualityRuleTemplateParameterDescription;
       };
       /** Output only. The name of the rule template in the format: projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}/entries/{entry_id} */
       name?: string;
@@ -1180,7 +1181,9 @@ declare namespace gapi.client {
       ruleTemplate?: GoogleCloudDataplexV1DataQualityRuleTemplate;
       /** Optional. Provides the map of parameter name and value. The maximum size of the field is 120KB (encoded as UTF-8). */
       values?: {
-        [P in string]: GoogleCloudDataplexV1DataQualityRuleTemplateReferenceParameterValue;
+        [
+          P in string
+        ]: GoogleCloudDataplexV1DataQualityRuleTemplateReferenceParameterValue;
       };
     }
     interface GoogleCloudDataplexV1DataQualityRuleTemplateReferenceParameterValue {
@@ -1627,10 +1630,7 @@ declare namespace gapi.client {
       enableMetastoreEncryption?: boolean;
       /** Output only. The state of encryption of the databases. */
       encryptionState?:
-        | 'ENCRYPTION_STATE_UNSPECIFIED'
-        | 'ENCRYPTING'
-        | 'COMPLETED'
-        | 'FAILED';
+        'ENCRYPTION_STATE_UNSPECIFIED' | 'ENCRYPTING' | 'COMPLETED' | 'FAILED';
       /** Etag of the EncryptionConfig. This is a strong etag. */
       etag?: string;
       /** Output only. Details of the failure if anything related to Cmek db fails. */
@@ -1764,9 +1764,7 @@ declare namespace gapi.client {
     interface GoogleCloudDataplexV1EntryLinkEvent {
       /** The type of the event. */
       eventType?:
-        | 'EVENT_TYPE_UNSPECIFIED'
-        | 'ENTRY_LINK_CREATE'
-        | 'ENTRY_LINK_DELETE';
+        'EVENT_TYPE_UNSPECIFIED' | 'ENTRY_LINK_CREATE' | 'ENTRY_LINK_DELETE';
       /** The log message. */
       message?: string;
       /** Name of the resource. */
@@ -2082,9 +2080,7 @@ declare namespace gapi.client {
       endTime?: string;
       /** Job execution trigger. */
       executionTrigger?:
-        | 'EXECUTION_TRIGGER_UNSPECIFIED'
-        | 'TASK_CONFIG'
-        | 'RUN_REQUEST';
+        'EXECUTION_TRIGGER_UNSPECIFIED' | 'TASK_CONFIG' | 'RUN_REQUEST';
       /** The unique id identifying the job. */
       jobId?: string;
       /** The log message. */
@@ -2099,11 +2095,7 @@ declare namespace gapi.client {
       startTime?: string;
       /** The job state on completion. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'SUCCEEDED'
-        | 'FAILED'
-        | 'CANCELLED'
-        | 'ABORTED';
+        'STATE_UNSPECIFIED' | 'SUCCEEDED' | 'FAILED' | 'CANCELLED' | 'ABORTED';
       /** The type of the job. */
       type?: 'TYPE_UNSPECIFIED' | 'SPARK' | 'NOTEBOOK';
     }
@@ -2395,10 +2387,7 @@ declare namespace gapi.client {
       aspectTypes?: string[];
       /** Optional. The type of change that you want to listen to. If not specified, all changes are published. */
       changeTypes?:
-        | 'CHANGE_TYPE_UNSPECIFIED'
-        | 'CREATE'
-        | 'UPDATE'
-        | 'DELETE'[];
+        'CHANGE_TYPE_UNSPECIFIED' | 'CREATE' | 'UPDATE' | 'DELETE'[];
       /** Optional. The entry types that you want to listen to, specified as relative resource names in the format projects/{project_id_or_number}/locations/{location}/entryTypes/{entry_type_id}. Only entries that belong to the specified entry types are published. */
       entryTypes?: string[];
     }
@@ -2481,10 +2470,7 @@ declare namespace gapi.client {
     interface GoogleCloudDataplexV1MetadataJobImportJobSpec {
       /** Required. The sync mode for aspects. */
       aspectSyncMode?:
-        | 'SYNC_MODE_UNSPECIFIED'
-        | 'FULL'
-        | 'INCREMENTAL'
-        | 'NONE';
+        'SYNC_MODE_UNSPECIFIED' | 'FULL' | 'INCREMENTAL' | 'NONE';
       /** Required. The sync mode for entries. */
       entrySyncMode?: 'SYNC_MODE_UNSPECIFIED' | 'FULL' | 'INCREMENTAL' | 'NONE';
       /** Optional. The level of logs to write to Cloud Logging for this job.Debug-level logs provide highly-detailed information for troubleshooting, but their increased verbosity could incur additional costs (https://cloud.google.com/stackdriver/pricing) that might not be merited for all jobs.If unspecified, defaults to INFO. */
@@ -3029,9 +3015,7 @@ declare namespace gapi.client {
     interface GoogleCloudDataplexV1ZoneResourceSpec {
       /** Required. Immutable. The location type of the resources that are allowed to be attached to the assets within this zone. */
       locationType?:
-        | 'LOCATION_TYPE_UNSPECIFIED'
-        | 'SINGLE_REGION'
-        | 'MULTI_REGION';
+        'LOCATION_TYPE_UNSPECIFIED' | 'SINGLE_REGION' | 'MULTI_REGION';
     }
     interface GoogleCloudLocationListLocationsResponse {
       /** A list of locations that matches the specified filter in the request. */
@@ -3062,10 +3046,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface GoogleIamV1Binding {
       /** The condition that is associated with this binding.If the condition evaluates to true, then this binding applies to the current request.If the condition evaluates to false, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding.To learn which resources support conditions in their IAM policies, see the IAM documentation (https://cloud.google.com/iam/help/conditions/resource-policies). */

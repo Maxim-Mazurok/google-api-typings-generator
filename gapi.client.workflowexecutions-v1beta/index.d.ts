@@ -42,9 +42,7 @@ declare namespace gapi.client {
       argument?: string;
       /** The call logging level associated to this execution. */
       callLogLevel?:
-        | 'CALL_LOG_LEVEL_UNSPECIFIED'
-        | 'LOG_ALL_CALLS'
-        | 'LOG_ERRORS_ONLY';
+        'CALL_LOG_LEVEL_UNSPECIFIED' | 'LOG_ALL_CALLS' | 'LOG_ERRORS_ONLY';
       /** Output only. Marks the end of execution, successful or not. */
       endTime?: string;
       /** Output only. The error which caused the execution to finish prematurely. The value is only present if the execution's state is `FAILED` or `CANCELLED`. */

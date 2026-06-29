@@ -1462,7 +1462,9 @@ declare namespace gapi.client {
       name?: string;
       /** Map from file type to override the default parsing configuration based on the file type. Supported keys: * `pdf`: Override parsing config for PDF files, either digital parsing, ocr parsing or layout parsing is supported. * `html`: Override parsing config for HTML files, only digital parsing and layout parsing are supported. * `docx`: Override parsing config for DOCX files, only digital parsing and layout parsing are supported. * `pptx`: Override parsing config for PPTX files, only digital parsing and layout parsing are supported. * `xlsm`: Override parsing config for XLSM files, only digital parsing and layout parsing are supported. * `xlsx`: Override parsing config for XLSX files, only digital parsing and layout parsing are supported. */
       parsingConfigOverrides?: {
-        [P in string]: GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfigParsingConfig;
+        [
+          P in string
+        ]: GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfigParsingConfig;
       };
     }
     interface GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfigChunkingConfig {
@@ -1581,9 +1583,7 @@ declare namespace gapi.client {
       /** Optional. Maps a model name to its specific configuration for this engine. This allows admin users to turn on/off individual models. This only stores models whose states are overridden by the admin. When the state is unspecified, or model_configs is empty for this model, the system will decide if this model should be available or not based on the default configuration. For example, a preview model should be disabled by default if the admin has not chosen to enable it. */
       modelConfigs?: {
         [P in string]:
-          | 'MODEL_STATE_UNSPECIFIED'
-          | 'MODEL_ENABLED'
-          | 'MODEL_DISABLED';
+          'MODEL_STATE_UNSPECIFIED' | 'MODEL_ENABLED' | 'MODEL_DISABLED';
       };
       /** Immutable. Identifier. The fully qualified resource name of the engine. This field must be a UTF-8 encoded string with a length limit of 1024 characters. Format: `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}` engine should be 1-63 characters, and valid characters are /a-z0-9*‍/. Otherwise, an INVALID_ARGUMENT error is returned. */
       name?: string;
@@ -1697,10 +1697,7 @@ declare namespace gapi.client {
       lastTuneTime?: string;
       /** Output only. The serving state of the engine: `ACTIVE`, `NOT_ACTIVE`. */
       servingState?:
-        | 'SERVING_STATE_UNSPECIFIED'
-        | 'INACTIVE'
-        | 'ACTIVE'
-        | 'TUNED';
+        'SERVING_STATE_UNSPECIFIED' | 'INACTIVE' | 'ACTIVE' | 'TUNED';
       /** Output only. The latest tune operation id associated with the engine. Only applicable on Media Recommendation engines. If present, this operation id can be used to determine if there is an ongoing tune for this engine. To check the operation status, send the GetOperation request with this operation id in the engine resource format. If no tuning has happened for this engine, the string is empty. */
       tuningOperation?: string;
     }
@@ -1758,11 +1755,7 @@ declare namespace gapi.client {
       qualityMetrics?: GoogleCloudDiscoveryengineV1alphaQualityMetrics;
       /** Output only. The state of the evaluation. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'PENDING'
-        | 'RUNNING'
-        | 'SUCCEEDED'
-        | 'FAILED';
+        'STATE_UNSPECIFIED' | 'PENDING' | 'RUNNING' | 'SUCCEEDED' | 'FAILED';
     }
     interface GoogleCloudDiscoveryengineV1alphaEvaluationEvaluationSpec {
       /** Optional. The specification of the query set. */
@@ -2616,9 +2609,7 @@ declare namespace gapi.client {
       extractiveContentSpec?: GoogleCloudDiscoveryengineV1alphaSearchRequestContentSearchSpecExtractiveContentSpec;
       /** Specifies the search result mode. If unspecified, the search result mode defaults to `DOCUMENTS`. */
       searchResultMode?:
-        | 'SEARCH_RESULT_MODE_UNSPECIFIED'
-        | 'DOCUMENTS'
-        | 'CHUNKS';
+        'SEARCH_RESULT_MODE_UNSPECIFIED' | 'DOCUMENTS' | 'CHUNKS';
       /** If `snippetSpec` is not specified, snippets are not included in the search response. */
       snippetSpec?: GoogleCloudDiscoveryengineV1alphaSearchRequestContentSearchSpecSnippetSpec;
       /** If `summarySpec` is not specified, summaries are not included in the search response. */
@@ -2769,14 +2760,10 @@ declare namespace gapi.client {
       allowedFieldNames?: string[];
       /** Optional. Controls behavior of how extracted filters are applied to the search. The default behavior depends on the request. For single datastore structured search, the default is `HARD_FILTER`. For multi-datastore search, the default behavior is `SOFT_BOOST`. Location-based filters are always applied as hard filters, and the `SOFT_BOOST` setting will not affect them. This field is only used if SearchRequest.NaturalLanguageQueryUnderstandingSpec.FilterExtractionCondition is set to FilterExtractionCondition.ENABLED. */
       extractedFilterBehavior?:
-        | 'EXTRACTED_FILTER_BEHAVIOR_UNSPECIFIED'
-        | 'HARD_FILTER'
-        | 'SOFT_BOOST';
+        'EXTRACTED_FILTER_BEHAVIOR_UNSPECIFIED' | 'HARD_FILTER' | 'SOFT_BOOST';
       /** The condition under which filter extraction should occur. Server behavior defaults to `DISABLED`. */
       filterExtractionCondition?:
-        | 'CONDITION_UNSPECIFIED'
-        | 'DISABLED'
-        | 'ENABLED';
+        'CONDITION_UNSPECIFIED' | 'DISABLED' | 'ENABLED';
       /** Field names used for location-based filtering, where geolocation filters are detected in natural language search queries. Only valid when the FilterExtractionCondition is set to `ENABLED`. */
       geoSearchQueryDetectionFieldNames?: string[];
     }
@@ -3278,9 +3265,7 @@ declare namespace gapi.client {
     interface GoogleCloudDiscoveryengineV1betaAdvancedCompleteQueryResponseContentSuggestion {
       /** The type of the content suggestion. */
       contentType?:
-        | 'CONTENT_TYPE_UNSPECIFIED'
-        | 'GOOGLE_WORKSPACE'
-        | 'THIRD_PARTY';
+        'CONTENT_TYPE_UNSPECIFIED' | 'GOOGLE_WORKSPACE' | 'THIRD_PARTY';
       /** The name of the dataStore that this suggestion belongs to. */
       dataStore?: string;
       /** The destination uri of the content suggestion. */
@@ -3305,9 +3290,7 @@ declare namespace gapi.client {
       document?: GoogleCloudDiscoveryengineV1betaDocument;
       /** The type of the person. */
       personType?:
-        | 'PERSON_TYPE_UNSPECIFIED'
-        | 'CLOUD_IDENTITY'
-        | 'THIRD_PARTY_IDENTITY';
+        'PERSON_TYPE_UNSPECIFIED' | 'CLOUD_IDENTITY' | 'THIRD_PARTY_IDENTITY';
       /** The score of each suggestion. The score is in the range of [0, 1]. */
       score?: number;
       /** The suggestion for the query. */
@@ -3634,9 +3617,7 @@ declare namespace gapi.client {
       orderBy?: string;
       /** Specifies the search result mode. If unspecified, the search result mode defaults to `DOCUMENTS`. See [parse and chunk documents](https://cloud.google.com/generative-ai-app-builder/docs/parse-chunk-documents) */
       searchResultMode?:
-        | 'SEARCH_RESULT_MODE_UNSPECIFIED'
-        | 'DOCUMENTS'
-        | 'CHUNKS';
+        'SEARCH_RESULT_MODE_UNSPECIFIED' | 'DOCUMENTS' | 'CHUNKS';
     }
     interface GoogleCloudDiscoveryengineV1betaAnswerQueryRequestSearchSpecSearchResultList {
       /** Search results. */
@@ -4092,10 +4073,7 @@ declare namespace gapi.client {
       matcherValue?: GoogleCloudDiscoveryengineV1betaBatchGetDocumentsMetadataResponseDocumentMetadataMatcherValue;
       /** The state of the document. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'INDEXED'
-        | 'NOT_IN_TARGET_SITE'
-        | 'NOT_IN_INDEX';
+        'STATE_UNSPECIFIED' | 'INDEXED' | 'NOT_IN_TARGET_SITE' | 'NOT_IN_INDEX';
     }
     interface GoogleCloudDiscoveryengineV1betaBatchGetDocumentsMetadataResponseDocumentMetadataMatcherValue {
       /** Format: projects/{project}/locations/{location}/datasets/{dataset}/fhirStores/{fhir_store}/fhir/{resource_type}/{fhir_resource_id} */
@@ -4149,7 +4127,9 @@ declare namespace gapi.client {
     interface GoogleCloudDiscoveryengineV1betaBigtableOptions {
       /** The mapping from family names to an object that contains column families level information for the given column family. If a family is not present in this map it will be ignored. */
       families?: {
-        [P in string]: GoogleCloudDiscoveryengineV1betaBigtableOptionsBigtableColumnFamily;
+        [
+          P in string
+        ]: GoogleCloudDiscoveryengineV1betaBigtableOptionsBigtableColumnFamily;
       };
       /** The field name used for saving row key value in the document. The name has to match the pattern `a-zA-Z0-9*`. */
       keyFieldName?: string;
@@ -4910,7 +4890,9 @@ declare namespace gapi.client {
       name?: string;
       /** Map from file type to override the default parsing configuration based on the file type. Supported keys: * `pdf`: Override parsing config for PDF files, either digital parsing, ocr parsing or layout parsing is supported. * `html`: Override parsing config for HTML files, only digital parsing and layout parsing are supported. * `docx`: Override parsing config for DOCX files, only digital parsing and layout parsing are supported. * `pptx`: Override parsing config for PPTX files, only digital parsing and layout parsing are supported. * `xlsm`: Override parsing config for XLSM files, only digital parsing and layout parsing are supported. * `xlsx`: Override parsing config for XLSX files, only digital parsing and layout parsing are supported. */
       parsingConfigOverrides?: {
-        [P in string]: GoogleCloudDiscoveryengineV1betaDocumentProcessingConfigParsingConfig;
+        [
+          P in string
+        ]: GoogleCloudDiscoveryengineV1betaDocumentProcessingConfigParsingConfig;
       };
     }
     interface GoogleCloudDiscoveryengineV1betaDocumentProcessingConfigChunkingConfig {
@@ -5028,9 +5010,7 @@ declare namespace gapi.client {
       /** Optional. Maps a model name to its specific configuration for this engine. This allows admin users to turn on/off individual models. This only stores models whose states are overridden by the admin. When the state is unspecified, or model_configs is empty for this model, the system will decide if this model should be available or not based on the default configuration. For example, a preview model should be disabled by default if the admin has not chosen to enable it. */
       modelConfigs?: {
         [P in string]:
-          | 'MODEL_STATE_UNSPECIFIED'
-          | 'MODEL_ENABLED'
-          | 'MODEL_DISABLED';
+          'MODEL_STATE_UNSPECIFIED' | 'MODEL_ENABLED' | 'MODEL_DISABLED';
       };
       /** Immutable. Identifier. The fully qualified resource name of the engine. This field must be a UTF-8 encoded string with a length limit of 1024 characters. Format: `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}` engine should be 1-63 characters, and valid characters are /a-z0-9*‍/. Otherwise, an INVALID_ARGUMENT error is returned. */
       name?: string;
@@ -5174,11 +5154,7 @@ declare namespace gapi.client {
       qualityMetrics?: GoogleCloudDiscoveryengineV1betaQualityMetrics;
       /** Output only. The state of the evaluation. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'PENDING'
-        | 'RUNNING'
-        | 'SUCCEEDED'
-        | 'FAILED';
+        'STATE_UNSPECIFIED' | 'PENDING' | 'RUNNING' | 'SUCCEEDED' | 'FAILED';
     }
     interface GoogleCloudDiscoveryengineV1betaEvaluationEvaluationSpec {
       /** Optional. The specification of the query set. */
@@ -5412,9 +5388,7 @@ declare namespace gapi.client {
       inlineSource?: GoogleCloudDiscoveryengineV1betaImportDocumentsRequestInlineSource;
       /** The mode of reconciliation between existing documents and the documents to be imported. Defaults to ReconciliationMode.INCREMENTAL. */
       reconciliationMode?:
-        | 'RECONCILIATION_MODE_UNSPECIFIED'
-        | 'INCREMENTAL'
-        | 'FULL';
+        'RECONCILIATION_MODE_UNSPECIFIED' | 'INCREMENTAL' | 'FULL';
       /** Spanner input source. */
       spannerSource?: GoogleCloudDiscoveryengineV1betaSpannerSource;
       /** Indicates which fields in the provided imported documents to update. If not set, the default is to update all fields. */
@@ -6373,9 +6347,7 @@ declare namespace gapi.client {
       extractiveContentSpec?: GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecExtractiveContentSpec;
       /** Specifies the search result mode. If unspecified, the search result mode defaults to `DOCUMENTS`. */
       searchResultMode?:
-        | 'SEARCH_RESULT_MODE_UNSPECIFIED'
-        | 'DOCUMENTS'
-        | 'CHUNKS';
+        'SEARCH_RESULT_MODE_UNSPECIFIED' | 'DOCUMENTS' | 'CHUNKS';
       /** If `snippetSpec` is not specified, snippets are not included in the search response. */
       snippetSpec?: GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecSnippetSpec;
       /** If `summarySpec` is not specified, summaries are not included in the search response. */
@@ -6526,14 +6498,10 @@ declare namespace gapi.client {
       allowedFieldNames?: string[];
       /** Optional. Controls behavior of how extracted filters are applied to the search. The default behavior depends on the request. For single datastore structured search, the default is `HARD_FILTER`. For multi-datastore search, the default behavior is `SOFT_BOOST`. Location-based filters are always applied as hard filters, and the `SOFT_BOOST` setting will not affect them. This field is only used if SearchRequest.NaturalLanguageQueryUnderstandingSpec.FilterExtractionCondition is set to FilterExtractionCondition.ENABLED. */
       extractedFilterBehavior?:
-        | 'EXTRACTED_FILTER_BEHAVIOR_UNSPECIFIED'
-        | 'HARD_FILTER'
-        | 'SOFT_BOOST';
+        'EXTRACTED_FILTER_BEHAVIOR_UNSPECIFIED' | 'HARD_FILTER' | 'SOFT_BOOST';
       /** The condition under which filter extraction should occur. Server behavior defaults to `DISABLED`. */
       filterExtractionCondition?:
-        | 'CONDITION_UNSPECIFIED'
-        | 'DISABLED'
-        | 'ENABLED';
+        'CONDITION_UNSPECIFIED' | 'DISABLED' | 'ENABLED';
       /** Field names used for location-based filtering, where geolocation filters are detected in natural language search queries. Only valid when the FilterExtractionCondition is set to `ENABLED`. */
       geoSearchQueryDetectionFieldNames?: string[];
     }
@@ -7924,7 +7892,9 @@ declare namespace gapi.client {
       name?: string;
       /** Map from file type to override the default parsing configuration based on the file type. Supported keys: * `pdf`: Override parsing config for PDF files, either digital parsing, ocr parsing or layout parsing is supported. * `html`: Override parsing config for HTML files, only digital parsing and layout parsing are supported. * `docx`: Override parsing config for DOCX files, only digital parsing and layout parsing are supported. * `pptx`: Override parsing config for PPTX files, only digital parsing and layout parsing are supported. * `xlsm`: Override parsing config for XLSM files, only digital parsing and layout parsing are supported. * `xlsx`: Override parsing config for XLSX files, only digital parsing and layout parsing are supported. */
       parsingConfigOverrides?: {
-        [P in string]: GoogleCloudDiscoveryengineV1DocumentProcessingConfigParsingConfig;
+        [
+          P in string
+        ]: GoogleCloudDiscoveryengineV1DocumentProcessingConfigParsingConfig;
       };
     }
     interface GoogleCloudDiscoveryengineV1DocumentProcessingConfigChunkingConfig {
@@ -8043,9 +8013,7 @@ declare namespace gapi.client {
       /** Optional. Maps a model name to its specific configuration for this engine. This allows admin users to turn on/off individual models. This only stores models whose states are overridden by the admin. When the state is unspecified, or model_configs is empty for this model, the system will decide if this model should be available or not based on the default configuration. For example, a preview model should be disabled by default if the admin has not chosen to enable it. */
       modelConfigs?: {
         [P in string]:
-          | 'MODEL_STATE_UNSPECIFIED'
-          | 'MODEL_ENABLED'
-          | 'MODEL_DISABLED';
+          'MODEL_STATE_UNSPECIFIED' | 'MODEL_ENABLED' | 'MODEL_DISABLED';
       };
       /** Immutable. Identifier. The fully qualified resource name of the engine. This field must be a UTF-8 encoded string with a length limit of 1024 characters. Format: `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}` engine should be 1-63 characters, and valid characters are /a-z0-9*‍/. Otherwise, an INVALID_ARGUMENT error is returned. */
       name?: string;
@@ -8516,9 +8484,7 @@ declare namespace gapi.client {
       extractiveContentSpec?: GoogleCloudDiscoveryengineV1SearchRequestContentSearchSpecExtractiveContentSpec;
       /** Specifies the search result mode. If unspecified, the search result mode defaults to `DOCUMENTS`. */
       searchResultMode?:
-        | 'SEARCH_RESULT_MODE_UNSPECIFIED'
-        | 'DOCUMENTS'
-        | 'CHUNKS';
+        'SEARCH_RESULT_MODE_UNSPECIFIED' | 'DOCUMENTS' | 'CHUNKS';
       /** If `snippetSpec` is not specified, snippets are not included in the search response. */
       snippetSpec?: GoogleCloudDiscoveryengineV1SearchRequestContentSearchSpecSnippetSpec;
       /** If `summarySpec` is not specified, summaries are not included in the search response. */

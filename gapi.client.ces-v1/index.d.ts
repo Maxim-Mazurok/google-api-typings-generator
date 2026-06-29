@@ -204,9 +204,7 @@ declare namespace gapi.client {
       keyName?: string;
       /** Required. Key location in the request. */
       requestLocation?:
-        | 'REQUEST_LOCATION_UNSPECIFIED'
-        | 'HEADER'
-        | 'QUERY_STRING';
+        'REQUEST_LOCATION_UNSPECIFIED' | 'HEADER' | 'QUERY_STRING';
     }
     interface App {
       /** Optional. Audio processing configuration of the app. */
@@ -257,9 +255,7 @@ declare namespace gapi.client {
       timeZoneSettings?: TimeZoneSettings;
       /** Optional. The tool execution mode for the app. If not provided, will default to PARALLEL. */
       toolExecutionMode?:
-        | 'TOOL_EXECUTION_MODE_UNSPECIFIED'
-        | 'PARALLEL'
-        | 'SEQUENTIAL';
+        'TOOL_EXECUTION_MODE_UNSPECIFIED' | 'PARALLEL' | 'SEQUENTIAL';
       /** Output only. Timestamp when the app was last updated. */
       updateTime?: string;
       /** Output only. Misconfigurations or warnings in the app. */
@@ -526,10 +522,7 @@ declare namespace gapi.client {
       appVersion?: string;
       /** DEPRECATED. Please use input_types instead. */
       channelType?:
-        | 'CHANNEL_TYPE_UNSPECIFIED'
-        | 'TEXT'
-        | 'AUDIO'
-        | 'MULTIMODAL';
+        'CHANNEL_TYPE_UNSPECIFIED' | 'TEXT' | 'AUDIO' | 'MULTIMODAL';
       /** Output only. The deployment of the app used for processing the conversation. Format: `projects/{project}/locations/{location}/apps/{app}/deployments/{deployment}` */
       deployment?: string;
       /** Output only. Timestamp when the conversation was completed. */
@@ -554,11 +547,7 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. Indicate the source of the conversation. */
       source?:
-        | 'SOURCE_UNSPECIFIED'
-        | 'LIVE'
-        | 'SIMULATOR'
-        | 'EVAL'
-        | 'AGENT_TOOL';
+        'SOURCE_UNSPECIFIED' | 'LIVE' | 'SIMULATOR' | 'EVAL' | 'AGENT_TOOL';
       /** Output only. Timestamp when the conversation was created. */
       startTime?: string;
       /** Output only. The number of turns in the conversation. */
@@ -587,9 +576,7 @@ declare namespace gapi.client {
       displayName?: string;
       /** Output only. The document processing mode for the data store connection. Only set for PUBLIC_WEB and UNSTRUCTURED data stores. */
       documentProcessingMode?:
-        | 'DOCUMENT_PROCESSING_MODE_UNSPECIFIED'
-        | 'DOCUMENTS'
-        | 'CHUNKS';
+        'DOCUMENT_PROCESSING_MODE_UNSPECIFIED' | 'DOCUMENTS' | 'CHUNKS';
       /** Required. Full resource name of the DataStore. Format: `projects/{project}/locations/{location}/collections/{collection}/dataStores/{dataStore}` */
       name?: string;
       /** Output only. The type of the data store. This field is readonly and populated by the server. */
@@ -741,9 +728,7 @@ declare namespace gapi.client {
       allowedOrigins?: string[];
       /** Optional. The scope in which this policy's allowed_origins list is enforced. */
       enforcementScope?:
-        | 'ENFORCEMENT_SCOPE_UNSPECIFIED'
-        | 'VPCSC_ONLY'
-        | 'ALWAYS';
+        'ENFORCEMENT_SCOPE_UNSPECIFIED' | 'VPCSC_ONLY' | 'ALWAYS';
     }
     interface EndSession {
       /** Optional. Provides additional information about the end session signal, such as the reason for ending the session. */
@@ -794,19 +779,13 @@ declare namespace gapi.client {
       goldenEvaluationMetricsThresholds?: EvaluationMetricsThresholdsGoldenEvaluationMetricsThresholds;
       /** Optional. The hallucination metric behavior for golden evaluations. */
       goldenHallucinationMetricBehavior?:
-        | 'HALLUCINATION_METRIC_BEHAVIOR_UNSPECIFIED'
-        | 'DISABLED'
-        | 'ENABLED';
+        'HALLUCINATION_METRIC_BEHAVIOR_UNSPECIFIED' | 'DISABLED' | 'ENABLED';
       /** Optional. Deprecated: Use `golden_hallucination_metric_behavior` instead. The hallucination metric behavior is currently used for golden evaluations. */
       hallucinationMetricBehavior?:
-        | 'HALLUCINATION_METRIC_BEHAVIOR_UNSPECIFIED'
-        | 'DISABLED'
-        | 'ENABLED';
+        'HALLUCINATION_METRIC_BEHAVIOR_UNSPECIFIED' | 'DISABLED' | 'ENABLED';
       /** Optional. The hallucination metric behavior for scenario evaluations. */
       scenarioHallucinationMetricBehavior?:
-        | 'HALLUCINATION_METRIC_BEHAVIOR_UNSPECIFIED'
-        | 'DISABLED'
-        | 'ENABLED';
+        'HALLUCINATION_METRIC_BEHAVIOR_UNSPECIFIED' | 'DISABLED' | 'ENABLED';
     }
     interface EvaluationMetricsThresholdsGoldenEvaluationMetricsThresholds {
       /** Optional. The expectation level metrics thresholds. */
@@ -825,18 +804,14 @@ declare namespace gapi.client {
       overallToolInvocationCorrectnessThreshold?: number;
       /** Optional. The semantic similarity channel to use for evaluation. */
       semanticSimilarityChannel?:
-        | 'SEMANTIC_SIMILARITY_CHANNEL_UNSPECIFIED'
-        | 'TEXT'
-        | 'AUDIO';
+        'SEMANTIC_SIMILARITY_CHANNEL_UNSPECIFIED' | 'TEXT' | 'AUDIO';
       /** Optional. The success threshold for semantic similarity. Must be an integer between 0 and 4. Default is >= 3. */
       semanticSimilaritySuccessThreshold?: number;
     }
     interface EvaluationMetricsThresholdsToolMatchingSettings {
       /** Optional. Behavior for extra tool calls. Defaults to FAIL. */
       extraToolCallBehavior?:
-        | 'EXTRA_TOOL_CALL_BEHAVIOR_UNSPECIFIED'
-        | 'FAIL'
-        | 'ALLOW';
+        'EXTRA_TOOL_CALL_BEHAVIOR_UNSPECIFIED' | 'FAIL' | 'ALLOW';
     }
     interface Event {
       /** Required. The name of the event. */
@@ -1100,9 +1075,7 @@ declare namespace gapi.client {
     interface ImportAppRequestImportOptions {
       /** Optional. The strategy to use when resolving conflicts during import. */
       conflictResolutionStrategy?:
-        | 'CONFLICT_RESOLUTION_STRATEGY_UNSPECIFIED'
-        | 'REPLACE'
-        | 'OVERWRITE';
+        'CONFLICT_RESOLUTION_STRATEGY_UNSPECIFIED' | 'REPLACE' | 'OVERWRITE';
     }
     interface ImportAppResponse {
       /** The resource name of the app that was imported. */
@@ -1113,10 +1086,7 @@ declare namespace gapi.client {
     interface InputAudioConfig {
       /** Required. The encoding of the input audio data. */
       audioEncoding?:
-        | 'AUDIO_ENCODING_UNSPECIFIED'
-        | 'LINEAR16'
-        | 'MULAW'
-        | 'ALAW';
+        'AUDIO_ENCODING_UNSPECIFIED' | 'LINEAR16' | 'MULAW' | 'ALAW';
       /** Optional. Whether to enable noise suppression on the input audio. Available values are "low", "moderate", "high", "very_high". */
       noiseSuppressionLevel?: string;
       /** Required. The sample rate (in Hertz) of the input audio data. */
@@ -1434,9 +1404,7 @@ declare namespace gapi.client {
       mockedToolCalls?: MockedToolCall[];
       /** Required. Beavhior for tool calls that don't match any args patterns in mocked_tool_calls. */
       unmatchedToolCallBehavior?:
-        | 'UNMATCHED_TOOL_CALL_BEHAVIOR_UNSPECIFIED'
-        | 'FAIL'
-        | 'PASS_THROUGH';
+        'UNMATCHED_TOOL_CALL_BEHAVIOR_UNSPECIFIED' | 'FAIL' | 'PASS_THROUGH';
     }
     interface MockedToolCall {
       /** Required. A pattern to match against the args / inputs of all dispatched tool calls. If the tool call inputs match this pattern, then mock output will be returned. */
@@ -1525,10 +1493,7 @@ declare namespace gapi.client {
     interface OutputAudioConfig {
       /** Required. The encoding of the output audio data. */
       audioEncoding?:
-        | 'AUDIO_ENCODING_UNSPECIFIED'
-        | 'LINEAR16'
-        | 'MULAW'
-        | 'ALAW';
+        'AUDIO_ENCODING_UNSPECIFIED' | 'LINEAR16' | 'MULAW' | 'ALAW';
       /** Required. The sample rate (in Hertz) of the output audio data. */
       sampleRateHertz?: number;
     }
@@ -1810,9 +1775,7 @@ declare namespace gapi.client {
       etag?: string;
       /** Optional. The execution type of the tool. */
       executionType?:
-        | 'EXECUTION_TYPE_UNSPECIFIED'
-        | 'SYNCHRONOUS'
-        | 'ASYNCHRONOUS';
+        'EXECUTION_TYPE_UNSPECIFIED' | 'SYNCHRONOUS' | 'ASYNCHRONOUS';
       /** Optional. The file search tool. */
       fileSearchTool?: FileSearchTool;
       /** Output only. If the tool is generated by the LLM assistant, this field contains a descriptive summary of the generation. */
@@ -1891,9 +1854,7 @@ declare namespace gapi.client {
       etag?: string;
       /** Optional. The execution type of the tools in the toolset. */
       executionType?:
-        | 'EXECUTION_TYPE_UNSPECIFIED'
-        | 'SYNCHRONOUS'
-        | 'ASYNCHRONOUS';
+        'EXECUTION_TYPE_UNSPECIFIED' | 'SYNCHRONOUS' | 'ASYNCHRONOUS';
       /** Optional. A toolset that contains a list of tools that are offered by the MCP server. */
       mcpToolset?: McpToolset;
       /** Identifier. The unique identifier of the toolset. Format: `projects/{project}/locations/{location}/apps/{app}/toolsets/{toolset}` */
@@ -1918,9 +1879,7 @@ declare namespace gapi.client {
       deterministicTransfer?: TransferRuleDeterministicTransfer;
       /** Required. The direction of the transfer. */
       direction?:
-        | 'DIRECTION_UNSPECIFIED'
-        | 'PARENT_TO_CHILD'
-        | 'CHILD_TO_PARENT';
+        'DIRECTION_UNSPECIFIED' | 'PARENT_TO_CHILD' | 'CHILD_TO_PARENT';
       /** Optional. Rule that prevents the planner from transferring to the target agent. */
       disablePlannerTransfer?: TransferRuleDisablePlannerTransfer;
     }
@@ -2385,11 +2344,7 @@ declare namespace gapi.client {
         quotaUser?: string;
         /** Optional. Indicate the source of the conversation. If not set, Source.Live will be applied by default. */
         source?:
-          | 'SOURCE_UNSPECIFIED'
-          | 'LIVE'
-          | 'SIMULATOR'
-          | 'EVAL'
-          | 'AGENT_TOOL';
+          'SOURCE_UNSPECIFIED' | 'LIVE' | 'SIMULATOR' | 'EVAL' | 'AGENT_TOOL';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -2419,11 +2374,7 @@ declare namespace gapi.client {
         quotaUser?: string;
         /** Optional. Indicate the source of the conversation. If not set, all source will be searched. */
         source?:
-          | 'SOURCE_UNSPECIFIED'
-          | 'LIVE'
-          | 'SIMULATOR'
-          | 'EVAL'
-          | 'AGENT_TOOL';
+          'SOURCE_UNSPECIFIED' | 'LIVE' | 'SIMULATOR' | 'EVAL' | 'AGENT_TOOL';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -2459,11 +2410,7 @@ declare namespace gapi.client {
         quotaUser?: string;
         /** Optional. Indicate the source of the conversation. If not set, Source.Live will be applied by default. Will be deprecated in favor of `sources` field. */
         source?:
-          | 'SOURCE_UNSPECIFIED'
-          | 'LIVE'
-          | 'SIMULATOR'
-          | 'EVAL'
-          | 'AGENT_TOOL';
+          'SOURCE_UNSPECIFIED' | 'LIVE' | 'SIMULATOR' | 'EVAL' | 'AGENT_TOOL';
         /** Optional. Indicate the sources of the conversations. If not set, all available sources will be applied by default. */
         sources?:
           | 'SOURCE_UNSPECIFIED'

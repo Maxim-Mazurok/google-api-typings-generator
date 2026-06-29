@@ -172,9 +172,7 @@ declare namespace gapi.client {
         | 'DEVICE_TYPE_TABLET'[];
       /** Optional. The environment to target. If unspecified, all environments are targeted. */
       includedEnvironment?:
-        | 'ENVIRONMENT_UNSPECIFIED'
-        | 'ENVIRONMENT_SITE'
-        | 'ENVIRONMENT_APP';
+        'ENVIRONMENT_UNSPECIFIED' | 'ENVIRONMENT_SITE' | 'ENVIRONMENT_APP';
       /** Optional. The targeted native inventory types. If empty, inventory will be targeted regardless of native inventory type. */
       includedNativeInventoryTypes?:
         | 'NATIVE_INVENTORY_TYPE_UNSPECIFIED'
@@ -182,8 +180,7 @@ declare namespace gapi.client {
         | 'NATIVE_INVENTORY_TYPE_NATIVE_OR_BANNER'[];
       /** Optional. The list of targeted open measurement types. If empty, inventory will be targeted regardless of Open Measurement support. */
       includedOpenMeasurementTypes?:
-        | 'OPEN_MEASUREMENT_TYPE_UNSPECIFIED'
-        | 'OPEN_MEASUREMENT_TYPE_OMID_V1'[];
+        'OPEN_MEASUREMENT_TYPE_UNSPECIFIED' | 'OPEN_MEASUREMENT_TYPE_OMID_V1'[];
       /** Optional. The list of targeted restricted categories. If empty, inventory will be targeted regardless of restricted categories. */
       includedRestrictedCategories?:
         | 'RESTRICTED_CATEGORY_UNSPECIFIED'

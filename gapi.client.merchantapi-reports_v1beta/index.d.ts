@@ -65,9 +65,7 @@ declare namespace gapi.client {
       reportDate?: Date;
       /** Granularity of the report. The ranking can be done over a week or a month timeframe. Required in the `SELECT` clause. Condition on `report_granularity` is required in the `WHERE` clause. */
       reportGranularity?:
-        | 'REPORT_GRANULARITY_ENUM_UNSPECIFIED'
-        | 'WEEKLY'
-        | 'MONTHLY';
+        'REPORT_GRANULARITY_ENUM_UNSPECIFIED' | 'WEEKLY' | 'MONTHLY';
     }
     interface BestSellersProductClusterView {
       /** Brand of the product cluster. */
@@ -128,9 +126,7 @@ declare namespace gapi.client {
       reportDate?: Date;
       /** Granularity of the report. The ranking can be done over a week or a month timeframe. Required in the `SELECT` clause. Condition on `report_granularity` is required in the `WHERE` clause. */
       reportGranularity?:
-        | 'REPORT_GRANULARITY_ENUM_UNSPECIFIED'
-        | 'WEEKLY'
-        | 'MONTHLY';
+        'REPORT_GRANULARITY_ENUM_UNSPECIFIED' | 'WEEKLY' | 'MONTHLY';
       /** Title of the product cluster. */
       title?: string;
       /** GTINs of example variants of the product cluster. */
@@ -147,10 +143,7 @@ declare namespace gapi.client {
       reportCountryCode?: string;
       /** Traffic source of impressions. Required in the `SELECT` clause. */
       trafficSource?:
-        | 'TRAFFIC_SOURCE_ENUM_UNSPECIFIED'
-        | 'ORGANIC'
-        | 'ADS'
-        | 'ALL';
+        'TRAFFIC_SOURCE_ENUM_UNSPECIFIED' | 'ORGANIC' | 'ADS' | 'ALL';
       /** Change in visibility based on impressions for your domain with respect to the start of the selected time range (or first day with non-zero impressions). Cannot be filtered on in the 'WHERE' clause. */
       yourDomainVisibilityTrend?: number;
     }
@@ -177,10 +170,7 @@ declare namespace gapi.client {
       reportCountryCode?: string;
       /** Traffic source of impressions. Required in the `SELECT` clause. */
       trafficSource?:
-        | 'TRAFFIC_SOURCE_ENUM_UNSPECIFIED'
-        | 'ORGANIC'
-        | 'ADS'
-        | 'ALL';
+        'TRAFFIC_SOURCE_ENUM_UNSPECIFIED' | 'ORGANIC' | 'ADS' | 'ALL';
     }
     interface CompetitiveVisibilityTopMerchantView {
       /** [Ads / organic ratio] (https://support.google.com/merchants/answer/11366442#zippy=%2Cads-free-ratio) shows how often the domain receives impressions from Shopping ads compared to organic traffic. The number is rounded and bucketed. Cannot be filtered on in the 'WHERE' clause. */
@@ -203,10 +193,7 @@ declare namespace gapi.client {
       reportCountryCode?: string;
       /** Traffic source of impressions. Required in the `SELECT` clause. */
       trafficSource?:
-        | 'TRAFFIC_SOURCE_ENUM_UNSPECIFIED'
-        | 'ORGANIC'
-        | 'ADS'
-        | 'ALL';
+        'TRAFFIC_SOURCE_ENUM_UNSPECIFIED' | 'ORGANIC' | 'ADS' | 'ALL';
     }
     interface Date {
       /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
@@ -452,9 +439,7 @@ declare namespace gapi.client {
       productTypeL5?: string;
       /** Store type to which metrics apply. Can be `ONLINE_STORE` or `LOCAL_STORES`. Segment. For `LOCAL_STORES` store type, further segmentation by a specific store is not available. */
       storeType?:
-        | 'STORE_TYPE_ENUM_UNSPECIFIED'
-        | 'ONLINE_STORE'
-        | 'LOCAL_STORES';
+        'STORE_TYPE_ENUM_UNSPECIFIED' | 'ONLINE_STORE' | 'LOCAL_STORES';
       /** Title of the product. Segment. */
       title?: string;
       /** First day of the week (Monday) of the metrics date in the merchant timezone. Segment. */
@@ -506,10 +491,7 @@ declare namespace gapi.client {
       channel?: 'CHANNEL_ENUM_UNSPECIFIED' | 'ONLINE' | 'LOCAL';
       /** Estimated performance potential compared to highest performing products of the merchant. */
       clickPotential?:
-        | 'CLICK_POTENTIAL_UNSPECIFIED'
-        | 'LOW'
-        | 'MEDIUM'
-        | 'HIGH';
+        'CLICK_POTENTIAL_UNSPECIFIED' | 'LOW' | 'MEDIUM' | 'HIGH';
       /** Normalized click potential of the product. Values range from 1 to 1000, where 1 is the highest click potential and 1000 is the theoretical lowest. */
       clickPotentialRank?: string;
       /** [Condition](https://support.google.com/merchants/answer/6324469) of the product. */

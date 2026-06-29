@@ -45,10 +45,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface BaseType {
       /** Allows resource handling overrides for specific collections */
@@ -693,7 +690,9 @@ declare namespace gapi.client {
       clientOperationId?: string;
       /** [Output Only] Status information per location (location name is key). Example key: zones/us-central1-a */
       perLocationOperations?: {
-        [P in string]: SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo;
+        [
+          P in string
+        ]: SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo;
       };
     }
     interface SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo {

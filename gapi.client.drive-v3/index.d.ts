@@ -1026,10 +1026,7 @@ declare namespace gapi.client {
       kind?: string;
       /** A reviewer’s response for the approval. */
       response?:
-        | 'RESPONSE_UNSPECIFIED'
-        | 'NO_RESPONSE'
-        | 'APPROVED'
-        | 'DECLINED';
+        'RESPONSE_UNSPECIFIED' | 'NO_RESPONSE' | 'APPROVED' | 'DECLINED';
       /** The user that's responsible for this response. */
       reviewer?: User;
     }

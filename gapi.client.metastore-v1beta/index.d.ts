@@ -54,10 +54,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface AutoscalingConfig {
       /** Optional. Whether or not autoscaling is enabled for this service. */
@@ -411,11 +408,7 @@ declare namespace gapi.client {
       startTime?: string;
       /** Output only. The current state of the export. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'RUNNING'
-        | 'SUCCEEDED'
-        | 'FAILED'
-        | 'CANCELLED';
+        'STATE_UNSPECIFIED' | 'RUNNING' | 'SUCCEEDED' | 'FAILED' | 'CANCELLED';
     }
     interface MetadataImport {
       /** Output only. The time when the metadata import was started. */
@@ -430,11 +423,7 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. The current state of the metadata import. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'RUNNING'
-        | 'SUCCEEDED'
-        | 'UPDATING'
-        | 'FAILED';
+        'STATE_UNSPECIFIED' | 'RUNNING' | 'SUCCEEDED' | 'UPDATING' | 'FAILED';
       /** Output only. The time when the metadata import was last updated. */
       updateTime?: string;
     }
@@ -571,11 +560,7 @@ declare namespace gapi.client {
       startTime?: string;
       /** Output only. The current state of the restore. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'RUNNING'
-        | 'SUCCEEDED'
-        | 'FAILED'
-        | 'CANCELLED';
+        'STATE_UNSPECIFIED' | 'RUNNING' | 'SUCCEEDED' | 'FAILED' | 'CANCELLED';
       /** Output only. The type of restore. */
       type?: 'RESTORE_TYPE_UNSPECIFIED' | 'FULL' | 'METADATA_ONLY';
     }

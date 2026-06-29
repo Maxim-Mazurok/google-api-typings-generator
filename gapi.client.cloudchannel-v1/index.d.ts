@@ -182,10 +182,7 @@ declare namespace gapi.client {
     interface GoogleCloudChannelV1alpha1OpportunityEvent {
       /** Type of event which happened for the opportunity. */
       eventType?:
-        | 'TYPE_UNSPECIFIED'
-        | 'CREATED'
-        | 'UPDATED'
-        | 'PARTNER_DETACHED';
+        'TYPE_UNSPECIFIED' | 'CREATED' | 'UPDATED' | 'PARTNER_DETACHED';
       /** Resource name of the opportunity. Format: opportunities/{opportunity} */
       opportunity?: string;
       /** Resource name of the partner. Format: partners/{partner} */
@@ -268,11 +265,7 @@ declare namespace gapi.client {
       startTime?: string;
       /** The current state of the report generation process. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'STARTED'
-        | 'WRITING'
-        | 'AVAILABLE'
-        | 'FAILED';
+        'STATE_UNSPECIFIED' | 'STARTED' | 'WRITING' | 'AVAILABLE' | 'FAILED';
     }
     interface GoogleCloudChannelV1alpha1RunReportJobResponse {
       /** Pass `report_job.name` to FetchReportResultsRequest.report_job to retrieve the report's results. */
@@ -475,9 +468,7 @@ declare namespace gapi.client {
       adjustment?: GoogleCloudChannelV1RepricingAdjustment;
       /** Required. The RebillingBasis to use for the applied override. Shows the relative cost based on your repricing costs. */
       rebillingBasis?:
-        | 'REBILLING_BASIS_UNSPECIFIED'
-        | 'COST_AT_LIST'
-        | 'DIRECT_CUSTOMER_COST';
+        'REBILLING_BASIS_UNSPECIFIED' | 'COST_AT_LIST' | 'DIRECT_CUSTOMER_COST';
       /** Required. Specifies the condition which, if met, will apply the override. */
       repricingCondition?: GoogleCloudChannelV1RepricingCondition;
     }
@@ -628,9 +619,7 @@ declare namespace gapi.client {
       provisionedService?: GoogleCloudChannelV1ProvisionedService;
       /** Output only. Current provisioning state of the entitlement. */
       provisioningState?:
-        | 'PROVISIONING_STATE_UNSPECIFIED'
-        | 'ACTIVE'
-        | 'SUSPENDED';
+        'PROVISIONING_STATE_UNSPECIFIED' | 'ACTIVE' | 'SUSPENDED';
       /** Optional. This purchase order (PO) information is for resellers to use for their company tracking usage. If a purchaseOrderId value is given, it appears in the API responses and shows up in the invoice. The property accepts up to 80 plain text characters. This is only supported for Google Workspace entitlements. */
       purchaseOrderId?: string;
       /** Output only. Enumerable of all current suspension reasons for an entitlement. */
@@ -1148,11 +1137,7 @@ declare namespace gapi.client {
       startTime?: string;
       /** The current state of the report generation process. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'STARTED'
-        | 'WRITING'
-        | 'AVAILABLE'
-        | 'FAILED';
+        'STATE_UNSPECIFIED' | 'STARTED' | 'WRITING' | 'AVAILABLE' | 'FAILED';
     }
     interface GoogleCloudChannelV1ReportValue {
       /** A value of type `google.type.DateTime` (year, month, day, hour, minute, second, and UTC offset or timezone.) */
@@ -1189,9 +1174,7 @@ declare namespace gapi.client {
       entitlementGranularity?: GoogleCloudChannelV1RepricingConfigEntitlementGranularity;
       /** Required. The RebillingBasis to use for this bill. Specifies the relative cost based on repricing costs you will apply. */
       rebillingBasis?:
-        | 'REBILLING_BASIS_UNSPECIFIED'
-        | 'COST_AT_LIST'
-        | 'DIRECT_CUSTOMER_COST';
+        'REBILLING_BASIS_UNSPECIFIED' | 'COST_AT_LIST' | 'DIRECT_CUSTOMER_COST';
     }
     interface GoogleCloudChannelV1RepricingConfigChannelPartnerGranularity {}
     interface GoogleCloudChannelV1RepricingConfigEntitlementGranularity {
@@ -3139,9 +3122,7 @@ declare namespace gapi.client {
         callback?: string;
         /** Required. Change Type for the entitlement. */
         'changeOfferPurchase.changeType'?:
-          | 'CHANGE_TYPE_UNSPECIFIED'
-          | 'UPGRADE'
-          | 'DOWNGRADE';
+          'CHANGE_TYPE_UNSPECIFIED' | 'UPGRADE' | 'DOWNGRADE';
         /** Required. Resource name of the entitlement. Format: accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id} */
         'changeOfferPurchase.entitlement'?: string;
         /** Required. List SKUs belonging to this Product. Format: products/{product_id}. Supports products/- to retrieve SKUs for all products. */

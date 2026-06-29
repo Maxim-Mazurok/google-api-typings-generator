@@ -152,9 +152,7 @@ declare namespace gapi.client {
       downloadUrl?: string;
       /** Output only. Status in Google Maps, whether this photo was published or rejected. */
       mapsPublishStatus?:
-        | 'UNSPECIFIED_MAPS_PUBLISH_STATUS'
-        | 'PUBLISHED'
-        | 'REJECTED_UNKNOWN';
+        'UNSPECIFIED_MAPS_PUBLISH_STATUS' | 'PUBLISHED' | 'REJECTED_UNKNOWN';
       /** Required. Output only. Required when updating a photo. Output only when creating a photo. Identifier for the photo, which is unique among all photos in Google. */
       photoId?: PhotoId;
       /** Optional. Places where this photo belongs. */

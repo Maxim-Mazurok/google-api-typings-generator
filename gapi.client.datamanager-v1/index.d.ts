@@ -118,9 +118,7 @@ declare namespace gapi.client {
       eventSubtypeString?: string;
       /** Required. The type of the event. */
       eventType?:
-        | 'EVENT_TYPE_UNSPECIFIED'
-        | 'EVENT_TYPE_VIEW'
-        | 'EVENT_TYPE_CLICK';
+        'EVENT_TYPE_UNSPECIFIED' | 'EVENT_TYPE_VIEW' | 'EVENT_TYPE_CLICK';
       /** Optional. Represents if the row is allowed to be used for measurement purposes, as governed by applicable privacy laws within regional jurisdiction. */
       measurementAllowed?: boolean;
       /** Required. The medium of the ad, akin to the Google Analytics medium. */
@@ -248,14 +246,10 @@ declare namespace gapi.client {
     interface Consent {
       /** Optional. Represents if the user consents to ad personalization. */
       adPersonalization?:
-        | 'CONSENT_STATUS_UNSPECIFIED'
-        | 'CONSENT_GRANTED'
-        | 'CONSENT_DENIED';
+        'CONSENT_STATUS_UNSPECIFIED' | 'CONSENT_GRANTED' | 'CONSENT_DENIED';
       /** Optional. Represents if the user consents to ad user data. */
       adUserData?:
-        | 'CONSENT_STATUS_UNSPECIFIED'
-        | 'CONSENT_GRANTED'
-        | 'CONSENT_DENIED';
+        'CONSENT_STATUS_UNSPECIFIED' | 'CONSENT_GRANTED' | 'CONSENT_DENIED';
     }
     interface ContactIdInfo {
       /** Optional. Immutable. Source of the upload data */
@@ -859,10 +853,7 @@ declare namespace gapi.client {
       billableRecordCount?: string;
       /** Output only. Sync status of the user list. */
       syncStatus?:
-        | 'SYNC_STATUS_UNSPECIFIED'
-        | 'CREATED'
-        | 'READY_FOR_USE'
-        | 'FAILED';
+        'SYNC_STATUS_UNSPECIFIED' | 'CREATED' | 'READY_FOR_USE' | 'FAILED';
     }
     interface RemoveAudienceMembersRequest {
       /** Required. The list of users to remove. */
@@ -998,9 +989,7 @@ declare namespace gapi.client {
     interface TermsOfService {
       /** Optional. The Customer Match terms of service: https://support.google.com/adspolicy/answer/6299717. This must be accepted when ingesting UserData or MobileData. This field is not required for Partner Match User list. */
       customerMatchTermsOfServiceStatus?:
-        | 'TERMS_OF_SERVICE_STATUS_UNSPECIFIED'
-        | 'ACCEPTED'
-        | 'REJECTED';
+        'TERMS_OF_SERVICE_STATUS_UNSPECIFIED' | 'ACCEPTED' | 'REJECTED';
     }
     interface UserData {
       /** Required. The identifiers for the user. It's possible to provide multiple instances of the same type of data (for example, multiple email addresses). To increase the likelihood of a match, provide as many identifiers as possible. At most 10 `userIdentifiers` can be provided in a single AudienceMember or Event. */
@@ -1038,9 +1027,7 @@ declare namespace gapi.client {
         | 'AFFILIATED';
       /** Optional. Indicates if this share is still enabled. When a user list is shared with the account this field is set to `ENABLED`. Later the user list owner can decide to revoke the share and make it `DISABLED`. */
       accountAccessStatus?:
-        | 'ACCESS_STATUS_UNSPECIFIED'
-        | 'ENABLED'
-        | 'DISABLED';
+        'ACCESS_STATUS_UNSPECIFIED' | 'ENABLED' | 'DISABLED';
       /** Output only. The reason why this user list membership status is closed. */
       closingReason?: 'CLOSING_REASON_UNSPECIFIED' | 'UNUSED';
       /** Optional. A description of the user list. */
@@ -1202,16 +1189,10 @@ declare namespace gapi.client {
       additionalUserProperties?: UserProperty[];
       /** Optional. Type of the customer associated with the event. */
       customerType?:
-        | 'CUSTOMER_TYPE_UNSPECIFIED'
-        | 'NEW'
-        | 'RETURNING'
-        | 'REENGAGED';
+        'CUSTOMER_TYPE_UNSPECIFIED' | 'NEW' | 'RETURNING' | 'REENGAGED';
       /** Optional. The advertiser-assessed value of the customer. */
       customerValueBucket?:
-        | 'CUSTOMER_VALUE_BUCKET_UNSPECIFIED'
-        | 'LOW'
-        | 'MEDIUM'
-        | 'HIGH';
+        'CUSTOMER_VALUE_BUCKET_UNSPECIFIED' | 'LOW' | 'MEDIUM' | 'HIGH';
     }
     interface UserProperty {
       /** Required. The name of the user property to use. */

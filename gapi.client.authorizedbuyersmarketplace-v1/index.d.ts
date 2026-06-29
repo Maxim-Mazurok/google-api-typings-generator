@@ -123,10 +123,7 @@ declare namespace gapi.client {
     interface CreativeRequirements {
       /** Output only. The format of the creative, only applicable for programmatic guaranteed and preferred deals. */
       creativeFormat?:
-        | 'CREATIVE_FORMAT_UNSPECIFIED'
-        | 'DISPLAY'
-        | 'VIDEO'
-        | 'AUDIO';
+        'CREATIVE_FORMAT_UNSPECIFIED' | 'DISPLAY' | 'VIDEO' | 'AUDIO';
       /** Output only. Specifies the creative pre-approval policy. */
       creativePreApprovalPolicy?:
         | 'CREATIVE_PRE_APPROVAL_POLICY_UNSPECIFIED'
@@ -141,9 +138,7 @@ declare namespace gapi.client {
       maxAdDurationMs?: string;
       /** Output only. Specifies the creative source for programmatic deals. PUBLISHER means creative is provided by seller and ADVERTISER means creative is provided by the buyer. */
       programmaticCreativeSource?:
-        | 'PROGRAMMATIC_CREATIVE_SOURCE_UNSPECIFIED'
-        | 'ADVERTISER'
-        | 'PUBLISHER';
+        'PROGRAMMATIC_CREATIVE_SOURCE_UNSPECIFIED' | 'ADVERTISER' | 'PUBLISHER';
       /** Output only. Skippable video ads allow viewers to skip ads after 5 seconds. Only applicable for deals with video creatives. */
       skippableAdType?:
         | 'SKIPPABLE_AD_TYPE_UNSPECIFIED'
@@ -189,9 +184,7 @@ declare namespace gapi.client {
       buyer?: string;
       /** Output only. The buyer permission type of the deal. */
       buyerPermissionType?:
-        | 'BUYER_PERMISSION_TYPE_UNSPECIFIED'
-        | 'NEGOTIATOR_ONLY'
-        | 'BIDDER';
+        'BUYER_PERMISSION_TYPE_UNSPECIFIED' | 'NEGOTIATOR_ONLY' | 'BIDDER';
       /** Output only. Refers to a Client. Format: `buyers/{buyerAccountId}/clients/{clientAccountid}` */
       client?: string;
       /** Output only. The time of the deal creation. */
@@ -478,9 +471,7 @@ declare namespace gapi.client {
       percentShareOfVoice?: string;
       /** The reservation type for a Programmatic Guaranteed deal. This indicates whether the number of impressions is fixed, or a percent of available impressions. If not specified, the default reservation type is STANDARD. */
       reservationType?:
-        | 'RESERVATION_TYPE_UNSPECIFIED'
-        | 'STANDARD'
-        | 'SPONSORSHIP';
+        'RESERVATION_TYPE_UNSPECIFIED' | 'STANDARD' | 'SPONSORSHIP';
     }
     interface Proposal {
       /** Output only. When the client field is populated, this field refers to the buyer who creates and manages the client buyer and gets billed on behalf of the client buyer; when the buyer field is populated, this field is the same value as buyer. Format : `buyers/{buyerAccountId}` */
@@ -505,9 +496,7 @@ declare namespace gapi.client {
       isRenegotiating?: boolean;
       /** Output only. The role of the last user that either updated the proposal or left a comment. */
       lastUpdaterOrCommentorRole?:
-        | 'BUYER_SELLER_ROLE_UNSPECIFIED'
-        | 'BUYER'
-        | 'SELLER';
+        'BUYER_SELLER_ROLE_UNSPECIFIED' | 'BUYER' | 'SELLER';
       /** Immutable. The name of the proposal serving as a unique identifier. Format: buyers/{accountId}/proposals/{proposalId} */
       name?: string;
       /** A list of notes from the buyer and the seller attached to this proposal. */
@@ -680,16 +669,10 @@ declare namespace gapi.client {
     interface VideoTargeting {
       /** A list of video positions to be excluded. When this field is populated, the targeted_position_types field must be empty. */
       excludedPositionTypes?:
-        | 'POSITION_TYPE_UNSPECIFIED'
-        | 'PREROLL'
-        | 'MIDROLL'
-        | 'POSTROLL'[];
+        'POSITION_TYPE_UNSPECIFIED' | 'PREROLL' | 'MIDROLL' | 'POSTROLL'[];
       /** A list of video positions to be included. When this field is populated, the excluded_position_types field must be empty. */
       targetedPositionTypes?:
-        | 'POSITION_TYPE_UNSPECIFIED'
-        | 'PREROLL'
-        | 'MIDROLL'
-        | 'POSTROLL'[];
+        'POSITION_TYPE_UNSPECIFIED' | 'PREROLL' | 'MIDROLL' | 'POSTROLL'[];
     }
     interface AuctionPackagesResource {
       /** List the auction packages. Buyers can use the URL path "/v1/buyers/{accountId}/auctionPackages" to list auction packages for the current buyer and its clients. Bidders can use the URL path "/v1/bidders/{accountId}/auctionPackages" to list auction packages for the bidder, its media planners, its buyers, and all their clients. */

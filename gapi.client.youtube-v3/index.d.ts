@@ -128,10 +128,7 @@ declare namespace gapi.client {
     interface ActivityContentDetailsRecommendation {
       /** The reason that the resource is recommended to the user. */
       reason?:
-        | 'reasonUnspecified'
-        | 'videoFavorited'
-        | 'videoLiked'
-        | 'videoWatched';
+        'reasonUnspecified' | 'videoFavorited' | 'videoLiked' | 'videoWatched';
       /** The resourceId object contains information that identifies the recommended resource. */
       resourceId?: ResourceId;
       /** The seedResourceId object contains information about the resource that caused the recommendation. */
@@ -240,9 +237,7 @@ declare namespace gapi.client {
       audioTrackType?: 'unknown' | 'primary' | 'commentary' | 'descriptive';
       /** The reason that YouTube failed to process the caption track. This property is only present if the state property's value is failed. */
       failureReason?:
-        | 'unknownFormat'
-        | 'unsupportedFormat'
-        | 'processingFailed';
+        'unknownFormat' | 'unsupportedFormat' | 'processingFailed';
       /** Indicates whether YouTube synchronized the caption track to the audio track in the video. The value will be true if a sync was explicitly requested when the caption track was uploaded. For example, when calling the captions.insert or captions.update methods, you can set the sync parameter to true to instruct YouTube to sync the uploaded track to the video. If the value is false, YouTube uses the time codes in the uploaded caption track to determine when to display captions. */
       isAutoSynced?: boolean;
       /** Indicates whether the track contains closed captions for the deaf and hard of hearing. The default value is false. */
@@ -452,9 +447,7 @@ declare namespace gapi.client {
       position?: number;
       /** The style of the channel section. */
       style?:
-        | 'channelsectionStyleUnspecified'
-        | 'horizontalRow'
-        | 'verticalList';
+        'channelsectionStyleUnspecified' | 'horizontalRow' | 'verticalList';
       /** The channel section's title for multiple_playlists and multiple_channels. */
       title?: string;
       /** The type of the channel section. */
@@ -551,10 +544,7 @@ declare namespace gapi.client {
       isLinked?: boolean;
       /** The long uploads status of this channel. See https://support.google.com/youtube/answer/71673 for more information. */
       longUploadsStatus?:
-        | 'longUploadsUnspecified'
-        | 'allowed'
-        | 'eligible'
-        | 'disallowed';
+        'longUploadsUnspecified' | 'allowed' | 'eligible' | 'disallowed';
       madeForKids?: boolean;
       /** Privacy status of the channel. */
       privacyStatus?: 'public' | 'unlisted' | 'private';
@@ -565,9 +555,7 @@ declare namespace gapi.client {
       merchantId?: string;
       /** Required. Affiliate program status. */
       programStatus?:
-        | 'affiliateProgramStatusUnspecified'
-        | 'active'
-        | 'inactive';
+        'affiliateProgramStatusUnspecified' | 'active' | 'inactive';
       /** Optional. Reason for the last update of the affiliate program status. */
       statusUpdateReason?: string;
       /** Optional. Timestamp when the affiliate program status was last updated. */
@@ -650,10 +638,7 @@ declare namespace gapi.client {
       likeCount?: number;
       /** The comment's moderation status. Will not be set if the comments were requested through the id filter. */
       moderationStatus?:
-        | 'published'
-        | 'heldForReview'
-        | 'likelySpam'
-        | 'rejected';
+        'published' | 'heldForReview' | 'likelySpam' | 'rejected';
       /** The unique id of the top-level comment, only set for replies. */
       parentId?: string;
       /** The ID of the post the comment refers to, if any. */
@@ -861,11 +846,7 @@ declare namespace gapi.client {
         | 'chvrsUnrated';
       /** The video's rating from the Commission de Contrôle des Films (Belgium). */
       cicfRating?:
-        | 'cicfUnspecified'
-        | 'cicfE'
-        | 'cicfKtEa'
-        | 'cicfKntEna'
-        | 'cicfUnrated';
+        'cicfUnspecified' | 'cicfE' | 'cicfKtEa' | 'cicfKntEna' | 'cicfUnrated';
       /** The video's rating from Romania's CONSILIUL NATIONAL AL AUDIOVIZUALULUI (CNA). */
       cnaRating?:
         | 'cnaUnspecified'
@@ -1396,12 +1377,7 @@ declare namespace gapi.client {
         | 'rtcUnrated';
       /** The video's rating from Ireland's Raidió Teilifís Éireann. */
       rteRating?:
-        | 'rteUnspecified'
-        | 'rteGa'
-        | 'rteCh'
-        | 'rtePs'
-        | 'rteMa'
-        | 'rteUnrated';
+        'rteUnspecified' | 'rteGa' | 'rteCh' | 'rtePs' | 'rteMa' | 'rteUnrated';
       /** The video's National Film Registry of the Russian Federation (MKRF - Russia) rating. */
       russiaRating?:
         | 'russiaUnspecified'
@@ -1472,9 +1448,7 @@ declare namespace gapi.client {
       repeatIntervalSecs?: number;
       /** The strategy to use when scheduling cuepoints. */
       scheduleStrategy?:
-        | 'scheduleStrategyUnspecified'
-        | 'concurrent'
-        | 'nonConcurrent';
+        'scheduleStrategyUnspecified' | 'concurrent' | 'nonConcurrent';
     }
     interface Entity {
       id?: string;
@@ -1679,10 +1653,7 @@ declare namespace gapi.client {
       enableLowLatency?: boolean;
       /** If both this and enable_low_latency are set, they must match. LATENCY_NORMAL should match enable_low_latency=false LATENCY_LOW should match enable_low_latency=true LATENCY_ULTRA_LOW should have enable_low_latency omitted. */
       latencyPreference?:
-        | 'latencyPreferenceUnspecified'
-        | 'normal'
-        | 'low'
-        | 'ultraLow';
+        'latencyPreferenceUnspecified' | 'normal' | 'low' | 'ultraLow';
       /** The mesh for projecting the video if projection is mesh. The mesh value must be a UTF-8 string containing the base-64 encoding of 3D mesh data that follows the Spherical Video V2 RFC specification for an mshp box, excluding the box size and type but including the following four reserved zero bytes for the version and flags. */
       mesh?: string;
       /** The monitorStream object contains information about the monitor stream, which the broadcaster can use to review the event content before the broadcast stream is shown publicly. */
@@ -1695,10 +1666,7 @@ declare namespace gapi.client {
       startWithSlate?: boolean;
       /** The 3D stereo layout of this broadcast. This defaults to mono. */
       stereoLayout?:
-        | 'stereoLayoutUnspecified'
-        | 'mono'
-        | 'leftRight'
-        | 'topBottom';
+        'stereoLayoutUnspecified' | 'mono' | 'leftRight' | 'topBottom';
     }
     interface LiveBroadcastListResponse {
       /** Etag of this resource. */
@@ -1764,10 +1732,7 @@ declare namespace gapi.client {
         | 'liveStarting';
       /** Priority of the live broadcast event (internal state). */
       liveBroadcastPriority?:
-        | 'liveBroadcastPriorityUnspecified'
-        | 'low'
-        | 'normal'
-        | 'high';
+        'liveBroadcastPriorityUnspecified' | 'low' | 'normal' | 'high';
       /** Whether the broadcast is made for kids or not, decided by YouTube instead of the creator. This field is read only. */
       madeForKids?: boolean;
       /** The broadcast's privacy status. Note that the broadcast represents exactly one YouTube video, so the privacy settings are identical to those supported for videos. In addition, you can set this field by modifying the broadcast resource or by setting the privacyStatus field of the corresponding video resource. */
@@ -2915,11 +2880,7 @@ declare namespace gapi.client {
       heightPixels?: number;
       /** The amount that YouTube needs to rotate the original source content to properly display the video. */
       rotation?:
-        | 'none'
-        | 'clockwise'
-        | 'upsideDown'
-        | 'counterClockwise'
-        | 'other';
+        'none' | 'clockwise' | 'upsideDown' | 'counterClockwise' | 'other';
       /** A value that uniquely identifies a video vendor. Typically, the value is a four-letter vendor code. */
       vendor?: string;
       /** The encoded video content's width in pixels. You can calculate the video's encoding aspect ratio as width_pixels / height_pixels. */
@@ -2997,10 +2958,7 @@ declare namespace gapi.client {
       fileDetailsAvailability?: string;
       /** The reason that YouTube failed to process the video. This property will only have a value if the processingStatus property's value is failed. */
       processingFailureReason?:
-        | 'uploadFailed'
-        | 'transcodeFailed'
-        | 'streamingFailed'
-        | 'other';
+        'uploadFailed' | 'transcodeFailed' | 'streamingFailed' | 'other';
       /** This value indicates whether the video processing engine has generated suggestions that might improve YouTube's ability to process the the video, warnings that explain video processing problems, or errors that cause video processing problems. You can retrieve these suggestions by requesting the suggestions part in your videos.list() request. */
       processingIssuesAvailability?: string;
       /** The processingProgress object contains information about the progress YouTube has made in processing the video. The values are really only relevant if the video's processing status is processing. */
@@ -3140,11 +3098,7 @@ declare namespace gapi.client {
       selfDeclaredMadeForKids?: boolean;
       /** The status of the uploaded video. */
       uploadStatus?:
-        | 'uploaded'
-        | 'processed'
-        | 'failed'
-        | 'rejected'
-        | 'deleted';
+        'uploaded' | 'processed' | 'failed' | 'rejected' | 'deleted';
     }
     interface VideoSuggestions {
       /** A list of video editing operations that might improve the video quality or playback experience of the uploaded video. */
@@ -4105,10 +4059,7 @@ declare namespace gapi.client {
         key?: string;
         /** Specifies the requested moderation status. Note, comments can be in statuses, which are not available through this call. For example, this call does not allow to mark a comment as 'likely spam'. Valid values: 'heldForReview', 'published' or 'rejected'. */
         moderationStatus:
-          | 'published'
-          | 'heldForReview'
-          | 'likelySpam'
-          | 'rejected';
+          'published' | 'heldForReview' | 'likelySpam' | 'rejected';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         /** Returns response with indentations and line breaks. */
@@ -4262,10 +4213,7 @@ declare namespace gapi.client {
         maxResults?: number;
         /** Limits the returned comment threads to those with the specified moderation status. Not compatible with the 'id' filter. Valid values: published, heldForReview, likelySpam. */
         moderationStatus?:
-          | 'published'
-          | 'heldForReview'
-          | 'likelySpam'
-          | 'rejected';
+          'published' | 'heldForReview' | 'likelySpam' | 'rejected';
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
         order?: 'orderUnspecified' | 'time' | 'relevance';
@@ -4571,10 +4519,7 @@ declare namespace gapi.client {
           | 'completed';
         /** Return only broadcasts with the selected type. */
         broadcastType?:
-          | 'broadcastTypeFilterUnspecified'
-          | 'all'
-          | 'event'
-          | 'persistent';
+          'broadcastTypeFilterUnspecified' | 'all' | 'event' | 'persistent';
         /** JSONP */
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -5989,10 +5934,7 @@ declare namespace gapi.client {
         relevanceLanguage?: string;
         /** Indicates whether the search results should include restricted content as well as standard content. */
         safeSearch?:
-          | 'safeSearchSettingUnspecified'
-          | 'none'
-          | 'moderate'
-          | 'strict';
+          'safeSearchSettingUnspecified' | 'none' | 'moderate' | 'strict';
         /** Restrict results to a particular topic. */
         topicId?: string;
         /** Restrict results to a particular set of resource types from One Platform. */
@@ -6003,10 +5945,7 @@ declare namespace gapi.client {
         uploadType?: string;
         /** Filter on the presence of captions on the videos. */
         videoCaption?:
-          | 'videoCaptionUnspecified'
-          | 'any'
-          | 'closedCaption'
-          | 'none';
+          'videoCaptionUnspecified' | 'any' | 'closedCaption' | 'none';
         /** Filter on videos in a specific category. */
         videoCategoryId?: string;
         /** Filter on the definition of the videos. */
@@ -6015,19 +5954,13 @@ declare namespace gapi.client {
         videoDimension?: 'any' | '2d' | '3d';
         /** Filter on the duration of the videos. */
         videoDuration?:
-          | 'videoDurationUnspecified'
-          | 'any'
-          | 'short'
-          | 'medium'
-          | 'long';
+          'videoDurationUnspecified' | 'any' | 'short' | 'medium' | 'long';
         /** Filter on embeddable videos. */
         videoEmbeddable?: 'videoEmbeddableUnspecified' | 'any' | 'true';
         /** Filter on the license of the videos. */
         videoLicense?: 'any' | 'youtube' | 'creativeCommon';
         videoPaidProductPlacement?:
-          | 'videoPaidProductPlacementUnspecified'
-          | 'any'
-          | 'true';
+          'videoPaidProductPlacementUnspecified' | 'any' | 'true';
         /** Filter on syndicated videos. */
         videoSyndicated?: 'videoSyndicatedUnspecified' | 'any' | 'true';
         /** Filter on videos of a specific type. */

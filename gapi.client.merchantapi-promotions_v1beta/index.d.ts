@@ -59,9 +59,7 @@ declare namespace gapi.client {
       customRedemptionRestriction?: string;
       /** Optional. Event applicability for this promotion. When present, this field indicates you are creating a [sales event](https://support.google.com/merchants/answer/15523289) and not a product promotion. Exactly one of `product_applicability` or `event_applicability` must be set. */
       eventApplicability?:
-        | 'EVENT_APPLICABILITY_UNSPECIFIED'
-        | 'SITEWIDE'
-        | 'SPECIFIC_CATEGORIES';
+        'EVENT_APPLICABILITY_UNSPECIFIED' | 'SITEWIDE' | 'SPECIFIC_CATEGORIES';
       /** Optional. [Free gift description](https://support.google.com/merchants/answer/13847245?ref_topic=13773355) for the promotion. */
       freeGiftDescription?: string;
       /** Optional. [Free gift item ID](https://support.google.com/merchants/answer/13857152?ref_topic=13773355) for the promotion. */
@@ -149,9 +147,7 @@ declare namespace gapi.client {
       regionIdInclusion?: string[];
       /** Optional. Whether the promotion applies to [all stores, or only specified stores](https://support.google.com/merchants/answer/13857563?sjid=17642868584668136159-NC). Local Inventory ads promotions throw an error if no store applicability is included. An `INVALID_ARGUMENT` error is thrown if `store_applicability` is set to `ALL_STORES` and `store_codes_inclusion` or `score_code_exclusion` is set to a value. */
       storeApplicability?:
-        | 'STORE_APPLICABILITY_UNSPECIFIED'
-        | 'ALL_STORES'
-        | 'SPECIFIC_STORES';
+        'STORE_APPLICABILITY_UNSPECIFIED' | 'ALL_STORES' | 'SPECIFIC_STORES';
       /** Optional. [Store codes to exclude](https://support.google.com/merchants/answer/13859586?ref_topic=13773355) for the promotion. The store filter attributes only applies when the `store_applicability` attribute is set to [specific_stores](https://support.google.com/merchants/answer/13857563?ref_topic=13773355). */
       storeCodesExclusion?: string[];
       /** Optional. [Store codes to include](https://support.google.com/merchants/answer/13857470?ref_topic=13773355) for the promotion. The store filter attributes only applies when the `store_applicability` attribute is set to [specific_stores](https://support.google.com/merchants/answer/13857563?ref_topic=13773355). Store code (the store ID from your Business Profile) of the physical store the product is sold in. See the [Local product inventory data specification](https://support.google.com/merchants/answer/3061342) for more information. */
@@ -249,10 +245,7 @@ declare namespace gapi.client {
       resolution?: string;
       /** Output only. How this issue affects serving of the promotion. */
       severity?:
-        | 'SEVERITY_UNSPECIFIED'
-        | 'NOT_IMPACTED'
-        | 'DEMOTED'
-        | 'DISAPPROVED';
+        'SEVERITY_UNSPECIFIED' | 'NOT_IMPACTED' | 'DEMOTED' | 'DISAPPROVED';
     }
     interface ListPromotionsResponse {
       /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
@@ -333,9 +326,7 @@ declare namespace gapi.client {
       promotionStatus?: PromotionStatus;
       /** Required. [Redemption channel](https://support.google.com/merchants/answer/13837674?ref_topic=13773355&sjid=17642868584668136159-NC) for the promotion. At least one channel is required. */
       redemptionChannel?:
-        | 'REDEMPTION_CHANNEL_UNSPECIFIED'
-        | 'IN_STORE'
-        | 'ONLINE'[];
+        'REDEMPTION_CHANNEL_UNSPECIFIED' | 'IN_STORE' | 'ONLINE'[];
       /** Required. The target country used as part of the unique identifier. Represented as a [CLDR territory code](https://github.com/unicode-org/cldr/blob/latest/common/main/en.xml). Promotions are only available in selected countries, [Free Listings and Shopping ads](https://support.google.com/merchants/answer/4588460) [Local Inventory ads](https://support.google.com/merchants/answer/10146326) */
       targetCountry?: string;
       /** Optional. Represents the existing version (freshness) of the promotion, which can be used to preserve the right order when multiple updates are done at the same time. If set, the insertion is prevented when version number is lower than the current version number of the existing promotion. Re-insertion (for example, promotion refresh after 30 days) can be performed with the current `version_number`. If the operation is prevented, the aborted exception will be thrown. */

@@ -43,10 +43,7 @@ declare namespace gapi.client {
     interface AccountAccess {
       /** Whether the user has no access, user access, or admin access to an account. */
       permission?:
-        | 'accountPermissionUnspecified'
-        | 'noAccess'
-        | 'user'
-        | 'admin';
+        'accountPermissionUnspecified' | 'noAccess' | 'user' | 'admin';
     }
     interface AccountFeatures {
       /** Whether this Account supports multiple Containers. */
@@ -503,11 +500,7 @@ declare namespace gapi.client {
       builtInVariable?: BuiltInVariable;
       /** Represents how the entity has been changed in the workspace. */
       changeStatus?:
-        | 'changeStatusUnspecified'
-        | 'none'
-        | 'added'
-        | 'deleted'
-        | 'updated';
+        'changeStatusUnspecified' | 'none' | 'added' | 'deleted' | 'updated';
       /** The client being represented by the entity. */
       client?: Client;
       /** The custom template being represented by the entity. */

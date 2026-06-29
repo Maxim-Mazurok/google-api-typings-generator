@@ -119,24 +119,16 @@ declare namespace gapi.client {
     interface ModerationRestrictions {
       /** Defines who has permission to send chat messages in the meeting space. */
       chatRestriction?:
-        | 'RESTRICTION_TYPE_UNSPECIFIED'
-        | 'HOSTS_ONLY'
-        | 'NO_RESTRICTION';
+        'RESTRICTION_TYPE_UNSPECIFIED' | 'HOSTS_ONLY' | 'NO_RESTRICTION';
       /** Defines whether to restrict the default role assigned to users as viewer. */
       defaultJoinAsViewerType?:
-        | 'DEFAULT_JOIN_AS_VIEWER_TYPE_UNSPECIFIED'
-        | 'ON'
-        | 'OFF';
+        'DEFAULT_JOIN_AS_VIEWER_TYPE_UNSPECIFIED' | 'ON' | 'OFF';
       /** Defines who has permission to share their screen in the meeting space. */
       presentRestriction?:
-        | 'RESTRICTION_TYPE_UNSPECIFIED'
-        | 'HOSTS_ONLY'
-        | 'NO_RESTRICTION';
+        'RESTRICTION_TYPE_UNSPECIFIED' | 'HOSTS_ONLY' | 'NO_RESTRICTION';
       /** Defines who has permission to send reactions in the meeting space. */
       reactionRestriction?:
-        | 'RESTRICTION_TYPE_UNSPECIFIED'
-        | 'HOSTS_ONLY'
-        | 'NO_RESTRICTION';
+        'RESTRICTION_TYPE_UNSPECIFIED' | 'HOSTS_ONLY' | 'NO_RESTRICTION';
     }
     interface Participant {
       /** Anonymous user. */
@@ -189,9 +181,7 @@ declare namespace gapi.client {
     interface RecordingConfig {
       /** Defines whether a meeting space is automatically recorded when someone with the privilege to record joins the meeting. */
       autoRecordingGeneration?:
-        | 'AUTO_GENERATION_TYPE_UNSPECIFIED'
-        | 'ON'
-        | 'OFF';
+        'AUTO_GENERATION_TYPE_UNSPECIFIED' | 'ON' | 'OFF';
     }
     interface SignedinUser {
       /** Output only. For a personal device, it's the user's first name and last name. For a robot account, it's the administrator-specified device name. For example, "Altostrat Room". */
@@ -214,9 +204,7 @@ declare namespace gapi.client {
     interface SmartNotesConfig {
       /** Defines whether to automatically generate a summary and recap of the meeting for all invitees in the organization when someone with the privilege to enable smart notes joins the meeting. */
       autoSmartNotesGeneration?:
-        | 'AUTO_GENERATION_TYPE_UNSPECIFIED'
-        | 'ON'
-        | 'OFF';
+        'AUTO_GENERATION_TYPE_UNSPECIFIED' | 'ON' | 'OFF';
     }
     interface Space {
       /** Active conference, if it exists. */
@@ -237,10 +225,7 @@ declare namespace gapi.client {
     interface SpaceConfig {
       /** Access type of the meeting space that determines who can join without knocking. Default: The user's default access settings. Controlled by the user's admin for enterprise users or RESTRICTED. */
       accessType?:
-        | 'ACCESS_TYPE_UNSPECIFIED'
-        | 'OPEN'
-        | 'TRUSTED'
-        | 'RESTRICTED';
+        'ACCESS_TYPE_UNSPECIFIED' | 'OPEN' | 'TRUSTED' | 'RESTRICTED';
       /** Configuration pertaining to the auto-generated artifacts that the meeting supports. */
       artifactConfig?: ArtifactConfig;
       /** Whether attendance report is enabled for the meeting space. */
@@ -250,9 +235,7 @@ declare namespace gapi.client {
         | 'DO_NOT_GENERATE';
       /** Defines the entry points that can be used to join meetings hosted in this meeting space. Default: EntryPointAccess.ALL */
       entryPointAccess?:
-        | 'ENTRY_POINT_ACCESS_UNSPECIFIED'
-        | 'ALL'
-        | 'CREATOR_APP_ONLY';
+        'ENTRY_POINT_ACCESS_UNSPECIFIED' | 'ALL' | 'CREATOR_APP_ONLY';
       /** The pre-configured moderation mode for the Meeting. Default: Controlled by the user's policies. */
       moderation?: 'MODERATION_UNSPECIFIED' | 'OFF' | 'ON';
       /** When moderation.ON, these restrictions go into effect for the meeting. When moderation.OFF, will be reset to default ModerationRestrictions. */
@@ -287,9 +270,7 @@ declare namespace gapi.client {
     interface TranscriptionConfig {
       /** Defines whether the content of a meeting is automatically transcribed when someone with the privilege to transcribe joins the meeting. */
       autoTranscriptionGeneration?:
-        | 'AUTO_GENERATION_TYPE_UNSPECIFIED'
-        | 'ON'
-        | 'OFF';
+        'AUTO_GENERATION_TYPE_UNSPECIFIED' | 'ON' | 'OFF';
     }
     interface ParticipantSessionsResource {
       /** Gets a participant session by participant session ID. */

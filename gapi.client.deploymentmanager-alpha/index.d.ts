@@ -45,10 +45,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface BaseType {
       /** Allows resource handling overrides for specific collections */
@@ -537,10 +534,7 @@ declare namespace gapi.client {
       properties?: string;
       /** Output only. In case this is an action, it will show the runtimePolicies on which this action will run in the deployment */
       runtimePolicies?:
-        | 'CREATE'
-        | 'DELETE'
-        | 'UPDATE_ON_CHANGE'
-        | 'UPDATE_ALWAYS'[];
+        'CREATE' | 'DELETE' | 'UPDATE_ON_CHANGE' | 'UPDATE_ALWAYS'[];
       /** Output only. The type of the resource, for example `compute.v1.instance`, or `cloudfunctions.v1beta1.function`. */
       type?: string;
       /** Output only. If Deployment Manager is currently updating or previewing an update to this resource, the updated configuration appears here. */
@@ -658,10 +652,7 @@ declare namespace gapi.client {
       properties?: string;
       /** Output only. In case this is an action, it will show the runtimePolicies that this action will have after updating the deployment. */
       runtimePolicies?:
-        | 'CREATE'
-        | 'DELETE'
-        | 'UPDATE_ON_CHANGE'
-        | 'UPDATE_ALWAYS'[];
+        'CREATE' | 'DELETE' | 'UPDATE_ON_CHANGE' | 'UPDATE_ALWAYS'[];
       /** Output only. The state of the resource. */
       state?: 'PENDING' | 'IN_PROGRESS' | 'IN_PREVIEW' | 'FAILED' | 'ABORTED';
       /** Output only. If warning messages are generated during processing of this resource, this field will be populated. */
@@ -735,7 +726,9 @@ declare namespace gapi.client {
       clientOperationId?: string;
       /** [Output Only] Status information per location (location name is key). Example key: zones/us-central1-a */
       perLocationOperations?: {
-        [P in string]: SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo;
+        [
+          P in string
+        ]: SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo;
       };
     }
     interface SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo {

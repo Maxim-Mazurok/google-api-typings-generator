@@ -104,9 +104,7 @@ declare namespace gapi.client {
       eventItemLevel?: 'CATALOG_ITEM_LEVEL_UNSPECIFIED' | 'VARIANT' | 'MASTER';
       /** Optional. Level of the catalog at which predictions are made. See https://cloud.google.com/recommendations-ai/docs/catalog#catalog-levels for more details. */
       predictItemLevel?:
-        | 'CATALOG_ITEM_LEVEL_UNSPECIFIED'
-        | 'VARIANT'
-        | 'MASTER';
+        'CATALOG_ITEM_LEVEL_UNSPECIFIED' | 'VARIANT' | 'MASTER';
     }
     interface GoogleCloudRecommendationengineV1beta1CreatePredictionApiKeyRegistrationRequest {
       /** Required. The prediction API key registration. */
@@ -129,11 +127,15 @@ declare namespace gapi.client {
     interface GoogleCloudRecommendationengineV1beta1FeatureMap {
       /** Categorical features that can take on one of a limited number of possible values. Some examples would be the brand/maker of a product, or country of a customer. Feature names and values must be UTF-8 encoded strings. For example: `{ "colors": {"value": ["yellow", "green"]}, "sizes": {"value":["S", "M"]}` */
       categoricalFeatures?: {
-        [P in string]: GoogleCloudRecommendationengineV1beta1FeatureMapStringList;
+        [
+          P in string
+        ]: GoogleCloudRecommendationengineV1beta1FeatureMapStringList;
       };
       /** Numerical features. Some examples would be the height/weight of a product, or age of a customer. Feature names must be UTF-8 encoded strings. For example: `{ "lengths_cm": {"value":[2.3, 15.4]}, "heights_cm": {"value":[8.1, 6.4]} }` */
       numericalFeatures?: {
-        [P in string]: GoogleCloudRecommendationengineV1beta1FeatureMapFloatList;
+        [
+          P in string
+        ]: GoogleCloudRecommendationengineV1beta1FeatureMapFloatList;
       };
     }
     interface GoogleCloudRecommendationengineV1beta1FeatureMapFloatList {
@@ -401,10 +403,7 @@ declare namespace gapi.client {
       eventDetail?: GoogleCloudRecommendationengineV1beta1EventDetail;
       /** Optional. This field should *not* be set when using JavaScript pixel or the Recommendations AI Tag. Defaults to `EVENT_SOURCE_UNSPECIFIED`. */
       eventSource?:
-        | 'EVENT_SOURCE_UNSPECIFIED'
-        | 'AUTOML'
-        | 'ECOMMERCE'
-        | 'BATCH_UPLOAD';
+        'EVENT_SOURCE_UNSPECIFIED' | 'AUTOML' | 'ECOMMERCE' | 'BATCH_UPLOAD';
       /** Optional. Only required for ImportUserEvents method. Timestamp of user event created. */
       eventTime?: string;
       /** Required. User event type. Allowed values are: * `add-to-cart` Products being added to cart. * `add-to-list` Items being added to a list (shopping list, favorites etc). * `category-page-view` Special pages such as sale or promotion pages viewed. * `checkout-start` User starting a checkout process. * `detail-page-view` Products detail page viewed. * `home-page-view` Homepage viewed. * `page-visit` Generic page visits not included in the event types above. * `purchase-complete` User finishing a purchase. * `refund` Purchased items being refunded or returned. * `remove-from-cart` Products being removed from cart. * `remove-from-list` Items being removed from a list. * `search` Product search. * `shopping-cart-page-view` User viewing a shopping cart. * `impression` List of items displayed. Used by Google Tag Manager. */

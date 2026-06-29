@@ -38,9 +38,7 @@ declare namespace gapi.client {
     interface CloudBuildSpec {
       /** Whether it is allowed to run the privileged builds on the cluster or not. */
       securityPolicy?:
-        | 'SECURITY_POLICY_UNSPECIFIED'
-        | 'NON_PRIVILEGED'
-        | 'PRIVILEGED';
+        'SECURITY_POLICY_UNSPECIFIED' | 'NON_PRIVILEGED' | 'PRIVILEGED';
       /** Version of the cloud build software on the cluster. */
       version?: string;
     }
@@ -421,9 +419,7 @@ declare namespace gapi.client {
     interface ConfigManagementPolicyControllerMonitoring {
       /** Specifies the list of backends Policy Controller will export to. An empty list would effectively disable metrics export. */
       backends?:
-        | 'MONITORING_BACKEND_UNSPECIFIED'
-        | 'PROMETHEUS'
-        | 'CLOUD_MONITORING'[];
+        'MONITORING_BACKEND_UNSPECIFIED' | 'PROMETHEUS' | 'CLOUD_MONITORING'[];
     }
     interface ConfigManagementPolicyControllerState {
       /** The state about the policy controller installation. */
@@ -448,9 +444,7 @@ declare namespace gapi.client {
       hierarchyController?: ConfigManagementHierarchyControllerConfig;
       /** Optional. Deprecated: From version 1.21.0, automatic Feature management is unavailable, and Config Sync only supports manual upgrades. */
       management?:
-        | 'MANAGEMENT_UNSPECIFIED'
-        | 'MANAGEMENT_AUTOMATIC'
-        | 'MANAGEMENT_MANUAL';
+        'MANAGEMENT_UNSPECIFIED' | 'MANAGEMENT_AUTOMATIC' | 'MANAGEMENT_MANUAL';
       /** Optional. Policy Controller configuration for the cluster. Deprecated: Configuring Policy Controller through the configmanagement feature is no longer recommended. Use the policycontroller feature instead. */
       policyController?: ConfigManagementPolicyController;
       /** Optional. Version of Config Sync to install. Defaults to the latest supported Config Sync version if the config_sync field is enabled. See supported versions at https://cloud.google.com/kubernetes-engine/config-sync/docs/get-support-config-sync#version_support_policy. */
@@ -851,9 +845,7 @@ declare namespace gapi.client {
     interface PolicyControllerMonitoringConfig {
       /** Specifies the list of backends Policy Controller will export to. An empty list would effectively disable metrics export. */
       backends?:
-        | 'MONITORING_BACKEND_UNSPECIFIED'
-        | 'PROMETHEUS'
-        | 'CLOUD_MONITORING'[];
+        'MONITORING_BACKEND_UNSPECIFIED' | 'PROMETHEUS' | 'CLOUD_MONITORING'[];
     }
     interface PolicyControllerOnClusterState {
       /** Surface potential errors or information logs. */
@@ -1096,14 +1088,10 @@ declare namespace gapi.client {
     interface ServiceMeshSpec {
       /** Optional. Specifies the API that will be used for configuring the mesh workloads. */
       configApi?:
-        | 'CONFIG_API_UNSPECIFIED'
-        | 'CONFIG_API_ISTIO'
-        | 'CONFIG_API_GATEWAY';
+        'CONFIG_API_UNSPECIFIED' | 'CONFIG_API_ISTIO' | 'CONFIG_API_GATEWAY';
       /** Deprecated: use `management` instead Enables automatic control plane management. */
       controlPlane?:
-        | 'CONTROL_PLANE_MANAGEMENT_UNSPECIFIED'
-        | 'AUTOMATIC'
-        | 'MANUAL';
+        'CONTROL_PLANE_MANAGEMENT_UNSPECIFIED' | 'AUTOMATIC' | 'MANUAL';
       /** Determines which release channel to use for default injection and service mesh APIs. */
       defaultChannel?: 'CHANNEL_UNSPECIFIED' | 'RAPID' | 'REGULAR' | 'STABLE';
       /** Optional. Enables automatic Service Mesh management. */
@@ -1148,9 +1136,7 @@ declare namespace gapi.client {
     interface WorkloadCertificateSpec {
       /** CertificateManagement specifies workload certificate management. */
       certificateManagement?:
-        | 'CERTIFICATE_MANAGEMENT_UNSPECIFIED'
-        | 'DISABLED'
-        | 'ENABLED';
+        'CERTIFICATE_MANAGEMENT_UNSPECIFIED' | 'DISABLED' | 'ENABLED';
     }
     interface WorkloadIdentityIdentityProviderStateDetail {
       /** The state of the Identity Provider. */

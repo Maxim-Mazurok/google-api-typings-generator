@@ -37,11 +37,7 @@ declare namespace gapi.client {
       startTimeMillis?: string;
       /** The type of a bucket signifies how the data aggregation is performed in the bucket. */
       type?:
-        | 'unknown'
-        | 'time'
-        | 'session'
-        | 'activityType'
-        | 'activitySegment';
+        'unknown' | 'time' | 'session' | 'activityType' | 'activitySegment';
     }
     interface AggregateBy {
       /** A data source ID to aggregate. Only data from the specified data source ID will be included in the aggregation. If specified, this data source must exist; the OAuth scopes in the supplied credentials must grant read access to this data type. The dataset in the response will have the same data source ID. Note: Data can be aggregated by either the dataTypeName or the dataSourceId, not both. */

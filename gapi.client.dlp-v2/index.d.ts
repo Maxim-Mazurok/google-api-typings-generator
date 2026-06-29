@@ -103,9 +103,7 @@ declare namespace gapi.client {
     interface GooglePrivacyDlpV2AmazonS3BucketConditions {
       /** Optional. Bucket types that should be profiled. Optional. Defaults to TYPE_ALL_SUPPORTED if unspecified. */
       bucketTypes?:
-        | 'TYPE_UNSPECIFIED'
-        | 'TYPE_ALL_SUPPORTED'
-        | 'TYPE_GENERAL_PURPOSE'[];
+        'TYPE_UNSPECIFIED' | 'TYPE_ALL_SUPPORTED' | 'TYPE_GENERAL_PURPOSE'[];
       /** Optional. Object classes that should be profiled. Optional. Defaults to ALL_SUPPORTED_CLASSES if unspecified. */
       objectStorageClasses?:
         | 'UNSPECIFIED'
@@ -1740,10 +1738,7 @@ declare namespace gapi.client {
     interface GooglePrivacyDlpV2InfoTypeCategory {
       /** The group of relevant businesses where this infoType is commonly used */
       industryCategory?:
-        | 'INDUSTRY_UNSPECIFIED'
-        | 'FINANCE'
-        | 'HEALTH'
-        | 'TELECOMMUNICATIONS';
+        'INDUSTRY_UNSPECIFIED' | 'FINANCE' | 'HEALTH' | 'TELECOMMUNICATIONS';
       /** The region or country that issued the ID or document represented by the infoType. */
       locationCategory?:
         | 'LOCATION_UNSPECIFIED'
@@ -1892,9 +1887,7 @@ declare namespace gapi.client {
     interface GooglePrivacyDlpV2InspectConfig {
       /** Deprecated and unused. */
       contentOptions?:
-        | 'CONTENT_UNSPECIFIED'
-        | 'CONTENT_TEXT'
-        | 'CONTENT_IMAGE'[];
+        'CONTENT_UNSPECIFIED' | 'CONTENT_TEXT' | 'CONTENT_IMAGE'[];
       /** CustomInfoTypes provided by the user. See https://cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes to learn more. */
       customInfoTypes?: GooglePrivacyDlpV2CustomInfoType[];
       /** When true, excludes type information of the findings. This is not used for data profiling. */
@@ -2251,9 +2244,7 @@ declare namespace gapi.client {
       locations?: string[];
       /** The current scope for location on this feature. This may expand over time. */
       regionalizationScope?:
-        | 'REGIONALIZATION_SCOPE_UNSPECIFIED'
-        | 'REGIONAL'
-        | 'ANY_LOCATION';
+        'REGIONALIZATION_SCOPE_UNSPECIFIED' | 'REGIONAL' | 'ANY_LOCATION';
     }
     interface GooglePrivacyDlpV2LoggingConfig {
       /** Optional. Log the actions taken to a BigQuery table. */
@@ -2489,14 +2480,10 @@ declare namespace gapi.client {
     interface GooglePrivacyDlpV2PubSubCondition {
       /** The minimum data risk score that triggers the condition. */
       minimumRiskScore?:
-        | 'PROFILE_SCORE_BUCKET_UNSPECIFIED'
-        | 'HIGH'
-        | 'MEDIUM_OR_HIGH';
+        'PROFILE_SCORE_BUCKET_UNSPECIFIED' | 'HIGH' | 'MEDIUM_OR_HIGH';
       /** The minimum sensitivity level that triggers the condition. */
       minimumSensitivityScore?:
-        | 'PROFILE_SCORE_BUCKET_UNSPECIFIED'
-        | 'HIGH'
-        | 'MEDIUM_OR_HIGH';
+        'PROFILE_SCORE_BUCKET_UNSPECIFIED' | 'HIGH' | 'MEDIUM_OR_HIGH';
     }
     interface GooglePrivacyDlpV2PubSubExpressions {
       /** Conditions to apply to the expression. */

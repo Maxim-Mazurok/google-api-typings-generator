@@ -287,10 +287,7 @@ declare namespace gapi.client {
     interface FindNearest {
       /** Required. The distance measure to use, required. */
       distanceMeasure?:
-        | 'DISTANCE_MEASURE_UNSPECIFIED'
-        | 'EUCLIDEAN'
-        | 'COSINE'
-        | 'DOT_PRODUCT';
+        'DISTANCE_MEASURE_UNSPECIFIED' | 'EUCLIDEAN' | 'COSINE' | 'DOT_PRODUCT';
       /** Optional. Optional name of the field to output the result of the vector distance calculation. Must conform to document field name limitations. */
       distanceResultField?: string;
       /** Optional. Option to specify a threshold for which no less similar documents will be returned. The behavior of the specified `distance_measure` will affect the meaning of the distance threshold. Since DOT_PRODUCT distances increase when the vectors are more similar, the comparison is inverted. * For EUCLIDEAN, COSINE: `WHERE distance <= distance_threshold` * For DOT_PRODUCT: `WHERE distance >= distance_threshold` */
@@ -423,9 +420,7 @@ declare namespace gapi.client {
     interface GoogleFirestoreAdminV1Database {
       /** The App Engine integration mode to use for this database. */
       appEngineIntegrationMode?:
-        | 'APP_ENGINE_INTEGRATION_MODE_UNSPECIFIED'
-        | 'ENABLED'
-        | 'DISABLED';
+        'APP_ENGINE_INTEGRATION_MODE_UNSPECIFIED' | 'ENABLED' | 'DISABLED';
       /** Optional. Presence indicates CMEK is enabled for this database. */
       cmekConfig?: GoogleFirestoreAdminV1CmekConfig;
       /** The default concurrency control mode to use for this database. If unspecified in a CreateDatabase request, this will default based on the database edition: Optimistic for Enterprise and Pessimistic for all other databases. While transactions can explicitly specify their own concurrency mode, this setting defines the default behavior when left unspecified. Important: This database-level setting is not respected for Firestore with MongoDB compatibility. All transactions through the MongoDB compatibility layer will use optimistic concurrency control, regardless of this setting. */
@@ -438,9 +433,7 @@ declare namespace gapi.client {
       createTime?: string;
       /** Immutable. The edition of the database. */
       databaseEdition?:
-        | 'DATABASE_EDITION_UNSPECIFIED'
-        | 'STANDARD'
-        | 'ENTERPRISE';
+        'DATABASE_EDITION_UNSPECIFIED' | 'STANDARD' | 'ENTERPRISE';
       /** State of delete protection for the database. */
       deleteProtectionState?:
         | 'DELETE_PROTECTION_STATE_UNSPECIFIED'
@@ -488,9 +481,7 @@ declare namespace gapi.client {
       tags?: {[P in string]: string};
       /** Required. The type of the database. See https://cloud.google.com/datastore/docs/firestore-or-datastore for information about how to choose. */
       type?:
-        | 'DATABASE_TYPE_UNSPECIFIED'
-        | 'FIRESTORE_NATIVE'
-        | 'DATASTORE_MODE';
+        'DATABASE_TYPE_UNSPECIFIED' | 'FIRESTORE_NATIVE' | 'DATASTORE_MODE';
       /** Output only. The system-generated UUID4 for this Database. */
       uid?: string;
       /** Output only. The timestamp at which this database was most recently updated. Note this only includes updates to the database resource and not data contained by the database. */
@@ -1011,9 +1002,7 @@ declare namespace gapi.client {
     interface ReadWrite {
       /** Optional. The concurrency control mode to use for this transaction. A database is able to use different concurrency modes for different transactions simultaneously. 3rd party auth requests are only allowed to create optimistic read-write transactions and must specify that here even if the database-level setting is already configured to optimistic. */
       concurrencyMode?:
-        | 'CONCURRENCY_MODE_UNSPECIFIED'
-        | 'OPTIMISTIC'
-        | 'PESSIMISTIC';
+        'CONCURRENCY_MODE_UNSPECIFIED' | 'OPTIMISTIC' | 'PESSIMISTIC';
       /** An optional transaction to retry. */
       retryTransaction?: string;
     }

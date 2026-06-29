@@ -225,9 +225,7 @@ declare namespace gapi.client {
       supportUri?: string;
       /** Output only. Information about applicable target resources for the policy. */
       validTargetResources?:
-        | 'TARGET_RESOURCE_UNSPECIFIED'
-        | 'ORG_UNIT'
-        | 'GROUP'[];
+        'TARGET_RESOURCE_UNSPECIFIED' | 'ORG_UNIT' | 'GROUP'[];
     }
     interface GoogleChromePolicyVersionsV1PolicySchemaFieldDependencies {
       /** The source field which this field depends on. */
@@ -392,18 +390,14 @@ declare namespace gapi.client {
       oneofDecl?: Proto2OneofDescriptorProto[];
       /** Support for `export` and `local` keywords on enums. */
       visibility?:
-        | 'VISIBILITY_UNSET'
-        | 'VISIBILITY_LOCAL'
-        | 'VISIBILITY_EXPORT';
+        'VISIBILITY_UNSET' | 'VISIBILITY_LOCAL' | 'VISIBILITY_EXPORT';
     }
     interface Proto2EnumDescriptorProto {
       name?: string;
       value?: Proto2EnumValueDescriptorProto[];
       /** Support for `export` and `local` keywords on enums. */
       visibility?:
-        | 'VISIBILITY_UNSET'
-        | 'VISIBILITY_LOCAL'
-        | 'VISIBILITY_EXPORT';
+        'VISIBILITY_UNSET' | 'VISIBILITY_LOCAL' | 'VISIBILITY_EXPORT';
     }
     interface Proto2EnumValueDescriptorProto {
       name?: string;

@@ -910,9 +910,7 @@ declare namespace gapi.client {
       parent?: string;
       /** Options for what to do if the destination table already exists. */
       writeDisposition?:
-        | 'WRITE_DISPOSITION_UNSPECIFIED'
-        | 'WRITE_TRUNCATE'
-        | 'WRITE_APPEND';
+        'WRITE_DISPOSITION_UNSPECIFIED' | 'WRITE_TRUNCATE' | 'WRITE_APPEND';
     }
     interface GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequestBigQueryDestination {
       /** Required. The name of the BigQuery dataset that the snapshot result should be exported to. If this dataset does not exist, the export call returns an INVALID_ARGUMENT error. */
@@ -1126,9 +1124,7 @@ declare namespace gapi.client {
       audioBucketUri?: string;
       /** Optional. Specifies the type of the objects in `bucket_uri`. Avoid passing this. This is inferred from the `transcript_bucket_uri`, `audio_bucket_uri`. */
       bucketObjectType?:
-        | 'BUCKET_OBJECT_TYPE_UNSPECIFIED'
-        | 'TRANSCRIPT'
-        | 'AUDIO';
+        'BUCKET_OBJECT_TYPE_UNSPECIFIED' | 'TRANSCRIPT' | 'AUDIO';
       /** Optional. The Cloud Storage bucket containing source objects. Avoid passing this. Pass this through one of `transcript_bucket_uri` or `audio_bucket_uri`. */
       bucketUri?: string;
       /** Optional. Custom keys to extract as conversation labels from metadata files in `metadata_bucket_uri`. Keys not included in this field will be ignored. Note that there is a limit of 100 labels per conversation. */
@@ -1236,7 +1232,9 @@ declare namespace gapi.client {
       analyzedConversationsCount?: string;
       /** Statistics on each issue. Key is the issue's resource name. */
       issueStats?: {
-        [P in string]: GoogleCloudContactcenterinsightsV1alpha1IssueModelLabelStatsIssueStats;
+        [
+          P in string
+        ]: GoogleCloudContactcenterinsightsV1alpha1IssueModelLabelStatsIssueStats;
       };
       /** Number of analyzed conversations for which no issue was applicable at this point in time. */
       unclassifiedConversationsCount?: string;
@@ -1292,9 +1290,7 @@ declare namespace gapi.client {
       answerValue?: GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerValue;
       /** What created the answer. */
       sourceType?:
-        | 'SOURCE_TYPE_UNSPECIFIED'
-        | 'SYSTEM_GENERATED'
-        | 'MANUAL_EDIT';
+        'SOURCE_TYPE_UNSPECIFIED' | 'SYSTEM_GENERATED' | 'MANUAL_EDIT';
     }
     interface GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerValue {
       /** Boolean value. */
@@ -1597,9 +1593,7 @@ declare namespace gapi.client {
       query?: string;
       /** Query source for the answer. */
       querySource?:
-        | 'QUERY_SOURCE_UNSPECIFIED'
-        | 'AGENT_QUERY'
-        | 'SUGGESTED_QUERY';
+        'QUERY_SOURCE_UNSPECIFIED' | 'AGENT_QUERY' | 'SUGGESTED_QUERY';
     }
     interface GoogleCloudContactcenterinsightsV1alpha1SampleConversationsMetadata {
       /** Output only. The time the operation was created. */
@@ -1907,11 +1901,7 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. The state of the assessment. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'DRAFT'
-        | 'PUBLISHED'
-        | 'APPEALED'
-        | 'FINALIZED';
+        'STATE_UNSPECIFIED' | 'DRAFT' | 'PUBLISHED' | 'APPEALED' | 'FINALIZED';
       /** Output only. The time at which the assessment was last updated. */
       updateTime?: string;
     }
@@ -2153,7 +2143,9 @@ declare namespace gapi.client {
       issueMatches?: {[P in string]: number};
       /** A map associating each issue resource name with its respective number of matches in the set of conversations. Key has the format: `projects//locations//issueModels//issues/` */
       issueMatchesStats?: {
-        [P in string]: GoogleCloudContactcenterinsightsV1IssueModelLabelStatsIssueStats;
+        [
+          P in string
+        ]: GoogleCloudContactcenterinsightsV1IssueModelLabelStatsIssueStats;
       };
       /** A map associating each smart highlighter display name with its respective number of matches in the set of conversations. */
       smartHighlighterMatches?: {[P in string]: number};
@@ -2630,12 +2622,7 @@ declare namespace gapi.client {
       quantity?: string;
       /** Required. The unit of time. */
       unit?:
-        | 'TIME_UNIT_UNSPECIFIED'
-        | 'DAY'
-        | 'WEEK'
-        | 'MONTH'
-        | 'QUARTER'
-        | 'YEAR';
+        'TIME_UNIT_UNSPECIFIED' | 'DAY' | 'WEEK' | 'MONTH' | 'QUARTER' | 'YEAR';
     }
     interface GoogleCloudContactcenterinsightsV1DeleteIssueModelMetadata {
       /** Output only. The time the operation was created. */
@@ -2904,9 +2891,7 @@ declare namespace gapi.client {
       parent?: string;
       /** Options for what to do if the destination table already exists. */
       writeDisposition?:
-        | 'WRITE_DISPOSITION_UNSPECIFIED'
-        | 'WRITE_TRUNCATE'
-        | 'WRITE_APPEND';
+        'WRITE_DISPOSITION_UNSPECIFIED' | 'WRITE_TRUNCATE' | 'WRITE_APPEND';
     }
     interface GoogleCloudContactcenterinsightsV1ExportInsightsDataRequestBigQueryDestination {
       /** Required. The name of the BigQuery dataset that the snapshot result should be exported to. If this dataset does not exist, the export call returns an INVALID_ARGUMENT error. */
@@ -3202,9 +3187,7 @@ declare namespace gapi.client {
       audioBucketUri?: string;
       /** Optional. Specifies the type of the objects in `bucket_uri`. Avoid passing this. This is inferred from the `transcript_bucket_uri`, `audio_bucket_uri`. */
       bucketObjectType?:
-        | 'BUCKET_OBJECT_TYPE_UNSPECIFIED'
-        | 'TRANSCRIPT'
-        | 'AUDIO';
+        'BUCKET_OBJECT_TYPE_UNSPECIFIED' | 'TRANSCRIPT' | 'AUDIO';
       /** Optional. The Cloud Storage bucket containing source objects. Avoid passing this. Pass this through one of `transcript_bucket_uri` or `audio_bucket_uri`. */
       bucketUri?: string;
       /** Optional. Custom keys to extract as conversation labels from metadata files in `metadata_bucket_uri`. Keys not included in this field will be ignored. Note that there is a limit of 100 labels per conversation. */
@@ -3312,7 +3295,9 @@ declare namespace gapi.client {
       analyzedConversationsCount?: string;
       /** Statistics on each issue. Key is the issue's resource name. */
       issueStats?: {
-        [P in string]: GoogleCloudContactcenterinsightsV1IssueModelLabelStatsIssueStats;
+        [
+          P in string
+        ]: GoogleCloudContactcenterinsightsV1IssueModelLabelStatsIssueStats;
       };
       /** Number of analyzed conversations for which no issue was applicable at this point in time. */
       unclassifiedConversationsCount?: string;
@@ -4306,9 +4291,7 @@ declare namespace gapi.client {
       parent?: string;
       /** Options for what to do if the destination table already exists. */
       writeDisposition?:
-        | 'WRITE_DISPOSITION_UNSPECIFIED'
-        | 'WRITE_TRUNCATE'
-        | 'WRITE_APPEND';
+        'WRITE_DISPOSITION_UNSPECIFIED' | 'WRITE_TRUNCATE' | 'WRITE_APPEND';
     }
     interface GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequestBigQueryDestination {
       /** Required. The name of the BigQuery dataset that the snapshot result should be exported to. If this dataset does not exist, the export call returns an INVALID_ARGUMENT error. */
@@ -4522,9 +4505,7 @@ declare namespace gapi.client {
       audioBucketUri?: string;
       /** Optional. Specifies the type of the objects in `bucket_uri`. Avoid passing this. This is inferred from the `transcript_bucket_uri`, `audio_bucket_uri`. */
       bucketObjectType?:
-        | 'BUCKET_OBJECT_TYPE_UNSPECIFIED'
-        | 'TRANSCRIPT'
-        | 'AUDIO';
+        'BUCKET_OBJECT_TYPE_UNSPECIFIED' | 'TRANSCRIPT' | 'AUDIO';
       /** Optional. The Cloud Storage bucket containing source objects. Avoid passing this. Pass this through one of `transcript_bucket_uri` or `audio_bucket_uri`. */
       bucketUri?: string;
       /** Optional. Custom keys to extract as conversation labels from metadata files in `metadata_bucket_uri`. Keys not included in this field will be ignored. Note that there is a limit of 100 labels per conversation. */
@@ -4632,7 +4613,9 @@ declare namespace gapi.client {
       analyzedConversationsCount?: string;
       /** Statistics on each issue. Key is the issue's resource name. */
       issueStats?: {
-        [P in string]: GoogleCloudContactcenterinsightsV1mainIssueModelLabelStatsIssueStats;
+        [
+          P in string
+        ]: GoogleCloudContactcenterinsightsV1mainIssueModelLabelStatsIssueStats;
       };
       /** Number of analyzed conversations for which no issue was applicable at this point in time. */
       unclassifiedConversationsCount?: string;
@@ -4688,9 +4671,7 @@ declare namespace gapi.client {
       answerValue?: GoogleCloudContactcenterinsightsV1mainQaAnswerAnswerValue;
       /** What created the answer. */
       sourceType?:
-        | 'SOURCE_TYPE_UNSPECIFIED'
-        | 'SYSTEM_GENERATED'
-        | 'MANUAL_EDIT';
+        'SOURCE_TYPE_UNSPECIFIED' | 'SYSTEM_GENERATED' | 'MANUAL_EDIT';
     }
     interface GoogleCloudContactcenterinsightsV1mainQaAnswerAnswerValue {
       /** Boolean value. */
@@ -4993,9 +4974,7 @@ declare namespace gapi.client {
       query?: string;
       /** Query source for the answer. */
       querySource?:
-        | 'QUERY_SOURCE_UNSPECIFIED'
-        | 'AGENT_QUERY'
-        | 'SUGGESTED_QUERY';
+        'QUERY_SOURCE_UNSPECIFIED' | 'AGENT_QUERY' | 'SUGGESTED_QUERY';
     }
     interface GoogleCloudContactcenterinsightsV1mainSampleConversationsMetadata {
       /** Output only. The time the operation was created. */
@@ -5264,9 +5243,7 @@ declare namespace gapi.client {
       answerValue?: GoogleCloudContactcenterinsightsV1QaAnswerAnswerValue;
       /** What created the answer. */
       sourceType?:
-        | 'SOURCE_TYPE_UNSPECIFIED'
-        | 'SYSTEM_GENERATED'
-        | 'MANUAL_EDIT';
+        'SOURCE_TYPE_UNSPECIFIED' | 'SYSTEM_GENERATED' | 'MANUAL_EDIT';
     }
     interface GoogleCloudContactcenterinsightsV1QaAnswerAnswerValue {
       /** Boolean value. */
@@ -5311,9 +5288,7 @@ declare namespace gapi.client {
       questionBody?: string;
       /** The type of question. */
       questionType?:
-        | 'QA_QUESTION_TYPE_UNSPECIFIED'
-        | 'CUSTOMIZABLE'
-        | 'PREDEFINED';
+        'QA_QUESTION_TYPE_UNSPECIFIED' | 'CUSTOMIZABLE' | 'PREDEFINED';
       /** Questions are tagged for categorization and scoring. Tags can either be: - Default Tags: These are predefined categories. They are identified by their string value (e.g., "BUSINESS", "COMPLIANCE", and "CUSTOMER"). - Custom Tags: These are user-defined categories. They are identified by their full resource name (e.g., projects/{project}/locations/{location}/qaQuestionTags/{qa_question_tag}). Both default and custom tags are used to group questions and to influence the scoring of each question. */
       tags?: string[];
       /** Metadata about the tuning operation for the question.This field will only be populated if and only if the question is part of a scorecard revision that has been tuned. */
@@ -5729,9 +5704,7 @@ declare namespace gapi.client {
       query?: string;
       /** Query source for the answer. */
       querySource?:
-        | 'QUERY_SOURCE_UNSPECIFIED'
-        | 'AGENT_QUERY'
-        | 'SUGGESTED_QUERY';
+        'QUERY_SOURCE_UNSPECIFIED' | 'AGENT_QUERY' | 'SUGGESTED_QUERY';
     }
     interface GoogleCloudContactcenterinsightsV1SampleConversationsMetadata {
       /** Output only. The time the operation was created. */
@@ -6024,10 +5997,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface GoogleIamV1Binding {
       /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */

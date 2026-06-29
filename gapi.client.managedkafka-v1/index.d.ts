@@ -116,11 +116,7 @@ declare namespace gapi.client {
       satisfiesPzs?: boolean;
       /** Output only. The current state of the cluster. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATING'
-        | 'ACTIVE'
-        | 'DELETING'
-        | 'UPDATING';
+        'STATE_UNSPECIFIED' | 'CREATING' | 'ACTIVE' | 'DELETING' | 'UPDATING';
       /** Optional. TLS configuration for the Kafka cluster. */
       tlsConfig?: TlsConfig;
       /** Optional. UpdateOptions represents options that control how updates to the cluster are applied. */
@@ -153,11 +149,7 @@ declare namespace gapi.client {
       satisfiesPzs?: boolean;
       /** Output only. The current state of the Kafka Connect cluster. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATING'
-        | 'ACTIVE'
-        | 'DELETING'
-        | 'DETACHED';
+        'STATE_UNSPECIFIED' | 'CREATING' | 'ACTIVE' | 'DELETING' | 'DETACHED';
       /** Output only. The time when the cluster was last updated. */
       updateTime?: string;
     }

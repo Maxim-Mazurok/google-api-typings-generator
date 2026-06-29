@@ -43,15 +43,12 @@ declare namespace gapi.client {
     interface AnalyzeEntitiesRequest {
       /** Optional. Alternative output format to be generated based on the results of analysis. */
       alternativeOutputFormat?:
-        | 'ALTERNATIVE_OUTPUT_FORMAT_UNSPECIFIED'
-        | 'FHIR_BUNDLE';
+        'ALTERNATIVE_OUTPUT_FORMAT_UNSPECIFIED' | 'FHIR_BUNDLE';
       /** document_content is a document to be annotated. */
       documentContent?: string;
       /** A list of licensed vocabularies to use in the request, in addition to the default unlicensed vocabularies. */
       licensedVocabularies?:
-        | 'LICENSED_VOCABULARY_UNSPECIFIED'
-        | 'ICD10CM'
-        | 'SNOMEDCT_US'[];
+        'LICENSED_VOCABULARY_UNSPECIFIED' | 'ICD10CM' | 'SNOMEDCT_US'[];
     }
     interface AnalyzeEntitiesResponse {
       /** The union of all the candidate entities that the entity_mentions in this response could link to. These are UMLS concepts or normalized mention content. */
@@ -134,10 +131,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface Binding {
       /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
@@ -180,10 +174,7 @@ declare namespace gapi.client {
       validateOnly?: boolean;
       /** Optional. Specifies which version of the resources to delete. */
       versionConfig?:
-        | 'VERSION_CONFIG_UNSPECIFIED'
-        | 'ALL'
-        | 'CURRENT_ONLY'
-        | 'HISTORY_ONLY';
+        'VERSION_CONFIG_UNSPECIFIED' | 'ALL' | 'CURRENT_ONLY' | 'HISTORY_ONLY';
     }
     interface BulkExportGcsDestination {
       /** Optional. URI for a Cloud Storage directory where the server writes result files, in the format `gs://{bucket-id}/{path/to/destination/dir}`. If there is no trailing slash, the service appends one when composing the object path. The user is responsible for creating the Cloud Storage bucket referenced in `uri_prefix`. */
@@ -294,9 +285,7 @@ declare namespace gapi.client {
     interface ConsentHeaderHandling {
       /** Optional. Specifies the default server behavior when the header is empty. If not specified, the `ScopeProfile.PERMIT_EMPTY_SCOPE` option is used. */
       profile?:
-        | 'SCOPE_PROFILE_UNSPECIFIED'
-        | 'PERMIT_EMPTY_SCOPE'
-        | 'REQUIRED_ON_READ';
+        'SCOPE_PROFILE_UNSPECIFIED' | 'PERMIT_EMPTY_SCOPE' | 'REQUIRED_ON_READ';
     }
     interface ConsentList {
       /** The resource names of the Consents to evaluate against, of the form `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/consentStores/{consent_store_id}/consents/{consent_id}`. */
@@ -1125,11 +1114,7 @@ declare namespace gapi.client {
     interface RollbackFhirResourcesRequest {
       /** Optional. CREATE/UPDATE/DELETE/ALL for reverting all txns of a certain type. */
       changeType?:
-        | 'CHANGE_TYPE_UNSPECIFIED'
-        | 'ALL'
-        | 'CREATE'
-        | 'UPDATE'
-        | 'DELETE';
+        'CHANGE_TYPE_UNSPECIFIED' | 'ALL' | 'CREATE' | 'UPDATE' | 'DELETE';
       /** Optional. Specifies whether to exclude earlier rollbacks. */
       excludeRollbacks?: boolean;
       /** Optional. Parameters for filtering resources */
@@ -1156,11 +1141,7 @@ declare namespace gapi.client {
     interface RollbackHl7V2MessagesRequest {
       /** Optional. CREATE/UPDATE/DELETE/ALL for reverting all txns of a certain type. */
       changeType?:
-        | 'CHANGE_TYPE_UNSPECIFIED'
-        | 'ALL'
-        | 'CREATE'
-        | 'UPDATE'
-        | 'DELETE';
+        'CHANGE_TYPE_UNSPECIFIED' | 'ALL' | 'CREATE' | 'UPDATE' | 'DELETE';
       /** Optional. Specifies whether to exclude earlier rollbacks. */
       excludeRollbacks?: boolean;
       /** Optional. Parameters for filtering. */
@@ -1207,9 +1188,7 @@ declare namespace gapi.client {
       schemas?: Hl7SchemaConfig[];
       /** Optional. Determines how messages that fail to parse are handled. */
       schematizedParsingType?:
-        | 'SCHEMATIZED_PARSING_TYPE_UNSPECIFIED'
-        | 'SOFT_FAIL'
-        | 'HARD_FAIL';
+        'SCHEMATIZED_PARSING_TYPE_UNSPECIFIED' | 'SOFT_FAIL' | 'HARD_FAIL';
       /** Optional. Schema type definitions that are layered based on their VersionSources that match the incoming message. Type definitions present in higher indices override those in lower indices with the same type name if their VersionSources all match an incoming message. */
       types?: Hl7TypesConfig[];
       /** Optional. Determines how unexpected segments (segments not matched to the schema) are handled. */
@@ -1359,10 +1338,7 @@ declare namespace gapi.client {
       name?: string;
       /** If this is a primitive type then this field is the type of the primitive For example, STRING. Leave unspecified for composite types. */
       primitive?:
-        | 'PRIMITIVE_UNSPECIFIED'
-        | 'STRING'
-        | 'VARIES'
-        | 'UNESCAPED_STRING';
+        'PRIMITIVE_UNSPECIFIED' | 'STRING' | 'VARIES' | 'UNESCAPED_STRING';
     }
     interface UserDataMapping {
       /** Output only. Indicates whether this mapping is archived. */

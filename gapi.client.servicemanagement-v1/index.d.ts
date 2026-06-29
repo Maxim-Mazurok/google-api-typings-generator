@@ -75,10 +75,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface Authentication {
       /** Defines a set of authentication providers that a service supports. */
@@ -174,10 +171,7 @@ declare namespace gapi.client {
       flowControlElementLimit?: number;
       /** The behavior to take when the flow control limit is exceeded. */
       flowControlLimitExceededBehavior?:
-        | 'UNSET_BEHAVIOR'
-        | 'THROW_EXCEPTION'
-        | 'BLOCK'
-        | 'IGNORE';
+        'UNSET_BEHAVIOR' | 'THROW_EXCEPTION' | 'BLOCK' | 'IGNORE';
       /** The maximum size of the request that could be accepted by server. */
       requestByteLimit?: number;
       /** The aggregated size of the batched field which, if exceeded, causes the batch to be sent. This size is computed by aggregating the sizes of the request field to be batched, not of the entire request message. */

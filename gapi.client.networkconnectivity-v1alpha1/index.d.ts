@@ -53,10 +53,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface Binding {
       /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
@@ -168,10 +165,7 @@ declare namespace gapi.client {
       updateTime?: string;
       /** Optional. The type of usage set for this internal range. */
       usage?:
-        | 'USAGE_UNSPECIFIED'
-        | 'FOR_VPC'
-        | 'EXTERNAL_TO_VPC'
-        | 'FOR_MIGRATION';
+        'USAGE_UNSPECIFIED' | 'FOR_VPC' | 'EXTERNAL_TO_VPC' | 'FOR_MIGRATION';
       /** Output only. The list of resources that refer to this internal range. Resources that use the internal range for their range allocation are referred to as users of the range. Other resources mark themselves as users while doing so by creating a reference to this internal range. Having a user, based on this reference, prevents deletion of the internal range that is referred to. Can be empty. */
       users?: string[];
     }

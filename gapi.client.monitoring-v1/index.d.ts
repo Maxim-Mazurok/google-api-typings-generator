@@ -445,11 +445,7 @@ declare namespace gapi.client {
       createTime?: string;
       /** Current state of the batch operation. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATED'
-        | 'RUNNING'
-        | 'DONE'
-        | 'CANCELLED';
+        'STATE_UNSPECIFIED' | 'CREATED' | 'RUNNING' | 'DONE' | 'CANCELLED';
       /** The time when the operation result was last updated. */
       updateTime?: string;
     }
@@ -634,9 +630,7 @@ declare namespace gapi.client {
       minAlignmentPeriod?: string;
       /** Required. The type of sparkchart to show in this chartView. */
       sparkChartType?:
-        | 'SPARK_CHART_TYPE_UNSPECIFIED'
-        | 'SPARK_LINE'
-        | 'SPARK_BAR';
+        'SPARK_CHART_TYPE_UNSPECIFIED' | 'SPARK_LINE' | 'SPARK_BAR';
     }
     interface StatisticalTimeSeriesFilter {
       /** How many time series to output. */
@@ -699,10 +693,7 @@ declare namespace gapi.client {
         | 'FS_EXTRA_LARGE';
       /** The horizontal alignment of both the title and content */
       horizontalAlignment?:
-        | 'HORIZONTAL_ALIGNMENT_UNSPECIFIED'
-        | 'H_LEFT'
-        | 'H_CENTER'
-        | 'H_RIGHT';
+        'HORIZONTAL_ALIGNMENT_UNSPECIFIED' | 'H_LEFT' | 'H_CENTER' | 'H_RIGHT';
       /** The amount of padding around the widget */
       padding?:
         | 'PADDING_SIZE_UNSPECIFIED'
@@ -730,10 +721,7 @@ declare namespace gapi.client {
       textColor?: string;
       /** The vertical alignment of both the title and content */
       verticalAlignment?:
-        | 'VERTICAL_ALIGNMENT_UNSPECIFIED'
-        | 'V_TOP'
-        | 'V_CENTER'
-        | 'V_BOTTOM';
+        'VERTICAL_ALIGNMENT_UNSPECIFIED' | 'V_TOP' | 'V_CENTER' | 'V_BOTTOM';
     }
     interface Threshold {
       /** The state color for this threshold. Color is not allowed in a XyChart. */
@@ -808,9 +796,7 @@ declare namespace gapi.client {
       dataSets?: TableDataSet[];
       /** Optional. Store rendering strategy */
       metricVisualization?:
-        | 'METRIC_VISUALIZATION_UNSPECIFIED'
-        | 'NUMBER'
-        | 'BAR';
+        'METRIC_VISUALIZATION_UNSPECIFIED' | 'NUMBER' | 'BAR';
     }
     interface TraceQuery {
       /** Optional. The resource name of the project or Trace scope to fetch data from. If empty, the widget will default to the project's default Trace scope. If scope cannot be determined, then we fallback to the current project. Optional. */

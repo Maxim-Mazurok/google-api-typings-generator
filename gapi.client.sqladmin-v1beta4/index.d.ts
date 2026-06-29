@@ -183,20 +183,14 @@ declare namespace gapi.client {
       ttlDays?: string;
       /** Output only. The type of this backup. The type can be "AUTOMATED", "ON_DEMAND", or “FINAL”. */
       type?:
-        | 'SQL_BACKUP_TYPE_UNSPECIFIED'
-        | 'AUTOMATED'
-        | 'ON_DEMAND'
-        | 'FINAL';
+        'SQL_BACKUP_TYPE_UNSPECIFIED' | 'AUTOMATED' | 'ON_DEMAND' | 'FINAL';
     }
     interface BackupConfiguration {
       /** Backup retention settings. */
       backupRetentionSettings?: BackupRetentionSettings;
       /** Output only. Backup tier that manages the backups for the instance. */
       backupTier?:
-        | 'BACKUP_TIER_UNSPECIFIED'
-        | 'STANDARD'
-        | 'ADVANCED'
-        | 'ENHANCED';
+        'BACKUP_TIER_UNSPECIFIED' | 'STANDARD' | 'ADVANCED' | 'ENHANCED';
       /** (MySQL only) Whether binary log is enabled. If backup configuration is disabled, binarylog must be disabled as well. */
       binaryLogEnabled?: boolean;
       /** Whether this configuration is enabled. */
@@ -496,8 +490,7 @@ declare namespace gapi.client {
       kind?: string;
       /** Optional. Output only. mdx_protocol_support controls how the client uses metadata exchange when connecting to the instance. The values in the list representing parts of the MDX protocol that are supported by this instance. When the list is empty, the instance does not support MDX, so the client must not send an MDX request. The default is empty. */
       mdxProtocolSupport?:
-        | 'MDX_PROTOCOL_SUPPORT_UNSPECIFIED'
-        | 'CLIENT_PROTOCOL_TYPE'[];
+        'MDX_PROTOCOL_SUPPORT_UNSPECIFIED' | 'CLIENT_PROTOCOL_TYPE'[];
       /** The number of read pool nodes in a read pool. */
       nodeCount?: number;
       /** Output only. Entries containing information about each read pool node of the read pool. */
@@ -813,9 +806,7 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. The manager for this DNS record. */
       recordManager?:
-        | 'RECORD_MANAGER_UNSPECIFIED'
-        | 'CUSTOMER'
-        | 'CLOUD_SQL_AUTOMATION';
+        'RECORD_MANAGER_UNSPECIFIED' | 'CUSTOMER' | 'CLOUD_SQL_AUTOMATION';
     }
     interface Empty {}
     interface ExecuteSqlPayload {
@@ -1339,10 +1330,7 @@ declare namespace gapi.client {
       kind?: string;
       /** Maintenance timing settings: `canary`, `stable`, or `week5`. For more information, see [About maintenance on Cloud SQL instances](https://cloud.google.com/sql/docs/mysql/maintenance). */
       updateTrack?:
-        | 'SQL_UPDATE_TRACK_UNSPECIFIED'
-        | 'canary'
-        | 'stable'
-        | 'week5';
+        'SQL_UPDATE_TRACK_UNSPECIFIED' | 'canary' | 'stable' | 'week5';
     }
     interface Message {
       /** The full message string. For PostgreSQL, this is a formatted string that may include severity, code, and the notice/warning message. For MySQL, this contains the warning message. */
@@ -1403,10 +1391,7 @@ declare namespace gapi.client {
       sourceInstance?: InstanceReference;
       /** Optional. SslOption for replica connection to the on-premises source. */
       sslOption?:
-        | 'SSL_OPTION_UNSPECIFIED'
-        | 'DISABLE'
-        | 'REQUIRE'
-        | 'VERIFY_CA';
+        'SSL_OPTION_UNSPECIFIED' | 'DISABLE' | 'REQUIRE' | 'VERIFY_CA';
       /** The username for connecting to on-premises instance. */
       username?: string;
     }
@@ -1495,10 +1480,7 @@ declare namespace gapi.client {
       startTime?: string;
       /** The status of an operation. */
       status?:
-        | 'SQL_OPERATION_STATUS_UNSPECIFIED'
-        | 'PENDING'
-        | 'RUNNING'
-        | 'DONE';
+        'SQL_OPERATION_STATUS_UNSPECIFIED' | 'PENDING' | 'RUNNING' | 'DONE';
       /** Optional. The sub operation based on the operation type. */
       subOperationType?: SqlSubOperationType;
       /** Name of the resource on which this operation runs. */
@@ -1837,10 +1819,7 @@ declare namespace gapi.client {
       acceleratedReplicaMode?: boolean;
       /** The activation policy specifies when the instance is activated; it is applicable only when the instance state is RUNNABLE. Valid values: * `ALWAYS`: The instance is on, and remains so even in the absence of connection requests. * `NEVER`: The instance is off; it is not activated, even if a connection request arrives. */
       activationPolicy?:
-        | 'SQL_ACTIVATION_POLICY_UNSPECIFIED'
-        | 'ALWAYS'
-        | 'NEVER'
-        | 'ON_DEMAND';
+        'SQL_ACTIVATION_POLICY_UNSPECIFIED' | 'ALWAYS' | 'NEVER' | 'ON_DEMAND';
       /** Active Directory configuration, relevant only for Cloud SQL for SQL Server. */
       activeDirectoryConfig?: SqlActiveDirectoryConfig;
       /** Specifies advanced machine configuration for the instances relevant only for SQL Server. */
@@ -1851,9 +1830,7 @@ declare namespace gapi.client {
       autoUpgradeEnabled?: boolean;
       /** Availability type. Potential values: * `ZONAL`: The instance serves data from only one zone. Outages in that zone affect data accessibility. * `REGIONAL`: The instance can serve data from more than one zone in a region (it is highly available)./ For more information, see [Overview of the High Availability Configuration](https://cloud.google.com/sql/docs/mysql/high-availability). */
       availabilityType?:
-        | 'SQL_AVAILABILITY_TYPE_UNSPECIFIED'
-        | 'ZONAL'
-        | 'REGIONAL';
+        'SQL_AVAILABILITY_TYPE_UNSPECIFIED' | 'ZONAL' | 'REGIONAL';
       /** The daily backup configuration for the instance. */
       backupConfiguration?: BackupConfiguration;
       /** The name of server Instance collation. */
@@ -1862,16 +1839,12 @@ declare namespace gapi.client {
       connectionPoolConfig?: ConnectionPoolConfig;
       /** Specifies if connections must use Cloud SQL connectors. Option values include the following: `NOT_REQUIRED` (Cloud SQL instances can be connected without Cloud SQL Connectors) and `REQUIRED` (Only allow connections that use Cloud SQL Connectors) Note that using REQUIRED disables all existing authorized networks. If this field is not specified when creating a new instance, NOT_REQUIRED is used. If this field is not specified when patching or updating an existing instance, it is left unchanged in the instance. */
       connectorEnforcement?:
-        | 'CONNECTOR_ENFORCEMENT_UNSPECIFIED'
-        | 'NOT_REQUIRED'
-        | 'REQUIRED';
+        'CONNECTOR_ENFORCEMENT_UNSPECIFIED' | 'NOT_REQUIRED' | 'REQUIRED';
       /** Configuration specific to read replica instances. Indicates whether database flags for crash-safe replication are enabled. This property was only applicable to First Generation instances. */
       crashSafeReplicationEnabled?: boolean;
       /** This parameter controls whether to allow using ExecuteSql API to connect to the instance. Not allowed by default. */
       dataApiAccess?:
-        | 'DATA_API_ACCESS_UNSPECIFIED'
-        | 'DISALLOW_DATA_API'
-        | 'ALLOW_DATA_API';
+        'DATA_API_ACCESS_UNSPECIFIED' | 'DISALLOW_DATA_API' | 'ALLOW_DATA_API';
       /** The database flags passed to the instance at startup. */
       databaseFlags?: DatabaseFlags[];
       /** Configuration specific to read replica instances. Indicates whether replication is enabled or not. WARNING: Changing this restarts the instance. */
@@ -1897,10 +1870,7 @@ declare namespace gapi.client {
       denyMaintenancePeriods?: DenyMaintenancePeriod[];
       /** Optional. The edition type of the Cloud SQL instance. */
       edition?:
-        | 'EDITION_UNSPECIFIED'
-        | 'ENTERPRISE'
-        | 'ENTERPRISE_PLUS'
-        | 'DEVELOPER';
+        'EDITION_UNSPECIFIED' | 'ENTERPRISE' | 'ENTERPRISE_PLUS' | 'DEVELOPER';
       /** Optional. By default, Cloud SQL instances have schema extraction disabled for Dataplex. When this parameter is set to true, schema extraction for Dataplex on Cloud SQL instances is activated. */
       enableDataplexIntegration?: boolean;
       /** Optional. When this parameter is set to true, Cloud SQL instances can connect to Vertex AI to pass requests for real-time predictions and insights to the AI. The default value is false. This applies only to Cloud SQL for MySQL and Cloud SQL for PostgreSQL instances. */
@@ -1931,9 +1901,7 @@ declare namespace gapi.client {
       replicationLagMaxSeconds?: number;
       /** The type of replication this instance uses. This can be either `ASYNCHRONOUS` or `SYNCHRONOUS`. (Deprecated) This property was only applicable to First Generation instances. */
       replicationType?:
-        | 'SQL_REPLICATION_TYPE_UNSPECIFIED'
-        | 'SYNCHRONOUS'
-        | 'ASYNCHRONOUS';
+        'SQL_REPLICATION_TYPE_UNSPECIFIED' | 'SYNCHRONOUS' | 'ASYNCHRONOUS';
       /** Optional. When this parameter is set to true, Cloud SQL retains backups of the instance even after the instance is deleted. The ON_DEMAND backup will be retained until customer deletes the backup or the project. The AUTOMATED backup will be retained based on the backups retention setting. */
       retainBackupsOnDelete?: boolean;
       /** The version of instance settings. This is a required field for update method to make sure concurrent updates are handled properly. During update, use the most recent settingsVersion value for this instance and do not try to update this value. */
@@ -2088,10 +2056,7 @@ declare namespace gapi.client {
       syncMode?: 'EXTERNAL_SYNC_MODE_UNSPECIFIED' | 'ONLINE' | 'OFFLINE';
       /** Optional. Parallel level for initial data sync. Currently only applicable for MySQL. */
       syncParallelLevel?:
-        | 'EXTERNAL_SYNC_PARALLEL_LEVEL_UNSPECIFIED'
-        | 'MIN'
-        | 'OPTIMAL'
-        | 'MAX';
+        'EXTERNAL_SYNC_PARALLEL_LEVEL_UNSPECIFIED' | 'MIN' | 'OPTIMAL' | 'MAX';
     }
     interface SqlInstancesVerifyExternalSyncSettingsRequest {
       /** Optional. MigrationType configures the migration to use physical files or logical dump files. If not set, then the logical dump file configuration is used. Valid values are `LOGICAL` or `PHYSICAL`. Only applicable to MySQL. */
@@ -2104,10 +2069,7 @@ declare namespace gapi.client {
       syncMode?: 'EXTERNAL_SYNC_MODE_UNSPECIFIED' | 'ONLINE' | 'OFFLINE';
       /** Optional. Parallel level for initial data sync. Only applicable for PostgreSQL. */
       syncParallelLevel?:
-        | 'EXTERNAL_SYNC_PARALLEL_LEVEL_UNSPECIFIED'
-        | 'MIN'
-        | 'OPTIMAL'
-        | 'MAX';
+        'EXTERNAL_SYNC_PARALLEL_LEVEL_UNSPECIFIED' | 'MIN' | 'OPTIMAL' | 'MAX';
       /** Flag to enable verifying connection only */
       verifyConnectionOnly?: boolean;
       /** Optional. Flag to verify settings required by replication setup only */
@@ -2126,9 +2088,7 @@ declare namespace gapi.client {
       sqlMinRecommendedIncreaseSizeGb?: number;
       /** This field represents the state generated by the proactive database wellness job for OutOfDisk issues. * Writers: * the proactive database wellness job for OOD. * Readers: * the proactive database wellness job */
       sqlOutOfDiskState?:
-        | 'SQL_OUT_OF_DISK_STATE_UNSPECIFIED'
-        | 'NORMAL'
-        | 'SOFT_SHUTDOWN';
+        'SQL_OUT_OF_DISK_STATE_UNSPECIFIED' | 'NORMAL' | 'SOFT_SHUTDOWN';
     }
     interface SqlScheduledMaintenance {
       canDefer?: boolean;

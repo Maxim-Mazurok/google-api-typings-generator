@@ -43,10 +43,7 @@ declare namespace gapi.client {
       accountActivity?: AccountActivity;
       /** Required. Details about the licensing status of the user for the app in the scope. */
       appLicensingVerdict?:
-        | 'UNKNOWN'
-        | 'LICENSED'
-        | 'UNLICENSED'
-        | 'UNEVALUATED';
+        'UNKNOWN' | 'LICENSED' | 'UNLICENSED' | 'UNEVALUATED';
     }
     interface AppAccessRiskVerdict {
       /** List of detected app types signalled for App Access Risk. */
@@ -64,10 +61,7 @@ declare namespace gapi.client {
     interface AppIntegrity {
       /** Required. Details about the app recognition verdict */
       appRecognitionVerdict?:
-        | 'UNKNOWN'
-        | 'PLAY_RECOGNIZED'
-        | 'UNRECOGNIZED_VERSION'
-        | 'UNEVALUATED';
+        'UNKNOWN' | 'PLAY_RECOGNIZED' | 'UNRECOGNIZED_VERSION' | 'UNEVALUATED';
       /** The SHA256 hash of the requesting app's signing certificates (base64 web-safe encoded). Set iff app_recognition_verdict != UNEVALUATED. */
       certificateSha256Digest?: string[];
       /** Package name of the application under attestation. Set iff app_recognition_verdict != UNEVALUATED. */
@@ -139,16 +133,12 @@ declare namespace gapi.client {
     interface PcAccountDetails {
       /** Required. Details about the licensing status of the user for the app in the scope. */
       appLicensingVerdict?:
-        | 'UNKNOWN'
-        | 'LICENSED'
-        | 'UNLICENSED'
-        | 'UNEVALUATED';
+        'UNKNOWN' | 'LICENSED' | 'UNLICENSED' | 'UNEVALUATED';
     }
     interface PcDeviceIntegrity {
       /** Details about the integrity of the device the app is running on. */
       deviceRecognitionVerdict?:
-        | 'DEVICE_RECOGNITION_VERDICT_UNSPECIFIED'
-        | 'MEETS_PC_INTEGRITY'[];
+        'DEVICE_RECOGNITION_VERDICT_UNSPECIFIED' | 'MEETS_PC_INTEGRITY'[];
     }
     interface PcRequestDetails {
       /** Request hash that was provided in the request. */

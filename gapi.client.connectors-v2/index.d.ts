@@ -1069,9 +1069,7 @@ declare namespace gapi.client {
         uploadType?: string;
         /** Specifies which fields of the Action are returned in the response. */
         view?:
-          | 'ACTION_VIEW_UNSPECIFIED'
-          | 'ACTION_VIEW_BASIC'
-          | 'ACTION_VIEW_FULL';
+          'ACTION_VIEW_UNSPECIFIED' | 'ACTION_VIEW_BASIC' | 'ACTION_VIEW_FULL';
       }): Request<ListActionsResponse>;
     }
     interface EntitiesResource {

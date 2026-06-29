@@ -151,9 +151,7 @@ declare namespace gapi.client {
       etag?: string;
       /** Optional. Controls the evaluation of a Google-maintained global admission policy for common system-level images. Images not covered by the global policy will be subject to the project admission policy. This setting has no effect when specified inside a global admission policy. */
       globalPolicyEvaluationMode?:
-        | 'GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED'
-        | 'ENABLE'
-        | 'DISABLE';
+        'GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED' | 'ENABLE' | 'DISABLE';
       /** Optional. Per-istio-service-identity admission rules. Istio service identity spec format: `spiffe:///ns//sa/` or `/ns//sa/` e.g. `spiffe://example.com/ns/test-ns/sa/default` */
       istioServiceIdentityAdmissionRules?: {[P in string]: AdmissionRule};
       /** Optional. Per-kubernetes-namespace admission rules. K8s namespace spec format: `[a-z.-]+`, e.g. `some-namespace` */

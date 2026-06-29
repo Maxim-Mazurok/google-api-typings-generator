@@ -40,10 +40,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface AutomaticUpdatePolicy {}
     interface Binding {
@@ -467,9 +464,7 @@ declare namespace gapi.client {
       secretVolumes?: SecretVolume[];
       /** Security level configure whether the function only accepts https. This configuration is only applicable to 1st Gen functions with Http trigger. By default https is optional for 1st Gen functions; 2nd Gen functions are https ONLY. */
       securityLevel?:
-        | 'SECURITY_LEVEL_UNSPECIFIED'
-        | 'SECURE_ALWAYS'
-        | 'SECURE_OPTIONAL';
+        'SECURITY_LEVEL_UNSPECIFIED' | 'SECURE_ALWAYS' | 'SECURE_OPTIONAL';
       /** Output only. Name of the service associated with a Function. The format of this field is `projects/{project}/locations/{region}/services/{service}` */
       service?: string;
       /** The email of the service's service account. If empty, defaults to `{project_number}-compute@developer.gserviceaccount.com`. */

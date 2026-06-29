@@ -639,11 +639,7 @@ declare namespace gapi.client {
       startTime?: string;
       /** The detailed state of a trial. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'REQUESTED'
-        | 'ACTIVE'
-        | 'COMPLETED'
-        | 'STOPPING';
+        'STATE_UNSPECIFIED' | 'REQUESTED' | 'ACTIVE' | 'COMPLETED' | 'STOPPING';
       /** Output only. If true, the parameters in this trial are not attempted again. */
       trialInfeasible?: boolean;
     }
@@ -668,10 +664,7 @@ declare namespace gapi.client {
       explanationConfig?: GoogleCloudMlV1__ExplanationConfig;
       /** Optional. The machine learning framework AI Platform uses to train this version of the model. Valid values are `TENSORFLOW`, `SCIKIT_LEARN`, `XGBOOST`. If you do not specify a framework, AI Platform will analyze files in the deployment_uri to determine a framework. If you choose `SCIKIT_LEARN` or `XGBOOST`, you must also set the runtime version of the model to 1.4 or greater. Do **not** specify a framework if you're deploying a [custom prediction routine](/ai-platform/prediction/docs/custom-prediction-routines) or if you're using a [custom container](/ai-platform/prediction/docs/use-custom-container). */
       framework?:
-        | 'FRAMEWORK_UNSPECIFIED'
-        | 'TENSORFLOW'
-        | 'SCIKIT_LEARN'
-        | 'XGBOOST';
+        'FRAMEWORK_UNSPECIFIED' | 'TENSORFLOW' | 'SCIKIT_LEARN' | 'XGBOOST';
       /** Output only. If true, this version will be used to handle prediction requests that do not specify a version. You can change the default version by calling projects.methods.versions.setDefault. */
       isDefault?: boolean;
       /** Optional. One or more labels that you can add, to organize your model versions. Each label is a key-value pair, where both the key and the value are arbitrary strings that you supply. For more information, see the documentation on using labels. Note that this field is not updatable for mls1* models. */
@@ -704,12 +697,7 @@ declare namespace gapi.client {
       serviceAccount?: string;
       /** Output only. The state of a version. */
       state?:
-        | 'UNKNOWN'
-        | 'READY'
-        | 'CREATING'
-        | 'FAILED'
-        | 'DELETING'
-        | 'UPDATING';
+        'UNKNOWN' | 'READY' | 'CREATING' | 'FAILED' | 'DELETING' | 'UPDATING';
     }
     interface GoogleCloudMlV1__XraiAttribution {
       /** Number of steps for approximating the path integral. A good value to start is 50 and gradually increase until the sum to diff property is met within the desired error range. */
@@ -824,10 +812,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface GoogleIamV1__Binding {
       /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */

@@ -351,9 +351,7 @@ declare namespace gapi.client {
       lastUpdateTime?: string;
       /** Which enforcement mode to use for the password policy. */
       passwordPolicyEnforcementState?:
-        | 'PASSWORD_POLICY_ENFORCEMENT_STATE_UNSPECIFIED'
-        | 'OFF'
-        | 'ENFORCE';
+        'PASSWORD_POLICY_ENFORCEMENT_STATE_UNSPECIFIED' | 'OFF' | 'ENFORCE';
       /** Must be of length 1. Contains the strength attributes for the password policy. */
       passwordPolicyVersions?: GoogleCloudIdentitytoolkitAdminV2PasswordPolicyVersion[];
     }
@@ -679,10 +677,7 @@ declare namespace gapi.client {
     interface GoogleCloudIdentitytoolkitV2RecaptchaEnforcementState {
       /** The reCAPTCHA enforcement state for the provider. */
       enforcementState?:
-        | 'ENFORCEMENT_STATE_UNSPECIFIED'
-        | 'OFF'
-        | 'AUDIT'
-        | 'ENFORCE';
+        'ENFORCEMENT_STATE_UNSPECIFIED' | 'OFF' | 'AUDIT' | 'ENFORCE';
       /** The provider that has reCAPTCHA protection. */
       provider?:
         | 'RECAPTCHA_PROVIDER_UNSPECIFIED'
@@ -702,10 +697,7 @@ declare namespace gapi.client {
       token?: string;
       /** Required. The type of the token to be revoked. */
       tokenType?:
-        | 'TOKEN_TYPE_UNSPECIFIED'
-        | 'REFRESH_TOKEN'
-        | 'ACCESS_TOKEN'
-        | 'CODE';
+        'TOKEN_TYPE_UNSPECIFIED' | 'REFRESH_TOKEN' | 'ACCESS_TOKEN' | 'CODE';
     }
     interface GoogleCloudIdentitytoolkitV2RevokeTokenResponse {}
     interface GoogleCloudIdentitytoolkitV2StartMfaEnrollmentRequest {
@@ -747,8 +739,7 @@ declare namespace gapi.client {
       recaptchaToken?: string;
       /** The reCAPTCHA version of the reCAPTCHA token in the captcha_response. Required when reCAPTCHA Enterprise is enabled. */
       recaptchaVersion?:
-        | 'RECAPTCHA_VERSION_UNSPECIFIED'
-        | 'RECAPTCHA_ENTERPRISE';
+        'RECAPTCHA_VERSION_UNSPECIFIED' | 'RECAPTCHA_ENTERPRISE';
       /** Android only. Used to assert application identity in place of a recaptcha token. A SafetyNet Token can be generated via the [SafetyNet Android Attestation API](https://developer.android.com/training/safetynet/attestation.html), with the Base64 encoding of the `phone_number` field as the nonce. */
       safetyNetToken?: string;
     }
@@ -810,10 +801,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface GoogleIamV1Binding {
       /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */

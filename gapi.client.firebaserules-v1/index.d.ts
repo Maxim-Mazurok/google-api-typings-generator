@@ -75,9 +75,7 @@ declare namespace gapi.client {
         | 'FIREBASE_RULES_EXECUTABLE_V2';
       /** `Language` used to generate the executable bytes. */
       language?:
-        | 'LANGUAGE_UNSPECIFIED'
-        | 'FIREBASE_RULES'
-        | 'EVENT_FLOW_TRIGGERS';
+        'LANGUAGE_UNSPECIFIED' | 'FIREBASE_RULES' | 'EVENT_FLOW_TRIGGERS';
       /** `Ruleset` name associated with the `Release` executable. */
       rulesetName?: string;
       /** Optional, indicates the freshness of the result. The response is guaranteed to be the latest within an interval up to the sync_time (inclusive). */

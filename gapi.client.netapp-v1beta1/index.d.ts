@@ -184,9 +184,7 @@ declare namespace gapi.client {
       backupsCryptoKeyVersion?: string;
       /** Optional. Type of backup vault to be created. Default is IN_REGION. */
       backupVaultType?:
-        | 'BACKUP_VAULT_TYPE_UNSPECIFIED'
-        | 'IN_REGION'
-        | 'CROSS_REGION';
+        'BACKUP_VAULT_TYPE_UNSPECIFIED' | 'IN_REGION' | 'CROSS_REGION';
       /** Output only. Create time of the backup vault. */
       createTime?: string;
       /** Optional. Indicates if the backup vault is a cross project vault. */
@@ -646,12 +644,7 @@ declare namespace gapi.client {
       ipAddress?: string;
       /** Protocol to mount with. */
       protocol?:
-        | 'PROTOCOLS_UNSPECIFIED'
-        | 'NFSV3'
-        | 'NFSV4'
-        | 'SMB'
-        | 'ISCSI'
-        | 'NVME';
+        'PROTOCOLS_UNSPECIFIED' | 'NFSV3' | 'NFSV4' | 'SMB' | 'ISCSI' | 'NVME';
     }
     interface OntapSource {
       /** Optional. The UUID of the ONTAP source snapshot. */
@@ -821,10 +814,7 @@ declare namespace gapi.client {
     interface SimpleExportPolicyRule {
       /** Access type (ReadWrite, ReadOnly, None) */
       accessType?:
-        | 'ACCESS_TYPE_UNSPECIFIED'
-        | 'READ_ONLY'
-        | 'READ_WRITE'
-        | 'READ_NONE';
+        'ACCESS_TYPE_UNSPECIFIED' | 'READ_ONLY' | 'READ_WRITE' | 'READ_NONE';
       /** Comma separated list of allowed clients IP addresses */
       allowedClients?: string;
       /** Optional. An integer representing the anonymous user ID. Range is 0 to `4294967295`. Required when `squash_mode` is `ROOT_SQUASH` or `ALL_SQUASH`. */
@@ -935,9 +925,7 @@ declare namespace gapi.client {
       enableHotTierAutoResize?: boolean;
       /** Output only. Specifies the current pool encryption key source. */
       encryptionType?:
-        | 'ENCRYPTION_TYPE_UNSPECIFIED'
-        | 'SERVICE_MANAGED'
-        | 'CLOUD_KMS';
+        'ENCRYPTION_TYPE_UNSPECIFIED' | 'SERVICE_MANAGED' | 'CLOUD_KMS';
       /** Deprecated. Used to allow SO pool to access AD or DNS server from other regions. */
       globalAccessAllowed?: boolean;
       /** Optional. Total hot tier capacity for the Storage Pool. It is applicable only to Flex service level. It should be less than the minimum storage pool size and cannot be more than the current storage pool size. It cannot be decreased once set. */
@@ -973,9 +961,7 @@ declare namespace gapi.client {
         | 'SCALE_TIER_ENTERPRISE';
       /** Optional. The scale type of the storage pool. Defaults to `SCALE_TYPE_DEFAULT` if not specified. */
       scaleType?:
-        | 'SCALE_TYPE_UNSPECIFIED'
-        | 'SCALE_TYPE_DEFAULT'
-        | 'SCALE_TYPE_SCALEOUT';
+        'SCALE_TYPE_UNSPECIFIED' | 'SCALE_TYPE_DEFAULT' | 'SCALE_TYPE_SCALEOUT';
       /** Required. Service level of the storage pool */
       serviceLevel?:
         | 'SERVICE_LEVEL_UNSPECIFIED'
@@ -1051,8 +1037,7 @@ declare namespace gapi.client {
     interface ValidateDirectoryServiceRequest {
       /** Type of directory service policy attached to the storage pool. */
       directoryServiceType?:
-        | 'DIRECTORY_SERVICE_TYPE_UNSPECIFIED'
-        | 'ACTIVE_DIRECTORY';
+        'DIRECTORY_SERVICE_TYPE_UNSPECIFIED' | 'ACTIVE_DIRECTORY';
     }
     interface VerifyKmsConfigRequest {}
     interface VerifyKmsConfigResponse {
@@ -1084,9 +1069,7 @@ declare namespace gapi.client {
       description?: string;
       /** Output only. Specified the current volume encryption key source. */
       encryptionType?:
-        | 'ENCRYPTION_TYPE_UNSPECIFIED'
-        | 'SERVICE_MANAGED'
-        | 'CLOUD_KMS';
+        'ENCRYPTION_TYPE_UNSPECIFIED' | 'SERVICE_MANAGED' | 'CLOUD_KMS';
       /** Optional. Export policy of the volume */
       exportPolicy?: ExportPolicy;
       /** Output only. Indicates whether the volume is part of a replication relationship. */

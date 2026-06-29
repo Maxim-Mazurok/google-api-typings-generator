@@ -218,22 +218,14 @@ declare namespace gapi.client {
     }
     interface Config {
       moduleEnablementState?:
-        | 'ENABLEMENT_STATE_UNSPECIFIED'
-        | 'INHERITED'
-        | 'ENABLED'
-        | 'DISABLED';
+        'ENABLEMENT_STATE_UNSPECIFIED' | 'INHERITED' | 'ENABLED' | 'DISABLED';
       value?: {[P in string]: any};
     }
     interface Connection {
       destinationIp?: string;
       destinationPort?: number;
       protocol?:
-        | 'PROTOCOL_UNSPECIFIED'
-        | 'ICMP'
-        | 'TCP'
-        | 'UDP'
-        | 'GRE'
-        | 'ESP';
+        'PROTOCOL_UNSPECIFIED' | 'ICMP' | 'TCP' | 'UDP' | 'GRE' | 'ESP';
       sourceIp?: string;
       sourcePort?: number;
     }
@@ -255,10 +247,7 @@ declare namespace gapi.client {
       name?: string;
       serviceAccount?: string;
       serviceEnablementState?:
-        | 'ENABLEMENT_STATE_UNSPECIFIED'
-        | 'INHERITED'
-        | 'ENABLED'
-        | 'DISABLED';
+        'ENABLEMENT_STATE_UNSPECIFIED' | 'INHERITED' | 'ENABLED' | 'DISABLED';
       updateTime?: string;
     }
     interface Control {
@@ -278,11 +267,7 @@ declare namespace gapi.client {
       firstExploitationDate?: string;
       id?: string;
       impact?:
-        | 'RISK_RATING_UNSPECIFIED'
-        | 'LOW'
-        | 'MEDIUM'
-        | 'HIGH'
-        | 'CRITICAL';
+        'RISK_RATING_UNSPECIFIED' | 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
       observedInTheWild?: boolean;
       references?: Reference[];
       upstreamFixAvailable?: boolean;
@@ -300,21 +285,12 @@ declare namespace gapi.client {
         | 'ATTACK_VECTOR_LOCAL'
         | 'ATTACK_VECTOR_PHYSICAL';
       availabilityImpact?:
-        | 'IMPACT_UNSPECIFIED'
-        | 'IMPACT_HIGH'
-        | 'IMPACT_LOW'
-        | 'IMPACT_NONE';
+        'IMPACT_UNSPECIFIED' | 'IMPACT_HIGH' | 'IMPACT_LOW' | 'IMPACT_NONE';
       baseScore?: number;
       confidentialityImpact?:
-        | 'IMPACT_UNSPECIFIED'
-        | 'IMPACT_HIGH'
-        | 'IMPACT_LOW'
-        | 'IMPACT_NONE';
+        'IMPACT_UNSPECIFIED' | 'IMPACT_HIGH' | 'IMPACT_LOW' | 'IMPACT_NONE';
       integrityImpact?:
-        | 'IMPACT_UNSPECIFIED'
-        | 'IMPACT_HIGH'
-        | 'IMPACT_LOW'
-        | 'IMPACT_NONE';
+        'IMPACT_UNSPECIFIED' | 'IMPACT_HIGH' | 'IMPACT_LOW' | 'IMPACT_NONE';
       privilegesRequired?:
         | 'PRIVILEGES_REQUIRED_UNSPECIFIED'
         | 'PRIVILEGES_REQUIRED_NONE'
@@ -395,10 +371,7 @@ declare namespace gapi.client {
       detectedRelevantKeywords?: boolean;
       detectedRelevantPackages?: boolean;
       workloadType?:
-        | 'WORKLOAD_TYPE_UNSPECIFIED'
-        | 'MCP_SERVER'
-        | 'AI_INFERENCE'
-        | 'AGENT';
+        'WORKLOAD_TYPE_UNSPECIFIED' | 'MCP_SERVER' | 'AI_INFERENCE' | 'AGENT';
     }
     interface Disk {
       name?: string;
@@ -419,10 +392,7 @@ declare namespace gapi.client {
       modules?: {[P in string]: Config};
       name?: string;
       serviceEnablementState?:
-        | 'ENABLEMENT_STATE_UNSPECIFIED'
-        | 'INHERITED'
-        | 'ENABLED'
-        | 'DISABLED';
+        'ENABLEMENT_STATE_UNSPECIFIED' | 'INHERITED' | 'ENABLED' | 'DISABLED';
       updateTime?: string;
     }
     interface ExfilResource {
@@ -570,11 +540,7 @@ declare namespace gapi.client {
       securityMarks?: SecurityMarks;
       securityPosture?: SecurityPosture;
       severity?:
-        | 'SEVERITY_UNSPECIFIED'
-        | 'CRITICAL'
-        | 'HIGH'
-        | 'MEDIUM'
-        | 'LOW';
+        'SEVERITY_UNSPECIFIED' | 'CRITICAL' | 'HIGH' | 'MEDIUM' | 'LOW';
       sourceProperties?: {[P in string]: any};
       state?: 'STATE_UNSPECIFIED' | 'ACTIVE' | 'INACTIVE';
       toxicCombination?: ToxicCombination;
@@ -640,11 +606,7 @@ declare namespace gapi.client {
       recommendation?: string;
       resourceSelector?: GoogleCloudSecuritycenterV1ResourceSelector;
       severity?:
-        | 'SEVERITY_UNSPECIFIED'
-        | 'CRITICAL'
-        | 'HIGH'
-        | 'MEDIUM'
-        | 'LOW';
+        'SEVERITY_UNSPECIFIED' | 'CRITICAL' | 'HIGH' | 'MEDIUM' | 'LOW';
     }
     interface GoogleCloudSecuritycenterV1CustomOutputSpec {
       properties?: GoogleCloudSecuritycenterV1Property[];
@@ -707,11 +669,7 @@ declare namespace gapi.client {
       resourceName?: string;
       securityMarks?: GoogleCloudSecuritycenterV1p1beta1SecurityMarks;
       severity?:
-        | 'SEVERITY_UNSPECIFIED'
-        | 'CRITICAL'
-        | 'HIGH'
-        | 'MEDIUM'
-        | 'LOW';
+        'SEVERITY_UNSPECIFIED' | 'CRITICAL' | 'HIGH' | 'MEDIUM' | 'LOW';
       sourceProperties?: {[P in string]: any};
       state?: 'STATE_UNSPECIFIED' | 'ACTIVE' | 'INACTIVE';
     }
@@ -816,11 +774,7 @@ declare namespace gapi.client {
       resourceLabelsSelector?: {[P in string]: string};
       resourceType?: string;
       resourceValue?:
-        | 'RESOURCE_VALUE_UNSPECIFIED'
-        | 'HIGH'
-        | 'MEDIUM'
-        | 'LOW'
-        | 'NONE';
+        'RESOURCE_VALUE_UNSPECIFIED' | 'HIGH' | 'MEDIUM' | 'LOW' | 'NONE';
       scope?: string;
       sensitiveDataProtectionMapping?: GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping;
       tagValues?: string[];
@@ -840,27 +794,16 @@ declare namespace gapi.client {
       customConfig?: GoogleCloudSecuritycenterV1CustomConfig;
       displayName?: string;
       enablementState?:
-        | 'ENABLEMENT_STATE_UNSPECIFIED'
-        | 'ENABLED'
-        | 'DISABLED'
-        | 'INHERITED';
+        'ENABLEMENT_STATE_UNSPECIFIED' | 'ENABLED' | 'DISABLED' | 'INHERITED';
       lastEditor?: string;
       name?: string;
       updateTime?: string;
     }
     interface GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping {
       highSensitivityMapping?:
-        | 'RESOURCE_VALUE_UNSPECIFIED'
-        | 'HIGH'
-        | 'MEDIUM'
-        | 'LOW'
-        | 'NONE';
+        'RESOURCE_VALUE_UNSPECIFIED' | 'HIGH' | 'MEDIUM' | 'LOW' | 'NONE';
       mediumSensitivityMapping?:
-        | 'RESOURCE_VALUE_UNSPECIFIED'
-        | 'HIGH'
-        | 'MEDIUM'
-        | 'LOW'
-        | 'NONE';
+        'RESOURCE_VALUE_UNSPECIFIED' | 'HIGH' | 'MEDIUM' | 'LOW' | 'NONE';
     }
     interface GoogleCloudSecuritycenterV2Access {
       callerIp?: string;
@@ -1069,12 +1012,7 @@ declare namespace gapi.client {
       destinationIp?: string;
       destinationPort?: number;
       protocol?:
-        | 'PROTOCOL_UNSPECIFIED'
-        | 'ICMP'
-        | 'TCP'
-        | 'UDP'
-        | 'GRE'
-        | 'ESP';
+        'PROTOCOL_UNSPECIFIED' | 'ICMP' | 'TCP' | 'UDP' | 'GRE' | 'ESP';
       sourceIp?: string;
       sourcePort?: number;
     }
@@ -1108,11 +1046,7 @@ declare namespace gapi.client {
       firstExploitationDate?: string;
       id?: string;
       impact?:
-        | 'RISK_RATING_UNSPECIFIED'
-        | 'LOW'
-        | 'MEDIUM'
-        | 'HIGH'
-        | 'CRITICAL';
+        'RISK_RATING_UNSPECIFIED' | 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
       observedInTheWild?: boolean;
       references?: GoogleCloudSecuritycenterV2Reference[];
       upstreamFixAvailable?: boolean;
@@ -1130,21 +1064,12 @@ declare namespace gapi.client {
         | 'ATTACK_VECTOR_LOCAL'
         | 'ATTACK_VECTOR_PHYSICAL';
       availabilityImpact?:
-        | 'IMPACT_UNSPECIFIED'
-        | 'IMPACT_HIGH'
-        | 'IMPACT_LOW'
-        | 'IMPACT_NONE';
+        'IMPACT_UNSPECIFIED' | 'IMPACT_HIGH' | 'IMPACT_LOW' | 'IMPACT_NONE';
       baseScore?: number;
       confidentialityImpact?:
-        | 'IMPACT_UNSPECIFIED'
-        | 'IMPACT_HIGH'
-        | 'IMPACT_LOW'
-        | 'IMPACT_NONE';
+        'IMPACT_UNSPECIFIED' | 'IMPACT_HIGH' | 'IMPACT_LOW' | 'IMPACT_NONE';
       integrityImpact?:
-        | 'IMPACT_UNSPECIFIED'
-        | 'IMPACT_HIGH'
-        | 'IMPACT_LOW'
-        | 'IMPACT_NONE';
+        'IMPACT_UNSPECIFIED' | 'IMPACT_HIGH' | 'IMPACT_LOW' | 'IMPACT_NONE';
       privilegesRequired?:
         | 'PRIVILEGES_REQUIRED_UNSPECIFIED'
         | 'PRIVILEGES_REQUIRED_NONE'
@@ -1211,10 +1136,7 @@ declare namespace gapi.client {
       detectedRelevantKeywords?: boolean;
       detectedRelevantPackages?: boolean;
       workloadType?:
-        | 'WORKLOAD_TYPE_UNSPECIFIED'
-        | 'MCP_SERVER'
-        | 'AI_INFERENCE'
-        | 'AGENT';
+        'WORKLOAD_TYPE_UNSPECIFIED' | 'MCP_SERVER' | 'AI_INFERENCE' | 'AGENT';
     }
     interface GoogleCloudSecuritycenterV2Disk {
       name?: string;
@@ -1379,11 +1301,7 @@ declare namespace gapi.client {
       securityMarks?: GoogleCloudSecuritycenterV2SecurityMarks;
       securityPosture?: GoogleCloudSecuritycenterV2SecurityPosture;
       severity?:
-        | 'SEVERITY_UNSPECIFIED'
-        | 'CRITICAL'
-        | 'HIGH'
-        | 'MEDIUM'
-        | 'LOW';
+        'SEVERITY_UNSPECIFIED' | 'CRITICAL' | 'HIGH' | 'MEDIUM' | 'LOW';
       sourceProperties?: {[P in string]: any};
       state?: 'STATE_UNSPECIFIED' | 'ACTIVE' | 'INACTIVE';
       toxicCombination?: GoogleCloudSecuritycenterV2ToxicCombination;
@@ -1479,11 +1397,7 @@ declare namespace gapi.client {
       secondaryResources?: GoogleCloudSecuritycenterV2IssueResource[];
       securityContexts?: GoogleCloudSecuritycenterV2IssueSecurityContext[];
       severity?:
-        | 'SEVERITY_UNSPECIFIED'
-        | 'CRITICAL'
-        | 'HIGH'
-        | 'MEDIUM'
-        | 'LOW';
+        'SEVERITY_UNSPECIFIED' | 'CRITICAL' | 'HIGH' | 'MEDIUM' | 'LOW';
       state?: 'STATE_UNSPECIFIED' | 'ACTIVE' | 'INACTIVE';
       updateTime?: string;
     }
@@ -2150,11 +2064,7 @@ declare namespace gapi.client {
       resourceLabelsSelector?: {[P in string]: string};
       resourceType?: string;
       resourceValue?:
-        | 'RESOURCE_VALUE_UNSPECIFIED'
-        | 'HIGH'
-        | 'MEDIUM'
-        | 'LOW'
-        | 'NONE';
+        'RESOURCE_VALUE_UNSPECIFIED' | 'HIGH' | 'MEDIUM' | 'LOW' | 'NONE';
       scope?: string;
       sensitiveDataProtectionMapping?: GoogleCloudSecuritycenterV2SensitiveDataProtectionMapping;
       tagValues?: string[];
@@ -2213,17 +2123,9 @@ declare namespace gapi.client {
     }
     interface GoogleCloudSecuritycenterV2SensitiveDataProtectionMapping {
       highSensitivityMapping?:
-        | 'RESOURCE_VALUE_UNSPECIFIED'
-        | 'HIGH'
-        | 'MEDIUM'
-        | 'LOW'
-        | 'NONE';
+        'RESOURCE_VALUE_UNSPECIFIED' | 'HIGH' | 'MEDIUM' | 'LOW' | 'NONE';
       mediumSensitivityMapping?:
-        | 'RESOURCE_VALUE_UNSPECIFIED'
-        | 'HIGH'
-        | 'MEDIUM'
-        | 'LOW'
-        | 'NONE';
+        'RESOURCE_VALUE_UNSPECIFIED' | 'HIGH' | 'MEDIUM' | 'LOW' | 'NONE';
     }
     interface GoogleCloudSecuritycenterV2SensitivityScore {
       score?:
@@ -2759,10 +2661,7 @@ declare namespace gapi.client {
       modules?: {[P in string]: Config};
       name?: string;
       serviceEnablementState?:
-        | 'ENABLEMENT_STATE_UNSPECIFIED'
-        | 'INHERITED'
-        | 'ENABLED'
-        | 'DISABLED';
+        'ENABLEMENT_STATE_UNSPECIFIED' | 'INHERITED' | 'ENABLED' | 'DISABLED';
       updateTime?: string;
     }
     interface Reference {
@@ -2836,10 +2735,7 @@ declare namespace gapi.client {
       name?: string;
       serviceAccount?: string;
       serviceEnablementState?:
-        | 'ENABLEMENT_STATE_UNSPECIFIED'
-        | 'INHERITED'
-        | 'ENABLED'
-        | 'DISABLED';
+        'ENABLEMENT_STATE_UNSPECIFIED' | 'INHERITED' | 'ENABLED' | 'DISABLED';
       updateTime?: string;
     }
     interface SecurityMarks {
@@ -2914,10 +2810,7 @@ declare namespace gapi.client {
       name?: string;
       serviceAccount?: string;
       serviceEnablementState?:
-        | 'ENABLEMENT_STATE_UNSPECIFIED'
-        | 'INHERITED'
-        | 'ENABLED'
-        | 'DISABLED';
+        'ENABLEMENT_STATE_UNSPECIFIED' | 'INHERITED' | 'ENABLED' | 'DISABLED';
       updateTime?: string;
     }
     interface Vulnerability {
@@ -2946,10 +2839,7 @@ declare namespace gapi.client {
       modules?: {[P in string]: Config};
       name?: string;
       serviceEnablementState?:
-        | 'ENABLEMENT_STATE_UNSPECIFIED'
-        | 'INHERITED'
-        | 'ENABLED'
-        | 'DISABLED';
+        'ENABLEMENT_STATE_UNSPECIFIED' | 'INHERITED' | 'ENABLED' | 'DISABLED';
       updateTime?: string;
     }
     interface YaraRuleSignature {

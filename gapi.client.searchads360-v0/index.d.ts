@@ -246,11 +246,7 @@ declare namespace gapi.client {
       radius?: string;
       /** Unit of the radius. Miles and meters are supported for geo target constants. Milli miles and meters are supported for feed item sets. This is required and must be set in CREATE operations. */
       radiusUnits?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'METERS'
-        | 'MILES'
-        | 'MILLI_MILES';
+        'UNSPECIFIED' | 'UNKNOWN' | 'METERS' | 'MILES' | 'MILLI_MILES';
     }
     interface GoogleAdsSearchads360V0Common__LocationInfo {
       /** The geo target constant resource name. */
@@ -506,10 +502,7 @@ declare namespace gapi.client {
       appId?: string;
       /** Required. The application store that distributes this specific app. */
       appStore?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'APPLE_APP_STORE'
-        | 'GOOGLE_APP_STORE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'APPLE_APP_STORE' | 'GOOGLE_APP_STORE';
     }
     interface GoogleAdsSearchads360V0Common__PercentCpc {
       /** Maximum bid limit that can be set by the bid strategy. This is an optional field entered by the advertiser and specified in local micros. Note: A zero value is interpreted in the same way as having bid_ceiling undefined. */
@@ -680,18 +673,10 @@ declare namespace gapi.client {
       productChannel?: 'UNSPECIFIED' | 'UNKNOWN' | 'ONLINE' | 'LOCAL';
       /** Channel exclusivity of the product. */
       productChannelExclusivity?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'SINGLE_CHANNEL'
-        | 'MULTI_CHANNEL';
+        'UNSPECIFIED' | 'UNKNOWN' | 'SINGLE_CHANNEL' | 'MULTI_CHANNEL';
       /** Condition of the product. */
       productCondition?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'OLD'
-        | 'NEW'
-        | 'REFURBISHED'
-        | 'USED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'OLD' | 'NEW' | 'REFURBISHED' | 'USED';
       /** Resource name of the geo target constant for the country of sale of the product. */
       productCountry?: string;
       /** Custom attribute 0 of the product. */
@@ -722,12 +707,7 @@ declare namespace gapi.client {
       productSoldBrand?: string;
       /** Condition of the product sold. */
       productSoldCondition?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'OLD'
-        | 'NEW'
-        | 'REFURBISHED'
-        | 'USED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'OLD' | 'NEW' | 'REFURBISHED' | 'USED';
       /** Custom attribute 0 of the product sold. */
       productSoldCustomAttribute0?: string;
       /** Custom attribute 1 of the product sold. */
@@ -915,10 +895,7 @@ declare namespace gapi.client {
       businessProfileLocations?: GoogleAdsSearchads360V0Common__BusinessProfileLocation[];
       /** The type of location ownership. If the type is BUSINESS_OWNER, it will be served as a location extension. If the type is AFFILIATE, it will be served as an affiliate location. */
       locationOwnershipType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'BUSINESS_OWNER'
-        | 'AFFILIATE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'BUSINESS_OWNER' | 'AFFILIATE';
       /** Place IDs uniquely identify a place in the Google Places database and on Google Maps. This field is unique for a given customer ID and asset type. See https://developers.google.com/places/web-service/place-id to learn more about Place ID. */
       placeId?: string;
     }
@@ -1076,10 +1053,7 @@ declare namespace gapi.client {
         | 'CANNOT_MODIFY_START_DATE_IF_ALREADY_STARTED';
       /** The reasons for the distinct error */
       distinctError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'DUPLICATE_ELEMENT'
-        | 'DUPLICATE_TYPE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'DUPLICATE_ELEMENT' | 'DUPLICATE_TYPE';
       /** The reasons for the header error. */
       headerError?:
         | 'UNSPECIFIED'
@@ -1096,9 +1070,7 @@ declare namespace gapi.client {
         | 'DEADLINE_EXCEEDED';
       /** The reasons for invalid parameter errors. */
       invalidParameterError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'INVALID_CURRENCY_CODE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'INVALID_CURRENCY_CODE';
       /** An error with the query */
       queryError?:
         | 'UNSPECIFIED'
@@ -1355,10 +1327,7 @@ declare namespace gapi.client {
     interface GoogleAdsSearchads360V0Resources__AdGroup {
       /** The ad rotation mode of the ad group. */
       adRotationMode?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'OPTIMIZE'
-        | 'ROTATE_FOREVER';
+        'UNSPECIFIED' | 'UNKNOWN' | 'OPTIMIZE' | 'ROTATE_FOREVER';
       /** The maximum CPC (cost-per-click) bid. This field is used when the ad group's effective bidding strategy is Manual CPC. This field is not applicable and will be ignored if the ad group's campaign is using a portfolio bidding strategy. */
       cpcBidMicros?: string;
       /** Output only. The timestamp when this ad_group was created. The timestamp is in the customer's time zone and in "yyyy-MM-dd HH:mm:ss" format. */
@@ -2242,11 +2211,7 @@ declare namespace gapi.client {
       deliveryMethod?: 'UNSPECIFIED' | 'UNKNOWN' | 'STANDARD' | 'ACCELERATED';
       /** Immutable. Period over which to spend the budget. Defaults to DAILY if not specified. */
       period?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'DAILY'
-        | 'FIXED_DAILY'
-        | 'CUSTOM_PERIOD';
+        'UNSPECIFIED' | 'UNKNOWN' | 'DAILY' | 'FIXED_DAILY' | 'CUSTOM_PERIOD';
       /** Immutable. The resource name of the campaign budget. Campaign budget resource names have the form: `customers/{customer_id}/campaignBudgets/{campaign_budget_id}` */
       resourceName?: string;
     }
@@ -2557,11 +2522,7 @@ declare namespace gapi.client {
       resourceName?: string;
       /** The status of the conversion custom variable for conversion event accrual. */
       status?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'ACTIVATION_NEEDED'
-        | 'ENABLED'
-        | 'PAUSED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'ACTIVATION_NEEDED' | 'ENABLED' | 'PAUSED';
       /** Required. Immutable. The tag of the conversion custom variable. Tag should be unique and consist of a "u" character directly followed with a number less than ormequal to 100. For example: "u4". */
       tag?: string;
     }
@@ -3094,10 +3055,7 @@ declare namespace gapi.client {
     interface GoogleAdsSearchads360V0Resources_Campaign_GeoTargetTypeSetting {
       /** The setting used for negative geotargeting in this particular campaign. */
       negativeGeoTargetType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'PRESENCE_OR_INTEREST'
-        | 'PRESENCE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'PRESENCE_OR_INTEREST' | 'PRESENCE';
       /** The setting used for positive geotargeting in this particular campaign. */
       positiveGeoTargetType?:
         | 'UNSPECIFIED'
@@ -3187,17 +3145,10 @@ declare namespace gapi.client {
     interface GoogleAdsSearchads360V0Resources_ConversionCustomVariable_FloodlightConversionCustomVariableInfo {
       /** Output only. Floodlight variable data type defined in Search Ads 360. */
       floodlightVariableDataType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'NUMBER'
-        | 'STRING';
+        'UNSPECIFIED' | 'UNKNOWN' | 'NUMBER' | 'STRING';
       /** Output only. Floodlight variable type defined in Search Ads 360. */
       floodlightVariableType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'DIMENSION'
-        | 'METRIC'
-        | 'UNSET';
+        'UNSPECIFIED' | 'UNKNOWN' | 'DIMENSION' | 'METRIC' | 'UNSET';
     }
     interface GoogleAdsSearchads360V0Resources_ListingGroupFilterDimension_ProductBiddingCategory {
       /** ID of the product bidding category. This ID is equivalent to the google_product_category ID as described in this article: https://support.google.com/merchants/answer/6324436 */
@@ -3640,10 +3591,7 @@ declare namespace gapi.client {
         | 'CANCELED_BILLING_SETUP';
       /** The reasons for the account link status change error */
       accountLinkError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'INVALID_STATUS'
-        | 'PERMISSION_DENIED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'INVALID_STATUS' | 'PERMISSION_DENIED';
       /** The reasons for the ad customizer error */
       adCustomizerError?:
         | 'UNSPECIFIED'
@@ -3834,9 +3782,7 @@ declare namespace gapi.client {
         | 'CANNOT_OVERRIDE_OPTED_OUT_CAMPAIGN_CRITERION_BID_MODIFIER';
       /** The reasons for the ad group criterion customizer error. */
       adGroupCriterionCustomizerError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'CRITERION_IS_NOT_KEYWORD';
+        'UNSPECIFIED' | 'UNKNOWN' | 'CRITERION_IS_NOT_KEYWORD';
       /** Indicates failure to properly authenticate user. */
       adGroupCriterionError?:
         | 'UNSPECIFIED'
@@ -4226,9 +4172,7 @@ declare namespace gapi.client {
         | 'CAMPAIGN_AND_CAMPAIGN_ASSET_TRANSACTION_FAILURE';
       /** The reasons for the Benchmarks error. */
       benchmarksError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'MAX_QUERY_COMPLEXITY_EXCEEDED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'MAX_QUERY_COMPLEXITY_EXCEEDED';
       /** The reasons for the bidding errors */
       biddingError?:
         | 'UNSPECIFIED'
@@ -4535,9 +4479,7 @@ declare namespace gapi.client {
         | 'CUSTOMER_ACQUISITION_MISSING_HIGH_VALUE_CUSTOMER_DEFINITION';
       /** The reasons for the campaign shared set error */
       campaignSharedSetError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'SHARED_SET_ACCESS_DENIED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'SHARED_SET_ACCESS_DENIED';
       /** The reasons for the change event error */
       changeEventError?:
         | 'UNSPECIFIED'
@@ -4888,9 +4830,7 @@ declare namespace gapi.client {
       currencyCodeError?: 'UNSPECIFIED' | 'UNKNOWN' | 'UNSUPPORTED';
       /** The reasons for the currency errors. */
       currencyError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'VALUE_NOT_MULTIPLE_OF_BILLABLE_UNIT';
+        'UNSPECIFIED' | 'UNKNOWN' | 'VALUE_NOT_MULTIPLE_OF_BILLABLE_UNIT';
       /** The reasons for the custom audience error */
       customAudienceError?:
         | 'UNSPECIFIED'
@@ -5008,9 +4948,7 @@ declare namespace gapi.client {
         | 'CANNOT_CHANGE_TYPE';
       /** The reasons for the customizer attribute error. */
       customizerAttributeError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'DUPLICATE_CUSTOMIZER_ATTRIBUTE_NAME';
+        'UNSPECIFIED' | 'UNKNOWN' | 'DUPLICATE_CUSTOMIZER_ATTRIBUTE_NAME';
       /** The reasons for the database error. */
       databaseError?:
         | 'UNSPECIFIED'
@@ -5056,10 +4994,7 @@ declare namespace gapi.client {
         | 'CANNOT_MODIFY_START_DATE_IF_ALREADY_STARTED';
       /** The reasons for the distinct error */
       distinctError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'DUPLICATE_ELEMENT'
-        | 'DUPLICATE_TYPE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'DUPLICATE_ELEMENT' | 'DUPLICATE_TYPE';
       /** The reason for enum error. */
       enumError?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENUM_VALUE_NOT_PERMITTED';
       /** The reasons for the experiment arm error */
@@ -5593,9 +5528,7 @@ declare namespace gapi.client {
         | 'DEADLINE_EXCEEDED';
       /** The reasons for invalid parameter errors. */
       invalidParameterError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'INVALID_CURRENCY_CODE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'INVALID_CURRENCY_CODE';
       /** The reasons for the invoice error */
       invoiceError?:
         | 'UNSPECIFIED'
@@ -5607,10 +5540,7 @@ declare namespace gapi.client {
         | 'NON_SERVING_CUSTOMER';
       /** The reason for keyword plan ad group error. */
       keywordPlanAdGroupError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'INVALID_NAME'
-        | 'DUPLICATE_NAME';
+        'UNSPECIFIED' | 'UNKNOWN' | 'INVALID_NAME' | 'DUPLICATE_NAME';
       /** The reason for keyword plan ad group keyword error. */
       keywordPlanAdGroupKeywordError?:
         | 'UNSPECIFIED'
@@ -5635,9 +5565,7 @@ declare namespace gapi.client {
         | 'MAX_LANGUAGES_EXCEEDED';
       /** The reason for keyword plan campaign keyword error. */
       keywordPlanCampaignKeywordError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'CAMPAIGN_KEYWORD_IS_POSITIVE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'CAMPAIGN_KEYWORD_IS_POSITIVE';
       /** The reason for keyword plan error. */
       keywordPlanError?:
         | 'UNSPECIFIED'
@@ -5658,10 +5586,7 @@ declare namespace gapi.client {
         | 'INVALID_NAME';
       /** The reason for keyword idea error. */
       keywordPlanIdeaError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'URL_CRAWL_ERROR'
-        | 'INVALID_VALUE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'URL_CRAWL_ERROR' | 'INVALID_VALUE';
       /** The reason for the label error. */
       labelError?:
         | 'UNSPECIFIED'
@@ -5846,9 +5771,7 @@ declare namespace gapi.client {
         | 'TEMP_ID_RESOURCE_HAD_ERRORS';
       /** The reasons for the not allowlisted error */
       notAllowlistedError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'CUSTOMER_NOT_ALLOWLISTED_FOR_THIS_FEATURE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'CUSTOMER_NOT_ALLOWLISTED_FOR_THIS_FEATURE';
       /** The reasons for the not empty error */
       notEmptyError?: 'UNSPECIFIED' | 'UNKNOWN' | 'EMPTY_LIST';
       /** The reasons for the null error */
@@ -5914,20 +5837,13 @@ declare namespace gapi.client {
       operatorError?: 'UNSPECIFIED' | 'UNKNOWN' | 'OPERATOR_NOT_SUPPORTED';
       /** The reasons for the mutate job error */
       partialFailureError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'PARTIAL_FAILURE_MODE_REQUIRED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'PARTIAL_FAILURE_MODE_REQUIRED';
       /** The reasons for errors in payments accounts service */
       paymentsAccountError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'NOT_SUPPORTED_FOR_MANAGER_CUSTOMER';
+        'UNSPECIFIED' | 'UNKNOWN' | 'NOT_SUPPORTED_FOR_MANAGER_CUSTOMER';
       /** The reasons for the policy finding error. */
       policyFindingError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'POLICY_FINDING'
-        | 'POLICY_TOPIC_NOT_FOUND';
+        'UNSPECIFIED' | 'UNKNOWN' | 'POLICY_FINDING' | 'POLICY_TOPIC_NOT_FOUND';
       /** The reasons for the policy validation parameter error */
       policyValidationParameterError?:
         | 'UNSPECIFIED'
@@ -6107,9 +6023,7 @@ declare namespace gapi.client {
         | 'CLOUD_PROJECT_NOT_FOUND';
       /** The reasons for the resource access denied error */
       resourceAccessDeniedError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'WRITE_ACCESS_DENIED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'WRITE_ACCESS_DENIED';
       /** The reasons for the resource count limit exceeded error */
       resourceCountLimitExceededError?:
         | 'UNSPECIFIED'
@@ -6194,17 +6108,10 @@ declare namespace gapi.client {
         | 'FINAL_URL_NOT_CRAWLABLE';
       /** The reasons for the string format error */
       stringFormatError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'ILLEGAL_CHARS'
-        | 'INVALID_FORMAT';
+        'UNSPECIFIED' | 'UNKNOWN' | 'ILLEGAL_CHARS' | 'INVALID_FORMAT';
       /** The reasons for the string length error */
       stringLengthError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'EMPTY'
-        | 'TOO_SHORT'
-        | 'TOO_LONG';
+        'UNSPECIFIED' | 'UNKNOWN' | 'EMPTY' | 'TOO_SHORT' | 'TOO_LONG';
       /** The reasons for the third party app analytics link mutate error */
       thirdPartyAppAnalyticsLinkError?:
         | 'UNSPECIFIED'
@@ -6337,9 +6244,7 @@ declare namespace gapi.client {
         | 'ACCOUNT_SETTING_TYPE_NOT_ALLOWED';
       /** An error with a Video Campaign mutate. */
       videoCampaignError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'MUTATE_REQUIRES_RESERVATION';
+        'UNSPECIFIED' | 'UNKNOWN' | 'MUTATE_REQUIRES_RESERVATION';
       /** The reasons for YouTube video registration errors. */
       youtubeVideoRegistrationError?:
         | 'UNSPECIFIED'

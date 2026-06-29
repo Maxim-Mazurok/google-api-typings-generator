@@ -54,9 +54,7 @@ declare namespace gapi.client {
       /** Output only. Resource name of the budget. The resource name implies the scope of a budget. Values are of the form `billingAccounts/{billingAccountId}/budgets/{budgetId}`. */
       name?: string;
       ownershipScope?:
-        | 'OWNERSHIP_SCOPE_UNSPECIFIED'
-        | 'ALL_USERS'
-        | 'BILLING_ACCOUNT';
+        'OWNERSHIP_SCOPE_UNSPECIFIED' | 'ALL_USERS' | 'BILLING_ACCOUNT';
       /** Optional. Rules that trigger alerts (notifications of thresholds being crossed) when spend exceeds the specified percentages of the budget. Optional for `pubsubTopic` notifications. Required if using email notifications. */
       thresholdRules?: GoogleCloudBillingBudgetsV1beta1ThresholdRule[];
     }
@@ -79,10 +77,7 @@ declare namespace gapi.client {
     interface GoogleCloudBillingBudgetsV1beta1Filter {
       /** Optional. Specifies to track usage for recurring calendar period. For example, assume that CalendarPeriod.QUARTER is set. The budget will track usage from April 1 to June 30, when the current calendar month is April, May, June. After that, it will track usage from July 1 to September 30 when the current calendar month is July, August, September, so on. */
       calendarPeriod?:
-        | 'CALENDAR_PERIOD_UNSPECIFIED'
-        | 'MONTH'
-        | 'QUARTER'
-        | 'YEAR';
+        'CALENDAR_PERIOD_UNSPECIFIED' | 'MONTH' | 'QUARTER' | 'YEAR';
       /** Optional. If Filter.credit_types_treatment is INCLUDE_SPECIFIED_CREDITS, this is a list of credit types to be subtracted from gross cost to determine the spend for threshold calculations. See [a list of acceptable credit type values](https://cloud.google.com/billing/docs/how-to/export-data-bigquery-tables#credits-type). If Filter.credit_types_treatment is **not** INCLUDE_SPECIFIED_CREDITS, this field must be empty. */
       creditTypes?: string[];
       /** Optional. If not set, default behavior is `INCLUDE_ALL_CREDITS`. */

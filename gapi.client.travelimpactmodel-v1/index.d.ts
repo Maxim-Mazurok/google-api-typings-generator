@@ -128,10 +128,7 @@ declare namespace gapi.client {
         | 'ACTUAL_CARRIER_ROUTE_YEAR_MONTH_AIRCRAFT_CLASS';
       /** Output only. Data category of the data source. */
       dataCategory?:
-        | 'DATA_CATEGORY_UNSPECIFIED'
-        | 'PRIMARY'
-        | 'MODELED'
-        | 'DEFAULT';
+        'DATA_CATEGORY_UNSPECIFIED' | 'PRIMARY' | 'MODELED' | 'DEFAULT';
       /** Output only. Strategy for distance adjustment. */
       distanceAdjustmentStrategy?:
         | 'STRATEGY_UNSPECIFIED'
@@ -148,9 +145,7 @@ declare namespace gapi.client {
         | 'AIRCRAFT_MAPPING_FALLBACK';
       /** Output only. Strategy for CH Aviation load factors. */
       loadFactorsChAviationStrategy?:
-        | 'STRATEGY_UNSPECIFIED'
-        | 'CARRIER_MONTH'
-        | 'ACTUAL_CARRIER_YEAR_MONTH';
+        'STRATEGY_UNSPECIFIED' | 'CARRIER_MONTH' | 'ACTUAL_CARRIER_YEAR_MONTH';
       /** Output only. The load factors data value. If not set, the load factors value is not available. */
       loadFactorsData?: number;
       /** Output only. Strategy for T100 load factors. */
@@ -170,9 +165,7 @@ declare namespace gapi.client {
         | 'DISTANCE_ADJUSTMENT';
       /** Output only. Strategy for IATA seat area ratios. */
       seatAreaRatioIataStrategy?:
-        | 'STRATEGY_UNSPECIFIED'
-        | 'NARROW_AIRCRAFT_BODY'
-        | 'WIDE_AIRCRAFT_BODY';
+        'STRATEGY_UNSPECIFIED' | 'NARROW_AIRCRAFT_BODY' | 'WIDE_AIRCRAFT_BODY';
       /** Output only. The source of the data. */
       source?:
         | 'DATA_SOURCE_UNSPECIFIED'

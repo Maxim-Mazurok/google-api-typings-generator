@@ -694,9 +694,7 @@ declare namespace gapi.client {
         customerId: string;
         /** The `deletionType` query string enables the cancellation, downgrade, or suspension of a subscription. */
         deletionType:
-          | 'deletion_type_undefined'
-          | 'cancel'
-          | 'transfer_to_direct';
+          'deletion_type_undefined' | 'cancel' | 'transfer_to_direct';
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */

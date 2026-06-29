@@ -754,9 +754,7 @@ declare namespace gapi.client {
       maxResultCount?: number;
       /** How results will be ranked in the response. */
       rankPreference?:
-        | 'RANK_PREFERENCE_UNSPECIFIED'
-        | 'DISTANCE'
-        | 'POPULARITY';
+        'RANK_PREFERENCE_UNSPECIFIED' | 'DISTANCE' | 'POPULARITY';
       /** The Unicode country/region code (CLDR) of the location where the request is coming from. This parameter is used to display the place details, like region-specific place name, if available. The parameter can affect results based on applicable law. For more information, see https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html. Note that 3-digit region codes are not currently supported. */
       regionCode?: string;
       /** Optional. Parameters that affect the routing to the search results. */

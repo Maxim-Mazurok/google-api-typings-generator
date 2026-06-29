@@ -55,11 +55,7 @@ declare namespace gapi.client {
         | 'CRITICAL';
       /** Output only. Current state of the endpoint. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATING'
-        | 'READY'
-        | 'DELETING'
-        | 'UPDATING';
+        'STATE_UNSPECIFIED' | 'CREATING' | 'READY' | 'DELETING' | 'UPDATING';
       /** List of threat IDs to be excepted from generating alerts. */
       threatExceptions?: string[];
       /** Whether the endpoint should report traffic logs in addition to threat logs. */

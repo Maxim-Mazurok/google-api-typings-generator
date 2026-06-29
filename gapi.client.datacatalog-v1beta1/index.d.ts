@@ -100,9 +100,7 @@ declare namespace gapi.client {
       gcsFilesetSpec?: GoogleCloudDatacatalogV1beta1GcsFilesetSpec;
       /** Output only. This field indicates the entry's source system that Data Catalog integrates with, such as BigQuery or Pub/Sub. */
       integratedSystem?:
-        | 'INTEGRATED_SYSTEM_UNSPECIFIED'
-        | 'BIGQUERY'
-        | 'CLOUD_PUBSUB';
+        'INTEGRATED_SYSTEM_UNSPECIFIED' | 'BIGQUERY' | 'CLOUD_PUBSUB';
       /** The resource this metadata entry refers to. For Google Cloud Platform resources, `linked_resource` is the [full name of the resource](https://cloud.google.com/apis/design/resource_names#full_resource_name). For example, the `linked_resource` for a table resource from BigQuery is: * //bigquery.googleapis.com/projects/projectId/datasets/datasetId/tables/tableId Output only when Entry is of type in the EntryType enum. For entries with user_specified_type, this field is optional and defaults to an empty string. */
       linkedResource?: string;
       /** Output only. Identifier. The Data Catalog resource name of the entry in URL format. Example: * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} Note that this Entry and its child resources may not actually be stored in the location in this name. */
@@ -298,8 +296,7 @@ declare namespace gapi.client {
     interface GoogleCloudDatacatalogV1beta1SerializedTaxonomy {
       /** A list of policy types that are activated for a taxonomy. */
       activatedPolicyTypes?:
-        | 'POLICY_TYPE_UNSPECIFIED'
-        | 'FINE_GRAINED_ACCESS_CONTROL'[];
+        'POLICY_TYPE_UNSPECIFIED' | 'FINE_GRAINED_ACCESS_CONTROL'[];
       /** Description of the serialized taxonomy. The length of the description is limited to 2000 bytes when encoded in UTF-8. If not set, defaults to an empty description. */
       description?: string;
       /** Required. Display name of the taxonomy. Max 200 bytes when encoded in UTF-8. */
@@ -354,8 +351,7 @@ declare namespace gapi.client {
     interface GoogleCloudDatacatalogV1beta1TagTemplate {
       /** Output only. Transfer status of the TagTemplate */
       dataplexTransferStatus?:
-        | 'DATAPLEX_TRANSFER_STATUS_UNSPECIFIED'
-        | 'MIGRATED';
+        'DATAPLEX_TRANSFER_STATUS_UNSPECIFIED' | 'MIGRATED';
       /** The display name for this template. Defaults to an empty string. */
       displayName?: string;
       /** Required. Map of tag template field IDs to the settings for the field. This map is an exhaustive list of the allowed fields. This map must contain at least one field and at most 500 fields. The keys to this map are tag template field IDs. Field IDs can contain letters (both uppercase and lowercase), numbers (0-9) and underscores (_). Field IDs must be at least 1 character long and at most 64 characters long. Field IDs must start with a letter or underscore. */
@@ -380,8 +376,7 @@ declare namespace gapi.client {
     interface GoogleCloudDatacatalogV1beta1Taxonomy {
       /** Optional. A list of policy types that are activated for this taxonomy. If not set, defaults to an empty list. */
       activatedPolicyTypes?:
-        | 'POLICY_TYPE_UNSPECIFIED'
-        | 'FINE_GRAINED_ACCESS_CONTROL'[];
+        'POLICY_TYPE_UNSPECIFIED' | 'FINE_GRAINED_ACCESS_CONTROL'[];
       /** Optional. Description of this taxonomy. It must: contain only unicode characters, tabs, newlines, carriage returns and page breaks; and be at most 2000 bytes long when encoded in UTF-8. If not set, defaults to an empty description. */
       description?: string;
       /** Required. User defined name of this taxonomy. It must: contain only unicode letters, numbers, underscores, dashes and spaces; not start or end with spaces; and be at most 200 bytes long when encoded in UTF-8. The taxonomy display name must be unique within an organization. */
@@ -564,9 +559,7 @@ declare namespace gapi.client {
       sqlQuery?: string;
       /** Type of this view. */
       viewType?:
-        | 'VIEW_TYPE_UNSPECIFIED'
-        | 'STANDARD_VIEW'
-        | 'MATERIALIZED_VIEW';
+        'VIEW_TYPE_UNSPECIFIED' | 'STANDARD_VIEW' | 'MATERIALIZED_VIEW';
     }
     interface GoogleCloudDatacatalogV1DataplexExternalTable {
       /** Name of the Data Catalog entry representing the external table. */
@@ -905,9 +898,7 @@ declare namespace gapi.client {
       routineArguments?: GoogleCloudDatacatalogV1RoutineSpecArgument[];
       /** The type of the routine. */
       routineType?:
-        | 'ROUTINE_TYPE_UNSPECIFIED'
-        | 'SCALAR_FUNCTION'
-        | 'PROCEDURE';
+        'ROUTINE_TYPE_UNSPECIFIED' | 'SCALAR_FUNCTION' | 'PROCEDURE';
     }
     interface GoogleCloudDatacatalogV1RoutineSpecArgument {
       /** Specifies whether the argument is input or output. */
@@ -980,9 +971,7 @@ declare namespace gapi.client {
       column?: string;
       /** Output only. Denotes the transfer status of the Tag Template. */
       dataplexTransferStatus?:
-        | 'DATAPLEX_TRANSFER_STATUS_UNSPECIFIED'
-        | 'MIGRATED'
-        | 'TRANSFERRED';
+        'DATAPLEX_TRANSFER_STATUS_UNSPECIFIED' | 'MIGRATED' | 'TRANSFERRED';
       /** Required. Maps the ID of a tag field to its value and additional information about that field. Tag template defines valid field IDs. A tag must have at least 1 field and at most 500 fields. */
       fields?: {[P in string]: GoogleCloudDatacatalogV1TagField};
       /** Identifier. The resource name of the tag in URL format where tag ID is a system-generated identifier. Note: The tag itself might not be stored in the location specified in its name. */

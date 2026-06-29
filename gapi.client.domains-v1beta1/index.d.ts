@@ -35,10 +35,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface AuthorizationCode {
       /** The Authorization Code in ASCII. It can be used to transfer the domain to or from another registrar. */
@@ -55,8 +52,7 @@ declare namespace gapi.client {
     interface ConfigureContactSettingsRequest {
       /** The list of contact notices that the caller acknowledges. The notices needed here depend on the values specified in `contact_settings`. */
       contactNotices?:
-        | 'CONTACT_NOTICE_UNSPECIFIED'
-        | 'PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT'[];
+        'CONTACT_NOTICE_UNSPECIFIED' | 'PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT'[];
       /** Fields of the `ContactSettings` to update. */
       contactSettings?: ContactSettings;
       /** Required. The field mask describing which fields to update as a comma-separated list. For example, if only the registrant contact is being updated, the `update_mask` is `"registrant_contact"`. */
@@ -173,11 +169,7 @@ declare namespace gapi.client {
       digest?: string;
       /** The hash function used to generate the digest of the referenced DNSKEY. */
       digestType?:
-        | 'DIGEST_TYPE_UNSPECIFIED'
-        | 'SHA1'
-        | 'SHA256'
-        | 'GOST3411'
-        | 'SHA384';
+        'DIGEST_TYPE_UNSPECIFIED' | 'SHA1' | 'SHA256' | 'GOST3411' | 'SHA384';
       /** The key tag of the record. Must be set in range 0 -- 65535. */
       keyTag?: number;
     }
@@ -277,10 +269,7 @@ declare namespace gapi.client {
       ipProtocol?: 'UNDEFINED' | 'TCP' | 'UDP';
       /** The type of load balancer specified by this target. This value must match the configuration of the load balancer located at the LoadBalancerTarget's IP address, port, and region. Use the following: - *regionalL4ilb*: for a regional internal passthrough Network Load Balancer. - *regionalL7ilb*: for a regional internal Application Load Balancer. - *globalL7ilb*: for a global internal Application Load Balancer. */
       loadBalancerType?:
-        | 'NONE'
-        | 'GLOBAL_L7ILB'
-        | 'REGIONAL_L4ILB'
-        | 'REGIONAL_L7ILB';
+        'NONE' | 'GLOBAL_L7ILB' | 'REGIONAL_L4ILB' | 'REGIONAL_L7ILB';
       /** The fully qualified URL of the network that the load balancer is attached to. This should be formatted like `https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}`. */
       networkUrl?: string;
       /** The configured port of the load balancer. */
@@ -305,9 +294,7 @@ declare namespace gapi.client {
     interface ManagementSettings {
       /** Output only. The actual transfer lock state for this `Registration`. */
       effectiveTransferLockState?:
-        | 'TRANSFER_LOCK_STATE_UNSPECIFIED'
-        | 'UNLOCKED'
-        | 'LOCKED';
+        'TRANSFER_LOCK_STATE_UNSPECIFIED' | 'UNLOCKED' | 'LOCKED';
       /** Optional. The desired renewal method for this `Registration`. The actual `renewal_method` is automatically updated to reflect this choice. If unset or equal to `RENEWAL_METHOD_UNSPECIFIED`, the actual `renewalMethod` is treated as if it were set to `AUTOMATIC_RENEWAL`. You cannot use `RENEWAL_DISABLED` during resource creation, and you can update the renewal status only when the `Registration` resource has state `ACTIVE` or `SUSPENDED`. When `preferred_renewal_method` is set to `AUTOMATIC_RENEWAL`, the actual `renewal_method` can be set to `RENEWAL_DISABLED` in case of problems with the billing account or reported domain abuse. In such cases, check the `issues` field on the `Registration`. After the problem is resolved, the `renewal_method` is automatically updated to `preferred_renewal_method` in a few hours. */
       preferredRenewalMethod?:
         | 'RENEWAL_METHOD_UNSPECIFIED'
@@ -322,9 +309,7 @@ declare namespace gapi.client {
         | 'RENEWAL_DISABLED';
       /** This is the desired transfer lock state for this `Registration`. A transfer lock controls whether the domain can be transferred to another registrar. The transfer lock state of the domain is returned in the `effective_transfer_lock_state` property. The transfer lock state values might be different for the following reasons: * `transfer_lock_state` was updated only a short time ago. * Domains with the `TRANSFER_LOCK_UNSUPPORTED_BY_REGISTRY` state are in the list of `domain_properties`. These domains are always in the `UNLOCKED` state. */
       transferLockState?:
-        | 'TRANSFER_LOCK_STATE_UNSPECIFIED'
-        | 'UNLOCKED'
-        | 'LOCKED';
+        'TRANSFER_LOCK_STATE_UNSPECIFIED' | 'UNLOCKED' | 'LOCKED';
     }
     interface Money {
       /** The three-letter currency code defined in ISO 4217. */
@@ -405,8 +390,7 @@ declare namespace gapi.client {
     interface RegisterDomainRequest {
       /** The list of contact notices that the caller acknowledges. The notices needed here depend on the values specified in `registration.contact_settings`. */
       contactNotices?:
-        | 'CONTACT_NOTICE_UNSPECIFIED'
-        | 'PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT'[];
+        'CONTACT_NOTICE_UNSPECIFIED' | 'PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT'[];
       /** The list of domain notices that you acknowledge. Call `RetrieveRegisterParameters` to see the notices that need acknowledgement. */
       domainNotices?: 'DOMAIN_NOTICE_UNSPECIFIED' | 'HSTS_PRELOADED'[];
       /** Required. The complete `Registration` resource to be created. */
@@ -594,8 +578,7 @@ declare namespace gapi.client {
       authorizationCode?: AuthorizationCode;
       /** The list of contact notices that you acknowledge. The notices needed here depend on the values specified in `registration.contact_settings`. */
       contactNotices?:
-        | 'CONTACT_NOTICE_UNSPECIFIED'
-        | 'PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT'[];
+        'CONTACT_NOTICE_UNSPECIFIED' | 'PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT'[];
       /** Required. The complete `Registration` resource to be created. You can leave `registration.dns_settings` unset to import the domain's current DNS configuration from its current registrar. Use this option only if you are sure that the domain's current DNS service does not cease upon transfer, as is often the case for DNS services provided for free by the registrar. */
       registration?: Registration;
       /** Validate the request without actually transferring the domain. */
@@ -620,9 +603,7 @@ declare namespace gapi.client {
         | 'REDACTED_CONTACT_DATA'[];
       /** Indicates whether the domain is protected by a transfer lock. For a transfer to succeed, this must show `UNLOCKED`. To unlock a domain, go to its current registrar. */
       transferLockState?:
-        | 'TRANSFER_LOCK_STATE_UNSPECIFIED'
-        | 'UNLOCKED'
-        | 'LOCKED';
+        'TRANSFER_LOCK_STATE_UNSPECIFIED' | 'UNLOCKED' | 'LOCKED';
       /** Price to transfer or renew the domain for one year. */
       yearlyPrice?: Money;
     }

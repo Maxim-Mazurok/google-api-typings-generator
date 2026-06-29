@@ -74,11 +74,7 @@ declare namespace gapi.client {
       numIps?: string;
       /** The reputation category this IP reputation represents. */
       reputation?:
-        | 'REPUTATION_CATEGORY_UNSPECIFIED'
-        | 'HIGH'
-        | 'MEDIUM'
-        | 'LOW'
-        | 'BAD';
+        'REPUTATION_CATEGORY_UNSPECIFIED' | 'HIGH' | 'MEDIUM' | 'LOW' | 'BAD';
       /** A sample of IPs in this reputation category. */
       sampleIps?: string[];
     }
@@ -103,11 +99,7 @@ declare namespace gapi.client {
       dmarcSuccessRatio?: number;
       /** Reputation of the domain. */
       domainReputation?:
-        | 'REPUTATION_CATEGORY_UNSPECIFIED'
-        | 'HIGH'
-        | 'MEDIUM'
-        | 'LOW'
-        | 'BAD';
+        'REPUTATION_CATEGORY_UNSPECIFIED' | 'HIGH' | 'MEDIUM' | 'LOW' | 'BAD';
       /** The ratio of incoming mail (to Gmail), that passed secure transport (TLS) vs all mail received from that domain. This metric only pertains to traffic that passed [SPF](http://www.openspf.org/) or [DKIM](http://www.dkim.org/). */
       inboundEncryptionRatio?: number;
       /** Reputation information pertaining to the IP addresses of the email servers for the domain. There is exactly one entry for each reputation category except REPUTATION_CATEGORY_UNSPECIFIED. */

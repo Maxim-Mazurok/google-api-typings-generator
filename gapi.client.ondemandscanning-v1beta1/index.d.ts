@@ -370,9 +370,7 @@ declare namespace gapi.client {
       archiveTime?: string;
       /** Whether the resource is continuously analyzed. */
       continuousAnalysis?:
-        | 'CONTINUOUS_ANALYSIS_UNSPECIFIED'
-        | 'ACTIVE'
-        | 'INACTIVE';
+        'CONTINUOUS_ANALYSIS_UNSPECIFIED' | 'ACTIVE' | 'INACTIVE';
       /** The CPE of the resource being scanned. */
       cpe?: string;
       /** Files that make up the resource described by the occurrence. */

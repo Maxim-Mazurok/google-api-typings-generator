@@ -43,9 +43,7 @@ declare namespace gapi.client {
       organizationInfo?: OrganizationInfo;
       /** Output only. Specifies the permission level the user has for this account. */
       permissionLevel?:
-        | 'PERMISSION_LEVEL_UNSPECIFIED'
-        | 'OWNER_LEVEL'
-        | 'MEMBER_LEVEL';
+        'PERMISSION_LEVEL_UNSPECIFIED' | 'OWNER_LEVEL' | 'MEMBER_LEVEL';
       /** Required. Input only. The resource name of the account which will be the primary owner of the account being created. It should be of the form `accounts/{account_id}`. */
       primaryOwner?: string;
       /** Output only. Specifies the AccountRole of this account. */
@@ -70,10 +68,7 @@ declare namespace gapi.client {
         | 'VERIFICATION_REQUESTED';
       /** Output only. Indicates whether the account is vetted by Google. A vetted account is able to verify locations via the VETTED_PARTNER method. */
       vettedState?:
-        | 'VETTED_STATE_UNSPECIFIED'
-        | 'NOT_VETTED'
-        | 'VETTED'
-        | 'INVALID';
+        'VETTED_STATE_UNSPECIFIED' | 'NOT_VETTED' | 'VETTED' | 'INVALID';
     }
     interface Admin {
       /** Immutable. The name of the Account resource that this Admin refers to. Used when calling locations.admins.create to invite a LocationGroup as an admin. If both this field and `admin` are set on `CREATE` requests, this field takes precedence and the email address in `admin` will be ignored. Format: `accounts/{account}`. */
@@ -110,9 +105,7 @@ declare namespace gapi.client {
       targetLocation?: TargetLocation;
       /** Output only. Specifies which target types should appear in the response. */
       targetType?:
-        | 'TARGET_TYPE_UNSPECIFIED'
-        | 'ACCOUNTS_ONLY'
-        | 'LOCATIONS_ONLY';
+        'TARGET_TYPE_UNSPECIFIED' | 'ACCOUNTS_ONLY' | 'LOCATIONS_ONLY';
     }
     interface ListAccountAdminsResponse {
       /** A collection of Admin instances. */

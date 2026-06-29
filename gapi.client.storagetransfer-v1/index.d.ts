@@ -210,9 +210,7 @@ declare namespace gapi.client {
     interface MetadataOptions {
       /** Specifies how each object's ACLs should be preserved for transfers between Google Cloud Storage buckets. If unspecified, the default behavior is the same as ACL_DESTINATION_BUCKET_DEFAULT. */
       acl?:
-        | 'ACL_UNSPECIFIED'
-        | 'ACL_DESTINATION_BUCKET_DEFAULT'
-        | 'ACL_PRESERVE';
+        'ACL_UNSPECIFIED' | 'ACL_DESTINATION_BUCKET_DEFAULT' | 'ACL_PRESERVE';
       /** Specifies how each file's POSIX group ID (GID) attribute should be handled by the transfer. By default, GID is not preserved. Only applicable to transfers involving POSIX file systems, and ignored for other transfers. */
       gid?: 'GID_UNSPECIFIED' | 'GID_SKIP' | 'GID_NUMBER';
       /** Specifies how each object's Cloud KMS customer-managed encryption key (CMEK) is preserved for transfers between Google Cloud Storage buckets. If unspecified, the default behavior is the same as KMS_KEY_DESTINATION_BUCKET_DEFAULT. */
@@ -484,10 +482,7 @@ declare namespace gapi.client {
       overwriteObjectsAlreadyExistingInSink?: boolean;
       /** When to overwrite objects that already exist in the sink. If not set, overwrite behavior is determined by overwrite_objects_already_existing_in_sink. */
       overwriteWhen?:
-        | 'OVERWRITE_WHEN_UNSPECIFIED'
-        | 'DIFFERENT'
-        | 'NEVER'
-        | 'ALWAYS';
+        'OVERWRITE_WHEN_UNSPECIFIED' | 'DIFFERENT' | 'NEVER' | 'ALWAYS';
     }
     interface TransferSpec {
       /** Optional. An AWS S3 compatible data source. */

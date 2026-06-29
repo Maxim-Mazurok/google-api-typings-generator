@@ -137,7 +137,9 @@ declare namespace gapi.client {
       condition?: GoogleTypeExpr;
       /** Indicates whether each principal in the binding includes the principal specified in the request, either directly or indirectly. Each key identifies a principal in the binding, and each value indicates whether the principal in the binding includes the principal in the request. For example, suppose that a binding includes the following principals: * `user:alice@example.com` * `group:product-eng@example.com` The principal in the replayed access tuple is `user:bob@example.com`. This user is a principal of the group `group:product-eng@example.com`. For the first principal in the binding, the key is `user:alice@example.com`, and the `membership` field in the value is set to `MEMBERSHIP_NOT_INCLUDED`. For the second principal in the binding, the key is `group:product-eng@example.com`, and the `membership` field in the value is set to `MEMBERSHIP_INCLUDED`. */
       memberships?: {
-        [P in string]: GoogleCloudPolicysimulatorV1betaBindingExplanationAnnotatedMembership;
+        [
+          P in string
+        ]: GoogleCloudPolicysimulatorV1betaBindingExplanationAnnotatedMembership;
       };
       /** The relevance of this binding to the overall determination for the entire policy. */
       relevance?: 'HEURISTIC_RELEVANCE_UNSPECIFIED' | 'NORMAL' | 'HIGH';
@@ -151,9 +153,7 @@ declare namespace gapi.client {
         | 'ROLE_PERMISSION_UNKNOWN_INFO_DENIED';
       /** The relevance of the permission's existence, or nonexistence, in the role to the overall determination for the entire policy. */
       rolePermissionRelevance?:
-        | 'HEURISTIC_RELEVANCE_UNSPECIFIED'
-        | 'NORMAL'
-        | 'HIGH';
+        'HEURISTIC_RELEVANCE_UNSPECIFIED' | 'NORMAL' | 'HIGH';
     }
     interface GoogleCloudPolicysimulatorV1betaBindingExplanationAnnotatedMembership {
       /** Indicates whether the binding includes the principal. */
@@ -328,11 +328,7 @@ declare namespace gapi.client {
       resultsSummary?: GoogleCloudPolicysimulatorV1betaReplayResultsSummary;
       /** Output only. The current state of the `Replay`. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'PENDING'
-        | 'RUNNING'
-        | 'SUCCEEDED'
-        | 'FAILED';
+        'STATE_UNSPECIFIED' | 'PENDING' | 'RUNNING' | 'SUCCEEDED' | 'FAILED';
     }
     interface GoogleCloudPolicysimulatorV1betaReplayConfig {
       /** The logs to use as input for the Replay. */
@@ -389,11 +385,7 @@ declare namespace gapi.client {
       resultsSummary?: GoogleCloudPolicysimulatorV1ReplayResultsSummary;
       /** Output only. The current state of the `Replay`. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'PENDING'
-        | 'RUNNING'
-        | 'SUCCEEDED'
-        | 'FAILED';
+        'STATE_UNSPECIFIED' | 'PENDING' | 'RUNNING' | 'SUCCEEDED' | 'FAILED';
     }
     interface GoogleCloudPolicysimulatorV1ReplayConfig {
       /** The logs to use as input for the Replay. */
@@ -430,10 +422,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface GoogleIamV1Binding {
       /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */

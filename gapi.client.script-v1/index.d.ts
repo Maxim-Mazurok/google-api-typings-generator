@@ -62,10 +62,7 @@ declare namespace gapi.client {
       addOn?: GoogleAppsScriptTypeAddOnEntryPoint;
       /** The type of the entry point. */
       entryPointType?:
-        | 'ENTRY_POINT_TYPE_UNSPECIFIED'
-        | 'WEB_APP'
-        | 'EXECUTION_API'
-        | 'ADD_ON';
+        'ENTRY_POINT_TYPE_UNSPECIFIED' | 'WEB_APP' | 'EXECUTION_API' | 'ADD_ON';
       /** An entry point specification for Apps Script API execution calls. */
       executionApi?: GoogleAppsScriptTypeExecutionApiEntryPoint;
       /** An entry point specification for web apps. */
@@ -126,11 +123,7 @@ declare namespace gapi.client {
     interface GoogleAppsScriptTypeExecutionApiConfig {
       /** Who has permission to run the API executable. */
       access?:
-        | 'UNKNOWN_ACCESS'
-        | 'MYSELF'
-        | 'DOMAIN'
-        | 'ANYONE'
-        | 'ANYONE_ANONYMOUS';
+        'UNKNOWN_ACCESS' | 'MYSELF' | 'DOMAIN' | 'ANYONE' | 'ANYONE_ANONYMOUS';
     }
     interface GoogleAppsScriptTypeExecutionApiEntryPoint {
       /** The entry point's configuration. */
@@ -183,11 +176,7 @@ declare namespace gapi.client {
       startTime?: string;
       /** The executing users access level to the script. */
       userAccessLevel?:
-        | 'USER_ACCESS_LEVEL_UNSPECIFIED'
-        | 'NONE'
-        | 'READ'
-        | 'WRITE'
-        | 'OWNER';
+        'USER_ACCESS_LEVEL_UNSPECIFIED' | 'NONE' | 'READ' | 'WRITE' | 'OWNER';
     }
     interface GoogleAppsScriptTypeUser {
       /** The user's domain. */
@@ -202,11 +191,7 @@ declare namespace gapi.client {
     interface GoogleAppsScriptTypeWebAppConfig {
       /** Who has permission to run the web app. */
       access?:
-        | 'UNKNOWN_ACCESS'
-        | 'MYSELF'
-        | 'DOMAIN'
-        | 'ANYONE'
-        | 'ANYONE_ANONYMOUS';
+        'UNKNOWN_ACCESS' | 'MYSELF' | 'DOMAIN' | 'ANYONE' | 'ANYONE_ANONYMOUS';
       /** Who to execute the web app as. */
       executeAs?: 'UNKNOWN_EXECUTE_AS' | 'USER_ACCESSING' | 'USER_DEPLOYING';
     }

@@ -93,11 +93,7 @@ declare namespace gapi.client {
     interface AvailableDeepLinks {}
     interface BasicPerfSampleSeries {
       perfMetricType?:
-        | 'perfMetricTypeUnspecified'
-        | 'memory'
-        | 'cpu'
-        | 'network'
-        | 'graphics';
+        'perfMetricTypeUnspecified' | 'memory' | 'cpu' | 'network' | 'graphics';
       perfUnit?:
         | 'perfUnitUnspecified'
         | 'kibibyte'
@@ -304,12 +300,7 @@ declare namespace gapi.client {
       /** Unique int given to each step. Ranges from 0(inclusive) to total number of steps(exclusive). The primary step is 0. */
       multistepNumber?: number;
       outcomeSummary?:
-        | 'unset'
-        | 'success'
-        | 'failure'
-        | 'inconclusive'
-        | 'skipped'
-        | 'flaky';
+        'unset' | 'success' | 'failure' | 'inconclusive' | 'skipped' | 'flaky';
       /** How long it took for this step to run. */
       runDuration?: Duration;
       stepId?: string;
@@ -494,12 +485,7 @@ declare namespace gapi.client {
       successDetail?: SuccessDetail;
       /** The simplest way to interpret a result. Required */
       summary?:
-        | 'unset'
-        | 'success'
-        | 'failure'
-        | 'inconclusive'
-        | 'skipped'
-        | 'flaky';
+        'unset' | 'success' | 'failure' | 'inconclusive' | 'skipped' | 'flaky';
     }
     interface OverlappingUIElements {
       /** Resource names of the overlapping screen elements */
@@ -569,12 +555,7 @@ declare namespace gapi.client {
       individualOutcome?: IndividualOutcome[];
       /** Rollup test status of multiple steps that were run with the same configuration as a group. */
       rollUp?:
-        | 'unset'
-        | 'success'
-        | 'failure'
-        | 'inconclusive'
-        | 'skipped'
-        | 'flaky';
+        'unset' | 'success' | 'failure' | 'inconclusive' | 'skipped' | 'flaky';
     }
     interface ProjectSettings {
       /** The name of the Google Cloud Storage bucket to which results are written. By default, this is unset. In update request: optional In response: optional */
@@ -793,11 +774,7 @@ declare namespace gapi.client {
       errorMessage?: string;
       /** Severity of issue. Required. */
       severity?:
-        | 'unspecifiedSeverity'
-        | 'info'
-        | 'suggestion'
-        | 'warning'
-        | 'severe';
+        'unspecifiedSeverity' | 'info' | 'suggestion' | 'warning' | 'severe';
       /** Deprecated in favor of stack trace fields inside specific warnings. */
       stackTrace?: StackTrace;
       /** Type of issue. Required. */

@@ -234,8 +234,7 @@ declare namespace gapi.client {
         | 'FRAUD'[];
       /** Optional. Scope3's fraud IVT MFA categories to exclude. */
       excludedFraudIvtMfaCategories?:
-        | 'FRAUD_IVT_MFA_CATEGORY_UNSPECIFIED'
-        | 'FRAUD_IVT_MFA'[];
+        'FRAUD_IVT_MFA_CATEGORY_UNSPECIFIED' | 'FRAUD_IVT_MFA'[];
       /** Optional. Hate Speech and Acts of Aggression Content [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to exclude. */
       hateSpeechActsAggressionContent?:
         | 'GARM_RISK_EXCLUSION_UNSPECIFIED'
@@ -323,9 +322,7 @@ declare namespace gapi.client {
       appealFormLink?: string;
       /** Whether the decision can be appealed through a self-service appeal or an appeal form. */
       appealType?:
-        | 'AD_POLICY_APPEAL_TYPE_UNKNOWN'
-        | 'SELF_SERVICE_APPEAL'
-        | 'APPEAL_FORM';
+        'AD_POLICY_APPEAL_TYPE_UNKNOWN' | 'SELF_SERVICE_APPEAL' | 'APPEAL_FORM';
     }
     interface AdPolicyTopicConstraint {
       /** Countries where the resource's domain is not covered by the certificates associated with it. */
@@ -362,9 +359,7 @@ declare namespace gapi.client {
         | 'GOOGLE_INVESTIGATION';
       /** The policy enforcement means used in the policy review. */
       policyEnforcementMeans?:
-        | 'AD_POLICY_ENFORCEMENT_MEANS_UNKNOWN'
-        | 'AUTOMATED'
-        | 'HUMAN_REVIEW';
+        'AD_POLICY_ENFORCEMENT_MEANS_UNKNOWN' | 'AUTOMATED' | 'HUMAN_REVIEW';
       /** Localized label text for policy. Examples include "Trademarks in text", "Contains Alcohol", etc. */
       policyLabel?: string;
       /** The policy topic. Examples include "TRADEMARKS", "ALCOHOL", etc. */
@@ -3666,9 +3661,7 @@ declare namespace gapi.client {
     interface GuaranteedOrderStatus {
       /** Output only. The configuration status of the guaranteed order. Acceptable values are `PENDING` and `COMPLETED`. A guaranteed order must be configured (fill in the required fields, choose creatives, and select a default campaign) before it can serve. Currently the configuration action can only be performed via UI. */
       configStatus?:
-        | 'GUARANTEED_ORDER_CONFIG_STATUS_UNSPECIFIED'
-        | 'PENDING'
-        | 'COMPLETED';
+        'GUARANTEED_ORDER_CONFIG_STATUS_UNSPECIFIED' | 'PENDING' | 'COMPLETED';
       /** The user-provided reason for pausing this guaranteed order. Must be UTF-8 encoded with a maximum length of 100 bytes. Only applicable when entity_status is set to `ENTITY_STATUS_PAUSED`. */
       entityPauseReason?: string;
       /** Whether or not the guaranteed order is servable. Acceptable values are `ENTITY_STATUS_ACTIVE`, `ENTITY_STATUS_ARCHIVED`, and `ENTITY_STATUS_PAUSED`. Default value is `ENTITY_STATUS_ACTIVE`. */
@@ -3757,9 +3750,7 @@ declare namespace gapi.client {
       insertionOrderId?: string;
       /** Optional. The type of insertion order. If this field is unspecified in creation, the value defaults to `RTB`. */
       insertionOrderType?:
-        | 'INSERTION_ORDER_TYPE_UNSPECIFIED'
-        | 'RTB'
-        | 'OVER_THE_TOP';
+        'INSERTION_ORDER_TYPE_UNSPECIFIED' | 'RTB' | 'OVER_THE_TOP';
       /** Optional. Additional integration details of the insertion order. */
       integrationDetails?: IntegrationDetails;
       /** Required. The key performance indicator (KPI) of the insertion order. This is represented as referred to as the "Goal" in the Display & Video 360 interface. */
@@ -3840,21 +3831,15 @@ declare namespace gapi.client {
       excludedAdultRisk?: 'ADULT_UNSPECIFIED' | 'ADULT_HR' | 'ADULT_HMR';
       /** Brand Safety - **Alcohol**. */
       excludedAlcoholRisk?:
-        | 'ALCOHOL_UNSPECIFIED'
-        | 'ALCOHOL_HR'
-        | 'ALCOHOL_HMR';
+        'ALCOHOL_UNSPECIFIED' | 'ALCOHOL_HR' | 'ALCOHOL_HMR';
       /** Brand Safety - **Drugs**. */
       excludedDrugsRisk?: 'DRUGS_UNSPECIFIED' | 'DRUGS_HR' | 'DRUGS_HMR';
       /** Brand Safety - **Gambling**. */
       excludedGamblingRisk?:
-        | 'GAMBLING_UNSPECIFIED'
-        | 'GAMBLING_HR'
-        | 'GAMBLING_HMR';
+        'GAMBLING_UNSPECIFIED' | 'GAMBLING_HR' | 'GAMBLING_HMR';
       /** Brand Safety - **Hate speech**. */
       excludedHateSpeechRisk?:
-        | 'HATE_SPEECH_UNSPECIFIED'
-        | 'HATE_SPEECH_HR'
-        | 'HATE_SPEECH_HMR';
+        'HATE_SPEECH_UNSPECIFIED' | 'HATE_SPEECH_HR' | 'HATE_SPEECH_HMR';
       /** Brand Safety - **Illegal downloads**. */
       excludedIllegalDownloadsRisk?:
         | 'ILLEGAL_DOWNLOADS_UNSPECIFIED'
@@ -3867,9 +3852,7 @@ declare namespace gapi.client {
         | 'OFFENSIVE_LANGUAGE_HMR';
       /** Brand Safety - **Violence**. */
       excludedViolenceRisk?:
-        | 'VIOLENCE_UNSPECIFIED'
-        | 'VIOLENCE_HR'
-        | 'VIOLENCE_HMR';
+        'VIOLENCE_UNSPECIFIED' | 'VIOLENCE_HR' | 'VIOLENCE_HMR';
       /** Brand Safety - **Unrateable**. */
       excludeUnrateable?: boolean;
       /** Optional. The quality sync custom segment ID provided by Integral Ad Science. The ID must be between `3000000` and `4999999`, inclusive. */
@@ -5075,8 +5058,7 @@ declare namespace gapi.client {
     interface SessionPositionAssignedTargetingOptionDetails {
       /** The position where the ad will show in a session. */
       sessionPosition?:
-        | 'SESSION_POSITION_UNSPECIFIED'
-        | 'SESSION_POSITION_FIRST_IMPRESSION';
+        'SESSION_POSITION_UNSPECIFIED' | 'SESSION_POSITION_FIRST_IMPRESSION';
     }
     interface Site {
       /** Output only. The resource name of the site. */
@@ -5118,11 +5100,7 @@ declare namespace gapi.client {
     interface TargetingExpansionConfig {
       /** Output only. Magnitude of expansion for eligible first-party user lists under this ad group. This field only applies to YouTube and Partners line item and ad group resources. */
       audienceExpansionLevel?:
-        | 'UNKNOWN'
-        | 'NO_REACH'
-        | 'LEAST_REACH'
-        | 'MID_REACH'
-        | 'MOST_REACH';
+        'UNKNOWN' | 'NO_REACH' | 'LEAST_REACH' | 'MID_REACH' | 'MOST_REACH';
       /** Output only. Whether to exclude seed list for audience expansion. This field only applies to YouTube and Partners line item and ad group resources. */
       audienceExpansionSeedListExcluded?: boolean;
       /** Required. Whether to enable Optimized Targeting for the line item. Optimized targeting is not compatible with all bid strategies. Attempting to set this field to `true` for a line item using the BiddingStrategy field fixed_bid or one of the following combinations of BiddingStrategy fields and BiddingStrategyPerformanceGoalType will result in an error: maximize_auto_spend_bid: * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CIVA` * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_IVO_TEN` * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_AV_VIEWED` performance_goal_auto_bid: * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM` This also applies if the line item inherits one of the above bid strategies from the parent insertion order. Bid strategies set at the insertion order-level will be inherited by their line items if the `InsertionOrder` budget field automationType is set to `INSERTION_ORDER_AUTOMATION_TYPE_BUDGET` or `INSERTION_ORDER_AUTOMATION_TYPE_BID_BUDGET`. */

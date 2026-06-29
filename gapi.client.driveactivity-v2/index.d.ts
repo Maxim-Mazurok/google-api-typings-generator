@@ -403,9 +403,7 @@ declare namespace gapi.client {
         | 'WRITERS_CAN_DOWNLOAD';
       /** The restriction in place after the change. */
       newRestriction?:
-        | 'RESTRICTION_UNSPECIFIED'
-        | 'UNRESTRICTED'
-        | 'FULLY_RESTRICTED';
+        'RESTRICTION_UNSPECIFIED' | 'UNRESTRICTED' | 'FULLY_RESTRICTED';
     }
     interface Selection {
       /** Selection value as human-readable display string. */

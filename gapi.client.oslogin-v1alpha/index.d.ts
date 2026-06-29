@@ -70,9 +70,7 @@ declare namespace gapi.client {
       name?: string;
       /** The operating system type where this account applies. */
       operatingSystemType?:
-        | 'OPERATING_SYSTEM_TYPE_UNSPECIFIED'
-        | 'LINUX'
-        | 'WINDOWS';
+        'OPERATING_SYSTEM_TYPE_UNSPECIFIED' | 'LINUX' | 'WINDOWS';
       /** Only one POSIX account can be marked as primary. */
       primary?: boolean;
       /** The path to the logic shell for this account. */
@@ -330,9 +328,7 @@ declare namespace gapi.client {
         oauth_token?: string;
         /** Optional. The type of operating system associated with the account. */
         operatingSystemType?:
-          | 'OPERATING_SYSTEM_TYPE_UNSPECIFIED'
-          | 'LINUX'
-          | 'WINDOWS';
+          'OPERATING_SYSTEM_TYPE_UNSPECIFIED' | 'LINUX' | 'WINDOWS';
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
@@ -600,9 +596,7 @@ declare namespace gapi.client {
         oauth_token?: string;
         /** Optional. The type of operating system associated with the account. */
         operatingSystemType?:
-          | 'OPERATING_SYSTEM_TYPE_UNSPECIFIED'
-          | 'LINUX'
-          | 'WINDOWS';
+          'OPERATING_SYSTEM_TYPE_UNSPECIFIED' | 'LINUX' | 'WINDOWS';
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Required. The project ID of the Google Cloud Platform project. */

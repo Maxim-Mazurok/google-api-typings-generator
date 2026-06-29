@@ -98,10 +98,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface AutokeyConfig {
       /** Optional. A checksum computed by the server based on the value of other fields. This may be sent on update requests to ensure that the client has an up-to-date value before proceeding. The request will be rejected with an ABORTED error on a mismatched etag. */
@@ -446,9 +443,7 @@ declare namespace gapi.client {
       etag?: string;
       /** Optional. Describes who can perform control plane operations on the EKM. If unset, this defaults to MANUAL. */
       keyManagementMode?:
-        | 'KEY_MANAGEMENT_MODE_UNSPECIFIED'
-        | 'MANUAL'
-        | 'CLOUD_KMS';
+        'KEY_MANAGEMENT_MODE_UNSPECIFIED' | 'MANUAL' | 'CLOUD_KMS';
       /** Output only. The resource name for the EkmConnection in the format `projects/*‍/locations/*‍/ekmConnections/*`. */
       name?: string;
       /** Optional. A list of ServiceResolvers where the EKM can be reached. There should be one ServiceResolver per EKM replica. Currently, only a single ServiceResolver is supported. */

@@ -123,10 +123,7 @@ declare namespace gapi.client {
         | 'CANNOT_MODIFY_START_DATE_IF_ALREADY_STARTED';
       /** The reasons for the distinct error */
       distinctError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'DUPLICATE_ELEMENT'
-        | 'DUPLICATE_TYPE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'DUPLICATE_ELEMENT' | 'DUPLICATE_TYPE';
       /** The reasons for the header error. */
       headerError?:
         | 'UNSPECIFIED'
@@ -143,9 +140,7 @@ declare namespace gapi.client {
         | 'DEADLINE_EXCEEDED';
       /** The reasons for invalid parameter errors. */
       invalidParameterError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'INVALID_CURRENCY_CODE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'INVALID_CURRENCY_CODE';
       /** An error with the query */
       queryError?:
         | 'UNSPECIFIED'
@@ -347,10 +342,7 @@ declare namespace gapi.client {
       applicationId?: string;
       /** The instance type of the application sending the request. */
       applicationInstance?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'DEVELOPMENT_AND_TESTING'
-        | 'PRODUCTION';
+        'UNSPECIFIED' | 'UNKNOWN' | 'DEVELOPMENT_AND_TESTING' | 'PRODUCTION';
     }
     interface GoogleAdsSearchads360V23Common__AddressInfo {
       /** Name of the city. */
@@ -826,11 +818,7 @@ declare namespace gapi.client {
       facebookMessengerInfo?: GoogleAdsSearchads360V23Common__FacebookMessengerBusinessMessageInfo;
       /** Required. Message provider of the business message asset. */
       messageProvider?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'WHATSAPP'
-        | 'FACEBOOK_MESSENGER'
-        | 'ZALO';
+        'UNSPECIFIED' | 'UNKNOWN' | 'WHATSAPP' | 'FACEBOOK_MESSENGER' | 'ZALO';
       /** Required. A welcome message to prompt the user to initiate a conversation. */
       starterMessage?: string;
       /** Whatsapp. */
@@ -1018,10 +1006,7 @@ declare namespace gapi.client {
       shareCost?: boolean;
       /** Allowed third party integration partners for YouTube viewability verification. */
       viewabilityIntegrationPartner?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'DOUBLE_VERIFY'
-        | 'INTEGRAL_AD_SCIENCE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'DOUBLE_VERIFY' | 'INTEGRAL_AD_SCIENCE';
       /** Third party partner data for YouTube viewability verification. This is optional metadata for partners to join or attach data to Ads campaigns. */
       viewabilityIntegrationPartnerData?: GoogleAdsSearchads360V23Common__ThirdPartyIntegrationPartnerData;
     }
@@ -1044,10 +1029,7 @@ declare namespace gapi.client {
       chains?: GoogleAdsSearchads360V23Common__ChainFilter[];
       /** Required. Immutable. Relationship type the specified chains have with this advertiser. */
       relationshipType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'AUTO_DEALERS'
-        | 'GENERAL_RETAILERS';
+        'UNSPECIFIED' | 'UNKNOWN' | 'AUTO_DEALERS' | 'GENERAL_RETAILERS';
     }
     interface GoogleAdsSearchads360V23Common__ClickLocation {
       /** The city location criterion associated with the impression. */
@@ -1317,10 +1299,7 @@ declare namespace gapi.client {
       allowShareCost?: boolean;
       /** Allowed third party integration partners for YouTube viewability verification. */
       viewabilityIntegrationPartner?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'DOUBLE_VERIFY'
-        | 'INTEGRAL_AD_SCIENCE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'DOUBLE_VERIFY' | 'INTEGRAL_AD_SCIENCE';
     }
     interface GoogleAdsSearchads360V23Common__CustomIntentInfo {
       /** The CustomInterest resource name. */
@@ -1331,12 +1310,7 @@ declare namespace gapi.client {
       stringValue?: string;
       /** Required. The data type for the customizer value. It must match the attribute type. The string_value content must match the constraints associated with the type. */
       type?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'TEXT'
-        | 'NUMBER'
-        | 'PRICE'
-        | 'PERCENT';
+        'UNSPECIFIED' | 'UNKNOWN' | 'TEXT' | 'NUMBER' | 'PRICE' | 'PERCENT';
     }
     interface GoogleAdsSearchads360V23Common__CustomParameter {
       /** The key matching the parameter tag name. */
@@ -1819,11 +1793,7 @@ declare namespace gapi.client {
       eventType?: 'UNSPECIFIED' | 'UNKNOWN' | 'IMPRESSION' | 'VIDEO_VIEW';
       /** The level on which the cap is to be applied (for example, ad group ad, ad group). The cap is applied to all the entities of this level. */
       level?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'AD_GROUP_AD'
-        | 'AD_GROUP'
-        | 'CAMPAIGN';
+        'UNSPECIFIED' | 'UNKNOWN' | 'AD_GROUP_AD' | 'AD_GROUP' | 'CAMPAIGN';
       /** Number of time units the cap lasts. */
       timeLength?: number;
       /** Unit of time the cap is defined at (for example, day, week). */
@@ -1832,11 +1802,7 @@ declare namespace gapi.client {
     interface GoogleAdsSearchads360V23Common__GenderDimension {
       /** Included gender demographic segments. */
       genders?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'MALE'
-        | 'FEMALE'
-        | 'UNDETERMINED'[];
+        'UNSPECIFIED' | 'UNKNOWN' | 'MALE' | 'FEMALE' | 'UNDETERMINED'[];
       /** Include users whose gender is not determined. */
       includeUndetermined?: boolean;
     }
@@ -2351,11 +2317,7 @@ declare namespace gapi.client {
       description?: string;
       /** Specifies which format the ad will be served in. Default is ALL_FORMATS. */
       formatSetting?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'ALL_FORMATS'
-        | 'NON_NATIVE'
-        | 'NATIVE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'ALL_FORMATS' | 'NON_NATIVE' | 'NATIVE';
       /** The MediaFile resource name of the logo image used in the ad. */
       logoImage?: string;
       /** The long version of the ad's headline. */
@@ -2498,10 +2460,7 @@ declare namespace gapi.client {
       businessProfileLocations?: GoogleAdsSearchads360V23Common__BusinessProfileLocation[];
       /** The type of location ownership. If the type is BUSINESS_OWNER, it will be served as a location extension. If the type is AFFILIATE, it will be served as an affiliate location. */
       locationOwnershipType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'BUSINESS_OWNER'
-        | 'AFFILIATE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'BUSINESS_OWNER' | 'AFFILIATE';
       /** Place IDs uniquely identify a place in the Google Places database and on Google Maps. This field is unique for a given customer ID and asset type. See https://developers.google.com/places/web-service/place-id to learn more about Place ID. */
       placeId?: string;
     }
@@ -2522,11 +2481,7 @@ declare namespace gapi.client {
       radius?: string;
       /** Unit of the radius. Miles and meters are supported for geo target constants. Milli miles and meters are supported for feed item sets. This is required and must be set in CREATE operations. */
       radiusUnits?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'METERS'
-        | 'MILES'
-        | 'MILLI_MILES';
+        'UNSPECIFIED' | 'UNKNOWN' | 'METERS' | 'MILES' | 'MILLI_MILES';
     }
     interface GoogleAdsSearchads360V23Common__LocationInfo {
       /** The geo target constant resource name. */
@@ -2539,10 +2494,7 @@ declare namespace gapi.client {
       chainLocationSet?: GoogleAdsSearchads360V23Common__ChainSet;
       /** Required. Immutable. Location Ownership Type (owned location or affiliate location). */
       locationOwnershipType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'BUSINESS_OWNER'
-        | 'AFFILIATE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'BUSINESS_OWNER' | 'AFFILIATE';
       /** Only set if locations are synced based on selected maps locations */
       mapsLocationSet?: GoogleAdsSearchads360V23Common__MapsLocationSet;
     }
@@ -2559,11 +2511,7 @@ declare namespace gapi.client {
       countryCodes?: string[];
       /** Expansion level, reflecting the size of the lookalike audience */
       expansionLevel?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'NARROW'
-        | 'BALANCED'
-        | 'BROAD';
+        'UNSPECIFIED' | 'UNKNOWN' | 'NARROW' | 'BALANCED' | 'BROAD';
       /** Seed UserList ID from which this list is derived, provided by user. */
       seedUserListIds?: string[];
     }
@@ -2860,10 +2808,7 @@ declare namespace gapi.client {
       appId?: string;
       /** Required. The application store that distributes this specific app. */
       appStore?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'APPLE_APP_STORE'
-        | 'GOOGLE_APP_STORE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'APPLE_APP_STORE' | 'GOOGLE_APP_STORE';
       /** Last date of when this asset is effective and still serving, in yyyy-MM-dd format. */
       endDate?: string;
       /** Required. The visible text displayed when the link is rendered in an ad. The length of this string should be between 1 and 25, inclusive. */
@@ -2957,11 +2902,7 @@ declare namespace gapi.client {
     interface GoogleAdsSearchads360V23Common__ParentalStatusInfo {
       /** Type of the parental status. */
       type?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'PARENT'
-        | 'NOT_A_PARENT'
-        | 'UNDETERMINED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'PARENT' | 'NOT_A_PARENT' | 'UNDETERMINED';
     }
     interface GoogleAdsSearchads360V23Common__PercentCpc {
       /** Maximum bid limit that can be set by the bid strategy. This is an optional field entered by the advertiser and specified in local micros. Note: A zero value is interpreted in the same way as having bid_ceiling undefined. */
@@ -3134,10 +3075,7 @@ declare namespace gapi.client {
     interface GoogleAdsSearchads360V23Common__ProductChannelExclusivityInfo {
       /** Value of the availability. */
       channelExclusivity?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'SINGLE_CHANNEL'
-        | 'MULTI_CHANNEL';
+        'UNSPECIFIED' | 'UNKNOWN' | 'SINGLE_CHANNEL' | 'MULTI_CHANNEL';
     }
     interface GoogleAdsSearchads360V23Common__ProductChannelInfo {
       /** Value of the locality. */
@@ -3325,11 +3263,7 @@ declare namespace gapi.client {
       descriptions?: GoogleAdsSearchads360V23Common__AdTextAsset[];
       /** Specifies which format the ad will be served in. Default is ALL_FORMATS. */
       formatSetting?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'ALL_FORMATS'
-        | 'NON_NATIVE'
-        | 'NATIVE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'ALL_FORMATS' | 'NON_NATIVE' | 'NATIVE';
       /** Short format headlines for the ad. The maximum length is 30 characters. At least 1 and max 5 headlines can be specified. */
       headlines?: GoogleAdsSearchads360V23Common__AdTextAsset[];
       /** Logo images to be used in the ad. Valid image types are GIF, JPEG, and PNG. The minimum size is 512x128 and the aspect ratio must be 4:1 (+-1%). Combined with `square_logo_images`, the maximum is 5. */
@@ -3366,11 +3300,7 @@ declare namespace gapi.client {
       flexibleRuleUserList?: GoogleAdsSearchads360V23Common__FlexibleRuleUserListInfo;
       /** The status of pre-population. The field is default to NONE if not set which means the previous users will not be considered. If set to REQUESTED, past site visitors or app users who match the list definition will be included in the list (works on the Display Network only). This will only add past users from within the last 30 days, depending on the list's membership duration and the date when the remarketing tag is added. The status will be updated to FINISHED once request is processed, or FAILED if the request fails. */
       prepopulationStatus?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'REQUESTED'
-        | 'FINISHED'
-        | 'FAILED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'REQUESTED' | 'FINISHED' | 'FAILED';
     }
     interface GoogleAdsSearchads360V23Common__SearchAds360ExpandedDynamicSearchAdInfo {
       /** The tracking id of the ad. */
@@ -3549,17 +3479,10 @@ declare namespace gapi.client {
       productChannel?: 'UNSPECIFIED' | 'UNKNOWN' | 'ONLINE' | 'LOCAL';
       /** Channel exclusivity of the product. */
       productChannelExclusivity?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'SINGLE_CHANNEL'
-        | 'MULTI_CHANNEL';
+        'UNSPECIFIED' | 'UNKNOWN' | 'SINGLE_CHANNEL' | 'MULTI_CHANNEL';
       /** Condition of the product. */
       productCondition?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'NEW'
-        | 'REFURBISHED'
-        | 'USED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'NEW' | 'REFURBISHED' | 'USED';
       /** Resource name of the geo target constant for the country of sale of the product. */
       productCountry?: string;
       /** Custom attribute 0 of the product. */
@@ -3590,11 +3513,7 @@ declare namespace gapi.client {
       productSoldBrand?: string;
       /** Condition of the product sold. */
       productSoldCondition?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'NEW'
-        | 'REFURBISHED'
-        | 'USED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'NEW' | 'REFURBISHED' | 'USED';
       /** Custom attribute 0 of the product sold. */
       productSoldCustomAttribute0?: string;
       /** Custom attribute 1 of the product sold. */
@@ -4011,10 +3930,7 @@ declare namespace gapi.client {
       businessProfileLocations?: GoogleAdsSearchads360V23Common__BusinessProfileLocation[];
       /** The type of location ownership. If the type is BUSINESS_OWNER, it will be served as a location extension. If the type is AFFILIATE, it will be served as an affiliate location. */
       locationOwnershipType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'BUSINESS_OWNER'
-        | 'AFFILIATE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'BUSINESS_OWNER' | 'AFFILIATE';
       /** Place IDs uniquely identify a place in the Google Places database and on Google Maps. This field is unique for a given customer ID and asset type. See https://developers.google.com/places/web-service/place-id to learn more about Place ID. */
       placeId?: string;
     }
@@ -4100,10 +4016,7 @@ declare namespace gapi.client {
       thirdPartyUserId?: string;
       /** Source of the user identifier when the upload is from Store Sales */
       userIdentifierSource?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'FIRST_PARTY'
-        | 'THIRD_PARTY';
+        'UNSPECIFIED' | 'UNKNOWN' | 'FIRST_PARTY' | 'THIRD_PARTY';
     }
     interface GoogleAdsSearchads360V23Common__UserInterestAttributeMetadata {
       /** English language text description of the user interest category (200 characters max). */
@@ -4362,10 +4275,7 @@ declare namespace gapi.client {
     interface GoogleAdsSearchads360V23Common_CampaignGoalSettings_CampaignRetentionGoalSettings {
       /** Retention goal optimization mode for this campaign. Defaults to TARGET_ALL. Only customers on the allowlist can set target_option. */
       targetOption?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'TARGET_ALL'
-        | 'TARGET_SPECIFIC';
+        'UNSPECIFIED' | 'UNKNOWN' | 'TARGET_ALL' | 'TARGET_SPECIFIC';
       /** Retention goal campaign specific value settings. */
       valueSettingsOverride?: GoogleAdsSearchads360V23Common__CustomerLifecycleOptimizationValueSettings;
     }
@@ -4490,10 +4400,7 @@ declare namespace gapi.client {
         | 'CANCELED_BILLING_SETUP';
       /** The reasons for the account link status change error */
       accountLinkError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'INVALID_STATUS'
-        | 'PERMISSION_DENIED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'INVALID_STATUS' | 'PERMISSION_DENIED';
       /** The reasons for the ad customizer error */
       adCustomizerError?:
         | 'UNSPECIFIED'
@@ -4684,9 +4591,7 @@ declare namespace gapi.client {
         | 'CANNOT_OVERRIDE_OPTED_OUT_CAMPAIGN_CRITERION_BID_MODIFIER';
       /** The reasons for the ad group criterion customizer error. */
       adGroupCriterionCustomizerError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'CRITERION_IS_NOT_KEYWORD';
+        'UNSPECIFIED' | 'UNKNOWN' | 'CRITERION_IS_NOT_KEYWORD';
       /** Indicates failure to properly authenticate user. */
       adGroupCriterionError?:
         | 'UNSPECIFIED'
@@ -5076,9 +4981,7 @@ declare namespace gapi.client {
         | 'CAMPAIGN_AND_CAMPAIGN_ASSET_TRANSACTION_FAILURE';
       /** The reasons for the Benchmarks error. */
       benchmarksError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'MAX_QUERY_COMPLEXITY_EXCEEDED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'MAX_QUERY_COMPLEXITY_EXCEEDED';
       /** The reasons for the bidding errors */
       biddingError?:
         | 'UNSPECIFIED'
@@ -5385,9 +5288,7 @@ declare namespace gapi.client {
         | 'CUSTOMER_ACQUISITION_MISSING_HIGH_VALUE_CUSTOMER_DEFINITION';
       /** The reasons for the campaign shared set error */
       campaignSharedSetError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'SHARED_SET_ACCESS_DENIED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'SHARED_SET_ACCESS_DENIED';
       /** The reasons for the change event error */
       changeEventError?:
         | 'UNSPECIFIED'
@@ -5738,9 +5639,7 @@ declare namespace gapi.client {
       currencyCodeError?: 'UNSPECIFIED' | 'UNKNOWN' | 'UNSUPPORTED';
       /** The reasons for the currency errors. */
       currencyError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'VALUE_NOT_MULTIPLE_OF_BILLABLE_UNIT';
+        'UNSPECIFIED' | 'UNKNOWN' | 'VALUE_NOT_MULTIPLE_OF_BILLABLE_UNIT';
       /** The reasons for the custom audience error */
       customAudienceError?:
         | 'UNSPECIFIED'
@@ -5858,9 +5757,7 @@ declare namespace gapi.client {
         | 'CANNOT_CHANGE_TYPE';
       /** The reasons for the customizer attribute error. */
       customizerAttributeError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'DUPLICATE_CUSTOMIZER_ATTRIBUTE_NAME';
+        'UNSPECIFIED' | 'UNKNOWN' | 'DUPLICATE_CUSTOMIZER_ATTRIBUTE_NAME';
       /** The reasons for the database error. */
       databaseError?:
         | 'UNSPECIFIED'
@@ -5906,10 +5803,7 @@ declare namespace gapi.client {
         | 'CANNOT_MODIFY_START_DATE_IF_ALREADY_STARTED';
       /** The reasons for the distinct error */
       distinctError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'DUPLICATE_ELEMENT'
-        | 'DUPLICATE_TYPE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'DUPLICATE_ELEMENT' | 'DUPLICATE_TYPE';
       /** The reason for enum error. */
       enumError?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENUM_VALUE_NOT_PERMITTED';
       /** The reasons for the experiment arm error */
@@ -6443,9 +6337,7 @@ declare namespace gapi.client {
         | 'DEADLINE_EXCEEDED';
       /** The reasons for invalid parameter errors. */
       invalidParameterError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'INVALID_CURRENCY_CODE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'INVALID_CURRENCY_CODE';
       /** The reasons for the invoice error */
       invoiceError?:
         | 'UNSPECIFIED'
@@ -6457,10 +6349,7 @@ declare namespace gapi.client {
         | 'NON_SERVING_CUSTOMER';
       /** The reason for keyword plan ad group error. */
       keywordPlanAdGroupError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'INVALID_NAME'
-        | 'DUPLICATE_NAME';
+        'UNSPECIFIED' | 'UNKNOWN' | 'INVALID_NAME' | 'DUPLICATE_NAME';
       /** The reason for keyword plan ad group keyword error. */
       keywordPlanAdGroupKeywordError?:
         | 'UNSPECIFIED'
@@ -6485,9 +6374,7 @@ declare namespace gapi.client {
         | 'MAX_LANGUAGES_EXCEEDED';
       /** The reason for keyword plan campaign keyword error. */
       keywordPlanCampaignKeywordError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'CAMPAIGN_KEYWORD_IS_POSITIVE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'CAMPAIGN_KEYWORD_IS_POSITIVE';
       /** The reason for keyword plan error. */
       keywordPlanError?:
         | 'UNSPECIFIED'
@@ -6508,10 +6395,7 @@ declare namespace gapi.client {
         | 'INVALID_NAME';
       /** The reason for keyword idea error. */
       keywordPlanIdeaError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'URL_CRAWL_ERROR'
-        | 'INVALID_VALUE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'URL_CRAWL_ERROR' | 'INVALID_VALUE';
       /** The reason for the label error. */
       labelError?:
         | 'UNSPECIFIED'
@@ -6696,9 +6580,7 @@ declare namespace gapi.client {
         | 'TEMP_ID_RESOURCE_HAD_ERRORS';
       /** The reasons for the not allowlisted error */
       notAllowlistedError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'CUSTOMER_NOT_ALLOWLISTED_FOR_THIS_FEATURE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'CUSTOMER_NOT_ALLOWLISTED_FOR_THIS_FEATURE';
       /** The reasons for the not empty error */
       notEmptyError?: 'UNSPECIFIED' | 'UNKNOWN' | 'EMPTY_LIST';
       /** The reasons for the null error */
@@ -6764,20 +6646,13 @@ declare namespace gapi.client {
       operatorError?: 'UNSPECIFIED' | 'UNKNOWN' | 'OPERATOR_NOT_SUPPORTED';
       /** The reasons for the mutate job error */
       partialFailureError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'PARTIAL_FAILURE_MODE_REQUIRED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'PARTIAL_FAILURE_MODE_REQUIRED';
       /** The reasons for errors in payments accounts service */
       paymentsAccountError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'NOT_SUPPORTED_FOR_MANAGER_CUSTOMER';
+        'UNSPECIFIED' | 'UNKNOWN' | 'NOT_SUPPORTED_FOR_MANAGER_CUSTOMER';
       /** The reasons for the policy finding error. */
       policyFindingError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'POLICY_FINDING'
-        | 'POLICY_TOPIC_NOT_FOUND';
+        'UNSPECIFIED' | 'UNKNOWN' | 'POLICY_FINDING' | 'POLICY_TOPIC_NOT_FOUND';
       /** The reasons for the policy validation parameter error */
       policyValidationParameterError?:
         | 'UNSPECIFIED'
@@ -6957,9 +6832,7 @@ declare namespace gapi.client {
         | 'CLOUD_PROJECT_NOT_FOUND';
       /** The reasons for the resource access denied error */
       resourceAccessDeniedError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'WRITE_ACCESS_DENIED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'WRITE_ACCESS_DENIED';
       /** The reasons for the resource count limit exceeded error */
       resourceCountLimitExceededError?:
         | 'UNSPECIFIED'
@@ -7044,17 +6917,10 @@ declare namespace gapi.client {
         | 'FINAL_URL_NOT_CRAWLABLE';
       /** The reasons for the string format error */
       stringFormatError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'ILLEGAL_CHARS'
-        | 'INVALID_FORMAT';
+        'UNSPECIFIED' | 'UNKNOWN' | 'ILLEGAL_CHARS' | 'INVALID_FORMAT';
       /** The reasons for the string length error */
       stringLengthError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'EMPTY'
-        | 'TOO_SHORT'
-        | 'TOO_LONG';
+        'UNSPECIFIED' | 'UNKNOWN' | 'EMPTY' | 'TOO_SHORT' | 'TOO_LONG';
       /** The reasons for the third party app analytics link mutate error */
       thirdPartyAppAnalyticsLinkError?:
         | 'UNSPECIFIED'
@@ -7187,9 +7053,7 @@ declare namespace gapi.client {
         | 'ACCOUNT_SETTING_TYPE_NOT_ALLOWED';
       /** An error with a Video Campaign mutate. */
       videoCampaignError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'MUTATE_REQUIRES_RESERVATION';
+        'UNSPECIFIED' | 'UNKNOWN' | 'MUTATE_REQUIRES_RESERVATION';
       /** The reasons for YouTube video registration errors. */
       youtubeVideoRegistrationError?:
         | 'UNSPECIFIED'
@@ -7538,12 +7402,7 @@ declare namespace gapi.client {
       id?: string;
       /** Immutable. The type of this proposal, for example, END to end the budget associated with this proposal. */
       proposalType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'CREATE'
-        | 'UPDATE'
-        | 'END'
-        | 'REMOVE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'CREATE' | 'UPDATE' | 'END' | 'REMOVE';
       /** Immutable. The proposed end date time in yyyy-mm-dd hh:mm:ss format. */
       proposedEndDateTime?: string;
       /** Immutable. The proposed end date time as a well-defined type, for example, FOREVER. */
@@ -7725,10 +7584,7 @@ declare namespace gapi.client {
     interface GoogleAdsSearchads360V23Resources__AdGroup {
       /** The ad rotation mode of the ad group. */
       adRotationMode?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'OPTIMIZE'
-        | 'ROTATE_FOREVER';
+        'UNSPECIFIED' | 'UNKNOWN' | 'OPTIMIZE' | 'ROTATE_FOREVER';
       /** Settings for AI Max feature in standard search adgroups. */
       aiMaxAdGroupSetting?: GoogleAdsSearchads360V23Resources_AdGroup_AiMaxAdGroupSetting;
       /** Immutable. Setting for audience related features. */
@@ -8048,10 +7904,7 @@ declare namespace gapi.client {
     interface GoogleAdsSearchads360V23Resources__AdGroupAdAssetAutomationSetting {
       /** The opt-in/out status for the specified asset automation type. */
       assetAutomationStatus?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'OPTED_IN'
-        | 'OPTED_OUT';
+        'UNSPECIFIED' | 'UNKNOWN' | 'OPTED_IN' | 'OPTED_OUT';
       /** The asset automation type that this setting configures. */
       assetAutomationType?:
         | 'UNSPECIFIED'
@@ -8194,10 +8047,7 @@ declare namespace gapi.client {
       resourceName?: string;
       /** Output only. Source of the ad group ad asset. */
       source?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'ADVERTISER'
-        | 'AUTOMATICALLY_CREATED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'ADVERTISER' | 'AUTOMATICALLY_CREATED';
     }
     interface GoogleAdsSearchads360V23Resources__AdGroupAdEffectiveLabel {
       /** Immutable. The ad group ad to which the effective label is attached. */
@@ -8306,10 +8156,7 @@ declare namespace gapi.client {
       resourceName?: string;
       /** Output only. Source of the adgroup asset link. */
       source?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'ADVERTISER'
-        | 'AUTOMATICALLY_CREATED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'ADVERTISER' | 'AUTOMATICALLY_CREATED';
       /** Status of the ad group asset. */
       status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'REMOVED' | 'PAUSED';
     }
@@ -8538,10 +8385,7 @@ declare namespace gapi.client {
       status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'PAUSED' | 'REMOVED';
       /** Output only. Serving status of the criterion. */
       systemServingStatus?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'ELIGIBLE'
-        | 'RARELY_SERVED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'ELIGIBLE' | 'RARELY_SERVED';
       /** Immutable. Topic. */
       topic?: GoogleAdsSearchads360V23Common__TopicInfo;
       /** The URL template for constructing a tracking URL. */
@@ -8655,11 +8499,7 @@ declare namespace gapi.client {
       endDate?: string;
       /** Output only. How the simulation modifies the field. */
       modificationMethod?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'UNIFORM'
-        | 'DEFAULT'
-        | 'SCALING';
+        'UNSPECIFIED' | 'UNKNOWN' | 'UNIFORM' | 'DEFAULT' | 'SCALING';
       /** Output only. Simulation points if the simulation type is PERCENT_CPC_BID. */
       percentCpcBidPointList?: GoogleAdsSearchads360V23Common__PercentCpcBidSimulationPointList;
       /** Output only. The resource name of the ad group criterion simulation. Ad group criterion simulation resource names have the form: `customers/{customer_id}/adGroupCriterionSimulations/{ad_group_id}~{criterion_id}~{type}~{modification_method}~{start_date}~{end_date}` */
@@ -8722,11 +8562,7 @@ declare namespace gapi.client {
       endDate?: string;
       /** Output only. How the simulation modifies the field. */
       modificationMethod?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'UNIFORM'
-        | 'DEFAULT'
-        | 'SCALING';
+        'UNSPECIFIED' | 'UNKNOWN' | 'UNIFORM' | 'DEFAULT' | 'SCALING';
       /** Output only. The resource name of the ad group simulation. Ad group simulation resource names have the form: `customers/{customer_id}/adGroupSimulations/{ad_group_id}~{type}~{modification_method}~{start_date}~{end_date}` */
       resourceName?: string;
       /** Output only. First day on which the simulation is based, in YYYY-MM-DD format. */
@@ -8799,18 +8635,10 @@ declare namespace gapi.client {
       androidPrivacyInteractionDate?: string;
       /** Output only. The interaction type enum used in the share key encoding. */
       androidPrivacyInteractionType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'CLICK'
-        | 'ENGAGED_VIEW'
-        | 'VIEW';
+        'UNSPECIFIED' | 'UNKNOWN' | 'CLICK' | 'ENGAGED_VIEW' | 'VIEW';
       /** Output only. The network type enum used in the share key encoding. */
       androidPrivacyNetworkType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'SEARCH'
-        | 'DISPLAY'
-        | 'YOUTUBE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'SEARCH' | 'DISPLAY' | 'YOUTUBE';
       /** Output only. The campaign ID used in the share key encoding. */
       campaignId?: string;
       /** Output only. The resource name of the Android privacy shared key. Android privacy shared key resource names have the form: `customers/{customer_id}/androidPrivacySharedKeyGoogleAdGroups/{campaign_id}~{ad_group_id}~{android_privacy_interaction_type}~{android_privacy_network_type}~{android_privacy_interaction_date(yyyy-mm-dd)}` */
@@ -8823,11 +8651,7 @@ declare namespace gapi.client {
       androidPrivacyInteractionDate?: string;
       /** Output only. The interaction type enum used in the share key encoding. */
       androidPrivacyInteractionType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'CLICK'
-        | 'ENGAGED_VIEW'
-        | 'VIEW';
+        'UNSPECIFIED' | 'UNKNOWN' | 'CLICK' | 'ENGAGED_VIEW' | 'VIEW';
       /** Output only. The campaign ID used in the share key encoding. */
       campaignId?: string;
       /** Output only. The resource name of the Android privacy shared key. Android privacy shared key resource names have the form: `customers/{customer_id}/androidPrivacySharedKeyGoogleCampaigns/{campaign_id}~{android_privacy_interaction_type}~{android_privacy_interaction_date(yyyy-mm-dd)}` */
@@ -8840,18 +8664,10 @@ declare namespace gapi.client {
       androidPrivacyInteractionDate?: string;
       /** Output only. The interaction type enum used in the share key encoding. */
       androidPrivacyInteractionType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'CLICK'
-        | 'ENGAGED_VIEW'
-        | 'VIEW';
+        'UNSPECIFIED' | 'UNKNOWN' | 'CLICK' | 'ENGAGED_VIEW' | 'VIEW';
       /** Output only. The network type enum used in the share key encoding. */
       androidPrivacyNetworkType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'SEARCH'
-        | 'DISPLAY'
-        | 'YOUTUBE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'SEARCH' | 'DISPLAY' | 'YOUTUBE';
       /** Output only. The campaign ID used in the share key encoding. */
       campaignId?: string;
       /** Output only. The resource name of the Android privacy shared key. Android privacy shared key resource names have the form: `customers/{customer_id}/androidPrivacySharedKeyGoogleNetworkTypes/{campaign_id}~{android_privacy_interaction_type}~{android_privacy_network_type}~{android_privacy_interaction_date(yyyy-mm-dd)}` */
@@ -8931,11 +8747,7 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. Orientation of the asset. This is only supported for image and video assets. */
       orientation?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'LANDSCAPE'
-        | 'PORTRAIT'
-        | 'SQUARE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'LANDSCAPE' | 'PORTRAIT' | 'SQUARE';
       /** A page feed asset. */
       pageFeedAsset?: GoogleAdsSearchads360V23Common__PageFeedAsset;
       /** Output only. Policy information for the asset. */
@@ -8960,10 +8772,7 @@ declare namespace gapi.client {
       sitelinkAsset?: GoogleAdsSearchads360V23Common__SitelinkAsset;
       /** Output only. Source of the asset. */
       source?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'ADVERTISER'
-        | 'AUTOMATICALLY_CREATED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'ADVERTISER' | 'AUTOMATICALLY_CREATED';
       /** Output only. The status of the asset. */
       status?:
         | 'UNSPECIFIED'
@@ -9060,10 +8869,7 @@ declare namespace gapi.client {
         | 'CALL_TO_ACTION';
       /** Output only. Source of this asset. */
       assetSource?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'ADVERTISER'
-        | 'AUTOMATICALLY_CREATED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'ADVERTISER' | 'AUTOMATICALLY_CREATED';
       /** Output only. Policy summary. */
       policySummaryInfo?: GoogleAdsSearchads360V23Resources__AssetPolicySummary;
     }
@@ -9232,10 +9038,7 @@ declare namespace gapi.client {
       resourceName?: string;
       /** Output only. Source of the asset group asset. */
       source?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'ADVERTISER'
-        | 'AUTOMATICALLY_CREATED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'ADVERTISER' | 'AUTOMATICALLY_CREATED';
       /** The status of the link between an asset and asset group. */
       status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'REMOVED' | 'PAUSED';
     }
@@ -9593,11 +9396,7 @@ declare namespace gapi.client {
       endDate?: string;
       /** Output only. How the simulation modifies the field. */
       modificationMethod?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'UNIFORM'
-        | 'DEFAULT'
-        | 'SCALING';
+        'UNSPECIFIED' | 'UNKNOWN' | 'UNIFORM' | 'DEFAULT' | 'SCALING';
       /** Output only. The resource name of the bidding strategy simulation. Bidding strategy simulation resource names have the form: `customers/{customer_id}/biddingStrategySimulations/{bidding_strategy_id}~{type}~{modification_method}~{start_date}~{end_date}` */
       resourceName?: string;
       /** Output only. First day on which the simulation is based, in YYYY-MM-DD format. */
@@ -9695,10 +9494,7 @@ declare namespace gapi.client {
       callStatus?: 'UNSPECIFIED' | 'UNKNOWN' | 'MISSED' | 'RECEIVED';
       /** Output only. The call tracking display location. */
       callTrackingDisplayLocation?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'AD'
-        | 'LANDING_PAGE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'AD' | 'LANDING_PAGE';
       /** Output only. The advertiser-provided call end date time. */
       endCallDateTime?: string;
       /** Output only. The resource name of the call view. Call view resource names have the form: `customers/{customer_id}/callViews/{call_detail_id}` */
@@ -9911,11 +9707,7 @@ declare namespace gapi.client {
         | 'TRAVEL_FEED'[];
       /** Output only. The type of campaign: normal, draft, or experiment. */
       experimentType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'BASE'
-        | 'DRAFT'
-        | 'EXPERIMENT';
+        'UNSPECIFIED' | 'UNKNOWN' | 'BASE' | 'DRAFT' | 'EXPERIMENT';
       /** Output only. Types of feeds that are attached directly to this campaign. */
       feedTypes?:
         | 'UNSPECIFIED'
@@ -10179,10 +9971,7 @@ declare namespace gapi.client {
       resourceName?: string;
       /** Output only. Source of the campaign asset link. */
       source?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'ADVERTISER'
-        | 'AUTOMATICALLY_CREATED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'ADVERTISER' | 'AUTOMATICALLY_CREATED';
       /** Status of the campaign asset. */
       status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'REMOVED' | 'PAUSED';
     }
@@ -10563,11 +10352,7 @@ declare namespace gapi.client {
       endDate?: string;
       /** Output only. How the simulation modifies the field. */
       modificationMethod?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'UNIFORM'
-        | 'DEFAULT'
-        | 'SCALING';
+        'UNSPECIFIED' | 'UNKNOWN' | 'UNIFORM' | 'DEFAULT' | 'SCALING';
       /** Output only. The resource name of the campaign simulation. Campaign simulation resource names have the form: `customers/{customer_id}/campaignSimulations/{campaign_id}~{type}~{modification_method}~{start_date}~{end_date}` */
       resourceName?: string;
       /** Output only. First day on which the simulation is based, in YYYY-MM-DD format. */
@@ -10664,11 +10449,7 @@ declare namespace gapi.client {
       oldResource?: GoogleAdsSearchads360V23Resources_ChangeEvent_ChangedResource;
       /** Output only. The operation on the changed resource. */
       resourceChangeOperation?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'CREATE'
-        | 'UPDATE'
-        | 'REMOVE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'CREATE' | 'UPDATE' | 'REMOVE';
       /** Output only. The resource name of the change event. Change event resource names have the form: `customers/{customer_id}/changeEvents/{timestamp_micros}~{command_index}~{mutate_index}` */
       resourceName?: string;
       /** Output only. The email of the user who made this change. */
@@ -10713,11 +10494,7 @@ declare namespace gapi.client {
       resourceName?: string;
       /** Output only. Represents the status of the changed resource. */
       resourceStatus?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'ADDED'
-        | 'CHANGED'
-        | 'REMOVED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'ADDED' | 'CHANGED' | 'REMOVED';
       /** Output only. Represents the type of the changed resource. This dictates what fields will be set. For example, for AD_GROUP, campaign and ad_group fields will be set. */
       resourceType?:
         | 'UNSPECIFIED'
@@ -10911,10 +10688,7 @@ declare namespace gapi.client {
       clickThroughLookbackWindowDays?: string;
       /** How to count conversion events for the conversion action. */
       countingType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'ONE_PER_CLICK'
-        | 'MANY_PER_CLICK';
+        'UNSPECIFIED' | 'UNKNOWN' | 'ONE_PER_CLICK' | 'MANY_PER_CLICK';
       /** Output only. Timestamp of the Floodlight activity's creation, formatted in ISO 8601. */
       creationTime?: string;
       /** Output only. Firebase settings for Firebase conversion types. */
@@ -10931,10 +10705,7 @@ declare namespace gapi.client {
       includeInConversionsMetric?: boolean;
       /** Output only. Mobile app vendor for an app conversion action. */
       mobileAppVendor?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'APPLE_APP_STORE'
-        | 'GOOGLE_APP_STORE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'APPLE_APP_STORE' | 'GOOGLE_APP_STORE';
       /** The name of the conversion action. This field is required and should not be empty when creating new conversion actions. */
       name?: string;
       /** Output only. The conversion origin of this conversion action. */
@@ -11036,11 +10807,7 @@ declare namespace gapi.client {
       resourceName?: string;
       /** The status of the conversion custom variable for conversion event accrual. */
       status?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'ACTIVATION_NEEDED'
-        | 'ENABLED'
-        | 'PAUSED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'ACTIVATION_NEEDED' | 'ENABLED' | 'PAUSED';
       /** Required. Immutable. The tag of the conversion custom variable. Tag should be unique and consist of a "u" character directly followed with a number less than ormequal to 100. For example: "u4". */
       tag?: string;
     }
@@ -11057,10 +10824,7 @@ declare namespace gapi.client {
       searchAds360CustomConversionGoal?: string;
       /** The level of Search Ads 360 goal config the campaign is using. */
       searchAds360GoalConfigLevel?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'CUSTOMER'
-        | 'CAMPAIGN';
+        'UNSPECIFIED' | 'UNKNOWN' | 'CUSTOMER' | 'CAMPAIGN';
     }
     interface GoogleAdsSearchads360V23Resources__ConversionTrackingSetting {
       /** Output only. Whether the customer has accepted customer data terms. If using cross-account conversion tracking, this value is inherited from the manager. This field is read-only. For more information, see https://support.google.com/adspolicy/answer/7475709. */
@@ -11474,10 +11238,7 @@ declare namespace gapi.client {
       resourceName?: string;
       /** Output only. Source of the customer asset link. */
       source?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'ADVERTISER'
-        | 'AUTOMATICALLY_CREATED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'ADVERTISER' | 'AUTOMATICALLY_CREATED';
       /** Status of the customer asset. */
       status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'REMOVED' | 'PAUSED';
     }
@@ -11753,11 +11514,7 @@ declare namespace gapi.client {
       invitationId?: string;
       /** Output only. Invitation status of the user. */
       invitationStatus?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'PENDING'
-        | 'DECLINED'
-        | 'EXPIRED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'PENDING' | 'DECLINED' | 'EXPIRED';
       /** Immutable. Name of the resource. Resource names have the form: `customers/{customer_id}/customerUserAccessInvitations/{invitation_id}` */
       resourceName?: string;
     }
@@ -11794,12 +11551,7 @@ declare namespace gapi.client {
       status?: 'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'REMOVED';
       /** Immutable. The type of the customizer attribute. */
       type?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'TEXT'
-        | 'NUMBER'
-        | 'PRICE'
-        | 'PERCENT';
+        'UNSPECIFIED' | 'UNKNOWN' | 'TEXT' | 'NUMBER' | 'PRICE' | 'PERCENT';
     }
     interface GoogleAdsSearchads360V23Resources__CustomLeadFormSubmissionField {
       /** Output only. Field value for custom question response, maximum number of characters is 70. */
@@ -12104,10 +11856,7 @@ declare namespace gapi.client {
       countryCriterionId?: string;
       /** Output only. Type of the geo targeting of the campaign. */
       locationType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'AREA_OF_INTEREST'
-        | 'LOCATION_OF_PRESENCE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'AREA_OF_INTEREST' | 'LOCATION_OF_PRESENCE';
       /** Output only. The resource name of the geographic view. Geographic view resource names have the form: `customers/{customer_id}/geographicViews/{country_criterion_id}~{location_type}` */
       resourceName?: string;
     }
@@ -12136,10 +11885,7 @@ declare namespace gapi.client {
       goalType?: 'UNSPECIFIED' | 'UNKNOWN' | 'CUSTOMER_RETENTION';
       /** Output only. Indicates if this goal is eligible for campaign optimization. */
       optimizationEligibility?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'ELIGIBLE'
-        | 'INELIGIBLE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'ELIGIBLE' | 'INELIGIBLE';
       /** Output only. The resource name of the goal owner customer. */
       ownerCustomer?: string;
       /** Immutable. The resource name of the goal. Goal resource names have the form: `customers/{customer_id}/goals/{goal_id}` */
@@ -12430,11 +12176,7 @@ declare namespace gapi.client {
     interface GoogleAdsSearchads360V23Resources__KeywordPlanForecastPeriod {
       /** A future date range relative to the current date used for forecasting. */
       dateInterval?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'NEXT_WEEK'
-        | 'NEXT_MONTH'
-        | 'NEXT_QUARTER';
+        'UNSPECIFIED' | 'UNKNOWN' | 'NEXT_WEEK' | 'NEXT_MONTH' | 'NEXT_QUARTER';
       /** The custom date range used for forecasting. It cannot be greater than a year. The start and end dates must be in the future. Otherwise, an error will be returned when the forecasting action is performed. The start and end dates are inclusive. */
       dateRange?: GoogleAdsSearchads360V23Common__DateRange;
     }
@@ -12758,11 +12500,7 @@ declare namespace gapi.client {
         | 'WIPED_OUT';
       /** Output only. Type of Local Services lead: phone, message, booking, etc. */
       leadType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'MESSAGE'
-        | 'PHONE_CALL'
-        | 'BOOKING';
+        'UNSPECIFIED' | 'UNKNOWN' | 'MESSAGE' | 'PHONE_CALL' | 'BOOKING';
       /** Output only. Language used by the Local Services provider linked to lead. See https://developers.google.com/google-ads/api/data/codes-formats#locales */
       locale?: string;
       /** Output only. Note added by advertiser for the lead. */
@@ -13074,10 +12812,7 @@ declare namespace gapi.client {
         | 'DATE_RANGE_ERROR_END_TIME_MUST_BE_THE_END_OF_A_DAY';
       /** Output only. Distinct error. */
       distinctError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'DUPLICATE_ELEMENT'
-        | 'DUPLICATE_TYPE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'DUPLICATE_ELEMENT' | 'DUPLICATE_TYPE';
       /** Output only. Field error. */
       fieldError?:
         | 'UNSPECIFIED'
@@ -13106,22 +12841,13 @@ declare namespace gapi.client {
         | 'EU_POLITICAL_ADVERTISING_DECLARATION_REQUIRED';
       /** Output only. Not allowlisted error. */
       notAllowlistedError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'CUSTOMER_NOT_ALLOWLISTED_FOR_THIS_FEATURE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'CUSTOMER_NOT_ALLOWLISTED_FOR_THIS_FEATURE';
       /** Output only. String format error. */
       stringFormatError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'ILLEGAL_CHARS'
-        | 'INVALID_FORMAT';
+        'UNSPECIFIED' | 'UNKNOWN' | 'ILLEGAL_CHARS' | 'INVALID_FORMAT';
       /** Output only. String length error. */
       stringLengthError?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'EMPTY'
-        | 'TOO_SHORT'
-        | 'TOO_LONG';
+        'UNSPECIFIED' | 'UNKNOWN' | 'EMPTY' | 'TOO_SHORT' | 'TOO_LONG';
     }
     interface GoogleAdsSearchads360V23Resources__OfflineConversionSummary {
       /** Output only. Total count of failed event. */
@@ -13270,10 +12996,7 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. Determines whether this constant represents a single version or a range of versions. */
       operatorType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'EQUALS_TO'
-        | 'GREATER_THAN_EQUALS_TO';
+        'UNSPECIFIED' | 'UNKNOWN' | 'EQUALS_TO' | 'GREATER_THAN_EQUALS_TO';
       /** Output only. The OS Major Version number. */
       osMajorVersion?: number;
       /** Output only. The OS Minor Version number. */
@@ -13717,11 +13440,7 @@ declare namespace gapi.client {
     interface GoogleAdsSearchads360V23Resources__SearchAds360Campaign {
       /** The type of product attribution filtering to apply to this campaign. */
       productAttributionFilterType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'INHERIT'
-        | 'MANUAL'
-        | 'AUTO_BRAND';
+        'UNSPECIFIED' | 'UNKNOWN' | 'INHERIT' | 'MANUAL' | 'AUTO_BRAND';
       /** Immutable. The resource name of the Search Ads 360 campaign. Search Ads 360 campaign resource names have the form: `customers/{customer_id}/searchAds360Campaigns/{campaign_id}` */
       resourceName?: string;
     }
@@ -13910,11 +13629,7 @@ declare namespace gapi.client {
       adGroup?: string;
       /** Output only. The availability of the product as provided by the merchant. */
       availability?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'IN_STOCK'
-        | 'OUT_OF_STOCK'
-        | 'PREORDER';
+        'UNSPECIFIED' | 'UNKNOWN' | 'IN_STOCK' | 'OUT_OF_STOCK' | 'PREORDER';
       /** Output only. The brand of the product as provided by the merchant. */
       brand?: string;
       /** Output only. A campaign that includes the product. This field is selectable only in the campaign scope, which requires an equality filter on `campaign`. */
@@ -13933,10 +13648,7 @@ declare namespace gapi.client {
       channel?: 'UNSPECIFIED' | 'UNKNOWN' | 'ONLINE' | 'LOCAL';
       /** Output only. The channel exclusivity of the product as provided by the merchant. */
       channelExclusivity?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'SINGLE_CHANNEL'
-        | 'MULTI_CHANNEL';
+        'UNSPECIFIED' | 'UNKNOWN' | 'SINGLE_CHANNEL' | 'MULTI_CHANNEL';
       /** Output only. The condition of the product as provided by the merchant. */
       condition?: 'UNSPECIFIED' | 'UNKNOWN' | 'NEW' | 'REFURBISHED' | 'USED';
       /** Output only. The currency code as provided by the merchant, in ISO 4217 format. */
@@ -14036,10 +13748,7 @@ declare namespace gapi.client {
       appId?: string;
       /** Immutable. The vendor of the app. This field should not be empty when creating a new third party app analytics link. It is unable to be modified after the creation of the link. */
       appVendor?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'APPLE_APP_STORE'
-        | 'GOOGLE_APP_STORE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'APPLE_APP_STORE' | 'GOOGLE_APP_STORE';
     }
     interface GoogleAdsSearchads360V23Resources__TopicConstant {
       /** Output only. The ID of the topic. */
@@ -14106,10 +13815,7 @@ declare namespace gapi.client {
         | 'AFFILIATED';
       /** Indicates if this share is still enabled. When a UserList is shared with the user this field is set to ENABLED. Later the userList owner can decide to revoke the share and make it DISABLED. The default value of this field is set to ENABLED. */
       accountUserListStatus?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'ENABLED'
-        | 'DISABLED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'ENABLED' | 'DISABLED';
       /** User list targeting as a collection of conversion or remarketing actions. */
       basicUserList?: GoogleAdsSearchads360V23Common__BasicUserListInfo;
       /** Indicating the reason why this user list membership status is closed. It is only populated on lists that were automatically closed due to inactivity, and will be cleared once the list membership status becomes open. */
@@ -14377,12 +14083,7 @@ declare namespace gapi.client {
       notes?: string;
       /** Output only. The type of this proposal, for example, END to end the budget associated with this proposal. */
       proposalType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'CREATE'
-        | 'UPDATE'
-        | 'END'
-        | 'REMOVE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'CREATE' | 'UPDATE' | 'END' | 'REMOVE';
       /** Output only. A purchase order number is a value that helps users reference this budget in their monthly invoices. */
       purchaseOrderNumber?: string;
       /** Output only. The spending limit in micros. One million is equivalent to one unit. */
@@ -14452,10 +14153,7 @@ declare namespace gapi.client {
     interface GoogleAdsSearchads360V23Resources_AdGroupDemandGenAdGroupSettings_DemandGenChannelControls {
       /** Output only. Channel configuration reflecting which field in the oneof is populated. */
       channelConfig?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'CHANNEL_STRATEGY'
-        | 'SELECTED_CHANNELS';
+        'UNSPECIFIED' | 'UNKNOWN' | 'CHANNEL_STRATEGY' | 'SELECTED_CHANNELS';
       /** High level channel strategy. */
       channelStrategy?:
         | 'UNSPECIFIED'
@@ -14521,11 +14219,7 @@ declare namespace gapi.client {
         | 'CALL_TO_ACTION';
       /** Output only. For video field types, the required aspect ratio of the video. When unset and asset_field_type is YOUTUBE_VIDEO, the system recommends the advertiser upload any YouTube video, regardless of aspect ratio. */
       videoAspectRatioRequirement?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'HORIZONTAL'
-        | 'SQUARE'
-        | 'VERTICAL';
+        'UNSPECIFIED' | 'UNKNOWN' | 'HORIZONTAL' | 'SQUARE' | 'VERTICAL';
     }
     interface GoogleAdsSearchads360V23Resources_AssetSet_HotelPropertyData {
       /** Output only. The hotel center ID of the partner. */
@@ -14570,10 +14264,7 @@ declare namespace gapi.client {
     interface GoogleAdsSearchads360V23Resources_Campaign_AiMaxSetting {
       /** Output only. Indicates whether a search campaign has adopted AI Max before, and is required to have AI Max enabled to adopt campaign-level text asset automation and brand list targeting in all API versions. */
       bundlingRequired?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'NOT_REQUIRED'
-        | 'REQUIRED';
+        'UNSPECIFIED' | 'UNKNOWN' | 'NOT_REQUIRED' | 'REQUIRED';
       /** Controls whether or not AI Max features are served for this campaign. Individual AI Max features are enabled or disabled by their respective settings. But if enable_ai_max is set to false or cleared, then no AI Max features will serve for this campaign, regardless of the other settings. Search Term Matching is enabled by default when AI Max is enabled, and can be disabled at the ad group level. */
       enableAiMax?: boolean;
     }
@@ -14582,10 +14273,7 @@ declare namespace gapi.client {
       appId?: string;
       /** Immutable. The application store that distributes this specific app. */
       appStore?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'APPLE_APP_STORE'
-        | 'GOOGLE_APP_STORE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'APPLE_APP_STORE' | 'GOOGLE_APP_STORE';
       /** Represents the goal which the bidding strategy of this app campaign should optimize towards. */
       biddingStrategyGoalType?:
         | 'UNSPECIFIED'
@@ -14602,10 +14290,7 @@ declare namespace gapi.client {
     interface GoogleAdsSearchads360V23Resources_Campaign_AssetAutomationSetting {
       /** The opt-in/out status of asset automation type. */
       assetAutomationStatus?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'OPTED_IN'
-        | 'OPTED_OUT';
+        'UNSPECIFIED' | 'UNKNOWN' | 'OPTED_IN' | 'OPTED_OUT';
       /** The asset automation type advertiser would like to opt-in/out. */
       assetAutomationType?:
         | 'UNSPECIFIED'
@@ -14656,10 +14341,7 @@ declare namespace gapi.client {
     interface GoogleAdsSearchads360V23Resources_Campaign_GeoTargetTypeSetting {
       /** The setting used for negative geotargeting in this particular campaign. */
       negativeGeoTargetType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'PRESENCE_OR_INTEREST'
-        | 'PRESENCE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'PRESENCE_OR_INTEREST' | 'PRESENCE';
       /** The setting used for positive geotargeting in this particular campaign. */
       positiveGeoTargetType?:
         | 'UNSPECIFIED'
@@ -14675,10 +14357,7 @@ declare namespace gapi.client {
     interface GoogleAdsSearchads360V23Resources_Campaign_LocalCampaignSetting {
       /** The location source type for this local campaign. */
       locationSourceType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'GOOGLE_MY_BUSINESS'
-        | 'AFFILIATE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'GOOGLE_MY_BUSINESS' | 'AFFILIATE';
     }
     interface GoogleAdsSearchads360V23Resources_Campaign_LocalServicesCampaignSettings {
       /** Categorical level bids associated with MANUAL_CPA bidding strategy. */
@@ -14877,17 +14556,10 @@ declare namespace gapi.client {
     interface GoogleAdsSearchads360V23Resources_ConversionCustomVariable_FloodlightConversionCustomVariableInfo {
       /** Output only. Floodlight variable data type defined in Search Ads 360. */
       floodlightVariableDataType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'NUMBER'
-        | 'STRING';
+        'UNSPECIFIED' | 'UNKNOWN' | 'NUMBER' | 'STRING';
       /** Output only. Floodlight variable type defined in Search Ads 360. */
       floodlightVariableType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'DIMENSION'
-        | 'METRIC'
-        | 'UNSET';
+        'UNSPECIFIED' | 'UNKNOWN' | 'DIMENSION' | 'METRIC' | 'UNSET';
     }
     interface GoogleAdsSearchads360V23Resources_ConversionValueRule_ValueRuleAction {
       /** Specifies applied operation. */
@@ -14904,19 +14576,12 @@ declare namespace gapi.client {
     interface GoogleAdsSearchads360V23Resources_ConversionValueRule_ValueRuleDeviceCondition {
       /** Value for device type condition. */
       deviceTypes?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'MOBILE'
-        | 'DESKTOP'
-        | 'TABLET'[];
+        'UNSPECIFIED' | 'UNKNOWN' | 'MOBILE' | 'DESKTOP' | 'TABLET'[];
     }
     interface GoogleAdsSearchads360V23Resources_ConversionValueRule_ValueRuleGeoLocationCondition {
       /** Excluded Geo location match type. */
       excludedGeoMatchType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'ANY'
-        | 'LOCATION_OF_PRESENCE';
+        'UNSPECIFIED' | 'UNKNOWN' | 'ANY' | 'LOCATION_OF_PRESENCE';
       /** Geo locations that advertisers want to exclude. */
       excludedGeoTargetConstants?: string[];
       /** Included Geo location match type. */
@@ -15393,11 +15058,7 @@ declare namespace gapi.client {
       keyword?: GoogleAdsSearchads360V23Common__KeywordInfo;
       /** Output only. The recommended new match type. */
       recommendedMatchType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'EXACT'
-        | 'PHRASE'
-        | 'BROAD';
+        'UNSPECIFIED' | 'UNKNOWN' | 'EXACT' | 'PHRASE' | 'BROAD';
     }
     interface GoogleAdsSearchads360V23Resources_Recommendation_KeywordRecommendation {
       /** Output only. The recommended keyword. */
@@ -15804,11 +15465,7 @@ declare namespace gapi.client {
       suggestedKeywordText?: string;
       /** The suggested keyword match type. */
       suggestedMatchType?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'EXACT'
-        | 'PHRASE'
-        | 'BROAD';
+        'UNSPECIFIED' | 'UNKNOWN' | 'EXACT' | 'PHRASE' | 'BROAD';
     }
     interface GoogleAdsSearchads360V23Services__AdGroupLabelOperation {
       /** Create operation: No resource name is expected for the new ad group label. */
@@ -16158,11 +15815,7 @@ declare namespace gapi.client {
     interface GoogleAdsSearchads360V23Services__BenchmarksProductMetadata {
       /** The marketing objective associated with the product. A marketing objective is a broader classification of products. */
       marketingObjective?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'AWARENESS'
-        | 'CONSIDERATION'
-        | 'ACTION';
+        'UNSPECIFIED' | 'UNKNOWN' | 'AWARENESS' | 'CONSIDERATION' | 'ACTION';
       /** The identifier of the product. The identifier can be used as inputs for BenchmarksService.GenerateBenchmarksMetrics. */
       productCode?: string;
       /** The name of the product. */
@@ -17452,9 +17105,7 @@ declare namespace gapi.client {
       identityVerificationRequirement?: GoogleAdsSearchads360V23Services__IdentityVerificationRequirement;
       /** The verification program type. */
       verificationProgram?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'ADVERTISER_IDENTITY_VERIFICATION';
+        'UNSPECIFIED' | 'UNKNOWN' | 'ADVERTISER_IDENTITY_VERIFICATION';
       /** Information regarding progress for this verification program for this customer. */
       verificationProgress?: GoogleAdsSearchads360V23Services__IdentityVerificationProgress;
     }
@@ -17545,11 +17196,7 @@ declare namespace gapi.client {
       countryLocations?: GoogleAdsSearchads360V23Common__LocationInfo[];
       /** Optional. An optional marketing objective which will influence the type of suggestions produced. */
       marketingObjective?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'AWARENESS'
-        | 'CONSIDERATION'
-        | 'RESEARCH';
+        'UNSPECIFIED' | 'UNKNOWN' | 'AWARENESS' | 'CONSIDERATION' | 'RESEARCH';
     }
     interface GoogleAdsSearchads360V23Services__KeywordAndUrlSeed {
       /** Requires at least one keyword and no more than 20 keywords. */
@@ -17907,9 +17554,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -17938,9 +17583,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -17957,9 +17600,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -17982,9 +17623,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18001,9 +17640,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18026,9 +17663,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18075,9 +17710,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18118,9 +17751,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18143,9 +17774,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18168,9 +17797,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18209,9 +17836,7 @@ declare namespace gapi.client {
       operations?: GoogleAdsSearchads360V23Services__AssetGroupListingGroupFilterOperation[];
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18236,9 +17861,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18279,9 +17902,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18304,9 +17925,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18323,9 +17942,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18348,9 +17965,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18379,9 +17994,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18404,9 +18017,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18429,9 +18040,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18478,9 +18087,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18497,9 +18104,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18522,9 +18127,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18547,9 +18150,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18580,9 +18181,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18611,9 +18210,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18636,9 +18233,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18679,9 +18274,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18728,9 +18321,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18747,9 +18338,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18772,9 +18361,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18797,9 +18384,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18820,9 +18405,7 @@ declare namespace gapi.client {
       operations?: GoogleAdsSearchads360V23Services__ConversionGoalCampaignConfigOperation[];
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18849,9 +18432,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18868,9 +18449,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18905,9 +18484,7 @@ declare namespace gapi.client {
       operations?: GoogleAdsSearchads360V23Services__CustomConversionGoalOperation[];
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18934,9 +18511,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -18953,9 +18528,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -19006,9 +18579,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -19057,9 +18628,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -19080,9 +18649,7 @@ declare namespace gapi.client {
       operation?: GoogleAdsSearchads360V23Services__CustomerOperation;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -19167,9 +18734,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -19192,9 +18757,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -19343,9 +18906,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -19618,9 +19179,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. The mutable resource will only be returned if the resource has the appropriate response field. For example, MutateCampaignResult.campaign. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -19667,9 +19226,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. The mutable resource will only be returned if the resource has the appropriate response field. For example, . */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       validateOnly?: boolean;
     }
     interface GoogleAdsSearchads360V23Services__MutateSearchAds360Response {
@@ -19685,9 +19242,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -19716,9 +19271,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -19741,9 +19294,7 @@ declare namespace gapi.client {
       partialFailure?: boolean;
       /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. */
       responseContentType?:
-        | 'UNSPECIFIED'
-        | 'RESOURCE_NAME_ONLY'
-        | 'MUTABLE_RESOURCE';
+        'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
       /** If true, the request is validated but not executed. Only errors are returned, not results. */
       validateOnly?: boolean;
     }
@@ -20690,9 +20241,7 @@ declare namespace gapi.client {
     interface GoogleAdsSearchads360V23Services__StartIdentityVerificationRequest {
       /** Required. The verification program type for which we want to start the verification. */
       verificationProgram?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'ADVERTISER_IDENTITY_VERIFICATION';
+        'UNSPECIFIED' | 'UNKNOWN' | 'ADVERTISER_IDENTITY_VERIFICATION';
     }
     interface GoogleAdsSearchads360V23Services__SuggestGeoTargetConstantsRequest {
       /** Returned geo targets are restricted to this country code. */
@@ -21200,11 +20749,7 @@ declare namespace gapi.client {
     interface GoogleAdsSearchads360V23Services_ProductFilter_MarketingObjectiveList {
       /** Required. Marketing objectives to generate benchmarks metrics for. */
       marketingObjectives?:
-        | 'UNSPECIFIED'
-        | 'UNKNOWN'
-        | 'AWARENESS'
-        | 'CONSIDERATION'
-        | 'ACTION'[];
+        'UNSPECIFIED' | 'UNKNOWN' | 'AWARENESS' | 'CONSIDERATION' | 'ACTION'[];
     }
     interface GoogleAdsSearchads360V23Services_ProductFilter_ProductList {
       /** Required. Products to generate benchmarks metrics for. */
@@ -22911,9 +22456,7 @@ declare namespace gapi.client {
         resourceName: string;
         /** The response content type setting. Determines whether the mutable resource or just the resource name should be returned. */
         responseContentType?:
-          | 'UNSPECIFIED'
-          | 'RESOURCE_NAME_ONLY'
-          | 'MUTABLE_RESOURCE';
+          'UNSPECIFIED' | 'RESOURCE_NAME_ONLY' | 'MUTABLE_RESOURCE';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */

@@ -291,10 +291,7 @@ declare namespace gapi.client {
     interface FindNearest {
       /** Required. The distance measure to use, required. */
       distanceMeasure?:
-        | 'DISTANCE_MEASURE_UNSPECIFIED'
-        | 'EUCLIDEAN'
-        | 'COSINE'
-        | 'DOT_PRODUCT';
+        'DISTANCE_MEASURE_UNSPECIFIED' | 'EUCLIDEAN' | 'COSINE' | 'DOT_PRODUCT';
       /** Optional. Optional name of the field to output the result of the vector distance calculation. Must conform to document field name limitations. */
       distanceResultField?: string;
       /** Optional. Option to specify a threshold for which no less similar documents will be returned. The behavior of the specified `distance_measure` will affect the meaning of the distance threshold. Since DOT_PRODUCT distances increase when the vectors are more similar, the comparison is inverted. * For EUCLIDEAN, COSINE: `WHERE distance <= distance_threshold` * For DOT_PRODUCT: `WHERE distance >= distance_threshold` */
@@ -625,9 +622,7 @@ declare namespace gapi.client {
     interface ReadWrite {
       /** Optional. The concurrency control mode to use for this transaction. A database is able to use different concurrency modes for different transactions simultaneously. 3rd party auth requests are only allowed to create optimistic read-write transactions and must specify that here even if the database-level setting is already configured to optimistic. */
       concurrencyMode?:
-        | 'CONCURRENCY_MODE_UNSPECIFIED'
-        | 'OPTIMISTIC'
-        | 'PESSIMISTIC';
+        'CONCURRENCY_MODE_UNSPECIFIED' | 'OPTIMISTIC' | 'PESSIMISTIC';
       /** An optional transaction to retry. */
       retryTransaction?: string;
     }

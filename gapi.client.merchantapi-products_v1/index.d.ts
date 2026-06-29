@@ -314,10 +314,7 @@ declare namespace gapi.client {
       resolution?: string;
       /** How this issue affects serving of the offer. */
       severity?:
-        | 'SEVERITY_UNSPECIFIED'
-        | 'NOT_IMPACTED'
-        | 'DEMOTED'
-        | 'DISAPPROVED';
+        'SEVERITY_UNSPECIFIED' | 'NOT_IMPACTED' | 'DEMOTED' | 'DISAPPROVED';
     }
     interface ListProductsResponse {
       /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
@@ -360,10 +357,7 @@ declare namespace gapi.client {
       petsAllowed?: boolean;
       /** The pet types allowed. */
       petTypes?:
-        | 'PET_TYPE_UNSPECIFIED'
-        | 'CATS'
-        | 'LARGE_DOGS'
-        | 'SMALL_DOGS'[];
+        'PET_TYPE_UNSPECIFIED' | 'CATS' | 'LARGE_DOGS' | 'SMALL_DOGS'[];
     }
     interface PickupCost {
       /** Required. The flat rate pickup cost of the item. */
@@ -919,11 +913,7 @@ declare namespace gapi.client {
     interface ProductCertification {
       /** The certification authority. */
       certificationAuthority?:
-        | 'CERTIFICATION_AUTHORITY_UNSPECIFIED'
-        | 'ADEME'
-        | 'BMWK'
-        | 'EPA'
-        | 'EC';
+        'CERTIFICATION_AUTHORITY_UNSPECIFIED' | 'ADEME' | 'BMWK' | 'EPA' | 'EC';
       /** The certification code. Maximum length is 2000 characters. */
       certificationCode?: string;
       /** The name of the certification. */

@@ -182,11 +182,7 @@ declare namespace gapi.client {
       relatedFrameworks?: string[];
       /** Output only. The severity of the finding. */
       severity?:
-        | 'SEVERITY_UNSPECIFIED'
-        | 'CRITICAL'
-        | 'HIGH'
-        | 'MEDIUM'
-        | 'LOW';
+        'SEVERITY_UNSPECIFIED' | 'CRITICAL' | 'HIGH' | 'MEDIUM' | 'LOW';
       /** Output only. The last updated time of the finding. */
       updateTime?: string;
     }
@@ -583,9 +579,7 @@ declare namespace gapi.client {
         | 'ERROR_SETUP_CHECK_FAILED'[];
       /** Output only. Indicates SAA enrollment status of a given workload. */
       setupStatus?:
-        | 'SETUP_STATE_UNSPECIFIED'
-        | 'STATUS_PENDING'
-        | 'STATUS_COMPLETE';
+        'SETUP_STATE_UNSPECIFIED' | 'STATUS_PENDING' | 'STATUS_COMPLETE';
     }
     interface GoogleCloudAssuredworkloadsV1WorkloadUpdate {
       /** The time the update was created. */
@@ -602,8 +596,7 @@ declare namespace gapi.client {
     interface GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions {
       /** Optional. Specifies type of KAJ Enrollment if provided. */
       kajEnrollmentType?:
-        | 'KAJ_ENROLLMENT_TYPE_UNSPECIFIED'
-        | 'KEY_ACCESS_TRANSPARENCY_OFF';
+        'KAJ_ENROLLMENT_TYPE_UNSPECIFIED' | 'KEY_ACCESS_TRANSPARENCY_OFF';
     }
     interface GoogleLongrunningListOperationsResponse {
       /** The standard List next-page token. */

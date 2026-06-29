@@ -89,10 +89,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface AuthorizedNetwork {
       /** Optional. CIDR range for one authorzied network of the instance. */
@@ -105,9 +102,7 @@ declare namespace gapi.client {
       completionComment?: string;
       /** Output only. Job completion state, i.e. the final state after the job completed. */
       completionState?:
-        | 'JOB_COMPLETION_STATE_UNSPECIFIED'
-        | 'SUCCEEDED'
-        | 'FAILED';
+        'JOB_COMPLETION_STATE_UNSPECIFIED' | 'SUCCEEDED' | 'FAILED';
       /** Output only. Convert job details. */
       convertJobDetails?: ConvertJobDetails;
       /** The timestamp when the background job was finished. */
@@ -164,16 +159,12 @@ declare namespace gapi.client {
     interface CloudSqlSettings {
       /** The activation policy specifies when the instance is activated; it is applicable only when the instance state is 'RUNNABLE'. Valid values: 'ALWAYS': The instance is on, and remains so even in the absence of connection requests. `NEVER`: The instance is off; it is not activated, even if a connection request arrives. */
       activationPolicy?:
-        | 'SQL_ACTIVATION_POLICY_UNSPECIFIED'
-        | 'ALWAYS'
-        | 'NEVER';
+        'SQL_ACTIVATION_POLICY_UNSPECIFIED' | 'ALWAYS' | 'NEVER';
       /** [default: ON] If you enable this setting, Cloud SQL checks your available storage every 30 seconds. If the available storage falls below a threshold size, Cloud SQL automatically adds additional storage capacity. If the available storage repeatedly falls below the threshold size, Cloud SQL continues to add storage until it reaches the maximum of 30 TB. */
       autoStorageIncrease?: boolean;
       /** Optional. Availability type. Potential values: * `ZONAL`: The instance serves data from only one zone. Outages in that zone affect data availability. * `REGIONAL`: The instance can serve data from more than one zone in a region (it is highly available). */
       availabilityType?:
-        | 'SQL_AVAILABILITY_TYPE_UNSPECIFIED'
-        | 'ZONAL'
-        | 'REGIONAL';
+        'SQL_AVAILABILITY_TYPE_UNSPECIFIED' | 'ZONAL' | 'REGIONAL';
       /** The KMS key name used for the csql instance. */
       cmekKeyName?: string;
       /** The Cloud SQL default instance level collation. */
@@ -1341,10 +1332,7 @@ declare namespace gapi.client {
     interface PerformanceConfig {
       /** Initial dump parallelism level. */
       dumpParallelLevel?:
-        | 'DUMP_PARALLEL_LEVEL_UNSPECIFIED'
-        | 'MIN'
-        | 'OPTIMAL'
-        | 'MAX';
+        'DUMP_PARALLEL_LEVEL_UNSPECIFIED' | 'MIN' | 'OPTIMAL' | 'MAX';
     }
     interface Policy {
       /** Specifies cloud audit logging configuration for this policy. */

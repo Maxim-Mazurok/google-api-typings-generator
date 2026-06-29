@@ -634,17 +634,12 @@ declare namespace gapi.client {
         | 'VERY_HIGH';
       /** Change in the estimated demand. Whether it rose, sank or remained flat. */
       relativeDemandChange?:
-        | 'RELATIVE_DEMAND_CHANGE_TYPE_UNSPECIFIED'
-        | 'SINKER'
-        | 'FLAT'
-        | 'RISER';
+        'RELATIVE_DEMAND_CHANGE_TYPE_UNSPECIFIED' | 'SINKER' | 'FLAT' | 'RISER';
       /** Report date. The value of this field can only be one of the following: * The first day of the week (Monday) for weekly reports. * The first day of the month for monthly reports. If a `WHERE` condition on `best_sellers.report_date` is not specified in the query, the latest available weekly or monthly report is returned. */
       reportDate?: Date;
       /** Granularity of the report. The ranking can be done over a week or a month timeframe. A `WHERE` condition on `best_sellers.report_granularity` is required in the query. */
       reportGranularity?:
-        | 'REPORT_GRANULARITY_UNSPECIFIED'
-        | 'WEEKLY'
-        | 'MONTHLY';
+        'REPORT_GRANULARITY_UNSPECIFIED' | 'WEEKLY' | 'MONTHLY';
     }
     interface Brand {
       /** Name of the brand. */
@@ -701,10 +696,7 @@ declare namespace gapi.client {
       fullMessage?: TextWithTooltip;
       /** Can be used to render messages with different severity in different styles. Snippets off all types contain important information that should be displayed to merchants. */
       styleHint?:
-        | 'CALLOUT_STYLE_HINT_UNSPECIFIED'
-        | 'ERROR'
-        | 'WARNING'
-        | 'INFO';
+        'CALLOUT_STYLE_HINT_UNSPECIFIED' | 'ERROR' | 'WARNING' | 'INFO';
     }
     interface CarrierRate {
       /** Carrier service, such as `"UPS"` or `"Fedex"`. The list of supported carriers can be retrieved through the `getSupportedCarriers` method. Required. */
@@ -1245,9 +1237,7 @@ declare namespace gapi.client {
       regionCodes?: string[];
       /** If a program is eligible for review in a specific region. Only visible if `eligibilityStatus` is `DISAPPROVED`. */
       reviewEligibilityStatus?:
-        | 'REVIEW_ELIGIBILITY_UNSPECIFIED'
-        | 'ELIGIBLE'
-        | 'INELIGIBLE';
+        'REVIEW_ELIGIBILITY_UNSPECIFIED' | 'ELIGIBLE' | 'INELIGIBLE';
       /** Review ineligibility reason if account is not eligible for review. */
       reviewIneligibilityReason?:
         | 'REVIEW_INELIGIBILITY_REASON_UNSPECIFIED'
@@ -2725,10 +2715,7 @@ declare namespace gapi.client {
       channel?: 'CHANNEL_UNSPECIFIED' | 'LOCAL' | 'ONLINE';
       /** Estimated performance potential compared to highest performing products of the merchant. */
       clickPotential?:
-        | 'CLICK_POTENTIAL_UNSPECIFIED'
-        | 'LOW'
-        | 'MEDIUM'
-        | 'HIGH';
+        'CLICK_POTENTIAL_UNSPECIFIED' | 'LOW' | 'MEDIUM' | 'HIGH';
       /** Normalized click potential of the product. Values range from 1 to 1000, where 1 is the highest click potential and 1000 is the theoretical lowest. */
       clickPotentialRank?: string;
       /** Condition of the product. */
@@ -2899,9 +2886,7 @@ declare namespace gapi.client {
       promotionUrl?: string;
       /** Required. Redemption channel for the promotion. At least one channel is required. */
       redemptionChannel?:
-        | 'REDEMPTION_CHANNEL_UNSPECIFIED'
-        | 'IN_STORE'
-        | 'ONLINE'[];
+        'REDEMPTION_CHANNEL_UNSPECIFIED' | 'IN_STORE' | 'ONLINE'[];
       /** The redemption restriction for the promotion. */
       redemptionRestriction?:
         | 'REDEMPTION_RESTRICTION_UNSPECIFIED'
@@ -2915,9 +2900,7 @@ declare namespace gapi.client {
       shippingServiceNames?: string[];
       /** Whether the promotion applies to all stores, or only specified stores. Local Inventory ads promotions throw an error if no store applicability is included. An INVALID_ARGUMENT error is thrown if store_applicability is set to ALL_STORES and store_code or score_code_exclusion is set to a value. */
       storeApplicability?:
-        | 'STORE_APPLICABILITY_UNSPECIFIED'
-        | 'ALL_STORES'
-        | 'SPECIFIC_STORES';
+        'STORE_APPLICABILITY_UNSPECIFIED' | 'ALL_STORES' | 'SPECIFIC_STORES';
       /** Store codes to include for the promotion. */
       storeCode?: string[];
       /** Store codes to exclude for the promotion. */
@@ -3174,9 +3157,7 @@ declare namespace gapi.client {
       phoneRegionCode?: string;
       /** Verification method to receive verification code. */
       phoneVerificationMethod?:
-        | 'PHONE_VERIFICATION_METHOD_UNSPECIFIED'
-        | 'SMS'
-        | 'PHONE_CALL';
+        'PHONE_VERIFICATION_METHOD_UNSPECIFIED' | 'SMS' | 'PHONE_CALL';
     }
     interface RequestPhoneVerificationResponse {
       /** The verification ID to use in subsequent calls to `verifyphonenumber`. */
@@ -3205,10 +3186,7 @@ declare namespace gapi.client {
       restockingFee?: ReturnPolicyOnlineRestockingFee;
       /** The return methods of how customers can return an item. This value is required to not be empty unless the type of return policy is noReturns. */
       returnMethods?:
-        | 'RETURN_METHOD_UNSPECIFIED'
-        | 'BY_MAIL'
-        | 'IN_STORE'
-        | 'AT_A_KIOSK'[];
+        'RETURN_METHOD_UNSPECIFIED' | 'BY_MAIL' | 'IN_STORE' | 'AT_A_KIOSK'[];
       /** Output only. Return policy ID generated by Google. */
       returnPolicyId?: string;
       /** The return policy uri. This can used by Google to do a sanity check for the policy. */
@@ -3241,9 +3219,7 @@ declare namespace gapi.client {
         | 'CUSTOMER_RESPONSIBILITY';
       /** The return reason category. */
       returnReasonCategory?:
-        | 'RETURN_REASON_CATEGORY_UNSPECIFIED'
-        | 'BUYER_REMORSE'
-        | 'ITEM_DEFECT';
+        'RETURN_REASON_CATEGORY_UNSPECIFIED' | 'BUYER_REMORSE' | 'ITEM_DEFECT';
       /** The corresponding return shipping fee. This is only applicable when returnLabelSource is not the customer's responsibility. */
       returnShippingFee?: ReturnPolicyOnlineReturnShippingFee;
     }
@@ -3469,9 +3445,7 @@ declare namespace gapi.client {
       regionCodes?: string[];
       /** If a program is eligible for review in a specific region. Only visible if `eligibilityStatus` is `DISAPPROVED`. */
       reviewEligibilityStatus?:
-        | 'REVIEW_ELIGIBILITY_UNSPECIFIED'
-        | 'ELIGIBLE'
-        | 'INELIGIBLE';
+        'REVIEW_ELIGIBILITY_UNSPECIFIED' | 'ELIGIBLE' | 'INELIGIBLE';
       /** Review ineligibility reason if account is not eligible for review. */
       reviewIneligibilityReason?:
         | 'REVIEW_INELIGIBILITY_REASON_UNSPECIFIED'
@@ -3592,9 +3566,7 @@ declare namespace gapi.client {
     interface VerifyPhoneNumberRequest {
       /** Verification method used to receive verification code. */
       phoneVerificationMethod?:
-        | 'PHONE_VERIFICATION_METHOD_UNSPECIFIED'
-        | 'SMS'
-        | 'PHONE_CALL';
+        'PHONE_VERIFICATION_METHOD_UNSPECIFIED' | 'SMS' | 'PHONE_CALL';
       /** The verification code that was sent to the phone number for validation. */
       verificationCode?: string;
       /** The verification ID returned by `requestphoneverification`. */

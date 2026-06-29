@@ -125,11 +125,7 @@ declare namespace gapi.client {
       diskEncryptionKey?: CustomerEncryptionKey;
       /** Optional. Specifies the disk interface to use for attaching this disk. */
       diskInterface?:
-        | 'DISK_INTERFACE_UNSPECIFIED'
-        | 'SCSI'
-        | 'NVME'
-        | 'NVDIMM'
-        | 'ISCSI';
+        'DISK_INTERFACE_UNSPECIFIED' | 'SCSI' | 'NVME' | 'NVDIMM' | 'ISCSI';
       /** Optional. The size of the disk in GB. */
       diskSizeGb?: string;
       /** Optional. Output only. The URI of the disk type resource. For example: projects/project/zones/zone/diskTypes/pd-standard or pd-ssd */
@@ -166,10 +162,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface Backup {
       /** Output only. AlloyDB specific backup properties. */
@@ -453,11 +446,7 @@ declare namespace gapi.client {
       revisionId?: string;
       /** Output only. Resource State */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATING'
-        | 'ACTIVE'
-        | 'DELETING'
-        | 'INACTIVE';
+        'STATE_UNSPECIFIED' | 'CREATING' | 'ACTIVE' | 'DELETING' | 'INACTIVE';
     }
     interface BackupRule {
       /** Required. Configures the duration for which backup data will be kept. It is defined in “days”. The value should be greater than or equal to minimum enforced retention of the backup vault. Minimum value is 1 and maximum value is 36159 for custom retention on-demand backup. Minimum and maximum values are workload specific for all other rules. Note: Longer retention can lead to higher storage costs post introductory trial. We recommend starting with a short duration of 3 days or less. */
@@ -593,9 +582,7 @@ declare namespace gapi.client {
       guestFlush?: boolean;
       /** KeyRevocationActionType of the instance. Supported options are "STOP" and "NONE". The default value is "NONE" if it is not specified. */
       keyRevocationActionType?:
-        | 'KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED'
-        | 'NONE'
-        | 'STOP';
+        'KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED' | 'NONE' | 'STOP';
       /** Labels to apply to instances that are created from these properties. */
       labels?: {[P in string]: string};
       /** The machine type to use for instances that are created from these properties. */
@@ -650,9 +637,7 @@ declare namespace gapi.client {
       instanceEncryptionKey?: CustomerEncryptionKey;
       /** Optional. KeyRevocationActionType of the instance. */
       keyRevocationActionType?:
-        | 'KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED'
-        | 'NONE'
-        | 'STOP';
+        'KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED' | 'NONE' | 'STOP';
       /** Optional. Labels to apply to this instance. */
       labels?: {[P in string]: string};
       /** Optional. Full or partial URL of the machine type resource to use for this instance. */
@@ -731,11 +716,7 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. The DataSource resource instance state. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATING'
-        | 'ACTIVE'
-        | 'DELETING'
-        | 'ERROR';
+        'STATE_UNSPECIFIED' | 'CREATING' | 'ACTIVE' | 'DELETING' | 'ERROR';
       /** The number of bytes (metadata and data) stored in this datasource. */
       totalStoredBytes?: string;
       /** Output only. The time when the instance was updated. */
@@ -809,9 +790,7 @@ declare namespace gapi.client {
       dataSourceBackupConfigInfo?: DataSourceBackupConfigInfo;
       /** Output only. The backup configuration state of the DataSource. */
       dataSourceBackupConfigState?:
-        | 'BACKUP_CONFIG_STATE_UNSPECIFIED'
-        | 'ACTIVE'
-        | 'PASSIVE';
+        'BACKUP_CONFIG_STATE_UNSPECIFIED' | 'ACTIVE' | 'PASSIVE';
       /** Output only. Number of backups in the DataSource. */
       dataSourceBackupCount?: string;
       /** Output only. The Google Cloud resource that the DataSource is associated with. */
@@ -1478,9 +1457,7 @@ declare namespace gapi.client {
       automaticRestart?: boolean;
       /** Optional. Specifies the termination action for the instance. */
       instanceTerminationAction?:
-        | 'INSTANCE_TERMINATION_ACTION_UNSPECIFIED'
-        | 'DELETE'
-        | 'STOP';
+        'INSTANCE_TERMINATION_ACTION_UNSPECIFIED' | 'DELETE' | 'STOP';
       /** Optional. Specifies the maximum amount of time a Local Ssd Vm should wait while recovery of the Local Ssd state is attempted. Its value should be in between 0 and 168 hours with hour granularity and the default value being 1 hour. */
       localSsdRecoveryTimeout?: SchedulingDuration;
       /** Optional. The minimum number of virtual CPUs this instance will consume when running on a sole-tenant node. */
@@ -1489,16 +1466,12 @@ declare namespace gapi.client {
       nodeAffinities?: NodeAffinity[];
       /** Optional. Defines the maintenance behavior for this instance. */
       onHostMaintenance?:
-        | 'ON_HOST_MAINTENANCE_UNSPECIFIED'
-        | 'TERMINATE'
-        | 'MIGRATE';
+        'ON_HOST_MAINTENANCE_UNSPECIFIED' | 'TERMINATE' | 'MIGRATE';
       /** Optional. Defines whether the instance is preemptible. */
       preemptible?: boolean;
       /** Optional. Specifies the provisioning model of the instance. */
       provisioningModel?:
-        | 'PROVISIONING_MODEL_UNSPECIFIED'
-        | 'STANDARD'
-        | 'SPOT';
+        'PROVISIONING_MODEL_UNSPECIFIED' | 'STANDARD' | 'SPOT';
     }
     interface SchedulingDuration {
       /** Optional. Span of time that's a fraction of a second at nanosecond resolution. */
@@ -1525,9 +1498,7 @@ declare namespace gapi.client {
     interface SetInternalStatusRequest {
       /** Required. Output only. The new BackupConfigState to set for the DataSource. */
       backupConfigState?:
-        | 'BACKUP_CONFIG_STATE_UNSPECIFIED'
-        | 'ACTIVE'
-        | 'PASSIVE';
+        'BACKUP_CONFIG_STATE_UNSPECIFIED' | 'ACTIVE' | 'PASSIVE';
       /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
       requestId?: string;
       /** Required. The value required for this method to work. This field must be the 32-byte SHA256 hash of the DataSourceID. The DataSourceID used here is only the final piece of the fully qualified resource path for this DataSource (i.e. the part after '.../dataSources/'). This field exists to make this method difficult to call since it is intended for use only by Backup Appliances. */
@@ -2422,9 +2393,7 @@ declare namespace gapi.client {
         uploadType?: string;
         /** Optional. This parameter is used to specify the view of the backup. If not specified, the default view is BASIC. */
         view?:
-          | 'BACKUP_VIEW_UNSPECIFIED'
-          | 'BACKUP_VIEW_BASIC'
-          | 'BACKUP_VIEW_FULL';
+          'BACKUP_VIEW_UNSPECIFIED' | 'BACKUP_VIEW_BASIC' | 'BACKUP_VIEW_FULL';
       }): Request<FetchBackupsForResourceTypeResponse>;
       /** Gets details of a Backup. */
       get(request?: {
@@ -2454,9 +2423,7 @@ declare namespace gapi.client {
         uploadType?: string;
         /** Optional. Reserved for future use to provide a BASIC & FULL view of Backup resource. */
         view?:
-          | 'BACKUP_VIEW_UNSPECIFIED'
-          | 'BACKUP_VIEW_BASIC'
-          | 'BACKUP_VIEW_FULL';
+          'BACKUP_VIEW_UNSPECIFIED' | 'BACKUP_VIEW_BASIC' | 'BACKUP_VIEW_FULL';
       }): Request<Backup>;
       /** Lists Backups in a given project and location. */
       list(request?: {
@@ -2494,9 +2461,7 @@ declare namespace gapi.client {
         uploadType?: string;
         /** Optional. Reserved for future use to provide a BASIC & FULL view of Backup resource. */
         view?:
-          | 'BACKUP_VIEW_UNSPECIFIED'
-          | 'BACKUP_VIEW_BASIC'
-          | 'BACKUP_VIEW_FULL';
+          'BACKUP_VIEW_UNSPECIFIED' | 'BACKUP_VIEW_BASIC' | 'BACKUP_VIEW_FULL';
       }): Request<ListBackupsResponse>;
       /** Updates the settings of a Backup. */
       patch(request: {

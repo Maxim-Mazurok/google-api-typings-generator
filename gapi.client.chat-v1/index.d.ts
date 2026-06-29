@@ -106,9 +106,7 @@ declare namespace gapi.client {
       appCommandId?: number;
       /** The type of Chat app command. */
       appCommandType?:
-        | 'APP_COMMAND_TYPE_UNSPECIFIED'
-        | 'SLASH_COMMAND'
-        | 'QUICK_COMMAND';
+        'APP_COMMAND_TYPE_UNSPECIFIED' | 'SLASH_COMMAND' | 'QUICK_COMMAND';
     }
     interface AttachedGif {
       /** Output only. The URL that hosts the GIF image. */
@@ -147,11 +145,7 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. The user's current availability state. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'ACTIVE'
-        | 'IDLE'
-        | 'AWAY'
-        | 'DO_NOT_DISTURB';
+        'STATE_UNSPECIFIED' | 'ACTIVE' | 'IDLE' | 'AWAY' | 'DO_NOT_DISTURB';
     }
     interface Button {
       /** A button with image and `onclick` action. */
@@ -483,9 +477,7 @@ declare namespace gapi.client {
       peekCardHeader?: GoogleAppsCardV1CardHeader;
       /** The divider style between the header, sections and footer. */
       sectionDividerStyle?:
-        | 'DIVIDER_STYLE_UNSPECIFIED'
-        | 'SOLID_DIVIDER'
-        | 'NO_DIVIDER';
+        'DIVIDER_STYLE_UNSPECIFIED' | 'SOLID_DIVIDER' | 'NO_DIVIDER';
       /** Contains a collection of widgets. Each section has its own, optional header. Sections are visually separated by a line divider. For an example in Google Chat apps, see [Define a section of a card](https://developers.google.com/workspace/chat/design-components-card-dialog#define_a_section_of_a_card). */
       sections?: GoogleAppsCardV1Section[];
     }
@@ -550,18 +542,12 @@ declare namespace gapi.client {
       expandButton?: GoogleAppsCardV1Button;
       /** The horizontal alignment of the expand and collapse button. */
       horizontalAlignment?:
-        | 'HORIZONTAL_ALIGNMENT_UNSPECIFIED'
-        | 'START'
-        | 'CENTER'
-        | 'END';
+        'HORIZONTAL_ALIGNMENT_UNSPECIFIED' | 'START' | 'CENTER' | 'END';
     }
     interface GoogleAppsCardV1Column {
       /** Specifies whether widgets align to the left, right, or center of a column. */
       horizontalAlignment?:
-        | 'HORIZONTAL_ALIGNMENT_UNSPECIFIED'
-        | 'START'
-        | 'CENTER'
-        | 'END';
+        'HORIZONTAL_ALIGNMENT_UNSPECIFIED' | 'START' | 'CENTER' | 'END';
       /** Specifies how a column fills the width of the card. */
       horizontalSizeStyle?:
         | 'HORIZONTAL_SIZE_STYLE_UNSPECIFIED'
@@ -569,10 +555,7 @@ declare namespace gapi.client {
         | 'FILL_MINIMUM_SPACE';
       /** Specifies whether widgets align to the top, bottom, or center of a column. */
       verticalAlignment?:
-        | 'VERTICAL_ALIGNMENT_UNSPECIFIED'
-        | 'CENTER'
-        | 'TOP'
-        | 'BOTTOM';
+        'VERTICAL_ALIGNMENT_UNSPECIFIED' | 'CENTER' | 'TOP' | 'BOTTOM';
       /** An array of widgets included in a column. Widgets appear in the order that they are specified. */
       widgets?: GoogleAppsCardV1Widgets[];
     }
@@ -633,10 +616,7 @@ declare namespace gapi.client {
       startIcon?: GoogleAppsCardV1Icon;
       /** Optional. Vertical alignment of the start icon. If not set, the icon will be vertically centered. [Google Chat apps](https://developers.google.com/workspace/chat): */
       startIconVerticalAlignment?:
-        | 'VERTICAL_ALIGNMENT_UNSPECIFIED'
-        | 'TOP'
-        | 'MIDDLE'
-        | 'BOTTOM';
+        'VERTICAL_ALIGNMENT_UNSPECIFIED' | 'TOP' | 'MIDDLE' | 'BOTTOM';
       /** A switch widget that a user can click to change its state and trigger an action. */
       switchControl?: GoogleAppsCardV1SwitchControl;
       /** Required. The primary text. Supports simple formatting. For more information about formatting text, see [Formatting text in Google Chat apps](https://developers.google.com/workspace/chat/format-messages#card-formatting) and [Formatting text in Google Workspace add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting). */
@@ -834,11 +814,7 @@ declare namespace gapi.client {
       platformDataSource?: GoogleAppsCardV1PlatformDataSource;
       /** The type of items that are displayed to users in a `SelectionInput` widget. Selection types support different types of interactions. For example, users can select one or more checkboxes, but they can only select one value from a dropdown menu. */
       type?:
-        | 'CHECK_BOX'
-        | 'RADIO_BUTTON'
-        | 'SWITCH'
-        | 'DROPDOWN'
-        | 'MULTI_SELECT';
+        'CHECK_BOX' | 'RADIO_BUTTON' | 'SWITCH' | 'DROPDOWN' | 'MULTI_SELECT';
     }
     interface GoogleAppsCardV1SelectionItem {
       /** For multiselect menus, a text description or label that's displayed below the item's `text` field. */
@@ -944,10 +920,7 @@ declare namespace gapi.client {
       grid?: GoogleAppsCardV1Grid;
       /** Specifies whether widgets align to the left, right, or center of a column. */
       horizontalAlignment?:
-        | 'HORIZONTAL_ALIGNMENT_UNSPECIFIED'
-        | 'START'
-        | 'CENTER'
-        | 'END';
+        'HORIZONTAL_ALIGNMENT_UNSPECIFIED' | 'START' | 'CENTER' | 'END';
       /** A unique ID assigned to the widget that's used to identify the widget to be mutated. The ID has a character limit of 64 characters and should be in the format of `[a-zA-Z0-9-]+`. Available for Google Workspace add-ons that extend Google Workspace Studio. Unavailable for Google Chat apps. */
       id?: string;
       /** Displays an image. For example, the following JSON creates an image with alternative text: ``` "image": { "imageUrl": "https://developers.google.com/workspace/chat/images/quickstart-app-avatar.png", "altText": "Chat app avatar" } ``` */
@@ -1184,10 +1157,7 @@ declare namespace gapi.client {
     interface MeetSpaceLinkData {
       /** Optional. Output only. If the Meet is a Huddle, indicates the status of the huddle. Otherwise, this is unset. */
       huddleStatus?:
-        | 'HUDDLE_STATUS_UNSPECIFIED'
-        | 'STARTED'
-        | 'ENDED'
-        | 'MISSED';
+        'HUDDLE_STATUS_UNSPECIFIED' | 'STARTED' | 'ENDED' | 'MISSED';
       /** Meeting code of the linked Meet space. */
       meetingCode?: string;
       /** Indicates the type of the Meet space. */
@@ -1218,10 +1188,7 @@ declare namespace gapi.client {
         | 'ROLE_ASSISTANT_MANAGER';
       /** Output only. State of the membership. */
       state?:
-        | 'MEMBERSHIP_STATE_UNSPECIFIED'
-        | 'JOINED'
-        | 'INVITED'
-        | 'NOT_A_MEMBER';
+        'MEMBERSHIP_STATE_UNSPECIFIED' | 'JOINED' | 'INVITED' | 'NOT_A_MEMBER';
     }
     interface MembershipBatchCreatedEventData {
       /** A list of new memberships. */
@@ -1539,9 +1506,7 @@ declare namespace gapi.client {
       spaceDetails?: SpaceDetails;
       /** Optional. The message history state for messages and threads in this space. */
       spaceHistoryState?:
-        | 'HISTORY_STATE_UNSPECIFIED'
-        | 'HISTORY_OFF'
-        | 'HISTORY_ON';
+        'HISTORY_STATE_UNSPECIFIED' | 'HISTORY_OFF' | 'HISTORY_ON';
       /** Output only. The threading state in the Chat space. */
       spaceThreadingState?:
         | 'SPACE_THREADING_STATE_UNSPECIFIED'
@@ -1550,10 +1515,7 @@ declare namespace gapi.client {
         | 'UNTHREADED_MESSAGES';
       /** Optional. The type of space. Required when creating a space or updating the space type of a space. Output only for other usage. */
       spaceType?:
-        | 'SPACE_TYPE_UNSPECIFIED'
-        | 'SPACE'
-        | 'GROUP_CHAT'
-        | 'DIRECT_MESSAGE';
+        'SPACE_TYPE_UNSPECIFIED' | 'SPACE' | 'GROUP_CHAT' | 'DIRECT_MESSAGE';
       /** Output only. The URI for a user to access the space. */
       spaceUri?: string;
       /** Output only. Deprecated: Use `spaceThreadingState` instead. Whether messages are threaded in this space. */

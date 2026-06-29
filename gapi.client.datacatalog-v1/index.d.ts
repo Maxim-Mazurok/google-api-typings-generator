@@ -193,9 +193,7 @@ declare namespace gapi.client {
       sqlQuery?: string;
       /** Type of this view. */
       viewType?:
-        | 'VIEW_TYPE_UNSPECIFIED'
-        | 'STANDARD_VIEW'
-        | 'MATERIALIZED_VIEW';
+        'VIEW_TYPE_UNSPECIFIED' | 'STANDARD_VIEW' | 'MATERIALIZED_VIEW';
     }
     interface GoogleCloudDatacatalogV1DataplexExternalTable {
       /** Name of the Data Catalog entry representing the external table. */
@@ -677,9 +675,7 @@ declare namespace gapi.client {
       routineArguments?: GoogleCloudDatacatalogV1RoutineSpecArgument[];
       /** The type of the routine. */
       routineType?:
-        | 'ROUTINE_TYPE_UNSPECIFIED'
-        | 'SCALAR_FUNCTION'
-        | 'PROCEDURE';
+        'ROUTINE_TYPE_UNSPECIFIED' | 'SCALAR_FUNCTION' | 'PROCEDURE';
     }
     interface GoogleCloudDatacatalogV1RoutineSpecArgument {
       /** Specifies whether the argument is input or output. */
@@ -780,8 +776,7 @@ declare namespace gapi.client {
     interface GoogleCloudDatacatalogV1SerializedTaxonomy {
       /** A list of policy types that are activated per taxonomy. */
       activatedPolicyTypes?:
-        | 'POLICY_TYPE_UNSPECIFIED'
-        | 'FINE_GRAINED_ACCESS_CONTROL'[];
+        'POLICY_TYPE_UNSPECIFIED' | 'FINE_GRAINED_ACCESS_CONTROL'[];
       /** Description of the serialized taxonomy. At most 2000 bytes when encoded in UTF-8. If not set, defaults to an empty description. */
       description?: string;
       /** Required. Display name of the taxonomy. At most 200 bytes when encoded in UTF-8. */
@@ -862,9 +857,7 @@ declare namespace gapi.client {
       column?: string;
       /** Output only. Denotes the transfer status of the Tag Template. */
       dataplexTransferStatus?:
-        | 'DATAPLEX_TRANSFER_STATUS_UNSPECIFIED'
-        | 'MIGRATED'
-        | 'TRANSFERRED';
+        'DATAPLEX_TRANSFER_STATUS_UNSPECIFIED' | 'MIGRATED' | 'TRANSFERRED';
       /** Required. Maps the ID of a tag field to its value and additional information about that field. Tag template defines valid field IDs. A tag must have at least 1 field and at most 500 fields. */
       fields?: {[P in string]: GoogleCloudDatacatalogV1TagField};
       /** Identifier. The resource name of the tag in URL format where tag ID is a system-generated identifier. Note: The tag itself might not be stored in the location specified in its name. */
@@ -907,9 +900,7 @@ declare namespace gapi.client {
     interface GoogleCloudDatacatalogV1TagTemplate {
       /** Optional. Transfer status of the TagTemplate */
       dataplexTransferStatus?:
-        | 'DATAPLEX_TRANSFER_STATUS_UNSPECIFIED'
-        | 'MIGRATED'
-        | 'TRANSFERRED';
+        'DATAPLEX_TRANSFER_STATUS_UNSPECIFIED' | 'MIGRATED' | 'TRANSFERRED';
       /** Display name for this template. Defaults to an empty string. The name must contain only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces ( ), and can't start or end with spaces. The maximum length is 200 characters. */
       displayName?: string;
       /** Required. Map of tag template field IDs to the settings for the field. This map is an exhaustive list of the allowed fields. The map must contain at least one field and at most 500 fields. The keys to this map are tag template field IDs. The IDs have the following limitations: * Can contain uppercase and lowercase letters, numbers (0-9) and underscores (_). * Must be at least 1 character and at most 64 characters long. * Must start with a letter or underscore. */
@@ -936,8 +927,7 @@ declare namespace gapi.client {
     interface GoogleCloudDatacatalogV1Taxonomy {
       /** Optional. A list of policy types that are activated for this taxonomy. If not set, defaults to an empty list. */
       activatedPolicyTypes?:
-        | 'POLICY_TYPE_UNSPECIFIED'
-        | 'FINE_GRAINED_ACCESS_CONTROL'[];
+        'POLICY_TYPE_UNSPECIFIED' | 'FINE_GRAINED_ACCESS_CONTROL'[];
       /** Optional. Description of this taxonomy. If not set, defaults to empty. The description must contain only Unicode characters, tabs, newlines, carriage returns, and page breaks, and be at most 2000 bytes long when encoded in UTF-8. */
       description?: string;
       /** Required. User-defined name of this taxonomy. The name can't start or end with spaces, must contain only Unicode letters, numbers, underscores, dashes, and spaces, and be at most 200 bytes long when encoded in UTF-8. The taxonomy display name must be unique within an organization. */

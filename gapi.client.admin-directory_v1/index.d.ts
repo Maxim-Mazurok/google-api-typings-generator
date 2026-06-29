@@ -459,10 +459,7 @@ declare namespace gapi.client {
       osVersion?: string;
       /** Output only. Device policy compliance status of the OS version. */
       osVersionCompliance?:
-        | 'complianceUnspecified'
-        | 'compliant'
-        | 'pending'
-        | 'notCompliant';
+        'complianceUnspecified' | 'compliant' | 'pending' | 'notCompliant';
       /** The Chrome device's platform version. */
       platformVersion?: string;
       /** A list of recent device users, in descending order, by last login time. */
@@ -633,10 +630,7 @@ declare namespace gapi.client {
       executeTime?: string;
       /** The result of the command. */
       result?:
-        | 'COMMAND_RESULT_TYPE_UNSPECIFIED'
-        | 'IGNORED'
-        | 'FAILURE'
-        | 'SUCCESS';
+        'COMMAND_RESULT_TYPE_UNSPECIFIED' | 'IGNORED' | 'FAILURE' | 'SUCCESS';
     }
     interface DirectoryChromeosdevicesIssueCommandRequest {
       /** The type of command. */
@@ -3033,10 +3027,7 @@ declare namespace gapi.client {
       osVersion?: string;
       /** Output only. Device policy compliance status of the OS version. */
       osVersionCompliance?:
-        | 'complianceUnspecified'
-        | 'compliant'
-        | 'pending'
-        | 'notCompliant';
+        'complianceUnspecified' | 'compliant' | 'pending' | 'notCompliant';
       /** The Chrome device's platform version. */
       platformVersion?: string;
       /** A list of recent device users, in descending order, by last login time. */
@@ -3207,10 +3198,7 @@ declare namespace gapi.client {
       executeTime?: string;
       /** The result of the command. */
       result?:
-        | 'COMMAND_RESULT_TYPE_UNSPECIFIED'
-        | 'IGNORED'
-        | 'FAILURE'
-        | 'SUCCESS';
+        'COMMAND_RESULT_TYPE_UNSPECIFIED' | 'IGNORED' | 'FAILURE' | 'SUCCESS';
     }
     interface DirectoryChromeosdevicesIssueCommandRequest {
       /** The type of command. */
@@ -6311,9 +6299,7 @@ declare namespace gapi.client {
         callback?: string;
         /** Source from which Building.coordinates are derived. */
         coordinatesSource?:
-          | 'CLIENT_SPECIFIED'
-          | 'RESOLVED_FROM_ADDRESS'
-          | 'SOURCE_UNSPECIFIED';
+          'CLIENT_SPECIFIED' | 'RESOLVED_FROM_ADDRESS' | 'SOURCE_UNSPECIFIED';
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
         customer: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6345,9 +6331,7 @@ declare namespace gapi.client {
           callback?: string;
           /** Source from which Building.coordinates are derived. */
           coordinatesSource?:
-            | 'CLIENT_SPECIFIED'
-            | 'RESOLVED_FROM_ADDRESS'
-            | 'SOURCE_UNSPECIFIED';
+            'CLIENT_SPECIFIED' | 'RESOLVED_FROM_ADDRESS' | 'SOURCE_UNSPECIFIED';
           /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
           customer: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6412,9 +6396,7 @@ declare namespace gapi.client {
         callback?: string;
         /** Source from which Building.coordinates are derived. */
         coordinatesSource?:
-          | 'CLIENT_SPECIFIED'
-          | 'RESOLVED_FROM_ADDRESS'
-          | 'SOURCE_UNSPECIFIED';
+          'CLIENT_SPECIFIED' | 'RESOLVED_FROM_ADDRESS' | 'SOURCE_UNSPECIFIED';
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
         customer: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6448,9 +6430,7 @@ declare namespace gapi.client {
           callback?: string;
           /** Source from which Building.coordinates are derived. */
           coordinatesSource?:
-            | 'CLIENT_SPECIFIED'
-            | 'RESOLVED_FROM_ADDRESS'
-            | 'SOURCE_UNSPECIFIED';
+            'CLIENT_SPECIFIED' | 'RESOLVED_FROM_ADDRESS' | 'SOURCE_UNSPECIFIED';
           /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
           customer: string;
           /** Selector specifying which fields to include in a partial response. */
@@ -6484,9 +6464,7 @@ declare namespace gapi.client {
         callback?: string;
         /** Source from which Building.coordinates are derived. */
         coordinatesSource?:
-          | 'CLIENT_SPECIFIED'
-          | 'RESOLVED_FROM_ADDRESS'
-          | 'SOURCE_UNSPECIFIED';
+          'CLIENT_SPECIFIED' | 'RESOLVED_FROM_ADDRESS' | 'SOURCE_UNSPECIFIED';
         /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
         customer: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -6520,9 +6498,7 @@ declare namespace gapi.client {
           callback?: string;
           /** Source from which Building.coordinates are derived. */
           coordinatesSource?:
-            | 'CLIENT_SPECIFIED'
-            | 'RESOLVED_FROM_ADDRESS'
-            | 'SOURCE_UNSPECIFIED';
+            'CLIENT_SPECIFIED' | 'RESOLVED_FROM_ADDRESS' | 'SOURCE_UNSPECIFIED';
           /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
           customer: string;
           /** Selector specifying which fields to include in a partial response. */

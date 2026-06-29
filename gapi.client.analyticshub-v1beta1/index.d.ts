@@ -39,10 +39,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface BigQueryDatasetSource {
       /** Resource name of the dataset source for this listing. e.g. `projects/myproject/datasets/123` */
@@ -311,10 +308,7 @@ declare namespace gapi.client {
         | 'PUBSUB_TOPIC';
       /** Output only. Current state of the subscription. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'STATE_ACTIVE'
-        | 'STATE_STALE'
-        | 'STATE_INACTIVE';
+        'STATE_UNSPECIFIED' | 'STATE_ACTIVE' | 'STATE_STALE' | 'STATE_INACTIVE';
       /** Output only. Email of the subscriber. */
       subscriberContact?: string;
     }

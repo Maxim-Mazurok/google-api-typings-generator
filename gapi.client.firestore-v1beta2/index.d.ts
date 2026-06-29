@@ -130,9 +130,7 @@ declare namespace gapi.client {
       name?: string;
       /** Indexes with a collection query scope specified allow queries against a collection that is the child of a specific document, specified at query time, and that has the same collection id. Indexes with a collection group query scope specified allow queries against all collections descended from a specific document, specified at query time, and that have the same collection id as this index. */
       queryScope?:
-        | 'QUERY_SCOPE_UNSPECIFIED'
-        | 'COLLECTION'
-        | 'COLLECTION_GROUP';
+        'QUERY_SCOPE_UNSPECIFIED' | 'COLLECTION' | 'COLLECTION_GROUP';
       /** Output only. The serving state of the index. */
       state?: 'STATE_UNSPECIFIED' | 'CREATING' | 'READY' | 'NEEDS_REPAIR';
     }

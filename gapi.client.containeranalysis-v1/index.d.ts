@@ -495,11 +495,7 @@ declare namespace gapi.client {
       result?: ContaineranalysisGoogleDevtoolsCloudbuildV1ApprovalResult;
       /** Output only. The state of this build's approval. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'PENDING'
-        | 'APPROVED'
-        | 'REJECTED'
-        | 'CANCELLED';
+        'STATE_UNSPECIFIED' | 'PENDING' | 'APPROVED' | 'REJECTED' | 'CANCELLED';
     }
     interface ContaineranalysisGoogleDevtoolsCloudbuildV1BuildFailureInfo {
       /** Explains the failure issue in more detail using hard-coded text. */
@@ -645,9 +641,7 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. The OCI media type of the artifact. Non-OCI images, such as Docker images, will have an unspecified value. */
       ociMediaType?:
-        | 'OCI_MEDIA_TYPE_UNSPECIFIED'
-        | 'IMAGE_MANIFEST'
-        | 'IMAGE_INDEX';
+        'OCI_MEDIA_TYPE_UNSPECIFIED' | 'IMAGE_MANIFEST' | 'IMAGE_INDEX';
       /** Output only. Stores timing information for pushing the specified image. */
       pushTiming?: ContaineranalysisGoogleDevtoolsCloudbuildV1TimeSpan;
     }
@@ -722,12 +716,7 @@ declare namespace gapi.client {
     interface ContaineranalysisGoogleDevtoolsCloudbuildV1Hash {
       /** The type of hash that was performed. */
       type?:
-        | 'NONE'
-        | 'SHA256'
-        | 'MD5'
-        | 'GO_MODULE_H1'
-        | 'SHA512'
-        | 'DIRSUM_SHA256';
+        'NONE' | 'SHA256' | 'MD5' | 'GO_MODULE_H1' | 'SHA512' | 'DIRSUM_SHA256';
       /** The hash value. */
       value?: string;
     }
@@ -766,7 +755,9 @@ declare namespace gapi.client {
       buildStepOutputs?: string[];
       /** Results for build steps. step_id -> */
       buildStepResults?: {
-        [P in string]: ContaineranalysisGoogleDevtoolsCloudbuildV1BuildStepResults;
+        [
+          P in string
+        ]: ContaineranalysisGoogleDevtoolsCloudbuildV1BuildStepResults;
       };
       /** Output only. Generic artifacts uploaded to Artifact Registry at the end of the build. */
       genericArtifacts?: ContaineranalysisGoogleDevtoolsCloudbuildV1UploadedGenericArtifact[];
@@ -1060,24 +1051,15 @@ declare namespace gapi.client {
         | 'ATTACK_VECTOR_LOCAL'
         | 'ATTACK_VECTOR_PHYSICAL';
       availabilityImpact?:
-        | 'IMPACT_UNSPECIFIED'
-        | 'IMPACT_HIGH'
-        | 'IMPACT_LOW'
-        | 'IMPACT_NONE';
+        'IMPACT_UNSPECIFIED' | 'IMPACT_HIGH' | 'IMPACT_LOW' | 'IMPACT_NONE';
       /** The base score is a function of the base metric scores. */
       baseScore?: number;
       confidentialityImpact?:
-        | 'IMPACT_UNSPECIFIED'
-        | 'IMPACT_HIGH'
-        | 'IMPACT_LOW'
-        | 'IMPACT_NONE';
+        'IMPACT_UNSPECIFIED' | 'IMPACT_HIGH' | 'IMPACT_LOW' | 'IMPACT_NONE';
       exploitabilityScore?: number;
       impactScore?: number;
       integrityImpact?:
-        | 'IMPACT_UNSPECIFIED'
-        | 'IMPACT_HIGH'
-        | 'IMPACT_LOW'
-        | 'IMPACT_NONE';
+        'IMPACT_UNSPECIFIED' | 'IMPACT_HIGH' | 'IMPACT_LOW' | 'IMPACT_NONE';
       privilegesRequired?:
         | 'PRIVILEGES_REQUIRED_UNSPECIFIED'
         | 'PRIVILEGES_REQUIRED_NONE'
@@ -1183,9 +1165,7 @@ declare namespace gapi.client {
       archiveTime?: string;
       /** Whether the resource is continuously analyzed. */
       continuousAnalysis?:
-        | 'CONTINUOUS_ANALYSIS_UNSPECIFIED'
-        | 'ACTIVE'
-        | 'INACTIVE';
+        'CONTINUOUS_ANALYSIS_UNSPECIFIED' | 'ACTIVE' | 'INACTIVE';
       /** The CPE of the resource being scanned. */
       cpe?: string;
       /** Files that make up the resource described by the occurrence. */

@@ -261,11 +261,7 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. The observation source state */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATING'
-        | 'CREATED'
-        | 'DELETING'
-        | 'ERROR';
+        'STATE_UNSPECIFIED' | 'CREATING' | 'CREATED' | 'DELETING' | 'ERROR';
       /** Output only. [Output only] Update time stamp */
       updateTime?: string;
     }

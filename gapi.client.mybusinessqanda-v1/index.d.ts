@@ -49,10 +49,7 @@ declare namespace gapi.client {
       profilePhotoUri?: string;
       /** The type of user the author is. */
       type?:
-        | 'AUTHOR_TYPE_UNSPECIFIED'
-        | 'REGULAR_USER'
-        | 'LOCAL_GUIDE'
-        | 'MERCHANT';
+        'AUTHOR_TYPE_UNSPECIFIED' | 'REGULAR_USER' | 'LOCAL_GUIDE' | 'MERCHANT';
     }
     interface Empty {}
     interface ListAnswersResponse {

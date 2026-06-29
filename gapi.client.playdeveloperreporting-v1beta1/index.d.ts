@@ -176,10 +176,7 @@ declare namespace gapi.client {
     interface GooglePlayDeveloperReportingV1beta1FreshnessInfoFreshness {
       /** Aggregation period for which data is available. */
       aggregationPeriod?:
-        | 'AGGREGATION_PERIOD_UNSPECIFIED'
-        | 'HOURLY'
-        | 'DAILY'
-        | 'FULL_RANGE';
+        'AGGREGATION_PERIOD_UNSPECIFIED' | 'HOURLY' | 'DAILY' | 'FULL_RANGE';
       /** Latest end time for which data is available, for the aggregation period. The time is specified in the metric set's default timezone. *Note:* time ranges in TimelineSpec are represented as `start_time, end_time)`. For example, if the latest available timeline data point for a `DAILY` aggregation period is `2021-06-23 00:00:00 America/Los_Angeles`, the value of this field would be `2021-06-24 00:00:00 America/Los_Angeles` so it can be easily reused in [TimelineSpec.end_time. */
       latestEndTime?: GoogleTypeDateTime;
     }
@@ -206,10 +203,7 @@ declare namespace gapi.client {
     interface GooglePlayDeveloperReportingV1beta1MetricsRow {
       /** Optional. Granularity of the aggregation period of the row. */
       aggregationPeriod?:
-        | 'AGGREGATION_PERIOD_UNSPECIFIED'
-        | 'HOURLY'
-        | 'DAILY'
-        | 'FULL_RANGE';
+        'AGGREGATION_PERIOD_UNSPECIFIED' | 'HOURLY' | 'DAILY' | 'FULL_RANGE';
       /** Optional. Dimension columns in the row. */
       dimensions?: GooglePlayDeveloperReportingV1beta1DimensionValue[];
       /** Optional. Metric columns in the row. */
@@ -244,10 +238,7 @@ declare namespace gapi.client {
       timelineSpec?: GooglePlayDeveloperReportingV1beta1TimelineSpec;
       /** Optional. User view to select. The output data will correspond to the selected view. **Supported values:** * `OS_PUBLIC` To select data from all publicly released Android versions. This is the default. Supports all the above dimensions. * `APP_TESTERS` To select data from users who have opted in to be testers. Supports all the above dimensions. * `OS_BETA` To select data from beta android versions only, excluding data from released android versions. Only the following dimensions are supported: * `versionCode` (int64): version of the app that was running on the user's device. * `osBuild` (string): OS build of the user's device, e.g., "T1B2.220916.004". */
       userCohort?:
-        | 'USER_COHORT_UNSPECIFIED'
-        | 'OS_PUBLIC'
-        | 'OS_BETA'
-        | 'APP_TESTERS';
+        'USER_COHORT_UNSPECIFIED' | 'OS_PUBLIC' | 'OS_BETA' | 'APP_TESTERS';
     }
     interface GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetResponse {
       /** Continuation token to fetch the next page of data. */
@@ -270,10 +261,7 @@ declare namespace gapi.client {
       timelineSpec?: GooglePlayDeveloperReportingV1beta1TimelineSpec;
       /** Optional. User view to select. The output data will correspond to the selected view. **Supported values:** * `OS_PUBLIC` To select data from all publicly released Android versions. This is the default. Supports all the above dimensions. * `APP_TESTERS` To select data from users who have opted in to be testers. Supports all the above dimensions. * `OS_BETA` To select data from beta android versions only, excluding data from released android versions. Only the following dimensions are supported: * `versionCode` (int64): version of the app that was running on the user's device. * `osBuild` (string): OS build of the user's device, e.g., "T1B2.220916.004". */
       userCohort?:
-        | 'USER_COHORT_UNSPECIFIED'
-        | 'OS_PUBLIC'
-        | 'OS_BETA'
-        | 'APP_TESTERS';
+        'USER_COHORT_UNSPECIFIED' | 'OS_PUBLIC' | 'OS_BETA' | 'APP_TESTERS';
     }
     interface GooglePlayDeveloperReportingV1beta1QueryCrashRateMetricSetResponse {
       /** Continuation token to fetch the next page of data. */
@@ -316,10 +304,7 @@ declare namespace gapi.client {
       timelineSpec?: GooglePlayDeveloperReportingV1beta1TimelineSpec;
       /** Optional. User view to select. The output data will correspond to the selected view. The only supported value is `OS_PUBLIC`. */
       userCohort?:
-        | 'USER_COHORT_UNSPECIFIED'
-        | 'OS_PUBLIC'
-        | 'OS_BETA'
-        | 'APP_TESTERS';
+        'USER_COHORT_UNSPECIFIED' | 'OS_PUBLIC' | 'OS_BETA' | 'APP_TESTERS';
     }
     interface GooglePlayDeveloperReportingV1beta1QueryExcessiveWakeupRateMetricSetResponse {
       /** Continuation token to fetch the next page of data. */
@@ -342,10 +327,7 @@ declare namespace gapi.client {
       timelineSpec?: GooglePlayDeveloperReportingV1beta1TimelineSpec;
       /** Optional. User view to select. The output data will correspond to the selected view. **Supported values:** * `OS_PUBLIC` To select data from all publicly released Android versions. This is the default. Supports all the above dimensions. * `APP_TESTERS` To select data from users who have opted in to be testers. Supports all the above dimensions. * `OS_BETA` To select data from beta android versions only, excluding data from released android versions. Only the following dimensions are supported: * `versionCode` (int64): version of the app that was running on the user's device. * `osBuild` (string): OS build of the user's device, e.g., "T1B2.220916.004". */
       userCohort?:
-        | 'USER_COHORT_UNSPECIFIED'
-        | 'OS_PUBLIC'
-        | 'OS_BETA'
-        | 'APP_TESTERS';
+        'USER_COHORT_UNSPECIFIED' | 'OS_PUBLIC' | 'OS_BETA' | 'APP_TESTERS';
     }
     interface GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetResponse {
       /** Continuation token to fetch the next page of data. */
@@ -368,10 +350,7 @@ declare namespace gapi.client {
       timelineSpec?: GooglePlayDeveloperReportingV1beta1TimelineSpec;
       /** Optional. User view to select. The output data will correspond to the selected view. The only supported value is `OS_PUBLIC`. */
       userCohort?:
-        | 'USER_COHORT_UNSPECIFIED'
-        | 'OS_PUBLIC'
-        | 'OS_BETA'
-        | 'APP_TESTERS';
+        'USER_COHORT_UNSPECIFIED' | 'OS_PUBLIC' | 'OS_BETA' | 'APP_TESTERS';
     }
     interface GooglePlayDeveloperReportingV1beta1QuerySlowRenderingRateMetricSetResponse {
       /** Continuation token to fetch the next page of data. */
@@ -394,10 +373,7 @@ declare namespace gapi.client {
       timelineSpec?: GooglePlayDeveloperReportingV1beta1TimelineSpec;
       /** Optional. User view to select. The output data will correspond to the selected view. The only supported value is `OS_PUBLIC`. */
       userCohort?:
-        | 'USER_COHORT_UNSPECIFIED'
-        | 'OS_PUBLIC'
-        | 'OS_BETA'
-        | 'APP_TESTERS';
+        'USER_COHORT_UNSPECIFIED' | 'OS_PUBLIC' | 'OS_BETA' | 'APP_TESTERS';
     }
     interface GooglePlayDeveloperReportingV1beta1QuerySlowStartRateMetricSetResponse {
       /** Continuation token to fetch the next page of data. */
@@ -420,10 +396,7 @@ declare namespace gapi.client {
       timelineSpec?: GooglePlayDeveloperReportingV1beta1TimelineSpec;
       /** Optional. User view to select. The output data will correspond to the selected view. The only supported value is `OS_PUBLIC`. */
       userCohort?:
-        | 'USER_COHORT_UNSPECIFIED'
-        | 'OS_PUBLIC'
-        | 'OS_BETA'
-        | 'APP_TESTERS';
+        'USER_COHORT_UNSPECIFIED' | 'OS_PUBLIC' | 'OS_BETA' | 'APP_TESTERS';
     }
     interface GooglePlayDeveloperReportingV1beta1QueryStuckBackgroundWakelockRateMetricSetResponse {
       /** Continuation token to fetch the next page of data. */
@@ -480,10 +453,7 @@ declare namespace gapi.client {
     interface GooglePlayDeveloperReportingV1beta1TimelineSpec {
       /** Optional. Type of the aggregation period of the datapoints in the timeline. Intervals are identified by the date and time at the start of the interval. */
       aggregationPeriod?:
-        | 'AGGREGATION_PERIOD_UNSPECIFIED'
-        | 'HOURLY'
-        | 'DAILY'
-        | 'FULL_RANGE';
+        'AGGREGATION_PERIOD_UNSPECIFIED' | 'HOURLY' | 'DAILY' | 'FULL_RANGE';
       /** Optional. Ending datapoint of the timeline (exclusive). See start_time for restrictions. The timezone of the end point must match the timezone of the start point. */
       endTime?: GoogleTypeDateTime;
       /** Optional. Starting datapoint of the timeline (inclusive). Must be aligned to the aggregation period as follows: * HOURLY: the 'minutes', 'seconds' and 'nanos' fields must be unset. The time_zone can be left unset (defaults to UTC) or set explicitly to "UTC". Setting any other utc_offset or timezone id will result in a validation error. * DAILY: the 'hours', 'minutes', 'seconds' and 'nanos' fields must be unset. Different metric sets support different timezones. It can be left unset to use the default timezone specified by the metric set. The timezone of the end point must match the timezone of the start point. */

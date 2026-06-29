@@ -156,9 +156,7 @@ declare namespace gapi.client {
       characterSet?: string;
       /** Output only. The character set type for the Autonomous Database. */
       characterSetType?:
-        | 'CHARACTER_SET_TYPE_UNSPECIFIED'
-        | 'DATABASE'
-        | 'NATIONAL';
+        'CHARACTER_SET_TYPE_UNSPECIFIED' | 'DATABASE' | 'NATIONAL';
       /** Identifier. The name of the Autonomous Database Character Set resource in the following format: projects/{project}/locations/{region}/autonomousDatabaseCharacterSets/{autonomous_database_character_set} */
       name?: string;
     }
@@ -296,9 +294,7 @@ declare namespace gapi.client {
       maintenanceEndTime?: string;
       /** Optional. Immutable. The maintenance schedule of the Autonomous Database. */
       maintenanceScheduleType?:
-        | 'MAINTENANCE_SCHEDULE_TYPE_UNSPECIFIED'
-        | 'EARLY'
-        | 'REGULAR';
+        'MAINTENANCE_SCHEDULE_TYPE_UNSPECIFIED' | 'EARLY' | 'REGULAR';
       /** Output only. The amount of memory enabled per ECPU, in gigabytes. */
       memoryPerOracleComputeUnitGbs?: number;
       /** Output only. The memory assigned to in-memory tables in an Autonomous Database. */
@@ -328,9 +324,7 @@ declare namespace gapi.client {
       peerDbIds?: string[];
       /** Output only. The permission level of the Autonomous Database. */
       permissionLevel?:
-        | 'PERMISSION_LEVEL_UNSPECIFIED'
-        | 'RESTRICTED'
-        | 'UNRESTRICTED';
+        'PERMISSION_LEVEL_UNSPECIFIED' | 'RESTRICTED' | 'UNRESTRICTED';
       /** Output only. The private endpoint for the Autonomous Database. */
       privateEndpoint?: string;
       /** Optional. Immutable. The private endpoint IP address for the Autonomous Database. */
@@ -341,9 +335,7 @@ declare namespace gapi.client {
       refreshableMode?: 'REFRESHABLE_MODE_UNSPECIFIED' | 'AUTOMATIC' | 'MANUAL';
       /** Output only. The refresh State of the clone. */
       refreshableState?:
-        | 'REFRESHABLE_STATE_UNSPECIFIED'
-        | 'REFRESHING'
-        | 'NOT_REFRESHING';
+        'REFRESHABLE_STATE_UNSPECIFIED' | 'REFRESHING' | 'NOT_REFRESHING';
       /** Output only. The Data Guard role of the Autonomous Database. */
       role?:
         | 'ROLE_UNSPECIFIED'
@@ -668,9 +660,7 @@ declare namespace gapi.client {
         | 'MAINTENANCE_IN_PROGRESS';
       /** Output only. The storage management type of the VM Cluster. */
       storageManagementType?:
-        | 'STORAGE_MANAGEMENT_TYPE_UNSPECIFIED'
-        | 'ASM'
-        | 'EXASCALE';
+        'STORAGE_MANAGEMENT_TYPE_UNSPECIFIED' | 'ASM' | 'EXASCALE';
       /** Output only. The storage allocation for the disk group, in gigabytes (GB). */
       storageSizeGb?: number;
       /** Optional. Operating system version of the image. */
@@ -738,9 +728,7 @@ declare namespace gapi.client {
       characterSet?: string;
       /** Output only. The character set type for the Database. */
       characterSetType?:
-        | 'CHARACTER_SET_TYPE_UNSPECIFIED'
-        | 'DATABASE'
-        | 'NATIONAL';
+        'CHARACTER_SET_TYPE_UNSPECIFIED' | 'DATABASE' | 'NATIONAL';
       /** Identifier. The name of the Database Character Set resource in the following format: projects/{project}/locations/{region}/databaseCharacterSets/{database_character_set} */
       name?: string;
     }
@@ -765,15 +753,10 @@ declare namespace gapi.client {
       sessionMode?: 'SESSION_MODE_UNSPECIFIED' | 'DIRECT' | 'INDIRECT';
       /** Output only. The syntax of the connection string. */
       syntaxFormat?:
-        | 'SYNTAX_FORMAT_UNSPECIFIED'
-        | 'LONG'
-        | 'EZCONNECT'
-        | 'EZCONNECTPLUS';
+        'SYNTAX_FORMAT_UNSPECIFIED' | 'LONG' | 'EZCONNECT' | 'EZCONNECTPLUS';
       /** Output only. This field indicates the TLS authentication type of the connection. */
       tlsAuthentication?:
-        | 'TLS_AUTHENTICATION_UNSPECIFIED'
-        | 'SERVER'
-        | 'MUTUAL';
+        'TLS_AUTHENTICATION_UNSPECIFIED' | 'SERVER' | 'MUTUAL';
       /** Output only. The value of the connection string. */
       value?: string;
     }
@@ -1131,10 +1114,7 @@ declare namespace gapi.client {
       diagnosticStartTime?: string;
       /** Output only. The diagnostic state. */
       diagnosticState?:
-        | 'DIAGNOSTIC_STATE_UNSPECIFIED'
-        | 'IN_PROGRESS'
-        | 'SUCCEEDED'
-        | 'FAILED';
+        'DIAGNOSTIC_STATE_UNSPECIFIED' | 'IN_PROGRESS' | 'SUCCEEDED' | 'FAILED';
       /** Output only. The namespace name. */
       namespace?: string;
       /** Output only. The object name. */
@@ -1235,9 +1215,7 @@ declare namespace gapi.client {
       scanListenerPortTcp?: number;
       /** Required. Immutable. The shape attribute of the VM cluster. The type of Exascale storage used for Exadata VM cluster. The default is SMART_STORAGE which supports Oracle Database 23ai and later */
       shapeAttribute?:
-        | 'SHAPE_ATTRIBUTE_UNSPECIFIED'
-        | 'SMART_STORAGE'
-        | 'BLOCK_STORAGE';
+        'SHAPE_ATTRIBUTE_UNSPECIFIED' | 'SMART_STORAGE' | 'BLOCK_STORAGE';
       /** Required. Immutable. The SSH public keys for the ExadbVmCluster. */
       sshPublicKeys?: string[];
       /** Optional. Immutable. The time zone of the ExadbVmCluster. */
@@ -1284,14 +1262,10 @@ declare namespace gapi.client {
       additionalFlashCachePercent?: number;
       /** Output only. The shape attributes of the VM clusters attached to the ExascaleDbStorageVault. */
       attachedShapeAttributes?:
-        | 'SHAPE_ATTRIBUTE_UNSPECIFIED'
-        | 'SMART_STORAGE'
-        | 'BLOCK_STORAGE'[];
+        'SHAPE_ATTRIBUTE_UNSPECIFIED' | 'SMART_STORAGE' | 'BLOCK_STORAGE'[];
       /** Output only. The shape attributes available for the VM clusters to be attached to the ExascaleDbStorageVault. */
       availableShapeAttributes?:
-        | 'SHAPE_ATTRIBUTE_UNSPECIFIED'
-        | 'SMART_STORAGE'
-        | 'BLOCK_STORAGE'[];
+        'SHAPE_ATTRIBUTE_UNSPECIFIED' | 'SMART_STORAGE' | 'BLOCK_STORAGE'[];
       /** Optional. The description of the ExascaleDbStorageVault. */
       description?: string;
       /** Required. The storage details of the ExascaleDbStorageVault. */
@@ -1769,9 +1743,7 @@ declare namespace gapi.client {
       deploymentDiagnosticData?: DeploymentDiagnosticData;
       /** Output only. The deployment role of the GoldengateDeployment. */
       deploymentRole?:
-        | 'GOLDENGATE_DEPLOYMENT_ROLE_TYPE_UNSPECIFIED'
-        | 'PRIMARY'
-        | 'STANDBY';
+        'GOLDENGATE_DEPLOYMENT_ROLE_TYPE_UNSPECIFIED' | 'PRIMARY' | 'STANDBY';
       /** Required. A valid Goldengate Deployment type. For a list of supported types, use the `ListGoldengateDeploymentTypes` operation. */
       deploymentType?: string;
       /** Output only. The deployment url of the GoldengateDeployment. */
@@ -1844,8 +1816,7 @@ declare namespace gapi.client {
       nextBackupScheduleTime?: string;
       /** Output only. The next maintenance action type of the GoldengateDeployment. */
       nextMaintenanceActionType?:
-        | 'NEXT_MAINTENANCE_ACTION_TYPE_UNSPECIFIED'
-        | 'UPGRADE';
+        'NEXT_MAINTENANCE_ACTION_TYPE_UNSPECIFIED' | 'UPGRADE';
       /** Output only. The next maintenance description of the GoldengateDeployment. */
       nextMaintenanceDescription?: string;
       /** Output only. The time of next maintenance of the GoldengateDeployment. */
@@ -1939,10 +1910,7 @@ declare namespace gapi.client {
       releaseTime?: string;
       /** Output only. The release type of the Goldengate Deployment Version resource. */
       releaseType?:
-        | 'DEPLOYMENT_RELEASE_TYPE_UNSPECIFIED'
-        | 'MAJOR'
-        | 'BUNDLE'
-        | 'MINOR';
+        'DEPLOYMENT_RELEASE_TYPE_UNSPECIFIED' | 'MAJOR' | 'BUNDLE' | 'MINOR';
       /** Optional. Whether the Goldengate Deployment Version resource is a security fix. */
       securityFix?: boolean;
       /** Output only. The support end time of the Goldengate Deployment Version resource. */
@@ -1951,9 +1919,7 @@ declare namespace gapi.client {
     interface GoldengateElasticsearchConnectionProperties {
       /** Optional. Authentication type for Elasticsearch. */
       authenticationType?:
-        | 'ELASTICSEARCH_AUTHENTICATION_TYPE_UNSPECIFIED'
-        | 'NONE'
-        | 'BASIC';
+        'ELASTICSEARCH_AUTHENTICATION_TYPE_UNSPECIFIED' | 'NONE' | 'BASIC';
       /** Optional. Fingerprint required by TLS security protocol. Eg.: '6152b2dfbff200f973c5074a5b91d06ab3b472c07c09a1ea57bb7fd406cdce9c' */
       fingerprint?: string;
       /** Optional. Input only. The password Oracle Goldengate uses for Elastic Search connection in plain text. */
@@ -1962,9 +1928,7 @@ declare namespace gapi.client {
       passwordSecretVersion?: string;
       /** Optional. Security protocol for Elasticsearch. */
       securityProtocol?:
-        | 'ELASTICSEARCH_SECURITY_PROTOCOL_UNSPECIFIED'
-        | 'PLAIN'
-        | 'TLS';
+        'ELASTICSEARCH_SECURITY_PROTOCOL_UNSPECIFIED' | 'PLAIN' | 'TLS';
       /** Optional. Comma separated list of Elasticsearch server addresses, specified as host:port entries, where :port is optional. If port is not specified, it defaults to 9200. Example: "server1.example.com:4000,server2.example.com:4000" */
       servers?: string;
       /** Optional. The technology type of ElasticsearchConnection. */
@@ -2039,9 +2003,7 @@ declare namespace gapi.client {
     interface GoldengateJavaMessageServiceConnectionProperties {
       /** Optional. Authentication type for Java Message Service. */
       authenticationType?:
-        | 'JMS_AUTHENTICATION_TYPE_UNSPECIFIED'
-        | 'NONE'
-        | 'BASIC';
+        'JMS_AUTHENTICATION_TYPE_UNSPECIFIED' | 'NONE' | 'BASIC';
       /** Optional. The Java class implementing javax.jms.ConnectionFactory interface supplied by the JMS provider. */
       connectionFactory?: string;
       /** Optional. Connection URL of the Java Message Service, specifying the protocol, host, and port. e.g.: 'mq://myjms.host.domain:7676' */
@@ -2068,10 +2030,7 @@ declare namespace gapi.client {
       passwordSecretVersion?: string;
       /** Optional. Security protocol for Java Message Service. */
       securityProtocol?:
-        | 'JMS_SECURITY_PROTOCOL_UNSPECIFIED'
-        | 'PLAIN'
-        | 'TLS'
-        | 'MTLS';
+        'JMS_SECURITY_PROTOCOL_UNSPECIFIED' | 'PLAIN' | 'TLS' | 'MTLS';
       /** Optional. Input only. The password for the cert inside of the KeyStore in plain text. */
       sslKeyPassword?: string;
       /** Optional. Input only. The resource name of a secret version in Secret Manager which contains the password for the cert inside of the KeyStore. Format: projects/{project}/secrets/{secret}/versions/{version}. */
@@ -2137,10 +2096,7 @@ declare namespace gapi.client {
     interface GoldengateKafkaSchemaRegistryConnectionProperties {
       /** Optional. Used authentication mechanism to access Schema Registry. */
       authenticationType?:
-        | 'AUTHENTICATION_TYPE_UNSPECIFIED'
-        | 'NONE'
-        | 'BASIC'
-        | 'MUTUAL';
+        'AUTHENTICATION_TYPE_UNSPECIFIED' | 'NONE' | 'BASIC' | 'MUTUAL';
       /** Optional. The base64 encoded content of the KeyStore file. */
       keyStoreFile?: string;
       /** Optional. Input only. The KeyStore password in plain text. */
@@ -2221,9 +2177,7 @@ declare namespace gapi.client {
       port?: number;
       /** Optional. Security Type for Microsoft SQL Server. */
       securityProtocol?:
-        | 'MICROSOFT_SQLSERVER_SECURITY_PROTOCOL_UNSPECIFIED'
-        | 'PLAIN'
-        | 'TLS';
+        'MICROSOFT_SQLSERVER_SECURITY_PROTOCOL_UNSPECIFIED' | 'PLAIN' | 'TLS';
       /** Optional. If set to true, the driver validates the certificate that is sent by the database server. */
       serverCertificateValidationRequired?: boolean;
       /** Optional. Database Certificate - The base64 encoded content of a .pem or .crt file containing the server public key (for 1-way SSL). */
@@ -2244,10 +2198,7 @@ declare namespace gapi.client {
       passwordSecretVersion?: string;
       /** Optional. Security Type for MongoDB. */
       securityProtocol?:
-        | 'MONGODB_SECURITY_PROTOCOL_UNSPECIFIED'
-        | 'PLAIN'
-        | 'TLS'
-        | 'MTLS';
+        'MONGODB_SECURITY_PROTOCOL_UNSPECIFIED' | 'PLAIN' | 'TLS' | 'MTLS';
       /** Optional. The technology type of MongodbConnection. */
       technologyType?: string;
       /** Optional. Database Certificate - The base64 encoded content of a .pem file, containing the server public key (for 1 and 2-way SSL). */
@@ -2278,10 +2229,7 @@ declare namespace gapi.client {
       port?: number;
       /** Optional. Security Type for MySQL. */
       securityProtocol?:
-        | 'MYSQL_SECURITY_PROTOCOL_UNSPECIFIED'
-        | 'PLAIN'
-        | 'TLS'
-        | 'MTLS';
+        'MYSQL_SECURITY_PROTOCOL_UNSPECIFIED' | 'PLAIN' | 'TLS' | 'MTLS';
       /** Optional. Database Certificate - The base64 encoded content of a .pem or .crt file containing the server public key (for 1 and 2-way SSL). */
       sslCaFile?: string;
       /** Optional. Client Certificate - The base64 encoded content of a .pem or .crt file containing the client public key (for 2-way SSL). */
@@ -2366,9 +2314,7 @@ declare namespace gapi.client {
     interface GoldengateOracleConnectionProperties {
       /** Optional. Authentication mode. */
       authenticationMode?:
-        | 'ORACLE_AUTHENTICATION_MODE_UNSPECIFIED'
-        | 'TLS'
-        | 'MTLS';
+        'ORACLE_AUTHENTICATION_MODE_UNSPECIFIED' | 'TLS' | 'MTLS';
       /** Optional. Connect descriptor or Easy Connect Naming method used to connect to a database. */
       connectionString?: string;
       /** Optional. Autonomous AI Database instance id of database in Oracle Database @ Google Cloud. If gcp_oracle_database_id is provided, connection_string must be empty. Format: projects/{project}/locations/{location}/autonomousDatabases/{autonomous_database} */
@@ -2427,10 +2373,7 @@ declare namespace gapi.client {
       port?: number;
       /** Optional. Security protocol for PostgreSQL. */
       securityProtocol?:
-        | 'POSTGRESQL_SECURITY_PROTOCOL_UNSPECIFIED'
-        | 'PLAIN'
-        | 'TLS'
-        | 'MTLS';
+        'POSTGRESQL_SECURITY_PROTOCOL_UNSPECIFIED' | 'PLAIN' | 'TLS' | 'MTLS';
       /** Optional. The base64 encoded certificate of the trusted certificate authorities (Trusted CA) for PostgreSQL. */
       sslCaFile?: string;
       /** Optional. The base64 encoded certificate of the PostgreSQL server. */
@@ -2454,9 +2397,7 @@ declare namespace gapi.client {
     interface GoldengateRedisConnectionProperties {
       /** Optional. Authentication type for Redis. */
       authenticationType?:
-        | 'REDIS_AUTHENTICATION_TYPE_UNSPECIFIED'
-        | 'NONE'
-        | 'BASIC';
+        'REDIS_AUTHENTICATION_TYPE_UNSPECIFIED' | 'NONE' | 'BASIC';
       /** Optional. The base64 encoded content of the KeyStore file. */
       keyStoreFile?: string;
       /** Optional. Input only. The KeyStore password in plain text. */
@@ -2471,10 +2412,7 @@ declare namespace gapi.client {
       redisClusterId?: string;
       /** Optional. Security protocol for Redis. */
       securityProtocol?:
-        | 'REDIS_SECURITY_PROTOCOL_UNSPECIFIED'
-        | 'PLAIN'
-        | 'TLS'
-        | 'MTLS';
+        'REDIS_SECURITY_PROTOCOL_UNSPECIFIED' | 'PLAIN' | 'TLS' | 'MTLS';
       /** Optional. Comma separated list of Redis server addresses, specified as host:port entries, where :port is optional. If port is not specified, it defaults to 6379. Example: "server1.example.com:6379,server2.example.com:6379" */
       servers?: string;
       /** Optional. The technology type of RedisConnection. */
@@ -2491,9 +2429,7 @@ declare namespace gapi.client {
     interface GoldengateSnowflakeConnectionProperties {
       /** Optional. Used authentication mechanism to access Snowflake. */
       authenticationType?:
-        | 'AUTHENTICATION_TYPE_UNSPECIFIED'
-        | 'BASIC'
-        | 'KEY_PAIR';
+        'AUTHENTICATION_TYPE_UNSPECIFIED' | 'BASIC' | 'KEY_PAIR';
       /** Optional. JDBC connection URL. e.g.: 'jdbc:snowflake://.snowflakecomputing.com/?warehouse=&db=' */
       connectionUrl?: string;
       /** Optional. Input only. The password Oracle Goldengate uses to connect to Snowflake platform in plain text. */
@@ -3114,10 +3050,7 @@ declare namespace gapi.client {
       errors?: TestConnectionAssignmentError[];
       /** Type of the result i.e. Success, Failure or Timeout. */
       resultType?:
-        | 'RESULT_TYPE_UNSPECIFIED'
-        | 'SUCCEEDED'
-        | 'FAILED'
-        | 'TIMED_OUT';
+        'RESULT_TYPE_UNSPECIFIED' | 'SUCCEEDED' | 'FAILED' | 'TIMED_OUT';
     }
     interface TimeOfDay {
       /** Hours of a day in 24 hour format. Must be greater than or equal to 0 and typically must be less than or equal to 23. An API may choose to allow the value "24:00:00" for scenarios like business closing time. */

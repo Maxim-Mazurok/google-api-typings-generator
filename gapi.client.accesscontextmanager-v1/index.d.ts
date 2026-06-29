@@ -86,10 +86,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface AuthorizedOrgsDesc {
       /** The asset type of this authorized orgs desc. Valid values are `ASSET_TYPE_DEVICE`, and `ASSET_TYPE_CREDENTIAL_STRENGTH`. */
@@ -104,8 +101,7 @@ declare namespace gapi.client {
         | 'AUTHORIZATION_DIRECTION_FROM';
       /** A granular control type for authorization levels. Valid value is `AUTHORIZATION_TYPE_TRUST`. */
       authorizationType?:
-        | 'AUTHORIZATION_TYPE_UNSPECIFIED'
-        | 'AUTHORIZATION_TYPE_TRUST';
+        'AUTHORIZATION_TYPE_UNSPECIFIED' | 'AUTHORIZATION_TYPE_TRUST';
       /** Identifier. Resource name for the `AuthorizedOrgsDesc`. Format: `accessPolicies/{access_policy}/authorizedOrgsDescs/{authorized_orgs_desc}`. The `authorized_orgs_desc` component must begin with a letter, followed by alphanumeric characters or `_`. After you create an `AuthorizedOrgsDesc`, you cannot change its `name`. */
       name?: string;
       /** The list of organization ids in this AuthorizedOrgsDesc. Format: `organizations/` Example: `organizations/123456` */
@@ -161,10 +157,7 @@ declare namespace gapi.client {
     interface DevicePolicy {
       /** Allowed device management levels, an empty list allows all management levels. */
       allowedDeviceManagementLevels?:
-        | 'MANAGEMENT_UNSPECIFIED'
-        | 'NONE'
-        | 'BASIC'
-        | 'COMPLETE'[];
+        'MANAGEMENT_UNSPECIFIED' | 'NONE' | 'BASIC' | 'COMPLETE'[];
       /** Allowed encryptions statuses, an empty list allows all statuses. */
       allowedEncryptionStatuses?:
         | 'ENCRYPTION_UNSPECIFIED'
@@ -483,10 +476,7 @@ declare namespace gapi.client {
       name?: string;
       /** The support stage of the service. */
       serviceSupportStage?:
-        | 'SERVICE_SUPPORT_STAGE_UNSPECIFIED'
-        | 'GA'
-        | 'PREVIEW'
-        | 'DEPRECATED';
+        'SERVICE_SUPPORT_STAGE_UNSPECIFIED' | 'GA' | 'PREVIEW' | 'DEPRECATED';
       /** The list of the supported methods. This field exists only in response to GetSupportedService */
       supportedMethods?: MethodSelector[];
       /** The support stage of the service. */

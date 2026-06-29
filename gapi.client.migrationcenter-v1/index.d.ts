@@ -517,11 +517,7 @@ declare namespace gapi.client {
       source?: string;
       /** Output only. Current state of the discovery client. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'ACTIVE'
-        | 'OFFLINE'
-        | 'DEGRADED'
-        | 'EXPIRED';
+        'STATE_UNSPECIFIED' | 'ACTIVE' | 'OFFLINE' | 'DEGRADED' | 'EXPIRED';
       /** Optional. Input only. Client time-to-live. If specified, the backend will not accept new frames after this time. This field is input only. The derived expiration time is provided as output through the `expire_time` field. */
       ttl?: string;
       /** Output only. Time when the discovery client was last updated. This value is not updated by heartbeats, to view the last heartbeat time please refer to the `heartbeat_time` field. */
@@ -1003,9 +999,7 @@ declare namespace gapi.client {
       firmwareType?: 'FIRMWARE_TYPE_UNSPECIFIED' | 'BIOS' | 'EFI';
       /** CPU hyper-threading support. */
       hyperthreading?:
-        | 'CPU_HYPER_THREADING_UNSPECIFIED'
-        | 'DISABLED'
-        | 'ENABLED';
+        'CPU_HYPER_THREADING_UNSPECIFIED' | 'DISABLED' | 'ENABLED';
       /** Hardware vendor. */
       vendor?: string;
     }

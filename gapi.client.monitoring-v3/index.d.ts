@@ -92,10 +92,7 @@ declare namespace gapi.client {
       alertStrategy?: AlertStrategy;
       /** How to combine the results of multiple conditions to determine if an incident should be opened. If condition_time_series_query_language is present, this must be COMBINE_UNSPECIFIED. */
       combiner?:
-        | 'COMBINE_UNSPECIFIED'
-        | 'AND'
-        | 'OR'
-        | 'AND_WITH_MATCHING_RESOURCE';
+        'COMBINE_UNSPECIFIED' | 'AND' | 'OR' | 'AND_WITH_MATCHING_RESOURCE';
       /** A list of conditions for the policy. The conditions are combined by AND or OR according to the combiner field. If the combined conditions evaluate to true, then an incident is created. A policy can have from one to six conditions. If condition_time_series_query_language is present, it must be the only condition. If condition_monitoring_query_language is present, it must be the only condition. */
       conditions?: Condition[];
       /** A read-only record of the creation of the alerting policy. If provided in a call to create or update, this field will be ignored. */
@@ -126,9 +123,7 @@ declare namespace gapi.client {
       notificationChannelStrategy?: NotificationChannelStrategy[];
       /** For log-based alert policies, the notification prompts is always OPENED. For non log-based alert policies, the notification prompts can be OPENED or OPENED, CLOSED. */
       notificationPrompts?:
-        | 'NOTIFICATION_PROMPT_UNSPECIFIED'
-        | 'OPENED'
-        | 'CLOSED'[];
+        'NOTIFICATION_PROMPT_UNSPECIFIED' | 'OPENED' | 'CLOSED'[];
       /** Required for log-based alerting policies, i.e. policies with a LogMatch condition.This limit is not implemented for alerting policies that do not have a LogMatch condition. */
       notificationRateLimit?: NotificationRateLimit;
     }
@@ -553,9 +548,7 @@ declare namespace gapi.client {
     interface JsonPathMatcher {
       /** The type of JSONPath match that will be applied to the JSON output (ContentMatcher.content) */
       jsonMatcher?:
-        | 'JSON_PATH_MATCHER_OPTION_UNSPECIFIED'
-        | 'EXACT_MATCH'
-        | 'REGEX_MATCH';
+        'JSON_PATH_MATCHER_OPTION_UNSPECIFIED' | 'EXACT_MATCH' | 'REGEX_MATCH';
       /** JSONPath within the response output pointing to the expected ContentMatcher::content to match against. */
       jsonPath?: string;
     }
@@ -906,9 +899,7 @@ declare namespace gapi.client {
       userLabels?: {[P in string]: string};
       /** Indicates whether this channel has been verified or not. On a ListNotificationChannels or GetNotificationChannel operation, this field is expected to be populated.If the value is UNVERIFIED, then it indicates that the channel is non-functioning (it both requires verification and lacks verification); otherwise, it is assumed that the channel works.If the channel is neither VERIFIED nor UNVERIFIED, it implies that the channel is of a type that does not require verification or that this specific channel has been exempted from verification because it was created prior to verification being required for channels of this type.This field cannot be modified using a standard UpdateNotificationChannel operation. To change the value of this field, you must call VerifyNotificationChannel. */
       verificationStatus?:
-        | 'VERIFICATION_STATUS_UNSPECIFIED'
-        | 'UNVERIFIED'
-        | 'VERIFIED';
+        'VERIFICATION_STATUS_UNSPECIFIED' | 'UNVERIFIED' | 'VERIFIED';
     }
     interface NotificationChannelDescriptor {
       /** A human-readable description of the notification channel type. The description may include a description of the properties of the channel and pointers to external documentation. */
@@ -952,11 +943,7 @@ declare namespace gapi.client {
       createTime?: string;
       /** Current state of the batch operation. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATED'
-        | 'RUNNING'
-        | 'DONE'
-        | 'CANCELLED';
+        'STATE_UNSPECIFIED' | 'CREATED' | 'RUNNING' | 'DONE' | 'CANCELLED';
       /** The time when the operation result was last updated. */
       updateTime?: string;
     }
@@ -1051,9 +1038,7 @@ declare namespace gapi.client {
       groupId?: string;
       /** The resource type of the group members. */
       resourceType?:
-        | 'RESOURCE_TYPE_UNSPECIFIED'
-        | 'INSTANCE'
-        | 'AWS_ELB_LOAD_BALANCER';
+        'RESOURCE_TYPE_UNSPECIFIED' | 'INSTANCE' | 'AWS_ELB_LOAD_BALANCER';
     }
     interface ResponseStatusCode {
       /** A class of status codes to accept. */
@@ -1302,9 +1287,7 @@ declare namespace gapi.client {
     interface UptimeCheckConfig {
       /** The type of checkers to use to execute the Uptime check. */
       checkerType?:
-        | 'CHECKER_TYPE_UNSPECIFIED'
-        | 'STATIC_IP_CHECKERS'
-        | 'VPC_CHECKERS';
+        'CHECKER_TYPE_UNSPECIFIED' | 'STATIC_IP_CHECKERS' | 'VPC_CHECKERS';
       /** The content that is expected to appear in the data returned by the target server against which the check is run. Currently, only the first entry in the content_matchers list is supported, and additional entries will be ignored. This field is optional and should only be specified if a content match is required as part of the/ Uptime check. */
       contentMatchers?: ContentMatcher[];
       /** Whether the check is disabled or not. */

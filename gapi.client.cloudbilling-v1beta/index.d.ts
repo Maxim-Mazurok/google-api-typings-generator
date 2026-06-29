@@ -472,10 +472,7 @@ declare namespace gapi.client {
       label?: string;
       /** Output only. The type of the interop link, e.g., "COST_REPORT", "BQE_QUERY", etc. */
       linkType?:
-        | 'LINK_TYPE_UNSPECIFIED'
-        | 'COST_REPORT'
-        | 'BQE_QUERY'
-        | 'FINOPS_HUB';
+        'LINK_TYPE_UNSPECIFIED' | 'COST_REPORT' | 'BQE_QUERY' | 'FINOPS_HUB';
       /** Output only. The URL of the link. */
       url?: string;
     }

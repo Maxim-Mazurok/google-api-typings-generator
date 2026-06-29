@@ -35,10 +35,7 @@ declare namespace gapi.client {
       hashLengthBytes?: number;
       /** Required. Must not be HASH_TYPE_UNSPECIFIED. */
       hashType?:
-        | 'HASH_TYPE_UNSPECIFIED'
-        | 'ARGON2_D'
-        | 'ARGON2_ID'
-        | 'ARGON2_I';
+        'HASH_TYPE_UNSPECIFIED' | 'ARGON2_D' | 'ARGON2_ID' | 'ARGON2_I';
       /** Required. The number of iterations to perform. Minimum is 1, maximum is 16. */
       iterations?: number;
       /** Required. The memory cost in kibibytes. Maximum is 32768. */
@@ -246,8 +243,7 @@ declare namespace gapi.client {
       newEmail?: string;
       /** The reCAPTCHA version of the reCAPTCHA token in the captcha_response. */
       recaptchaVersion?:
-        | 'RECAPTCHA_VERSION_UNSPECIFIED'
-        | 'RECAPTCHA_ENTERPRISE';
+        'RECAPTCHA_VERSION_UNSPECIFIED' | 'RECAPTCHA_ENTERPRISE';
       /** Required. The type of out-of-band (OOB) code to send. Depending on this value, other fields in this request will be required and/or have different meanings. There are 4 different OOB codes that can be sent: * PASSWORD_RESET * EMAIL_SIGNIN * VERIFY_EMAIL * VERIFY_AND_CHANGE_EMAIL */
       requestType?:
         | 'OOB_REQ_TYPE_UNSPECIFIED'
@@ -501,8 +497,7 @@ declare namespace gapi.client {
       recaptchaToken?: string;
       /** Optional. The reCAPTCHA version of the reCAPTCHA token in the captcha_response. Required when reCAPTCHA Enterprise is enabled. */
       recaptchaVersion?:
-        | 'RECAPTCHA_VERSION_UNSPECIFIED'
-        | 'RECAPTCHA_ENTERPRISE';
+        'RECAPTCHA_VERSION_UNSPECIFIED' | 'RECAPTCHA_ENTERPRISE';
       /** Android only. Safety Net has been deprecated. Use play_integrity_token instead. */
       safetyNetToken?: string;
       /** Tenant ID of the Identity Platform tenant the user is signing in to. */
@@ -808,8 +803,7 @@ declare namespace gapi.client {
       pendingIdToken?: string;
       /** The reCAPTCHA version of the reCAPTCHA token in the captcha_response. */
       recaptchaVersion?:
-        | 'RECAPTCHA_VERSION_UNSPECIFIED'
-        | 'RECAPTCHA_ENTERPRISE';
+        'RECAPTCHA_VERSION_UNSPECIFIED' | 'RECAPTCHA_ENTERPRISE';
       /** Should always be true. */
       returnSecureToken?: boolean;
       /** The ID of the Identity Platform tenant the user is signing in to. If not set, the user will sign in to the default Identity Platform instance in the project. */
@@ -922,8 +916,7 @@ declare namespace gapi.client {
       photoUrl?: string;
       /** The reCAPTCHA version of the reCAPTCHA token in the captcha_response. */
       recaptchaVersion?:
-        | 'RECAPTCHA_VERSION_UNSPECIFIED'
-        | 'RECAPTCHA_ENTERPRISE';
+        'RECAPTCHA_VERSION_UNSPECIFIED' | 'RECAPTCHA_ENTERPRISE';
       /** The project ID of the project which the user should belong to. Specifying this field requires a Google OAuth 2.0 credential with the proper [permissions](https://cloud.google.com/identity-platform/docs/access-control). If this is not set, the target project is inferred from the scope associated to the Bearer access token. */
       targetProjectId?: string;
       /** The ID of the Identity Platform tenant to create a user under. If not set, the user will be created under the default Identity Platform project. */
@@ -972,9 +965,7 @@ declare namespace gapi.client {
       /** The parallelization cost parameter to be used by the STANDARD_SCRYPT hashing function. This parameter, along with block_size and cpu_mem_cost help tune the resources needed to hash a password, and should be tuned as processor speeds and memory technologies advance. */
       parallelization?: number;
       passwordHashOrder?:
-        | 'UNSPECIFIED_ORDER'
-        | 'SALT_AND_PASSWORD'
-        | 'PASSWORD_AND_SALT';
+        'UNSPECIFIED_ORDER' | 'SALT_AND_PASSWORD' | 'PASSWORD_AND_SALT';
       /** The number of rounds used for hash calculation. Only required for the following hashing functions: * MD5 * SHA1 * SHA256 * SHA512 * PBKDF_SHA1 * PBKDF2_SHA256 * SCRYPT */
       rounds?: number;
       /** One or more bytes to be inserted between the salt and plain text password. For stronger security, this should be a single non-printable character. */

@@ -38,10 +38,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface AuthorizedDomain {
       /** Relative name of the domain authorized for use. Example: `example.com`. */
@@ -454,11 +451,7 @@ declare namespace gapi.client {
       result?: GoogleDevtoolsCloudbuildV1ApprovalResult;
       /** Output only. The state of this build's approval. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'PENDING'
-        | 'APPROVED'
-        | 'REJECTED'
-        | 'CANCELLED';
+        'STATE_UNSPECIFIED' | 'PENDING' | 'APPROVED' | 'REJECTED' | 'CANCELLED';
     }
     interface GoogleDevtoolsCloudbuildV1BuildOperationMetadata {
       /** The build that the operation is tracking. */
@@ -585,9 +578,7 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. The OCI media type of the artifact. Non-OCI images, such as Docker images, will have an unspecified value. */
       ociMediaType?:
-        | 'OCI_MEDIA_TYPE_UNSPECIFIED'
-        | 'IMAGE_MANIFEST'
-        | 'IMAGE_INDEX';
+        'OCI_MEDIA_TYPE_UNSPECIFIED' | 'IMAGE_MANIFEST' | 'IMAGE_INDEX';
       /** Output only. Stores timing information for pushing the specified image. */
       pushTiming?: GoogleDevtoolsCloudbuildV1TimeSpan;
     }
@@ -691,12 +682,7 @@ declare namespace gapi.client {
     interface GoogleDevtoolsCloudbuildV1Hash {
       /** The type of hash that was performed. */
       type?:
-        | 'NONE'
-        | 'SHA256'
-        | 'MD5'
-        | 'GO_MODULE_H1'
-        | 'SHA512'
-        | 'DIRSUM_SHA256';
+        'NONE' | 'SHA256' | 'MD5' | 'GO_MODULE_H1' | 'SHA512' | 'DIRSUM_SHA256';
       /** The hash value. */
       value?: string;
     }

@@ -167,11 +167,7 @@ declare namespace gapi.client {
       resourceUuid?: string;
       /** Output only. The current operation state. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'PENDING'
-        | 'RUNNING'
-        | 'SUCCEEDED'
-        | 'FAILED';
+        'STATE_UNSPECIFIED' | 'PENDING' | 'RUNNING' | 'SUCCEEDED' | 'FAILED';
     }
     interface GoogleCloudDatacatalogLineageV1Origin {
       /** If the source_type isn't CUSTOM, the value of this field should be a Google Cloud resource name of the system, which reports lineage. The project and location parts of the resource name must match the project and location of the lineage resource being created. Examples: - `{source_type: COMPOSER, name: "projects/foo/locations/us/environments/bar"}` - `{source_type: BIGQUERY, name: "projects/foo/locations/eu"}` - `{source_type: CUSTOM, name: "myCustomIntegration"}` */
@@ -254,9 +250,7 @@ declare namespace gapi.client {
     interface GoogleCloudDatacatalogLineageV1SearchLineageStreamingRequestSearchFilters {
       /** Optional. Types of dependencies between entities to retrieve. If unspecified, all dependency types are returned. */
       dependencyTypes?:
-        | 'DEPENDENCY_TYPE_UNSPECIFIED'
-        | 'EXACT_COPY'
-        | 'OTHER'[];
+        'DEPENDENCY_TYPE_UNSPECIFIED' | 'EXACT_COPY' | 'OTHER'[];
       /** Optional. Entity set restriction. If unspecified, the method returns all entities. */
       entitySet?: 'ENTITY_SET_UNSPECIFIED' | 'ENTITIES';
       /** Optional. Time interval to search for lineage. If unspecified, all lineage is returned. Currently, at most one of `start_time` and `end_time` can be set. */

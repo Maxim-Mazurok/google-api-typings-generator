@@ -44,10 +44,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface Authority {
       /** Output only. An identity provider that reflects the `issuer` in the workload identity pool. */
@@ -72,9 +69,7 @@ declare namespace gapi.client {
     interface BinaryAuthorizationConfig {
       /** Optional. Mode of operation for binauthz policy evaluation. */
       evaluationMode?:
-        | 'EVALUATION_MODE_UNSPECIFIED'
-        | 'DISABLED'
-        | 'POLICY_BINDINGS';
+        'EVALUATION_MODE_UNSPECIFIED' | 'DISABLED' | 'POLICY_BINDINGS';
       /** Optional. Binauthz policies that apply to this cluster. */
       policyBindings?: PolicyBinding[];
     }
@@ -528,9 +523,7 @@ declare namespace gapi.client {
       hierarchyController?: ConfigManagementHierarchyControllerConfig;
       /** Optional. Deprecated: From version 1.21.0, automatic Feature management is unavailable, and Config Sync only supports manual upgrades. */
       management?:
-        | 'MANAGEMENT_UNSPECIFIED'
-        | 'MANAGEMENT_AUTOMATIC'
-        | 'MANAGEMENT_MANUAL';
+        'MANAGEMENT_UNSPECIFIED' | 'MANAGEMENT_AUTOMATIC' | 'MANAGEMENT_MANUAL';
       /** Optional. Policy Controller configuration for the cluster. Deprecated: Configuring Policy Controller through the configmanagement feature is no longer recommended. Use the policycontroller feature instead. */
       policyController?: ConfigManagementPolicyController;
       /** Optional. Version of Config Sync to install. Defaults to the latest supported Config Sync version if the config_sync field is enabled. See supported versions at https://cloud.google.com/kubernetes-engine/config-sync/docs/get-support-config-sync#version_support_policy. */
@@ -608,9 +601,7 @@ declare namespace gapi.client {
     interface ConfigManagementPolicyControllerMonitoring {
       /** Specifies the list of backends Policy Controller will export to. An empty list would effectively disable metrics export. */
       backends?:
-        | 'MONITORING_BACKEND_UNSPECIFIED'
-        | 'PROMETHEUS'
-        | 'CLOUD_MONITORING'[];
+        'MONITORING_BACKEND_UNSPECIFIED' | 'PROMETHEUS' | 'CLOUD_MONITORING'[];
     }
     interface ConfigManagementPolicyControllerState {
       /** The state about the policy controller installation. */
@@ -760,11 +751,7 @@ declare namespace gapi.client {
     interface FleetLifecycleState {
       /** Output only. The current state of the Fleet resource. */
       code?:
-        | 'CODE_UNSPECIFIED'
-        | 'CREATING'
-        | 'READY'
-        | 'DELETING'
-        | 'UPDATING';
+        'CODE_UNSPECIFIED' | 'CREATING' | 'READY' | 'DELETING' | 'UPDATING';
     }
     interface FleetObservabilityFeatureError {
       /** The code of the error. */
@@ -1179,11 +1166,7 @@ declare namespace gapi.client {
     interface MembershipBindingLifecycleState {
       /** Output only. The current state of the MembershipBinding resource. */
       code?:
-        | 'CODE_UNSPECIFIED'
-        | 'CREATING'
-        | 'READY'
-        | 'DELETING'
-        | 'UPDATING';
+        'CODE_UNSPECIFIED' | 'CREATING' | 'READY' | 'DELETING' | 'UPDATING';
     }
     interface MembershipEndpoint {
       /** Optional. Specific information for a GDC Edge Appliance cluster. */
@@ -1244,9 +1227,7 @@ declare namespace gapi.client {
     interface MembershipSpec {
       /** Whether it is allowed to run the privileged builds on the cluster or not. */
       securityPolicy?:
-        | 'SECURITY_POLICY_UNSPECIFIED'
-        | 'NON_PRIVILEGED'
-        | 'PRIVILEGED';
+        'SECURITY_POLICY_UNSPECIFIED' | 'NON_PRIVILEGED' | 'PRIVILEGED';
       /** Version of the cloud build software on the cluster. */
       version?: string;
     }
@@ -1313,11 +1294,7 @@ declare namespace gapi.client {
     interface NamespaceLifecycleState {
       /** Output only. The current state of the Namespace resource. */
       code?:
-        | 'CODE_UNSPECIFIED'
-        | 'CREATING'
-        | 'READY'
-        | 'DELETING'
-        | 'UPDATING';
+        'CODE_UNSPECIFIED' | 'CREATING' | 'READY' | 'DELETING' | 'UPDATING';
     }
     interface OnPremCluster {
       /** Immutable. Whether the cluster is an admin cluster. */
@@ -1461,9 +1438,7 @@ declare namespace gapi.client {
     interface PolicyControllerMonitoringConfig {
       /** Specifies the list of backends Policy Controller will export to. An empty list would effectively disable metrics export. */
       backends?:
-        | 'MONITORING_BACKEND_UNSPECIFIED'
-        | 'PROMETHEUS'
-        | 'CLOUD_MONITORING'[];
+        'MONITORING_BACKEND_UNSPECIFIED' | 'PROMETHEUS' | 'CLOUD_MONITORING'[];
     }
     interface PolicyControllerOnClusterState {
       /** Surface potential errors or information logs. */
@@ -1563,11 +1538,7 @@ declare namespace gapi.client {
     interface RBACRoleBindingLifecycleState {
       /** Output only. The current state of the rbacrolebinding resource. */
       code?:
-        | 'CODE_UNSPECIFIED'
-        | 'CREATING'
-        | 'READY'
-        | 'DELETING'
-        | 'UPDATING';
+        'CODE_UNSPECIFIED' | 'CREATING' | 'READY' | 'DELETING' | 'UPDATING';
     }
     interface ResourceManifest {
       /** Output only. Whether the resource provided in the manifest is `cluster_scoped`. If unset, the manifest is assumed to be namespace scoped. This field is used for REST mapping when applying the resource in a cluster. */
@@ -1626,11 +1597,7 @@ declare namespace gapi.client {
       stages?: RolloutStage[];
       /** Output only. State specifies various states of the Rollout. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'RUNNING'
-        | 'PAUSED'
-        | 'CANCELLED'
-        | 'COMPLETED';
+        'STATE_UNSPECIFIED' | 'RUNNING' | 'PAUSED' | 'CANCELLED' | 'COMPLETED';
       /** Output only. A human-readable description explaining the reason for the current state. */
       stateReason?: string;
       /** Output only. StateReasonType specifies the reason type of the Rollout state. */
@@ -1783,11 +1750,7 @@ declare namespace gapi.client {
     interface ScopeLifecycleState {
       /** Output only. The current state of the scope resource. */
       code?:
-        | 'CODE_UNSPECIFIED'
-        | 'CREATING'
-        | 'READY'
-        | 'DELETING'
-        | 'UPDATING';
+        'CODE_UNSPECIFIED' | 'CREATING' | 'READY' | 'DELETING' | 'UPDATING';
     }
     interface SecurityPostureConfig {
       /** Sets which mode to use for Security Posture features. */
@@ -1919,14 +1882,10 @@ declare namespace gapi.client {
     interface ServiceMeshMembershipSpec {
       /** Optional. Specifies the API that will be used for configuring the mesh workloads. */
       configApi?:
-        | 'CONFIG_API_UNSPECIFIED'
-        | 'CONFIG_API_ISTIO'
-        | 'CONFIG_API_GATEWAY';
+        'CONFIG_API_UNSPECIFIED' | 'CONFIG_API_ISTIO' | 'CONFIG_API_GATEWAY';
       /** Deprecated: use `management` instead Enables automatic control plane management. */
       controlPlane?:
-        | 'CONTROL_PLANE_MANAGEMENT_UNSPECIFIED'
-        | 'AUTOMATIC'
-        | 'MANUAL';
+        'CONTROL_PLANE_MANAGEMENT_UNSPECIFIED' | 'AUTOMATIC' | 'MANUAL';
       /** Optional. Enables automatic Service Mesh management. */
       management?:
         | 'MANAGEMENT_UNSPECIFIED'

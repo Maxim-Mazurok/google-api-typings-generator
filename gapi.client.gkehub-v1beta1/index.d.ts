@@ -39,10 +39,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface Authority {
       /** Output only. An identity provider that reflects the `issuer` in the workload identity pool. */
@@ -185,9 +182,7 @@ declare namespace gapi.client {
       externalId?: string;
       /** Optional. The infrastructure type this Membership is running on. */
       infrastructureType?:
-        | 'INFRASTRUCTURE_TYPE_UNSPECIFIED'
-        | 'ON_PREM'
-        | 'MULTI_CLOUD';
+        'INFRASTRUCTURE_TYPE_UNSPECIFIED' | 'ON_PREM' | 'MULTI_CLOUD';
       /** Optional. Google Cloud labels for this membership. These labels are not leveraged by multi-cluster features, instead, we prefer cluster labels, which can be set on GKE cluster or other cluster types. */
       labels?: {[P in string]: string};
       /** Output only. For clusters using Connect, the timestamp of the most recent connection established with Google Cloud. This time is updated every several minutes, not continuously. For clusters that do not use GKE Connect, or that have never connected successfully, this field will be unset. */

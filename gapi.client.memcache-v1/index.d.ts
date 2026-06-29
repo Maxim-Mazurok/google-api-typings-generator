@@ -99,9 +99,7 @@ declare namespace gapi.client {
     interface GoogleCloudMemcacheV1UpgradeInstanceRequest {
       /** Required. Specifies the target version of memcached engine to upgrade to. */
       memcacheVersion?:
-        | 'MEMCACHE_VERSION_UNSPECIFIED'
-        | 'MEMCACHE_1_5'
-        | 'MEMCACHE_1_6_15';
+        'MEMCACHE_VERSION_UNSPECIFIED' | 'MEMCACHE_1_5' | 'MEMCACHE_1_6_15';
     }
     interface GoogleCloudMemcacheV1ZoneMetadata {}
     interface GoogleCloudSaasacceleratorManagementProvidersV1Instance {
@@ -119,7 +117,9 @@ declare namespace gapi.client {
       maintenancePolicyNames?: {[P in string]: string};
       /** The MaintenanceSchedule contains the scheduling information of published maintenance schedule with same key as software_versions. */
       maintenanceSchedules?: {
-        [P in string]: GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule;
+        [
+          P in string
+        ]: GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule;
       };
       /** Optional. The MaintenanceSettings associated with instance. */
       maintenanceSettings?: GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings;
@@ -127,7 +127,9 @@ declare namespace gapi.client {
       name?: string;
       /** Optional. notification_parameter are information that service producers may like to include that is not relevant to Rollout. This parameter will only be passed to Gamma and Cloud Logging for notification/logging purpose. */
       notificationParameters?: {
-        [P in string]: GoogleCloudSaasacceleratorManagementProvidersV1NotificationParameter;
+        [
+          P in string
+        ]: GoogleCloudSaasacceleratorManagementProvidersV1NotificationParameter;
       };
       /** Output only. Custom string attributes used primarily to expose producer-specific information in monitoring dashboards. See go/get-instance-metadata. */
       producerMetadata?: {[P in string]: string};
@@ -188,7 +190,9 @@ declare namespace gapi.client {
     interface GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility {
       /** An entry in the eligibilities map specifies an eligibility for a particular SLI for the given instance. The SLI key in the name must be a valid SLI name specified in the Eligibility Exporter binary flags otherwise an error will be emitted by Eligibility Exporter and the oncaller will be alerted. If an SLI has been defined in the binary flags but the eligibilities map does not contain it, the corresponding SLI time series will not be emitted by the Eligibility Exporter. This ensures a smooth rollout and compatibility between the data produced by different versions of the Eligibility Exporters. If eligibilities map contains a key for an SLI which has not been declared in the binary flags, there will be an error message emitted in the Eligibility Exporter log and the metric for the SLI in question will not be emitted. */
       eligibilities?: {
-        [P in string]: GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility;
+        [
+          P in string
+        ]: GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility;
       };
     }
     interface GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource {
@@ -240,9 +244,7 @@ declare namespace gapi.client {
       memcacheNodes?: Node[];
       /** The major version of Memcached software. If not provided, latest supported version will be used. Currently the latest supported major version is `MEMCACHE_1_5`. The minor version will be automatically determined by our system based on the latest supported minor version. */
       memcacheVersion?:
-        | 'MEMCACHE_VERSION_UNSPECIFIED'
-        | 'MEMCACHE_1_5'
-        | 'MEMCACHE_1_6_15';
+        'MEMCACHE_VERSION_UNSPECIFIED' | 'MEMCACHE_1_5' | 'MEMCACHE_1_6_15';
       /** Required. Unique name of the resource in this scope including project and location using the form: `projects/{project_id}/locations/{location_id}/instances/{instance_id}` Note: Memcached instances are managed and addressed at the regional level so `location_id` here refers to a Google Cloud region; however, users may choose which zones Memcached nodes should be provisioned in within an instance. Refer to zones field for more details. */
       name?: string;
       /** Required. Configuration for Memcached nodes. */
@@ -358,9 +360,7 @@ declare namespace gapi.client {
       memcacheFullVersion?: string;
       /** Output only. Major version of memcached server running on this node, e.g. MEMCACHE_1_5 */
       memcacheVersion?:
-        | 'MEMCACHE_VERSION_UNSPECIFIED'
-        | 'MEMCACHE_1_5'
-        | 'MEMCACHE_1_6_15';
+        'MEMCACHE_VERSION_UNSPECIFIED' | 'MEMCACHE_1_5' | 'MEMCACHE_1_6_15';
       /** Output only. Identifier of the Memcached node. The node id does not include project or location like the Memcached instance name. */
       nodeId?: string;
       /** User defined parameters currently applied to the node. */
@@ -369,11 +369,7 @@ declare namespace gapi.client {
       port?: number;
       /** Output only. Current state of the Memcached node. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATING'
-        | 'READY'
-        | 'DELETING'
-        | 'UPDATING';
+        'STATE_UNSPECIFIED' | 'CREATING' | 'READY' | 'DELETING' | 'UPDATING';
       /** Output only. Location (GCP Zone) for the Memcached node. */
       zone?: string;
     }

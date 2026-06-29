@@ -568,8 +568,7 @@ declare namespace gapi.client {
       endDate?: string;
       /** Optional. Whether the campaign has EU political ads. Campaign Manager 360 doesn't allow campaigns with EU political ads to serve in the EU. They can still serve in other regions. */
       euPoliticalAdsDeclaration?:
-        | 'CONTAINS_EU_POLITICAL_ADS'
-        | 'DOES_NOT_CONTAIN_EU_POLITICAL_ADS';
+        'CONTAINS_EU_POLITICAL_ADS' | 'DOES_NOT_CONTAIN_EU_POLITICAL_ADS';
       /** Overrides that can be used to activate or deactivate advertiser event tags. */
       eventTagOverrides?: EventTagOverride[];
       /** External ID for this campaign. */
@@ -879,10 +878,7 @@ declare namespace gapi.client {
     interface ConversionError {
       /** The error code. */
       code?:
-        | 'INVALID_ARGUMENT'
-        | 'INTERNAL'
-        | 'PERMISSION_DENIED'
-        | 'NOT_FOUND';
+        'INVALID_ARGUMENT' | 'INTERNAL' | 'PERMISSION_DENIED' | 'NOT_FOUND';
       /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#conversionError". */
       kind?: string;
       /** A description of the error. */
@@ -1392,8 +1388,7 @@ declare namespace gapi.client {
       sslCompliant?: boolean;
       /** Initial wait time type before making the asset visible. Applicable to the following creative types: all RICH_MEDIA. */
       startTimeType?:
-        | 'ASSET_START_TIME_TYPE_NONE'
-        | 'ASSET_START_TIME_TYPE_CUSTOM';
+        'ASSET_START_TIME_TYPE_NONE' | 'ASSET_START_TIME_TYPE_CUSTOM';
       /** Streaming URL for video asset. This is a read-only field. Applicable to the following creative types: INSTREAM_VIDEO and all VPAID. */
       streamingServingUrl?: string;
       /** Whether the asset is transparent. Applicable to the following creative types: all RICH_MEDIA. Additionally, only applicable to HTML5 assets. */
@@ -1699,8 +1694,7 @@ declare namespace gapi.client {
       creativeOptimizationConfigurationId?: string;
       /** Type of creative rotation. Can be used to specify whether to use sequential or random rotation. */
       type?:
-        | 'CREATIVE_ROTATION_TYPE_SEQUENTIAL'
-        | 'CREATIVE_ROTATION_TYPE_RANDOM';
+        'CREATIVE_ROTATION_TYPE_SEQUENTIAL' | 'CREATIVE_ROTATION_TYPE_RANDOM';
       /** Strategy for calculating weights. Used with CREATIVE_ROTATION_TYPE_RANDOM. */
       weightCalculationStrategy?:
         | 'WEIGHT_STRATEGY_EQUAL'
@@ -2174,10 +2168,7 @@ declare namespace gapi.client {
       remarketingValueAttributes?: RemarketingValueAttribute[];
       /** Optional. The rotation type to select from eligible rows. Rotation type only apply when the filtering rule results in more than one eligible rows. */
       rotationType?:
-        | 'ROTATION_TYPE_UNKNOWN'
-        | 'RANDOM'
-        | 'OPTIMIZED'
-        | 'WEIGHTED';
+        'ROTATION_TYPE_UNKNOWN' | 'RANDOM' | 'OPTIMIZED' | 'WEIGHTED';
       /** Optional. The type of the rule, the default value is OPEN. */
       ruleType?:
         | 'RULE_SET_TYPE_UNKNOWN'
@@ -2248,9 +2239,7 @@ declare namespace gapi.client {
         | 'DFP_NETWORK_CODE';
       /** Describes whether the encrypted cookie was received from ad serving (the %m macro) or from Data Transfer. */
       encryptionSource?:
-        | 'ENCRYPTION_SCOPE_UNKNOWN'
-        | 'AD_SERVING'
-        | 'DATA_TRANSFER';
+        'ENCRYPTION_SCOPE_UNKNOWN' | 'AD_SERVING' | 'DATA_TRANSFER';
       /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#encryptionInfo". */
       kind?: string;
     }
@@ -2461,11 +2450,7 @@ declare namespace gapi.client {
       stringValue?: string;
       /** Optional. Right hand side of the expression. */
       valueType?:
-        | 'RHS_VALUE_TYPE_UNKNOWN'
-        | 'STRING'
-        | 'REQUEST'
-        | 'BOOL'
-        | 'DEPENDENT';
+        'RHS_VALUE_TYPE_UNKNOWN' | 'STRING' | 'REQUEST' | 'BOOL' | 'DEPENDENT';
     }
     interface File {
       /** The date range for which the file has report data. The date range will always be the absolute date range for which the report is run. */
@@ -2486,11 +2471,7 @@ declare namespace gapi.client {
       reportId?: string;
       /** The status of the report file. */
       status?:
-        | 'PROCESSING'
-        | 'REPORT_AVAILABLE'
-        | 'FAILED'
-        | 'CANCELLED'
-        | 'QUEUED';
+        'PROCESSING' | 'REPORT_AVAILABLE' | 'FAILED' | 'CANCELLED' | 'QUEUED';
       /** The URLs where the completed report file can be downloaded. */
       urls?: {
         /** The URL for downloading the report data through the API. */
@@ -2536,11 +2517,7 @@ declare namespace gapi.client {
       attributionEnabled?: boolean;
       /** Code type used for cache busting in the generated tag. Applicable only when floodlightActivityGroupType is COUNTER and countingMethod is STANDARD_COUNTING or UNIQUE_COUNTING. */
       cacheBustingType?:
-        | 'JAVASCRIPT'
-        | 'ACTIVE_SERVER_PAGE'
-        | 'JSP'
-        | 'PHP'
-        | 'COLD_FUSION';
+        'JAVASCRIPT' | 'ACTIVE_SERVER_PAGE' | 'JSP' | 'PHP' | 'COLD_FUSION';
       /** Required. The conversion category of the activity. */
       conversionCategory?:
         | 'CONVERSION_CATEGORY_DEFAULT'
@@ -2605,10 +2582,7 @@ declare namespace gapi.client {
       sslRequired?: boolean;
       /** The status of the activity. This can only be set to ACTIVE or ARCHIVED_AND_DISABLED. The ARCHIVED status is no longer supported and cannot be set for Floodlight activities. The DISABLED_POLICY status indicates that a Floodlight activity is violating Google policy. Contact your account manager for more information. */
       status?:
-        | 'ACTIVE'
-        | 'ARCHIVED_AND_DISABLED'
-        | 'ARCHIVED'
-        | 'DISABLED_POLICY';
+        'ACTIVE' | 'ARCHIVED_AND_DISABLED' | 'ARCHIVED' | 'DISABLED_POLICY';
       /** Subaccount ID of this floodlight activity. This is a read-only field that can be left blank. */
       subaccountId?: string;
       /** Tag format type for the floodlight activity. If left blank, the tag format will default to HTML. */
@@ -3582,9 +3556,7 @@ declare namespace gapi.client {
     interface PricingSchedule {
       /** Placement cap cost option. */
       capCostOption?:
-        | 'CAP_COST_NONE'
-        | 'CAP_COST_MONTHLY'
-        | 'CAP_COST_CUMULATIVE';
+        'CAP_COST_NONE' | 'CAP_COST_MONTHLY' | 'CAP_COST_CUMULATIVE';
       endDate?: string;
       /** Whether this placement is flighted. If true, pricing periods will be computed automatically. */
       flighted?: boolean;
@@ -4445,12 +4417,7 @@ declare namespace gapi.client {
     interface UniversalAdId {
       /** Registry used for the Ad ID value. */
       registry?:
-        | 'OTHER'
-        | 'AD_ID_OFFICIAL'
-        | 'CLEARCAST'
-        | 'DCM'
-        | 'ARPP'
-        | 'CUSV';
+        'OTHER' | 'AD_ID_OFFICIAL' | 'CLEARCAST' | 'DCM' | 'ARPP' | 'CUSV';
       /** ID value for this creative. Only alphanumeric characters and the following symbols are valid: "_/\-". Maximum length is 64 characters. Read only when registry is DCM. */
       value?: string;
     }

@@ -275,9 +275,7 @@ declare namespace gapi.client {
       published?: string;
       /** Comment control and display setting for readers of this post. */
       readerComments?:
-        | 'ALLOW'
-        | 'DONT_ALLOW_SHOW_EXISTING'
-        | 'DONT_ALLOW_HIDE_EXISTING';
+        'ALLOW' | 'DONT_ALLOW_SHOW_EXISTING' | 'DONT_ALLOW_HIDE_EXISTING';
       /** The container of comments on this Post. */
       replies?: {
         /** The List of Comments for this Post. */

@@ -34,9 +34,7 @@ declare namespace gapi.client {
     interface AchievementConfiguration {
       /** The type of the achievement. */
       achievementType?:
-        | 'ACHIEVEMENT_TYPE_UNSPECIFIED'
-        | 'STANDARD'
-        | 'INCREMENTAL';
+        'ACHIEVEMENT_TYPE_UNSPECIFIED' | 'STANDARD' | 'INCREMENTAL';
       /** The draft data of the achievement. */
       draft?: AchievementConfigurationDetail;
       /** The ID of the achievement. */
@@ -116,9 +114,7 @@ declare namespace gapi.client {
       /** Minimum score that can be posted to this leaderboard. */
       scoreMin?: string;
       scoreOrder?:
-        | 'SCORE_ORDER_UNSPECIFIED'
-        | 'LARGER_IS_BETTER'
-        | 'SMALLER_IS_BETTER';
+        'SCORE_ORDER_UNSPECIFIED' | 'LARGER_IS_BETTER' | 'SMALLER_IS_BETTER';
       /** The token for this resource. */
       token?: string;
     }

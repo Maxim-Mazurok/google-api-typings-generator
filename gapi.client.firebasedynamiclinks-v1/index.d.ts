@@ -212,10 +212,7 @@ declare namespace gapi.client {
       appMinimumVersion?: string;
       /** The confidence of the returned attribution. */
       attributionConfidence?:
-        | 'UNKNOWN_ATTRIBUTION_CONFIDENCE'
-        | 'WEAK'
-        | 'DEFAULT'
-        | 'UNIQUE';
+        'UNKNOWN_ATTRIBUTION_CONFIDENCE' | 'WEAK' | 'DEFAULT' | 'UNIQUE';
       /** The deep-link attributed post-install via one of several techniques (device heuristics, copy unique). */
       deepLink?: string;
       /** User-agent specific custom-scheme URIs for iSDK to open. This will be set according to the user-agent tha the click was originally made in. There is no Safari-equivalent custom-scheme open URLs. ie: googlechrome://www.example.com ie: firefox://open-url?url=http://www.example.com ie: opera-http://example.com */
@@ -328,10 +325,7 @@ declare namespace gapi.client {
       linkName?: string;
       /** Visibility status of link. */
       visibility?:
-        | 'UNSPECIFIED_VISIBILITY'
-        | 'UNARCHIVED'
-        | 'ARCHIVED'
-        | 'NEVER_SHOWN';
+        'UNSPECIFIED_VISIBILITY' | 'UNARCHIVED' | 'ARCHIVED' | 'NEVER_SHOWN';
     }
     interface NavigationInfo {
       /** If this option is on, FDL click will be forced to redirect rather than show an interstitial page. */

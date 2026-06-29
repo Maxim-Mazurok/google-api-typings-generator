@@ -140,10 +140,7 @@ declare namespace gapi.client {
       fullMessage?: TextWithTooltip;
       /** Can be used to render messages with different severity in different styles. Snippets off all types contain important information that should be displayed to the business. */
       styleHint?:
-        | 'CALLOUT_STYLE_HINT_UNSPECIFIED'
-        | 'ERROR'
-        | 'WARNING'
-        | 'INFO';
+        'CALLOUT_STYLE_HINT_UNSPECIFIED' | 'ERROR' | 'WARNING' | 'INFO';
     }
     interface CheckboxInput {}
     interface CheckboxInputValue {
@@ -225,15 +222,10 @@ declare namespace gapi.client {
       productCount?: string;
       /** Whether the issue can be resolved by the merchant. */
       resolution?:
-        | 'RESOLUTION_UNSPECIFIED'
-        | 'MERCHANT_ACTION'
-        | 'PENDING_PROCESSING';
+        'RESOLUTION_UNSPECIFIED' | 'MERCHANT_ACTION' | 'PENDING_PROCESSING';
       /** How this issue affects serving of the offer. */
       severity?:
-        | 'SEVERITY_UNSPECIFIED'
-        | 'NOT_IMPACTED'
-        | 'DEMOTED'
-        | 'DISAPPROVED';
+        'SEVERITY_UNSPECIFIED' | 'NOT_IMPACTED' | 'DEMOTED' | 'DISAPPROVED';
     }
     interface ListAggregateProductStatusesResponse {
       /** The `AggregateProductStatuses` resources for the given account. */

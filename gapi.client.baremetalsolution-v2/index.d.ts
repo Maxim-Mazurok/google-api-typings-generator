@@ -37,9 +37,7 @@ declare namespace gapi.client {
       allowSuid?: boolean;
       /** Mount permissions. */
       mountPermissions?:
-        | 'MOUNT_PERMISSIONS_UNSPECIFIED'
-        | 'READ'
-        | 'READ_WRITE';
+        'MOUNT_PERMISSIONS_UNSPECIFIED' | 'READ' | 'READ_WRITE';
       /** The network the access point sits on. */
       network?: string;
       /** Output only. The path to access NFS, in format shareIP:/InstanceID InstanceID is the generated ID instead of customer provided name. example like "10.0.0.0:/g123456789-nfs001" */
@@ -154,9 +152,7 @@ declare namespace gapi.client {
       name?: string;
       /** The type of network configuration on the instance. */
       networkConfig?:
-        | 'NETWORKCONFIG_UNSPECIFIED'
-        | 'SINGLE_VLAN'
-        | 'MULTI_VLAN';
+        'NETWORKCONFIG_UNSPECIFIED' | 'SINGLE_VLAN' | 'MULTI_VLAN';
       /** Server network template name. Filled if InstanceConfig.multivlan_config is true. */
       networkTemplate?: string;
       /** OS image to initialize the instance. [Available images](https://cloud.google.com/bare-metal/docs/bms-planning#server_configurations) */

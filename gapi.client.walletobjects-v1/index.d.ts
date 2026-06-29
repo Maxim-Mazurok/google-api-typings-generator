@@ -154,11 +154,7 @@ declare namespace gapi.client {
     interface BoardingAndSeatingInfo {
       /** Set this field only if this flight boards through more than one door or bridge and you want to explicitly print the door location on the boarding pass. Most airlines route their passengers to the right door or bridge by refering to doors/bridges by the `seatClass`. In those cases `boardingDoor` should not be set. */
       boardingDoor?:
-        | 'BOARDING_DOOR_UNSPECIFIED'
-        | 'FRONT'
-        | 'front'
-        | 'BACK'
-        | 'back';
+        'BOARDING_DOOR_UNSPECIFIED' | 'FRONT' | 'front' | 'BACK' | 'back';
       /** The value of boarding group (or zone) this passenger shall board with. eg: "B" The label for this value will be determined by the `boardingPolicy` field in the `flightClass` referenced by this object. */
       boardingGroup?: string;
       /** The value of boarding position. eg: "76" */
@@ -522,8 +518,7 @@ declare namespace gapi.client {
         | 'oneUserOneDevice';
       /** Whether or not field updates to this class should trigger notifications. When set to NOTIFY, we will attempt to trigger a field update notification to users. These notifications will only be sent to users if the field is part of an allowlist. If not specified, no notification will be triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request, otherwise a notification will not be triggered. */
       notifyPreference?:
-        | 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED'
-        | 'NOTIFY_ON_UPDATE';
+        'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED' | 'NOTIFY_ON_UPDATE';
       /** Identifies which redemption issuers can redeem the pass over Smart Tap. Redemption issuers are identified by their issuer ID. Redemption issuers must have at least one Smart Tap key configured. The `enableSmartTap` and object level `smartTapRedemptionLevel` fields must also be set up correctly in order for a pass to support Smart Tap. */
       redemptionIssuers?: string[];
       /** The review comments set by the platform when a class is marked `approved` or `rejected`. */
@@ -625,8 +620,7 @@ declare namespace gapi.client {
       messages?: Message[];
       /** Whether or not field updates to this object should trigger notifications. When set to NOTIFY, we will attempt to trigger a field update notification to users. These notifications will only be sent to users if the field is part of an allowlist. If set to DO_NOT_NOTIFY or NOTIFICATION_SETTINGS_UNSPECIFIED, no notification will be triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request, otherwise a notification will not be triggered. */
       notifyPreference?:
-        | 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED'
-        | 'NOTIFY_ON_UPDATE';
+        'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED' | 'NOTIFY_ON_UPDATE';
       /** Pass constraints for the object. Includes limiting NFC and screenshot behaviors. */
       passConstraints?: PassConstraints;
       /** Reservation details for this ticket. This is expected to be shared amongst all tickets that were purchased in the same order. */
@@ -823,8 +817,7 @@ declare namespace gapi.client {
         | 'oneUserOneDevice';
       /** Whether or not field updates to this class should trigger notifications. When set to NOTIFY, we will attempt to trigger a field update notification to users. These notifications will only be sent to users if the field is part of an allowlist. If not specified, no notification will be triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request, otherwise a notification will not be triggered. */
       notifyPreference?:
-        | 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED'
-        | 'NOTIFY_ON_UPDATE';
+        'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED' | 'NOTIFY_ON_UPDATE';
       /** Required. Origin airport. */
       origin?: AirportInfo;
       /** Identifies which redemption issuers can redeem the pass over Smart Tap. Redemption issuers are identified by their issuer ID. Redemption issuers must have at least one Smart Tap key configured. The `enableSmartTap` and object level `smartTapRedemptionLevel` fields must also be set up correctly in order for a pass to support Smart Tap. */
@@ -925,8 +918,7 @@ declare namespace gapi.client {
       messages?: Message[];
       /** Whether or not field updates to this object should trigger notifications. When set to NOTIFY, we will attempt to trigger a field update notification to users. These notifications will only be sent to users if the field is part of an allowlist. If set to DO_NOT_NOTIFY or NOTIFICATION_SETTINGS_UNSPECIFIED, no notification will be triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request, otherwise a notification will not be triggered. */
       notifyPreference?:
-        | 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED'
-        | 'NOTIFY_ON_UPDATE';
+        'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED' | 'NOTIFY_ON_UPDATE';
       /** Pass constraints for the object. Includes limiting NFC and screenshot behaviors. */
       passConstraints?: PassConstraints;
       /** Required. Passenger name as it would appear on the boarding pass. eg: "Dave M Gahan" or "Gahan/Dave" or "GAHAN/DAVEM" */
@@ -1194,8 +1186,7 @@ declare namespace gapi.client {
         | 'oneUserOneDevice';
       /** Whether or not field updates to this class should trigger notifications. When set to NOTIFY, we will attempt to trigger a field update notification to users. These notifications will only be sent to users if the field is part of an allowlist. If not specified, no notification will be triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request, otherwise a notification will not be triggered. */
       notifyPreference?:
-        | 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED'
-        | 'NOTIFY_ON_UPDATE';
+        'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED' | 'NOTIFY_ON_UPDATE';
       /** The label to display for the PIN, such as "4-digit PIN". */
       pinLabel?: string;
       /** The logo of the gift card program or company. This logo is displayed in both the details and list views of the app. */
@@ -1290,8 +1281,7 @@ declare namespace gapi.client {
       messages?: Message[];
       /** Whether or not field updates to this object should trigger notifications. When set to NOTIFY, we will attempt to trigger a field update notification to users. These notifications will only be sent to users if the field is part of an allowlist. If set to DO_NOT_NOTIFY or NOTIFICATION_SETTINGS_UNSPECIFIED, no notification will be triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request, otherwise a notification will not be triggered. */
       notifyPreference?:
-        | 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED'
-        | 'NOTIFY_ON_UPDATE';
+        'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED' | 'NOTIFY_ON_UPDATE';
       /** Pass constraints for the object. Includes limiting NFC and screenshot behaviors. */
       passConstraints?: PassConstraints;
       /** The card's PIN. */
@@ -1525,8 +1515,7 @@ declare namespace gapi.client {
         | 'oneUserOneDevice';
       /** Whether or not field updates to this class should trigger notifications. When set to NOTIFY, we will attempt to trigger a field update notification to users. These notifications will only be sent to users if the field is part of an allowlist. If not specified, no notification will be triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request, otherwise a notification will not be triggered. */
       notifyPreference?:
-        | 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED'
-        | 'NOTIFY_ON_UPDATE';
+        'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED' | 'NOTIFY_ON_UPDATE';
       /** Required. The logo of the loyalty program or company. This logo is displayed in both the details and list views of the app. */
       programLogo?: Image;
       /** Required. The program name, such as "Adam's Apparel". The app may display an ellipsis after the first 20 characters to ensure full string is displayed on smaller screens. */
@@ -1629,8 +1618,7 @@ declare namespace gapi.client {
       messages?: Message[];
       /** Whether or not field updates to this object should trigger notifications. When set to NOTIFY, we will attempt to trigger a field update notification to users. These notifications will only be sent to users if the field is part of an allowlist. If set to DO_NOT_NOTIFY or NOTIFICATION_SETTINGS_UNSPECIFIED, no notification will be triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request, otherwise a notification will not be triggered. */
       notifyPreference?:
-        | 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED'
-        | 'NOTIFY_ON_UPDATE';
+        'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED' | 'NOTIFY_ON_UPDATE';
       /** Pass constraints for the object. Includes limiting NFC and screenshot behaviors. */
       passConstraints?: PassConstraints;
       /** The rotating barcode type and value. */
@@ -1777,11 +1765,7 @@ declare namespace gapi.client {
       finalStatus?: number;
       /** The type of notification received from Scotty. */
       notificationType?:
-        | 'START'
-        | 'PROGRESS'
-        | 'END'
-        | 'RESPONSE_SENT'
-        | 'ERROR';
+        'START' | 'PROGRESS' | 'END' | 'RESPONSE_SENT' | 'ERROR';
       /** The physical headers provided by RequestReceivedParameters in Scotty request. type is uploader_service.KeyValuePairs. */
       physicalHeaders?: string;
       /** The Scotty request ID. */
@@ -1925,8 +1909,7 @@ declare namespace gapi.client {
         | 'oneUserOneDevice';
       /** Whether or not field updates to this class should trigger notifications. When set to NOTIFY, we will attempt to trigger a field update notification to users. These notifications will only be sent to users if the field is part of an allowlist. If not specified, no notification will be triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request, otherwise a notification will not be triggered. */
       notifyPreference?:
-        | 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED'
-        | 'NOTIFY_ON_UPDATE';
+        'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED' | 'NOTIFY_ON_UPDATE';
       /** Required. The offer provider (either the aggregator name or merchant name). Recommended maximum length is 12 characters to ensure full string is displayed on smaller screens. */
       provider?: string;
       /** Required. The redemption channels applicable to this offer. */
@@ -2028,8 +2011,7 @@ declare namespace gapi.client {
       messages?: Message[];
       /** Whether or not field updates to this object should trigger notifications. When set to NOTIFY, we will attempt to trigger a field update notification to users. These notifications will only be sent to users if the field is part of an allowlist. If set to DO_NOT_NOTIFY or NOTIFICATION_SETTINGS_UNSPECIFIED, no notification will be triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request, otherwise a notification will not be triggered. */
       notifyPreference?:
-        | 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED'
-        | 'NOTIFY_ON_UPDATE';
+        'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED' | 'NOTIFY_ON_UPDATE';
       /** Pass constraints for the object. Includes limiting NFC and screenshot behaviors. */
       passConstraints?: PassConstraints;
       /** The rotating barcode type and value. */
@@ -2084,9 +2066,7 @@ declare namespace gapi.client {
         | 'BLOCK_CLOSED_LOOP_TRANSIT'[];
       /** The screenshot eligibility for the pass. */
       screenshotEligibility?:
-        | 'SCREENSHOT_ELIGIBILITY_UNSPECIFIED'
-        | 'ELIGIBLE'
-        | 'INELIGIBLE';
+        'SCREENSHOT_ELIGIBILITY_UNSPECIFIED' | 'ELIGIBLE' | 'INELIGIBLE';
     }
     interface Permission {
       /** The email address of the user, group, or service account to which this permission refers to. */
@@ -2459,8 +2439,7 @@ declare namespace gapi.client {
         | 'oneUserOneDevice';
       /** Whether or not field updates to this class should trigger notifications. When set to NOTIFY, we will attempt to trigger a field update notification to users. These notifications will only be sent to users if the field is part of an allowlist. If set to DO_NOT_NOTIFY or NOTIFICATION_SETTINGS_UNSPECIFIED, no notification will be triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request, otherwise a notification will not be triggered. */
       notifyPreference?:
-        | 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED'
-        | 'NOTIFY_ON_UPDATE';
+        'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED' | 'NOTIFY_ON_UPDATE';
       /** Identifies which redemption issuers can redeem the pass over Smart Tap. Redemption issuers are identified by their issuer ID. Redemption issuers must have at least one Smart Tap key configured. The `enableSmartTap` and object level `smartTapRedemptionLevel` fields must also be set up correctly in order for a pass to support Smart Tap. */
       redemptionIssuers?: string[];
       /** The review comments set by the platform when a class is marked `approved` or `rejected`. */
@@ -2577,8 +2556,7 @@ declare namespace gapi.client {
       messages?: Message[];
       /** Whether or not field updates to this object should trigger notifications. When set to NOTIFY, we will attempt to trigger a field update notification to users. These notifications will only be sent to users if the field is part of an allowlist. If set to DO_NOT_NOTIFY or NOTIFICATION_SETTINGS_UNSPECIFIED, no notification will be triggered. This setting is ephemeral and needs to be set with each PATCH or UPDATE request, otherwise a notification will not be triggered. */
       notifyPreference?:
-        | 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED'
-        | 'NOTIFY_ON_UPDATE';
+        'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED' | 'NOTIFY_ON_UPDATE';
       /** Pass constraints for the object. Includes limiting NFC and screenshot behaviors. */
       passConstraints?: PassConstraints;
       /** The name(s) of the passengers the ticket is assigned to. The above `passengerType` field is meant to give Google context on this field. */

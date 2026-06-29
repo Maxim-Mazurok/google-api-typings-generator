@@ -41,10 +41,7 @@ declare namespace gapi.client {
       domain?: string;
       /** Output only. Reason for failure of the authorization attempt for the domain. */
       failureReason?:
-        | 'FAILURE_REASON_UNSPECIFIED'
-        | 'CONFIG'
-        | 'CAA'
-        | 'RATE_LIMITED';
+        'FAILURE_REASON_UNSPECIFIED' | 'CONFIG' | 'CAA' | 'RATE_LIMITED';
       /** Output only. State of the domain for managed certificate issuance. */
       state?: 'STATE_UNSPECIFIED' | 'AUTHORIZING' | 'AUTHORIZED' | 'FAILED';
       /** Output only. Troubleshooting information for the authorization attempt. This field is only populated if the authorization attempt failed. */

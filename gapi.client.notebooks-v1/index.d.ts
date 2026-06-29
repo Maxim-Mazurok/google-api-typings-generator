@@ -657,9 +657,7 @@ declare namespace gapi.client {
     interface RuntimeAccessConfig {
       /** The type of access mode this instance. */
       accessType?:
-        | 'RUNTIME_ACCESS_TYPE_UNSPECIFIED'
-        | 'SINGLE_USER'
-        | 'SERVICE_ACCOUNT';
+        'RUNTIME_ACCESS_TYPE_UNSPECIFIED' | 'SINGLE_USER' | 'SERVICE_ACCOUNT';
       /** Output only. The proxy endpoint that is used to access the runtime. */
       proxyUri?: string;
       /** The owner of this runtime after creation. Format: `alias@example.com` Currently supports one owner only. */

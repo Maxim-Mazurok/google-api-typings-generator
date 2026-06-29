@@ -326,10 +326,7 @@ declare namespace gapi.client {
       response?: {[P in string]: any};
       /** Optional. Specifies how the response should be scheduled in the conversation. Only applicable to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE. */
       scheduling?:
-        | 'SCHEDULING_UNSPECIFIED'
-        | 'SILENT'
-        | 'WHEN_IDLE'
-        | 'INTERRUPT';
+        'SCHEDULING_UNSPECIFIED' | 'SILENT' | 'WHEN_IDLE' | 'INTERRUPT';
     }
     interface GoogleCloudAiplatformV1beta1FunctionResponseBlob {
       /** Required. Raw bytes. */
@@ -467,11 +464,7 @@ declare namespace gapi.client {
       responseMimeType?: string;
       /** Optional. The modalities of the response. The model will generate a response that includes all the specified modalities. For example, if this is set to `[TEXT, IMAGE]`, the response will include both text and an image. */
       responseModalities?:
-        | 'MODALITY_UNSPECIFIED'
-        | 'TEXT'
-        | 'IMAGE'
-        | 'AUDIO'
-        | 'VIDEO'[];
+        'MODALITY_UNSPECIFIED' | 'TEXT' | 'IMAGE' | 'AUDIO' | 'VIDEO'[];
       /** Optional. Lets you to specify a schema for the model's response, ensuring that the output conforms to a particular structure. This is useful for generating structured data such as JSON. The schema is a subset of the [OpenAPI 3.0 schema object](https://spec.openapis.org/oas/v3.0.3#schema) object. When this field is set, you must also set the `response_mime_type` to `application/json`. Deprecated: Use `response_format` instead. */
       responseSchema?: GoogleCloudAiplatformV1beta1Schema;
       /** Optional. Routing configuration. */
@@ -508,10 +501,7 @@ declare namespace gapi.client {
     interface GoogleCloudAiplatformV1beta1GenerationConfigRoutingConfigAutoRoutingMode {
       /** The model routing preference. */
       modelRoutingPreference?:
-        | 'UNKNOWN'
-        | 'PRIORITIZE_QUALITY'
-        | 'BALANCED'
-        | 'PRIORITIZE_COST';
+        'UNKNOWN' | 'PRIORITIZE_QUALITY' | 'BALANCED' | 'PRIORITIZE_COST';
     }
     interface GoogleCloudAiplatformV1beta1GenerationConfigRoutingConfigManualRoutingMode {
       /** The name of the model to use. Only public LLM models are accepted. */
@@ -524,11 +514,7 @@ declare namespace gapi.client {
       thinkingBudget?: number;
       /** Optional. The number of thoughts tokens that the model should generate. */
       thinkingLevel?:
-        | 'THINKING_LEVEL_UNSPECIFIED'
-        | 'LOW'
-        | 'MEDIUM'
-        | 'HIGH'
-        | 'MINIMAL';
+        'THINKING_LEVEL_UNSPECIFIED' | 'LOW' | 'MEDIUM' | 'HIGH' | 'MINIMAL';
     }
     interface GoogleCloudAiplatformV1beta1GoogleMaps {
       /** Optional. Deprecated: The Google Maps contextual widget behavior in Grounding with Google Maps is being deprecated; this field is planned for removal and no longer has any effect once removed. If true, include the widget context token in the response. */

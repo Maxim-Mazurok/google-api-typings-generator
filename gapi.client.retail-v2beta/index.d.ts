@@ -250,10 +250,7 @@ declare namespace gapi.client {
       servingConfigLists?: GoogleCloudRetailV2alphaModelServingConfigList[];
       /** Output only. The serving state of the model: `ACTIVE`, `NOT_ACTIVE`. */
       servingState?:
-        | 'SERVING_STATE_UNSPECIFIED'
-        | 'INACTIVE'
-        | 'ACTIVE'
-        | 'TUNED';
+        'SERVING_STATE_UNSPECIFIED' | 'INACTIVE' | 'ACTIVE' | 'TUNED';
       /** Optional. The training state that the model is in (e.g. `TRAINING` or `PAUSED`). Since part of the cost of running the service is frequency of training - this can be used to determine when to train model in order to control cost. If not specified: the default value for `CreateModel` method is `TRAINING`. The default value for `UpdateModel` method is to keep the state the same as before. */
       trainingState?: 'TRAINING_STATE_UNSPECIFIED' | 'PAUSED' | 'TRAINING';
       /** Output only. The tune operation associated with the model. Can be used to determine if there is an ongoing tune for this recommendation. Empty field implies no tune is goig on. */
@@ -572,7 +569,9 @@ declare namespace gapi.client {
     interface GoogleCloudRetailV2betaCompleteQueryResponse {
       /** A map of matched attribute suggestions. This field is only available for `cloud-retail` dataset. Current supported keys: * `brands` * `categories` */
       attributeResults?: {
-        [P in string]: GoogleCloudRetailV2betaCompleteQueryResponseAttributeResult;
+        [
+          P in string
+        ]: GoogleCloudRetailV2betaCompleteQueryResponseAttributeResult;
       };
       /** A unique complete token. This should be included in the UserEvent.completion_detail for search events resulting from this completion, which enables accurate attribution of complete model performance. */
       attributionToken?: string;
@@ -948,9 +947,7 @@ declare namespace gapi.client {
       notificationPubsubTopic?: string;
       /** The mode of reconciliation between existing products and the products to be imported. Defaults to ReconciliationMode.INCREMENTAL. */
       reconciliationMode?:
-        | 'RECONCILIATION_MODE_UNSPECIFIED'
-        | 'INCREMENTAL'
-        | 'FULL';
+        'RECONCILIATION_MODE_UNSPECIFIED' | 'INCREMENTAL' | 'FULL';
       /** Deprecated. This field has no effect. */
       requestId?: string;
       /** Indicates which fields in the provided imported `products` to update. If not set, all fields are updated. If provided, only the existing product fields are updated. Missing products will not be created. */
@@ -1120,10 +1117,7 @@ declare namespace gapi.client {
       servingConfigLists?: GoogleCloudRetailV2betaModelServingConfigList[];
       /** Output only. The serving state of the model: `ACTIVE`, `NOT_ACTIVE`. */
       servingState?:
-        | 'SERVING_STATE_UNSPECIFIED'
-        | 'INACTIVE'
-        | 'ACTIVE'
-        | 'TUNED';
+        'SERVING_STATE_UNSPECIFIED' | 'INACTIVE' | 'ACTIVE' | 'TUNED';
       /** Optional. The training state that the model is in (e.g. `TRAINING` or `PAUSED`). Since part of the cost of running the service is frequency of training - this can be used to determine when to train model in order to control cost. If not specified: the default value for `CreateModel` method is `TRAINING`. The default value for `UpdateModel` method is to keep the state the same as before. */
       trainingState?: 'TRAINING_STATE_UNSPECIFIED' | 'PAUSED' | 'TRAINING';
       /** Output only. The tune operation associated with the model. Can be used to determine if there is an ongoing tune for this recommendation. Empty field implies no tune is goig on. */
@@ -2089,10 +2083,7 @@ declare namespace gapi.client {
       servingConfigLists?: GoogleCloudRetailV2ModelServingConfigList[];
       /** Output only. The serving state of the model: `ACTIVE`, `NOT_ACTIVE`. */
       servingState?:
-        | 'SERVING_STATE_UNSPECIFIED'
-        | 'INACTIVE'
-        | 'ACTIVE'
-        | 'TUNED';
+        'SERVING_STATE_UNSPECIFIED' | 'INACTIVE' | 'ACTIVE' | 'TUNED';
       /** Optional. The training state that the model is in (e.g. `TRAINING` or `PAUSED`). Since part of the cost of running the service is frequency of training - this can be used to determine when to train model in order to control cost. If not specified: the default value for `CreateModel` method is `TRAINING`. The default value for `UpdateModel` method is to keep the state the same as before. */
       trainingState?: 'TRAINING_STATE_UNSPECIFIED' | 'PAUSED' | 'TRAINING';
       /** Output only. The tune operation associated with the model. Can be used to determine if there is an ongoing tune for this recommendation. Empty field implies no tune is goig on. */

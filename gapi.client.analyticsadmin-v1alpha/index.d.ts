@@ -303,10 +303,7 @@ declare namespace gapi.client {
     interface GoogleAnalyticsAdminV1alphaAudienceDimensionOrMetricFilterNumericFilter {
       /** Required. The operation applied to a numeric filter. */
       operation?:
-        | 'OPERATION_UNSPECIFIED'
-        | 'EQUAL'
-        | 'LESS_THAN'
-        | 'GREATER_THAN';
+        'OPERATION_UNSPECIFIED' | 'EQUAL' | 'LESS_THAN' | 'GREATER_THAN';
       /** Required. The numeric or date value to match against. */
       value?: GoogleAnalyticsAdminV1alphaAudienceDimensionOrMetricFilterNumericValue;
     }
@@ -479,9 +476,7 @@ declare namespace gapi.client {
       name?: string;
       /** Output only. Types of restricted data that this metric contains. */
       restrictedMetricType?:
-        | 'RESTRICTED_METRIC_TYPE_UNSPECIFIED'
-        | 'COST_DATA'
-        | 'REVENUE_DATA'[];
+        'RESTRICTED_METRIC_TYPE_UNSPECIFIED' | 'COST_DATA' | 'REVENUE_DATA'[];
     }
     interface GoogleAnalyticsAdminV1alphaCancelDisplayVideo360AdvertiserLinkProposalRequest {}
     interface GoogleAnalyticsAdminV1alphaChangeHistoryChange {
@@ -720,9 +715,7 @@ declare namespace gapi.client {
       parameterName?: string;
       /** Optional. Types of restricted data that this metric may contain. Required for metrics with CURRENCY measurement unit. Must be empty for metrics with a non-CURRENCY measurement unit. */
       restrictedMetricType?:
-        | 'RESTRICTED_METRIC_TYPE_UNSPECIFIED'
-        | 'COST_DATA'
-        | 'REVENUE_DATA'[];
+        'RESTRICTED_METRIC_TYPE_UNSPECIFIED' | 'COST_DATA' | 'REVENUE_DATA'[];
       /** Required. Immutable. The scope of this custom metric. */
       scope?: 'METRIC_SCOPE_UNSPECIFIED' | 'EVENT';
     }
@@ -1013,9 +1006,7 @@ declare namespace gapi.client {
     interface GoogleAnalyticsAdminV1alphaKeyEvent {
       /** Required. The method by which Key Events will be counted across multiple events within a session. */
       countingMethod?:
-        | 'COUNTING_METHOD_UNSPECIFIED'
-        | 'ONCE_PER_EVENT'
-        | 'ONCE_PER_SESSION';
+        'COUNTING_METHOD_UNSPECIFIED' | 'ONCE_PER_EVENT' | 'ONCE_PER_SESSION';
       /** Output only. Time when this key event was created in the property. */
       createTime?: string;
       /** Output only. If set to true, this key event refers to a custom event. If set to false, this key event refers to a default event in GA. Default events typically have special meaning in GA. Default events are usually created for you by the GA system, but in some cases can be created by property admins. Custom events count towards the maximum number of custom key events that may be created per property. */
@@ -1363,9 +1354,7 @@ declare namespace gapi.client {
     interface GoogleAnalyticsAdminV1alphaProvisionSubpropertyRequest {
       /** Optional. The subproperty feature synchronization mode for Custom Dimensions and Metrics */
       customDimensionAndMetricSynchronizationMode?:
-        | 'SYNCHRONIZATION_MODE_UNSPECIFIED'
-        | 'NONE'
-        | 'ALL';
+        'SYNCHRONIZATION_MODE_UNSPECIFIED' | 'NONE' | 'ALL';
       /** Required. The subproperty to create. */
       subproperty?: GoogleAnalyticsAdminV1alphaProperty;
       /** Optional. The subproperty event filter to create on an ordinary property. */
@@ -1573,9 +1562,7 @@ declare namespace gapi.client {
     interface GoogleAnalyticsAdminV1alphaSubpropertyEventFilterClause {
       /** Required. The type for the filter clause. */
       filterClauseType?:
-        | 'FILTER_CLAUSE_TYPE_UNSPECIFIED'
-        | 'INCLUDE'
-        | 'EXCLUDE';
+        'FILTER_CLAUSE_TYPE_UNSPECIFIED' | 'INCLUDE' | 'EXCLUDE';
       /** Required. The logical expression for what events are sent to the subproperty. */
       filterExpression?: GoogleAnalyticsAdminV1alphaSubpropertyEventFilterExpression;
     }
@@ -1619,9 +1606,7 @@ declare namespace gapi.client {
       applyToProperty?: string;
       /** Required. Specifies the Custom Dimension / Metric synchronization mode for the subproperty. If set to ALL, Custom Dimension / Metric synchronization will be immediately enabled. Local configuration of Custom Dimensions / Metrics will not be allowed on the subproperty so long as the synchronization mode is set to ALL. If set to NONE, Custom Dimensions / Metric synchronization is disabled. Custom Dimensions / Metrics must be configured explicitly on the Subproperty. */
       customDimensionAndMetricSyncMode?:
-        | 'SYNCHRONIZATION_MODE_UNSPECIFIED'
-        | 'NONE'
-        | 'ALL';
+        'SYNCHRONIZATION_MODE_UNSPECIFIED' | 'NONE' | 'ALL';
       /** Output only. Identifier. Format: properties/{ordinary_property_id}/subpropertySyncConfigs/{subproperty_id} Example: properties/1234/subpropertySyncConfigs/5678 */
       name?: string;
     }

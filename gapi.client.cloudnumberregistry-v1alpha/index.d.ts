@@ -144,9 +144,7 @@ declare namespace gapi.client {
       createTime?: string;
       /** Required. Add-on platforms that are enabled for this IpamAdminScope. Cloud Number Registry only discovers the IP addresses from the enabled platforms. */
       enabledAddonPlatforms?:
-        | 'ADD_ON_PLATFORM_UNSPECIFIED'
-        | 'COMPUTE_ENGINE'
-        | 'GCE'[];
+        'ADD_ON_PLATFORM_UNSPECIFIED' | 'COMPUTE_ENGINE' | 'GCE'[];
       /** Optional. User-defined labels. */
       labels?: {[P in string]: string};
       /** Required. Identifier. The resource name of the IpamAdminScope. */
@@ -348,9 +346,7 @@ declare namespace gapi.client {
       query?: string;
       /** Optional. The type of resources to search for. If not specified, the server will return Ranges. */
       searchResourceTypes?:
-        | 'SEARCH_RESOURCE_TYPE_UNSPECIFIED'
-        | 'RANGES'
-        | 'REALMS'[];
+        'SEARCH_RESOURCE_TYPE_UNSPECIFIED' | 'RANGES' | 'REALMS'[];
       /** Optional. Whether to show the utilization of the Ranges in the response. */
       showUtilization?: boolean;
     }
@@ -1679,10 +1675,7 @@ declare namespace gapi.client {
         uploadType?: string;
         /** Optional. The view of the RegistryBook to retrieve. */
         view?:
-          | 'REGISTRY_BOOK_VIEW_UNSPECIFIED'
-          | 'BASIC'
-          | 'FULL'
-          | 'AGGREGATE';
+          'REGISTRY_BOOK_VIEW_UNSPECIFIED' | 'BASIC' | 'FULL' | 'AGGREGATE';
       }): Request<RegistryBook>;
       /** Lists RegistryBooks in a given project and location. */
       list(request?: {
@@ -1720,10 +1713,7 @@ declare namespace gapi.client {
         uploadType?: string;
         /** Optional. The view of the RegistryBook to retrieve. */
         view?:
-          | 'REGISTRY_BOOK_VIEW_UNSPECIFIED'
-          | 'BASIC'
-          | 'FULL'
-          | 'AGGREGATE';
+          'REGISTRY_BOOK_VIEW_UNSPECIFIED' | 'BASIC' | 'FULL' | 'AGGREGATE';
       }): Request<ListRegistryBooksResponse>;
       /** Updates the parameters of a single RegistryBook. */
       patch(request: {

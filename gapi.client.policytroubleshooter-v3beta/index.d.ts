@@ -66,7 +66,9 @@ declare namespace gapi.client {
       conditionExplanation?: GoogleCloudPolicytroubleshooterIamV3betaConditionExplanation;
       /** Indicates whether each role binding includes the principal specified in the request, either directly or indirectly. Each key identifies a principal in the role binding, and each value indicates whether the principal in the role binding includes the principal in the request. For example, suppose that a role binding includes the following principals: * `user:alice@example.com` * `group:product-eng@example.com` You want to troubleshoot access for `user:bob@example.com`. This user is a member of the group `group:product-eng@example.com`. For the first principal in the role binding, the key is `user:alice@example.com`, and the `membership` field in the value is set to `NOT_INCLUDED`. For the second principal in the role binding, the key is `group:product-eng@example.com`, and the `membership` field in the value is set to `INCLUDED`. */
       memberships?: {
-        [P in string]: GoogleCloudPolicytroubleshooterIamV3betaAllowBindingExplanationAnnotatedAllowMembership;
+        [
+          P in string
+        ]: GoogleCloudPolicytroubleshooterIamV3betaAllowBindingExplanationAnnotatedAllowMembership;
       };
       /** The relevance of this role binding to the overall determination for the entire policy. */
       relevance?:
@@ -210,11 +212,15 @@ declare namespace gapi.client {
       conditionExplanation?: GoogleCloudPolicytroubleshooterIamV3betaConditionExplanation;
       /** Lists all denied permissions in the deny rule and indicates whether each permission matches the permission in the request. Each key identifies a denied permission in the rule, and each value indicates whether the denied permission matches the permission in the request. */
       deniedPermissions?: {
-        [P in string]: GoogleCloudPolicytroubleshooterIamV3betaDenyRuleExplanationAnnotatedPermissionMatching;
+        [
+          P in string
+        ]: GoogleCloudPolicytroubleshooterIamV3betaDenyRuleExplanationAnnotatedPermissionMatching;
       };
       /** Lists all denied principals in the deny rule and indicates whether each principal matches the principal in the request, either directly or through membership in a principal set. Each key identifies a denied principal in the rule, and each value indicates whether the denied principal matches the principal in the request. */
       deniedPrincipals?: {
-        [P in string]: GoogleCloudPolicytroubleshooterIamV3betaDenyRuleExplanationAnnotatedDenyPrincipalMatching;
+        [
+          P in string
+        ]: GoogleCloudPolicytroubleshooterIamV3betaDenyRuleExplanationAnnotatedDenyPrincipalMatching;
       };
       /** Required. Indicates whether _this rule_ denies the specified permission to the specified principal for the specified resource. This field does _not_ indicate whether the principal is actually denied on the permission for the resource. There might be another rule that overrides this rule. To determine whether the principal actually has the permission, use the `overall_access_state` field in the TroubleshootIamPolicyResponse. */
       denyAccessState?:
@@ -225,11 +231,15 @@ declare namespace gapi.client {
         | 'DENY_ACCESS_STATE_UNKNOWN_INFO';
       /** Lists all exception permissions in the deny rule and indicates whether each permission matches the permission in the request. Each key identifies a exception permission in the rule, and each value indicates whether the exception permission matches the permission in the request. */
       exceptionPermissions?: {
-        [P in string]: GoogleCloudPolicytroubleshooterIamV3betaDenyRuleExplanationAnnotatedPermissionMatching;
+        [
+          P in string
+        ]: GoogleCloudPolicytroubleshooterIamV3betaDenyRuleExplanationAnnotatedPermissionMatching;
       };
       /** Lists all exception principals in the deny rule and indicates whether each principal matches the principal in the request, either directly or through membership in a principal set. Each key identifies a exception principal in the rule, and each value indicates whether the exception principal matches the principal in the request. */
       exceptionPrincipals?: {
-        [P in string]: GoogleCloudPolicytroubleshooterIamV3betaDenyRuleExplanationAnnotatedDenyPrincipalMatching;
+        [
+          P in string
+        ]: GoogleCloudPolicytroubleshooterIamV3betaDenyRuleExplanationAnnotatedDenyPrincipalMatching;
       };
       /** The relevance of this role binding to the overall determination for the entire policy. */
       relevance?:
@@ -499,10 +509,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface GoogleIamV1Binding {
       /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
@@ -579,9 +586,7 @@ declare namespace gapi.client {
       policy?: string;
       /** Immutable. The kind of the policy to attach in this binding. This field must be one of the following: - Left empty (will be automatically set to the policy kind) - The input policy kind */
       policyKind?:
-        | 'POLICY_KIND_UNSPECIFIED'
-        | 'PRINCIPAL_ACCESS_BOUNDARY'
-        | 'ACCESS';
+        'POLICY_KIND_UNSPECIFIED' | 'PRINCIPAL_ACCESS_BOUNDARY' | 'ACCESS';
       /** Output only. The globally unique ID of the policy to be bound. */
       policyUid?: string;
       /** Required. Immutable. The full resource name of the resource to which the policy will be bound. Immutable once set. */

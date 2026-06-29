@@ -254,10 +254,7 @@ declare namespace gapi.client {
     interface GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository {
       /** A common public repository base for Apt. */
       repositoryBase?:
-        | 'REPOSITORY_BASE_UNSPECIFIED'
-        | 'DEBIAN'
-        | 'UBUNTU'
-        | 'DEBIAN_SNAPSHOT';
+        'REPOSITORY_BASE_UNSPECIFIED' | 'DEBIAN' | 'UBUNTU' | 'DEBIAN_SNAPSHOT';
       /** A custom field to define a path to a specific repository from the base. */
       repositoryPath?: string;
     }
@@ -899,9 +896,7 @@ declare namespace gapi.client {
     interface VulnerabilityScanningConfig {
       /** Optional. Config for whether this repository has vulnerability scanning disabled. */
       enablementConfig?:
-        | 'ENABLEMENT_CONFIG_UNSPECIFIED'
-        | 'INHERITED'
-        | 'DISABLED';
+        'ENABLEMENT_CONFIG_UNSPECIFIED' | 'INHERITED' | 'DISABLED';
       /** Output only. State of feature enablement, combining repository enablement config and API enablement state. */
       enablementState?:
         | 'ENABLEMENT_STATE_UNSPECIFIED'

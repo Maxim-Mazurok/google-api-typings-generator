@@ -68,10 +68,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface AutoAccept {
       /** Optional. A list of project ids or project numbers for which you want to enable auto-accept. The auto-accept setting is applied to spokes being created or updated in these projects. */
@@ -104,9 +101,7 @@ declare namespace gapi.client {
       createTime?: string;
       /** Required. Immutable. The creation mode of the AutomatedDnsRecord. This field is immutable. */
       creationMode?:
-        | 'CREATION_MODE_UNSPECIFIED'
-        | 'CONSUMER_API'
-        | 'SERVICE_CONNECTION_MAP';
+        'CREATION_MODE_UNSPECIFIED' | 'CONSUMER_API' | 'SERVICE_CONNECTION_MAP';
       /** Output only. The current settings for this record as identified by (`hostname`, `dns_suffix`, `type`) in Cloud DNS. The `current_config` field reflects the actual settings of the DNS record in Cloud DNS based on the `hostname`, `dns_suffix`, and `type`. * **Absence:** If `current_config` is unset, it means a DNS record with the specified `hostname`, `dns_suffix`, and `type` does not currently exist in Cloud DNS. This could be because the `AutomatedDnsRecord` has never been successfully programmed, has been deleted, or there was an error during provisioning. * **Presence:** If `current_config` is present: * It can be different from the `original_config`. This can happen due to several reasons: * Out-of-band changes: A consumer might have directly modified the DNS record in Cloud DNS. * `OVERWRITE` operations from other `AutomatedDnsRecord` resources: Another `AutomatedDnsRecord` with the same identifying attributes (`hostname`, `dns_suffix`, `type`) but a different configuration might have overwritten the record using `insert_mode: OVERWRITE`. Therefore, the presence of `current_config` indicates that a corresponding DNS record exists, but its values (TTL and RRData) might not always align with the `original_config` of the AutomatedDnsRecord. */
       currentConfig?: Config;
       /** A human-readable description of the record. */
@@ -321,9 +316,7 @@ declare namespace gapi.client {
     interface Gateway {
       /** Optional. The aggregate processing capacity of this gateway. */
       capacity?:
-        | 'GATEWAY_CAPACITY_UNSPECIFIED'
-        | 'CAPACITY_1_GBPS'
-        | 'CAPACITY_10_GBPS';
+        'GATEWAY_CAPACITY_UNSPECIFIED' | 'CAPACITY_1_GBPS' | 'CAPACITY_10_GBPS';
       /** Output only. The list of Cloud Routers that are connected to this gateway. Should be in the form: https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/routers/{router} */
       cloudRouters?: string[];
       /** Optional. A list of IP ranges that are reserved for this gateway's internal intfrastructure. */
@@ -445,10 +438,7 @@ declare namespace gapi.client {
       policyMode?: 'POLICY_MODE_UNSPECIFIED' | 'PRESET';
       /** Optional. The topology implemented in this hub. Currently, this field is only used when policy_mode = PRESET. The available preset topologies are MESH and STAR. If preset_topology is unspecified and policy_mode = PRESET, the preset_topology defaults to MESH. When policy_mode = CUSTOM, the preset_topology is set to PRESET_TOPOLOGY_UNSPECIFIED. */
       presetTopology?:
-        | 'PRESET_TOPOLOGY_UNSPECIFIED'
-        | 'MESH'
-        | 'STAR'
-        | 'HYBRID_INSPECTION';
+        'PRESET_TOPOLOGY_UNSPECIFIED' | 'MESH' | 'STAR' | 'HYBRID_INSPECTION';
       /** Output only. The route tables that belong to this hub. They use the following form: `projects/{project_number}/locations/global/hubs/{hub_id}/routeTables/{route_table_id}` This field is read-only. Network Connectivity Center automatically populates it based on the route tables nested under the hub. */
       routeTables?: string[];
       /** Output only. The VPC networks associated with this hub's spokes. This field is read-only. Network Connectivity Center automatically populates it based on the set of spokes attached to the hub. */
@@ -520,10 +510,7 @@ declare namespace gapi.client {
       updateTime?: string;
       /** Optional. The type of usage set for this InternalRange. */
       usage?:
-        | 'USAGE_UNSPECIFIED'
-        | 'FOR_VPC'
-        | 'EXTERNAL_TO_VPC'
-        | 'FOR_MIGRATION';
+        'USAGE_UNSPECIFIED' | 'FOR_VPC' | 'EXTERNAL_TO_VPC' | 'FOR_MIGRATION';
       /** Output only. The list of resources that refer to this internal range. Resources that use the internal range for their range allocation are referred to as users of the range. Other resources mark themselves as users while doing so by creating a reference to this internal range. Having a user, based on this reference, prevents deletion of the internal range referred to. Can be empty. */
       users?: string[];
     }
@@ -1562,9 +1549,7 @@ declare namespace gapi.client {
           fields?: string;
           /** Optional. The insert mode when creating AutomatedDnsRecord. */
           insertMode?:
-            | 'INSERT_MODE_UNSPECIFIED'
-            | 'FAIL_IF_EXISTS'
-            | 'OVERWRITE';
+            'INSERT_MODE_UNSPECIFIED' | 'FAIL_IF_EXISTS' | 'OVERWRITE';
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
           key?: string;
           /** OAuth 2.0 token for the current user. */
@@ -1596,9 +1581,7 @@ declare namespace gapi.client {
         callback?: string;
         /** Optional. Delete mode when deleting AutomatedDnsRecord. If set to DEPROGRAM, the record will be deprogrammed in Cloud DNS. If set to SKIP_DEPROGRAMMING, the record will not be deprogrammed in Cloud DNS. */
         deleteMode?:
-          | 'DELETE_MODE_UNSPECIFIED'
-          | 'DEPROGRAM'
-          | 'SKIP_DEPROGRAMMING';
+          'DELETE_MODE_UNSPECIFIED' | 'DEPROGRAM' | 'SKIP_DEPROGRAMMING';
         /** Optional. The etag is computed by the server, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. */
         etag?: string;
         /** Selector specifying which fields to include in a partial response. */
@@ -4539,9 +4522,7 @@ declare namespace gapi.client {
         serviceConnectionPolicyId?: string;
         /** Optional. If this field is not set, USER_PROVIDED is the inferred value to use. */
         subnetworkMode?:
-          | 'SUBNETWORK_MODE_UNSPECIFIED'
-          | 'USER_PROVIDED'
-          | 'AUTO_CREATED';
+          'SUBNETWORK_MODE_UNSPECIFIED' | 'USER_PROVIDED' | 'AUTO_CREATED';
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -4587,9 +4568,7 @@ declare namespace gapi.client {
           serviceConnectionPolicyId?: string;
           /** Optional. If this field is not set, USER_PROVIDED is the inferred value to use. */
           subnetworkMode?:
-            | 'SUBNETWORK_MODE_UNSPECIFIED'
-            | 'USER_PROVIDED'
-            | 'AUTO_CREATED';
+            'SUBNETWORK_MODE_UNSPECIFIED' | 'USER_PROVIDED' | 'AUTO_CREATED';
           /** Upload protocol for media (e.g. "raw", "multipart"). */
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */

@@ -47,10 +47,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface AuthConfig {
       /** Optional. List containing additional auth configs. */
@@ -420,9 +417,7 @@ declare namespace gapi.client {
       connectorVersioningEnabled?: boolean;
       /** Indicate whether connector is deployed on GKE/CloudRun */
       deploymentModel?:
-        | 'DEPLOYMENT_MODEL_UNSPECIFIED'
-        | 'GKE_MST'
-        | 'CLOUD_RUN_MST';
+        'DEPLOYMENT_MODEL_UNSPECIFIED' | 'GKE_MST' | 'CLOUD_RUN_MST';
       /** HPA autoscaling config. */
       hpaConfig?: HPAConfig;
       /** Max QPS supported for internal requests originating from Connd. */
@@ -523,9 +518,7 @@ declare namespace gapi.client {
       connectionRatelimitWindowSeconds?: string;
       /** Output only. Indicates whether connector is deployed on GKE/CloudRun */
       deploymentModel?:
-        | 'DEPLOYMENT_MODEL_UNSPECIFIED'
-        | 'GKE_MST'
-        | 'CLOUD_RUN_MST';
+        'DEPLOYMENT_MODEL_UNSPECIFIED' | 'GKE_MST' | 'CLOUD_RUN_MST';
       /** Output only. Status of the deployment model migration. */
       deploymentModelMigrationState?:
         | 'DEPLOYMENT_MODEL_MIGRATION_STATE_UNSPECIFIED'
@@ -564,10 +557,7 @@ declare namespace gapi.client {
       createTime?: string;
       /** Required. Type of the custom connector. */
       customConnectorType?:
-        | 'CUSTOM_CONNECTOR_TYPE_UNSPECIFIED'
-        | 'OPEN_API'
-        | 'PROTO'
-        | 'SDK';
+        'CUSTOM_CONNECTOR_TYPE_UNSPECIFIED' | 'OPEN_API' | 'PROTO' | 'SDK';
       /** Optional. Description of the resource. */
       description?: string;
       /** Optional. Display name. */
@@ -681,10 +671,7 @@ declare namespace gapi.client {
       min?: number;
       /** Whether port number should be provided by customers. */
       portFieldType?:
-        | 'FIELD_TYPE_UNSPECIFIED'
-        | 'REQUIRED'
-        | 'OPTIONAL'
-        | 'NOT_USED';
+        'FIELD_TYPE_UNSPECIFIED' | 'REQUIRED' | 'OPTIONAL' | 'NOT_USED';
       /** Regex pattern for host. */
       regexPattern?: string;
     }
@@ -701,10 +688,7 @@ declare namespace gapi.client {
       extractionRules?: ExtractionRules;
       /** Launch environment for egress control. */
       launchEnvironment?:
-        | 'LAUNCH_ENVIRONMENT_UNSPECIFIED'
-        | 'AUTOPUSH'
-        | 'STAGING'
-        | 'PROD';
+        'LAUNCH_ENVIRONMENT_UNSPECIFIED' | 'AUTOPUSH' | 'STAGING' | 'PROD';
     }
     interface Empty {}
     interface EncryptionConfig {
@@ -970,9 +954,7 @@ declare namespace gapi.client {
       enrichmentSupported?: boolean;
       /** The type of the event listener for a specific connector. */
       eventListenerType?:
-        | 'EVENT_LISTENER_TYPE_UNSPECIFIED'
-        | 'WEBHOOK_LISTENER'
-        | 'JMS_LISTENER';
+        'EVENT_LISTENER_TYPE_UNSPECIFIED' | 'WEBHOOK_LISTENER' | 'JMS_LISTENER';
       /** Is Eventing Supported. */
       isEventingSupported?: boolean;
       /** ListenerAuthConfigTemplates represents the auth values for the event listener. */
@@ -1009,9 +991,7 @@ declare namespace gapi.client {
       searchTags?: string[];
       /** The webhook model supported by this connector. */
       subscriptionType?:
-        | 'SUBSCRIPTION_TYPE_UNSPECIFIED'
-        | 'SHARED'
-        | 'USER_SPECIFIC';
+        'SUBSCRIPTION_TYPE_UNSPECIFIED' | 'SHARED' | 'USER_SPECIFIC';
       /** Output only. The type of the event listener for a specific connector. */
       type?: 'TYPE_UNSPECIFIED' | 'WEBHOOK' | 'JMS';
     }
@@ -1032,10 +1012,7 @@ declare namespace gapi.client {
       description?: string;
       /** Output only. State. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'ACTIVE'
-        | 'ERROR'
-        | 'INGRESS_ENDPOINT_REQUIRED';
+        'STATE_UNSPECIFIED' | 'ACTIVE' | 'ERROR' | 'INGRESS_ENDPOINT_REQUIRED';
     }
     interface EventSubscription {
       /** Output only. Created time. */
@@ -2227,9 +2204,7 @@ declare namespace gapi.client {
       fieldId?: string;
       /** Type of the source. */
       sourceType?:
-        | 'SOURCE_TYPE_UNSPECIFIED'
-        | 'CONFIG_VARIABLE'
-        | 'AUTH_CONFIG_VARIABLE';
+        'SOURCE_TYPE_UNSPECIFIED' | 'CONFIG_VARIABLE' | 'AUTH_CONFIG_VARIABLE';
     }
     interface SshPublicKey {
       /** Optional. Format of SSH Client cert. */
@@ -2380,10 +2355,7 @@ declare namespace gapi.client {
       specLocation?: string;
       /** Required. Spec type of the custom connector spec. */
       specType?:
-        | 'CUSTOM_CONNECTOR_TYPE_UNSPECIFIED'
-        | 'OPEN_API'
-        | 'PROTO'
-        | 'SDK';
+        'CUSTOM_CONNECTOR_TYPE_UNSPECIFIED' | 'OPEN_API' | 'PROTO' | 'SDK';
     }
     interface ValidateCustomConnectorSpecResponse {
       /** Error message. The spec is valid if the error message is empty. */

@@ -43,10 +43,7 @@ declare namespace gapi.client {
       exemptedMembers?: string[];
       /** The log type that this config enables. */
       logType?:
-        | 'LOG_TYPE_UNSPECIFIED'
-        | 'ADMIN_READ'
-        | 'DATA_WRITE'
-        | 'DATA_READ';
+        'LOG_TYPE_UNSPECIFIED' | 'ADMIN_READ' | 'DATA_WRITE' | 'DATA_READ';
     }
     interface Binding {
       /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
@@ -279,9 +276,7 @@ declare namespace gapi.client {
       displayName?: string;
       /** The organization's current lifecycle state. Assigned by the server. */
       lifecycleState?:
-        | 'LIFECYCLE_STATE_UNSPECIFIED'
-        | 'ACTIVE'
-        | 'DELETE_REQUESTED';
+        'LIFECYCLE_STATE_UNSPECIFIED' | 'ACTIVE' | 'DELETE_REQUESTED';
       /** Output only. The resource name of the organization. This is the organization's relative path in the API. Its format is "organizations/[organization_id]". For example, "organizations/1234". */
       name?: string;
       /** The owner of this Organization. The owner should be specified on creation. Once set, it cannot be changed. This field is required. */

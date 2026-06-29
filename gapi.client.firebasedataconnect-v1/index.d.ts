@@ -339,14 +339,10 @@ declare namespace gapi.client {
       schema?: string;
       /** Optional. Configure how to perform automatic PostgreSQL schema migration before deploying the FDC schema. This is an additive-only operation. */
       schemaMigration?:
-        | 'SQL_SCHEMA_MIGRATION_UNSPECIFIED'
-        | 'MIGRATE_COMPATIBLE';
+        'SQL_SCHEMA_MIGRATION_UNSPECIFIED' | 'MIGRATE_COMPATIBLE';
       /** Optional. Configure how much PostgreSQL schema validation to perform against the live database before deploying the FDC schema. */
       schemaValidation?:
-        | 'SQL_SCHEMA_VALIDATION_UNSPECIFIED'
-        | 'NONE'
-        | 'STRICT'
-        | 'COMPATIBLE';
+        'SQL_SCHEMA_VALIDATION_UNSPECIFIED' | 'NONE' | 'STRICT' | 'COMPATIBLE';
       /** No Postgres data source is linked. If set, don't allow `database` and `schema_validation` to be configured. */
       unlinked?: boolean;
     }

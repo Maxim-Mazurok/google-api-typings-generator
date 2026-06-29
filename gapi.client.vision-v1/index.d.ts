@@ -166,12 +166,7 @@ declare namespace gapi.client {
     interface Block {
       /** Detected block type (text, image etc) for this block. */
       blockType?:
-        | 'UNKNOWN'
-        | 'TEXT'
-        | 'TABLE'
-        | 'PICTURE'
-        | 'RULER'
-        | 'BARCODE';
+        'UNKNOWN' | 'TEXT' | 'TABLE' | 'PICTURE' | 'RULER' | 'BARCODE';
       /** The bounding box for the block. The vertices are in the order of top-left, top-right, bottom-right, bottom-left. When a rotation of the bounding box is detected the rotation is represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | | 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3). */
       boundingBox?: BoundingPoly;
       /** Confidence of the OCR results on the block. Range [0, 1]. */
@@ -419,12 +414,7 @@ declare namespace gapi.client {
     interface GoogleCloudVisionV1p1beta1Block {
       /** Detected block type (text, image etc) for this block. */
       blockType?:
-        | 'UNKNOWN'
-        | 'TEXT'
-        | 'TABLE'
-        | 'PICTURE'
-        | 'RULER'
-        | 'BARCODE';
+        'UNKNOWN' | 'TEXT' | 'TABLE' | 'PICTURE' | 'RULER' | 'BARCODE';
       /** The bounding box for the block. The vertices are in the order of top-left, top-right, bottom-right, bottom-left. When a rotation of the bounding box is detected the rotation is represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | | 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3). */
       boundingBox?: GoogleCloudVisionV1p1beta1BoundingPoly;
       /** Confidence of the OCR results on the block. Range [0, 1]. */
@@ -654,11 +644,7 @@ declare namespace gapi.client {
       createTime?: string;
       /** Current state of the batch operation. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATED'
-        | 'RUNNING'
-        | 'DONE'
-        | 'CANCELLED';
+        'STATE_UNSPECIFIED' | 'CREATED' | 'RUNNING' | 'DONE' | 'CANCELLED';
       /** The time when the operation result was last updated. */
       updateTime?: string;
     }
@@ -953,12 +939,7 @@ declare namespace gapi.client {
     interface GoogleCloudVisionV1p2beta1Block {
       /** Detected block type (text, image etc) for this block. */
       blockType?:
-        | 'UNKNOWN'
-        | 'TEXT'
-        | 'TABLE'
-        | 'PICTURE'
-        | 'RULER'
-        | 'BARCODE';
+        'UNKNOWN' | 'TEXT' | 'TABLE' | 'PICTURE' | 'RULER' | 'BARCODE';
       /** The bounding box for the block. The vertices are in the order of top-left, top-right, bottom-right, bottom-left. When a rotation of the bounding box is detected the rotation is represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | | 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3). */
       boundingBox?: GoogleCloudVisionV1p2beta1BoundingPoly;
       /** Confidence of the OCR results on the block. Range [0, 1]. */
@@ -1188,11 +1169,7 @@ declare namespace gapi.client {
       createTime?: string;
       /** Current state of the batch operation. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATED'
-        | 'RUNNING'
-        | 'DONE'
-        | 'CANCELLED';
+        'STATE_UNSPECIFIED' | 'CREATED' | 'RUNNING' | 'DONE' | 'CANCELLED';
       /** The time when the operation result was last updated. */
       updateTime?: string;
     }
@@ -1500,12 +1477,7 @@ declare namespace gapi.client {
     interface GoogleCloudVisionV1p3beta1Block {
       /** Detected block type (text, image etc) for this block. */
       blockType?:
-        | 'UNKNOWN'
-        | 'TEXT'
-        | 'TABLE'
-        | 'PICTURE'
-        | 'RULER'
-        | 'BARCODE';
+        'UNKNOWN' | 'TEXT' | 'TABLE' | 'PICTURE' | 'RULER' | 'BARCODE';
       /** The bounding box for the block. The vertices are in the order of top-left, top-right, bottom-right, bottom-left. When a rotation of the bounding box is detected the rotation is represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | | 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3). */
       boundingBox?: GoogleCloudVisionV1p3beta1BoundingPoly;
       /** Confidence of the OCR results on the block. Range [0, 1]. */
@@ -1741,11 +1713,7 @@ declare namespace gapi.client {
       createTime?: string;
       /** Current state of the batch operation. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATED'
-        | 'RUNNING'
-        | 'DONE'
-        | 'CANCELLED';
+        'STATE_UNSPECIFIED' | 'CREATED' | 'RUNNING' | 'DONE' | 'CANCELLED';
       /** The time when the operation result was last updated. */
       updateTime?: string;
     }
@@ -2069,12 +2037,7 @@ declare namespace gapi.client {
     interface GoogleCloudVisionV1p4beta1Block {
       /** Detected block type (text, image etc) for this block. */
       blockType?:
-        | 'UNKNOWN'
-        | 'TEXT'
-        | 'TABLE'
-        | 'PICTURE'
-        | 'RULER'
-        | 'BARCODE';
+        'UNKNOWN' | 'TEXT' | 'TABLE' | 'PICTURE' | 'RULER' | 'BARCODE';
       /** The bounding box for the block. The vertices are in the order of top-left, top-right, bottom-right, bottom-left. When a rotation of the bounding box is detected the rotation is represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | | 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3). */
       boundingBox?: GoogleCloudVisionV1p4beta1BoundingPoly;
       /** Confidence of the OCR results on the block. Range [0, 1]. */
@@ -2326,11 +2289,7 @@ declare namespace gapi.client {
       createTime?: string;
       /** Current state of the batch operation. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATED'
-        | 'RUNNING'
-        | 'DONE'
-        | 'CANCELLED';
+        'STATE_UNSPECIFIED' | 'CREATED' | 'RUNNING' | 'DONE' | 'CANCELLED';
       /** The time when the operation result was last updated. */
       updateTime?: string;
     }
@@ -2796,11 +2755,7 @@ declare namespace gapi.client {
       createTime?: string;
       /** Current state of the batch operation. */
       state?:
-        | 'STATE_UNSPECIFIED'
-        | 'CREATED'
-        | 'RUNNING'
-        | 'DONE'
-        | 'CANCELLED';
+        'STATE_UNSPECIFIED' | 'CREATED' | 'RUNNING' | 'DONE' | 'CANCELLED';
       /** The time when the operation result was last updated. */
       updateTime?: string;
     }

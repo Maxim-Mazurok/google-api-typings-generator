@@ -606,9 +606,7 @@ declare namespace gapi.client {
         oauth_token?: string;
         /** Whether the domain creation should override any existing mappings for this domain. By default, overrides are rejected. */
         overrideStrategy?:
-          | 'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY'
-          | 'STRICT'
-          | 'OVERRIDE';
+          'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY' | 'STRICT' | 'OVERRIDE';
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
@@ -642,9 +640,7 @@ declare namespace gapi.client {
           oauth_token?: string;
           /** Whether the domain creation should override any existing mappings for this domain. By default, overrides are rejected. */
           overrideStrategy?:
-            | 'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY'
-            | 'STRICT'
-            | 'OVERRIDE';
+            'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY' | 'STRICT' | 'OVERRIDE';
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
           /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
@@ -1264,9 +1260,7 @@ declare namespace gapi.client {
         oauth_token?: string;
         /** Whether the domain creation should override any existing mappings for this domain. By default, overrides are rejected. */
         overrideStrategy?:
-          | 'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY'
-          | 'STRICT'
-          | 'OVERRIDE';
+          'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY' | 'STRICT' | 'OVERRIDE';
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */
@@ -1304,9 +1298,7 @@ declare namespace gapi.client {
           oauth_token?: string;
           /** Whether the domain creation should override any existing mappings for this domain. By default, overrides are rejected. */
           overrideStrategy?:
-            | 'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY'
-            | 'STRICT'
-            | 'OVERRIDE';
+            'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY' | 'STRICT' | 'OVERRIDE';
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
           /** Part of `parent`. Required. Name of the parent Application resource. Example: apps/myapp. */
