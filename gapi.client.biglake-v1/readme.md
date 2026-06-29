@@ -1,11 +1,11 @@
-# TypeScript typings for Lakehouse API v1
+# TypeScript typings for BigLake API v1
 
 The Lakehouse API (formerly BigLake API) provides access to a serverless, fully managed, and highly available metastore that provides a single source of truth for your data lakehouse. It lets multiple engines—including Apache Spark, Google Managed Spark, Apache Flink, Trino and BigQuery—share tables and metadata for key open formats (Apache Iceberg, Apache Hive), and query the same copy of data. Plus, through the Lakehouse runtime catalog federation seamlessly unite your lakehouse ecosystem, letting Iceberg compatible engines on Google Cloud (BigQuery, Google Managed Spark) discover and analyze enterprise data across Snowflake, Databricks, and AWS Glue.
 For detailed description please check [documentation](https://cloud.google.com/products/lakehouse).
 
 ## Installing
 
-Install typings for Lakehouse API:
+Install typings for BigLake API:
 
 ```
 npm install @types/gapi.client.biglake-v1 --save-dev
@@ -81,7 +81,7 @@ gapi.auth.authorize(
 );
 ```
 
-After that you can use Lakehouse API resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use BigLake API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 
