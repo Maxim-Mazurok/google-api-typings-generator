@@ -129,102 +129,91 @@ gapi.auth.authorize(
 After that you can use Calendar API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
+
 /*
 Deletes an access control rule.
 */
-await gapi.client.calendar.acl.delete({
-  calendarId: 'calendarId',
-  ruleId: 'ruleId',
-});
+await gapi.client.calendar.acl.delete({ calendarId: "calendarId", ruleId: "ruleId",  });
 
 /*
 Returns an access control rule.
 */
-await gapi.client.calendar.acl.get({
-  calendarId: 'calendarId',
-  ruleId: 'ruleId',
-});
+await gapi.client.calendar.acl.get({ calendarId: "calendarId", ruleId: "ruleId",  });
 
 /*
 Creates an access control rule.
 */
-await gapi.client.calendar.acl.insert({calendarId: 'calendarId'});
+await gapi.client.calendar.acl.insert({ calendarId: "calendarId",  });
 
 /*
 Returns the rules in the access control list for the calendar.
 */
-await gapi.client.calendar.acl.list({calendarId: 'calendarId'});
+await gapi.client.calendar.acl.list({ calendarId: "calendarId",  });
 
 /*
 Updates an access control rule. This method supports patch semantics.
 */
-await gapi.client.calendar.acl.patch({
-  calendarId: 'calendarId',
-  ruleId: 'ruleId',
-});
+await gapi.client.calendar.acl.patch({ calendarId: "calendarId", ruleId: "ruleId",  });
 
 /*
 Updates an access control rule.
 */
-await gapi.client.calendar.acl.update({
-  calendarId: 'calendarId',
-  ruleId: 'ruleId',
-});
+await gapi.client.calendar.acl.update({ calendarId: "calendarId", ruleId: "ruleId",  });
 
 /*
 Watch for changes to ACL resources.
 */
-await gapi.client.calendar.acl.watch({calendarId: 'calendarId'});
+await gapi.client.calendar.acl.watch({ calendarId: "calendarId",  });
 
 /*
 Removes a calendar from the user's calendar list.
 */
-await gapi.client.calendar.calendarList.delete({calendarId: 'calendarId'});
+await gapi.client.calendar.calendarList.delete({ calendarId: "calendarId",  });
 
 /*
 Returns a calendar from the user's calendar list.
 */
-await gapi.client.calendar.calendarList.get({calendarId: 'calendarId'});
+await gapi.client.calendar.calendarList.get({ calendarId: "calendarId",  });
 
 /*
 Inserts an existing calendar into the user's calendar list.
 */
-await gapi.client.calendar.calendarList.insert({});
+await gapi.client.calendar.calendarList.insert({  });
 
 /*
 Returns the calendars on the user's calendar list.
 */
-await gapi.client.calendar.calendarList.list({});
+await gapi.client.calendar.calendarList.list({  });
 
 /*
 Updates an existing calendar on the user's calendar list. This method supports patch semantics.
 */
-await gapi.client.calendar.calendarList.patch({calendarId: 'calendarId'});
+await gapi.client.calendar.calendarList.patch({ calendarId: "calendarId",  });
 
 /*
 Updates an existing calendar on the user's calendar list.
 */
-await gapi.client.calendar.calendarList.update({calendarId: 'calendarId'});
+await gapi.client.calendar.calendarList.update({ calendarId: "calendarId",  });
 
 /*
 Watch for changes to CalendarList resources.
 */
-await gapi.client.calendar.calendarList.watch({});
+await gapi.client.calendar.calendarList.watch({  });
 
 /*
 Clears a primary calendar. This operation deletes all events associated with the primary calendar of an account.
 */
-await gapi.client.calendar.calendars.clear({calendarId: 'calendarId'});
+await gapi.client.calendar.calendars.clear({ calendarId: "calendarId",  });
 
 /*
 Deletes a secondary calendar. Use calendars.clear for clearing all events on primary calendars.
 */
-await gapi.client.calendar.calendars.delete({calendarId: 'calendarId'});
+await gapi.client.calendar.calendars.delete({ calendarId: "calendarId",  });
 
 /*
 Returns metadata for a calendar.
 */
-await gapi.client.calendar.calendars.get({calendarId: 'calendarId'});
+await gapi.client.calendar.calendars.get({ calendarId: "calendarId",  });
 
 /*
 Creates a secondary calendar.
@@ -232,125 +221,110 @@ The authenticated user for the request is made the data owner of the new calenda
 
 Note: We recommend to authenticate as the intended data owner of the calendar. You can use domain-wide delegation of authority to allow applications to act on behalf of a specific user. Don't use a service account for authentication. If you use a service account for authentication, the service account is the data owner, which can lead to unexpected behavior. For example, if a service account is the data owner, data ownership cannot be transferred.
 */
-await gapi.client.calendar.calendars.insert({});
+await gapi.client.calendar.calendars.insert({  });
 
 /*
 Updates metadata for a calendar. This method supports patch semantics.
 */
-await gapi.client.calendar.calendars.patch({calendarId: 'calendarId'});
+await gapi.client.calendar.calendars.patch({ calendarId: "calendarId",  });
+
+/*
+Transfers a secondary calendar between users within a Google Workspace organization. Requires user authentication with Manage Calendars administrator privilege, and one of the following authorization scopes:
+- https://www.googleapis.com/auth/calendar
+- https://www.googleapis.com/auth/calendar.calendars In the request, set useAdminAccess to true. The secondary calendar must be active to be transferred. Transferring disabled or deleted calendars isn't supported.
+*/
+await gapi.client.calendar.calendars.transferOwnership({ calendarId: "calendarId", newDataOwner: "newDataOwner", useAdminAccess: ,  });
 
 /*
 Updates metadata for a calendar.
 */
-await gapi.client.calendar.calendars.update({calendarId: 'calendarId'});
+await gapi.client.calendar.calendars.update({ calendarId: "calendarId",  });
 
 /*
 Stop watching resources through this channel
 */
-await gapi.client.calendar.channels.stop({});
+await gapi.client.calendar.channels.stop({  });
 
 /*
 Returns the color definitions for calendars and events.
 */
-await gapi.client.calendar.colors.get({});
+await gapi.client.calendar.colors.get({  });
 
 /*
 Deletes an event.
 */
-await gapi.client.calendar.events.delete({
-  calendarId: 'calendarId',
-  eventId: 'eventId',
-});
+await gapi.client.calendar.events.delete({ calendarId: "calendarId", eventId: "eventId",  });
 
 /*
 Returns an event based on its Google Calendar ID. To retrieve an event using its iCalendar ID, call the events.list method using the iCalUID parameter.
 */
-await gapi.client.calendar.events.get({
-  calendarId: 'calendarId',
-  eventId: 'eventId',
-});
+await gapi.client.calendar.events.get({ calendarId: "calendarId", eventId: "eventId",  });
 
 /*
 Imports an event. This operation is used to add a private copy of an existing event to a calendar. Only events with an eventType of default may be imported.
 Deprecated behavior: If a non-default event is imported, its type will be changed to default and any event-type-specific properties it may have will be dropped.
 */
-await gapi.client.calendar.events.import({calendarId: 'calendarId'});
+await gapi.client.calendar.events.import({ calendarId: "calendarId",  });
 
 /*
 Creates an event.
 */
-await gapi.client.calendar.events.insert({calendarId: 'calendarId'});
+await gapi.client.calendar.events.insert({ calendarId: "calendarId",  });
 
 /*
 Returns instances of the specified recurring event.
 */
-await gapi.client.calendar.events.instances({
-  calendarId: 'calendarId',
-  eventId: 'eventId',
-});
+await gapi.client.calendar.events.instances({ calendarId: "calendarId", eventId: "eventId",  });
 
 /*
 Returns events on the specified calendar.
 */
-await gapi.client.calendar.events.list({calendarId: 'calendarId'});
+await gapi.client.calendar.events.list({ calendarId: "calendarId",  });
 
 /*
 Moves an event to another calendar, i.e. changes an event's organizer. Note that only default events can be moved; birthday, focusTime, fromGmail, outOfOffice and workingLocation events cannot be moved.
 */
-await gapi.client.calendar.events.move({
-  calendarId: 'calendarId',
-  destination: 'destination',
-  eventId: 'eventId',
-});
+await gapi.client.calendar.events.move({ calendarId: "calendarId", destination: "destination", eventId: "eventId",  });
 
 /*
 Updates an event. This method supports patch semantics.
 */
-await gapi.client.calendar.events.patch({
-  calendarId: 'calendarId',
-  eventId: 'eventId',
-});
+await gapi.client.calendar.events.patch({ calendarId: "calendarId", eventId: "eventId",  });
 
 /*
 Creates an event based on a simple text string.
 */
-await gapi.client.calendar.events.quickAdd({
-  calendarId: 'calendarId',
-  text: 'text',
-});
+await gapi.client.calendar.events.quickAdd({ calendarId: "calendarId", text: "text",  });
 
 /*
 Updates an event.
 */
-await gapi.client.calendar.events.update({
-  calendarId: 'calendarId',
-  eventId: 'eventId',
-});
+await gapi.client.calendar.events.update({ calendarId: "calendarId", eventId: "eventId",  });
 
 /*
 Watch for changes to Events resources.
 */
-await gapi.client.calendar.events.watch({calendarId: 'calendarId'});
+await gapi.client.calendar.events.watch({ calendarId: "calendarId",  });
 
 /*
 Returns free/busy information for a set of calendars.
 */
-await gapi.client.calendar.freebusy.query({});
+await gapi.client.calendar.freebusy.query({  });
 
 /*
 Returns a single user setting.
 */
-await gapi.client.calendar.settings.get({setting: 'setting'});
+await gapi.client.calendar.settings.get({ setting: "setting",  });
 
 /*
 Returns all user settings for the authenticated user.
 */
-await gapi.client.calendar.settings.list({});
+await gapi.client.calendar.settings.list({  });
 
 /*
 Watch for changes to Settings resources.
 */
-await gapi.client.calendar.settings.watch({});
+await gapi.client.calendar.settings.watch({  });
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.calendar-v3#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
