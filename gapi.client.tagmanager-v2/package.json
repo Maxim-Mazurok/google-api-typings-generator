@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.metastore-v1alpha",
-  "version": "0.0.20260625",
-  "description": "TypeScript typings for Dataproc Metastore API v1alpha",
+  "name": "@maxim_mazurok/gapi.client.tagmanager-v2",
+  "version": "0.0.20260629",
+  "description": "TypeScript typings for Tag Manager API v2",
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
