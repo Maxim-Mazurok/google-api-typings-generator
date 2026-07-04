@@ -383,7 +383,10 @@ project.
 await gapi.client.compute.backendServices.list({ project: "project",  });
 
 /*
-Retrieves a list of all usable backend services in the specified project.
+Retrieves a list of all usable backend services for Application Load
+Balancers and Proxy Network Load Balancers in the specified project.
+Backend services for external and internal passthrough Network Load
+Balancers are not included in the response.
 */
 await gapi.client.compute.backendServices.listUsable({ project: "project",  });
 
@@ -3951,8 +3954,10 @@ specified project in the given region.
 await gapi.client.compute.regionBackendServices.list({ project: "project", region: "region",  });
 
 /*
-Retrieves a list of all usable backend services in the specified project in
-the given region.
+Retrieves a list of all usable backend services for Application Load
+Balancers and Proxy Network Load Balancers in the specified project in the
+given region. Backend services for external and internal passthrough
+Network Load Balancers are not included in the response.
 */
 await gapi.client.compute.regionBackendServices.listUsable({ project: "project", region: "region",  });
 
@@ -5639,6 +5644,16 @@ Retrieves the list of Zone resources under the specific region available to
 the specified project.
 */
 await gapi.client.compute.regionZones.list({ project: "project", region: "region",  });
+
+/*
+Returns the specified ReliabilityRisk resource.
+*/
+await gapi.client.compute.reliabilityRisks.get({ project: "project", reliabilityRisk: "reliabilityRisk",  });
+
+/*
+Retrieves the list of reliabilityRisks available in the specified project.
+*/
+await gapi.client.compute.reliabilityRisks.list({ project: "project",  });
 
 /*
 Retrieves information about the specified reservation block.
