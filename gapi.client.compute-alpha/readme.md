@@ -98,31 +98,6 @@ After that you can use Compute Engine API resources: <!-- TODO: make this work f
 ```typescript
 
 /*
-Deletes the specified AcceleratorPodController resource.
-*/
-await gapi.client.compute.acceleratorPodControllers.delete({ project: "project", resourceId: "resourceId", zone: "zone",  });
-
-/*
-Gets the specified AcceleratorPodController resource.
-*/
-await gapi.client.compute.acceleratorPodControllers.get({ project: "project", resourceId: "resourceId", zone: "zone",  });
-
-/*
-Inserts a new AcceleratorPodController resource.
-*/
-await gapi.client.compute.acceleratorPodControllers.insert({ project: "project", zone: "zone",  });
-
-/*
-Lists the AcceleratorPodController resources in the specified zone.
-*/
-await gapi.client.compute.acceleratorPodControllers.list({ project: "project", zone: "zone",  });
-
-/*
-Patches the specified AcceleratorPodController resource.
-*/
-await gapi.client.compute.acceleratorPodControllers.patch({ project: "project", resourceId: "resourceId", zone: "zone",  });
-
-/*
 Retrieves an aggregated list of accelerator types.
 
 To prevent failure, it is recommended that you set the
@@ -408,10 +383,7 @@ project.
 await gapi.client.compute.backendServices.list({ project: "project",  });
 
 /*
-Retrieves a list of all usable backend services for Application Load
-Balancers and Proxy Network Load Balancers in the specified project.
-Backend services for external and internal passthrough Network Load
-Balancers are not included in the response.
+Retrieves a list of all usable backend services in the specified project.
 */
 await gapi.client.compute.backendServices.listUsable({ project: "project",  });
 
@@ -482,40 +454,6 @@ semantics and uses theJSON merge
 patch format and processing rules.
 */
 await gapi.client.compute.crossSiteNetworks.patch({ crossSiteNetwork: "crossSiteNetwork", project: "project",  });
-
-/*
-Deletes the specified DhcpOptionsConfig in the given location
-*/
-await gapi.client.compute.dhcpOptionsConfigs.delete({ dhcpOptionsConfig: "dhcpOptionsConfig", project: "project", region: "region",  });
-
-/*
-Returns the specified DhcpOptionsConfig resource in the given location.
-*/
-await gapi.client.compute.dhcpOptionsConfigs.get({ dhcpOptionsConfig: "dhcpOptionsConfig", project: "project", region: "region",  });
-
-/*
-Creates a DhcpOptionsConfig in the specified project in the given location
-using the parameters that are included in the request.
-*/
-await gapi.client.compute.dhcpOptionsConfigs.insert({ project: "project", region: "region",  });
-
-/*
-Lists the DhcpOptionsConfigs for a project in the given location.
-*/
-await gapi.client.compute.dhcpOptionsConfigs.list({ project: "project", region: "region",  });
-
-/*
-Patches the specified DhcpOptionsConfig resource with the data included in
-the request. This method supports PATCH
-semantics and usesJSON merge
-patch format and processing rules.
-*/
-await gapi.client.compute.dhcpOptionsConfigs.patch({ dhcpOptionsConfig: "dhcpOptionsConfig", project: "project", region: "region",  });
-
-/*
-Returns permissions that a caller has on the specified resource.
-*/
-await gapi.client.compute.dhcpOptionsConfigs.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
 Adds existing resource policies to a disk. You can only add one
@@ -4395,10 +4333,8 @@ specified project in the given region.
 await gapi.client.compute.regionBackendServices.list({ project: "project", region: "region",  });
 
 /*
-Retrieves a list of all usable backend services for Application Load
-Balancers and Proxy Network Load Balancers in the specified project in the
-given region. Backend services for external and internal passthrough
-Network Load Balancers are not included in the response.
+Retrieves a list of all usable backend services in the specified project in
+the given region.
 */
 await gapi.client.compute.regionBackendServices.listUsable({ project: "project", region: "region",  });
 
