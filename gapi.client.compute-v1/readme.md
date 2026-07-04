@@ -371,10 +371,7 @@ project.
 await gapi.client.compute.backendServices.list({ project: "project",  });
 
 /*
-Retrieves a list of all usable backend services for Application Load
-Balancers and Proxy Network Load Balancers in the specified project.
-Backend services for external and internal passthrough Network Load
-Balancers are not included in the response.
+Retrieves a list of all usable backend services in the specified project.
 */
 await gapi.client.compute.backendServices.listUsable({ project: "project",  });
 
@@ -3708,10 +3705,8 @@ specified project in the given region.
 await gapi.client.compute.regionBackendServices.list({ project: "project", region: "region",  });
 
 /*
-Retrieves a list of all usable backend services for Application Load
-Balancers and Proxy Network Load Balancers in the specified project in the
-given region. Backend services for external and internal passthrough
-Network Load Balancers are not included in the response.
+Retrieves a list of all usable backend services in the specified project in
+the given region.
 */
 await gapi.client.compute.regionBackendServices.listUsable({ project: "project", region: "region",  });
 
@@ -5451,11 +5446,6 @@ Deletes the specified Router resource.
 await gapi.client.compute.routers.delete({ project: "project", region: "region", router: "router",  });
 
 /*
-Deletes Named Set
-*/
-await gapi.client.compute.routers.deleteNamedSet({ project: "project", region: "region", router: "router",  });
-
-/*
 Deletes Route Policy
 */
 await gapi.client.compute.routers.deleteRoutePolicy({ project: "project", region: "region", router: "router",  });
@@ -5464,11 +5454,6 @@ await gapi.client.compute.routers.deleteRoutePolicy({ project: "project", region
 Returns the specified Router resource.
 */
 await gapi.client.compute.routers.get({ project: "project", region: "region", router: "router",  });
-
-/*
-Returns specified Named Set
-*/
-await gapi.client.compute.routers.getNamedSet({ project: "project", region: "region", router: "router",  });
 
 /*
 Retrieves runtime NAT IP information.
@@ -5507,12 +5492,6 @@ Retrieves a list of router bgp routes available to the specified project.
 await gapi.client.compute.routers.listBgpRoutes({ project: "project", region: "region", router: "router",  });
 
 /*
-Retrieves a list of router named set subresources available to the
-specified project.
-*/
-await gapi.client.compute.routers.listNamedSets({ project: "project", region: "region", router: "router",  });
-
-/*
 Retrieves a list of router route policy subresources available to the
 specified project.
 */
@@ -5525,11 +5504,6 @@ semantics and usesJSON merge
 patch format and processing rules.
 */
 await gapi.client.compute.routers.patch({ project: "project", region: "region", router: "router",  });
-
-/*
-Patches Named Set
-*/
-await gapi.client.compute.routers.patchNamedSet({ project: "project", region: "region", router: "router",  });
 
 /*
 Patches Route Policy
@@ -5549,11 +5523,6 @@ target resource be created or replaced with the state defined by the
 representation enclosed in the request message payload.
 */
 await gapi.client.compute.routers.update({ project: "project", region: "region", router: "router",  });
-
-/*
-Updates or creates new Named Set
-*/
-await gapi.client.compute.routers.updateNamedSet({ project: "project", region: "region", router: "router",  });
 
 /*
 Updates or creates new Route Policy
