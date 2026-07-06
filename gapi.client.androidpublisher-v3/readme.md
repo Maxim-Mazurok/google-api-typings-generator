@@ -333,6 +333,14 @@ await gapi.client.androidpublisher.orders.refund({
 });
 
 /*
+Provide refund preference and purchase usage for a chargeback request
+*/
+await gapi.client.androidpublisher.orders.reviewrefund({
+  orderId: 'orderId',
+  packageName: 'packageName',
+});
+
+/*
 Gets a single review.
 */
 await gapi.client.androidpublisher.reviews.get({
