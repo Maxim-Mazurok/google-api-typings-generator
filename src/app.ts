@@ -580,6 +580,54 @@ export class App {
   }
 
   /**
+   * Creates a callback that writes request parameters with body fields
+   * spread as optional top-level properties (alongside `resource`).
+   * Body fields that conflict with existing parameters are excluded.
+   */
+  private static createRequestParameterWithBodyFieldsWriterCallback(
+    parameters: Record<string, JsonSchema>,
+    schemas: Record<string, JsonSchema>,
+    ref: string,
+  ) {
+    return function requestParameterWithBodyFieldsWriterCallback(
+      writer: TypescriptTextWriter,
+    ) {
+      writer.anonymousType(() => {
+        _.forEach(parameters, (data, key) => {
+          if (data.description) {
+            writer.comment(formatComment(data.description));
+          }
+
+          writer.property(key, getType(data, schemas), Boolean(data.required));
+        });
+
+        // Spread body schema fields as optional top-level properties,
+        // excluding any that conflict with existing parameters or 'resource'.
+        const bodySchema = schemas[ref];
+        if (bodySchema?.properties) {
+          const parameterKeys = new Set(Object.keys(parameters));
+          parameterKeys.add('resource');
+
+          _.forEach(bodySchema.properties, (data, key) => {
+            if (parameterKeys.has(key)) {
+              return; // skip conflicting fields
+            }
+
+            if (data.description) {
+              writer.comment(formatComment(data.description));
+            }
+
+            writer.property(key, getType(data, schemas), false);
+          });
+        }
+
+        writer.comment('Request body');
+        writer.property('resource', ref, false);
+      });
+    };
+  }
+
+  /**
    * Writes specified resource definition.
    */
   private writeResources(
@@ -682,6 +730,26 @@ export class App {
               ],
               getMethodReturn(method, schemas),
             );
+
+            // generate method(request) with body fields spread as top-level properties
+            const bodySchema = schemas[requestRef];
+            if (bodySchema?.properties && !_.isEmpty(bodySchema.properties)) {
+              out.method(
+                formatPropertyName(checkExists(getName(methodName))),
+                [
+                  {
+                    parameter: 'request',
+                    type: App.createRequestParameterWithBodyFieldsWriterCallback(
+                      requestParameters,
+                      schemas,
+                      requestRef,
+                    ),
+                    required: true,
+                  },
+                ],
+                getMethodReturn(method, schemas),
+              );
+            }
           }
         });
 
