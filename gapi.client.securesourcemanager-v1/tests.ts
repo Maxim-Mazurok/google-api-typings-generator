@@ -225,15 +225,6 @@ gapi.load('client', async () => {
         sha: 'Test string',
       },
     );
-    /** Fetches git references from a repository. */
-    await gapi.client.securesourcemanager.projects.locations.repositories.fetchRefs(
-      {
-        pageSize: 42,
-        pageToken: 'Test string',
-        repository: 'Test string',
-        type: 'Test string',
-      },
-    );
     /** Fetches a tree from a repository. */
     await gapi.client.securesourcemanager.projects.locations.repositories.fetchTree(
       {

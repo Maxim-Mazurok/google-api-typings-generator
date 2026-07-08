@@ -158,12 +158,6 @@ declare namespace gapi.client {
       /** The SHA-1 hash of the blob. */
       sha?: string;
     }
-    interface FetchRefsResponse {
-      /** A token identifying a page of results the server should return. */
-      nextPageToken?: string;
-      /** The list of git references. */
-      refs?: Ref[];
-    }
     interface FetchTreeResponse {
       /** A token identifying a page of results the server should return. */
       nextPageToken?: string;
@@ -462,14 +456,6 @@ declare namespace gapi.client {
     interface PushOption {
       /** Optional. Trigger hook for matching branches only. Specified as glob pattern. If empty or *, events for all branches are reported. Examples: main, {main,release*}. See https://pkg.go.dev/github.com/gobwas/glob documentation. */
       branchFilter?: string;
-    }
-    interface Ref {
-      /** Identifier. Name of the git reference (e.g., 'refs/heads/foo' or 'refs/tags/v1.0'). */
-      name?: string;
-      /** Output only. The target of the reference, which is a commit SHA. */
-      target?: string;
-      /** Output only. The type of the reference. */
-      type?: 'REF_TYPE_UNSPECIFIED' | 'REF_TYPE_BRANCH' | 'REF_TYPE_TAG';
     }
     interface Repository {
       /** Output only. Create timestamp. */
@@ -2824,39 +2810,6 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<FetchBlobResponse>;
-      /** Fetches git references from a repository. */
-      fetchRefs(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. Requested page size. If unspecified, a default size of 30 will be used. The maximum value is 100; values above 100 will be coerced to 100. */
-        pageSize?: number;
-        /** Optional. A token identifying a page of results the server should return. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. The format is `projects/{project_number}/locations/{location_id}/repositories/{repository_id}`. Specifies the repository to fetch the references from. */
-        repository: string;
-        /** Optional. The type of reference to fetch (eg. branch, tag). By default, all references are returned. */
-        type?: 'REF_TYPE_UNSPECIFIED' | 'REF_TYPE_BRANCH' | 'REF_TYPE_TAG';
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<FetchRefsResponse>;
       /** Fetches a tree from a repository. */
       fetchTree(request?: {
         /** V1 error format. */
