@@ -1879,6 +1879,10 @@ gapi.load('client', async () => {
           restricted: true,
           videoGameRating: 'Test string',
         },
+        brandPartner: {
+          channelHandle: 'Test string',
+          channelId: 'Test string',
+        },
         contentDetails: {
           caption: 'Test string',
           contentRating: {
@@ -2180,6 +2184,10 @@ gapi.load('client', async () => {
           alcoholContent: true,
           restricted: true,
           videoGameRating: 'Test string',
+        },
+        brandPartner: {
+          channelHandle: 'Test string',
+          channelId: 'Test string',
         },
         contentDetails: {
           caption: 'Test string',

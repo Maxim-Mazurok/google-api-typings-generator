@@ -210,6 +210,12 @@ declare namespace gapi.client {
       /** Identifies what kind of resource this is. Value: the fixed string "youtube#batchGetStatsResponse". */
       kind?: string;
     }
+    interface BrandPartner {
+      /** Required. Channel handle, must begin with "@" */
+      channelHandle?: string;
+      /** Required. External Channel ID, must begin with "UC" */
+      channelId?: string;
+    }
     interface Caption {
       /** Etag of this resource. */
       etag?: string;
@@ -2676,6 +2682,7 @@ declare namespace gapi.client {
     interface Video {
       /** Age restriction details related to a video. This data can only be retrieved by the video owner. */
       ageGating?: VideoAgeGating;
+      brandPartner?: BrandPartner;
       /** The contentDetails object contains information about the video content, including the length of the video and its aspect ratio. */
       contentDetails?: VideoContentDetails;
       /** Etag of this resource. */
