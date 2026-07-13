@@ -279,6 +279,55 @@ it('excludes conflicting body fields from top-level properties', async () => {
   );
 });
 
+it('does not generate direct body fields overload when the body defines resource', async () => {
+  const restDescription = {
+    name: 'resource-conflict-api',
+    title: 'Resource Conflict API',
+    id: 'resource-conflict-api:v1',
+    version: 'v1',
+    documentationLink: 'https://example.com',
+    schemas: {
+      UpdateRequest: {
+        id: 'UpdateRequest',
+        type: 'object',
+        properties: {
+          resource: {
+            type: 'string',
+            description: 'Body resource property',
+          },
+          description: {type: 'string', description: 'Body description'},
+        },
+      },
+      UpdateResponse: {
+        id: 'UpdateResponse',
+        type: 'object',
+        properties: {
+          ok: {type: 'boolean'},
+        },
+      },
+    },
+    resources: {
+      items: {
+        methods: {
+          update: {
+            httpMethod: 'PUT',
+            path: 'items',
+            id: 'resourceConflictApi.items.update',
+            request: {$ref: 'UpdateRequest'},
+            response: {$ref: 'UpdateResponse'},
+          },
+        },
+      },
+    },
+  } as RestDescription;
+
+  const folder = getPackageNameFromRestDescription(restDescription);
+
+  await mySnapshotTest(folder, () =>
+    app.processService(restDescription, new URL('http://x.com'), false),
+  );
+});
+
 it('does not generate body fields overload for empty body schema', async () => {
   const restDescription = {
     name: 'empty-body-api',
