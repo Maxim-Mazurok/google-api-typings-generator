@@ -1233,6 +1233,11 @@ await gapi.client.dfareporting.remarketingListShares.update({
 });
 
 /*
+Executes an ad-hoc query and returns structured JSON payload data.
+*/
+await gapi.client.dfareporting.reportData.query({profileId: 'profileId'});
+
+/*
 Deletes a report by its ID.
 */
 await gapi.client.dfareporting.reports.delete({
