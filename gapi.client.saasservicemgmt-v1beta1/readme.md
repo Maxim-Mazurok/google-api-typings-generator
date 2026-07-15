@@ -67,6 +67,12 @@ var client_id = '',
   scope = [
     // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
     'https://www.googleapis.com/auth/cloud-platform',
+
+    // See, edit, configure, and delete your Google Cloud App Lifecycle Management data and see the email address for your Google Account
+    'https://www.googleapis.com/auth/saasservicemgmt.read-write',
+
+    // See your Google Cloud App Lifecycle Management data and the email address of your Google Account
+    'https://www.googleapis.com/auth/saasservicemgmt.readonly',
   ],
   immediate = true;
 // ...
