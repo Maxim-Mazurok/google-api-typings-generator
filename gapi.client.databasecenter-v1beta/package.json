@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.databasecenter-v1beta",
-  "version": "0.0.20260710",
+  "version": "0.0.20260702",
   "description": "TypeScript typings for Database Center API v1beta",
   "repository": {
     "type": "git",
