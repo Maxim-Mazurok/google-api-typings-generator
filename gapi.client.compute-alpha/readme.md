@@ -2939,6 +2939,11 @@ Resources documentation.
 await gapi.client.compute.interconnects.setLabels({ project: "project", resource: "resource",  });
 
 /*
+Sets name of an interconnect.
+*/
+await gapi.client.compute.interconnects.setName({ interconnect: "interconnect", project: "project",  });
+
+/*
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.interconnects.testIamPermissions({ project: "project", resource: "resource",  });
@@ -3116,6 +3121,16 @@ Retrieves a list of machine types available to the specified
 project.
 */
 await gapi.client.compute.machineTypes.list({ project: "project", zone: "zone",  });
+
+/*
+Gets the details for the specified managed ruleset name.
+*/
+await gapi.client.compute.managedRulesets.get({ managedRuleset: "managedRuleset", project: "project",  });
+
+/*
+Retrieves the list of all the managed rulesets available.
+*/
+await gapi.client.compute.managedRulesets.list({ project: "project",  });
 
 /*
 Retrieves the list of all NetworkAttachment resources,
@@ -6169,6 +6184,11 @@ await gapi.client.compute.reservationBlocks.list({ project: "project", reservati
 Allows customers to perform maintenance on a reservation block
 */
 await gapi.client.compute.reservationBlocks.performMaintenance({ project: "project", reservation: "reservation", reservationBlock: "reservationBlock", zone: "zone",  });
+
+/*
+Lists the instances consuming capacity from a specific reservation.
+*/
+await gapi.client.compute.reservationConsumedInstances.list({ project: "project", reservation: "reservation", zone: "zone",  });
 
 /*
 Retrieves an aggregated list of reservations.
