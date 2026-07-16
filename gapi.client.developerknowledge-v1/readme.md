@@ -100,6 +100,11 @@ await gapi.client.developerknowledge.documents.get({name: 'name'});
 Searches for developer knowledge across Google's developer documentation. Returns DocumentChunks based on the user's query. There may be many chunks from the same Document. To retrieve full documents, use DeveloperKnowledge.GetDocument or DeveloperKnowledge.BatchGetDocuments with the DocumentChunk.parent returned in the SearchDocumentChunksResponse.results.
 */
 await gapi.client.developerknowledge.documents.searchDocumentChunks({});
+
+/*
+Answers a query using grounded generation.
+*/
+await gapi.client.developerknowledge.answerQuery({});
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.developerknowledge-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
