@@ -132,6 +132,50 @@ await gapi.client.androidpublisher.apprecovery.list({
 });
 
 /*
+Creates an app store hosted app. This must be called before any other RPCs for this hosted app.
+*/
+await gapi.client.androidpublisher.appstoreappsreview.createappstorehostedapp({
+  appStorePackageName: 'appStorePackageName',
+});
+
+/*
+Updates details for an app hosted on an app store. Use this to provide details for a new app, or to update details for an existing app. The update will be sent for review immediately after creation.
+*/
+await gapi.client.androidpublisher.appstoreappsreview.updateappstorehostedapp({
+  appStorePackageName: 'appStorePackageName',
+});
+
+/*
+Updates the publish status of an app store hosted app. The default state after calling UpdateAppStoreHostedApp is PUBLISHED. It is not necessary to call this RPC explicitly to set an app to PUBLISHED.
+*/
+await gapi.client.androidpublisher.appstoreappsreview.updateappstorehostedapppublishstatus(
+  {appStorePackageName: 'appStorePackageName', packageName: 'packageName'},
+);
+
+/*
+Upload an APK file for the hosted app. Returns an ID to track this APK.
+*/
+await gapi.client.androidpublisher.appstoreappsreview.uploadapk({
+  appStorePackageName: 'appStorePackageName',
+  packageName: 'packageName',
+});
+
+/*
+Upload a policy declaration file for the hosted app. Returns an ID to track the file.
+*/
+await gapi.client.androidpublisher.appstoreappsreview.uploadappstoreapppolicydeclarationfile(
+  {appStorePackageName: 'appStorePackageName', packageName: 'packageName'},
+);
+
+/*
+Upload a screenshot or app icon for the hosted app. Returns an ID to track the image.
+*/
+await gapi.client.androidpublisher.appstoreappsreview.uploadimage({
+  appStorePackageName: 'appStorePackageName',
+  packageName: 'packageName',
+});
+
+/*
 Commits an app edit.
 */
 await gapi.client.androidpublisher.edits.commit({
