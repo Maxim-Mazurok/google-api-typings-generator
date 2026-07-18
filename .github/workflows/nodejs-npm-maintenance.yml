@@ -28,7 +28,7 @@ jobs:
           echo "latest_version=$LATEST_VERSION" >> $GITHUB_OUTPUT
 
       - name: Setup Node.js with latest version
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ steps.get-latest-nodejs-version.outputs.latest_version }}
           cache: 'npm'
