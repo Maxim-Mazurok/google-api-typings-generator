@@ -32,7 +32,7 @@
     "pretest": "npm run type-check && npm run cspell",
     "test": "vitest --run",
     "posttest": "npm run check",
-    "type-check": "tsc --noEmit"
+    "type-check": "node node_modules/typescript-go/bin/tsc --noEmit"
   },
   "dependencies": {
     "@definitelytyped/dtslint": "0.2.46",
@@ -65,6 +65,7 @@
     "semver": "^7.8.5",
     "tsx": "^4.23.1",
     "typescript": "^6.0.3",
+    "typescript-go": "npm:typescript@^7.0.2",
     "validate-npm-package-name": "^8.0.0",
     "vitest": "^4.1.10",
     "zod": "^4.4.3"
@@ -75,6 +76,8 @@
   },
   "dependencyComments": {
     "@definitelytyped/dtslint": "relies on @definitelytyped/eslint-plugin, update them together",
-    "@definitelytyped/eslint-plugin": "needed for @definitelytyped/dtslint, update them together"
+    "@definitelytyped/eslint-plugin": "needed for @definitelytyped/dtslint, update them together",
+    "typescript": "kept on 6.x because eslint-based tooling (gts, dtslint via typescript-eslint) requires the JS compiler API that typescript 7 (native compiler) no longer ships; typescript-eslint peer range is still <6.1",
+    "typescript-go": "typescript 7 native compiler, used for type-check (tsc --noEmit) and for extracting global type names from its lib.*.d.ts files; replace typescript with it once typescript-eslint and dtslint support 7"
   }
 }
