@@ -39,11 +39,11 @@ jobs:
 
       # upload failed type for investigation
       - name: Copy discovery service response
-        if: failure()
+        if: failure() && steps.lint.outputs.FAILED_TYPE != ''
         run: cp ${{ runner.temp }}/${{ steps.lint.outputs.FAILED_TYPE }}.json types/${{ steps.lint.outputs.FAILED_TYPE }}
       - name: Upload failed type
         uses: actions/upload-artifact@v7
-        if: failure()
+        if: failure() && steps.lint.outputs.FAILED_TYPE != ''
         with:
           name: ${{ steps.lint.outputs.FAILED_TYPE }}
           path: types/${{ steps.lint.outputs.FAILED_TYPE }}
