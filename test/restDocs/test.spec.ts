@@ -212,7 +212,7 @@ it('generates overload with body fields spread as top-level properties', async (
   );
 });
 
-it('excludes conflicting body fields from top-level properties', async () => {
+it('does not generate a direct body fields overload when a body field conflicts', async () => {
   const restDescription = {
     name: 'conflict-api',
     title: 'Conflict API',
