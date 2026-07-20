@@ -3,7 +3,8 @@ import {HttpProxyAgent, HttpsProxyAgent} from 'hpagent';
 import _ from 'lodash';
 import LineByLine from 'n-readlines';
 import fs, {appendFileSync} from 'node:fs';
-import {EOL} from 'node:os';
+import {EOL, tmpdir} from 'node:os';
+import {join} from 'node:path';
 import {fileURLToPath, URL} from 'node:url';
 import validateNpmPackageName from 'validate-npm-package-name';
 import {NpmArchivesToPublishHelper} from './archives-to-publish.js';
@@ -206,15 +207,69 @@ export const sameNamespace = (
  * https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
  * https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#environment-files
  */
-export const setOutputGHActions = (key: 'FAILED_TYPE', value: string) => {
+export const setOutputGHActions = (
+  key: 'FAILED_TYPE' | 'FAILED_TYPES',
+  value: string,
+) => {
   console.log(
-    // TODO: maybe remove this?
     `Trying to write ${key}=${value} to the ${process.env.GITHUB_OUTPUT}`,
   );
   if (process.env.GITHUB_OUTPUT !== undefined) {
     appendFileSync(process.env.GITHUB_OUTPUT, `${key}=${value}${EOL}`);
   }
 };
+
+export interface SkippedPackage {
+  packageName: string;
+  phase: 'generation' | 'lint';
+  reason: string;
+  serviceName?: string;
+}
+
+export const DEFAULT_DIAGNOSTICS_DIRECTORY = join(
+  tmpdir(),
+  'google-api-typings-generator-diagnostics',
+);
+
+export function getDiagnosticsDirectory(diagnosticsDirectory?: string) {
+  return diagnosticsDirectory ?? DEFAULT_DIAGNOSTICS_DIRECTORY;
+}
+
+function formatMarkdownTableCell(value: string) {
+  return value.replaceAll(/\s+/g, ' ').replaceAll('|', '\\|');
+}
+
+export function writeSkippedPackagesSummary(skippedPackages: SkippedPackage[]) {
+  if (skippedPackages.length === 0) {
+    return;
+  }
+
+  const summary = [
+    '## Skipped package updates',
+    '',
+    '| Package | Phase | Service | Reason |',
+    '| --- | --- | --- | --- |',
+    ...skippedPackages.map(
+      skippedPackage =>
+        `| \`${formatMarkdownTableCell(skippedPackage.packageName)}\` | ${
+          skippedPackage.phase
+        } | ${formatMarkdownTableCell(skippedPackage.serviceName ?? '')} | ${formatMarkdownTableCell(
+          skippedPackage.reason,
+        )} |`,
+    ),
+    '',
+  ].join(EOL);
+
+  if (process.env.GITHUB_STEP_SUMMARY !== undefined) {
+    appendFileSync(process.env.GITHUB_STEP_SUMMARY, summary);
+  } else {
+    console.warn(summary);
+  }
+}
+
+export function getErrorMessage(error: unknown) {
+  return error instanceof Error ? error.message : String(error);
+}
 
 export const hasValueRecursive = <T>(
   someObjectOrArray: object | unknown[],
