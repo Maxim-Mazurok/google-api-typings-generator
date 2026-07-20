@@ -170,6 +170,9 @@ var client_id = '',
     // Move a copy of your food purchase and reservation activity
     'https://www.googleapis.com/auth/dataportability.order_reserve.purchases_reservations',
 
+    // Usage and diagnostic data from your Pixel devices.
+    'https://www.googleapis.com/auth/dataportability.pixel.device_data',
+
     // Move a copy of information about your devices with Google Play Store installed
     'https://www.googleapis.com/auth/dataportability.play.devices',
 
