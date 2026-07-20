@@ -26,6 +26,10 @@ const options = program
     '--cache-discovery-json <directory>', // needed so that we can upload JSON if we fail to process it
     'temporary directory to cache discovery service JSON',
   )
+  .option(
+    '--best-effort',
+    'continue all-service generation when individual services fail',
+  )
   .parse(process.argv)
   .opts<{
     url?: string;
@@ -33,6 +37,7 @@ const options = program
     out: string;
     newRevisionsOnly: boolean;
     cacheDiscoveryJson: string;
+    bestEffort: boolean;
   }>();
 
 console.info(`Output directory: ${options.out}`);
@@ -41,6 +46,7 @@ void (async () => {
   const proxy = await getProxy();
   const app = new App({
     discoveryJsonDirectory: options.cacheDiscoveryJson,
+    diagnosticsDirectory: process.env.GAPI_DIAGNOSTICS_DIR,
     proxy,
     typesDirectory: options.out,
     owners: [
@@ -56,6 +62,10 @@ void (async () => {
     const restDescription = await getRestDescription(url, proxy);
     await app.processService(restDescription, url, options.newRevisionsOnly);
   } else {
-    await app.discover(options.service, options.newRevisionsOnly);
+    await app.discover(
+      options.service,
+      options.newRevisionsOnly,
+      options.bestEffort && options.service === undefined,
+    );
   }
 })();
