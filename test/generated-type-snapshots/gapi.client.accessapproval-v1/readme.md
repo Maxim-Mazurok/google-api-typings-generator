@@ -1,0 +1,142 @@
+# TypeScript typings for Access Approval API v1
+
+An API for controlling access to data by Google personnel.
+For detailed description please check [documentation](https://cloud.google.com/assured-workloads/access-approval/docs).
+
+## Installing
+
+Install typings for Access Approval API:
+
+```
+npm install @types/gapi.client.accessapproval-v1 --save-dev
+```
+
+## TypeScript 6.0+
+
+TypeScript 6.0 changed `types` to default to `[]`. You must now explicitly list type packages in `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "types": ["gapi", "gapi.auth2", "gapi.client", "gapi.client.accessapproval-v1"]
+  }
+}
+```
+
+## Usage
+
+You need to initialize Google API client in your code:
+
+```typescript
+gapi.load('client', () => {
+  // now we can use gapi.client
+  // ...
+});
+```
+
+Then load api client wrapper:
+
+```typescript
+gapi.client.load('https://accessapproval.googleapis.com/$discovery/rest?version=v1', () => {
+  // now we can use:
+  // gapi.client.accessapproval
+});
+```
+
+```typescript
+// Deprecated, use discovery document URL, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadname----version----callback--
+gapi.client.load('accessapproval', 'v1', () => {
+  // now we can use:
+  // gapi.client.accessapproval
+});
+```
+
+Don't forget to authenticate your client before sending any request to resources:
+
+```typescript
+// declare client_id registered in Google Developers Console
+var client_id = '',
+  scope = [
+      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+      'https://www.googleapis.com/auth/cloud-platform',
+    ],
+    immediate = true;
+// ...
+
+gapi.auth.authorize(
+  { client_id: client_id, scope: scope, immediate: immediate },
+  authResult => {
+    if (authResult && !authResult.error) {
+        /* handle successful authorization */
+    } else {
+        /* handle authorization error */
+    }
+});
+```
+
+After that you can use Access Approval API resources: <!-- TODO: make this work for multiple namespaces -->
+
+```typescript
+
+/*
+Deletes the settings associated with a project, folder, or organization. This will have the effect of disabling Access Approval for the resource. Access Approval may remain active based on parent resource settings. To confirm the effective settings, call GetAccessApprovalSettings and verify effective setting is disabled.
+*/
+await gapi.client.accessapproval.folders.deleteAccessApprovalSettings({ name: "name",  });
+
+/*
+Gets the Access Approval settings associated with a project, folder, or organization.
+*/
+await gapi.client.accessapproval.folders.getAccessApprovalSettings({ name: "name",  });
+
+/*
+Retrieves the service account that is used by Access Approval to access KMS keys for signing approved approval requests.
+*/
+await gapi.client.accessapproval.folders.getServiceAccount({ name: "name",  });
+
+/*
+Updates the settings associated with a project, folder, or organization. Settings to update are determined by the value of field_mask.
+*/
+await gapi.client.accessapproval.folders.updateAccessApprovalSettings({ name: "name",  });
+
+/*
+Deletes the settings associated with a project, folder, or organization. This will have the effect of disabling Access Approval for the resource. Access Approval may remain active based on parent resource settings. To confirm the effective settings, call GetAccessApprovalSettings and verify effective setting is disabled.
+*/
+await gapi.client.accessapproval.organizations.deleteAccessApprovalSettings({ name: "name",  });
+
+/*
+Gets the Access Approval settings associated with a project, folder, or organization.
+*/
+await gapi.client.accessapproval.organizations.getAccessApprovalSettings({ name: "name",  });
+
+/*
+Retrieves the service account that is used by Access Approval to access KMS keys for signing approved approval requests.
+*/
+await gapi.client.accessapproval.organizations.getServiceAccount({ name: "name",  });
+
+/*
+Updates the settings associated with a project, folder, or organization. Settings to update are determined by the value of field_mask.
+*/
+await gapi.client.accessapproval.organizations.updateAccessApprovalSettings({ name: "name",  });
+
+/*
+Deletes the settings associated with a project, folder, or organization. This will have the effect of disabling Access Approval for the resource. Access Approval may remain active based on parent resource settings. To confirm the effective settings, call GetAccessApprovalSettings and verify effective setting is disabled.
+*/
+await gapi.client.accessapproval.projects.deleteAccessApprovalSettings({ name: "name",  });
+
+/*
+Gets the Access Approval settings associated with a project, folder, or organization.
+*/
+await gapi.client.accessapproval.projects.getAccessApprovalSettings({ name: "name",  });
+
+/*
+Retrieves the service account that is used by Access Approval to access KMS keys for signing approved approval requests.
+*/
+await gapi.client.accessapproval.projects.getServiceAccount({ name: "name",  });
+
+/*
+Updates the settings associated with a project, folder, or organization. Settings to update are determined by the value of field_mask.
+*/
+await gapi.client.accessapproval.projects.updateAccessApprovalSettings({ name: "name",  });
+```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.accessapproval-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
