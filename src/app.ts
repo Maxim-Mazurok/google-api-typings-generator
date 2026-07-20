@@ -422,6 +422,8 @@ function getType(
     } else {
       return '[]';
     }
+  } else if (type.type === 'object' && isEmptySchema(type)) {
+    return '{ [key: string]: unknown }';
   } else if (type.type === 'object' && type.properties) {
     return (writer: TypescriptTextWriter) => {
       writer.anonymousType(() => {
@@ -464,12 +466,6 @@ function getType(
     const tsType = typesMap[type.type] || type.type;
     return type.repeated ? `${tsType} | ${tsType}[]` : tsType;
   } else if (type.$ref) {
-    const referencedType = schemas[type.$ref];
-
-    if (isEmptySchema(referencedType)) {
-      return 'any';
-    }
-
     return type.$ref;
   } else throw Error();
 }
@@ -488,7 +484,8 @@ function getMethodReturn(
   const name = schemas['Request'] ? 'client.Request' : 'Request';
 
   if (method.response) {
-    const emptyObject = `${name}<{}>`;
+    const strictEmptyObject = `${name}<{ [key: string]: never }>`;
+    const permissiveEmptyObject = `${name}<{ [key: string]: unknown }>`;
 
     if (
       _.isEqual(method.response, {
@@ -500,7 +497,7 @@ function getMethodReturn(
         type: 'object',
       })
     ) {
-      return emptyObject;
+      return permissiveEmptyObject;
     }
 
     if (_.isEqual(method.response, {type: 'string'})) {
@@ -508,12 +505,13 @@ function getMethodReturn(
       return `${name}<string>`;
     }
 
-    const schema = schemas[checkExists(method.response.$ref)];
+    const responseSchemaName = checkExists(method.response.$ref);
+    const schema = schemas[responseSchemaName];
 
-    if (schema && !_.isEmpty(schema.properties)) {
-      return `${name}<${method.response.$ref}>`;
+    if (schema && !isEmptySchema(schema)) {
+      return `${name}<${responseSchemaName}>`;
     } else {
-      return emptyObject;
+      return strictEmptyObject;
     }
   } else {
     return `${name}<void>`;
@@ -523,8 +521,39 @@ function getMethodReturn(
 const readmeTpl = new Template('readme.dot');
 const packageJsonTpl = new Template('package-json.dot');
 
-function isEmptySchema(schema: JsonSchema) {
-  return _.isEmpty(schema.properties) && !schema.additionalProperties;
+function isEmptySchema(schema: JsonSchema | undefined) {
+  return (
+    schema !== undefined &&
+    _.isEmpty(schema.properties) &&
+    !schema.additionalProperties
+  );
+}
+
+function getStrictEmptySchemaNames(restDescription: RestDescription) {
+  const strictEmptySchemaNames = new Set<string>();
+  const schemas = restDescription.schemas ?? {};
+
+  const collectMethodSchemaNames = (method: RestMethod) => {
+    for (const schemaName of [method.request?.$ref, method.response?.$ref]) {
+      if (schemaName && isEmptySchema(schemas[schemaName])) {
+        strictEmptySchemaNames.add(schemaName);
+      }
+    }
+  };
+
+  const collectResourceSchemaNames = (resource: RestResource) => {
+    Object.values(resource.methods ?? {}).forEach(collectMethodSchemaNames);
+    Object.values(resource.resources ?? {}).forEach(collectResourceSchemaNames);
+  };
+
+  Object.values(restDescription.methods ?? {}).forEach(
+    collectMethodSchemaNames,
+  );
+  Object.values(restDescription.resources ?? {}).forEach(
+    collectResourceSchemaNames,
+  );
+
+  return strictEmptySchemaNames;
 }
 
 export interface Configuration {
@@ -574,6 +603,10 @@ export class App {
         if (ref) {
           writer.comment('Request body');
           writer.property('resource', ref, true);
+        }
+
+        if (Object.keys(parameters).length === 0 && !ref) {
+          writer.property('[key: string]', 'never');
         }
       });
     };
@@ -694,6 +727,10 @@ export class App {
             out.property(childResourceName, childResourceInterfaceName);
           });
         }
+
+        if (supposedToBeEmpty) {
+          out.property('[key: string]', 'never');
+        }
       });
     });
 
@@ -719,6 +756,7 @@ export class App {
     const writer = new TypescriptTextWriter(
       new IndentedTextWriter(new StreamWriter(stream)),
     );
+    const strictEmptySchemaNames = getStrictEmptySchemaNames(restDescription);
 
     writer.writeLine(
       `/* Type definitions for non-npm package ${checkExists(
@@ -828,6 +866,15 @@ export class App {
 
           _.forEach(schemas, schema => {
             writer.interface(checkExists(schema.id), () => {
+              if (isEmptySchema(schema)) {
+                writer.property(
+                  '[key: string]',
+                  strictEmptySchemaNames.has(checkExists(schema.id))
+                    ? 'never'
+                    : 'unknown',
+                );
+              }
+
               if (schema.properties) {
                 _.forEach(schema.properties, (data, key) => {
                   if (data.description) {
