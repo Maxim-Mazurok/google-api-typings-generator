@@ -1,4 +1,4 @@
-# TypeScript typings for Agent Identity Credentials API v1alpha
+# TypeScript typings for Agent Identity Credentials API v1
 
 agentidentitycredentials.googleapis.com API.
 For detailed description please check [documentation](https://cloud.google.com/iam/docs/).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/i
 Install typings for Agent Identity Credentials API:
 
 ```
-npm install @types/gapi.client.agentidentitycredentials-v1alpha --save-dev
+npm install @types/gapi.client.agentidentitycredentials-v1 --save-dev
 ```
 
 ## TypeScript 6.0+
@@ -22,7 +22,7 @@ TypeScript 6.0 changed `types` to default to `[]`. You must now explicitly list 
       "gapi",
       "gapi.auth2",
       "gapi.client",
-      "gapi.client.agentidentitycredentials-v1alpha"
+      "gapi.client.agentidentitycredentials-v1"
     ]
   }
 }
@@ -43,7 +43,7 @@ Then load api client wrapper:
 
 ```typescript
 gapi.client.load(
-  'https://agentidentitycredentials.googleapis.com/$discovery/rest?version=v1alpha',
+  'https://agentidentitycredentials.googleapis.com/$discovery/rest?version=v1',
   () => {
     // now we can use:
     // gapi.client.agentidentitycredentials
@@ -53,7 +53,7 @@ gapi.client.load(
 
 ```typescript
 // Deprecated, use discovery document URL, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadname----version----callback--
-gapi.client.load('agentidentitycredentials', 'v1alpha', () => {
+gapi.client.load('agentidentitycredentials', 'v1', () => {
   // now we can use:
   // gapi.client.agentidentitycredentials
 });
@@ -89,4 +89,4 @@ After that you can use Agent Identity Credentials API resources: <!-- TODO: make
 
 ```
 
-For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.agentidentitycredentials-v1alpha#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.agentidentitycredentials-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
