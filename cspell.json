@@ -25,6 +25,7 @@
     "npmjs",
     "nvmrc",
     "octokit",
+    "oxlint",
     "packagejson",
     "poststart",
     "posttest",
@@ -33,6 +34,7 @@
     "PUNCSP",
     "readlines",
     "repos",
+    "tsgolint",
     "uncommenting",
     "Vong",
     "ZWSP"
