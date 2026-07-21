@@ -31,6 +31,15 @@ updates:
       dt-stuff:
         patterns:
           - '@definitelytyped/*'
+    ignore:
+      # typescript 7.0.x ships no JS compiler API, which typescript-eslint
+      # (via gts) and @definitelytyped/dtslint still require, so `typescript`
+      # stays on 6.x and typescript 7 is consumed via the typescript-go alias.
+      # typescript 7.1 is expected to ship the new API, so only 7.0.x is
+      # ignored — dependabot will open a PR for 7.1+ and we re-assess then.
+      # See dependencyComments in package.json and PR #1356.
+      - dependency-name: 'typescript'
+        versions: ['7.0.x']
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
