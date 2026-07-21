@@ -591,6 +591,42 @@ export class App {
   }
 
   /**
+   * Creates a callback that writes request parameters with body fields
+   * spread as optional top-level properties (alongside `resource`).
+   */
+  private static createRequestParameterWithBodyFieldsWriterCallback(
+    parameters: Record<string, JsonSchema>,
+    schemas: Record<string, JsonSchema>,
+    requestReference: string,
+    bodyProperties: Record<string, JsonSchema>,
+  ) {
+    return function requestParameterWithBodyFieldsWriterCallback(
+      writer: TypescriptTextWriter,
+    ) {
+      writer.anonymousType(() => {
+        _.forEach(parameters, (data, key) => {
+          if (data.description) {
+            writer.comment(formatComment(data.description));
+          }
+
+          writer.property(key, getType(data, schemas), Boolean(data.required));
+        });
+
+        _.forEach(bodyProperties, (data, key) => {
+          if (data.description) {
+            writer.comment(formatComment(data.description));
+          }
+
+          writer.property(key, getType(data, schemas), false);
+        });
+
+        writer.comment('Request body');
+        writer.property('resource', requestReference, false);
+      });
+    };
+  }
+
+  /**
    * Writes specified resource definition.
    */
   private writeResources(
@@ -693,6 +729,39 @@ export class App {
               ],
               getMethodReturn(method, schemas),
             );
+
+            // generate method(request) with body fields spread as top-level properties
+            const bodySchema = schemas[requestRef];
+            if (bodySchema?.properties && !_.isEmpty(bodySchema.properties)) {
+              const reservedRequestPropertyNames = new Set([
+                ...Object.keys(requestParameters),
+                'resource',
+              ]);
+              const hasBodyFieldConflict = Object.keys(
+                bodySchema.properties,
+              ).some(propertyName =>
+                reservedRequestPropertyNames.has(propertyName),
+              );
+
+              if (!hasBodyFieldConflict) {
+                out.method(
+                  formatPropertyName(checkExists(getName(methodName))),
+                  [
+                    {
+                      parameter: 'request',
+                      type: App.createRequestParameterWithBodyFieldsWriterCallback(
+                        requestParameters,
+                        schemas,
+                        requestRef,
+                        bodySchema.properties,
+                      ),
+                      required: true,
+                    },
+                  ],
+                  getMethodReturn(method, schemas),
+                );
+              }
+            }
           }
         });
 

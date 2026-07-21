@@ -154,6 +154,227 @@ it('warns when schema names shadow TypeScript globals', async () => {
   }
 });
 
+it('generates overload with body fields spread as top-level properties', async () => {
+  const restDescription = {
+    name: 'body-fields-api',
+    title: 'Body Fields API',
+    id: 'body-fields-api:v1',
+    version: 'v1',
+    documentationLink: 'https://example.com',
+    schemas: {
+      MyRequest: {
+        id: 'MyRequest',
+        type: 'object',
+        properties: {
+          title: {type: 'string', description: 'The title'},
+          count: {type: 'integer', description: 'The count'},
+          items: {
+            type: 'array',
+            items: {type: 'string'},
+            description: 'The items list',
+          },
+        },
+      },
+      MyResponse: {
+        id: 'MyResponse',
+        type: 'object',
+        properties: {
+          result: {type: 'string'},
+        },
+      },
+    },
+    resources: {
+      things: {
+        methods: {
+          create: {
+            httpMethod: 'POST',
+            path: 'things',
+            id: 'bodyFieldsApi.things.create',
+            parameters: {
+              projectId: {
+                type: 'string',
+                required: true,
+                description: 'The project ID',
+              },
+            },
+            request: {$ref: 'MyRequest'},
+            response: {$ref: 'MyResponse'},
+          },
+        },
+      },
+    },
+  } as RestDescription;
+
+  const folder = getPackageNameFromRestDescription(restDescription);
+
+  await mySnapshotTest(folder, () =>
+    app.processService(restDescription, new URL('http://x.com'), false),
+  );
+});
+
+it('does not generate a direct body fields overload when a body field conflicts', async () => {
+  const restDescription = {
+    name: 'conflict-api',
+    title: 'Conflict API',
+    id: 'conflict-api:v1',
+    version: 'v1',
+    documentationLink: 'https://example.com',
+    parameters: {
+      fields: {
+        type: 'string',
+        description: 'Global fields param',
+      },
+    },
+    schemas: {
+      UpdateRequest: {
+        id: 'UpdateRequest',
+        type: 'object',
+        properties: {
+          fields: {
+            type: 'string',
+            description: 'Body fields property (conflicts with global param)',
+          },
+          name: {
+            type: 'string',
+            description: 'Body name property (conflicts with method param)',
+          },
+          description: {type: 'string', description: 'Body description'},
+          tags: {
+            type: 'array',
+            items: {type: 'string'},
+            description: 'Body tags',
+          },
+        },
+      },
+      UpdateResponse: {
+        id: 'UpdateResponse',
+        type: 'object',
+        properties: {
+          ok: {type: 'boolean'},
+        },
+      },
+    },
+    resources: {
+      items: {
+        methods: {
+          update: {
+            httpMethod: 'PUT',
+            path: 'items/{name}',
+            id: 'conflictApi.items.update',
+            parameters: {
+              name: {
+                type: 'string',
+                required: true,
+                description: 'The item name',
+              },
+            },
+            request: {$ref: 'UpdateRequest'},
+            response: {$ref: 'UpdateResponse'},
+          },
+        },
+      },
+    },
+  } as RestDescription;
+
+  const folder = getPackageNameFromRestDescription(restDescription);
+
+  await mySnapshotTest(folder, () =>
+    app.processService(restDescription, new URL('http://x.com'), false),
+  );
+});
+
+it('does not generate direct body fields overload when the body defines resource', async () => {
+  const restDescription = {
+    name: 'resource-conflict-api',
+    title: 'Resource Conflict API',
+    id: 'resource-conflict-api:v1',
+    version: 'v1',
+    documentationLink: 'https://example.com',
+    schemas: {
+      UpdateRequest: {
+        id: 'UpdateRequest',
+        type: 'object',
+        properties: {
+          resource: {
+            type: 'string',
+            description: 'Body resource property',
+          },
+          description: {type: 'string', description: 'Body description'},
+        },
+      },
+      UpdateResponse: {
+        id: 'UpdateResponse',
+        type: 'object',
+        properties: {
+          ok: {type: 'boolean'},
+        },
+      },
+    },
+    resources: {
+      items: {
+        methods: {
+          update: {
+            httpMethod: 'PUT',
+            path: 'items',
+            id: 'resourceConflictApi.items.update',
+            request: {$ref: 'UpdateRequest'},
+            response: {$ref: 'UpdateResponse'},
+          },
+        },
+      },
+    },
+  } as RestDescription;
+
+  const folder = getPackageNameFromRestDescription(restDescription);
+
+  await mySnapshotTest(folder, () =>
+    app.processService(restDescription, new URL('http://x.com'), false),
+  );
+});
+
+it('does not generate body fields overload for empty body schema', async () => {
+  const restDescription = {
+    name: 'empty-body-api',
+    title: 'Empty Body API',
+    id: 'empty-body-api:v1',
+    version: 'v1',
+    documentationLink: 'https://example.com',
+    schemas: {
+      EmptyRequest: {
+        id: 'EmptyRequest',
+        type: 'object',
+        properties: {},
+      },
+      SomeResponse: {
+        id: 'SomeResponse',
+        type: 'object',
+        properties: {
+          status: {type: 'string'},
+        },
+      },
+    },
+    resources: {
+      actions: {
+        methods: {
+          trigger: {
+            httpMethod: 'POST',
+            path: 'actions/trigger',
+            id: 'emptyBodyApi.actions.trigger',
+            request: {$ref: 'EmptyRequest'},
+            response: {$ref: 'SomeResponse'},
+          },
+        },
+      },
+    },
+  } as RestDescription;
+
+  const folder = getPackageNameFromRestDescription(restDescription);
+
+  await mySnapshotTest(folder, () =>
+    app.processService(restDescription, new URL('http://x.com'), false),
+  );
+});
+
 it('handles reserved JS keyword resource names via declaration merging', async () => {
   const restDescription = {
     name: 'debugger-api',
