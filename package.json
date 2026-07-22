@@ -77,7 +77,7 @@
   "dependencyComments": {
     "@definitelytyped/dtslint": "relies on @definitelytyped/eslint-plugin, update them together",
     "@definitelytyped/eslint-plugin": "needed for @definitelytyped/dtslint, update them together",
-    "typescript": "kept on 6.x because eslint-based tooling (gts, dtslint via typescript-eslint) requires the JS compiler API that typescript 7 (native compiler) no longer ships; typescript-eslint peer range is still <6.1",
-    "typescript-go": "typescript 7 native compiler, used for type-check (tsc --noEmit) and for extracting global type names from its lib.*.d.ts files; replace typescript with it once typescript-eslint and dtslint support 7"
+    "typescript": "kept on 6.x because eslint-based tooling (gts and dtslint, both via typescript-eslint) requires the JS compiler API that typescript 7.0 (native compiler) does not ship; dependabot ignores 7.0.x only — typescript 7.1 is expected to ship the new API and will open a PR, at which point re-assess: typescript-eslint adoption is tracked in typescript-eslint/typescript-eslint#10940 and dtslint peer range is still <7",
+    "typescript-go": "typescript 7 native compiler installed side-by-side (the officially recommended setup), used for type-check (tsc --noEmit) and for extracting global type names from its lib.*.d.ts files; once typescript-eslint and dtslint support 7, point typescript at 7 and drop this alias; if the eslint stack lags after 7.1, plan B is replacing gts/eslint with oxlint+tsgolint for our own linting, though dtslint alone still keeps typescript 6 around"
   }
 }
