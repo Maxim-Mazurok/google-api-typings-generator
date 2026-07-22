@@ -364,6 +364,19 @@ gapi.load('client', async () => {
       },
       {},
     );
+    /** Returns metadata about a recently updated app. */
+    await gapi.client.androidpublisher.appstorecatalog.recentappviews.get({
+      appStorePackageName: 'Test string',
+      playAppPackageName: 'Test string',
+    });
+    /** Lists update events for eligible apps in the given time range. */
+    await gapi.client.androidpublisher.appstorecatalog.recentupdateevents.list({
+      appStorePackageName: 'Test string',
+      endTime: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      startTime: 'Test string',
+    });
     /** Commits an app edit. */
     await gapi.client.androidpublisher.edits.commit({
       changesInReviewBehavior: 'Test string',

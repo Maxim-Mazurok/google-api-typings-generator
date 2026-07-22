@@ -178,6 +178,14 @@ declare namespace gapi.client {
       /** Texture-compression-format-level targeting */
       textureCompressionFormatTargeting?: TextureCompressionFormatTargeting;
     }
+    interface AppContactInformation {
+      /** The contact email for this app. Always set. */
+      contactEmail?: string;
+      /** The contact phone for this app. Optionally provided by the developer. */
+      phoneNumber?: string;
+      /** The contact website url for this app. Optionally provided by the developer. */
+      websiteUrl?: string;
+    }
     interface AppDetails {
       /** The user-visible support email for this app. */
       contactEmail?: string;
@@ -528,6 +536,74 @@ declare namespace gapi.client {
       /** Only set for CANCEL_SURVEY_REASON_OTHERS. This is the user's freeform response to the survey. */
       reasonUserInput?: string;
     }
+    interface CatalogAppView {
+      /** Active versions of the app mapped from `android:versionName` manifest attributes. */
+      activeVersionNames?: string[];
+      /** The category of the app. */
+      appCategory?: 'APP_CATEGORY_UNSPECIFIED' | 'GAME' | 'APP';
+      /** Developer-provided contact information for the app. */
+      appContactInformation?: AppContactInformation;
+      /** The subcategory of the app e.g. "GAME_ACTION". */
+      appSubcategory?: string;
+      /** The token used for delivery of the app with the Google Play Inline Install API. */
+      deliveryToken?: string;
+      /** The developer details of the app. */
+      developerDetails?: DeveloperDetails;
+      /** The app may specify multiple sets of device compatibility requirements, and a device is considered compatible with the app if it satisfies at least one of `DeviceCompatibilityRequirements`. */
+      deviceCompatibilityRequirements?: DeviceCompatibilityRequirements[];
+      /** List of devices excluded from the app's distribution even if they are otherwise compatible with the requirements from device_compatibility_requirements. These are OR-ed, i.e. a device is excluded if it matches any of the identifiers. */
+      excludedDevicesByIdentifier?: DeviceIdentifier[];
+      /** List of devices excluded from the app's distribution even if they are otherwise compatible with the requirements from device_compatibility_requirements. A device is excluded if it matches any of given the selectors. */
+      excludedDevicesBySelector?: CatalogDeviceSelector[];
+      /** The date when the app was first released. */
+      firstReleaseDate?: Date;
+      /** Whether the app has ads. */
+      hasInAppAds?: boolean;
+      /** Whether the app has in-app purchases through Google Play. */
+      hasInAppPurchases?: boolean;
+      /** The IARC certificate ID for the app. */
+      iarcCertificateId?: string;
+      /** Whether the app is targeted to an adult-only (18+) audience. */
+      isAdultOnlyAudience?: boolean;
+      /** The timestamp when the app was last published. */
+      lastPublishTime?: string;
+      /** The localized store listings of the app which are shown on Google Play. */
+      localizedStoreListings?: LocalizedStoreListings;
+      /** The package name of the app. */
+      packageName?: string;
+      /** Required permissions declared by the app which apply for all Android SDK versions. */
+      permissions?: CatalogPermission[];
+      /** Required permissions declared by the app which apply for Android SDK versions SDK 23 and above. */
+      permissionsSdk23?: CatalogPermission[];
+      /** The price of the app in the United States. Empty if the app is free. */
+      priceInTheUnitedStates?: Money;
+      /** The URL of the app's privacy policy. */
+      privacyPolicyUrl?: string;
+      /** The sale price of the app in the United States. Only populated for paid apps with an active US sale. */
+      salePriceInTheUnitedStates?: Money;
+    }
+    interface CatalogDeviceSelector {
+      /** The device type selector. */
+      deviceTypeSelector?: 'DEVICE_TYPE_SELECTOR_UNSPECIFIED' | 'ANDROID_GO';
+      /** Defines a RAM selector for a device. */
+      ramSelector?: RamSelector;
+      /** The SOC selectors. A device matches the device selector if it matches any of the SOC selectors. */
+      socSelectors?: SocSelector[];
+    }
+    interface CatalogPermission {
+      /** The `maxSdkVersion` attribute indicating up to which Android SDK version the permission is requested. */
+      maxSdkVersion?: number;
+      /** The `name` attribute indicating the permission name. */
+      name?: string;
+    }
+    interface CatalogSdkVersion {
+      /** The maximum SDK version required for the app (inclusive). */
+      maxSdkVersion?: string;
+      /** The minimum SDK version required for the app (inclusive). */
+      minSdkVersion?: string;
+      /** The target SDK version for the app. */
+      targetSdkVersion?: string;
+    }
     interface CoarseLocation {
       /** Optional. Highest administrative subdivision which is used for postal addresses of a country or region. For example, this can be a state, a province, an oblast, or a prefecture. For Spain, this is the province and not the autonomous community (for example, "Barcelona" and not "Catalonia"). Many countries don't use an administrative area in postal addresses. For example, in Switzerland, this should be left unpopulated. */
       administrativeArea?: string;
@@ -543,6 +619,31 @@ declare namespace gapi.client {
       developerComment?: DeveloperComment;
       /** A comment from a user. */
       userComment?: UserComment;
+    }
+    interface CompatibleScreen {
+      /** Screen density. */
+      density?:
+        | 'DENSITY_UNSPECIFIED'
+        | 'DENSITY_NODPI'
+        | 'DENSITY_LDPI'
+        | 'DENSITY_MDPI'
+        | 'DENSITY_TVDPI'
+        | 'DENSITY_HDPI'
+        | 'DENSITY_280'
+        | 'DENSITY_XHDPI'
+        | 'DENSITY_360'
+        | 'DENSITY_400'
+        | 'DENSITY_420'
+        | 'DENSITY_XXHDPI'
+        | 'DENSITY_560'
+        | 'DENSITY_XXXHDPI';
+      /** The screen size. */
+      screenSize?:
+        | 'SCREEN_SIZE_UNSPECIFIED'
+        | 'SCREEN_SIZE_SMALL'
+        | 'SCREEN_SIZE_NORMAL'
+        | 'SCREEN_SIZE_LARGE'
+        | 'SCREEN_SIZE_EXTRA_LARGE';
     }
     interface ConsumptionUsageEvent {
       /** Optional. Free form text that allows developers to provide more info on the item consumed. Maximum length is 5000 characters. */
@@ -746,7 +847,53 @@ declare namespace gapi.client {
       /** The content of the comment, i.e. reply body. */
       text?: string;
     }
+    interface DeveloperDetails {
+      /** The physical address of the developer. */
+      address?: string;
+      /** The contact email of the developer. */
+      contactEmail?: string;
+      /** The developer name of the app. */
+      developerName?: string;
+      /** The phone number of the developer. */
+      phoneNumber?: string;
+      /** The website of the developer. */
+      website?: string;
+    }
     interface DeveloperInitiatedCancellation {}
+    interface DeviceCompatibilityRequirements {
+      /** Compatible screens as listed in the `compatible-screens` Manifest tag. */
+      compatibleScreens?: CompatibleScreen[];
+      /** Required version of OpenGL ES. */
+      glEsVersion?: number;
+      /** Specifies if the app requires a screen. */
+      isScreenRequired?: boolean;
+      /** List of required ABIs (Application Binary Interface), e.g. `armeabi` or `x86`. */
+      nativePlatforms?: string[];
+      /** List of required libraries as declared in the `uses-library` manifest tag. */
+      requiredSoftwareLibraries?: string[];
+      /** The system features that the app requires. A device must have all of the system features to be considered compatible with the app. */
+      requiredSystemFeatures?: string[];
+      /** Specifies the minimum smallest width required of the screen. */
+      requiresSmallestWidthDp?: string;
+      /** Defines a range of SDK versions that the app is compatible with. */
+      sdkVersion?: CatalogSdkVersion;
+      /** Supported gl textures as specified by the `supported-gl-texture` Manifest tag. */
+      supportedGlTextures?: string[];
+      /** Compatible screens as listed in the `supports-screens` Manifest tag. */
+      supportedScreens?:
+        | 'SCREEN_SIZE_UNSPECIFIED'
+        | 'SCREEN_SIZE_SMALL'
+        | 'SCREEN_SIZE_NORMAL'
+        | 'SCREEN_SIZE_LARGE'
+        | 'SCREEN_SIZE_EXTRA_LARGE'[];
+      /** Value of `android:use32BitAbi` flag retrieved from the Manifest. */
+      use32BitAbi?:
+        | 'USE_32_BIT_ABI_UNSPECIFIED'
+        | 'USE_32_BIT_ABI_TRUE'
+        | 'USE_32_BIT_ABI_OTHER';
+      /** Lists all configurations marked as required by use of the `uses-configuration` manifest tag. Each instance of this proto represents a single `uses-configuration` entry. See http://developer.android.com/guide/topics/manifest/uses-configuration-element.html */
+      usesConfigurations?: UsesConfiguration[];
+    }
     interface DeviceFeature {
       /** Name of the feature. */
       featureName?: string;
@@ -768,6 +915,12 @@ declare namespace gapi.client {
       buildBrand?: string;
       /** Value of Build.DEVICE. */
       buildDevice?: string;
+    }
+    interface DeviceIdentifier {
+      /** The brand of the device. */
+      deviceBrand?: string;
+      /** The model of the device. */
+      deviceModel?: string;
     }
     interface DeviceMetadata {
       /** Device CPU make, e.g. "Qualcomm" */
@@ -1093,6 +1246,10 @@ declare namespace gapi.client {
       /** A URL that will serve a preview of the image. */
       url?: string;
     }
+    interface ImageAsset {
+      /** The URL of the image asset. */
+      imageUrl?: string;
+    }
     interface ImagesDeleteAllResponse {
       /** The deleted images. */
       deleted?: Image[];
@@ -1337,6 +1494,12 @@ declare namespace gapi.client {
       /** The one-time products from the specified app. */
       oneTimeProducts?: OneTimeProduct[];
     }
+    interface ListRecentUpdateEventsResponse {
+      /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
+      nextPageToken?: string;
+      /** The list of recent update events. */
+      recentUpdateEvents?: RecentUpdateEvent[];
+    }
     interface ListReleaseSummariesResponse {
       /** List of releases for this track. A maximum of 20 releases can be returned. */
       releases?: ReleaseSummary[];
@@ -1358,6 +1521,33 @@ declare namespace gapi.client {
       nextPageToken?: string;
       /** The resulting users. */
       users?: User[];
+    }
+    interface LocalizedStoreListing {
+      /** The name of the app in this localization. */
+      appName?: string;
+      /** The feature graphic of the app. */
+      featureGraphic?: ImageAsset;
+      /** A longer description of the app in this localization. */
+      fullDescription?: string;
+      /** The icon of the app. */
+      icon?: ImageAsset;
+      /** The BCP-47 language code for this localization. */
+      languageCode?: string;
+      /** The phone screenshots of the app. */
+      phoneScreenshots?: ScreenshotSet;
+      /** A short description of the app in this localization. */
+      shortDescription?: string;
+      /** The regular tablet screenshots of the app. */
+      tabletRegularScreenshots?: ScreenshotSet;
+      /** The small tablet screenshots of the app. */
+      tabletSmallScreenshots?: ScreenshotSet;
+      /** The video of the app. */
+      video?: VideoAsset;
+    }
+    interface LocalizedStoreListings {
+      /** The default language code of the app. If a localized store listing is not available for a given language, assets from the default language are used instead. */
+      defaultLanguageCode?: string;
+      localizedStoreListings?: LocalizedStoreListing[];
     }
     interface LocalizedText {
       /** Language localization code (a BCP-47 language tag; for example, "de-AT" for Austrian German). */
@@ -2003,6 +2193,22 @@ declare namespace gapi.client {
       purchaseState?:
         'PURCHASE_STATE_UNSPECIFIED' | 'PURCHASED' | 'CANCELLED' | 'PENDING';
     }
+    interface RamSelector {
+      /** This will match any device that has less than or equal ram_mb_less_than_or_equal mb of RAM. */
+      ramMbLessThanOrEqual?: string;
+    }
+    interface RecentAppView {
+      /** Recently updated app view. */
+      appView?: CatalogAppView;
+    }
+    interface RecentUpdateEvent {
+      /** The timestamp of the update. */
+      eventTime?: string;
+      /** The package name of the app. */
+      playAppPackageName?: string;
+      /** The type of the update event. */
+      updateType?: 'UPDATE_TYPE_UNSPECIFIED' | 'MODIFICATION' | 'DELETION';
+    }
     interface RecurringExternalTransaction {
       /** Details of an external subscription. */
       externalSubscription?: ExternalSubscription;
@@ -2260,6 +2466,10 @@ declare namespace gapi.client {
       /** Value of a screen density. */
       value?: ScreenDensity[];
     }
+    interface ScreenshotSet {
+      /** The image assets of the screenshots. */
+      screenshots?: ImageAsset[];
+    }
     interface SdkVersion {
       /** Inclusive minimum value of an sdk version. */
       min?: number;
@@ -2275,6 +2485,12 @@ declare namespace gapi.client {
       oneTimeCode?: any;
       /** A vanity code was applied. */
       vanityCode?: VanityCode;
+    }
+    interface SocSelector {
+      /** The manufacturer of the SoC. */
+      socMake?: string;
+      /** The model of the SoC. */
+      socModel?: string;
     }
     interface SplitApkMetadata {
       /** Indicates whether this APK is the main split of the module. */
@@ -2881,6 +3097,34 @@ declare namespace gapi.client {
       /** The time at which the subscription was canceled by the user. The user might still have access to the subscription after this time. Use line_items.expiry_time to determine if a user still has access. */
       cancelTime?: string;
     }
+    interface UsesConfiguration {
+      /** The type of keyboard required. */
+      requiredKeyboardType?:
+        | 'KEYBOARD_TYPE_UNSPECIFIED'
+        | 'KEYBOARD_TYPE_UNDEFINED'
+        | 'KEYBOARD_TYPE_NO_KEYS'
+        | 'KEYBOARD_TYPE_QWERTY'
+        | 'KEYBOARD_TYPE_TWELVE_KEY';
+      /** The navigation device required. */
+      requiredNavigationType?:
+        | 'NAVIGATION_TYPE_UNSPECIFIED'
+        | 'NAVIGATION_TYPE_UNDEFINED'
+        | 'NAVIGATION_TYPE_NO_NAVIGATION'
+        | 'NAVIGATION_TYPE_DPAD'
+        | 'NAVIGATION_TYPE_TRACKBALL'
+        | 'NAVIGATION_TYPE_WHEEL';
+      /** The type of touchscreen required. */
+      requiredTouchscreenType?:
+        | 'TOUCHSCREEN_TYPE_UNSPECIFIED'
+        | 'TOUCHSCREEN_TYPE_UNDEFINED'
+        | 'TOUCHSCREEN_TYPE_NO_TOUCHSCREEN'
+        | 'TOUCHSCREEN_TYPE_STYLUS'
+        | 'TOUCHSCREEN_TYPE_FINGER';
+      /** Whether or not the application requires a five-way navigation control. */
+      requiresFiveWayNavigation?: boolean;
+      /** Whether or not the application requires a hardware keyboard. */
+      requiresHardwareKeyboard?: boolean;
+    }
     interface UsesPermission {
       /** Optionally, the maximum SDK version for which the permission is required. */
       maxSdkVersion?: number;
@@ -2910,6 +3154,10 @@ declare namespace gapi.client {
       sdkVersionTargeting?: SdkVersionTargeting;
       /** Texture-compression-format-level targeting */
       textureCompressionFormatTargeting?: TextureCompressionFormatTargeting;
+    }
+    interface VideoAsset {
+      /** The URL of the video asset. */
+      videoUrl?: string;
     }
     interface VoidedPurchase {
       /** This kind represents a voided purchase object in the androidpublisher service. */
@@ -3794,6 +4042,78 @@ declare namespace gapi.client {
         },
         body: UploadImageRequest,
       ): Request<UploadImageResponse>;
+    }
+    interface RecentappviewsResource {
+      /** Returns metadata about a recently updated app. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** Required. The package name of the app store on behalf of which the request is made. */
+        appStorePackageName: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The package name of the requested Play app. */
+        playAppPackageName: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<RecentAppView>;
+    }
+    interface RecentupdateeventsResource {
+      /** Lists update events for eligible apps in the given time range. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** Required. The package name of the app store on behalf of which the request is made. */
+        appStorePackageName: string;
+        /** JSONP */
+        callback?: string;
+        /** Required. The end time of the range (exclusive). */
+        endTime?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. The maximum number of update events to return. The service may return fewer than this value. If unspecified, at most 100 update events will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000. */
+        pageSize?: number;
+        /** Optional. A page token, received from a previous `ListRecentUpdateEvents` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListRecentUpdateEvents` must match the call that provided the page token. */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Required. The start time of the range (inclusive). */
+        startTime?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListRecentUpdateEventsResponse>;
+    }
+    interface AppstorecatalogResource {
+      recentappviews: RecentappviewsResource;
+      recentupdateevents: RecentupdateeventsResource;
     }
     interface ApksResource {
       /** Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to organizations using Managed Play whose application is configured to restrict distribution to the organizations. */
@@ -9937,6 +10257,8 @@ declare namespace gapi.client {
     const apprecovery: ApprecoveryResource;
 
     const appstoreappsreview: AppstoreappsreviewResource;
+
+    const appstorecatalog: AppstorecatalogResource;
 
     const edits: EditsResource;
 
