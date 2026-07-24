@@ -388,6 +388,11 @@ Returns permissions that a caller has on the specified TagValue. The `resource` 
 await gapi.client.cloudresourcemanager.tagValues.testIamPermissions({
   resource: 'resource',
 });
+
+/*
+Returns the semantics associated with the specified resource.
+*/
+await gapi.client.cloudresourcemanager.fetchResourceSemantics({});
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.cloudresourcemanager-v3#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
