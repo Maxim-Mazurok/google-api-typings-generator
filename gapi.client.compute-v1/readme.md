@@ -1170,6 +1170,21 @@ included in the request.
 await gapi.client.compute.healthChecks.update({ healthCheck: "healthCheck", project: "project",  });
 
 /*
+Retrieves information about the specified host.
+*/
+await gapi.client.compute.hosts.get({ association: "association", host: "host", project: "project", zone: "zone",  });
+
+/*
+Allows customers to get SBOM versions of a host.
+*/
+await gapi.client.compute.hosts.getVersion({ association: "association", host: "host", project: "project", zone: "zone",  });
+
+/*
+Retrieves a list of hosts.
+*/
+await gapi.client.compute.hosts.list({ association: "association", project: "project", zone: "zone",  });
+
+/*
 Deletes the specified HttpHealthCheck resource.
 */
 await gapi.client.compute.httpHealthChecks.delete({ httpHealthCheck: "httpHealthCheck", project: "project",  });
@@ -5172,6 +5187,16 @@ Retrieves the list of Zone resources under the specific region available to
 the specified project.
 */
 await gapi.client.compute.regionZones.list({ project: "project", region: "region",  });
+
+/*
+Returns the specified ReliabilityRisk resource.
+*/
+await gapi.client.compute.reliabilityRisks.get({ project: "project", reliabilityRisk: "reliabilityRisk",  });
+
+/*
+Retrieves the list of reliabilityRisks available in the specified project.
+*/
+await gapi.client.compute.reliabilityRisks.list({ project: "project",  });
 
 /*
 Retrieves information about the specified reservation block.
