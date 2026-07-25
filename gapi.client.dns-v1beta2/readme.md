@@ -90,7 +90,7 @@ After that you can use Cloud DNS API resources: <!-- TODO: make this work for mu
 
 ```typescript
 /*
-Atomically updates the ResourceRecordSet collection. Note: While `dns.changes.create` is the baseline permission required to invoke this method, additional permissions are checked depending on the specific additions or deletions contained in the payload.
+Atomically updates the ResourceRecordSet collection.
 */
 await gapi.client.dns.changes.create({
   managedZone: 'managedZone',
@@ -149,7 +149,7 @@ await gapi.client.dns.managedZoneOperations.list({
 });
 
 /*
-Creates a new ManagedZone. Note: While `dns.managedZones.create` is the baseline permission required to invoke this method, additional permissions are required if the managed zone configuration references other resources.
+Creates a new ManagedZone.
 */
 await gapi.client.dns.managedZones.create({project: 'project'});
 
