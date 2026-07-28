@@ -82,7 +82,7 @@ After that you can use Vertex AI Search for commerce API resources: <!-- TODO: m
 
 ```typescript
 /*
-The method enrolls a solution of type Retail Search into a project. The Recommendations AI solution type is enrolled by default when your project enables Retail API, so you don't need to call the enrollSolution method for recommendations.
+The method enrolls a solution of type Retail Search into a project. The Recommendations AI solution type is enrolled by default when your project enables AI Commerce Search API, so you don't need to call the enrollSolution method for recommendations.
 */
 await gapi.client.retail.projects.enrollSolution({project: 'project'});
 
@@ -97,12 +97,12 @@ Gets the LoggingConfig of the requested project.
 await gapi.client.retail.projects.getLoggingConfig({name: 'name'});
 
 /*
-Gets the project. Throws `NOT_FOUND` if the project wasn't initialized for the Retail API service.
+Gets the project. Throws `NOT_FOUND` if the project wasn't initialized for the AI Commerce Search API service.
 */
 await gapi.client.retail.projects.getRetailProject({name: 'name'});
 
 /*
-Lists all the retail API solutions the project has enrolled.
+Lists all the AI Commerce Search API solutions the project has enrolled.
 */
 await gapi.client.retail.projects.listEnrolledSolutions({parent: 'parent'});
 
