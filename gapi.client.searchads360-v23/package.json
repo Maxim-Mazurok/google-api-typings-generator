@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.searchads360-v23",
-  "version": "0.0.20260413",
+  "version": "0.0.20260729",
   "description": "TypeScript typings for Search Ads 360 Reporting API v23",
   "repository": {
     "type": "git",

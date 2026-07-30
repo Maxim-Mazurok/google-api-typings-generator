@@ -249,6 +249,27 @@ await gapi.client.searchads360.customers.suggestTravelAssets({
 });
 
 /*
+Processes the given call conversions. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [PartialFailureError]() [QuotaError]() [RequestError]()
+*/
+await gapi.client.searchads360.customers.uploadCallConversions({
+  customerId: 'customerId',
+});
+
+/*
+Processes the given click conversions. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [ConversionUploadError]() [HeaderError]() [InternalError]() [PartialFailureError]() [QuotaError]() [RequestError]()
+*/
+await gapi.client.searchads360.customers.uploadClickConversions({
+  customerId: 'customerId',
+});
+
+/*
+Processes the given conversion adjustments. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [PartialFailureError]() [QuotaError]() [RequestError]()
+*/
+await gapi.client.searchads360.customers.uploadConversionAdjustments({
+  customerId: 'customerId',
+});
+
+/*
 Uploads the given user data. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [CollectionSizeError]() [FieldError]() [HeaderError]() [InternalError]() [MutateError]() [OfflineUserDataJobError]() [QuotaError]() [RequestError]() [UserDataError]()
 */
 await gapi.client.searchads360.customers.uploadUserData({

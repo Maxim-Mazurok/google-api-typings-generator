@@ -100,6 +100,11 @@ Removes a list of AudienceMember resources from the provided Destination.
 await gapi.client.datamanager.audienceMembers.remove({});
 
 /*
+Removes all audience members from the provided destinations.
+*/
+await gapi.client.datamanager.audienceMembers.removeAll({});
+
+/*
 Uploads a list of Event resources from the provided Destination.
 */
 await gapi.client.datamanager.events.ingest({});
