@@ -512,11 +512,16 @@ function getMethodReturn(
     const responseSchemaName = checkExists(method.response.$ref);
     const schema = schemas[responseSchemaName];
 
-    if (schema && !isEmptySchema(schema)) {
-      return `${name}<${responseSchemaName}>`;
-    } else {
+    if (schema === undefined) {
+      // dangling $ref: the shape is unknown, so don't assert emptiness
+      return permissiveEmptyObject;
+    }
+
+    if (isEmptySchema(schema)) {
       return strictEmptyObject;
     }
+
+    return `${name}<${responseSchemaName}>`;
   } else {
     return `${name}<void>`;
   }
