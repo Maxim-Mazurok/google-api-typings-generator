@@ -332,6 +332,59 @@ it('does not generate direct body fields overload when the body defines resource
   );
 });
 
+it('does not generate direct body fields overload when a parameter is named resource', async () => {
+  const restDescription = {
+    name: 'resource-param-api',
+    title: 'Resource Param API',
+    id: 'resource-param-api:v1',
+    version: 'v1',
+    documentationLink: 'https://example.com',
+    schemas: {
+      SetPolicyRequest: {
+        id: 'SetPolicyRequest',
+        type: 'object',
+        properties: {
+          policy: {type: 'string', description: 'The policy'},
+          updateMask: {type: 'string', description: 'The update mask'},
+        },
+      },
+      SetPolicyResponse: {
+        id: 'SetPolicyResponse',
+        type: 'object',
+        properties: {
+          done: {type: 'boolean'},
+        },
+      },
+    },
+    resources: {
+      items: {
+        methods: {
+          setPolicy: {
+            httpMethod: 'POST',
+            path: 'items/{resource}:setPolicy',
+            id: 'resourceParamApi.items.setPolicy',
+            parameters: {
+              resource: {
+                type: 'string',
+                required: true,
+                description: 'The resource for which the policy is being set',
+              },
+            },
+            request: {$ref: 'SetPolicyRequest'},
+            response: {$ref: 'SetPolicyResponse'},
+          },
+        },
+      },
+    },
+  } as RestDescription;
+
+  const folder = getPackageNameFromRestDescription(restDescription);
+
+  await mySnapshotTest(folder, () =>
+    app.processService(restDescription, new URL('http://x.com'), false),
+  );
+});
+
 it('does not generate body fields overload for empty body schema', async () => {
   const restDescription = {
     name: 'empty-body-api',

@@ -743,7 +743,10 @@ export class App {
                 reservedRequestPropertyNames.has(propertyName),
               );
 
-              if (!hasBodyFieldConflict) {
+              // a request parameter named `resource` (e.g. setIamPolicy-style
+              // methods) would duplicate the appended request-body `resource`
+              // property, so skip the overload entirely in that case
+              if (!hasBodyFieldConflict && !requestParameters.resource) {
                 out.method(
                   formatPropertyName(checkExists(getName(methodName))),
                   [
