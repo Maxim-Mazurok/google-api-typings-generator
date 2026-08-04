@@ -19,8 +19,6 @@ gapi.load('client', async () => {
   const scope = [
     /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
     'https://www.googleapis.com/auth/cloud-platform',
-    /** See, edit, configure, and delete your Google Cloud Secure Source Manager data and see the email address for your Google Account */
-    'https://www.googleapis.com/auth/securesourcemanager.read-write',
   ];
   const immediate = false;
   gapi.auth.authorize({client_id, scope, immediate}, authResult => {
