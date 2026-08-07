@@ -400,6 +400,11 @@ Inserts the resources in the JWT.
 await gapi.client.walletobjects.jwt.insert({});
 
 /*
+Checks that the JWT or JSON string in the request represents a valid pass to be saved.
+*/
+await gapi.client.walletobjects.jwt.validate({});
+
+/*
 Adds a message to the loyalty class referenced by the given class ID.
 */
 await gapi.client.walletobjects.loyaltyclass.addmessage({
