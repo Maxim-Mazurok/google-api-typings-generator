@@ -1,6 +1,6 @@
 # TypeScript typings for Cloud Product Registry API v1
 
-cloudproductregistry.googleapis.com API.
+Cloud Product Registry API provides capabilities to access all first Google Cloud products.
 For detailed description please check [documentation](https://docs.cloud.google.com/product-registry).
 
 ## Installing
