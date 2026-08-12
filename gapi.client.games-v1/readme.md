@@ -197,6 +197,13 @@ await gapi.client.games.metagame.listCategoriesByPlayer({
 });
 
 /*
+Records a batch of player game events for a specific player. This method allows sending multiple events in a single request.
+*/
+await gapi.client.games.playerGameEvents.batchRecordEvents({
+  playerId: 'playerId',
+});
+
+/*
 Retrieves the Player resource with the given ID. To retrieve the player for the currently authenticated user, set `playerId` to `me`.
 */
 await gapi.client.games.players.get({playerId: 'playerId'});
