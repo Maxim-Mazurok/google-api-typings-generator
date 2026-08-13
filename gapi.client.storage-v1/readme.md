@@ -397,14 +397,6 @@ await gapi.client.storage.managedFolders.testIamPermissions({
 });
 
 /*
-Updates a managed folder using patch semantics.
-*/
-await gapi.client.storage.managedFolders.update({
-  bucket: 'bucket',
-  managedFolder: 'managedFolder',
-});
-
-/*
 Permanently deletes a notification subscription.
 */
 await gapi.client.storage.notifications.delete({
@@ -616,40 +608,6 @@ await gapi.client.storage.buckets.operations.get({
 Lists operations that match the specified filter in the request.
 */
 await gapi.client.storage.buckets.operations.list({bucket: 'bucket'});
-
-/*
-Disables a Rapid Cache instance.
-*/
-await gapi.client.storage.rapidCaches.disable({
-  bucket: 'bucket',
-  rapidCacheId: 'rapidCacheId',
-});
-
-/*
-Returns the metadata of a Rapid Cache instance.
-*/
-await gapi.client.storage.rapidCaches.get({
-  bucket: 'bucket',
-  rapidCacheId: 'rapidCacheId',
-});
-
-/*
-Creates a Rapid Cache instance.
-*/
-await gapi.client.storage.rapidCaches.insert({bucket: 'bucket'});
-
-/*
-Returns a list of Rapid Cache instances of the bucket.
-*/
-await gapi.client.storage.rapidCaches.list({bucket: 'bucket'});
-
-/*
-Updates the configuration of a Rapid Cache instance.
-*/
-await gapi.client.storage.rapidCaches.update({
-  bucket: 'bucket',
-  rapidCacheId: 'rapidCacheId',
-});
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.storage-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

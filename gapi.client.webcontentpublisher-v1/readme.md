@@ -95,6 +95,13 @@ Checks if a user is eligible for free article access.
 await gapi.client.webcontentpublisher.publications.checkFreeAccess({
   name: 'name',
 });
+
+/*
+Returns user tokens mapped to their canonical domains for all publications the authenticated user is entitled to.
+*/
+await gapi.client.webcontentpublisher.users.generatePlatformSiteTokens({
+  name: 'name',
+});
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.webcontentpublisher-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
