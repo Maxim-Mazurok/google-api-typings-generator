@@ -1,7 +1,7 @@
 # TypeScript typings for Cloud FTP API v1alpha
 
-Cloud FTP is a managed service that allows transferring files directly to Google Cloud Storage using SFTP.
-For detailed description please check [documentation](https://cloud.google.com/cloud-ftp/overview).
+A managed, cloud-native solution to move data in and out of Google Cloud by using SSH File Transfer Protocol (SFTP).
+For detailed description please check [documentation](https://docs.cloud.google.com/cloud-ftp).
 
 ## Installing
 
