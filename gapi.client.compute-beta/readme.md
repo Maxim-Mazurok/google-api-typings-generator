@@ -2840,16 +2840,6 @@ project.
 await gapi.client.compute.machineTypes.list({ project: "project", zone: "zone",  });
 
 /*
-Gets the details for the specified managed ruleset name.
-*/
-await gapi.client.compute.managedRulesets.get({ managedRuleset: "managedRuleset", project: "project",  });
-
-/*
-Retrieves the list of all the managed rulesets available.
-*/
-await gapi.client.compute.managedRulesets.list({ project: "project",  });
-
-/*
 Retrieves the list of all NetworkAttachment resources,
 regional and global, available to the specified project.
 
