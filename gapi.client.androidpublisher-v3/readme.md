@@ -132,6 +132,18 @@ await gapi.client.androidpublisher.apprecovery.list({
 });
 
 /*
+Enrolls an app in Play App Signing using a self-hosted Google Cloud KMS key. Warning: Do not use this method for standard Play App Signing enrollment. * Standard enrollment with Google-generated or Google-managed keys cannot be done via API. * This advanced API is strictly for enterprise organizations with mandatory compliance, regulatory, or policy requirements to retain key custody in an external Google Cloud KMS instance. * Prerequisites: Requires an active, properly configured Google Cloud KMS key with appropriate IAM permissions granted to Google Play before calling this method. See Help Center: https://support.google.com/googleplay/android-developer/answer/9842756
+*/
+await gapi.client.androidpublisher.appsigning.enrollApp({name: 'name'});
+
+/*
+Rotates an app's signing key to a new self-hosted Google Cloud KMS key. Warning: This method only applies to apps enrolled with self-hosted Cloud KMS keys. For apps using standard Google-managed Play App Signing, key rotation requests must be initiated through the Google Play Console UI. See Help Center: https://support.google.com/googleplay/android-developer/answer/9842756
+*/
+await gapi.client.androidpublisher.appsigning.rotateAppSigningKey({
+  name: 'name',
+});
+
+/*
 Creates an app store hosted app. This must be called before any other RPCs for this hosted app.
 */
 await gapi.client.androidpublisher.appstoreappsreview.createappstorehostedapp({
