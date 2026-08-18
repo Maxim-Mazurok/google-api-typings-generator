@@ -78,8 +78,6 @@ gapi.load('client', async () => {
           pscAllowedProjects: ['Test string'],
           sshServiceAttachment: 'Test string',
         },
-        satisfiesPzi: true,
-        satisfiesPzs: true,
         state: 'Test string',
         stateNote: 'Test string',
         updateTime: 'Test string',
