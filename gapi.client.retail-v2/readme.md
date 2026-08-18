@@ -1,11 +1,11 @@
-# TypeScript typings for Vertex AI Search for commerce API v2
+# TypeScript typings for AI Commerce Search API v2
 
-Vertex AI Search for commerce API is made up of Retail Search, Browse and Recommendations. These discovery AI solutions help you implement personalized search, browse and recommendations, based on machine learning models, across your websites and mobile applications.
+The AI Commerce Search API is made up of Retail Search, Browse and Recommendations. These discovery AI solutions help you implement personalized search, browse and recommendations, based on machine learning models, across your websites and mobile applications.
 For detailed description please check [documentation](https://cloud.google.com/recommendations).
 
 ## Installing
 
-Install typings for Vertex AI Search for commerce API:
+Install typings for AI Commerce Search API:
 
 ```
 npm install @types/gapi.client.retail-v2 --save-dev
@@ -78,7 +78,7 @@ gapi.auth.authorize(
 );
 ```
 
-After that you can use Vertex AI Search for commerce API resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use AI Commerce Search API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 
