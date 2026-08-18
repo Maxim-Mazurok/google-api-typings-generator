@@ -65,6 +65,12 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
+    // See and edit allowlisted domains in your Cloud Identity Organization
+    'https://www.googleapis.com/auth/cloud-identity.allowlisteddomains',
+
+    // See allowlisted domains in your Cloud Identity Organization
+    'https://www.googleapis.com/auth/cloud-identity.allowlisteddomains.readonly',
+
     // Private Service: https://www.googleapis.com/auth/cloud-identity.devices
     'https://www.googleapis.com/auth/cloud-identity.devices',
 
@@ -119,6 +125,26 @@ gapi.auth.authorize(
 After that you can use Cloud Identity API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
+/*
+Adds a domain to the allowlist.
+*/
+await gapi.client.cloudidentity.allowlistedDomains.create({});
+
+/*
+Removes a domain from the allowlist.
+*/
+await gapi.client.cloudidentity.allowlistedDomains.delete({name: 'name'});
+
+/*
+Retrieves a specific domain from the allowlist.
+*/
+await gapi.client.cloudidentity.allowlistedDomains.get({name: 'name'});
+
+/*
+Lists the domains in the allowlist.
+*/
+await gapi.client.cloudidentity.allowlistedDomains.list({});
+
 /*
 Cancels an unfinished device wipe. This operation can be used to cancel device wipe in the gap between the wipe operation returning success and the device being wiped.
 */
