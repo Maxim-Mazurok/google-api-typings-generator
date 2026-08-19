@@ -174,11 +174,6 @@ Records a batch of changes to the number of times events have occurred for the c
 await gapi.client.games.events.record({});
 
 /*
-Records a batch of player game events for a specific player. This method allows sending multiple events in a single request.
-*/
-await gapi.client.games.gameStats.batchRecordEvents({playerId: 'playerId'});
-
-/*
 Retrieves the metadata of the leaderboard with the given ID.
 */
 await gapi.client.games.leaderboards.get({leaderboardId: 'leaderboardId'});
@@ -198,6 +193,13 @@ List play data aggregated per category for the player corresponding to `playerId
 */
 await gapi.client.games.metagame.listCategoriesByPlayer({
   collection: 'collection',
+  playerId: 'playerId',
+});
+
+/*
+Records a batch of player game events for a specific player. This method allows sending multiple events in a single request.
+*/
+await gapi.client.games.playerGameEvents.batchRecordEvents({
   playerId: 'playerId',
 });
 
