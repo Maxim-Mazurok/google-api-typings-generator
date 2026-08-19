@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.ftp-v1alpha",
-  "version": "0.0.20260815",
+  "version": "0.0.20260805",
   "description": "TypeScript typings for Cloud FTP API v1alpha",
   "repository": {
     "type": "git",
