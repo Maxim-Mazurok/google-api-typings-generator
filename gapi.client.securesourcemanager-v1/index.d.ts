@@ -186,7 +186,8 @@ declare namespace gapi.client {
       /** Optional. Determines if the hook disabled or not. Set to true to stop sending traffic. */
       disabled?: boolean;
       /** Optional. The events that trigger hook on. */
-      events?: 'UNSPECIFIED' | 'PUSH' | 'PULL_REQUEST'[];
+      events?:
+        'UNSPECIFIED' | 'PUSH' | 'PULL_REQUEST' | 'PULL_REQUEST_COMMENT'[];
       /** Identifier. A unique identifier for a Hook. The name should be of the format: `projects/{project}/locations/{location_id}/repositories/{repository_id}/hooks/{hook_id}` */
       name?: string;
       /** Optional. The trigger option for push events. */
@@ -233,6 +234,10 @@ declare namespace gapi.client {
       name?: string;
       /** Optional. Private settings for private instance. */
       privateConfig?: PrivateConfig;
+      /** Output only. Reserved for future use. */
+      satisfiesPzi?: boolean;
+      /** Output only. Reserved for future use. */
+      satisfiesPzs?: boolean;
       /** Output only. Current state of the instance. */
       state?:
         | 'STATE_UNSPECIFIED'
