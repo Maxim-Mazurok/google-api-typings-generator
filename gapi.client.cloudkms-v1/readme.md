@@ -95,7 +95,7 @@ Gets the KeyAccessJustificationsPolicyConfig for a given organization, folder, o
 await gapi.client.cloudkms.folders.getKajPolicyConfig({name: 'name'});
 
 /*
-Returns the effective Cloud KMS Autokey configuration for a given project or folder.
+Returns the effective Cloud KMS Autokey configuration for a given project or folder. Note on permissions: - If called on a project (`projects/{project}`), requires `cloudkms.projects.showEffectiveAutokeyConfig`. - If called on a folder (`folders/{folder}`), requires `cloudkms.folders.showEffectiveAutokeyConfig`.
 */
 await gapi.client.cloudkms.folders.showEffectiveAutokeyConfig({
   parent: 'parent',
@@ -132,7 +132,7 @@ Gets the KeyAccessJustificationsPolicyConfig for a given organization, folder, o
 await gapi.client.cloudkms.projects.getKajPolicyConfig({name: 'name'});
 
 /*
-Returns the effective Cloud KMS Autokey configuration for a given project or folder.
+Returns the effective Cloud KMS Autokey configuration for a given project or folder. Note on permissions: - If called on a project (`projects/{project}`), requires `cloudkms.projects.showEffectiveAutokeyConfig`. - If called on a folder (`folders/{folder}`), requires `cloudkms.folders.showEffectiveAutokeyConfig`.
 */
 await gapi.client.cloudkms.projects.showEffectiveAutokeyConfig({
   parent: 'parent',
