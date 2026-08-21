@@ -62,9 +62,6 @@ var client_id = '',
   scope = [
     // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
     'https://www.googleapis.com/auth/cloud-platform',
-
-    // See, edit, configure, and delete your Google Cloud Agent Platform Workbench Instances data and see the email address for your Google Account
-    'https://www.googleapis.com/auth/notebooks',
   ],
   immediate = true;
 // ...
