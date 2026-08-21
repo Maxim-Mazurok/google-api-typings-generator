@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.osconfig-v2",
-  "version": "0.0.20260806",
+  "version": "0.0.20260820",
   "description": "TypeScript typings for OS Config API v2",
   "repository": {
     "type": "git",
