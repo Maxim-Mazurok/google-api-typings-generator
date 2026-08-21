@@ -60,12 +60,6 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-    // See, edit, configure, and delete your Google Cloud API Keys data and see the email address for your Google Account
-    'https://www.googleapis.com/auth/apikeys',
-
-    // See your Google Cloud API Keys data and the email address of your Google Account
-    'https://www.googleapis.com/auth/apikeys.readonly',
-
     // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
     'https://www.googleapis.com/auth/cloud-platform',
 
