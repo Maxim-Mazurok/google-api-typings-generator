@@ -153,6 +153,12 @@ var client_id = '',
     // Create new conversations and spaces in Google Chat
     'https://www.googleapis.com/auth/chat.spaces.create',
 
+    // See, add, and remove pins in your Google Chat spaces
+    'https://www.googleapis.com/auth/chat.spaces.pins',
+
+    // See pins in your Google Chat spaces
+    'https://www.googleapis.com/auth/chat.spaces.pins.readonly',
+
     // View chat and spaces in Google Chat
     'https://www.googleapis.com/auth/chat.spaces.readonly',
 
