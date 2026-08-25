@@ -155,7 +155,7 @@ Gets an approval by ID. For more information, see [Manage approvals](https://dev
 await gapi.client.drive.approvals.get({ approvalId: "approvalId", fileId: "fileId",  });
 
 /*
-Lists the approvals on a file. For more information, see [Manage approvals](https://developers.google.com/workspace/drive/api/guides/approvals).
+Lists the approvals on a file. For more information, see [Manage approvals](https://developers.google.com/workspace/drive/api/guides/approvals). By default, this method returns a minimal response that may not include the items array. To retrieve approval details, you must explicitly specify the fields you want using the `fields` query parameter. To return the exact fields you need, see [Return specific fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
 */
 await gapi.client.drive.approvals.list({ fileId: "fileId",  });
 
