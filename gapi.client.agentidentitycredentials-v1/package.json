@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.agentidentitycredentials-v1",
-  "version": "0.0.20260821",
+  "version": "0.0.20260813",
   "description": "TypeScript typings for Agent Identity Credentials API v1",
   "repository": {
     "type": "git",
