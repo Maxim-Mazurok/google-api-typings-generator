@@ -1186,16 +1186,6 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.globalForwardingRules.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-Gets the Global Frontend Billing Bundle Settings for a project.
-*/
-await gapi.client.compute.globalFrontendSettings.get({ project: "project",  });
-
-/*
-Updates the Global Frontend Billing Bundle Settings for a project.
-*/
-await gapi.client.compute.globalFrontendSettings.patch({ project: "project",  });
-
-/*
 Attach a network endpoint to the specified network endpoint group.
 */
 await gapi.client.compute.globalNetworkEndpointGroups.attachNetworkEndpoints({ networkEndpointGroup: "networkEndpointGroup", project: "project",  });
