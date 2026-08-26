@@ -459,6 +459,40 @@ patch format and processing rules.
 await gapi.client.compute.crossSiteNetworks.patch({ crossSiteNetwork: "crossSiteNetwork", project: "project",  });
 
 /*
+Deletes the specified DhcpOptionsConfig in the given location
+*/
+await gapi.client.compute.dhcpOptionsConfigs.delete({ dhcpOptionsConfig: "dhcpOptionsConfig", project: "project", region: "region",  });
+
+/*
+Returns the specified DhcpOptionsConfig resource in the given location.
+*/
+await gapi.client.compute.dhcpOptionsConfigs.get({ dhcpOptionsConfig: "dhcpOptionsConfig", project: "project", region: "region",  });
+
+/*
+Creates a DhcpOptionsConfig in the specified project in the given location
+using the parameters that are included in the request.
+*/
+await gapi.client.compute.dhcpOptionsConfigs.insert({ project: "project", region: "region",  });
+
+/*
+Lists the DhcpOptionsConfigs for a project in the given location.
+*/
+await gapi.client.compute.dhcpOptionsConfigs.list({ project: "project", region: "region",  });
+
+/*
+Patches the specified DhcpOptionsConfig resource with the data included in
+the request. This method supports PATCH
+semantics and usesJSON merge
+patch format and processing rules.
+*/
+await gapi.client.compute.dhcpOptionsConfigs.patch({ dhcpOptionsConfig: "dhcpOptionsConfig", project: "project", region: "region",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.dhcpOptionsConfigs.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
+
+/*
 Adds existing resource policies to a disk. You can only add one
 policy which will be applied to this disk for scheduling snapshot
 creation.
@@ -989,6 +1023,16 @@ await gapi.client.compute.globalForwardingRules.setTarget({ forwardingRule: "for
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.globalForwardingRules.testIamPermissions({ project: "project", resource: "resource",  });
+
+/*
+Gets the Global Frontend Billing Bundle Settings for a project.
+*/
+await gapi.client.compute.globalFrontendSettings.get({ project: "project",  });
+
+/*
+Updates the Global Frontend Billing Bundle Settings for a project.
+*/
+await gapi.client.compute.globalFrontendSettings.patch({ project: "project",  });
 
 /*
 Attach a network endpoint to the specified network endpoint group.
@@ -2004,6 +2048,12 @@ Returns the Shielded VM Identity of an instance
 await gapi.client.compute.instances.getShieldedVmIdentity({ instance: "instance", project: "project", zone: "zone",  });
 
 /*
+Retrieves details of a specific VM extension state.
+This is a read-only API.
+*/
+await gapi.client.compute.instances.getVmExtensionState({ extensionName: "extensionName", instance: "instance", project: "project", zone: "zone",  });
+
+/*
 Creates an instance resource in the specified project using the data
 included in the request.
 */
@@ -2023,6 +2073,12 @@ For more information, readViewing
 referrers to VM instances.
 */
 await gapi.client.compute.instances.listReferrers({ instance: "instance", project: "project", zone: "zone",  });
+
+/*
+Lists all VM extensions states for a specific instance.
+This is a read-only API.
+*/
+await gapi.client.compute.instances.listVmExtensionStates({ instance: "instance", project: "project", zone: "zone",  });
 
 /*
 Patches partner metadata of the specified instance.
@@ -3565,6 +3621,16 @@ instead.
 await gapi.client.compute.organizationSecurityPolicies.removeRule({ securityPolicy: "securityPolicy",  });
 
 /*
+Returns the specified SnapshotRecycleBinPolicy.
+*/
+await gapi.client.compute.organizationSnapshotRecycleBinPolicy.get({ organization: "organization",  });
+
+/*
+Patches the SnapshotRecycleBinPolicy.
+*/
+await gapi.client.compute.organizationSnapshotRecycleBinPolicy.patch({ organization: "organization",  });
+
+/*
 Retrieves an aggregated list of packetMirrorings.
 
 To prevent failure, Google recommends that you set the
@@ -3839,6 +3905,44 @@ await gapi.client.compute.publicDelegatedPrefixes.patch({ project: "project", pu
 Withdraws the specified PublicDelegatedPrefix in the given region.
 */
 await gapi.client.compute.publicDelegatedPrefixes.withdraw({ project: "project", publicDelegatedPrefix: "publicDelegatedPrefix", region: "region",  });
+
+/*
+Deletes the specified RecoverableSnapshot. Deleting a recoverable snapshot
+will delete the underlying PD snapshot and is irreversible.
+*/
+await gapi.client.compute.recoverableSnapshots.delete({ project: "project", recoverableSnapshot: "recoverableSnapshot",  });
+
+/*
+Returns the specified RecoverableSnapshot resource.
+*/
+await gapi.client.compute.recoverableSnapshots.get({ project: "project", recoverableSnapshot: "recoverableSnapshot",  });
+
+/*
+Gets the access control policy for a resource. May be empty if no such
+policy or resource exists.
+*/
+await gapi.client.compute.recoverableSnapshots.getIamPolicy({ project: "project", resource: "resource",  });
+
+/*
+Retrieves a list of all of the RecoverableSnapshots in your project.
+*/
+await gapi.client.compute.recoverableSnapshots.list({ project: "project",  });
+
+/*
+Recovers the specified RecoverableSnapshot.
+*/
+await gapi.client.compute.recoverableSnapshots.recover({ project: "project", recoverableSnapshot: "recoverableSnapshot",  });
+
+/*
+Sets the access control policy on the specified resource.
+Replaces any existing policy.
+*/
+await gapi.client.compute.recoverableSnapshots.setIamPolicy({ project: "project", resource: "resource",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.recoverableSnapshots.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
 Deletes the specified autoscaler.
@@ -5773,6 +5877,11 @@ Retrieves information about the specified reservation slot.
 await gapi.client.compute.reservationSlots.get({ parentName: "parentName", project: "project", reservationSlot: "reservationSlot", zone: "zone",  });
 
 /*
+Get health info on a reservation slot.
+*/
+await gapi.client.compute.reservationSlots.getHealth({ parentName: "parentName", project: "project", reservationSlot: "reservationSlot", zone: "zone",  });
+
+/*
 Allows customers to get SBOM versions of a reservation slot.
 */
 await gapi.client.compute.reservationSlots.getVersion({ parentName: "parentName", project: "project", reservationSlot: "reservationSlot", zone: "zone",  });
@@ -6262,6 +6371,16 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.snapshotGroups.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
+Returns the specified SnapshotRecycleBinPolicy.
+*/
+await gapi.client.compute.snapshotRecycleBinPolicy.get({ project: "project",  });
+
+/*
+Patches the SnapshotRecycleBinPolicy.
+*/
+await gapi.client.compute.snapshotRecycleBinPolicy.patch({ project: "project",  });
+
+/*
 Retrieves an aggregated list of all of the snapshots in your project
 across all regions and global scope.
 
@@ -6286,6 +6405,13 @@ await gapi.client.compute.snapshots.delete({ project: "project", snapshot: "snap
 Returns the specified Snapshot resource.
 */
 await gapi.client.compute.snapshots.get({ project: "project", snapshot: "snapshot",  });
+
+/*
+Returns the effective recycle bin rule for a snapshot by merging org and
+project level rules. If no rules are defined at org and project level, the
+standard default rule is returned.
+*/
+await gapi.client.compute.snapshots.getEffectiveRecycleBinRule({ project: "project", snapshot: "snapshot",  });
 
 /*
 Gets the access control policy for a resource. May be empty if no such
