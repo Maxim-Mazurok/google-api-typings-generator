@@ -5300,6 +5300,11 @@ Retrieves information about the specified reservation slot.
 await gapi.client.compute.reservationSlots.get({ parentName: "parentName", project: "project", reservationSlot: "reservationSlot", zone: "zone",  });
 
 /*
+Get health info on a reservation slot.
+*/
+await gapi.client.compute.reservationSlots.getHealth({ parentName: "parentName", project: "project", reservationSlot: "reservationSlot", zone: "zone",  });
+
+/*
 Allows customers to get SBOM versions of a reservation slot.
 */
 await gapi.client.compute.reservationSlots.getVersion({ parentName: "parentName", project: "project", reservationSlot: "reservationSlot", zone: "zone",  });
