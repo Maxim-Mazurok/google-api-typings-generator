@@ -144,31 +144,6 @@ Updates the retention period and description of the backup. You can use this API
 await gapi.client.sql.Backups.UpdateBackup({name: 'name'});
 
 /*
-Creates a blue-green deployment under a given project and location.
-*/
-await gapi.client.sql.blueGreenDeployments.create({parent: 'parent'});
-
-/*
-Deletes a blue-green deployment.
-*/
-await gapi.client.sql.blueGreenDeployments.delete({name: 'name'});
-
-/*
-Retrieves a blue-green deployment resource under a given project and location.
-*/
-await gapi.client.sql.blueGreenDeployments.get({name: 'name'});
-
-/*
-Lists blue-green deployments under a given project.
-*/
-await gapi.client.sql.blueGreenDeployments.list({parent: 'parent'});
-
-/*
-Switches over to green instance for a blue-green deployment.
-*/
-await gapi.client.sql.blueGreenDeployments.switchover({name: 'name'});
-
-/*
 Generates a short-lived X509 certificate containing the provided public key and signed by a private key specific to the target instance. Users may use the certificate to authenticate as themselves when connecting to the database.
 */
 await gapi.client.sql.connect.generateEphemeral({
