@@ -149,31 +149,6 @@ Updates the retention period and the description of the backup. You can use this
 await gapi.client.sql.backups.updateBackup({name: 'name'});
 
 /*
-Creates a blue-green deployment under a given project and location. This deployment provisions a synchronized green environment (target instance) from a blue production environment (source instance), facilitating updates like major version upgrades on the green instance without impacting the blue instance.
-*/
-await gapi.client.sql.blueGreenDeployments.create({parent: 'parent'});
-
-/*
-Deletes a blue-green deployment, including metadata and underlying resources based on the deployment state. If issued before switchover, this deletes the green instance. If issued after switchover, this deletes the old blue instance (source instance) if the `delete_old_source` field in the request is set to true. All blue-green deployment metadata is permanently deleted. Resources deleted as a result of this operation are no longer accessible and can't be restored.
-*/
-await gapi.client.sql.blueGreenDeployments.delete({name: 'name'});
-
-/*
-Retrieves a blue-green deployment resource under a given project and location.
-*/
-await gapi.client.sql.blueGreenDeployments.get({name: 'name'});
-
-/*
-Lists blue-green deployments under a given project.
-*/
-await gapi.client.sql.blueGreenDeployments.list({parent: 'parent'});
-
-/*
-Switches over to green instance for a blue-green deployment.
-*/
-await gapi.client.sql.blueGreenDeployments.switchover({name: 'name'});
-
-/*
 Generates a short-lived X509 certificate containing the provided public key and signed by a private key specific to the target instance. Users may use the certificate to authenticate as themselves when connecting to the database.
 */
 await gapi.client.sql.connect.generateEphemeral({
