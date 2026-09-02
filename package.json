@@ -43,8 +43,8 @@
     "@types/dot": "^1.1.7",
     "@types/gapi.client.discovery-v1": "^0.0.4",
     "@types/lodash": "^4.17.24",
-    "@types/node": "^26.1.1",
-    "@types/semver": "^7.7.1",
+    "@types/node": "^26.3.0",
+    "@types/semver": "^7.8.0",
     "@types/validate-npm-package-name": "^4.0.2",
     "commander": "^15.0.0",
     "dedent": "^1.7.2",
@@ -63,16 +63,16 @@
     "patch-package": "^8.0.1",
     "prettier-plugin-packagejson": "^3.0.2",
     "semver": "^7.8.5",
-    "tsx": "^4.23.1",
+    "tsx": "^4.23.12",
     "typescript": "^6.0.3",
     "typescript-go": "npm:typescript@^7.0.2",
     "validate-npm-package-name": "^8.0.0",
-    "vitest": "^4.1.10",
+    "vitest": "^4.1.11",
     "zod": "^4.4.3"
   },
   "engines": {
-    "node": "26.5.0",
-    "npm": "11.17.0"
+    "node": "26.8.1",
+    "npm": "11.19.0"
   },
   "dependencyComments": {
     "@definitelytyped/dtslint": "relies on @definitelytyped/eslint-plugin, update them together",
