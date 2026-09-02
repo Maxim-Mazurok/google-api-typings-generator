@@ -107,6 +107,11 @@ Gets the deployed ingress configuration for an organization.
 await gapi.client.apigee.organizations.getDeployedIngressConfig({name: 'name'});
 
 /*
+Gets the deployed MCP server configuration for an organization. McpServerConfig is an org-scoped singleton (one per organization). The returned configuration may be up to 30 seconds out of date by default.
+*/
+await gapi.client.apigee.organizations.getMcpServerConfig({name: 'name'});
+
+/*
 Gets the project ID and region for an Apigee organization.
 */
 await gapi.client.apigee.organizations.getProjectMapping({name: 'name'});
