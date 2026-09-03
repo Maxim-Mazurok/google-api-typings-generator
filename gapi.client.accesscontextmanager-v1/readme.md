@@ -133,13 +133,6 @@ await gapi.client.accesscontextmanager.accessPolicies.testIamPermissions({
 });
 
 /*
-Looks up the configured service perimeter for a given resource Format: ['projects/{projectNumber}', 'folders/{folderNumber}'].
-*/
-await gapi.client.accesscontextmanager.folders.lookupConfiguredServicePerimeter(
-  {resource: 'resource'},
-);
-
-/*
 Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`.
 */
 await gapi.client.accesscontextmanager.operations.cancel({name: 'name'});
@@ -163,13 +156,6 @@ await gapi.client.accesscontextmanager.operations.list({name: 'name'});
 Lists all supported permissions in VPC Service Controls ingress and egress rules for Granular Controls.
 */
 await gapi.client.accesscontextmanager.permissions.list({});
-
-/*
-Looks up the configured service perimeter for a given resource Format: ['projects/{projectNumber}', 'folders/{folderNumber}'].
-*/
-await gapi.client.accesscontextmanager.projects.lookupConfiguredServicePerimeter(
-  {resource: 'resource'},
-);
 
 /*
 Returns a VPC-SC supported service based on the service name. **IAM Permissions**: Requires the following IAM permissions to use this method: - `serviceusage.services.use` on the project.
