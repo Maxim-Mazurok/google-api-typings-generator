@@ -139,16 +139,6 @@ await gapi.client.cloudbilling.billingAccounts.testIamPermissions({
 });
 
 /*
-Send a message to the agent. This is a blocking call that will return the task once it is completed, or a LRO if requested.
-*/
-await gapi.client.cloudbilling.message.send({});
-
-/*
-SendStreamingMessage is a streaming call that will return a stream of task update events until the Task is in an interrupted or terminal state.
-*/
-await gapi.client.cloudbilling.message.stream({});
-
-/*
 Gets the billing information for a project. The current authenticated user must have the `resourcemanager.projects.get` permission for the project, which can be granted by assigning the [Project Viewer](https://cloud.google.com/iam/docs/understanding-roles#predefined_roles) role.
 */
 await gapi.client.cloudbilling.projects.getBillingInfo({name: 'name'});
@@ -162,26 +152,6 @@ await gapi.client.cloudbilling.projects.updateBillingInfo({name: 'name'});
 Lists all public cloud services.
 */
 await gapi.client.cloudbilling.services.list({});
-
-/*
-Cancel a task from the agent. If supported one should expect no more task updates for the task.
-*/
-await gapi.client.cloudbilling.tasks.cancel({name: 'name'});
-
-/*
-Get the current state of a task from the agent.
-*/
-await gapi.client.cloudbilling.tasks.get({name: 'name'});
-
-/*
-TaskSubscription is a streaming call that will return a stream of task update events. This attaches the stream to an existing in process task. If the task is complete the stream will return the completed task (like GetTask) and close the stream.
-*/
-await gapi.client.cloudbilling.tasks.subscribe({name: 'name'});
-
-/*
-GetAgentCard returns the agent card for the agent.
-*/
-await gapi.client.cloudbilling.getCard({});
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.cloudbilling-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
