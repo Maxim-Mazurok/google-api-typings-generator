@@ -7,8 +7,8 @@
     "@typescript-eslint/no-empty-object-type": [
       "error",
       {
-        "allowInterfaces": "always", // to allow `interface DismissApprovalRequestMessage {}` in AccessApproval-v1, etc.
-        "allowObjectTypes": "always" // to allow `deleteAccessApprovalSettings(request?: {...}): Request<{}>` in AccessApproval-v1, etc.
+        "allowInterfaces": "never",
+        "allowObjectTypes": "never"
       }
     ],
     "@typescript-eslint/naming-convention": "off" // to allow IPAllocationPolicy, etc.
