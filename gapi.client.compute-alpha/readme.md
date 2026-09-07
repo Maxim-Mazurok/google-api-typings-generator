@@ -201,10 +201,10 @@ resources.
 await gapi.client.compute.advice.calendarMode({ project: "project", region: "region",  });
 
 /*
-Advise on whether extending an existing Future Reservation is possible
-based on the desired extension end time. If capacity is not available for
-the entire requested duration, the method will recommend the longest
-possible extension.
+Advises on whether extending an existing future reservation is possible
+based on the desired extension end time. If capacity isn't available for
+the entire requested duration, the method recommends the longest possible
+extension.
 */
 await gapi.client.compute.advice.calendarModeExtension({ project: "project", region: "region",  });
 

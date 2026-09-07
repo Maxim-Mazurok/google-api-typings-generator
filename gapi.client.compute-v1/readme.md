@@ -171,18 +171,6 @@ resources.
 await gapi.client.compute.advice.calendarMode({ project: "project", region: "region",  });
 
 /*
-Advice on making real-time decisions (such as choosing zone or
-machine types) during deployment to maximize your chances of obtaining
-capacity.
-*/
-await gapi.client.compute.advice.capacity({ project: "project", region: "region",  });
-
-/*
-Gets the capacity history.
-*/
-await gapi.client.compute.advice.capacityHistory({ project: "project", region: "region",  });
-
-/*
 Retrieves an aggregated list of autoscalers.
 
 To prevent failure, it is recommended that you set the
@@ -3517,18 +3505,6 @@ where reports are stored. If you provide an empty request body using this
 method, the usage export feature will be disabled.
 */
 await gapi.client.compute.projects.setUsageExportBucket({ project: "project",  });
-
-/*
-Returns the specified global ProjectViews resource, with a regional
-context.
-This regional API endpoint reads resource metadata from regional
-read-only replicas. Because changes are copied to these regional replicas
-asynchronously, for real-time resource reads or any write operations
-(creating, updating, or deleting resources), use the global
-[projects.get](https://cloud.google.com/compute/docs/reference/rest/v1/projects/get)
-endpoint.
-*/
-await gapi.client.compute.projectViews.get({ project: "project", region: "region",  });
 
 /*
 Announces the specified PublicAdvertisedPrefix
