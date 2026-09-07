@@ -288,6 +288,36 @@ declare namespace gapi.client {
         },
         body: ApproveApprovalRequestMessage,
       ): Request<ApprovalRequest>;
+      approve(request: {
+        /** V1 error format. */
+        "$.xgafv"?: "1" | "2";
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: "json" | "media" | "proto";
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Name of the approval request to approve. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** The expiration time of this approval. */
+        expireTime?: string;
+        /** Request body */
+        resource?: ApproveApprovalRequestMessage;
+      }): Request<ApprovalRequest>;
       /** Dismisses a request. Returns the updated ApprovalRequest. NOTE: When a request is dismissed, it is considered ignored. Dismissing a request does not prevent access granted by other Access Approval requests. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request exists but is not in a pending state. */
       dismiss(request: {
         /** V1 error format. */
@@ -670,6 +700,36 @@ declare namespace gapi.client {
         },
         body: ApproveApprovalRequestMessage,
       ): Request<ApprovalRequest>;
+      approve(request: {
+        /** V1 error format. */
+        "$.xgafv"?: "1" | "2";
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: "json" | "media" | "proto";
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Name of the approval request to approve. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** The expiration time of this approval. */
+        expireTime?: string;
+        /** Request body */
+        resource?: ApproveApprovalRequestMessage;
+      }): Request<ApprovalRequest>;
       /** Dismisses a request. Returns the updated ApprovalRequest. NOTE: When a request is dismissed, it is considered ignored. Dismissing a request does not prevent access granted by other Access Approval requests. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request exists but is not in a pending state. */
       dismiss(request: {
         /** V1 error format. */
@@ -1052,6 +1112,36 @@ declare namespace gapi.client {
         },
         body: ApproveApprovalRequestMessage,
       ): Request<ApprovalRequest>;
+      approve(request: {
+        /** V1 error format. */
+        "$.xgafv"?: "1" | "2";
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: "json" | "media" | "proto";
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Name of the approval request to approve. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** The expiration time of this approval. */
+        expireTime?: string;
+        /** Request body */
+        resource?: ApproveApprovalRequestMessage;
+      }): Request<ApprovalRequest>;
       /** Dismisses a request. Returns the updated ApprovalRequest. NOTE: When a request is dismissed, it is considered ignored. Dismissing a request does not prevent access granted by other Access Approval requests. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request exists but is not in a pending state. */
       dismiss(request: {
         /** V1 error format. */
