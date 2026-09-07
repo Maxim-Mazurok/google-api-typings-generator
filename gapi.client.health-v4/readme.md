@@ -84,8 +84,14 @@ var client_id = '',
     // See exercise GPS location data in Google Health
     'https://www.googleapis.com/auth/googlehealth.location.readonly',
 
+    // See your Google Health logged symptoms data
+    'https://www.googleapis.com/auth/googlehealth.logged_symptoms.readonly',
+
     // Add logged symptoms data to Google Health, and edit or delete the data it adds
     'https://www.googleapis.com/auth/googlehealth.logged_symptoms.writeonly',
+
+    // See your Google Health mindfulness data
+    'https://www.googleapis.com/auth/googlehealth.mindfulness.readonly',
 
     // Add mindfulness data to Google Health, and edit or delete the data it adds
     'https://www.googleapis.com/auth/googlehealth.mindfulness.writeonly',
@@ -98,6 +104,9 @@ var client_id = '',
 
     // Add profile data to Google Health, and edit or delete the data it adds.
     'https://www.googleapis.com/auth/googlehealth.profile.writeonly',
+
+    // See your Google Health reproductive health data
+    'https://www.googleapis.com/auth/googlehealth.reproductive_health.readonly',
 
     // Add reproductive health data to Google Health, and edit or delete the data it adds
     'https://www.googleapis.com/auth/googlehealth.reproductive_health.writeonly',
