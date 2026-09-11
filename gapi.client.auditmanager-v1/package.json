@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.auditmanager-v1",
-  "version": "0.0.20260907",
+  "version": "0.0.20260826",
   "description": "TypeScript typings for Audit Manager API v1",
   "repository": {
     "type": "git",
