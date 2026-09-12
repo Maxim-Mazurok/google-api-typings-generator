@@ -83,8 +83,8 @@ exports[`admin works 1`] = `
     "@typescript-eslint/no-empty-object-type": [
       "error",
       {
-        "allowInterfaces": "always", // to allow \`interface DismissApprovalRequestMessage {}\` in AccessApproval-v1, etc.
-        "allowObjectTypes": "always" // to allow \`deleteAccessApprovalSettings(request?: {...}): Request<{}>\` in AccessApproval-v1, etc.
+        "allowInterfaces": "never",
+        "allowObjectTypes": "never"
       }
     ],
     "@typescript-eslint/naming-convention": "off" // to allow IPAllocationPolicy, etc.
@@ -842,6 +842,8 @@ declare namespace gapi.client {
                 string;
         }
         interface Empty {
+            [key: string]:
+                never;
         }
         interface FailureInfo {
             /** Canonical code for why the update failed to apply. */
@@ -2469,7 +2471,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?:
                     string;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             /** Returns a \`Printer\` resource (printer's config). */
             get(request?: {
                 /** V1 error format. */
@@ -3436,6 +3438,8 @@ declare namespace gapi.client {
                 string;
         }
         interface Empty {
+            [key: string]:
+                never;
         }
         interface FailureInfo {
             /** Canonical code for why the update failed to apply. */
@@ -13622,8 +13626,8 @@ exports[`calendar works 1`] = `
     "@typescript-eslint/no-empty-object-type": [
       "error",
       {
-        "allowInterfaces": "always", // to allow \`interface DismissApprovalRequestMessage {}\` in AccessApproval-v1, etc.
-        "allowObjectTypes": "always" // to allow \`deleteAccessApprovalSettings(request?: {...}): Request<{}>\` in AccessApproval-v1, etc.
+        "allowInterfaces": "never",
+        "allowObjectTypes": "never"
       }
     ],
     "@typescript-eslint/naming-convention": "off" // to allow IPAllocationPolicy, etc.
@@ -18371,8 +18375,8 @@ exports[`drive works 1`] = `
     "@typescript-eslint/no-empty-object-type": [
       "error",
       {
-        "allowInterfaces": "always", // to allow \`interface DismissApprovalRequestMessage {}\` in AccessApproval-v1, etc.
-        "allowObjectTypes": "always" // to allow \`deleteAccessApprovalSettings(request?: {...}): Request<{}>\` in AccessApproval-v1, etc.
+        "allowInterfaces": "never",
+        "allowObjectTypes": "never"
       }
     ],
     "@typescript-eslint/naming-convention": "off" // to allow IPAllocationPolicy, etc.
@@ -23869,8 +23873,8 @@ exports[`handles reserved JS keyword resource names via declaration merging 1`] 
     "@typescript-eslint/no-empty-object-type": [
       "error",
       {
-        "allowInterfaces": "always", // to allow \`interface DismissApprovalRequestMessage {}\` in AccessApproval-v1, etc.
-        "allowObjectTypes": "always" // to allow \`deleteAccessApprovalSettings(request?: {...}): Request<{}>\` in AccessApproval-v1, etc.
+        "allowInterfaces": "never",
+        "allowObjectTypes": "never"
       }
     ],
     "@typescript-eslint/naming-convention": "off" // to allow IPAllocationPolicy, etc.
@@ -23915,14 +23919,20 @@ declare namespace gapi.client {
     namespace debuggerApi {
         interface ControllerResource {
             update(request?: {
+                [key: string]:
+                    never;
             }): Request<void>;
         }
         interface BreakpointsResource {
             get(request?: {
+                [key: string]:
+                    never;
             }): Request<void>;
         }
         interface DebuggerResource {
             list(request?: {
+                [key: string]:
+                    never;
             }): Request<void>;
             breakpoints:
                 BreakpointsResource;
@@ -24089,8 +24099,8 @@ exports[`integrations works 1`] = `
     "@typescript-eslint/no-empty-object-type": [
       "error",
       {
-        "allowInterfaces": "always", // to allow \`interface DismissApprovalRequestMessage {}\` in AccessApproval-v1, etc.
-        "allowObjectTypes": "always" // to allow \`deleteAccessApprovalSettings(request?: {...}): Request<{}>\` in AccessApproval-v1, etc.
+        "allowInterfaces": "never",
+        "allowObjectTypes": "never"
       }
     ],
     "@typescript-eslint/naming-convention": "off" // to allow IPAllocationPolicy, etc.
@@ -25848,12 +25858,20 @@ declare namespace gapi.client {
                 string;
         }
         interface GoogleCloudIntegrationsV1alphaArchiveBundleRequest {
+            [key: string]:
+                never;
         }
         interface GoogleCloudIntegrationsV1alphaArchiveBundleResponse {
+            [key: string]:
+                never;
         }
         interface GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionRequest {
+            [key: string]:
+                never;
         }
         interface GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionResponse {
+            [key: string]:
+                never;
         }
         interface GoogleCloudIntegrationsV1alphaAttemptStats {
             /** The end time of the event execution for current attempt. */
@@ -25930,6 +25948,8 @@ declare namespace gapi.client {
                 boolean[];
         }
         interface GoogleCloudIntegrationsV1alphaCancelExecutionRequest {
+            [key: string]:
+                never;
         }
         interface GoogleCloudIntegrationsV1alphaCancelExecutionResponse {
             /** True if cancellation performed successfully */
@@ -26130,10 +26150,16 @@ declare namespace gapi.client {
                 GoogleCloudIntegrationsV1alphaUsernameAndPassword;
         }
         interface GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionRequest {
+            [key: string]:
+                never;
         }
         interface GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionResponse {
+            [key: string]:
+                never;
         }
         interface GoogleCloudIntegrationsV1alphaDeprovisionClientRequest {
+            [key: string]:
+                never;
         }
         interface GoogleCloudIntegrationsV1alphaDoubleParameterArray {
             /** Double number array. */
@@ -26769,8 +26795,12 @@ declare namespace gapi.client {
                 boolean;
         }
         interface GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest {
+            [key: string]:
+                never;
         }
         interface GoogleCloudIntegrationsV1alphaPublishIntegrationVersionResponse {
+            [key: string]:
+                never;
         }
         interface GoogleCloudIntegrationsV1alphaResolveSuspensionRequest {
             /** Suspension, containing the event_execution_info_id, task_id, and state to set on the corresponding suspension record. */
@@ -26778,6 +26808,8 @@ declare namespace gapi.client {
                 GoogleCloudIntegrationsV1alphaSuspension;
         }
         interface GoogleCloudIntegrationsV1alphaResolveSuspensionResponse {
+            [key: string]:
+                never;
         }
         interface GoogleCloudIntegrationsV1alphaRuntimeActionSchema {
             /** Name of the action. */
@@ -26965,6 +26997,8 @@ declare namespace gapi.client {
                 string;
         }
         interface GoogleCloudIntegrationsV1alphaTakeoverEditLockRequest {
+            [key: string]:
+                never;
         }
         interface GoogleCloudIntegrationsV1alphaTakeoverEditLockResponse {
             /** Version after the lock is acquired by the new user. */
@@ -27096,6 +27130,8 @@ declare namespace gapi.client {
                 "TRIGGER_TYPE_UNSPECIFIED" | "CRON" | "API" | "SFDC_CHANNEL" | "CLOUD_PUBSUB_EXTERNAL" | "SFDC_CDC_CHANNEL" | "CLOUD_SCHEDULER";
         }
         interface GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest {
+            [key: string]:
+                never;
         }
         interface GoogleCloudIntegrationsV1alphaUpdateBundleRequest {
             /** It contains the updated bundle data */
@@ -27129,8 +27165,12 @@ declare namespace gapi.client {
                 string;
         }
         interface GoogleCloudIntegrationsV1alphaValidateIntegrationVersionRequest {
+            [key: string]:
+                never;
         }
         interface GoogleCloudIntegrationsV1alphaValidateIntegrationVersionResponse {
+            [key: string]:
+                never;
         }
         interface GoogleCloudIntegrationsV1alphaValueType {
             /** Boolean Array. */
@@ -27191,6 +27231,8 @@ declare namespace gapi.client {
                 string;
         }
         interface GoogleProtobufEmpty {
+            [key: string]:
+                never;
         }
         interface CallbackResource {
             /** Receives the auth code and auth config id to combine that with the client id and secret to retrieve access tokens from the token endpoint. Returns either a success or error message when it's done. */
@@ -27585,7 +27627,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?:
                     string;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             /** Gets a complete auth config. If the auth config doesn't exist, Code.NOT_FOUND exception will be thrown. Returns the decrypted auth config. */
             get(request?: {
                 /** V1 error format. */
@@ -27902,7 +27944,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?:
                     string;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             /** Get a certificates in the specified project. */
             get(request?: {
                 /** V1 error format. */
@@ -28123,7 +28165,7 @@ declare namespace gapi.client {
                 /** Request body */
                 resource:
                     GoogleCloudIntegrationsV1alphaDeprovisionClientRequest;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             deprovision(request: {
                 /** V1 error format. */
                 "$.xgafv"?:
@@ -28162,7 +28204,7 @@ declare namespace gapi.client {
                 uploadType?:
                     string;
             },
-            body: GoogleCloudIntegrationsV1alphaDeprovisionClientRequest): Request<{}>;
+            body: GoogleCloudIntegrationsV1alphaDeprovisionClientRequest): Request<{ [key: string]: never }>;
             /** Perform the provisioning steps to enable a user GCP project to use IP. If GCP project already registered on IP end via Apigee Integration, provisioning will fail. */
             provision(request: {
                 /** V1 error format. */
@@ -28204,7 +28246,7 @@ declare namespace gapi.client {
                 /** Request body */
                 resource:
                     GoogleCloudIntegrationsV1alphaProvisionClientRequest;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             provision(request: {
                 /** V1 error format. */
                 "$.xgafv"?:
@@ -28243,7 +28285,7 @@ declare namespace gapi.client {
                 uploadType?:
                     string;
             },
-            body: GoogleCloudIntegrationsV1alphaProvisionClientRequest): Request<{}>;
+            body: GoogleCloudIntegrationsV1alphaProvisionClientRequest): Request<{ [key: string]: never }>;
         }
         interface CloudFunctionsResource {
             /** Creates an cloud function project. */
@@ -28698,7 +28740,7 @@ declare namespace gapi.client {
                 /** Request body */
                 resource:
                     GoogleCloudIntegrationsV1alphaResolveSuspensionRequest;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             resolve(request: {
                 /** V1 error format. */
                 "$.xgafv"?:
@@ -28737,7 +28779,7 @@ declare namespace gapi.client {
                 uploadType?:
                     string;
             },
-            body: GoogleCloudIntegrationsV1alphaResolveSuspensionRequest): Request<{}>;
+            body: GoogleCloudIntegrationsV1alphaResolveSuspensionRequest): Request<{ [key: string]: never }>;
         }
         interface ExecutionsResource {
             /** Download the execution. */
@@ -29012,7 +29054,7 @@ declare namespace gapi.client {
                 /** Request body */
                 resource:
                     GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionRequest;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             archive(request: {
                 /** V1 error format. */
                 "$.xgafv"?:
@@ -29051,7 +29093,7 @@ declare namespace gapi.client {
                 uploadType?:
                     string;
             },
-            body: GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionRequest): Request<{}>;
+            body: GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionRequest): Request<{ [key: string]: never }>;
             /** Create a integration with a draft version in the specified project. */
             create(request: {
                 /** V1 error format. */
@@ -29180,7 +29222,7 @@ declare namespace gapi.client {
                 /** Request body */
                 resource:
                     GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionRequest;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             deactivate(request: {
                 /** V1 error format. */
                 "$.xgafv"?:
@@ -29219,7 +29261,7 @@ declare namespace gapi.client {
                 uploadType?:
                     string;
             },
-            body: GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionRequest): Request<{}>;
+            body: GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionRequest): Request<{ [key: string]: never }>;
             /** Soft-deletes the integration. Changes the status of the integration to ARCHIVED. If the integration being ARCHIVED is tagged as "HEAD", the tag is removed from this snapshot and set to the previous non-ARCHIVED snapshot. The PUBLISH_REQUESTED, DUE_FOR_DELETION tags are removed too. This RPC throws an exception if the version being deleted is DRAFT, and if the \`locked_by\` user is not the same as the user performing the Delete. Audit fields updated include last_modified_timestamp, last_modified_by. Any existing lock is released when Deleting a integration. Currently, there is no undelete mechanism. */
             delete(request?: {
                 /** V1 error format. */
@@ -29258,7 +29300,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?:
                     string;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             /** Downloads an integration. Retrieves the \`IntegrationVersion\` for a given \`integration_id\` and returns the response as a string. */
             download(request?: {
                 /** V1 error format. */
@@ -29522,7 +29564,7 @@ declare namespace gapi.client {
                 /** Request body */
                 resource:
                     GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             publish(request: {
                 /** V1 error format. */
                 "$.xgafv"?:
@@ -29561,7 +29603,7 @@ declare namespace gapi.client {
                 uploadType?:
                     string;
             },
-            body: GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest): Request<{}>;
+            body: GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest): Request<{ [key: string]: never }>;
             /** Sets the status of the ACTIVE integration to SNAPSHOT with a new tag "PREVIOUSLY_PUBLISHED" after validating it. The "HEAD" and "PUBLISH_REQUESTED" tags do not change. This RPC throws an exception if the version being snapshot is not ACTIVE. Audit fields added include action, action_by, action_timestamp. */
             unpublish(request: {
                 /** V1 error format. */
@@ -29603,7 +29645,7 @@ declare namespace gapi.client {
                 /** Request body */
                 resource:
                     GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             unpublish(request: {
                 /** V1 error format. */
                 "$.xgafv"?:
@@ -29642,7 +29684,7 @@ declare namespace gapi.client {
                 uploadType?:
                     string;
             },
-            body: GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest): Request<{}>;
+            body: GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest): Request<{ [key: string]: never }>;
             /** Uploads an integration. The content can be a previously downloaded integration. Performs the same function as CreateDraftIntegrationVersion, but accepts input in a string format, which holds the complete representation of the IntegrationVersion content. */
             upload(request: {
                 /** V1 error format. */
@@ -29765,7 +29807,7 @@ declare namespace gapi.client {
                 /** Request body */
                 resource:
                     GoogleCloudIntegrationsV1alphaValidateIntegrationVersionRequest;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             validate(request: {
                 /** V1 error format. */
                 "$.xgafv"?:
@@ -29804,7 +29846,7 @@ declare namespace gapi.client {
                 uploadType?:
                     string;
             },
-            body: GoogleCloudIntegrationsV1alphaValidateIntegrationVersionRequest): Request<{}>;
+            body: GoogleCloudIntegrationsV1alphaValidateIntegrationVersionRequest): Request<{ [key: string]: never }>;
         }
         interface IntegrationsResource {
             /** Delete the selected integration and all versions inside */
@@ -29845,7 +29887,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?:
                     string;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             /** Executes integrations synchronously by passing the trigger id in the request body. The request is not returned until the requested executions are either fulfilled or experienced an error. If the integration name is not specified (passing \`-\`), all of the associated integration under the given trigger_id will be executed. Otherwise only the specified integration for the given \`trigger_id\` is executed. This is helpful for execution the integration from UI. */
             execute(request: {
                 /** V1 error format. */
@@ -30285,7 +30327,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?:
                     string;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             /** Gets a complete auth config. If the auth config doesn't exist, Code.NOT_FOUND exception will be thrown. Returns the decrypted auth config. */
             get(request?: {
                 /** V1 error format. */
@@ -30602,7 +30644,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?:
                     string;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             /** Get a certificates in the specified project. */
             get(request?: {
                 /** V1 error format. */
@@ -31038,7 +31080,7 @@ declare namespace gapi.client {
                 /** Request body */
                 resource:
                     GoogleCloudIntegrationsV1alphaResolveSuspensionRequest;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             resolve(request: {
                 /** V1 error format. */
                 "$.xgafv"?:
@@ -31077,7 +31119,7 @@ declare namespace gapi.client {
                 uploadType?:
                     string;
             },
-            body: GoogleCloudIntegrationsV1alphaResolveSuspensionRequest): Request<{}>;
+            body: GoogleCloudIntegrationsV1alphaResolveSuspensionRequest): Request<{ [key: string]: never }>;
         }
         interface ExecutionsResource {
             /** Cancellation of an execution */
@@ -31433,7 +31475,7 @@ declare namespace gapi.client {
                 /** Request body */
                 resource:
                     GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionRequest;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             archive(request: {
                 /** V1 error format. */
                 "$.xgafv"?:
@@ -31472,7 +31514,7 @@ declare namespace gapi.client {
                 uploadType?:
                     string;
             },
-            body: GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionRequest): Request<{}>;
+            body: GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionRequest): Request<{ [key: string]: never }>;
             /** Create a integration with a draft version in the specified project. */
             create(request: {
                 /** V1 error format. */
@@ -31601,7 +31643,7 @@ declare namespace gapi.client {
                 /** Request body */
                 resource:
                     GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionRequest;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             deactivate(request: {
                 /** V1 error format. */
                 "$.xgafv"?:
@@ -31640,7 +31682,7 @@ declare namespace gapi.client {
                 uploadType?:
                     string;
             },
-            body: GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionRequest): Request<{}>;
+            body: GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionRequest): Request<{ [key: string]: never }>;
             /** Soft-deletes the integration. Changes the status of the integration to ARCHIVED. If the integration being ARCHIVED is tagged as "HEAD", the tag is removed from this snapshot and set to the previous non-ARCHIVED snapshot. The PUBLISH_REQUESTED, DUE_FOR_DELETION tags are removed too. This RPC throws an exception if the version being deleted is DRAFT, and if the \`locked_by\` user is not the same as the user performing the Delete. Audit fields updated include last_modified_timestamp, last_modified_by. Any existing lock is released when Deleting a integration. Currently, there is no undelete mechanism. */
             delete(request?: {
                 /** V1 error format. */
@@ -31679,7 +31721,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?:
                     string;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             /** Downloads an integration. Retrieves the \`IntegrationVersion\` for a given \`integration_id\` and returns the response as a string. */
             download(request?: {
                 /** V1 error format. */
@@ -31982,7 +32024,7 @@ declare namespace gapi.client {
                 /** Request body */
                 resource:
                     GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             publish(request: {
                 /** V1 error format. */
                 "$.xgafv"?:
@@ -32021,7 +32063,7 @@ declare namespace gapi.client {
                 uploadType?:
                     string;
             },
-            body: GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest): Request<{}>;
+            body: GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest): Request<{ [key: string]: never }>;
             /** Clears the \`locked_by\` and \`locked_at_timestamp\`in the DRAFT version of this integration. It then performs the same action as the CreateDraftIntegrationVersion (i.e., copies the DRAFT version of the integration as a SNAPSHOT and then creates a new DRAFT version with the \`locked_by\` set to the \`user_taking_over\` and the \`locked_at_timestamp\` set to the current timestamp). Both the \`locked_by\` and \`user_taking_over\` are notified via email about the takeover. This RPC throws an exception if the integration is not in DRAFT status or if the \`locked_by\` and \`locked_at_timestamp\` fields are not set.The TakeoverEdit lock is treated the same as an edit of the integration, and hence shares ACLs with edit. Audit fields updated include last_modified_timestamp, last_modified_by. */
             takeoverEditLock(request: {
                 /** V1 error format. */
@@ -32144,7 +32186,7 @@ declare namespace gapi.client {
                 /** Request body */
                 resource:
                     GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             unpublish(request: {
                 /** V1 error format. */
                 "$.xgafv"?:
@@ -32183,7 +32225,7 @@ declare namespace gapi.client {
                 uploadType?:
                     string;
             },
-            body: GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest): Request<{}>;
+            body: GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest): Request<{ [key: string]: never }>;
             /** THIS METHOD WILL BE MOVED TO A SEPARATE SERVICE. RPC to update the Bundle */
             updateBundle(request: {
                 /** V1 error format. */
@@ -32387,7 +32429,7 @@ declare namespace gapi.client {
                 /** Request body */
                 resource:
                     GoogleCloudIntegrationsV1alphaValidateIntegrationVersionRequest;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             validate(request: {
                 /** V1 error format. */
                 "$.xgafv"?:
@@ -32426,7 +32468,7 @@ declare namespace gapi.client {
                 uploadType?:
                     string;
             },
-            body: GoogleCloudIntegrationsV1alphaValidateIntegrationVersionRequest): Request<{}>;
+            body: GoogleCloudIntegrationsV1alphaValidateIntegrationVersionRequest): Request<{ [key: string]: never }>;
         }
         interface IntegrationsResource {
             /** PROTECT WITH A VISIBILITY LABEL. THIS METHOD WILL BE MOVED TO A SEPARATE SERVICE. Soft-deletes the bundle. */
@@ -32470,7 +32512,7 @@ declare namespace gapi.client {
                 /** Request body */
                 resource:
                     GoogleCloudIntegrationsV1alphaArchiveBundleRequest;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             archiveBundle(request: {
                 /** V1 error format. */
                 "$.xgafv"?:
@@ -32509,7 +32551,7 @@ declare namespace gapi.client {
                 uploadType?:
                     string;
             },
-            body: GoogleCloudIntegrationsV1alphaArchiveBundleRequest): Request<{}>;
+            body: GoogleCloudIntegrationsV1alphaArchiveBundleRequest): Request<{ [key: string]: never }>;
             /** Executes integrations synchronously by passing the trigger id in the request body. The request is not returned until the requested executions are either fulfilled or experienced an error. If the integration name is not specified (passing \`-\`), all of the associated integration under the given trigger_id will be executed. Otherwise only the specified integration for the given \`trigger_id\` is executed. This is helpful for execution the integration from UI. */
             execute(request: {
                 /** V1 error format. */
@@ -32931,7 +32973,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?:
                     string;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             /** Gets an sfdc channel. If the channel doesn't exist, Code.NOT_FOUND exception will be thrown. */
             get(request?: {
                 /** V1 error format. */
@@ -33230,7 +33272,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?:
                     string;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             /** Gets an sfdc instance. If the instance doesn't exist, Code.NOT_FOUND exception will be thrown. */
             get(request?: {
                 /** V1 error format. */
@@ -33663,7 +33705,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?:
                     string;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             /** Gets an sfdc channel. If the channel doesn't exist, Code.NOT_FOUND exception will be thrown. */
             get(request?: {
                 /** V1 error format. */
@@ -33962,7 +34004,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?:
                     string;
-            }): Request<{}>;
+            }): Request<{ [key: string]: never }>;
             /** Gets an sfdc instance. If the instance doesn't exist, Code.NOT_FOUND exception will be thrown. */
             get(request?: {
                 /** V1 error format. */
@@ -42953,8 +42995,8 @@ exports[`sheets works 1`] = `
     "@typescript-eslint/no-empty-object-type": [
       "error",
       {
-        "allowInterfaces": "always", // to allow \`interface DismissApprovalRequestMessage {}\` in AccessApproval-v1, etc.
-        "allowObjectTypes": "always" // to allow \`deleteAccessApprovalSettings(request?: {...}): Request<{}>\` in AccessApproval-v1, etc.
+        "allowInterfaces": "never",
+        "allowObjectTypes": "never"
       }
     ],
     "@typescript-eslint/naming-convention": "off" // to allow IPAllocationPolicy, etc.
@@ -43853,6 +43895,8 @@ declare namespace gapi.client {
                 number;
         }
         interface ClearValuesRequest {
+            [key: string]:
+                never;
         }
         interface ClearValuesResponse {
             /** The range (in A1 notation) that was cleared. (If the request was for an unbounded range or a ranger larger than the bounds of the sheet, this will be the actual range that was cleared, bounded to the sheet's limits.) */
@@ -59672,8 +59716,8 @@ exports[`uses method ID instead of resource name/key 1`] = `
     "@typescript-eslint/no-empty-object-type": [
       "error",
       {
-        "allowInterfaces": "always", // to allow \`interface DismissApprovalRequestMessage {}\` in AccessApproval-v1, etc.
-        "allowObjectTypes": "always" // to allow \`deleteAccessApprovalSettings(request?: {...}): Request<{}>\` in AccessApproval-v1, etc.
+        "allowInterfaces": "never",
+        "allowObjectTypes": "never"
       }
     ],
     "@typescript-eslint/naming-convention": "off" // to allow IPAllocationPolicy, etc.
@@ -59718,6 +59762,8 @@ declare namespace gapi.client {
     namespace thirdNamespace {
         interface FirstResourceResource {
             firstMethod(request?: {
+                [key: string]:
+                    never;
             }): Request<void>;
         }
 

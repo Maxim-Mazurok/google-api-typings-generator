@@ -202,6 +202,136 @@ it('handles reserved JS keyword resource names via declaration merging', async (
   );
 });
 
+it('classifies empty schemas by REST usage', async () => {
+  const restDescription = {
+    name: 'empty-schema-api',
+    title: 'Empty Schema API',
+    id: 'empty-schema-api:v1',
+    version: 'v1',
+    documentationLink: 'https://example.com',
+    schemas: {
+      EmptyRequest: {
+        id: 'EmptyRequest',
+        type: 'object',
+        properties: {},
+      },
+      EmptyResponse: {
+        id: 'EmptyResponse',
+        type: 'object',
+        properties: {},
+      },
+      DictionaryResponse: {
+        id: 'DictionaryResponse',
+        type: 'object',
+        additionalProperties: {type: 'string'},
+      },
+      UnclassifiedEmpty: {
+        id: 'UnclassifiedEmpty',
+        type: 'object',
+        properties: {},
+      },
+      Container: {
+        id: 'Container',
+        type: 'object',
+        properties: {
+          metadata: {$ref: 'UnclassifiedEmpty'},
+          inlineMetadata: {type: 'object', properties: {}},
+        },
+      },
+    },
+    resources: {
+      records: {
+        methods: {
+          create: {
+            httpMethod: 'POST',
+            path: 'records',
+            id: 'emptySchemaApi.records.create',
+            request: {$ref: 'EmptyRequest'},
+            response: {$ref: 'EmptyResponse'},
+          },
+          delete: {
+            httpMethod: 'DELETE',
+            path: 'records',
+            id: 'emptySchemaApi.records.delete',
+            response: {$ref: 'EmptyResponse'},
+          },
+          listLabels: {
+            httpMethod: 'GET',
+            path: 'records/labels',
+            id: 'emptySchemaApi.records.listLabels',
+            response: {$ref: 'DictionaryResponse'},
+          },
+        },
+      },
+    },
+  } as RestDescription;
+  const resultFolder = join(
+    import.meta.dirname,
+    'results',
+    getPackageNameFromRestDescription(restDescription),
+  );
+  rmSync(resultFolder, {force: true, recursive: true});
+
+  await app.processService(restDescription, new URL('http://x.com'), false);
+
+  const generatedTypes = readFileSyncAsUTF8(join(resultFolder, 'index.d.ts'));
+  expect(generatedTypes).toContain(
+    'interface EmptyRequest {\n            [key: string]:\n                never;',
+  );
+  expect(generatedTypes).toContain(
+    'interface EmptyResponse {\n            [key: string]:\n                never;',
+  );
+  expect(generatedTypes).toContain(
+    'interface UnclassifiedEmpty {\n            [key: string]:\n                unknown;',
+  );
+  expect(generatedTypes).toContain(
+    'metadata?:\n                UnclassifiedEmpty;',
+  );
+  expect(generatedTypes).toContain(
+    'inlineMetadata?:\n                { [key: string]: unknown };',
+  );
+  expect(generatedTypes).toContain('): Request<{ [key: string]: never }>;');
+  expect(generatedTypes).toContain('): Request<DictionaryResponse>;');
+  expect(generatedTypes).not.toContain('Request<{}>');
+});
+
+it('treats dangling response $ref as permissive empty object', async () => {
+  const restDescription = {
+    name: 'dangling-ref-api',
+    title: 'Dangling Ref API',
+    id: 'dangling-ref-api:v1',
+    version: 'v1',
+    documentationLink: 'https://example.com',
+    schemas: {},
+    resources: {
+      records: {
+        methods: {
+          get: {
+            httpMethod: 'GET',
+            path: 'records',
+            id: 'danglingRefApi.records.get',
+            response: {$ref: 'MissingSchema'},
+          },
+        },
+      },
+    },
+  } as RestDescription;
+  const resultFolder = join(
+    import.meta.dirname,
+    'results',
+    getPackageNameFromRestDescription(restDescription),
+  );
+  rmSync(resultFolder, {force: true, recursive: true});
+
+  await app.processService(restDescription, new URL('http://x.com'), false);
+
+  const generatedTypes = readFileSyncAsUTF8(join(resultFolder, 'index.d.ts'));
+  // the referenced schema doesn't exist, so its shape is unknown — the
+  // response must not be asserted empty (never), only object-shaped
+  expect(generatedTypes).toContain('): Request<{ [key: string]: unknown }>;');
+  expect(generatedTypes).not.toContain('): Request<{ [key: string]: never }>;');
+});
+
 describe('discover best-effort', () => {
   let testApp: App;
   let githubStepSummary: string | undefined;
