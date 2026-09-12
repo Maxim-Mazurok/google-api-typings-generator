@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.bigquerydatatransfer-v1",
-  "version": "0.0.20260819",
-  "description": "TypeScript typings for BigQuery Data Transfer API v1",
+  "name": "@maxim_mazurok/gapi.client.firebaseml-v1beta2",
+  "version": "0.0.20260910",
+  "description": "TypeScript typings for Firebase ML API v1beta2",
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
