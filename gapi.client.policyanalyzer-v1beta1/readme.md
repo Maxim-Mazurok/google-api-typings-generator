@@ -1,6 +1,6 @@
 # TypeScript typings for Policy Analyzer API v1beta1
 
-For detailed description please check [documentation](https://cloud.google.com/policy-intelligence/docs/overview).
+For detailed description please check [documentation](https://www.google.com).
 
 ## Installing
 
