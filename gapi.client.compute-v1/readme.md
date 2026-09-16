@@ -951,6 +951,16 @@ should be of the same type as the old target.
 await gapi.client.compute.globalForwardingRules.setTarget({ forwardingRule: "forwardingRule", project: "project",  });
 
 /*
+Gets the Global Frontend Billing Bundle Settings for a project.
+*/
+await gapi.client.compute.globalFrontendSettings.get({ project: "project",  });
+
+/*
+Updates the Global Frontend Billing Bundle Settings for a project.
+*/
+await gapi.client.compute.globalFrontendSettings.patch({ project: "project",  });
+
+/*
 Attach a network endpoint to the specified network endpoint group.
 */
 await gapi.client.compute.globalNetworkEndpointGroups.attachNetworkEndpoints({ networkEndpointGroup: "networkEndpointGroup", project: "project",  });
@@ -1354,6 +1364,18 @@ await gapi.client.compute.images.setLabels({ project: "project", resource: "reso
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.images.testIamPermissions({ project: "project", resource: "resource",  });
+
+/*
+Returns the specified global ImageView resource, with a regional
+context.
+*/
+await gapi.client.compute.imageViews.get({ project: "project", region: "region", resourceId: "resourceId",  });
+
+/*
+Returns a list of global ImageView resources, with a regional
+context.
+*/
+await gapi.client.compute.imageViews.list({ project: "project", region: "region",  });
 
 /*
 Cancels the specified resize request and removes it from the queue.
@@ -2693,6 +2715,16 @@ Retrieves a list of machine types available to the specified
 project.
 */
 await gapi.client.compute.machineTypes.list({ project: "project", zone: "zone",  });
+
+/*
+Gets the details for the specified managed ruleset name.
+*/
+await gapi.client.compute.managedRulesets.get({ managedRuleset: "managedRuleset", project: "project",  });
+
+/*
+Retrieves the list of all the managed rulesets available.
+*/
+await gapi.client.compute.managedRulesets.list({ project: "project",  });
 
 /*
 Retrieves the list of all NetworkAttachment resources,
@@ -4747,6 +4779,11 @@ await gapi.client.compute.regionNetworkFirewallPolicies.list({ project: "project
 Patches the specified network firewall policy.
 */
 await gapi.client.compute.regionNetworkFirewallPolicies.patch({ firewallPolicy: "firewallPolicy", project: "project", region: "region",  });
+
+/*
+Updates an association for the specified network firewall policy.
+*/
+await gapi.client.compute.regionNetworkFirewallPolicies.patchAssociation({ firewallPolicy: "firewallPolicy", project: "project", region: "region",  });
 
 /*
 Patches a rule of the specified priority.
