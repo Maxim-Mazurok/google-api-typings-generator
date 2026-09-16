@@ -612,48 +612,6 @@ await gapi.client.sql.users.list({instance: 'instance', project: 'project'});
 Updates an existing user in a Cloud SQL instance.
 */
 await gapi.client.sql.users.update({instance: 'instance', project: 'project'});
-
-/*
-Lists all captured workloads associated with the instance.
-*/
-await gapi.client.sql.workloadCaptures.list({
-  instance: 'instance',
-  project: 'project',
-});
-
-/*
-Starts capturing the SQL queries, transactions, and other operations executed on the primary instance. This traffic is securely stored and forms a "captured workload". This workload can be replayed later on a different instance to safely test performance impacts, database upgrades, configuration changes etc. before applying them to production.
-*/
-await gapi.client.sql.workloadCaptures.start({
-  instance: 'instance',
-  project: 'project',
-});
-
-/*
-Starts executing a captured workload on a separate Cloud SQL instance provisioned for workload replay. This target instance simulates the production environment without affecting the primary instance.
-*/
-await gapi.client.sql.workloadCaptures.startReplay({
-  instance: 'instance',
-  project: 'project',
-  workloadId: 'workloadId',
-});
-
-/*
-Stops capturing the query traffic and related operations executed on the primary instance.
-*/
-await gapi.client.sql.workloadCaptures.stop({
-  instance: 'instance',
-  project: 'project',
-});
-
-/*
-Stops executing a captured workload on the separate Cloud SQL instance.
-*/
-await gapi.client.sql.workloadCaptures.stopReplay({
-  instance: 'instance',
-  project: 'project',
-  workloadId: 'workloadId',
-});
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.sqladmin-v1beta4#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
