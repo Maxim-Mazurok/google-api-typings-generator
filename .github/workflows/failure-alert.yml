@@ -1,0 +1,55 @@
+name: Failure Alert
+
+# Emails the maintainer once when a workflow below has failed 10 times in a
+# row, and once when it recovers. See bin/failure-alert.ts for details.
+#
+# Setup: repo secret RESEND_API_KEY (free plan at https://resend.com, account
+# registered with the recipient address, so the default onboarding@resend.dev
+# sender can deliver to it). Optional repo variables: ALERT_EMAIL (recipient,
+# defaults to the maintainer), ALERT_FROM (after verifying a domain in Resend).
+#
+# To test: run manually with the ID of a run that was the 10th failure in a row
+# (or first success after 10+ failures); "send" delivers it with a [TEST] prefix.
+
+on:
+  workflow_run:
+    workflows: [Auto Generate Types, Auto Publish to NPM]
+    types: [completed]
+    branches: [master]
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: ID of the workflow run to evaluate
+        required: true
+      send:
+        description: Actually send the email (subject gets a [TEST] prefix)
+        type: boolean
+        default: false
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  failure-alert:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          sparse-checkout: |
+            bin/failure-alert.ts
+            .nvmrc
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: '.nvmrc'
+      - name: Evaluate run and send email if needed
+        run: node bin/failure-alert.ts
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ github.event.workflow_run.id || inputs.run_id }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && !inputs.send }}
+          TEST: ${{ github.event_name == 'workflow_dispatch' }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          ALERT_EMAIL: ${{ vars.ALERT_EMAIL || 'maxim@mazurok.com' }}
+          ALERT_FROM: ${{ vars.ALERT_FROM }}
