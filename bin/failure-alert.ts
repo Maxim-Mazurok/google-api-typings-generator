@@ -195,15 +195,26 @@ const main = async () => {
     return;
   }
 
+  // The run list API occasionally returns a wrong page (e.g. an older page in
+  // place of page 1). Deciding on it could silently skip an alert, so check
+  // that the list starts at the evaluated run and pages continue each other,
+  // and retry otherwise.
   const listOlderRuns = async () => {
     const older: Run[] = [];
-    let foundCurrent = false;
+    let lowestId = Infinity;
     let historyComplete = false;
     for (let page = 1; page <= MAX_PAGES; page++) {
       const {workflow_runs} = await github<{workflow_runs: Run[]}>(
-        `/actions/workflows/${current.workflow_id}/runs?branch=${encodeURIComponent(current.head_branch)}&status=completed&per_page=${PER_PAGE}&page=${page}`,
+        `/actions/workflows/${current.workflow_id}/runs?branch=${encodeURIComponent(current.head_branch)}&status=completed&created=${encodeURIComponent(`<=${current.created_at}`)}&per_page=${PER_PAGE}&page=${page}`,
       );
-      foundCurrent ||= workflow_runs.some(run => run.id === current.id);
+      if (page === 1 && !workflow_runs.some(run => run.id === current.id)) {
+        return {problem: `run ${current.id} missing from page 1`};
+      }
+      if (page > 1 && workflow_runs.some(run => run.id >= lowestId)) {
+        return {problem: `page ${page} doesn't continue the previous one`};
+      }
+      lowestId = Math.min(lowestId, ...workflow_runs.map(run => run.id));
+      // page 1 may also have runs created in the same second after the current one
       older.push(...workflow_runs.filter(run => run.id < current.id));
       if (workflow_runs.length < PER_PAGE) {
         historyComplete = true;
@@ -219,20 +230,17 @@ const main = async () => {
       }
     }
     older.sort((a, b) => b.id - a.id);
-    return {older, foundCurrent, historyComplete};
+    return {older, historyComplete};
   };
 
-  // The run list is occasionally stale or empty (e.g. right after the run
-  // completed); deciding on it would silently skip an alert, so require the
-  // evaluated run to be in the list.
   let listing = await listOlderRuns();
-  for (let retry = 1; !listing.foundCurrent && retry <= 3; retry++) {
-    console.log(`Run ${current.id} not in run list yet, retry ${retry}/3`);
+  for (let retry = 1; 'problem' in listing && retry <= 3; retry++) {
+    console.log(`Inconsistent run list (${listing.problem}), retry ${retry}/3`);
     await new Promise(resolve => setTimeout(resolve, 20_000 * retry));
     listing = await listOlderRuns();
   }
-  if (!listing.foundCurrent) {
-    throw new Error(`Run ${current.id} not found in the workflow run list`);
+  if ('problem' in listing) {
+    throw new Error(`Inconsistent run list: ${listing.problem}`);
   }
   const {older, historyComplete} = listing;
 
