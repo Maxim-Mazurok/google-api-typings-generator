@@ -21,6 +21,11 @@ export const NPM_ORGANIZATION = 'maxim_mazurok';
  * Returns the capitalized name of the TypeScript interface for the specified resource.
  */
 export function getResourceTypeName(resourceName: string) {
+  if (resourceName === '-') {
+    // AIP-159 wildcard collection, e.g. `publications/-/readers` in https://readerrevenuesubscriptionlinking.googleapis.com/$discovery/rest?version=v1
+    return 'WildcardResource';
+  }
+
   resourceName = resourceName
     .split('-')
     .map(x => `${x[0].toUpperCase()}${x.substring(1)}`)

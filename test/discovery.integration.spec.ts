@@ -156,9 +156,17 @@ describe('discovery items', () => {
     });
   });
 
-  it('id does not have "-"', () => {
-    discoveryItems.forEach(({id}) => {
-      expect(id).not.toContain('-');
+  it('name does not have "-"', () => {
+    // Package names are `gapi.client.<name>-<version>` (see `getApiName`), made
+    // by replacing ":" in the id with "-". As long as name has no "-", the
+    // first "-" unambiguously splits name from version, so the mapping stays
+    // reversible (without this, `foo-bar:v1` and `foo:bar-v1` would both map
+    // to `gapi.client.foo-bar-v1`). Version may contain "-" (e.g.
+    // compute:2026-09-01) since it's always the tail.
+    // Name is also (usually) the TS namespace (`gapi.client.<name>`), where
+    // "-" isn't valid, see #1393.
+    discoveryItems.forEach(({name}) => {
+      expect(name).not.toContain('-');
     });
   });
 
@@ -195,8 +203,11 @@ describe('discovery items', () => {
       //   /^(([a-z]+_)?v\d+(\.\d+|[0-9a-z]+)?|alpha|beta)$/
       // );
     });
-    expect(versions.sort()).toStrictEqual([
+    // only new, unknown shapes fail; a known shape disappearing is harmless
+    const knownVersionPatterns = [
       '*',
+      '1-1-1',
+      '1-1-1-xxx',
       'v1',
       'v1*',
       'v1*1',
@@ -205,29 +216,22 @@ describe('discovery items', () => {
       'v1b1',
       'v1p1*1',
       'v1xxx',
+      'xxx',
       'xxx_v1',
       'xxx_v1*',
-    ]);
+    ];
+    versions.forEach(version => {
+      expect(knownVersionPatterns).toContain(version);
+    });
   });
 
   it('versions match all patterns', () => {
-    const options = {
-      '*': 0,
-      v1: 0,
-      'v1*': 0,
-      'v1*1': 0,
-      'v1*1a': 0,
-      'v1.1': 0,
-      v1b1: 0,
-      'v1p1*1': 0,
-      v1xxx: 0,
-      xxx_v1: 0,
-      'xxx_v1*': 0,
-    };
     const examples: {
       [key: string]: string[];
     } = {
       '*': [],
+      '1-1-1': [],
+      '1-1-1-xxx': [],
       v1: [],
       'v1*': [],
       'v1*1': [],
@@ -236,6 +240,7 @@ describe('discovery items', () => {
       v1b1: [],
       'v1p1*1': [],
       v1xxx: [],
+      xxx: [],
       xxx_v1: [],
       'xxx_v1*': [],
     };
@@ -244,6 +249,12 @@ describe('discovery items', () => {
     "*": [
       "alpha",
       "beta"
+    ],
+    "1-1-1": [
+      "2026-09-01"
+    ],
+    "1-1-1-xxx": [
+      "2026-10-01-preview"
     ],
     "v1": [
       "v1",
@@ -296,6 +307,10 @@ describe('discovery items', () => {
       "v1configuration",
       "v1management"
     ],
+    "xxx": [
+      "preview",
+      "stable"
+    ],
     "xxx_v1": [
       "datatransfer_v1", // cspell:words datatransfer
       "directory_v1",
@@ -319,45 +334,36 @@ describe('discovery items', () => {
       if (typeof version !== 'string') throw "version isn't string";
 
       if (/^v\d+$/.test(version)) {
-        options['v1']++;
         examples['v1'].push(version);
       } else if (/^v\d+(alpha|beta)$/.test(version)) {
-        options['v1*']++;
         examples['v1*'].push(version);
       } else if (/^v\d+(alpha|beta)\d+$/.test(version)) {
-        options['v1*1']++;
         examples['v1*1'].push(version);
       } else if (/^[a-z]+_v\d+$/.test(version)) {
-        options['xxx_v1']++;
         examples['xxx_v1'].push(version);
       } else if (/^[a-z]{2,}_v\d+(alpha|beta)$/.test(version)) {
-        options['xxx_v1*']++;
         examples['xxx_v1*'].push(version);
       } else if (/^v\d+\.\d+$/.test(version)) {
-        options['v1.1']++;
         examples['v1.1'].push(version);
       } else if (/^v\d+p\d+(alpha|beta)\d$/.test(version)) {
-        options['v1p1*1']++;
         examples['v1p1*1'].push(version);
       } else if (/^(alpha|beta)$/.test(version)) {
-        options['*']++;
         examples['*'].push(version);
       } else if (/^v\d+b\d+$/.test(version)) {
-        options['v1b1']++;
         examples['v1b1'].push(version);
       } else if (/^v\d+[a-z]+$/.test(version)) {
-        options['v1xxx']++;
         examples['v1xxx'].push(version);
       } else if (/^v\d+(alpha|beta)\d+a$/.test(version)) {
-        options['v1*1a']++;
         examples['v1*1a'].push(version);
+      } else if (/^\d+-\d+-\d+$/.test(version)) {
+        examples['1-1-1'].push(version);
+      } else if (/^\d+-\d+-\d+-[a-z]{2,}$/.test(version)) {
+        examples['1-1-1-xxx'].push(version);
+      } else if (/^[a-z]{2,}$/.test(version)) {
+        examples['xxx'].push(version);
       } else {
         throw `${version} didn't match any pattern`;
       }
-    });
-
-    Object.values(options).forEach(count => {
-      expect(count).not.toBe(0);
     });
 
     Object.keys(examples).forEach(pattern => {
