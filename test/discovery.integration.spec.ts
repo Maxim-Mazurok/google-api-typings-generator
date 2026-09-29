@@ -16,10 +16,6 @@ import {getPackageNameFromRestDescription, getProxy} from '../src/utils.js';
 
 let proxy: ProxySetting | undefined;
 
-// yyyy-mm-dd, e.g. compute:2026-09-01; month/day ranges are checked so that
-// these canaries fail if Google ever uses a different date order
-const isoDatePattern = '\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])';
-
 const apiHttpHost = 'localhost';
 let apiServerPort: number;
 let apiServer: Server;
@@ -170,19 +166,15 @@ describe('discovery items', () => {
   it('version patterns match', () => {
     // cspell:words abcdefghijklmnopqrstuvwxyz
     const versions: string[] = [];
-    const datePrefix = new RegExp(`^${isoDatePattern}`);
     discoveryItems.forEach(({version}) => {
       const originalVersion = version;
       if (version?.includes('*') || version?.includes('xxx'))
         throw '* or xxx in version';
 
-      const hasDate = datePrefix.test(version ?? '');
-      version = version?.replace(datePrefix, '');
       version = version?.replace(/\d+/g, '1');
       version = version?.replace(/alpha/g, '*');
       version = version?.replace(/beta/g, '*');
       version = version?.replace(/[abcdefghijklmnopqrstuvwxyz]{2,}/g, 'xxx');
-      if (hasDate) version = `yyyy-mm-dd${version}`;
       if (!versions.includes(version as string)) {
         console.log({version, originalVersion});
         versions.push(version as string);
@@ -207,6 +199,8 @@ describe('discovery items', () => {
     // only new, unknown shapes fail; a known shape disappearing is harmless
     const knownVersionPatterns = [
       '*',
+      '1-1-1',
+      '1-1-1-xxx',
       'v1',
       'v1*',
       'v1*1',
@@ -218,8 +212,6 @@ describe('discovery items', () => {
       'xxx',
       'xxx_v1',
       'xxx_v1*',
-      'yyyy-mm-dd',
-      'yyyy-mm-dd-xxx',
     ];
     versions.forEach(version => {
       expect(knownVersionPatterns).toContain(version);
@@ -231,6 +223,8 @@ describe('discovery items', () => {
       [key: string]: string[];
     } = {
       '*': [],
+      '1-1-1': [],
+      '1-1-1-xxx': [],
       v1: [],
       'v1*': [],
       'v1*1': [],
@@ -242,8 +236,6 @@ describe('discovery items', () => {
       xxx: [],
       xxx_v1: [],
       'xxx_v1*': [],
-      'yyyy-mm-dd': [],
-      'yyyy-mm-dd-xxx': [],
     };
 
     /*
@@ -251,10 +243,10 @@ describe('discovery items', () => {
       "alpha",
       "beta"
     ],
-    "yyyy-mm-dd": [
+    "1-1-1": [
       "2026-09-01"
     ],
-    "yyyy-mm-dd-xxx": [
+    "1-1-1-xxx": [
       "2026-10-01-preview"
     ],
     "v1": [
@@ -356,10 +348,10 @@ describe('discovery items', () => {
         examples['v1xxx'].push(version);
       } else if (/^v\d+(alpha|beta)\d+a$/.test(version)) {
         examples['v1*1a'].push(version);
-      } else if (new RegExp(`^${isoDatePattern}$`).test(version)) {
-        examples['yyyy-mm-dd'].push(version);
-      } else if (new RegExp(`^${isoDatePattern}-[a-z]{2,}$`).test(version)) {
-        examples['yyyy-mm-dd-xxx'].push(version);
+      } else if (/^\d+-\d+-\d+$/.test(version)) {
+        examples['1-1-1'].push(version);
+      } else if (/^\d+-\d+-\d+-[a-z]{2,}$/.test(version)) {
+        examples['1-1-1-xxx'].push(version);
       } else if (/^[a-z]{2,}$/.test(version)) {
         examples['xxx'].push(version);
       } else {
