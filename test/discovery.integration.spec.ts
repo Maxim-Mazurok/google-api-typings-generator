@@ -157,7 +157,14 @@ describe('discovery items', () => {
   });
 
   it('name does not have "-"', () => {
-    // version can contain "-" (e.g. compute:2026-09-01), but name shouldn't
+    // Package names are `gapi.client.<name>-<version>` (see `getApiName`), made
+    // by replacing ":" in the id with "-". As long as name has no "-", the
+    // first "-" unambiguously splits name from version, so the mapping stays
+    // reversible (without this, `foo-bar:v1` and `foo:bar-v1` would both map
+    // to `gapi.client.foo-bar-v1`). Version may contain "-" (e.g.
+    // compute:2026-09-01) since it's always the tail.
+    // Name is also (usually) the TS namespace (`gapi.client.<name>`), where
+    // "-" isn't valid, see #1393.
     discoveryItems.forEach(({name}) => {
       expect(name).not.toContain('-');
     });
