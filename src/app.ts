@@ -1039,7 +1039,10 @@ export class App {
         scope.write('true');
         break;
       case 'string':
-        scope.write('"Test string"');
+        // enums are typed as string literal unions, so any other string won't compile
+        scope.write(
+          property.enum ? JSON.stringify(property.enum[0]) : '"Test string"',
+        );
         break;
       case 'array':
         this.writeArray(scope, api, checkExists(property.items));
