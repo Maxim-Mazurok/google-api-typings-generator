@@ -17,6 +17,7 @@ describe('getResourceTypeName', () => {
     marketplacePrivateAuction: 'MarketplacePrivateAuctionResource',
     'marketplace-privateauction': 'MarketplacePrivateauctionResource', // cspell:disable-line
     'marketplace-private-auction': 'MarketplacePrivateAuctionResource',
+    '-': 'WildcardResource',
   };
 
   _.forEach(expectations, (expected, given) => {
