@@ -1,5 +1,12 @@
-import {existsSync, readdirSync, readFileSync, rmSync} from 'node:fs';
+import {
+  existsSync,
+  readdirSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from 'node:fs';
 import {join} from 'node:path';
+import ts from 'typescript';
 import {vi} from 'vitest';
 import {App} from '../../src/app.js';
 import * as discovery from '../../src/discovery.js';
@@ -56,7 +63,15 @@ const mySnapshotTest = async (name: string, action: () => Promise<void>) => {
   });
 };
 
-['drive', 'sheets', 'calendar', 'admin', 'integrations'].forEach(apiName => {
+[
+  'drive',
+  'sheets',
+  'calendar',
+  'admin',
+  'integrations',
+  'readerrevenuesubscriptionlinking', // same-name resources at different paths
+  'translate', // resource interface names that collide with schema names
+].forEach(apiName => {
   it(`${apiName} works`, async () => {
     const restDescription = JSON.parse(
       readFileSyncAsUTF8(join(import.meta.dirname, `${apiName}.json`)),
@@ -71,6 +86,117 @@ const mySnapshotTest = async (name: string, action: () => Promise<void>) => {
       ),
     );
   });
+});
+
+/**
+ * Generates types for the fixture and compiles them (`index.d.ts` and
+ * `tests.ts`, like dtslint does) together with `probe`, which can use
+ * `@ts-expect-error` to assert that something must NOT type-check.
+ * Snapshots only compare text, this catches output that is wrong as TypeScript.
+ */
+const compileFixture = async (apiName: string, probe: string) => {
+  const restDescription = JSON.parse(
+    readFileSyncAsUTF8(join(import.meta.dirname, `${apiName}.json`)),
+  ) as RestDescription;
+  const typesDirectory = join(import.meta.dirname, 'results', 'compile');
+  const folder = join(
+    typesDirectory,
+    getPackageNameFromRestDescription(restDescription),
+  );
+  rmSync(folder, {force: true, recursive: true});
+
+  await new App({typesDirectory, owners: []}).processService(
+    restDescription,
+    new URL(`http://localhost:3000/${apiName}.json`),
+    false,
+  );
+
+  const probePath = join(folder, 'probe.ts');
+  writeFileSync(probePath, probe);
+
+  const tsconfig = JSON.parse(
+    readFileSyncAsUTF8(
+      join(
+        import.meta.dirname,
+        '..',
+        '..',
+        'src',
+        'template',
+        'template.tsconfig.json',
+      ),
+    ),
+  ) as {compilerOptions: object};
+  const {options, errors} = ts.convertCompilerOptionsFromJson(
+    tsconfig.compilerOptions,
+    folder,
+  );
+  expect(errors).toStrictEqual([]);
+
+  const program = ts.createProgram(
+    [join(folder, 'index.d.ts'), join(folder, 'tests.ts'), probePath],
+    options,
+  );
+
+  return ts.getPreEmitDiagnostics(program).map(diagnostic => {
+    const message = ts.flattenDiagnosticMessageText(
+      diagnostic.messageText,
+      '\n',
+    );
+    if (!diagnostic.file || diagnostic.start === undefined) return message;
+    const {line} = diagnostic.file.getLineAndCharacterOfPosition(
+      diagnostic.start,
+    );
+    return `${diagnostic.file.fileName.replace(folder, '')}:${line + 1}: ${message}`;
+  });
+};
+
+it('gives same-name resources at different paths different interfaces', async () => {
+  // In https://readerrevenuesubscriptionlinking.googleapis.com/$discovery/rest?version=v1
+  // `publications.readers` has get/delete/getEntitlements/updateEntitlements,
+  // `publications["-"].readers` (AIP-159 wildcard) has only `entitlements.list`;
+  // both used to be `ReadersResource` and declaration-merged
+  const diagnostics = await compileFixture(
+    'readerrevenuesubscriptionlinking',
+    `
+      const api = gapi.client.readerrevenuesubscriptionlinking;
+      const reader: gapi.client.readerrevenuesubscriptionlinking.PublicationsReadersResource =
+        api.publications.readers;
+      const wildcardReader: gapi.client.readerrevenuesubscriptionlinking.PublicationsWildcardReadersResource =
+        api.publications['-'].readers;
+      void reader.get({name: 'publications/p/readers/r'});
+      void wildcardReader.entitlements.list({parent: 'publications/-/readers/r'});
+      // @ts-expect-error only exists on publications["-"].readers
+      void api.publications.readers.entitlements;
+      // @ts-expect-error only exists on publications.readers
+      void api.publications['-'].readers.get;
+      // @ts-expect-error old last-segment-only name is gone
+      type Old = gapi.client.readerrevenuesubscriptionlinking.ReadersResource;
+    `,
+  );
+
+  expect(diagnostics).toStrictEqual([]);
+});
+
+it('does not merge resource interfaces into same-name schemas', async () => {
+  // In https://translation.googleapis.com/$discovery/rest?version=v2
+  // `LanguagesResource` schema (`{language, name}`) and `languages` resource
+  // used to declaration-merge, see https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/976
+  const diagnostics = await compileFixture(
+    'translate',
+    `
+      const languages: gapi.client.language.Languages_Resource =
+        gapi.client.language.languages;
+      void languages.list({});
+      const language: gapi.client.language.LanguagesResource = {
+        language: 'en',
+        name: 'English',
+      };
+      // @ts-expect-error schema must not get resource methods
+      void language.list;
+    `,
+  );
+
+  expect(diagnostics).toStrictEqual([]);
 });
 
 ['drive', 'sheets', 'calendar', 'admin'].forEach(apiName => {

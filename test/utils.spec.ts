@@ -7,7 +7,9 @@ import {
   getApiName,
   getNpmArchivesToPublish,
   getPackageNameFromRestDescription,
+  getResourcePathKey,
   getResourceTypeName,
+  getResourceTypeNames,
   hasValueRecursive,
 } from '../src/utils.js';
 
@@ -22,8 +24,87 @@ describe('getResourceTypeName', () => {
 
   _.forEach(expectations, (expected, given) => {
     it(`should convert: ${given}`, () => {
-      expect(getResourceTypeName(given)).toBe(expected);
+      expect(getResourceTypeName([given])).toBe(expected);
     });
+  });
+
+  it('qualifies name with the whole path', () => {
+    expect(getResourceTypeName(['publications', 'readers'])).toBe(
+      'PublicationsReadersResource',
+    );
+    expect(getResourceTypeName(['publications', '-', 'readers'])).toBe(
+      'PublicationsWildcardReadersResource',
+    );
+  });
+
+  it('uses separator between segments and before suffix', () => {
+    expect(getResourceTypeName(['publications', '-', 'readers'], '_')).toBe(
+      'Publications_Wildcard_Readers_Resource',
+    );
+  });
+});
+
+describe('getResourceTypeNames', () => {
+  it('gives same-name resources at different paths different names', () => {
+    // based on https://readerrevenuesubscriptionlinking.googleapis.com/$discovery/rest?version=v1
+    const names = getResourceTypeNames({
+      resources: {
+        publications: {
+          resources: {
+            readers: {},
+            '-': {resources: {readers: {resources: {entitlements: {}}}}},
+          },
+        },
+      },
+    });
+
+    expect(Object.fromEntries(names)).toStrictEqual({
+      [getResourcePathKey(['publications'])]: 'PublicationsResource',
+      [getResourcePathKey(['publications', 'readers'])]:
+        'PublicationsReadersResource',
+      [getResourcePathKey(['publications', '-'])]:
+        'PublicationsWildcardResource',
+      [getResourcePathKey(['publications', '-', 'readers'])]:
+        'PublicationsWildcardReadersResource',
+      [getResourcePathKey(['publications', '-', 'readers', 'entitlements'])]:
+        'PublicationsWildcardReadersEntitlementsResource',
+    });
+  });
+
+  it('avoids collisions with schema names', () => {
+    // based on https://translation.googleapis.com/$discovery/rest?version=v2 and https://walletobjects.googleapis.com/$discovery/rest?version=v1
+    const names = getResourceTypeNames({
+      schemas: {LanguagesResource: {}, JwtResource: {}},
+      resources: {languages: {}, jwt: {}},
+    });
+
+    expect(names.get(getResourcePathKey(['languages']))).toBe(
+      'Languages_Resource',
+    );
+    expect(names.get(getResourcePathKey(['jwt']))).toBe('Jwt_Resource');
+  });
+
+  it('avoids collisions between paths that concatenate to the same name', () => {
+    // based on https://aiplatform.googleapis.com/$discovery/rest?version=v1beta1
+    const names = getResourceTypeNames({
+      resources: {a2a: {resources: {tasks: {}}}, a2aTasks: {}},
+    });
+
+    expect(names.get(getResourcePathKey(['a2a', 'tasks']))).toBe(
+      'A2aTasksResource',
+    );
+    expect(names.get(getResourcePathKey(['a2aTasks']))).toBe(
+      'A2aTasks_Resource',
+    );
+  });
+
+  it('throws when no unique name is left', () => {
+    expect(() =>
+      getResourceTypeNames({
+        schemas: {FooResource: {}, Foo_Resource: {}},
+        resources: {foo: {}},
+      }),
+    ).toThrow("Can't find unique interface name for resource foo");
   });
 });
 

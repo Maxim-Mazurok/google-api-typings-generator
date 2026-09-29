@@ -4,6 +4,7 @@
   "language": "en_US",
   "dictionaries": ["typescript", "node", "npm", "softwareTerms"],
   "words": [
+    "aiplatform",
     "Amoscato",
     "analyticsreporting",
     "apigee",
@@ -32,6 +33,7 @@
     "precheck",
     "TOTP",
     "PUNCSP",
+    "readerrevenuesubscriptionlinking",
     "readlines",
     "repos",
     "tsgolint",

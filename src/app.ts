@@ -25,7 +25,8 @@ import {
   getDiagnosticsDirectory,
   getErrorMessage,
   getPackageNameFromRestDescription,
-  getResourceTypeName,
+  getResourcePathKey,
+  getResourceTypeNames,
   getRevision,
   majorAndMinorVersion,
   sameNamespace,
@@ -599,11 +600,16 @@ export class App {
     parameters: Record<string, JsonSchema> = {},
     schemas: Record<string, JsonSchema>,
     namespace: string,
+    resourceTypeNames: Map<string, string>,
+    parentPath: readonly string[] = [],
   ): string[] {
     const writtenTopLevelResourceNames: string[] = [];
+    const getResourceInterfaceName = (resourcePath: readonly string[]) =>
+      checkExists(resourceTypeNames.get(getResourcePathKey(resourcePath)));
 
     _.forEach(resources, (resource, resourceName) => {
-      const resourceInterfaceName = getResourceTypeName(resourceName);
+      const resourcePath = [...parentPath, resourceName];
+      const resourceInterfaceName = getResourceInterfaceName(resourcePath);
 
       let writtenResources: string[] = [];
 
@@ -614,6 +620,8 @@ export class App {
           parameters,
           schemas,
           namespace,
+          resourceTypeNames,
+          resourcePath,
         );
       }
 
@@ -700,8 +708,10 @@ export class App {
           _.forEach(resource.resources, (childResource, childResourceName) => {
             if (!getAllNamespaces(childResource).includes(namespace)) return;
 
-            const childResourceInterfaceName =
-              getResourceTypeName(childResourceName);
+            const childResourceInterfaceName = getResourceInterfaceName([
+              ...resourcePath,
+              childResourceName,
+            ]);
             out.property(childResourceName, childResourceInterfaceName);
           });
         }
@@ -821,6 +831,10 @@ export class App {
 
       writer.endLine();
 
+      const resourceTypeNames = getResourceTypeNames(restDescription);
+      const getTopLevelResourceTypeName = (resourceName: string) =>
+        checkExists(resourceTypeNames.get(getResourcePathKey([resourceName])));
+
       namespaces.forEach(namespace => {
         const allResources: string[] = [];
         let hasReservedKeywordResource = false;
@@ -868,6 +882,7 @@ export class App {
               restDescription.parameters,
               schemas,
               namespace,
+              resourceTypeNames,
             );
 
             writtenResources.forEach(resourceName => {
@@ -883,7 +898,7 @@ export class App {
               writtenResources.forEach(resourceName => {
                 writer.endLine();
                 writer.writeLine(
-                  `const ${resourceName}: ${getResourceTypeName(resourceName)};`,
+                  `const ${resourceName}: ${getTopLevelResourceTypeName(resourceName)};`,
                 );
               });
             }
@@ -901,7 +916,7 @@ export class App {
           writer.writeLine(`var ${namespace}: {`);
           allResources.forEach(resourceName => {
             writer.writeLine(
-              `    readonly ${resourceName}: ${namespace}.${getResourceTypeName(resourceName)};`,
+              `    readonly ${resourceName}: ${namespace}.${getTopLevelResourceTypeName(resourceName)};`,
             );
           });
           writer.writeLine('};');
@@ -1039,7 +1054,10 @@ export class App {
         scope.write('true');
         break;
       case 'string':
-        scope.write('"Test string"');
+        // enums are typed as string literal unions, so any other string won't compile
+        scope.write(
+          property.enum ? JSON.stringify(property.enum[0]) : '"Test string"',
+        );
         break;
       case 'array':
         this.writeArray(scope, api, checkExists(property.items));

@@ -22,6 +22,7 @@ Not to be mistaken with [NodeJS Server Client](https://github.com/googleapis/goo
 - Supports both `resource` and second-argument approaches; [details](#resource-vs-body)
 - Includes empty interfaces; [details](#empty-interfaces)
 - Works for arrays, aka `"repeated": true`; [details](#arrays--repeated-values)
+- Resource interfaces are named after their full path, so same-name resources don't get merged; [details](#resource-interface-names)
 - System proxy support (see [Azure/get-proxy-settings](https://github.com/Azure/get-proxy-settings#system-proxy))
 - Other minor fixes and updates
 
@@ -203,6 +204,38 @@ This fork understands `"repeated": true`
 
 More info here: [Maxim-Mazurok/google-api-typings-generator#1](https://github.com/Maxim-Mazurok/google-api-typings-generator/pull/1)
 and here: [declanvong@`bec4f89`#r35992626](https://github.com/declanvong/google-api-typings-generator/commit/bec4f89b998db670e4a9d41810ceb39a1ba9b798#r35992626)
+
+### Resource interface names
+
+Each resource gets an interface named after its full path in the discovery document, for example in [Reader Revenue Subscription Linking API](https://readerrevenuesubscriptionlinking.googleapis.com/$discovery/rest?version=v1):
+
+| Path                                     | Interface                                         |
+| ---------------------------------------- | ------------------------------------------------- |
+| `publications`                           | `PublicationsResource`                            |
+| `publications.readers`                   | `PublicationsReadersResource`                     |
+| `publications["-"].readers`              | `PublicationsWildcardReadersResource`             |
+| `publications["-"].readers.entitlements` | `PublicationsWildcardReadersEntitlementsResource` |
+
+`-` ([AIP-159](https://google.aip.dev/159) wildcard) becomes `Wildcard`.
+
+All interfaces of an API live in one namespace, so an interface name must be unique there, otherwise TypeScript [merges](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#merging-interfaces) the declarations and every resource gets methods and child resources of all the others, which then fail at runtime with "is not a function".
+If the name is already taken by a schema (e.g. `LanguagesResource` schema in [Translation API v2](https://translation.googleapis.com/$discovery/rest?version=v2)) or by another resource (e.g. `a2a.tasks` vs `a2aTasks`), segments are separated with `_`: `Languages_Resource`, `Projects_Locations_ReasoningEngines_A2aTasks_Resource`.
+Schema interface names never change.
+
+**Breaking change:** interfaces used to be named after the last path segment only (e.g. `ReadersResource`).
+If you reference resource interfaces directly (`gapi.client.<api>.<Name>Resource`), rename them to the path-qualified names, or avoid naming them at all:
+
+```typescript
+// before
+let readers: gapi.client.readerrevenuesubscriptionlinking.ReadersResource;
+// after
+let readers: gapi.client.readerrevenuesubscriptionlinking.PublicationsReadersResource;
+// or, independent of naming
+let readers: typeof gapi.client.readerrevenuesubscriptionlinking.publications.readers;
+```
+
+Top-level resources keep their names (e.g. `PublicationsResource`), except the ones that collided with a schema (e.g. `JWTResource` in [Google Wallet API](https://walletobjects.googleapis.com/$discovery/rest?version=v1) is now `Jwt_Resource`).
+More info here: [Maxim-Mazurok/google-api-typings-generator#976](https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/976)
 
 ### JavaScript VS NodeJS Clients
 
