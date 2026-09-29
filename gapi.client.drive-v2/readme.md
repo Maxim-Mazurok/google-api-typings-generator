@@ -340,7 +340,7 @@ Lists a file's parents.
 await gapi.client.drive.parents.list({ fileId: "fileId",  });
 
 /*
-Deletes a permission from a file or shared drive. **Warning:** Concurrent permissions operations on the same file are not supported; only the last update is applied.
+Deletes a permission from a file or shared drive. **Warning:** Concurrent permission modifications (such as update or delete) on the same file, folder, or shared drive aren't supported across any users or clients; only the last update is applied.
 */
 await gapi.client.drive.permissions.delete({ fileId: "fileId", permissionId: "permissionId",  });
 
@@ -355,7 +355,7 @@ Returns the permission ID for an email address.
 await gapi.client.drive.permissions.getIdForEmail({ email: "email",  });
 
 /*
-Inserts a permission for a file or shared drive. **Warning:** Concurrent permissions operations on the same file are not supported; only the last update is applied.
+Inserts a permission for a file or shared drive. **Warning:** Concurrent permission modifications (such as update or delete) on the same file, folder, or shared drive aren't supported across any users or clients; only the last update is applied.
 */
 await gapi.client.drive.permissions.insert({ fileId: "fileId",  });
 
@@ -365,12 +365,12 @@ Lists a file's or shared drive's permissions.
 await gapi.client.drive.permissions.list({ fileId: "fileId",  });
 
 /*
-Updates a permission using patch semantics. **Warning:** Concurrent permissions operations on the same file are not supported; only the last update is applied.
+Updates a permission using patch semantics. **Warning:** Concurrent permission modifications (such as update or delete) on the same file, folder, or shared drive aren't supported across any users or clients; only the last update is applied.
 */
 await gapi.client.drive.permissions.patch({ fileId: "fileId", permissionId: "permissionId",  });
 
 /*
-Updates a permission. **Warning:** Concurrent permissions operations on the same file are not supported; only the last update is applied.
+Updates a permission. **Warning:** Concurrent permission modifications (such as update or delete) on the same file, folder, or shared drive aren't supported across any users or clients; only the last update is applied.
 */
 await gapi.client.drive.permissions.update({ fileId: "fileId", permissionId: "permissionId",  });
 

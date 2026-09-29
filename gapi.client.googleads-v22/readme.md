@@ -202,7 +202,7 @@ Updates a customer. Operation statuses are returned. List of thrown errors: [Aut
 await gapi.client.googleads.customers.mutate({customerId: 'customerId'});
 
 /*
-Removes automatically created assets from a campaign. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [ContextError]() [FieldError]() [InternalError]() [MutateError]() [PartialFailureError]() [QuotaError]() [RequestError]()
+Removes text customization (formerly automatically created assets) from a campaign. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [ContextError]() [FieldError]() [InternalError]() [MutateError]() [PartialFailureError]() [QuotaError]() [RequestError]()
 */
 await gapi.client.googleads.customers.removeCampaignAutomaticallyCreatedAsset({
   customerId: 'customerId',

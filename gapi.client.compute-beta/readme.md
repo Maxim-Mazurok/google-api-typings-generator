@@ -1454,6 +1454,12 @@ context.
 await gapi.client.compute.imageViews.get({ project: "project", region: "region", resourceId: "resourceId",  });
 
 /*
+Returns a list of global ImageView resources, with a regional
+context.
+*/
+await gapi.client.compute.imageViews.list({ project: "project", region: "region",  });
+
+/*
 Cancels the specified resize request and removes it from the queue.
 Cancelled resize request does no longer wait for the resources to be
 provisioned. Cancel is only possible for requests that are accepted in the
@@ -2723,6 +2729,11 @@ read the Labeling
 Resources documentation.
 */
 await gapi.client.compute.interconnects.setLabels({ project: "project", resource: "resource",  });
+
+/*
+Sets name of an interconnect.
+*/
+await gapi.client.compute.interconnects.setName({ interconnect: "interconnect", project: "project",  });
 
 /*
 Returns permissions that a caller has on the specified resource.

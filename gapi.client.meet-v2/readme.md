@@ -88,32 +88,32 @@ After that you can use Google Meet API resources: <!-- TODO: make this work for 
 
 ```typescript
 /*
-Gets a conference record by conference ID.
+Gets a conference record by conference ID. For more information, see [Work with conferences](https://developers.google.com/workspace/meet/api/guides/conferences).
 */
 await gapi.client.meet.conferenceRecords.get({name: 'name'});
 
 /*
-Lists the conference records. By default, ordered by start time and in descending order.
+Lists the conference records. By default, ordered by start time and in descending order. For more information, see [Work with conferences](https://developers.google.com/workspace/meet/api/guides/conferences).
 */
 await gapi.client.meet.conferenceRecords.list({});
 
 /*
-Creates a space.
+Creates a space. For more information, see [Manage meeting spaces](https://developers.google.com/workspace/meet/api/guides/manage-meeting-spaces).
 */
 await gapi.client.meet.spaces.create({});
 
 /*
-Ends an active conference (if there's one). For an example, see [End active conference](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#end-active-conference).
+Ends an active conference (if there's one). For more information, see [Manage meeting spaces](https://developers.google.com/workspace/meet/api/guides/manage-meeting-spaces).
 */
 await gapi.client.meet.spaces.endActiveConference({name: 'name'});
 
 /*
-Gets details about a meeting space. For an example, see [Get a meeting space](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#get-meeting-space).
+Gets details about a meeting space. For more information, see [Manage meeting spaces](https://developers.google.com/workspace/meet/api/guides/manage-meeting-spaces). For an example, see [Get a meeting space](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#get-meeting-space).
 */
 await gapi.client.meet.spaces.get({name: 'name'});
 
 /*
-Updates details about a meeting space. For an example, see [Update a meeting space](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#update-meeting-space).
+Updates details about a meeting space. For more information, see [Manage meeting spaces](https://developers.google.com/workspace/meet/api/guides/manage-meeting-spaces).
 */
 await gapi.client.meet.spaces.patch({name: 'name'});
 ```

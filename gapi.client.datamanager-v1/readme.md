@@ -113,6 +113,16 @@ await gapi.client.datamanager.events.ingest({});
 
 */
 await gapi.client.datamanager.requestStatus.retrieve({});
+
+/*
+
+*/
+await gapi.client.datamanager.users.ingest({});
+
+/*
+
+*/
+await gapi.client.datamanager.users.remove({});
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.datamanager-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

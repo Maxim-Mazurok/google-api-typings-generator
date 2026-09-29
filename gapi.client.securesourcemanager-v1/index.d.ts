@@ -194,6 +194,8 @@ declare namespace gapi.client {
       pushOption?: PushOption;
       /** Optional. The sensitive query string to be appended to the target URI. */
       sensitiveQueryString?: string;
+      /** Optional. Determines if the hook uses the Repository Service Account to generate an OIDC ID Token for webhook authentication. */
+      serviceAccountAuth?: boolean;
       /** Required. The target URI to which the payloads will be delivered. */
       targetUri?: string;
       /** Output only. Unique identifier of the hook. */
