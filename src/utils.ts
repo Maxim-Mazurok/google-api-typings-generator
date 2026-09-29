@@ -18,29 +18,95 @@ export const TYPE_PREFIX = 'gapi.client.';
 export const NPM_ORGANIZATION = 'maxim_mazurok';
 
 /**
- * Returns the capitalized name of the TypeScript interface for the specified resource.
+ * Returns the PascalCase form of one resource name (a single path segment).
  */
-export function getResourceTypeName(resourceName: string) {
+function getResourceSegmentTypeName(resourceName: string) {
   if (resourceName === '-') {
     // AIP-159 wildcard collection, e.g. `publications/-/readers` in https://readerrevenuesubscriptionlinking.googleapis.com/$discovery/rest?version=v1
-    return 'WildcardResource';
+    return 'Wildcard';
   }
 
-  resourceName = resourceName
+  return resourceName
     .split('-')
-    .map(x => `${x[0].toUpperCase()}${x.substring(1)}`)
+    .filter(part => part.length > 0)
+    .map(part => `${part[0].toUpperCase()}${part.substring(1)}`)
     .join('');
+}
 
-  const resourceTypeName = `${resourceName[0].toUpperCase()}${resourceName.substring(
-    1,
-  )}Resource`;
+/**
+ * Returns the path-qualified name of the TypeScript interface for the resource
+ * at the specified path, e.g. `PublicationsWildcardReadersResource` for
+ * `publications["-"].readers`.
+ *
+ * The whole path is used (not just the last segment) because resources with
+ * the same name at different paths usually have different methods and child
+ * resources, and interfaces with the same name would declaration-merge.
+ *
+ * @param separator placed between segments and before the `Resource` suffix,
+ * used by {@link getResourceTypeNames} to disambiguate collisions
+ */
+export function getResourceTypeName(
+  resourcePath: readonly string[],
+  separator = '',
+) {
+  return [...resourcePath.map(getResourceSegmentTypeName), 'Resource'].join(
+    separator,
+  );
+}
 
-  if (resourceTypeName === 'JwtResource') {
-    // TODO: get rid of this hack in https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/976
-    return 'JWTResource'; // hack to avoid collision with the actual `JwtResource` interface vs `jwt` key in the `resources` object for https://walletobjects.googleapis.com/$discovery/rest?version=v1
-  }
+/**
+ * Key of the resource path in the map returned by {@link getResourceTypeNames}.
+ */
+export const getResourcePathKey = (resourcePath: readonly string[]) =>
+  JSON.stringify(resourcePath);
 
-  return resourceTypeName;
+/**
+ * Assigns a unique TypeScript interface name to every resource of the API,
+ * keyed by {@link getResourcePathKey}.
+ *
+ * All interfaces of an API are emitted flat into one namespace, so names must
+ * not collide with each other or with schema interfaces, otherwise TypeScript
+ * silently declaration-merges them, see https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/976
+ *
+ * Normally the name is {@link getResourceTypeName}, e.g. `ProjectsLocationsModelsResource`.
+ * If that is taken, segments are separated with `_` instead, e.g.
+ * - `Languages_Resource` for `languages` when there is a `LanguagesResource` schema (translate:v2)
+ * - `Projects_Locations_ReasoningEngines_A2aTasks_Resource` for `projects.locations.reasoningEngines.a2aTasks`
+ *   when `projects.locations.reasoningEngines.a2a.tasks` already took `ProjectsLocationsReasoningEnginesA2aTasksResource` (aiplatform:v1beta1)
+ */
+export function getResourceTypeNames(
+  restDescription: Pick<RestDescription, 'resources' | 'schemas'>,
+): Map<string, string> {
+  const takenNames = new Set(Object.keys(restDescription.schemas ?? {}));
+  const resourceTypeNames = new Map<string, string>();
+
+  const processResources = (
+    resources: Record<string, RestResource> | undefined,
+    parentPath: readonly string[],
+  ) => {
+    _.forEach(resources, (resource, resourceName) => {
+      const resourcePath = [...parentPath, resourceName];
+      const resourceTypeName = [
+        getResourceTypeName(resourcePath),
+        getResourceTypeName(resourcePath, '_'),
+      ].find(name => !takenNames.has(name));
+
+      if (resourceTypeName === undefined) {
+        throw new Error(
+          `Can't find unique interface name for resource ${resourcePath.join('.')}`,
+        );
+      }
+
+      takenNames.add(resourceTypeName);
+      resourceTypeNames.set(getResourcePathKey(resourcePath), resourceTypeName);
+
+      processResources(resource.resources, resourcePath);
+    });
+  };
+
+  processResources(restDescription.resources, []);
+
+  return resourceTypeNames;
 }
 
 /**

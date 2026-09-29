@@ -2041,7 +2041,7 @@ declare namespace gapi.client {
             },
             body: Channel): Request<void>;
         }
-        interface CommandsResource {
+        interface CustomerDevicesChromeosCommandsResource {
             /** Gets command data a specific command issued to the device. */
             get(request?: {
                 /** V1 error format. */
@@ -2088,7 +2088,7 @@ declare namespace gapi.client {
                     string;
             }): Request<DirectoryChromeosdevicesCommand>;
         }
-        interface ChromeosResource {
+        interface CustomerDevicesChromeosResource {
             /** Issues a command for the device to execute. */
             issueCommand(request: {
                 /** V1 error format. */
@@ -2177,17 +2177,17 @@ declare namespace gapi.client {
             },
             body: DirectoryChromeosdevicesIssueCommandRequest): Request<DirectoryChromeosdevicesIssueCommandResponse>;
             commands:
-                CommandsResource;
+                CustomerDevicesChromeosCommandsResource;
         }
-        interface DevicesResource {
+        interface CustomerDevicesResource {
             chromeos:
-                ChromeosResource;
+                CustomerDevicesChromeosResource;
         }
         interface CustomerResource {
             devices:
-                DevicesResource;
+                CustomerDevicesResource;
         }
-        interface PrintersResource {
+        interface CustomersChromePrintersResource {
             /** Creates printers under given Organization Unit. */
             batchCreatePrinters(request: {
                 /** V1 error format. */
@@ -2705,13 +2705,13 @@ declare namespace gapi.client {
             },
             body: Printer): Request<Printer>;
         }
-        interface ChromeResource {
+        interface CustomersChromeResource {
             printers:
-                PrintersResource;
+                CustomersChromePrintersResource;
         }
         interface CustomersResource {
             chrome:
-                ChromeResource;
+                CustomersChromeResource;
         }
 
         const channels: ChannelsResource;
@@ -5771,7 +5771,7 @@ declare namespace gapi.client {
                     string;
             }): Request<Domains2>;
         }
-        interface AliasesResource {
+        interface GroupsAliasesResource {
             /** Removes an alias. */
             delete(request?: {
                 /** V1 error format. */
@@ -6312,7 +6312,7 @@ declare namespace gapi.client {
             },
             body: Group): Request<Group>;
             aliases:
-                AliasesResource;
+                GroupsAliasesResource;
         }
         interface MembersResource {
             /** Removes a member from a group. */
@@ -7408,7 +7408,7 @@ declare namespace gapi.client {
                     string;
             }): Request<Privileges>;
         }
-        interface BuildingsResource {
+        interface ResourcesBuildingsResource {
             /** Deletes a building. */
             delete(request?: {
                 /** V1 error format. */
@@ -7812,7 +7812,7 @@ declare namespace gapi.client {
             },
             body: Building): Request<Building>;
         }
-        interface CalendarsResource {
+        interface ResourcesCalendarsResource {
             /** Deletes a calendar resource. */
             delete(request?: {
                 /** V1 error format. */
@@ -8204,7 +8204,7 @@ declare namespace gapi.client {
             },
             body: CalendarResource): Request<CalendarResource>;
         }
-        interface FeaturesResource {
+        interface ResourcesFeaturesResource {
             /** Deletes a feature. */
             delete(request?: {
                 /** V1 error format. */
@@ -8679,11 +8679,11 @@ declare namespace gapi.client {
         }
         interface ResourcesResource {
             buildings:
-                BuildingsResource;
+                ResourcesBuildingsResource;
             calendars:
-                CalendarsResource;
+                ResourcesCalendarsResource;
             features:
-                FeaturesResource;
+                ResourcesFeaturesResource;
         }
         interface RoleAssignmentsResource {
             /** Deletes a role assignment. */
@@ -9835,7 +9835,7 @@ declare namespace gapi.client {
                     string;
             }): Request<void>;
         }
-        interface AliasesResource {
+        interface UsersAliasesResource {
             /** Removes an alias. */
             delete(request?: {
                 /** V1 error format. */
@@ -10089,7 +10089,7 @@ declare namespace gapi.client {
             },
             body: Channel): Request<Channel>;
         }
-        interface PhotosResource {
+        interface UsersPhotosResource {
             /** Removes the user's photo. */
             delete(request?: {
                 /** V1 error format. */
@@ -11077,9 +11077,9 @@ declare namespace gapi.client {
             },
             body: Channel): Request<Channel>;
             aliases:
-                AliasesResource;
+                UsersAliasesResource;
             photos:
-                PhotosResource;
+                UsersPhotosResource;
         }
         interface VerificationCodesResource {
             /** Generates new backup verification codes for the user. */
@@ -23917,7 +23917,7 @@ declare namespace gapi.client {
             update(request?: {
             }): Request<void>;
         }
-        interface BreakpointsResource {
+        interface DebuggerBreakpointsResource {
             get(request?: {
             }): Request<void>;
         }
@@ -23925,7 +23925,7 @@ declare namespace gapi.client {
             list(request?: {
             }): Request<void>;
             breakpoints:
-                BreakpointsResource;
+                DebuggerBreakpointsResource;
         }
     }
 
@@ -27283,7 +27283,7 @@ declare namespace gapi.client {
                     string;
             }): Request<GoogleCloudIntegrationsV1alphaEnumerateConnectorPlatformRegionsResponse>;
         }
-        interface AppsScriptProjectsResource {
+        interface ProjectsLocationsAppsScriptProjectsResource {
             /** Creates an Apps Script project. */
             create(request: {
                 /** V1 error format. */
@@ -27447,7 +27447,7 @@ declare namespace gapi.client {
             },
             body: GoogleCloudIntegrationsV1alphaLinkAppsScriptProjectRequest): Request<GoogleCloudIntegrationsV1alphaLinkAppsScriptProjectResponse>;
         }
-        interface AuthConfigsResource {
+        interface ProjectsLocationsAuthConfigsResource {
             /** Creates an auth config record. Fetch corresponding credentials for specific auth types, e.g. access token for OAuth 2.0, JWT token for JWT. Encrypt the auth config with Cloud KMS and store the encrypted credentials in Spanner. Returns the encrypted auth config. */
             create(request: {
                 /** V1 error format. */
@@ -27782,7 +27782,7 @@ declare namespace gapi.client {
             },
             body: GoogleCloudIntegrationsV1alphaAuthConfig): Request<GoogleCloudIntegrationsV1alphaAuthConfig>;
         }
-        interface CertificatesResource {
+        interface ProjectsLocationsCertificatesResource {
             /** Creates a new certificate. The certificate will be registered to the trawler service and will be encrypted using cloud KMS and stored in Spanner Returns the certificate. */
             create(request: {
                 /** V1 error format. */
@@ -28081,7 +28081,7 @@ declare namespace gapi.client {
             },
             body: GoogleCloudIntegrationsV1alphaCertificate): Request<GoogleCloudIntegrationsV1alphaCertificate>;
         }
-        interface ClientsResource {
+        interface ProjectsLocationsClientsResource {
             /** Perform the deprovisioning steps to disable a user GCP project to use IP and purge all related data in a wipeout-compliant way. */
             deprovision(request: {
                 /** V1 error format. */
@@ -28245,7 +28245,7 @@ declare namespace gapi.client {
             },
             body: GoogleCloudIntegrationsV1alphaProvisionClientRequest): Request<{}>;
         }
-        interface CloudFunctionsResource {
+        interface ProjectsLocationsCloudFunctionsResource {
             /** Creates an cloud function project. */
             create(request: {
                 /** V1 error format. */
@@ -28328,7 +28328,7 @@ declare namespace gapi.client {
             },
             body: GoogleCloudIntegrationsV1alphaCreateCloudFunctionRequest): Request<GoogleCloudIntegrationsV1alphaCreateCloudFunctionResponse>;
         }
-        interface RuntimeActionSchemasResource {
+        interface ProjectsLocationsConnectionsRuntimeActionSchemasResource {
             /** Lists the JSON schemas for the inputs and outputs of actions, filtered by action name. */
             list(request?: {
                 /** V1 error format. */
@@ -28378,7 +28378,7 @@ declare namespace gapi.client {
                     string;
             }): Request<GoogleCloudIntegrationsV1alphaListRuntimeActionSchemasResponse>;
         }
-        interface RuntimeEntitySchemasResource {
+        interface ProjectsLocationsConnectionsRuntimeEntitySchemasResource {
             /** Lists the JSON schemas for the properties of runtime entities, filtered by entity name. */
             list(request?: {
                 /** V1 error format. */
@@ -28428,7 +28428,7 @@ declare namespace gapi.client {
                     string;
             }): Request<GoogleCloudIntegrationsV1alphaListRuntimeEntitySchemasResponse>;
         }
-        interface ConnectionsResource {
+        interface ProjectsLocationsConnectionsResource {
             /** Lists the available entities and actions associated with a Connection. */
             getConnectionSchemaMetadata(request?: {
                 /** V1 error format. */
@@ -28520,11 +28520,11 @@ declare namespace gapi.client {
                     string;
             }): Request<GoogleCloudIntegrationsV1alphaListConnectionsResponse>;
             runtimeActionSchemas:
-                RuntimeActionSchemasResource;
+                ProjectsLocationsConnectionsRuntimeActionSchemasResource;
             runtimeEntitySchemas:
-                RuntimeEntitySchemasResource;
+                ProjectsLocationsConnectionsRuntimeEntitySchemasResource;
         }
-        interface SuspensionsResource {
+        interface ProjectsLocationsIntegrationsExecutionsSuspensionsResource {
             /** * Lifts suspension for advanced suspension task. Fetch corresponding suspension with provided suspension Id, resolve suspension, and set up suspension result for the Suspension Task. */
             lift(request: {
                 /** V1 error format. */
@@ -28739,7 +28739,7 @@ declare namespace gapi.client {
             },
             body: GoogleCloudIntegrationsV1alphaResolveSuspensionRequest): Request<{}>;
         }
-        interface ExecutionsResource {
+        interface ProjectsLocationsIntegrationsExecutionsResource {
             /** Download the execution. */
             download(request?: {
                 /** V1 error format. */
@@ -28915,9 +28915,9 @@ declare namespace gapi.client {
                     string;
             }): Request<GoogleCloudIntegrationsV1alphaListExecutionsResponse>;
             suspensions:
-                SuspensionsResource;
+                ProjectsLocationsIntegrationsExecutionsSuspensionsResource;
         }
-        interface ExecutionsnapshotsResource {
+        interface ProjectsLocationsIntegrationsExecutionsnapshotsResource {
             /** Lists the snapshots of a given integration executions. This RPC is not being used. */
             list(request?: {
                 /** V1 error format. */
@@ -28970,7 +28970,7 @@ declare namespace gapi.client {
                     string;
             }): Request<GoogleCloudIntegrationsV1alphaListExecutionSnapshotsResponse>;
         }
-        interface VersionsResource {
+        interface ProjectsLocationsIntegrationsVersionsResource {
             /** Soft-deletes the integration. Changes the status of the integration to ARCHIVED. If the integration being ARCHIVED is tagged as "HEAD", the tag is removed from this snapshot and set to the previous non-ARCHIVED snapshot. The PUBLISH_REQUESTED, DUE_FOR_DELETION tags are removed too. This RPC throws an exception if the version being archived is DRAFT, and if the \`locked_by\` user is not the same as the user performing the Archive. Audit fields updated include last_modified_timestamp, last_modified_by. Any existing lock is released when Archiving a integration. Currently, there is no unarchive mechanism. */
             archive(request: {
                 /** V1 error format. */
@@ -29806,7 +29806,7 @@ declare namespace gapi.client {
             },
             body: GoogleCloudIntegrationsV1alphaValidateIntegrationVersionRequest): Request<{}>;
         }
-        interface IntegrationsResource {
+        interface ProjectsLocationsIntegrationsResource {
             /** Delete the selected integration and all versions inside */
             delete(request?: {
                 /** V1 error format. */
@@ -30141,13 +30141,13 @@ declare namespace gapi.client {
             },
             body: GoogleCloudIntegrationsV1alphaTestIntegrationsRequest): Request<GoogleCloudIntegrationsV1alphaTestIntegrationsResponse>;
             executions:
-                ExecutionsResource;
+                ProjectsLocationsIntegrationsExecutionsResource;
             executionsnapshots:
-                ExecutionsnapshotsResource;
+                ProjectsLocationsIntegrationsExecutionsnapshotsResource;
             versions:
-                VersionsResource;
+                ProjectsLocationsIntegrationsVersionsResource;
         }
-        interface AuthConfigsResource {
+        interface ProjectsLocationsProductsAuthConfigsResource {
             /** Creates an auth config record. Fetch corresponding credentials for specific auth types, e.g. access token for OAuth 2.0, JWT token for JWT. Encrypt the auth config with Cloud KMS and store the encrypted credentials in Spanner. Returns the encrypted auth config. */
             create(request: {
                 /** V1 error format. */
@@ -30482,7 +30482,7 @@ declare namespace gapi.client {
             },
             body: GoogleCloudIntegrationsV1alphaAuthConfig): Request<GoogleCloudIntegrationsV1alphaAuthConfig>;
         }
-        interface CertificatesResource {
+        interface ProjectsLocationsProductsCertificatesResource {
             /** Creates a new certificate. The certificate will be registered to the trawler service and will be encrypted using cloud KMS and stored in Spanner Returns the certificate. */
             create(request: {
                 /** V1 error format. */
@@ -30781,7 +30781,7 @@ declare namespace gapi.client {
             },
             body: GoogleCloudIntegrationsV1alphaCertificate): Request<GoogleCloudIntegrationsV1alphaCertificate>;
         }
-        interface CloudFunctionsResource {
+        interface ProjectsLocationsProductsCloudFunctionsResource {
             /** Creates an cloud function project. */
             create(request: {
                 /** V1 error format. */
@@ -30864,7 +30864,7 @@ declare namespace gapi.client {
             },
             body: GoogleCloudIntegrationsV1alphaCreateCloudFunctionRequest): Request<GoogleCloudIntegrationsV1alphaCreateCloudFunctionResponse>;
         }
-        interface SuspensionsResource {
+        interface ProjectsLocationsProductsIntegrationsExecutionsSuspensionsResource {
             /** * Lifts suspension for advanced suspension task. Fetch corresponding suspension with provided suspension Id, resolve suspension, and set up suspension result for the Suspension Task. */
             lift(request: {
                 /** V1 error format. */
@@ -31079,7 +31079,7 @@ declare namespace gapi.client {
             },
             body: GoogleCloudIntegrationsV1alphaResolveSuspensionRequest): Request<{}>;
         }
-        interface ExecutionsResource {
+        interface ProjectsLocationsProductsIntegrationsExecutionsResource {
             /** Cancellation of an execution */
             cancel(request: {
                 /** V1 error format. */
@@ -31336,9 +31336,9 @@ declare namespace gapi.client {
                     string;
             }): Request<GoogleCloudIntegrationsV1alphaListExecutionsResponse>;
             suspensions:
-                SuspensionsResource;
+                ProjectsLocationsProductsIntegrationsExecutionsSuspensionsResource;
         }
-        interface ExecutionsnapshotsResource {
+        interface ProjectsLocationsProductsIntegrationsExecutionsnapshotsResource {
             /** Lists the snapshots of a given integration executions. This RPC is not being used. */
             list(request?: {
                 /** V1 error format. */
@@ -31391,7 +31391,7 @@ declare namespace gapi.client {
                     string;
             }): Request<GoogleCloudIntegrationsV1alphaListExecutionSnapshotsResponse>;
         }
-        interface VersionsResource {
+        interface ProjectsLocationsProductsIntegrationsVersionsResource {
             /** Soft-deletes the integration. Changes the status of the integration to ARCHIVED. If the integration being ARCHIVED is tagged as "HEAD", the tag is removed from this snapshot and set to the previous non-ARCHIVED snapshot. The PUBLISH_REQUESTED, DUE_FOR_DELETION tags are removed too. This RPC throws an exception if the version being archived is DRAFT, and if the \`locked_by\` user is not the same as the user performing the Archive. Audit fields updated include last_modified_timestamp, last_modified_by. Any existing lock is released when Archiving a integration. Currently, there is no unarchive mechanism. */
             archive(request: {
                 /** V1 error format. */
@@ -32428,7 +32428,7 @@ declare namespace gapi.client {
             },
             body: GoogleCloudIntegrationsV1alphaValidateIntegrationVersionRequest): Request<{}>;
         }
-        interface IntegrationsResource {
+        interface ProjectsLocationsProductsIntegrationsResource {
             /** PROTECT WITH A VISIBILITY LABEL. THIS METHOD WILL BE MOVED TO A SEPARATE SERVICE. Soft-deletes the bundle. */
             archiveBundle(request: {
                 /** V1 error format. */
@@ -32805,13 +32805,13 @@ declare namespace gapi.client {
             },
             body: GoogleCloudIntegrationsV1alphaTestIntegrationsRequest): Request<GoogleCloudIntegrationsV1alphaTestIntegrationsResponse>;
             executions:
-                ExecutionsResource;
+                ProjectsLocationsProductsIntegrationsExecutionsResource;
             executionsnapshots:
-                ExecutionsnapshotsResource;
+                ProjectsLocationsProductsIntegrationsExecutionsnapshotsResource;
             versions:
-                VersionsResource;
+                ProjectsLocationsProductsIntegrationsVersionsResource;
         }
-        interface SfdcChannelsResource {
+        interface ProjectsLocationsProductsSfdcInstancesSfdcChannelsResource {
             /** Creates an sfdc channel record. Store the sfdc channel in Spanner. Returns the sfdc channel. */
             create(request: {
                 /** V1 error format. */
@@ -33110,7 +33110,7 @@ declare namespace gapi.client {
             },
             body: GoogleCloudIntegrationsV1alphaSfdcChannel): Request<GoogleCloudIntegrationsV1alphaSfdcChannel>;
         }
-        interface SfdcInstancesResource {
+        interface ProjectsLocationsProductsSfdcInstancesResource {
             /** Creates an sfdc instance record. Store the sfdc instance in Spanner. Returns the sfdc instance. */
             create(request: {
                 /** V1 error format. */
@@ -33409,9 +33409,9 @@ declare namespace gapi.client {
             },
             body: GoogleCloudIntegrationsV1alphaSfdcInstance): Request<GoogleCloudIntegrationsV1alphaSfdcInstance>;
             sfdcChannels:
-                SfdcChannelsResource;
+                ProjectsLocationsProductsSfdcInstancesSfdcChannelsResource;
         }
-        interface ProductsResource {
+        interface ProjectsLocationsProductsResource {
             /** PROTECT WITH A VISIBILITY LABEL. THIS METHOD WILL BE MOVED TO A SEPARATE SERVICE. Create a bundle. */
             createBundle(request: {
                 /** V1 error format. */
@@ -33533,17 +33533,17 @@ declare namespace gapi.client {
                     string;
             }): Request<GoogleCloudIntegrationsV1alphaListTaskEntitiesResponse>;
             authConfigs:
-                AuthConfigsResource;
+                ProjectsLocationsProductsAuthConfigsResource;
             certificates:
-                CertificatesResource;
+                ProjectsLocationsProductsCertificatesResource;
             cloudFunctions:
-                CloudFunctionsResource;
+                ProjectsLocationsProductsCloudFunctionsResource;
             integrations:
-                IntegrationsResource;
+                ProjectsLocationsProductsIntegrationsResource;
             sfdcInstances:
-                SfdcInstancesResource;
+                ProjectsLocationsProductsSfdcInstancesResource;
         }
-        interface SfdcChannelsResource {
+        interface ProjectsLocationsSfdcInstancesSfdcChannelsResource {
             /** Creates an sfdc channel record. Store the sfdc channel in Spanner. Returns the sfdc channel. */
             create(request: {
                 /** V1 error format. */
@@ -33842,7 +33842,7 @@ declare namespace gapi.client {
             },
             body: GoogleCloudIntegrationsV1alphaSfdcChannel): Request<GoogleCloudIntegrationsV1alphaSfdcChannel>;
         }
-        interface SfdcInstancesResource {
+        interface ProjectsLocationsSfdcInstancesResource {
             /** Creates an sfdc instance record. Store the sfdc instance in Spanner. Returns the sfdc instance. */
             create(request: {
                 /** V1 error format. */
@@ -34141,9 +34141,9 @@ declare namespace gapi.client {
             },
             body: GoogleCloudIntegrationsV1alphaSfdcInstance): Request<GoogleCloudIntegrationsV1alphaSfdcInstance>;
             sfdcChannels:
-                SfdcChannelsResource;
+                ProjectsLocationsSfdcInstancesSfdcChannelsResource;
         }
-        interface LocationsResource {
+        interface ProjectsLocationsResource {
             /** Gets the client configuration for the given project and location resource name */
             getClients(request?: {
                 /** V1 error format. */
@@ -34223,23 +34223,23 @@ declare namespace gapi.client {
                     string;
             }): Request<GoogleCloudIntegrationsV1alphaListTaskEntitiesResponse>;
             appsScriptProjects:
-                AppsScriptProjectsResource;
+                ProjectsLocationsAppsScriptProjectsResource;
             authConfigs:
-                AuthConfigsResource;
+                ProjectsLocationsAuthConfigsResource;
             certificates:
-                CertificatesResource;
+                ProjectsLocationsCertificatesResource;
             clients:
-                ClientsResource;
+                ProjectsLocationsClientsResource;
             cloudFunctions:
-                CloudFunctionsResource;
+                ProjectsLocationsCloudFunctionsResource;
             connections:
-                ConnectionsResource;
+                ProjectsLocationsConnectionsResource;
             integrations:
-                IntegrationsResource;
+                ProjectsLocationsIntegrationsResource;
             products:
-                ProductsResource;
+                ProjectsLocationsProductsResource;
             sfdcInstances:
-                SfdcInstancesResource;
+                ProjectsLocationsSfdcInstancesResource;
         }
         interface ProjectsResource {
             /** Gets the metadata info for the requested client */
@@ -34282,7 +34282,7 @@ declare namespace gapi.client {
                     string;
             }): Request<GoogleCloudIntegrationsV1alphaGetClientMetadataResponse>;
             locations:
-                LocationsResource;
+                ProjectsLocationsResource;
         }
 
         const callback: CallbackResource;
@@ -42870,6 +42870,549 @@ exports[`integrations works 7`] = `
 "
 `;
 
+exports[`readerrevenuesubscriptionlinking works 1`] = `
+"{
+  "extends": ["plugin:@definitelytyped/all"],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-empty-object-type": [
+      "error",
+      {
+        "allowInterfaces": "always", // to allow \`interface DismissApprovalRequestMessage {}\` in AccessApproval-v1, etc.
+        "allowObjectTypes": "always" // to allow \`deleteAccessApprovalSettings(request?: {...}): Request<{}>\` in AccessApproval-v1, etc.
+      }
+    ],
+    "@typescript-eslint/naming-convention": "off" // to allow IPAllocationPolicy, etc.
+  }
+}
+"
+`;
+
+exports[`readerrevenuesubscriptionlinking works 2`] = `
+"*
+!**/*.d.ts
+!**/*.d.cts
+!**/*.d.mts
+!**/*.d.*.ts
+"
+`;
+
+exports[`readerrevenuesubscriptionlinking works 3`] = `
+"/* Type definitions for non-npm package Reader Revenue Subscription Linking API v1 0.0 */
+// Project: https://developers.google.com/news/subscribe/subscription-linking/overview
+// Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
+// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
+
+// IMPORTANT
+// This file was generated by https://github.com/Maxim-Mazurok/google-api-typings-generator. Please do not edit it manually.
+// In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
+// Generated from: http://localhost:3000/readerrevenuesubscriptionlinking.json
+// Revision: 20260927
+
+/// <reference types="gapi.client" />
+
+declare namespace gapi.client {
+    /** Load Reader Revenue Subscription Linking API v1 */
+    function load(urlOrObject: "http://localhost:3000/readerrevenuesubscriptionlinking.json"): Promise<void>;
+    /** @deprecated Please load APIs with discovery documents. */
+    function load(name: "readerrevenuesubscriptionlinking", version: "v1"): Promise<void>;
+    /** @deprecated Please load APIs with discovery documents. */
+    function load(name: "readerrevenuesubscriptionlinking", version: "v1", callback: () => any): void;
+
+    namespace readerrevenuesubscriptionlinking {
+        interface DeleteReaderResponse {
+        }
+        interface Entitlement {
+            /** The detail field can carry a description of the SKU that corresponds to what the user has been granted access to. This description, which is opaque to Google, can be displayed in the Google user subscription console for users who linked the subscription to a Google Account. Max 80 character limit. */
+            detail?:
+                string;
+            /** Optional. Expiration time of the entitlement. If unset, the entitlement does not expire (indefinite entitlement). We need to support indefinite entitlements for platform publishers. dd: go/rrm-sl-notedotcom Entitlements that have expired over 30 days will be purged. */
+            expireTime?:
+                string;
+            /** Required. The publication's product ID that the user has access to. This is the same product ID as can be found in Schema.org markup (http://schema.org/productID). E.g. "dailybugle.com:basic" */
+            productId?:
+                string;
+            /** A source-specific subscription token. This is an opaque string that the publisher provides to Google. This token is opaque and has no meaning to Google. */
+            subscriptionToken?:
+                string;
+        }
+        interface ListReaderEntitlementsResponse {
+            /** A token that can be sent as \`page_token\` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
+            nextPageToken?:
+                string;
+            /** The collection of ReaderEntitlements found across the scoped child publications. Every element's \`name\` field will contain the canonical sub-publication path, never the wildcard dash. */
+            readerEntitlements?:
+                ReaderEntitlements[];
+        }
+        interface Reader {
+            /** Output only. Time the publication reader was created and associated with a Google user. */
+            createTime?:
+                string;
+            /** Output only. The resource name of the reader. The last part of ppid in the resource name is the publisher provided id. */
+            name?:
+                string;
+            /** Output only. The SwG publication id that the reader's subscription linking was originating from. */
+            originatingPublicationId?:
+                string;
+            /** Output only. The publisher provided id of the reader. */
+            ppid?:
+                string;
+            /** Output only. The SwG publication id that the reader has linked their subscription to. */
+            publicationId?:
+                string;
+        }
+        interface ReaderEntitlements {
+            /** All of the entitlements for a publication reader. */
+            entitlements?:
+                Entitlement[];
+            /** Output only. The resource name of the singleton. */
+            name?:
+                string;
+        }
+        interface PublicationsWildcardReadersEntitlementsResource {
+            /** Lists reader entitlements across parent publications via wildcard. - Returns PERMISSION_DENIED if the caller does not have access. - Returns NOT_FOUND if the reader does not exist. */
+            list(request?: {
+                /** V1 error format. */
+                "$.xgafv"?:
+                    "1" | "2";
+                /** OAuth access token. */
+                access_token?:
+                    string;
+                /** Data format for response. */
+                alt?:
+                    "json" | "media" | "proto";
+                /** JSONP */
+                callback?:
+                    string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?:
+                    string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?:
+                    string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?:
+                    string;
+                /** Optional. The maximum number of entitlements to return. The service may return fewer than this value. If unspecified, at most 50 entitlements will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000. */
+                pageSize?:
+                    number;
+                /** Optional. A page token, received from a previous \`ListReaderEntitlements\` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to \`ListReaderEntitlements\` must match the call that provided the page token. */
+                pageToken?:
+                    string;
+                /** Required. The parent reader scope. Format: "publications/-/readers/{reader_id}" */
+                parent:
+                    string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?:
+                    boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?:
+                    string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?:
+                    string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?:
+                    string;
+            }): Request<ListReaderEntitlementsResponse>;
+        }
+        interface PublicationsWildcardReadersResource {
+            entitlements:
+                PublicationsWildcardReadersEntitlementsResource;
+        }
+        interface PublicationsWildcardResource {
+            readers:
+                PublicationsWildcardReadersResource;
+        }
+        interface PublicationsReadersResource {
+            /** Removes a publication reader, effectively severing the association with a Google user. If \`force\` is set to true, any entitlements for this reader will also be deleted. (Otherwise, the request will only work if the reader has no entitlements.) - If the reader does not exist, return NOT_FOUND. - Return FAILED_PRECONDITION if the force field is false (or unset) and entitlements are present. */
+            delete(request?: {
+                /** V1 error format. */
+                "$.xgafv"?:
+                    "1" | "2";
+                /** OAuth access token. */
+                access_token?:
+                    string;
+                /** Data format for response. */
+                alt?:
+                    "json" | "media" | "proto";
+                /** JSONP */
+                callback?:
+                    string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?:
+                    string;
+                /** If set to true, any entitlements under the reader will also be purged. */
+                force?:
+                    boolean;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?:
+                    string;
+                /** Required. The resource name of the reader. Format: publications/{publication_id}/readers/{ppid} */
+                name:
+                    string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?:
+                    string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?:
+                    boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?:
+                    string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?:
+                    string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?:
+                    string;
+            }): Request<{}>;
+            /** Gets a reader of a publication. Returns NOT_FOUND if the reader does not exist. */
+            get(request?: {
+                /** V1 error format. */
+                "$.xgafv"?:
+                    "1" | "2";
+                /** OAuth access token. */
+                access_token?:
+                    string;
+                /** Data format for response. */
+                alt?:
+                    "json" | "media" | "proto";
+                /** JSONP */
+                callback?:
+                    string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?:
+                    string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?:
+                    string;
+                /** Required. The resource name of the reader. Format: publications/{publication_id}/readers/{ppid} */
+                name:
+                    string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?:
+                    string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?:
+                    boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?:
+                    string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?:
+                    string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?:
+                    string;
+            }): Request<Reader>;
+            /** Gets the reader entitlements for a publication reader. - Returns PERMISSION_DENIED if the caller does not have access. - Returns NOT_FOUND if the reader does not exist. */
+            getEntitlements(request?: {
+                /** V1 error format. */
+                "$.xgafv"?:
+                    "1" | "2";
+                /** OAuth access token. */
+                access_token?:
+                    string;
+                /** Data format for response. */
+                alt?:
+                    "json" | "media" | "proto";
+                /** JSONP */
+                callback?:
+                    string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?:
+                    string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?:
+                    string;
+                /** Required. The name of the reader entitlements to retrieve. Format: publications/{publication_id}/readers/{reader_id}/entitlements */
+                name:
+                    string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?:
+                    string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?:
+                    boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?:
+                    string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?:
+                    string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?:
+                    string;
+            }): Request<ReaderEntitlements>;
+            /** Updates the reader entitlements for a publication reader. The entire reader entitlements will be overwritten by the new reader entitlements in the payload, like a PUT. - Returns PERMISSION_DENIED if the caller does not have access. - Returns NOT_FOUND if the reader does not exist. */
+            updateEntitlements(request: {
+                /** V1 error format. */
+                "$.xgafv"?:
+                    "1" | "2";
+                /** OAuth access token. */
+                access_token?:
+                    string;
+                /** Data format for response. */
+                alt?:
+                    "json" | "media" | "proto";
+                /** JSONP */
+                callback?:
+                    string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?:
+                    string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?:
+                    string;
+                /** Output only. The resource name of the singleton. */
+                name:
+                    string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?:
+                    string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?:
+                    boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?:
+                    string;
+                /** Optional. The list of fields to update. Defaults to all fields. */
+                updateMask?:
+                    string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?:
+                    string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?:
+                    string;
+                /** Request body */
+                resource:
+                    ReaderEntitlements;
+            }): Request<ReaderEntitlements>;
+            updateEntitlements(request: {
+                /** V1 error format. */
+                "$.xgafv"?:
+                    "1" | "2";
+                /** OAuth access token. */
+                access_token?:
+                    string;
+                /** Data format for response. */
+                alt?:
+                    "json" | "media" | "proto";
+                /** JSONP */
+                callback?:
+                    string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?:
+                    string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?:
+                    string;
+                /** Output only. The resource name of the singleton. */
+                name:
+                    string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?:
+                    string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?:
+                    boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?:
+                    string;
+                /** Optional. The list of fields to update. Defaults to all fields. */
+                updateMask?:
+                    string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?:
+                    string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?:
+                    string;
+            },
+            body: ReaderEntitlements): Request<ReaderEntitlements>;
+        }
+        interface PublicationsResource {
+            "-":
+                PublicationsWildcardResource;
+            readers:
+                PublicationsReadersResource;
+        }
+
+        const publications: PublicationsResource;
+    }
+}
+"
+`;
+
+exports[`readerrevenuesubscriptionlinking works 4`] = `
+"{
+  "name": "@maxim_mazurok/gapi.client.readerrevenuesubscriptionlinking-v1",
+  "version": "0.0.20260927",
+  "description": "TypeScript typings for Reader Revenue Subscription Linking API v1",
+  "license": "MIT",
+  "author": {
+    "email": "maxim@mazurok.com",
+    "name": "Maxim Mazurok",
+    "url": "https://maxim.mazurok.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  },
+  "types": "index.d.ts",
+  "dependencies": {
+    "@types/gapi.client": "*",
+    "@types/gapi.client.discovery-v1": "*"
+  }
+}
+"
+`;
+
+exports[`readerrevenuesubscriptionlinking works 5`] = `
+"# TypeScript typings for Reader Revenue Subscription Linking API v1
+
+readerrevenuesubscriptionlinking.googleapis.com API.
+For detailed description please check [documentation](https://developers.google.com/news/subscribe/subscription-linking/overview).
+
+## Installing
+
+Install typings for Reader Revenue Subscription Linking API:
+
+\`\`\`
+npm install @types/gapi.client.readerrevenuesubscriptionlinking-v1 --save-dev
+\`\`\`
+
+## TypeScript 6.0+
+
+TypeScript 6.0 changed \`types\` to default to \`[]\`. You must now explicitly list type packages in \`tsconfig.json\`:
+
+\`\`\`json
+{
+  "compilerOptions": {
+    "types": ["gapi", "gapi.auth2", "gapi.client", "gapi.client.readerrevenuesubscriptionlinking-v1"]
+  }
+}
+\`\`\`
+
+## Usage
+
+You need to initialize Google API client in your code:
+
+\`\`\`typescript
+gapi.load('client', () => {
+  // now we can use gapi.client
+  // ...
+});
+\`\`\`
+
+Then load api client wrapper:
+
+\`\`\`typescript
+gapi.client.load('http://localhost:3000/readerrevenuesubscriptionlinking.json', () => {
+  // now we can use:
+  // gapi.client.readerrevenuesubscriptionlinking
+});
+\`\`\`
+
+\`\`\`typescript
+// Deprecated, use discovery document URL, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadname----version----callback--
+gapi.client.load('readerrevenuesubscriptionlinking', 'v1', () => {
+  // now we can use:
+  // gapi.client.readerrevenuesubscriptionlinking
+});
+\`\`\`
+
+
+
+After that you can use Reader Revenue Subscription Linking API resources: <!-- TODO: make this work for multiple namespaces -->
+
+\`\`\`typescript
+\`\`\`
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.readerrevenuesubscriptionlinking-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
+"
+`;
+
+exports[`readerrevenuesubscriptionlinking works 6`] = `
+"/* This is stub file for gapi.client.readerrevenuesubscriptionlinking-v1 definition tests */
+// IMPORTANT
+// This file was generated by https://github.com/Maxim-Mazurok/google-api-typings-generator. Please do not edit it manually.
+// In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
+
+// Revision: 20260927
+
+gapi.load('client', async () => {
+    /** now we can use gapi.client */
+
+    await gapi.client.load('http://localhost:3000/readerrevenuesubscriptionlinking.json');
+    /** now we can use gapi.client.readerrevenuesubscriptionlinking */
+
+    void run();
+
+    async function run() {
+        /** Lists reader entitlements across parent publications via wildcard. - Returns PERMISSION_DENIED if the caller does not have access. - Returns NOT_FOUND if the reader does not exist. */
+        await gapi.client.readerrevenuesubscriptionlinking.publications["-"].readers.entitlements.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Removes a publication reader, effectively severing the association with a Google user. If \`force\` is set to true, any entitlements for this reader will also be deleted. (Otherwise, the request will only work if the reader has no entitlements.) - If the reader does not exist, return NOT_FOUND. - Return FAILED_PRECONDITION if the force field is false (or unset) and entitlements are present. */
+        await gapi.client.readerrevenuesubscriptionlinking.publications.readers.delete({
+            force: true,
+            name: "Test string",
+        });
+        /** Gets a reader of a publication. Returns NOT_FOUND if the reader does not exist. */
+        await gapi.client.readerrevenuesubscriptionlinking.publications.readers.get({
+            name: "Test string",
+        });
+        /** Gets the reader entitlements for a publication reader. - Returns PERMISSION_DENIED if the caller does not have access. - Returns NOT_FOUND if the reader does not exist. */
+        await gapi.client.readerrevenuesubscriptionlinking.publications.readers.getEntitlements({
+            name: "Test string",
+        });
+        /** Updates the reader entitlements for a publication reader. The entire reader entitlements will be overwritten by the new reader entitlements in the payload, like a PUT. - Returns PERMISSION_DENIED if the caller does not have access. - Returns NOT_FOUND if the reader does not exist. */
+        await gapi.client.readerrevenuesubscriptionlinking.publications.readers.updateEntitlements({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            entitlements: [
+                {
+                    detail: "Test string",
+                    expireTime: "Test string",
+                    productId: "Test string",
+                    subscriptionToken: "Test string",
+                }
+            ],
+            name: "Test string",
+        });
+    }
+});
+"
+`;
+
+exports[`readerrevenuesubscriptionlinking works 7`] = `
+"{
+  "compilerOptions": {
+    "module": "commonjs",
+    "lib": ["es6", "dom"],
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "types": [],
+    "noEmit": true,
+    "forceConsistentCasingInFileNames": true,
+    "strictFunctionTypes": true
+  },
+  "files": ["index.d.ts", "tests.ts"]
+}
+"
+`;
+
 exports[`sheets DT works 1`] = `
 "*
 !**/*.d.ts
@@ -46169,7 +46712,7 @@ declare namespace gapi.client {
             totalDataLabel?:
                 DataLabel;
         }
-        interface DeveloperMetadataResource {
+        interface SpreadsheetsDeveloperMetadataResource {
             /** Returns the developer metadata with the specified ID. The caller must specify the spreadsheet ID and the developer metadata's unique metadataId. */
             get(request?: {
                 /** V1 error format. */
@@ -46294,7 +46837,7 @@ declare namespace gapi.client {
             },
             body: SearchDeveloperMetadataRequest): client.Request<SearchDeveloperMetadataResponse>;
         }
-        interface SheetsResource {
+        interface SpreadsheetsSheetsResource {
             /** Copies a single sheet from a spreadsheet to another spreadsheet. Returns the properties of the newly created sheet. */
             copyTo(request: {
                 /** V1 error format. */
@@ -46383,7 +46926,7 @@ declare namespace gapi.client {
             },
             body: CopySheetToAnotherSpreadsheetRequest): client.Request<SheetProperties>;
         }
-        interface ValuesResource {
+        interface SpreadsheetsValuesResource {
             /** Appends values to a spreadsheet. The input range is used to search for existing data and find a "table" within that range. Values will be appended to the next row of the table, starting with the first column of the table. See the [guide](/sheets/api/guides/values#appending_values) and [sample code](/sheets/api/samples/writing#append_values) for specific details of how tables are detected and data is appended. The caller must specify the spreadsheet ID, range, and a valueInputOption. The \`valueInputOption\` only controls how the input data will be added to the sheet (column-wise or row-wise), it does not influence what cell the data starts being written to. */
             append(request: {
                 /** V1 error format. */
@@ -47491,11 +48034,11 @@ declare namespace gapi.client {
             },
             body: GetSpreadsheetByDataFilterRequest): client.Request<Spreadsheet>;
             developerMetadata:
-                DeveloperMetadataResource;
+                SpreadsheetsDeveloperMetadataResource;
             sheets:
-                SheetsResource;
+                SpreadsheetsSheetsResource;
             values:
-                ValuesResource;
+                SpreadsheetsValuesResource;
         }
 
         const spreadsheets: SpreadsheetsResource;
@@ -59645,6 +60188,758 @@ gapi.load('client', async () => {
 `;
 
 exports[`sheets works 7`] = `
+"{
+  "compilerOptions": {
+    "module": "commonjs",
+    "lib": ["es6", "dom"],
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "types": [],
+    "noEmit": true,
+    "forceConsistentCasingInFileNames": true,
+    "strictFunctionTypes": true
+  },
+  "files": ["index.d.ts", "tests.ts"]
+}
+"
+`;
+
+exports[`translate works 1`] = `
+"{
+  "extends": ["plugin:@definitelytyped/all"],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-empty-object-type": [
+      "error",
+      {
+        "allowInterfaces": "always", // to allow \`interface DismissApprovalRequestMessage {}\` in AccessApproval-v1, etc.
+        "allowObjectTypes": "always" // to allow \`deleteAccessApprovalSettings(request?: {...}): Request<{}>\` in AccessApproval-v1, etc.
+      }
+    ],
+    "@typescript-eslint/naming-convention": "off" // to allow IPAllocationPolicy, etc.
+  }
+}
+"
+`;
+
+exports[`translate works 2`] = `
+"*
+!**/*.d.ts
+!**/*.d.cts
+!**/*.d.mts
+!**/*.d.*.ts
+"
+`;
+
+exports[`translate works 3`] = `
+"/* Type definitions for non-npm package Google Cloud Translation API v2 0.0 */
+// Project: https://code.google.com/apis/language/translate/v2/getting_started.html
+// Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
+// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
+
+// IMPORTANT
+// This file was generated by https://github.com/Maxim-Mazurok/google-api-typings-generator. Please do not edit it manually.
+// In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
+// Generated from: http://localhost:3000/translate.json
+// Revision: 20170525
+
+/// <reference types="gapi.client" />
+
+declare namespace gapi.client {
+    /** Load Google Cloud Translation API v2 */
+    function load(urlOrObject: "http://localhost:3000/translate.json"): Promise<void>;
+    /** @deprecated Please load APIs with discovery documents. */
+    function load(name: "translate", version: "v2"): Promise<void>;
+    /** @deprecated Please load APIs with discovery documents. */
+    function load(name: "translate", version: "v2", callback: () => any): void;
+
+    namespace language {
+        interface DetectionsListResponse {
+            /** A detections contains detection results of several text */
+            detections?:
+                any[];
+        }
+        interface DetectionsResource {
+        }
+        interface DetectLanguageRequest {
+            /**
+             * The input text upon which to perform language detection. Repeat this
+             * parameter to perform language detection on multiple text inputs.
+             */
+            q?:
+                string[];
+        }
+        interface GetSupportedLanguagesRequest {
+            /**
+             * The language to use to return localized, human readable names of supported
+             * languages.
+             */
+            target?:
+                string;
+        }
+        interface LanguagesListResponse {
+            /** List of source/target languages supported by the translation API. If target parameter is unspecified, the list is sorted by the ASCII code point order of the language code. If target parameter is specified, the list is sorted by the collation order of the language name in the target language. */
+            languages?:
+                LanguagesResource[];
+        }
+        interface LanguagesResource {
+            /**
+             * Supported language code, generally consisting of its ISO 639-1
+             * identifier. (E.g. 'en', 'ja'). In certain cases, BCP-47 codes including
+             * language + region identifiers are returned (e.g. 'zh-TW' and 'zh-CH')
+             */
+            language?:
+                string;
+            /** Human readable name of the language localized to the target language. */
+            name?:
+                string;
+        }
+        interface TranslateTextRequest {
+            /**
+             * The format of the source text, in either HTML (default) or plain-text. A
+             * value of "html" indicates HTML and a value of "text" indicates plain-text.
+             */
+            format?:
+                string;
+            /**
+             * The \`model\` type requested for this translation. Valid values are
+             * listed in public documentation.
+             */
+            model?:
+                string;
+            /**
+             * The input text to translate. Repeat this parameter to perform translation
+             * operations on multiple text inputs.
+             */
+            q?:
+                string[];
+            /**
+             * The language of the source text, set to one of the language codes listed in
+             * Language Support. If the source language is not specified, the API will
+             * attempt to identify the source language automatically and return it within
+             * the response.
+             */
+            source?:
+                string;
+            /**
+             * The language to use for translation of the input text, set to one of the
+             * language codes listed in Language Support.
+             */
+            target?:
+                string;
+        }
+        interface TranslationsListResponse {
+            /** Translations contains list of translation results of given text */
+            translations?:
+                TranslationsResource[];
+        }
+        interface TranslationsResource {
+            /**
+             * The source language of the initial request, detected automatically, if
+             * no source language was passed within the initial request. If the
+             * source language was passed, auto-detection of the language will not
+             * occur and this field will be empty.
+             */
+            detectedSourceLanguage?:
+                string;
+            /**
+             * The \`model\` type used for this translation. Valid values are
+             * listed in public documentation. Can be different from requested \`model\`.
+             * Present only if specific model type was explicitly requested.
+             */
+            model?:
+                string;
+            /** Text translated into the target language. */
+            translatedText?:
+                string;
+        }
+        interface Detections_Resource {
+            /** Detects the language of text within a request. */
+            detect(request: {
+                /** V1 error format. */
+                "$.xgafv"?:
+                    "1" | "2";
+                /** OAuth access token. */
+                access_token?:
+                    string;
+                /** Data format for response. */
+                alt?:
+                    "json" | "media" | "proto";
+                /** OAuth bearer token. */
+                bearer_token?:
+                    string;
+                /** JSONP */
+                callback?:
+                    string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?:
+                    string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?:
+                    string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?:
+                    string;
+                /** Pretty-print response. */
+                pp?:
+                    boolean;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?:
+                    boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided. */
+                quotaUser?:
+                    string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?:
+                    string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?:
+                    string;
+                /** Request body */
+                resource:
+                    DetectLanguageRequest;
+            }): Request<DetectionsListResponse>;
+            detect(request: {
+                /** V1 error format. */
+                "$.xgafv"?:
+                    "1" | "2";
+                /** OAuth access token. */
+                access_token?:
+                    string;
+                /** Data format for response. */
+                alt?:
+                    "json" | "media" | "proto";
+                /** OAuth bearer token. */
+                bearer_token?:
+                    string;
+                /** JSONP */
+                callback?:
+                    string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?:
+                    string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?:
+                    string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?:
+                    string;
+                /** Pretty-print response. */
+                pp?:
+                    boolean;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?:
+                    boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided. */
+                quotaUser?:
+                    string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?:
+                    string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?:
+                    string;
+            },
+            body: DetectLanguageRequest): Request<DetectionsListResponse>;
+            /** Detects the language of text within a request. */
+            list(request?: {
+                /** V1 error format. */
+                "$.xgafv"?:
+                    "1" | "2";
+                /** OAuth access token. */
+                access_token?:
+                    string;
+                /** Data format for response. */
+                alt?:
+                    "json" | "media" | "proto";
+                /** OAuth bearer token. */
+                bearer_token?:
+                    string;
+                /** JSONP */
+                callback?:
+                    string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?:
+                    string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?:
+                    string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?:
+                    string;
+                /** Pretty-print response. */
+                pp?:
+                    boolean;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?:
+                    boolean;
+                /**
+                 * The input text upon which to perform language detection. Repeat this
+                 * parameter to perform language detection on multiple text inputs.
+                 */
+                q:
+                    string | string[];
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided. */
+                quotaUser?:
+                    string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?:
+                    string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?:
+                    string;
+            }): Request<DetectionsListResponse>;
+        }
+        interface Languages_Resource {
+            /** Returns a list of supported languages for translation. */
+            list(request?: {
+                /** V1 error format. */
+                "$.xgafv"?:
+                    "1" | "2";
+                /** OAuth access token. */
+                access_token?:
+                    string;
+                /** Data format for response. */
+                alt?:
+                    "json" | "media" | "proto";
+                /** OAuth bearer token. */
+                bearer_token?:
+                    string;
+                /** JSONP */
+                callback?:
+                    string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?:
+                    string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?:
+                    string;
+                /** The model type for which supported languages should be returned. */
+                model?:
+                    string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?:
+                    string;
+                /** Pretty-print response. */
+                pp?:
+                    boolean;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?:
+                    boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided. */
+                quotaUser?:
+                    string;
+                /**
+                 * The language to use to return localized, human readable names of supported
+                 * languages.
+                 */
+                target?:
+                    string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?:
+                    string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?:
+                    string;
+            }): Request<LanguagesListResponse>;
+        }
+        interface Translations_Resource {
+            /** Translates input text, returning translated text. */
+            list(request?: {
+                /** V1 error format. */
+                "$.xgafv"?:
+                    "1" | "2";
+                /** OAuth access token. */
+                access_token?:
+                    string;
+                /** Data format for response. */
+                alt?:
+                    "json" | "media" | "proto";
+                /** OAuth bearer token. */
+                bearer_token?:
+                    string;
+                /** JSONP */
+                callback?:
+                    string;
+                /** The customization id for translate */
+                cid?:
+                    string | string[];
+                /** Selector specifying which fields to include in a partial response. */
+                fields?:
+                    string;
+                /**
+                 * The format of the source text, in either HTML (default) or plain-text. A
+                 * value of "html" indicates HTML and a value of "text" indicates plain-text.
+                 */
+                format?:
+                    "html" | "text";
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?:
+                    string;
+                /**
+                 * The \`model\` type requested for this translation. Valid values are
+                 * listed in public documentation.
+                 */
+                model?:
+                    string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?:
+                    string;
+                /** Pretty-print response. */
+                pp?:
+                    boolean;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?:
+                    boolean;
+                /**
+                 * The input text to translate. Repeat this parameter to perform translation
+                 * operations on multiple text inputs.
+                 */
+                q:
+                    string | string[];
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided. */
+                quotaUser?:
+                    string;
+                /**
+                 * The language of the source text, set to one of the language codes listed in
+                 * Language Support. If the source language is not specified, the API will
+                 * attempt to identify the source language automatically and return it within
+                 * the response.
+                 */
+                source?:
+                    string;
+                /**
+                 * The language to use for translation of the input text, set to one of the
+                 * language codes listed in Language Support.
+                 */
+                target:
+                    string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?:
+                    string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?:
+                    string;
+            }): Request<TranslationsListResponse>;
+            /** Translates input text, returning translated text. */
+            translate(request: {
+                /** V1 error format. */
+                "$.xgafv"?:
+                    "1" | "2";
+                /** OAuth access token. */
+                access_token?:
+                    string;
+                /** Data format for response. */
+                alt?:
+                    "json" | "media" | "proto";
+                /** OAuth bearer token. */
+                bearer_token?:
+                    string;
+                /** JSONP */
+                callback?:
+                    string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?:
+                    string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?:
+                    string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?:
+                    string;
+                /** Pretty-print response. */
+                pp?:
+                    boolean;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?:
+                    boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided. */
+                quotaUser?:
+                    string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?:
+                    string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?:
+                    string;
+                /** Request body */
+                resource:
+                    TranslateTextRequest;
+            }): Request<TranslationsListResponse>;
+            translate(request: {
+                /** V1 error format. */
+                "$.xgafv"?:
+                    "1" | "2";
+                /** OAuth access token. */
+                access_token?:
+                    string;
+                /** Data format for response. */
+                alt?:
+                    "json" | "media" | "proto";
+                /** OAuth bearer token. */
+                bearer_token?:
+                    string;
+                /** JSONP */
+                callback?:
+                    string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?:
+                    string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?:
+                    string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?:
+                    string;
+                /** Pretty-print response. */
+                pp?:
+                    boolean;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?:
+                    boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided. */
+                quotaUser?:
+                    string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?:
+                    string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?:
+                    string;
+            },
+            body: TranslateTextRequest): Request<TranslationsListResponse>;
+        }
+
+        const detections: Detections_Resource;
+
+        const languages: Languages_Resource;
+
+        const translations: Translations_Resource;
+    }
+}
+"
+`;
+
+exports[`translate works 4`] = `
+"{
+  "name": "@maxim_mazurok/gapi.client.translate-v2",
+  "version": "0.0.20170525",
+  "description": "TypeScript typings for Google Cloud Translation API v2",
+  "license": "MIT",
+  "author": {
+    "email": "maxim@mazurok.com",
+    "name": "Maxim Mazurok",
+    "url": "https://maxim.mazurok.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  },
+  "types": "index.d.ts",
+  "dependencies": {
+    "@types/gapi.client": "*",
+    "@types/gapi.client.discovery-v1": "*"
+  }
+}
+"
+`;
+
+exports[`translate works 5`] = `
+"# TypeScript typings for Google Cloud Translation API v2
+
+The Google Cloud Translation API lets websites and programs integrate with
+    Google Translate programmatically.
+For detailed description please check [documentation](https://code.google.com/apis/language/translate/v2/getting_started.html).
+
+## Installing
+
+Install typings for Google Cloud Translation API:
+
+\`\`\`
+npm install @types/gapi.client.translate-v2 --save-dev
+\`\`\`
+
+## TypeScript 6.0+
+
+TypeScript 6.0 changed \`types\` to default to \`[]\`. You must now explicitly list type packages in \`tsconfig.json\`:
+
+\`\`\`json
+{
+  "compilerOptions": {
+    "types": ["gapi", "gapi.auth2", "gapi.client", "gapi.client.translate-v2"]
+  }
+}
+\`\`\`
+
+## Usage
+
+You need to initialize Google API client in your code:
+
+\`\`\`typescript
+gapi.load('client', () => {
+  // now we can use gapi.client
+  // ...
+});
+\`\`\`
+
+Then load api client wrapper:
+
+\`\`\`typescript
+gapi.client.load('http://localhost:3000/translate.json', () => {
+  // now we can use:
+  // gapi.client.language
+});
+\`\`\`
+
+\`\`\`typescript
+// Deprecated, use discovery document URL, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadname----version----callback--
+gapi.client.load('translate', 'v2', () => {
+  // now we can use:
+  // gapi.client.language
+});
+\`\`\`
+
+Don't forget to authenticate your client before sending any request to resources:
+
+\`\`\`typescript
+// declare client_id registered in Google Developers Console
+var client_id = '',
+  scope = [
+      // View and manage your data across Google Cloud Platform services
+      'https://www.googleapis.com/auth/cloud-platform',
+
+      // Translate text from one language to another using Google Translate
+      'https://www.googleapis.com/auth/cloud-translation',
+    ],
+    immediate = true;
+// ...
+
+gapi.auth.authorize(
+  { client_id: client_id, scope: scope, immediate: immediate },
+  authResult => {
+    if (authResult && !authResult.error) {
+        /* handle successful authorization */
+    } else {
+        /* handle authorization error */
+    }
+});
+\`\`\`
+
+After that you can use Google Cloud Translation API resources: <!-- TODO: make this work for multiple namespaces -->
+
+\`\`\`typescript
+
+/*
+Detects the language of text within a request.
+*/
+await gapi.client.language.detections.detect({  });
+
+/*
+Detects the language of text within a request.
+*/
+await gapi.client.language.detections.list({ q: "q",  });
+
+/*
+Returns a list of supported languages for translation.
+*/
+await gapi.client.language.languages.list({  });
+
+/*
+Translates input text, returning translated text.
+*/
+await gapi.client.language.translations.list({ q: "q", target: "target",  });
+
+/*
+Translates input text, returning translated text.
+*/
+await gapi.client.language.translations.translate({  });
+\`\`\`
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.translate-v2#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
+"
+`;
+
+exports[`translate works 6`] = `
+"/* This is stub file for gapi.client.translate-v2 definition tests */
+// IMPORTANT
+// This file was generated by https://github.com/Maxim-Mazurok/google-api-typings-generator. Please do not edit it manually.
+// In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
+
+// Revision: 20170525
+
+gapi.load('client', async () => {
+    /** now we can use gapi.client */
+
+    await gapi.client.load('http://localhost:3000/translate.json');
+    /** now we can use gapi.client.language */
+
+    /** don't forget to authenticate your client before sending any request to resources: */
+    /** declare client_id registered in Google Developers Console */
+    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+    const scope = [
+        /** View and manage your data across Google Cloud Platform services */
+        'https://www.googleapis.com/auth/cloud-platform',
+        /** Translate text from one language to another using Google Translate */
+        'https://www.googleapis.com/auth/cloud-translation',
+    ];
+    const immediate = false;
+    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
+        if (authResult && !authResult.error) {
+            /** handle successful authorization */
+            void run();
+        } else {
+            /** handle authorization error */
+        }
+    });
+
+    async function run() {
+        /** Detects the language of text within a request. */
+        await gapi.client.language.detections.detect({
+        }, {
+            q: [
+                "Test string"
+            ],
+        });
+        /** Detects the language of text within a request. */
+        await gapi.client.language.detections.list({
+            q: "Test string",
+        });
+        /** Returns a list of supported languages for translation. */
+        await gapi.client.language.languages.list({
+            model: "Test string",
+            target: "Test string",
+        });
+        /** Translates input text, returning translated text. */
+        await gapi.client.language.translations.list({
+            cid: "Test string",
+            format: "html",
+            model: "Test string",
+            q: "Test string",
+            source: "Test string",
+            target: "Test string",
+        });
+        /** Translates input text, returning translated text. */
+        await gapi.client.language.translations.translate({
+        }, {
+            format: "Test string",
+            model: "Test string",
+            q: [
+                "Test string"
+            ],
+            source: "Test string",
+            target: "Test string",
+        });
+    }
+});
+"
+`;
+
+exports[`translate works 7`] = `
 "{
   "compilerOptions": {
     "module": "commonjs",
