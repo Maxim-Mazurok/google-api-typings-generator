@@ -156,9 +156,10 @@ describe('discovery items', () => {
     });
   });
 
-  it('id does not have "-"', () => {
-    discoveryItems.forEach(({id}) => {
-      expect(id).not.toContain('-');
+  it('name does not have "-"', () => {
+    // version can contain "-" (e.g. compute:2026-09-01), but name shouldn't
+    discoveryItems.forEach(({name}) => {
+      expect(name).not.toContain('-');
     });
   });
 
@@ -197,6 +198,8 @@ describe('discovery items', () => {
     });
     expect(versions.sort()).toStrictEqual([
       '*',
+      '1-1-1',
+      '1-1-1-xxx',
       'v1',
       'v1*',
       'v1*1',
@@ -205,6 +208,7 @@ describe('discovery items', () => {
       'v1b1',
       'v1p1*1',
       'v1xxx',
+      'xxx',
       'xxx_v1',
       'xxx_v1*',
     ]);
@@ -213,6 +217,8 @@ describe('discovery items', () => {
   it('versions match all patterns', () => {
     const options = {
       '*': 0,
+      '1-1-1': 0,
+      '1-1-1-xxx': 0,
       v1: 0,
       'v1*': 0,
       'v1*1': 0,
@@ -221,6 +227,7 @@ describe('discovery items', () => {
       v1b1: 0,
       'v1p1*1': 0,
       v1xxx: 0,
+      xxx: 0,
       xxx_v1: 0,
       'xxx_v1*': 0,
     };
@@ -228,6 +235,8 @@ describe('discovery items', () => {
       [key: string]: string[];
     } = {
       '*': [],
+      '1-1-1': [],
+      '1-1-1-xxx': [],
       v1: [],
       'v1*': [],
       'v1*1': [],
@@ -236,6 +245,7 @@ describe('discovery items', () => {
       v1b1: [],
       'v1p1*1': [],
       v1xxx: [],
+      xxx: [],
       xxx_v1: [],
       'xxx_v1*': [],
     };
@@ -244,6 +254,12 @@ describe('discovery items', () => {
     "*": [
       "alpha",
       "beta"
+    ],
+    "1-1-1": [
+      "2026-09-01"
+    ],
+    "1-1-1-xxx": [
+      "2026-10-01-preview"
     ],
     "v1": [
       "v1",
@@ -295,6 +311,10 @@ describe('discovery items', () => {
     "v1xxx": [
       "v1configuration",
       "v1management"
+    ],
+    "xxx": [
+      "preview",
+      "stable"
     ],
     "xxx_v1": [
       "datatransfer_v1", // cspell:words datatransfer
@@ -351,6 +371,15 @@ describe('discovery items', () => {
       } else if (/^v\d+(alpha|beta)\d+a$/.test(version)) {
         options['v1*1a']++;
         examples['v1*1a'].push(version);
+      } else if (/^\d{4}-\d{2}-\d{2}$/.test(version)) {
+        options['1-1-1']++;
+        examples['1-1-1'].push(version);
+      } else if (/^\d{4}-\d{2}-\d{2}-[a-z]{2,}$/.test(version)) {
+        options['1-1-1-xxx']++;
+        examples['1-1-1-xxx'].push(version);
+      } else if (/^[a-z]{2,}$/.test(version)) {
+        options['xxx']++;
+        examples['xxx'].push(version);
       } else {
         throw `${version} didn't match any pattern`;
       }
