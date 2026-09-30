@@ -589,6 +589,15 @@ Updates an object's metadata.
 await gapi.client.storage.objects.update({bucket: 'bucket', object: 'object'});
 
 /*
+Retrieves a specific object context with its extended data for a given object.
+*/
+await gapi.client.storage.objects.viewFullContext({
+  bucket: 'bucket',
+  contextKey: 'contextKey',
+  object: 'object',
+});
+
+/*
 Starts asynchronous advancement of the relocate bucket operation in the case of required write downtime, to allow it to lock the bucket at the source location, and proceed with the bucket location swap. The server makes a best effort to advance the relocate bucket operation, but success is not guaranteed.
 */
 await gapi.client.storage.buckets.operations.advanceRelocateBucket({

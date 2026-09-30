@@ -108,6 +108,9 @@ var client_id = '',
     // See and download any calendar you can access using your Google Calendar
     'https://www.googleapis.com/auth/calendar.readonly',
 
+    // View and edit your Calendar settings
+    'https://www.googleapis.com/auth/calendar.settings',
+
     // View your Calendar settings
     'https://www.googleapis.com/auth/calendar.settings.readonly',
   ],
