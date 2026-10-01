@@ -101,7 +101,7 @@ var client_id = '',
     // View members in Google Chat conversations.
     'https://www.googleapis.com/auth/chat.memberships.readonly',
 
-    // See, compose, send, update, and delete messages as well as their message content; add, see, and delete reactions to messages.
+    // See, compose, send, update, and delete messages, their content, and attached cards; add, see, and delete reactions to messages.
     'https://www.googleapis.com/auth/chat.messages',
 
     // See, add, and delete reactions as well as their reaction content to messages in Google Chat
