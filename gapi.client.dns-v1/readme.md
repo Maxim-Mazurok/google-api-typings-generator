@@ -132,16 +132,6 @@ await gapi.client.dns.dnsKeys.list({
 });
 
 /*
-Gets information about a location.
-*/
-await gapi.client.dns.locations.get({name: 'name'});
-
-/*
-Lists information about the supported locations for this service. This method lists locations based on the resource scope provided in the ListLocationsRequest.name field: * **Global locations**: If `name` is empty, the method lists the public locations available to all projects. * **Project-specific locations**: If `name` follows the format `projects/{project}`, the method lists locations visible to that specific project. This includes public, private, or other project-specific locations enabled for the project. For gRPC and client library implementations, the resource name is passed as the `name` field. For direct service calls, the resource name is incorporated into the request path based on the specific service implementation and version.
-*/
-await gapi.client.dns.locations.list({name: 'name'});
-
-/*
 Fetches the representation of an existing Operation.
 */
 await gapi.client.dns.managedZoneOperations.get({
@@ -214,51 +204,6 @@ await gapi.client.dns.managedZones.update({
   managedZone: 'managedZone',
   project: 'project',
 });
-
-/*
-Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`.
-*/
-await gapi.client.dns.operations.cancel({name: 'name'});
-
-/*
-Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-*/
-await gapi.client.dns.operations.delete({name: 'name'});
-
-/*
-Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
-*/
-await gapi.client.dns.operations.get({name: 'name'});
-
-/*
-Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
-*/
-await gapi.client.dns.operations.list({name: 'name'});
-
-/*
-Creates a new Outbound Endpoint.
-*/
-await gapi.client.dns.outboundEndpoints.create({parent: 'parent'});
-
-/*
-Deletes a previously created Outbound Endpoint.
-*/
-await gapi.client.dns.outboundEndpoints.delete({name: 'name'});
-
-/*
-Fetches the representation of an existing Outbound Endpoint.
-*/
-await gapi.client.dns.outboundEndpoints.get({name: 'name'});
-
-/*
-Enumerates all Outbound Endpoints associated with a project.
-*/
-await gapi.client.dns.outboundEndpoints.list({parent: 'parent'});
-
-/*
-Updates an existing Outbound Endpoint.
-*/
-await gapi.client.dns.outboundEndpoints.patch({name: 'name'});
 
 /*
 Creates a new policy.
