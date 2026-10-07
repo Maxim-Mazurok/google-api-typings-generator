@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.devicerun-v1alpha",
-  "version": "0.0.20261006",
+  "version": "0.0.20261001",
   "description": "TypeScript typings for Device Run API v1alpha",
   "repository": {
     "type": "git",
