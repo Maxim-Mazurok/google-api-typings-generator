@@ -3946,6 +3946,11 @@ Patches the SnapshotRecycleBinPolicy.
 await gapi.client.compute.organizationSnapshotRecycleBinPolicy.patch({ organization: "organization",  });
 
 /*
+Deletes a specified zone VM extension policy within an organization.
+*/
+await gapi.client.compute.organizationZoneVmExtensionPolicies.delete({ organization: "organization", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
+
+/*
 Retrieves details of a specific zone VM extension policy within an
 organization.
 */
@@ -3976,11 +3981,6 @@ await gapi.client.compute.organizationZoneVmExtensionPolicies.listVmExtensions({
 Modifies an existing zone VM extension policy within an organization.
 */
 await gapi.client.compute.organizationZoneVmExtensionPolicies.update({ organization: "organization", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
-
-/*
-Deletes a specified zone VM extension policy within an organization.
-*/
-await gapi.client.compute.orgVmExtensionPolicies.delete({ organization: "organization", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
 
 /*
 Retrieves an aggregated list of packetMirrorings.

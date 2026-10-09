@@ -220,28 +220,6 @@ Gets the capacity history.
 await gapi.client.compute.advice.capacityHistory({ project: "project", region: "region",  });
 
 /*
-Deletes the specified AliasNetworkEndpoint.
-*/
-await gapi.client.compute.aliasNetworkEndpoints.delete({ aliasNetworkEndpoint: "aliasNetworkEndpoint", project: "project", zone: "zone",  });
-
-/*
-Returns the specified AliasNetworkEndpoint resource.
-*/
-await gapi.client.compute.aliasNetworkEndpoints.get({ aliasNetworkEndpoint: "aliasNetworkEndpoint", project: "project", zone: "zone",  });
-
-/*
-Creates an AliasNetworkEndpoint in the specified project and zone
-using the data included in the request.
-*/
-await gapi.client.compute.aliasNetworkEndpoints.insert({ project: "project", zone: "zone",  });
-
-/*
-Retrieves a list of AliasNetworkEndpoints available to the specified
-project.
-*/
-await gapi.client.compute.aliasNetworkEndpoints.list({ project: "project", zone: "zone",  });
-
-/*
 Retrieves an aggregated list of autoscalers.
 
 To prevent failure, it is recommended that you set the
