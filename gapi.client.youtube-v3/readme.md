@@ -272,17 +272,17 @@ Inserts a new resource into this collection.
 await gapi.client.youtube.liveChatBans.insert({part: 'part'});
 
 /*
-Deletes a chat message.
+Deletes a chat message. A call to this method has a quota cost of 20 units.
 */
 await gapi.client.youtube.liveChatMessages.delete({id: 'id'});
 
 /*
-Inserts a new resource into this collection.
+Inserts a new resource into this collection. A call to this method has a quota cost of 20 units.
 */
 await gapi.client.youtube.liveChatMessages.insert({part: 'part'});
 
 /*
-Retrieves a list of resources, possibly filtered.
+Retrieves a list of resources, possibly filtered. A call to this method has a quota cost of 5 units.
 */
 await gapi.client.youtube.liveChatMessages.list({
   liveChatId: 'liveChatId',
@@ -290,7 +290,7 @@ await gapi.client.youtube.liveChatMessages.list({
 });
 
 /*
-Transition a durable chat event.
+Transitions a durable chat event. A call to this method has a quota cost of 20 units.
 */
 await gapi.client.youtube.liveChatMessages.transition({});
 
