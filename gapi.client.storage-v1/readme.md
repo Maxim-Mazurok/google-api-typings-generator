@@ -260,11 +260,6 @@ Updates a bucket. Changes to the bucket will be readable immediately after writi
 await gapi.client.storage.buckets.update({bucket: 'bucket'});
 
 /*
-Stop watching resources through this channel
-*/
-await gapi.client.storage.channels.stop({});
-
-/*
 Permanently deletes the default object ACL entry for the specified entity on the specified bucket.
 */
 await gapi.client.storage.defaultObjectAccessControls.delete({
