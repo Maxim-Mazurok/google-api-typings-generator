@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.contentwarehouse-v1",
-  "version": "0.0.20250206",
-  "description": "TypeScript typings for Document AI Warehouse API v1",
+  "name": "@maxim_mazurok/gapi.client.googleads-v26",
+  "version": "0.0.20261014",
+  "description": "TypeScript typings for Google Ads API v26",
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
