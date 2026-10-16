@@ -68,7 +68,7 @@
     "typescript-go": "npm:typescript@^7.0.2",
     "validate-npm-package-name": "^8.0.0",
     "vitest": "^5.0.2",
-    "zod": "^4.4.3"
+    "zod": "^4.6.7"
   },
   "engines": {
     "node": "26.11.1",
