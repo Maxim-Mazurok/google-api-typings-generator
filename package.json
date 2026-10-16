@@ -39,7 +39,7 @@
     "@definitelytyped/eslint-plugin": "0.1.34",
     "@expo/spawn-async": "^1.8.0",
     "@octokit/rest": "^22.0.1",
-    "@types/dedent": "^0.7.2",
+    "@types/dedent": "^1.7.2",
     "@types/dot": "^1.1.7",
     "@types/gapi.client.discovery-v1": "^0.0.4",
     "@types/lodash": "^4.17.24",
