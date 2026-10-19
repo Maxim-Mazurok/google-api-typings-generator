@@ -647,12 +647,11 @@ await gapi.client.sql.workloadCaptures.stop({
 });
 
 /*
-Stops executing a captured workload on the separate Cloud SQL instance.
+Stops an active workload replay on the target Cloud SQL replay instance.
 */
 await gapi.client.sql.workloadCaptures.stopReplay({
   instance: 'instance',
   project: 'project',
-  workloadId: 'workloadId',
 });
 ```
 
