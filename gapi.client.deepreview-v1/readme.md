@@ -1,7 +1,7 @@
 # TypeScript typings for Deep Review API v1
 
-Deep Review API for automated conference-quality scientific paper reviews.
-For detailed description please check [documentation](https://research.google/).
+Deep Review API for automated, in-depth document reviews.
+For detailed description please check [documentation](https://research.google/deepreview).
 
 ## Installing
 
