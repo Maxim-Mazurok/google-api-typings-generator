@@ -90,6 +90,11 @@ After that you can use Curation Partners API resources: <!-- TODO: make this wor
 Lists all media planner accounts that the caller has access to. For curators, this will return all media planners that have accepted curator terms. For other accounts, attempting to list media planners will return an error.
 */
 await gapi.client.curationpartners.mediaPlanners.list({});
+
+/*
+Searches for media planner accounts matching the given DSP seat ID.
+*/
+await gapi.client.curationpartners.mediaPlanners.search({});
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.curationpartners-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)

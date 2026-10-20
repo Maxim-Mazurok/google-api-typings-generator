@@ -90,6 +90,11 @@ After that you can use Authorized Buyers Marketplace API resources: <!-- TODO: m
 Lists all media planner accounts that the caller has access to. For curators, this will return all media planners that have accepted curator terms. For other accounts, attempting to list media planners will return an error.
 */
 await gapi.client.authorizedbuyersmarketplace.mediaPlanners.list({});
+
+/*
+Searches for media planner accounts matching the given DSP seat ID. For curators, this will return all matching media planners that have accepted curator terms.
+*/
+await gapi.client.authorizedbuyersmarketplace.mediaPlanners.search({});
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.authorizedbuyersmarketplace-v1beta#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
