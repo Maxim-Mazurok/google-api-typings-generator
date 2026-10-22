@@ -204,6 +204,9 @@ gapi.load('client', async () => {
             enabled: true,
             inspectTemplate: 'Test string',
           },
+          vulnerabilityScanConfig: {
+            enabled: true,
+          },
         },
         serviceAccount: 'Test string',
         uid: 'Test string',
@@ -290,6 +293,9 @@ gapi.load('client', async () => {
           secretScanConfig: {
             enabled: true,
             inspectTemplate: 'Test string',
+          },
+          vulnerabilityScanConfig: {
+            enabled: true,
           },
         },
         serviceAccount: 'Test string',

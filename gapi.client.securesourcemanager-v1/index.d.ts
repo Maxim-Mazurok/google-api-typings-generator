@@ -214,7 +214,7 @@ declare namespace gapi.client {
       html?: string;
     }
     interface InitialConfig {
-      /** Default branch name of the repository. */
+      /** Default branch name of the repository. When creating a repository, this field or top-level `default_branch` can be used to set the initial default branch. It is an error to specify both. */
       defaultBranch?: string;
       /** List of gitignore template names user can choose from. Valid values: actionscript, ada, agda, android, anjuta, ansible, appcelerator-titanium, app-engine, archives, arch-linux-packages, atmel-studio, autotools, backup, bazaar, bazel, bitrix, bricx-cc, c, cake-php, calabash, cf-wheels, chef-cookbook, clojure, cloud9, c-make, code-igniter, code-kit, code-sniffer, common-lisp, composer, concrete5, coq, cordova, cpp, craft-cms, cuda, cvs, d, dart, dart-editor, delphi, diff, dm, dreamweaver, dropbox, drupal, drupal-7, eagle, eclipse, eiffel-studio, elisp, elixir, elm, emacs, ensime, epi-server, erlang, esp-idf, espresso, exercism, expression-engine, ext-js, fancy, finale, flex-builder, force-dot-com, fortran, fuel-php, gcov, git-book, gnome-shell-extension, go, godot, gpg, gradle, grails, gwt, haskell, hugo, iar-ewarm, idris, igor-pro, images, infor-cms, java, jboss, jboss-4, jboss-6, jdeveloper, jekyll, jenkins-home, jenv, jet-brains, jigsaw, joomla, julia, jupyter-notebooks, kate, kdevelop4, kentico, ki-cad, kohana, kotlin, lab-view, laravel, lazarus, leiningen, lemon-stand, libre-office, lilypond, linux, lithium, logtalk, lua, lyx, mac-os, magento, magento-1, magento-2, matlab, maven, mercurial, mercury, metals, meta-programming-system, meteor, microsoft-office, model-sim, momentics, mono-develop, nanoc, net-beans, nikola, nim, ninja, node, notepad-pp, nwjs, objective--c, ocaml, octave, opa, open-cart, openssl, oracle-forms, otto, packer, patch, perl, perl6, phalcon, phoenix, pimcore, play-framework, plone, prestashop, processing, psoc-creator, puppet, pure-script, putty, python, qooxdoo, qt, r, racket, rails, raku, red, redcar, redis, rhodes-rhomobile, ros, ruby, rust, sam, sass, sbt, scala, scheme, scons, scrivener, sdcc, seam-gen, sketch-up, slick-edit, smalltalk, snap, splunk, stata, stella, sublime-text, sugar-crm, svn, swift, symfony, symphony-cms, synopsys-vcs, tags, terraform, tex, text-mate, textpattern, think-php, tortoise-git, turbo-gears-2, typo3, umbraco, unity, unreal-engine, vagrant, vim, virtual-env, virtuoso, visual-studio, visual-studio-code, vue, vvvv, waf, web-methods, windows, word-press, xcode, xilinx, xilinx-ise, xojo, yeoman, yii, zend-framework, zephir. */
       gitignores?: string[];
@@ -524,6 +524,8 @@ declare namespace gapi.client {
     interface ScanConfig {
       /** Optional. Configuration for secret scanning. */
       secretScanConfig?: SecretScanConfig;
+      /** Optional. Configuration for vulnerability scanning. */
+      vulnerabilityScanConfig?: VulnerabilityScanConfig;
     }
     interface SecretScanConfig {
       /** Optional. Enables secret scanning for the repository. */
@@ -582,6 +584,10 @@ declare namespace gapi.client {
       gitHttps?: string;
       /** Output only. HTML is the URI for user to view the repository in a browser. */
       html?: string;
+    }
+    interface VulnerabilityScanConfig {
+      /** Optional. Enables vulnerability scanning for the repository. */
+      enabled?: boolean;
     }
     interface WorkforceIdentityFederationConfig {
       /** Optional. Immutable. Whether Workforce Identity Federation is enabled. */
