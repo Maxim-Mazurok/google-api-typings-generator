@@ -110,13 +110,6 @@ Retrieves a folder identified by the supplied resource name. Valid folder resour
 await gapi.client.cloudresourcemanager.folders.get({name: 'name'});
 
 /*
-Retrieves the BoundaryConfig identified by the specified `name` (for example, `folders/123456789/boundaryConfig`).
-*/
-await gapi.client.cloudresourcemanager.folders.getBoundaryConfig({
-  name: 'name',
-});
-
-/*
 Gets the access control policy for a folder. The returned policy may be empty if no such policy or resource exists. The `resource` field should be the folder's resource name, for example: "folders/1234". The caller must have `resourcemanager.folders.getIamPolicy` permission on the identified folder.
 */
 await gapi.client.cloudresourcemanager.folders.getIamPolicy({
@@ -163,13 +156,6 @@ Cancels the deletion request for a folder. This method may be called on a folder
 await gapi.client.cloudresourcemanager.folders.undelete({name: 'name'});
 
 /*
-Updates the BoundaryConfig identified by the specified `name` (for example, `folders/123456789/boundaryConfig`).
-*/
-await gapi.client.cloudresourcemanager.folders.updateBoundaryConfig({
-  name: 'name',
-});
-
-/*
 Create a Lien which applies to the resource denoted by the `parent` field. Callers of this method will require permission on the `parent` resource. For example, applying to `projects/1234` requires permission `resourcemanager.projects.updateLiens`. NOTE: Some resources may limit the number of Liens which may be applied.
 */
 await gapi.client.cloudresourcemanager.liens.create({});
@@ -200,13 +186,6 @@ Fetches an organization resource identified by the specified resource name.
 await gapi.client.cloudresourcemanager.organizations.get({name: 'name'});
 
 /*
-Retrieves the BoundaryConfig identified by the specified `name` (for example, `folders/123456789/boundaryConfig`).
-*/
-await gapi.client.cloudresourcemanager.organizations.getBoundaryConfig({
-  name: 'name',
-});
-
-/*
 Gets the access control policy for an organization resource. The policy may be empty if no such policy or resource exists. The `resource` field should be the organization's resource name, for example: "organizations/123". Authorization requires the IAM permission `resourcemanager.organizations.getIamPolicy` on the specified organization.
 */
 await gapi.client.cloudresourcemanager.organizations.getIamPolicy({
@@ -230,13 +209,6 @@ Returns the permissions that a caller has on the specified organization. The `re
 */
 await gapi.client.cloudresourcemanager.organizations.testIamPermissions({
   resource: 'resource',
-});
-
-/*
-Updates the BoundaryConfig identified by the specified `name` (for example, `folders/123456789/boundaryConfig`).
-*/
-await gapi.client.cloudresourcemanager.organizations.updateBoundaryConfig({
-  name: 'name',
 });
 
 /*
