@@ -85,7 +85,7 @@ After that you can use Google Tasks API resources: <!-- TODO: make this work for
 
 ```typescript
 /*
-Deletes the authenticated user's specified task list. If the list contains assigned tasks, both the assigned tasks and the original tasks in the assignment surface (Docs, Chat Spaces) are deleted.
+Deletes the authenticated user's specified task list. If the list contains assigned tasks, both the assigned tasks and the original tasks in the assignment surface (Docs, Chat Spaces) are deleted. The user's default task list cannot be deleted.
 */
 await gapi.client.tasks.tasklists.delete({tasklist: 'tasklist'});
 

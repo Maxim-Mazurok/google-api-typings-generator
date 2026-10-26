@@ -60,6 +60,9 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
+
     // See, edit, create, and delete only the specific Google Drive files you use with this app
     'https://www.googleapis.com/auth/drive.file',
   ],
