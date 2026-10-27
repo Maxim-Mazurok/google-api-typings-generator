@@ -90,6 +90,13 @@ Deletes a document and all associated reviews and stored blobs.
 await gapi.client.deepreview.documents.delete({name: 'name'});
 
 /*
+Estimates what a review of a document would cost on the caller's Gemini API key. The estimate comes from what past reviews with the same model and depth cost, adjusted to this document's size and repriced at the Gemini API's current list prices. It covers one review attempt that runs to completion, and doesn't include retries after errors.
+*/
+await gapi.client.deepreview.documents.estimateReviewCost({
+  document: 'document',
+});
+
+/*
 Retrieves document metadata and review history.
 */
 await gapi.client.deepreview.documents.get({name: 'name'});
