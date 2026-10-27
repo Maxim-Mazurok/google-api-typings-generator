@@ -47,7 +47,6 @@ declare namespace gapi.client {
       /** Output only. Author given name / initials. */
       givenName?: string;
     }
-    interface CancelOperationRequest {}
     interface CitationMetadata {
       /** Output only. Ordered list of authors. */
       authors?: Author[];
@@ -133,7 +132,7 @@ declare namespace gapi.client {
       geminiApiKey?: string;
       /** Output only. Indicates whether a developer Bring-Your-Own-Key Gemini API key was provided for this review run. */
       geminiApiKeySet?: boolean;
-      /** Optional. The Gemini model name/version to use (e.g., "gemini-1.5-pro", "gemini-2.0-flash"). */
+      /** Optional. The Gemini model identifier to use for the review. If omitted, the server uses its default model. Unsupported values return INVALID_ARGUMENT. */
       model?: string;
       /** Optional. Review execution topology profile to use. */
       topology?: 'TOPOLOGY_UNSPECIFIED' | 'EXTRA_HIGH' | 'HIGH' | 'MID' | 'LOW';
@@ -147,7 +146,7 @@ declare namespace gapi.client {
       displayName?: string;
       /** Optional. Reference to a Google Drive file to import. */
       driveSource?: DriveSource;
-      /** Output only. Summary of the most recent review run for this document, if any. */
+      /** Output only. Summary of the most recent review run for this document, if any. Populated by `GetDocument` and `ListDocuments`; unset on the document returned by `CreateDocument`, which has no reviews yet. */
       latestReviewSummary?: ReviewSummary;
       /** Identifier. Resource name in format `documents/{document}`. */
       name?: string;
@@ -166,12 +165,12 @@ declare namespace gapi.client {
       resourceKey?: string;
       /** Output only. Indicates whether a resource key was provided for this Drive source. */
       resourceKeySet?: boolean;
-      /** Optional. Input only. Immutable. Specific revision ID to import (defaults to latest head revision). */
+      /** Optional. Input only. Immutable. Importing a specific revision is not currently supported; non-empty values return INVALID_ARGUMENT. */
       revisionId?: string;
     }
     interface Empty {}
     interface EstimateReviewCostRequest {
-      /** Required. The review to estimate, as it would be passed to `CreateReview`. Only its `run_config` is read, and `run_config.gemini_api_key` is ignored. */
+      /** Required. The review to estimate, as it would be passed to `CreateReview`. Only its `run_config` is read, and `gemini_api_key` is ignored. */
       review?: Review;
     }
     interface EstimateReviewCostResponse {
@@ -203,14 +202,6 @@ declare namespace gapi.client {
       documents?: Document[];
       /** A token to retrieve the next page of results, or empty if no further pages exist. */
       nextPageToken?: string;
-    }
-    interface ListOperationsResponse {
-      /** The standard List next-page token. */
-      nextPageToken?: string;
-      /** A list of operations that matches the specified filter in the request. */
-      operations?: Operation[];
-      /** Unordered list. Unreachable resources. Populated when the request sets `ListOperationsRequest.return_partial_success` and reads across collections. For example, when attempting to list all resources across all supported locations. */
-      unreachable?: string[];
     }
     interface ListReviewsResponse {
       /** A token to retrieve the next page of results, or empty if no further pages exist. */
@@ -286,7 +277,7 @@ declare namespace gapi.client {
     interface ReviewSummary {
       /** Output only. Timestamp when this review attempt was initiated. */
       createTime?: string;
-      /** Output only. Resource name of the Review. Format: `documents/{document}/reviews/{review}` */
+      /** Output only. Resource name of the Review. */
       review?: string;
       /** Output only. Current review lifecycle state. */
       state?:
@@ -335,7 +326,7 @@ declare namespace gapi.client {
       usedReviewCount?: number;
     }
     interface ReviewsResource {
-      /** Creates and initiates an asynchronous multi-agent review for a document. */
+      /** Creates and initiates an asynchronous multi-agent review for a document. Returns a google.longrunning.Operation. When the operation completes, the `response` field contains a `Review` and the `metadata` field contains `CreateReviewMetadata`. */
       create(request: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -351,7 +342,7 @@ declare namespace gapi.client {
         key?: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
-        /** Required. The parent Document resource name where this review will be created. Format: `documents/{document}` */
+        /** Required. The parent Document resource name where this review will be created. */
         parent: string;
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
@@ -384,7 +375,7 @@ declare namespace gapi.client {
           key?: string;
           /** OAuth 2.0 token for the current user. */
           oauth_token?: string;
-          /** Required. The parent Document resource name where this review will be created. Format: `documents/{document}` */
+          /** Required. The parent Document resource name where this review will be created. */
           parent: string;
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
@@ -415,7 +406,7 @@ declare namespace gapi.client {
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
-        /** Required. The resource name of the review to retrieve. Format: `documents/{document}/reviews/{review}` */
+        /** Required. The resource name of the review to retrieve. */
         name: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
@@ -440,19 +431,19 @@ declare namespace gapi.client {
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
-        /** Optional. Supported AIP-160 filter expressions. */
+        /** Optional. Custom filter expressions are not currently supported; non-empty values return INVALID_ARGUMENT. */
         filter?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
-        /** Optional. Supported AIP-132 order_by field. */
+        /** Optional. Custom order_by expressions are not currently supported; non-empty values return INVALID_ARGUMENT. */
         orderBy?: string;
-        /** Optional. The maximum number of reviews to return in a single page. The server may return fewer than this value. If unspecified, at most 50 reviews will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000. */
+        /** Optional. The maximum number of reviews to return in a single page. The server may return fewer than this value. If unspecified, at most 50 reviews will be returned. The maximum value is 100; values above 100 will be coerced to 100. */
         pageSize?: number;
         /** Optional. A page token received from a previous `ListReviews` call. */
         pageToken?: string;
-        /** Required. The parent Document resource name. Format: `documents/{document}` */
+        /** Required. The parent Document resource name. */
         parent: string;
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
@@ -465,13 +456,13 @@ declare namespace gapi.client {
       }): Request<ListReviewsResponse>;
     }
     interface DocumentsResource {
-      /** Deletes a document and all associated reviews and stored blobs. */
+      /** Deletes a document and its stored content. If `force` is set to `true`, any associated reviews are also deleted. */
       delete(request?: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
         /** OAuth access token. */
         access_token?: string;
-        /** Optional. If set to true, and the document is not found, the request succeeds. */
+        /** Optional. If set to `true`, and the document is not found, the request succeeds. */
         allowMissing?: boolean;
         /** Data format for response. */
         alt?: 'json' | 'media' | 'proto';
@@ -479,11 +470,11 @@ declare namespace gapi.client {
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
-        /** Optional. If set to true, any child resources (e.g. review resources) are also deleted. */
+        /** Optional. If set to `true`, any child resources (e.g. review resources) are also deleted. If `false` and the document has existing reviews, the request fails with `FAILED_PRECONDITION`. */
         force?: boolean;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
-        /** Required. The resource name of the document to delete. Format: `documents/{document}` */
+        /** Required. The resource name of the document to delete. */
         name: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
@@ -506,7 +497,7 @@ declare namespace gapi.client {
         alt?: 'json' | 'media' | 'proto';
         /** JSONP */
         callback?: string;
-        /** Required. The document to review. Format: `documents/{document}` */
+        /** Required. The document to review. */
         document: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
@@ -535,7 +526,7 @@ declare namespace gapi.client {
           alt?: 'json' | 'media' | 'proto';
           /** JSONP */
           callback?: string;
-          /** Required. The document to review. Format: `documents/{document}` */
+          /** Required. The document to review. */
           document: string;
           /** Selector specifying which fields to include in a partial response. */
           fields?: string;
@@ -554,7 +545,7 @@ declare namespace gapi.client {
         },
         body: EstimateReviewCostRequest,
       ): Request<EstimateReviewCostResponse>;
-      /** Retrieves document metadata and review history. */
+      /** Retrieves document metadata. The returned document includes its `latest_review_summary` when a review exists. */
       get(request?: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -568,7 +559,7 @@ declare namespace gapi.client {
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
-        /** Required. The resource name of the document to retrieve. Format: `documents/{document}` */
+        /** Required. The resource name of the document to retrieve. */
         name: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
@@ -581,7 +572,7 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<Document>;
-      /** Lists documents for the authenticated caller with cursor pagination. */
+      /** Lists documents for the authenticated caller with cursor pagination. Each returned document includes its `latest_review_summary` when a review exists. */
       list(request?: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -593,15 +584,15 @@ declare namespace gapi.client {
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
-        /** Optional. Supported AIP-160 filter expressions (e.g., `display_name = "..."`). */
+        /** Optional. Custom filter expressions are not currently supported; non-empty values return INVALID_ARGUMENT. */
         filter?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
-        /** Optional. Supported AIP-132 order_by field. */
+        /** Optional. Custom order_by expressions are not currently supported; non-empty values return INVALID_ARGUMENT. */
         orderBy?: string;
-        /** Optional. The maximum number of documents to return in a single page. The server may return fewer than this value. If unspecified, at most 50 documents will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000. */
+        /** Optional. The maximum number of documents to return in a single page. The server may return fewer than this value. If unspecified, at most 50 documents will be returned. The maximum value is 100; values above 100 will be coerced to 100. */
         pageSize?: number;
         /** Optional. A page token received from a previous `ListDocuments` call. */
         pageToken?: string;
@@ -617,7 +608,7 @@ declare namespace gapi.client {
       reviews: ReviewsResource;
     }
     interface MediaResource {
-      /** Downloads the original document content (PDF binary) via Scotty media streaming (AIP-136 custom method). */
+      /** Downloads the original document content (PDF binary) using media streaming. Pass `alt=media` as a query parameter to stream the binary PDF bytes. Without `alt=media`, a JSON response is returned. */
       download(request?: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -631,7 +622,7 @@ declare namespace gapi.client {
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
-        /** Required. The resource name of the document to download. Format: `documents/{document}` */
+        /** Required. The resource name of the document to download. */
         name: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
@@ -644,7 +635,7 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<{}>;
-      /** Creates a new Document resource and ingests the manuscript via Scotty or Google Drive. */
+      /** Creates a new Document resource and ingests the manuscript using media upload or Google Drive. */
       upload(request: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -740,126 +731,6 @@ declare namespace gapi.client {
       reviews: ReviewsResource;
     }
     interface OperationsResource {
-      /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
-      cancel(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the operation resource to be cancelled. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: CancelOperationRequest;
-      }): Request<{}>;
-      cancel(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** The name of the operation resource to be cancelled. */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: CancelOperationRequest,
-      ): Request<{}>;
-      /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the operation resource to be deleted. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<{}>;
-      /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** The standard list filter. */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the operation's parent resource. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The standard list page size. */
-        pageSize?: number;
-        /** The standard list page token. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** When set to `true`, operations that are reachable are returned as normal, and those that are unreachable are returned in the ListOperationsResponse.unreachable field. This can only be `true` when reading across collections. For example, when `parent` is set to `"projects/example/locations/-"`. This field is not supported by default and will result in an `UNIMPLEMENTED` error if set unless explicitly documented otherwise in service or product specific documentation. */
-        returnPartialSuccess?: boolean;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListOperationsResponse>;
       documents: DocumentsResource;
     }
     interface V1Resource {
@@ -877,7 +748,7 @@ declare namespace gapi.client {
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
-        /** Required. The resource name of the singleton user quota to retrieve. Format: `userQuota` */
+        /** Required. The resource name of the singleton user quota to retrieve. */
         name: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;

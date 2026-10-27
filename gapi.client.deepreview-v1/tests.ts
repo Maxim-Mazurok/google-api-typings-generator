@@ -33,7 +33,7 @@ gapi.load('client', async () => {
   });
 
   async function run() {
-    /** Deletes a document and all associated reviews and stored blobs. */
+    /** Deletes a document and its stored content. If `force` is set to `true`, any associated reviews are also deleted. */
     await gapi.client.deepreview.documents.delete({
       allowMissing: true,
       force: true,
@@ -174,18 +174,18 @@ gapi.load('client', async () => {
         },
       },
     );
-    /** Retrieves document metadata and review history. */
+    /** Retrieves document metadata. The returned document includes its `latest_review_summary` when a review exists. */
     await gapi.client.deepreview.documents.get({
       name: 'Test string',
     });
-    /** Lists documents for the authenticated caller with cursor pagination. */
+    /** Lists documents for the authenticated caller with cursor pagination. Each returned document includes its `latest_review_summary` when a review exists. */
     await gapi.client.deepreview.documents.list({
       filter: 'Test string',
       orderBy: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
     });
-    /** Creates and initiates an asynchronous multi-agent review for a document. */
+    /** Creates and initiates an asynchronous multi-agent review for a document. Returns a google.longrunning.Operation. When the operation completes, the `response` field contains a `Review` and the `metadata` field contains `CreateReviewMetadata`. */
     await gapi.client.deepreview.documents.reviews.create(
       {
         parent: 'Test string',
@@ -332,11 +332,11 @@ gapi.load('client', async () => {
       pageToken: 'Test string',
       parent: 'Test string',
     });
-    /** Downloads the original document content (PDF binary) via Scotty media streaming (AIP-136 custom method). */
+    /** Downloads the original document content (PDF binary) using media streaming. Pass `alt=media` as a query parameter to stream the binary PDF bytes. Without `alt=media`, a JSON response is returned. */
     await gapi.client.deepreview.media.download({
       name: 'Test string',
     });
-    /** Creates a new Document resource and ingests the manuscript via Scotty or Google Drive. */
+    /** Creates a new Document resource and ingests the manuscript using media upload or Google Drive. */
     await gapi.client.deepreview.media.upload(
       {
         documentId: 'Test string',
@@ -359,25 +359,6 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
     );
-    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
-    await gapi.client.deepreview.operations.cancel(
-      {
-        name: 'Test string',
-      },
-      {},
-    );
-    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
-    await gapi.client.deepreview.operations.delete({
-      name: 'Test string',
-    });
-    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-    await gapi.client.deepreview.operations.list({
-      filter: 'Test string',
-      name: 'Test string',
-      pageSize: 42,
-      pageToken: 'Test string',
-      returnPartialSuccess: true,
-    });
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.deepreview.operations.documents.reviews.get({
       name: 'Test string',

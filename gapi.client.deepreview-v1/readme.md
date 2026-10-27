@@ -85,7 +85,7 @@ After that you can use Deep Review API resources: <!-- TODO: make this work for 
 
 ```typescript
 /*
-Deletes a document and all associated reviews and stored blobs.
+Deletes a document and its stored content. If `force` is set to `true`, any associated reviews are also deleted.
 */
 await gapi.client.deepreview.documents.delete({name: 'name'});
 
@@ -97,39 +97,24 @@ await gapi.client.deepreview.documents.estimateReviewCost({
 });
 
 /*
-Retrieves document metadata and review history.
+Retrieves document metadata. The returned document includes its `latest_review_summary` when a review exists.
 */
 await gapi.client.deepreview.documents.get({name: 'name'});
 
 /*
-Lists documents for the authenticated caller with cursor pagination.
+Lists documents for the authenticated caller with cursor pagination. Each returned document includes its `latest_review_summary` when a review exists.
 */
 await gapi.client.deepreview.documents.list({});
 
 /*
-Downloads the original document content (PDF binary) via Scotty media streaming (AIP-136 custom method).
+Downloads the original document content (PDF binary) using media streaming. Pass `alt=media` as a query parameter to stream the binary PDF bytes. Without `alt=media`, a JSON response is returned.
 */
 await gapi.client.deepreview.media.download({name: 'name'});
 
 /*
-Creates a new Document resource and ingests the manuscript via Scotty or Google Drive.
+Creates a new Document resource and ingests the manuscript using media upload or Google Drive.
 */
 await gapi.client.deepreview.media.upload({});
-
-/*
-Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`.
-*/
-await gapi.client.deepreview.operations.cancel({name: 'name'});
-
-/*
-Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-*/
-await gapi.client.deepreview.operations.delete({name: 'name'});
-
-/*
-Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
-*/
-await gapi.client.deepreview.operations.list({name: 'name'});
 
 /*
 Retrieves the review quota limits and sliding-window usage for the authenticated caller.
