@@ -87,6 +87,13 @@ Lists date ranges for which audience insights data can be requested. List of thr
 await gapi.client.googleads.audienceInsights.listInsightsEligibleDates({});
 
 /*
+Returns the Local Services eligibility status and valid categories for a given Customer and GBP Listing ID.
+*/
+await gapi.client.googleads.customers.checkLocalServicesEligibility({
+  customerId: 'customerId',
+});
+
+/*
 Creates a new client under manager. The new client customer is returned. List of thrown errors: [AccessInvitationError]() [AuthenticationError]() [AuthorizationError]() [CurrencyCodeError]() [HeaderError]() [InternalError]() [ManagerLinkError]() [QuotaError]() [RequestError]() [StringLengthError]() [TimeZoneError]()
 */
 await gapi.client.googleads.customers.createCustomerClient({
