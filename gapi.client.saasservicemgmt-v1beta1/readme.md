@@ -1,7 +1,7 @@
 # TypeScript typings for App Lifecycle Manager API v1beta1
 
 Model, deploy, and operate your SaaS at scale.
-For detailed description please check [documentation](https://cloud.google.com/saas-runtime/docs).
+For detailed description please check [documentation](https://docs.cloud.google.com/app-lifecycle-manager).
 
 ## Installing
 
