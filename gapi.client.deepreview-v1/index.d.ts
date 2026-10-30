@@ -134,6 +134,12 @@ declare namespace gapi.client {
       geminiApiKeySet?: boolean;
       /** Optional. The Gemini model identifier to use for the review. If omitted, the server uses its default model. Unsupported values return INVALID_ARGUMENT. */
       model?: string;
+      /** Optional. Reasoning effort level for model calls in the review pipeline. Defaults to `THINKING_LEVEL_MEDIUM` when omitted or `THINKING_LEVEL_UNSPECIFIED`. Non-`THINKING_LEVEL_MEDIUM` thinking levels require `gemini_api_key` when calling `CreateReview`; otherwise `CreateReview` returns `INVALID_ARGUMENT`. */
+      thinkingLevel?:
+        | 'THINKING_LEVEL_UNSPECIFIED'
+        | 'THINKING_LEVEL_LOW'
+        | 'THINKING_LEVEL_MEDIUM'
+        | 'THINKING_LEVEL_HIGH';
       /** Optional. Review execution topology profile to use. */
       topology?: 'TOPOLOGY_UNSPECIFIED' | 'EXTRA_HIGH' | 'HIGH' | 'MID' | 'LOW';
       /** Optional. User-provided guidance, focus areas, or custom evaluation instructions passed to the review agents. */
@@ -487,7 +493,7 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<{}>;
-      /** Estimates what a review of a document would cost on the caller's Gemini API key. The estimate comes from what past reviews with the same model and depth cost, adjusted to this document's size and repriced at the Gemini API's current list prices. It covers one review attempt that runs to completion, and doesn't include retries after errors. */
+      /** Estimates what a review of a document would cost on the caller's Gemini API key. The estimate comes from what past reviews with the same model, depth, and thinking level cost, adjusted to this document's size and repriced at the Gemini API's current list prices. It covers one review attempt that runs to completion, and doesn't include retries after errors. */
       estimateReviewCost(request: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';

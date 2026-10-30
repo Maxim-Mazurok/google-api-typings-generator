@@ -90,7 +90,7 @@ Deletes a document and its stored content. If `force` is set to `true`, any asso
 await gapi.client.deepreview.documents.delete({name: 'name'});
 
 /*
-Estimates what a review of a document would cost on the caller's Gemini API key. The estimate comes from what past reviews with the same model and depth cost, adjusted to this document's size and repriced at the Gemini API's current list prices. It covers one review attempt that runs to completion, and doesn't include retries after errors.
+Estimates what a review of a document would cost on the caller's Gemini API key. The estimate comes from what past reviews with the same model, depth, and thinking level cost, adjusted to this document's size and repriced at the Gemini API's current list prices. It covers one review attempt that runs to completion, and doesn't include retries after errors.
 */
 await gapi.client.deepreview.documents.estimateReviewCost({
   document: 'document',
