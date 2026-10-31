@@ -133,7 +133,7 @@ await gapi.client.accesscontextmanager.accessPolicies.testIamPermissions({
 });
 
 /*
-Looks up the configured service perimeter for a given resource Format: ['projects/{projectNumber}', 'folders/{folderNumber}'].
+Looks up the configured service perimeter for a given resource. Format: `['projects/{projectNumber}', 'folders/{folderNumber}']`.
 */
 await gapi.client.accesscontextmanager.folders.lookupConfiguredServicePerimeter(
   {resource: 'resource'},
@@ -165,7 +165,7 @@ Lists all supported permissions in VPC Service Controls ingress and egress rules
 await gapi.client.accesscontextmanager.permissions.list({});
 
 /*
-Looks up the configured service perimeter for a given resource Format: ['projects/{projectNumber}', 'folders/{folderNumber}'].
+Looks up the configured service perimeter for a given resource. Format: `['projects/{projectNumber}', 'folders/{folderNumber}']`.
 */
 await gapi.client.accesscontextmanager.projects.lookupConfiguredServicePerimeter(
   {resource: 'resource'},
