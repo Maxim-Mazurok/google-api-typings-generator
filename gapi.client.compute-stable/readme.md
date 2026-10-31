@@ -5094,6 +5094,12 @@ Lists all of the ordered rules present in a single specified policy.
 await gapi.client.compute.regionSslPolicies.get({ project: "project", region: "region", sslPolicy: "sslPolicy",  });
 
 /*
+Gets the access control policy for a resource. May be empty if no such
+policy or resource exists.
+*/
+await gapi.client.compute.regionSslPolicies.getIamPolicy({ project: "project", region: "region", resource: "resource",  });
+
+/*
 Creates a new policy in the specified project and region using the data
 included in the request.
 */
@@ -5115,6 +5121,17 @@ await gapi.client.compute.regionSslPolicies.listAvailableFeatures({ project: "pr
 Patches the specified SSL policy with the data included in the request.
 */
 await gapi.client.compute.regionSslPolicies.patch({ project: "project", region: "region", sslPolicy: "sslPolicy",  });
+
+/*
+Sets the access control policy on the specified resource.
+Replaces any existing policy.
+*/
+await gapi.client.compute.regionSslPolicies.setIamPolicy({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.regionSslPolicies.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
 Deletes the specified TargetHttpProxy resource.
@@ -5934,6 +5951,12 @@ Lists all of the ordered rules present in a single specified policy.
 await gapi.client.compute.sslPolicies.get({ project: "project", sslPolicy: "sslPolicy",  });
 
 /*
+Gets the access control policy for a resource. May be empty if no such
+policy or resource exists.
+*/
+await gapi.client.compute.sslPolicies.getIamPolicy({ project: "project", resource: "resource",  });
+
+/*
 Returns the specified SSL policy resource.
 */
 await gapi.client.compute.sslPolicies.insert({ project: "project",  });
@@ -5954,6 +5977,17 @@ await gapi.client.compute.sslPolicies.listAvailableFeatures({ project: "project"
 Patches the specified SSL policy with the data included in the request.
 */
 await gapi.client.compute.sslPolicies.patch({ project: "project", sslPolicy: "sslPolicy",  });
+
+/*
+Sets the access control policy on the specified resource.
+Replaces any existing policy.
+*/
+await gapi.client.compute.sslPolicies.setIamPolicy({ project: "project", resource: "resource",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.sslPolicies.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
 Retrieves an aggregated list of storage pools.
