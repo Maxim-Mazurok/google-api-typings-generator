@@ -887,61 +887,6 @@ Updates a folder level GlobalVmExtensionPolicy.
 await gapi.client.compute.folderGlobalVmExtensionPolicies.update({ folder: "folder", globalVmExtensionPolicy: "globalVmExtensionPolicy",  });
 
 /*
-Deletes a FolderRolloutPlan.
-*/
-await gapi.client.compute.folderRolloutPlans.delete({ folder: "folder", rolloutPlan: "rolloutPlan",  });
-
-/*
-Gets details of a single folder-scoped RolloutPlan.
-*/
-await gapi.client.compute.folderRolloutPlans.get({ folder: "folder", rolloutPlan: "rolloutPlan",  });
-
-/*
-Creates a new RolloutPlan in a given folder and location.
-*/
-await gapi.client.compute.folderRolloutPlans.insert({ folder: "folder",  });
-
-/*
-Lists FolderRolloutPlans in a given folder and location.
-*/
-await gapi.client.compute.folderRolloutPlans.list({ folder: "folder",  });
-
-/*
-Advances a Rollout to the next wave, or completes it if no waves remain.
-*/
-await gapi.client.compute.folderRollouts.advance({ folder: "folder", rollout: "rollout",  });
-
-/*
-Cancels a Rollout.
-*/
-await gapi.client.compute.folderRollouts.cancel({ folder: "folder", rollout: "rollout",  });
-
-/*
-Deletes a Rollout.
-*/
-await gapi.client.compute.folderRollouts.delete({ folder: "folder", rollout: "rollout",  });
-
-/*
-Gets details of a single folder-scoped Rollout.
-*/
-await gapi.client.compute.folderRollouts.get({ folder: "folder", rollout: "rollout",  });
-
-/*
-Lists Rollouts in a given folder and location.
-*/
-await gapi.client.compute.folderRollouts.list({ folder: "folder",  });
-
-/*
-Pauses a Rollout.
-*/
-await gapi.client.compute.folderRollouts.pause({ folder: "folder", rollout: "rollout",  });
-
-/*
-Resumes a Rollout.
-*/
-await gapi.client.compute.folderRollouts.resume({ folder: "folder", rollout: "rollout",  });
-
-/*
 Deletes a specified zone VM extension policy within a folder.
 */
 await gapi.client.compute.folderZoneVmExtensionPolicies.delete({ folder: "folder", vmExtensionPolicy: "vmExtensionPolicy", zone: "zone",  });
@@ -3255,16 +3200,6 @@ await gapi.client.compute.networkFirewallPolicies.setIamPolicy({ project: "proje
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.networkFirewallPolicies.testIamPermissions({ project: "project", resource: "resource",  });
-
-/*
-Returns the specified NetworkLocationBinding resource in the given scope.
-*/
-await gapi.client.compute.networkLocationBindings.get({ networkLocationBinding: "networkLocationBinding", project: "project", region: "region",  });
-
-/*
-Lists the NetworkLocationBindings for a project in the given scope.
-*/
-await gapi.client.compute.networkLocationBindings.list({ project: "project", region: "region",  });
 
 /*
 Returns the specified network profile.
