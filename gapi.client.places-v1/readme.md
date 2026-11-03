@@ -1,6 +1,7 @@
 # TypeScript typings for Places API (New) v1
 
-For detailed description please check [documentation](https://mapsplatform.google.com/maps-products/#places-section).
+The Places API allows developers to access a variety of search and retrieval endpoints for a Place.
+For detailed description please check [documentation](https://developers.google.com/maps/documentation/places/web-service).
 
 ## Installing
 
