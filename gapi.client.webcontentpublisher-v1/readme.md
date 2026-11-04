@@ -65,6 +65,9 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
+    // Private Service: https://www.googleapis.com/auth/webcontentpublisher.publications.entitlements.readonly.system
+    'https://www.googleapis.com/auth/webcontentpublisher.publications.entitlements.readonly.system',
+
     // Private Service: https://www.googleapis.com/auth/webcontentpublisher.publications.manage.system
     'https://www.googleapis.com/auth/webcontentpublisher.publications.manage.system',
   ],
@@ -90,6 +93,13 @@ After that you can use Web Content Publisher API resources: <!-- TODO: make this
 Checks if a user is eligible for free article access.
 */
 await gapi.client.webcontentpublisher.publications.checkFreeAccess({
+  name: 'name',
+});
+
+/*
+Checks if a reader has active program access.
+*/
+await gapi.client.webcontentpublisher.publications.checkProgramAccess({
   name: 'name',
 });
 

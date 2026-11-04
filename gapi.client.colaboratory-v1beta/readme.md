@@ -95,7 +95,7 @@ Creates a Colab runtime assignment. When runtime creation is refused with a [`FA
 await gapi.client.colaboratory.runtimes.create({});
 
 /*
-Deletes a Colab runtime assignment. **Best Practices:** - Avoid deleting runtimes unless necessary. Reuse runtimes for efficiency. - Create a new Jupyter session within an existing runtime for state isolation.
+Deletes a Colab runtime assignment. **Best Practices:** - Avoid deleting runtimes unless necessary. Reuse runtimes for efficiency. - Open a new Jupyter session on an existing runtime for state isolation.
 */
 await gapi.client.colaboratory.runtimes.delete({name: 'name'});
 
