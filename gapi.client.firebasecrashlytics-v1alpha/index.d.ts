@@ -379,6 +379,14 @@ declare namespace gapi.client {
         | 'TRACK_TYPE_CLOSED_TESTING'
         | 'TRACK_TYPE_EARLY_ACCESS';
     }
+    interface ProfilingManagerConfig {
+      /** Optional. Resource name of the Google Cloud Storage bucket where enriched heap dumps are stored. Format: "projects/{project}/buckets/{bucket}" (use `_` as `{project}` for global buckets, for example "projects/_/buckets/my-global-bucket"). */
+      bucket?: string;
+      /** Optional. Whether Crashlytics heap dump collection is enabled for the app. */
+      heapDumpCollectionEnabled?: boolean;
+      /** Identifier. The resource name of the Profiling Manager configuration. Format: "projects/{project}/apps/{app}/profilingManagerConfig". */
+      name?: string;
+    }
     interface Report {
       /** Output only. The displayable title of the report. */
       displayName?: string;
@@ -1115,6 +1123,95 @@ declare namespace gapi.client {
         },
         body: GenerateAlertPolicyRequest,
       ): Request<GenerateAlertPolicyResponse>;
+      /** Retrieves the Android Profiling Manager configuration for an app. */
+      getProfilingManagerConfig(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The resource name of the Profiling Manager configuration to retrieve. Format: "projects/{project}/apps/{app}/profilingManagerConfig". */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ProfilingManagerConfig>;
+      /** Updates the Android Profiling Manager configuration for an app. */
+      updateProfilingManagerConfig(request: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Identifier. The resource name of the Profiling Manager configuration. Format: "projects/{project}/apps/{app}/profilingManagerConfig". */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. The list of ProfilingManagerConfig fields to update (`gcs_bucket`, `heap_dump_collection_enabled`). If omitted, all populated (non-default) fields are updated; specify an explicit `update_mask` (or `*`) when clearing a field to its default value (such as `""` or `false`). */
+        updateMask?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: ProfilingManagerConfig;
+      }): Request<ProfilingManagerConfig>;
+      updateProfilingManagerConfig(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Identifier. The resource name of the Profiling Manager configuration. Format: "projects/{project}/apps/{app}/profilingManagerConfig". */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Optional. The list of ProfilingManagerConfig fields to update (`gcs_bucket`, `heap_dump_collection_enabled`). If omitted, all populated (non-default) fields are updated; specify an explicit `update_mask` (or `*`) when clearing a field to its default value (such as `""` or `false`). */
+          updateMask?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: ProfilingManagerConfig,
+      ): Request<ProfilingManagerConfig>;
       events: EventsResource;
       issues: IssuesResource;
       reports: ReportsResource;

@@ -43,6 +43,24 @@ gapi.load('client', async () => {
         language: 'Test string',
       },
     );
+    /** Retrieves the Android Profiling Manager configuration for an app. */
+    await gapi.client.firebasecrashlytics.projects.apps.getProfilingManagerConfig(
+      {
+        name: 'Test string',
+      },
+    );
+    /** Updates the Android Profiling Manager configuration for an app. */
+    await gapi.client.firebasecrashlytics.projects.apps.updateProfilingManagerConfig(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        bucket: 'Test string',
+        heapDumpCollectionEnabled: true,
+        name: 'Test string',
+      },
+    );
     /** Fetch a batch of up to 100 events by name. */
     await gapi.client.firebasecrashlytics.projects.apps.events.batchGet({
       names: 'Test string',
