@@ -68,14 +68,8 @@ var client_id = '',
     // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
     'https://www.googleapis.com/auth/cloud-platform',
 
-    // View your data across Google Cloud services and see the email address of your Google Account
-    'https://www.googleapis.com/auth/cloud-platform.read-only',
-
     // View and administer all your Firebase data and settings
     'https://www.googleapis.com/auth/firebase',
-
-    // View all your Firebase data and settings
-    'https://www.googleapis.com/auth/firebase.readonly',
   ],
   immediate = true;
 // ...
