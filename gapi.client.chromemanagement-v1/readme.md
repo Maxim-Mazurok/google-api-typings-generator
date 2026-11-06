@@ -68,6 +68,18 @@ var client_id = '',
     // See detailed information about apps installed on Chrome browsers and devices managed by your organization
     'https://www.googleapis.com/auth/chrome.management.appdetails.readonly',
 
+    // See, edit, delete, and take other necessary actions on Chrome browsers managed by your organization
+    'https://www.googleapis.com/auth/chrome.management.browsers',
+
+    // See Chrome browsers managed by your organization
+    'https://www.googleapis.com/auth/chrome.management.browsers.readonly',
+
+    // See, edit, revoke, and take other necessary actions on Chrome enrollment tokens managed by your organization
+    'https://www.googleapis.com/auth/chrome.management.enrollmenttokens',
+
+    // See Chrome enrollment tokens managed by your organization
+    'https://www.googleapis.com/auth/chrome.management.enrollmenttokens.readonly',
+
     // See, edit, delete, and take other necessary actions on Chrome browser profiles managed by your organization
     'https://www.googleapis.com/auth/chrome.management.profiles',
 
