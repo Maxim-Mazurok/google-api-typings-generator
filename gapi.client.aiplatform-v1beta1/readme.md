@@ -193,9 +193,9 @@ Fully typed proto, streaming version of GetInteraction that returns Interaction 
 await gapi.client.aiplatform.interactions.getStream({name: 'name'});
 
 /*
-Upload a file into a RagCorpus.
+Downloads a file. The response body is the file's bytes, with the file's own media type as the `Content-Type` and a `Content-Disposition` that names the file. Media is the default and only representation, so no `alt` parameter is needed. A preview sets `processing_config` and gets a rendition of the file in place of the file, such as a PDF of a .pptx: the response body is the rendition, with its own media type as the `Content-Type` and a `Content-Disposition` name that ends in its extension. Without `processing_config` the response is always the stored file.
 */
-await gapi.client.aiplatform.media.upload({parent: 'parent'});
+await gapi.client.aiplatform.media.download({name: 'name'});
 
 /*
 Ingests events for a Memory Bank.
