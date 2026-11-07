@@ -184,6 +184,16 @@ declare namespace gapi.client {
         | 'SEARCH_INDEXER';
       /** Optional. Enumerated string value that indicates the identity of the bot, formatted in kebab-case. Current example values include the following: * google-agent - AI_AGENT * browser-base - AI_AGENT * chat-gpt - AI_AGENT * aws-bedrock - AI_AGENT * cybaa-bot - AI_AGENT * cloudflare - AI_AGENT * payhawk - AI_AGENT * duck-duck-go - AI_AGENT * mediaboard - CONTENT_SCRAPER * marker-io - AI_AGENT * anchor-browser - AI_AGENT * shopify - AI_AGENT * stackscope - CONTENT_SCRAPER * manus - AI_AGENT * kernel-sh - AI_AGENT * zvelo - SEARCH_INDEXER * meta-muse - AI_AGENT * duck-duck-bot - SEARCH_INDEXER * my-porta - SEARCH_INDEXER * ison-search - SEARCH_INDEXER * rokt - SEARCH_INDEXER Ensure that your applications can handle identifier values not explicitly listed here. Deprecated values might take some time to stop showing up in responses. New values can be pushed so this list should be taken as non exhaustive. */
       name?: string;
+      /** Optional. Verification information for the bot. */
+      verificationInfo?: GoogleCloudRecaptchaenterpriseV1BotVerificationInfo;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1BotVerificationInfo {
+      /** Optional. Enumerated field representing the verification level of the bot. */
+      verificationLevel?:
+        | 'VERIFICATION_LEVEL_UNSPECIFIED'
+        | 'SUSPECTED'
+        | 'SELF_IDENTIFIED'
+        | 'VERIFIED';
     }
     interface GoogleCloudRecaptchaenterpriseV1ChallengeMetrics {
       /** Count of submitted challenge solutions that were incorrect or otherwise deemed suspicious such that a subsequent challenge was triggered. */
@@ -525,6 +535,8 @@ declare namespace gapi.client {
     interface GoogleCloudRecaptchaenterpriseV1RiskAnalysis {
       /** Output only. Challenge information for Universal, `POLICY_BASED_CHALLENGE` and `INVISIBLE` keys. */
       challenge?: 'CHALLENGE_UNSPECIFIED' | 'NOCAPTCHA' | 'PASSED' | 'FAILED';
+      /** Output only. Bots (both verified and suspected) detected in the event. */
+      detectedBots?: GoogleCloudRecaptchaenterpriseV1Bot[];
       /** Output only. Additional reasons contributing to the risk analysis verdict. These reasons are available to Enterprise tier projects only. Contact sales for more information. The set of reasons is subject to change. */
       extendedVerdictReasons?: string[];
       /** Output only. Type of the last challenge presented to the user for Universal, `POLICY_BASED_CHALLENGE` and `INVISIBLE` keys. The field is only set when a challenge was presented to the user. */

@@ -252,6 +252,15 @@ gapi.load('client', async () => {
         },
         riskAnalysis: {
           challenge: 'Test string',
+          detectedBots: [
+            {
+              botType: 'Test string',
+              name: 'Test string',
+              verificationInfo: {
+                verificationLevel: 'Test string',
+              },
+            },
+          ],
           extendedVerdictReasons: ['Test string'],
           lastChallengeType: 'Test string',
           reasons: ['Test string'],
@@ -260,6 +269,9 @@ gapi.load('client', async () => {
             {
               botType: 'Test string',
               name: 'Test string',
+              verificationInfo: {
+                verificationLevel: 'Test string',
+              },
             },
           ],
         },
