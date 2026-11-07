@@ -85,6 +85,11 @@ After that you can use Google Cloud Data Catalog API resources: <!-- TODO: make 
 Searches Data Catalog for multiple resources like entries and tags that match a query. This is a [Custom Method] (https://cloud.google.com/apis/design/custom_methods) that doesn't return all information on a resource, only its ID and high level fields. To get more information, you can subsequently call specific get methods. Note: Data Catalog search queries don't guarantee full recall. Results that match your query might not be returned, even in subsequent result pages. Additionally, returned (and not returned) results can vary if you repeat search queries. For more information, see [Data Catalog search syntax] (https://cloud.google.com/data-catalog/docs/how-to/search-reference).
 */
 await gapi.client.datacatalog.catalog.search({});
+
+/*
+Gets an entry by its target resource name. The resource name comes from the source Google Cloud Platform service.
+*/
+await gapi.client.datacatalog.entries.lookup({});
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.datacatalog-v1#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
