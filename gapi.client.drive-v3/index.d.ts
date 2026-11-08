@@ -172,6 +172,8 @@ declare namespace gapi.client {
     interface Approval {
       /** The approval ID. */
       approvalId?: string;
+      /** The revision ID of the file when the approval completed successfully. This is only set when the approval status is APPROVED. */
+      approvedRevisionId?: string;
       /** The time the approval was completed. */
       completeTime?: string;
       /** The time the approval was created. */
