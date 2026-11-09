@@ -64,6 +64,12 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
+    // See, edit, configure, and delete your Google Cloud Assured Workloads data and see the email address for your Google Account
+    'https://www.googleapis.com/auth/assuredworkloads',
+
+    // See your Google Cloud Assured Workloads data and the email address of your Google Account
+    'https://www.googleapis.com/auth/assuredworkloads.readonly',
+
     // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
     'https://www.googleapis.com/auth/cloud-platform',
   ],

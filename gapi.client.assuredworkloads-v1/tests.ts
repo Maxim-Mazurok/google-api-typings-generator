@@ -17,6 +17,10 @@ gapi.load('client', async () => {
   /** declare client_id registered in Google Developers Console */
   const client_id = '<<PUT YOUR CLIENT ID HERE>>';
   const scope = [
+    /** See, edit, configure, and delete your Google Cloud Assured Workloads data and see the email address for your Google Account */
+    'https://www.googleapis.com/auth/assuredworkloads',
+    /** See your Google Cloud Assured Workloads data and the email address of your Google Account */
+    'https://www.googleapis.com/auth/assuredworkloads.readonly',
     /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
     'https://www.googleapis.com/auth/cloud-platform',
   ];
@@ -31,96 +35,6 @@ gapi.load('client', async () => {
   });
 
   async function run() {
-    /** Lists summaries of the active findings in a Data Boundary scope (an organization, folder, or project), with one summary for each finding category. */
-    await gapi.client.assuredworkloads.folders.locations.dbFindingSummaries.list(
-      {
-        filter: 'Test string',
-        pageSize: 42,
-        pageToken: 'Test string',
-        parent: 'Test string',
-      },
-    );
-    /** Gets daily compliance reports over a time range for a framework that's deployed in a Data Boundary scope. */
-    await gapi.client.assuredworkloads.folders.locations.dbFrameworkComplianceReports.aggregate(
-      {
-        filter: 'Test string',
-        'interval.endTime': 'Test string',
-        'interval.startTime': 'Test string',
-        name: 'Test string',
-      },
-    );
-    /** Fetches the current compliance report for a framework that's deployed in a Data Boundary scope (an organization, folder, or project). The report includes the number of passing, failing, and not assessed controls in the framework. */
-    await gapi.client.assuredworkloads.folders.locations.dbFrameworkComplianceReports.fetch(
-      {
-        endTime: 'Test string',
-        filter: 'Test string',
-        name: 'Test string',
-      },
-    );
-    /** Lists the compliance summaries of the controls in a framework compliance report. */
-    await gapi.client.assuredworkloads.folders.locations.dbFrameworkComplianceReports.dbControlComplianceSummaries.list(
-      {
-        filter: 'Test string',
-        pageSize: 42,
-        pageToken: 'Test string',
-        parent: 'Test string',
-      },
-    );
-    /** Lists the compliance summaries of the frameworks that are deployed in a Data Boundary scope (an organization, folder, or project). */
-    await gapi.client.assuredworkloads.folders.locations.dbFrameworkComplianceSummaries.list(
-      {
-        filter: 'Test string',
-        pageSize: 42,
-        pageToken: 'Test string',
-        parent: 'Test string',
-        view: 'Test string',
-      },
-    );
-    /** Lists summaries of the active findings in a Data Boundary scope (an organization, folder, or project), with one summary for each finding category. */
-    await gapi.client.assuredworkloads.organizations.locations.dbFindingSummaries.list(
-      {
-        filter: 'Test string',
-        pageSize: 42,
-        pageToken: 'Test string',
-        parent: 'Test string',
-      },
-    );
-    /** Gets daily compliance reports over a time range for a framework that's deployed in a Data Boundary scope. */
-    await gapi.client.assuredworkloads.organizations.locations.dbFrameworkComplianceReports.aggregate(
-      {
-        filter: 'Test string',
-        'interval.endTime': 'Test string',
-        'interval.startTime': 'Test string',
-        name: 'Test string',
-      },
-    );
-    /** Fetches the current compliance report for a framework that's deployed in a Data Boundary scope (an organization, folder, or project). The report includes the number of passing, failing, and not assessed controls in the framework. */
-    await gapi.client.assuredworkloads.organizations.locations.dbFrameworkComplianceReports.fetch(
-      {
-        endTime: 'Test string',
-        filter: 'Test string',
-        name: 'Test string',
-      },
-    );
-    /** Lists the compliance summaries of the controls in a framework compliance report. */
-    await gapi.client.assuredworkloads.organizations.locations.dbFrameworkComplianceReports.dbControlComplianceSummaries.list(
-      {
-        filter: 'Test string',
-        pageSize: 42,
-        pageToken: 'Test string',
-        parent: 'Test string',
-      },
-    );
-    /** Lists the compliance summaries of the frameworks that are deployed in a Data Boundary scope (an organization, folder, or project). */
-    await gapi.client.assuredworkloads.organizations.locations.dbFrameworkComplianceSummaries.list(
-      {
-        filter: 'Test string',
-        pageSize: 42,
-        pageToken: 'Test string',
-        parent: 'Test string',
-        view: 'Test string',
-      },
-    );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
     await gapi.client.assuredworkloads.organizations.locations.operations.get({
       name: 'Test string',
@@ -375,51 +289,6 @@ gapi.load('client', async () => {
         'interval.endTime': 'Test string',
         'interval.startTime': 'Test string',
         orderBy: 'Test string',
-        pageSize: 42,
-        pageToken: 'Test string',
-        parent: 'Test string',
-        view: 'Test string',
-      },
-    );
-    /** Lists summaries of the active findings in a Data Boundary scope (an organization, folder, or project), with one summary for each finding category. */
-    await gapi.client.assuredworkloads.projects.locations.dbFindingSummaries.list(
-      {
-        filter: 'Test string',
-        pageSize: 42,
-        pageToken: 'Test string',
-        parent: 'Test string',
-      },
-    );
-    /** Gets daily compliance reports over a time range for a framework that's deployed in a Data Boundary scope. */
-    await gapi.client.assuredworkloads.projects.locations.dbFrameworkComplianceReports.aggregate(
-      {
-        filter: 'Test string',
-        'interval.endTime': 'Test string',
-        'interval.startTime': 'Test string',
-        name: 'Test string',
-      },
-    );
-    /** Fetches the current compliance report for a framework that's deployed in a Data Boundary scope (an organization, folder, or project). The report includes the number of passing, failing, and not assessed controls in the framework. */
-    await gapi.client.assuredworkloads.projects.locations.dbFrameworkComplianceReports.fetch(
-      {
-        endTime: 'Test string',
-        filter: 'Test string',
-        name: 'Test string',
-      },
-    );
-    /** Lists the compliance summaries of the controls in a framework compliance report. */
-    await gapi.client.assuredworkloads.projects.locations.dbFrameworkComplianceReports.dbControlComplianceSummaries.list(
-      {
-        filter: 'Test string',
-        pageSize: 42,
-        pageToken: 'Test string',
-        parent: 'Test string',
-      },
-    );
-    /** Lists the compliance summaries of the frameworks that are deployed in a Data Boundary scope (an organization, folder, or project). */
-    await gapi.client.assuredworkloads.projects.locations.dbFrameworkComplianceSummaries.list(
-      {
-        filter: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
