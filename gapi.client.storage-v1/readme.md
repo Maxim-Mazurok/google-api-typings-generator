@@ -120,15 +120,7 @@ Returns a list of Anywhere Cache instances of the bucket matching the criteria.
 await gapi.client.storage.anywhereCaches.list({bucket: 'bucket'});
 
 /*
-Pauses an Anywhere Cache instance.
-*/
-await gapi.client.storage.anywhereCaches.pause({
-  anywhereCacheId: 'anywhereCacheId',
-  bucket: 'bucket',
-});
-
-/*
-Resumes a paused or disabled Anywhere Cache instance.
+Resumes a disabled Anywhere Cache instance.
 */
 await gapi.client.storage.anywhereCaches.resume({
   anywhereCacheId: 'anywhereCacheId',

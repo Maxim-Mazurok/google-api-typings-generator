@@ -87,12 +87,12 @@ After that you can use Merchant API resources: <!-- TODO: make this work for mul
 
 ```typescript
 /*
-Creates a Merchant Center account with additional configuration. Adds the user that makes the request as an admin for the new account.
+Creates a Merchant Center account with additional configuration. Adds the user that makes the request as an admin for the new account. For step-by-step instructions, see [Create accounts](https://developers.google.com/merchant/api/guides/accounts/create-accounts).
 */
 await gapi.client.merchantapi.accounts.createAndConfigure({});
 
 /*
-Creates a Merchant Center test account. Test accounts are intended for development and testing purposes, such as validating API integrations or new feature behavior. Key characteristics and limitations of test accounts: - Immutable Type: A test account cannot be converted into a regular (live) Merchant Center account. Likewise, a regular account cannot be converted into a test account. - Non-Serving Products: Any products, offers, or data created within a test account will not be published or made visible to end-users on any Google surfaces. They are strictly for testing environments. - Separate Environment: Test accounts operate in a sandbox-like manner, isolated from live serving and real user traffic.
+Creates a Merchant Center test account. Test accounts are intended for development and testing purposes, such as validating API integrations or new feature behavior. Key characteristics and limitations of test accounts: - Immutable Type: A test account cannot be converted into a regular (live) Merchant Center account. Likewise, a regular account cannot be converted into a test account. - Non-Serving Products: Any products, offers, or data created within a test account will not be published or made visible to end-users on any Google surfaces. They are strictly for testing environments. - Separate Environment: Test accounts operate in a sandbox-like manner, isolated from live serving and real user traffic. For more information, see [Create test accounts](https://developers.google.com/merchant/api/guides/accounts/test-accounts).
 */
 await gapi.client.merchantapi.accounts.createTestAccount({parent: 'parent'});
 
@@ -107,7 +107,7 @@ Retrieves an account from your Merchant Center account. After inserting, updatin
 await gapi.client.merchantapi.accounts.get({name: 'name'});
 
 /*
-Note: For the `accounts.list` method, quota and limits usage are charged for each user, and not for the Merchant Center ID or the advanced account ID. To list several sub-accounts, you should use the `accounts.listSubaccounts` method, which is more suitable for advanced accounts use case.
+Note: For the `accounts.list` method, quota and limits usage are charged for each user, and not for the Merchant Center ID or the advanced account ID. To list several sub-accounts, you should use the `accounts.listSubaccounts` method, which is more suitable for advanced accounts use case. For more information, see [Filter accounts you can access](https://developers.google.com/merchant/api/guides/accounts/filter).
 */
 await gapi.client.merchantapi.accounts.list({});
 

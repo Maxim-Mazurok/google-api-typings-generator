@@ -87,21 +87,21 @@ After that you can use Merchant API resources: <!-- TODO: make this work for mul
 
 ```typescript
 /*
-Provide a list of business's account issues with an issue resolution content and available actions. This content and actions are meant to be rendered and shown in third-party applications.
+Provide a list of business's account issues with an issue resolution content and available actions. This content and actions are meant to be rendered and shown in third-party applications. For more information, see [Display issues and solutions to businesses](https://developers.google.com/merchant/api/guides/accounts/render-issues).
 */
 await gapi.client.merchantapi.issueresolution.renderaccountissues({
   name: 'name',
 });
 
 /*
-Provide a list of issues for business's product with an issue resolution content and available actions. This content and actions are meant to be rendered and shown in third-party applications.
+Provide a list of issues for business's product with an issue resolution content and available actions. This content and actions are meant to be rendered and shown in third-party applications. For more information, see [Display issues and solutions to businesses](https://developers.google.com/merchant/api/guides/accounts/render-issues).
 */
 await gapi.client.merchantapi.issueresolution.renderproductissues({
   name: 'name',
 });
 
 /*
-Start an action. The action can be requested by a business in third-party application. Before the business can request the action, the third-party application needs to show them action specific content and display a user input form. Access to the `triggeraction` method is restricted to an allowlist. You can submit an allowlist request in the [Shopping API Support Form](https://support.google.com/merchants/contact/shopping_api_support_form) under "What is the issue/question?" to get access to this feature. The action can be successfully started only once all `required` inputs are provided. If any `required` input is missing, or invalid value was provided, the service will return 400 error. Validation errors will contain Ids for all problematic field together with translated, human readable error messages that can be shown to the user.
+Start an action. The action can be requested by a business in third-party application. Before the business can request the action, the third-party application needs to show them action specific content and display a user input form. Access to the `triggeraction` method is restricted to an allowlist. You can submit an allowlist request in the [Shopping API Support Form](https://support.google.com/merchants/contact/shopping_api_support_form) under "What is the issue/question?" to get access to this feature. The action can be successfully started only once all `required` inputs are provided. If any `required` input is missing, or invalid value was provided, the service will return 400 error. Validation errors will contain Ids for all problematic field together with translated, human readable error messages that can be shown to the user. For more information, see [Display issues and solutions to businesses](https://developers.google.com/merchant/api/guides/accounts/render-issues).
 */
 await gapi.client.merchantapi.issueresolution.triggeraction({name: 'name'});
 ```

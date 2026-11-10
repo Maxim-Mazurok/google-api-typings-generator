@@ -1,0 +1,141 @@
+# TypeScript typings for My Business Business Information API v1alpha
+
+The My Business Business Information API provides an interface for managing business information on Google. Note: If you have a quota of 0 after enabling the API, please request GBP API access at https://developers.google.com/my-business/content/prereqs#request-access.
+For detailed description please check [documentation](https://developers.google.com/my-business/).
+
+## Installing
+
+Install typings for My Business Business Information API:
+
+```
+npm install @types/gapi.client.mybusinessbusinessinformation-v1alpha --save-dev
+```
+
+## TypeScript 6.0+
+
+TypeScript 6.0 changed `types` to default to `[]`. You must now explicitly list type packages in `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "types": [
+      "gapi",
+      "gapi.auth2",
+      "gapi.client",
+      "gapi.client.mybusinessbusinessinformation-v1alpha"
+    ]
+  }
+}
+```
+
+## Usage
+
+You need to initialize Google API client in your code:
+
+```typescript
+gapi.load('client', () => {
+  // now we can use gapi.client
+  // ...
+});
+```
+
+Then load api client wrapper:
+
+```typescript
+gapi.client.load(
+  'https://mybusinessbusinessinformation.googleapis.com/$discovery/rest?version=v1alpha',
+  () => {
+    // now we can use:
+    // gapi.client.mybusinessbusinessinformation
+  },
+);
+```
+
+```typescript
+// Deprecated, use discovery document URL, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadname----version----callback--
+gapi.client.load('mybusinessbusinessinformation', 'v1alpha', () => {
+  // now we can use:
+  // gapi.client.mybusinessbusinessinformation
+});
+```
+
+After that you can use My Business Business Information API resources: <!-- TODO: make this work for multiple namespaces -->
+
+```typescript
+/*
+Returns the list of attributes that would be available for a location with the given primary category and country.
+*/
+await gapi.client.mybusinessbusinessinformation.attributes.list({});
+
+/*
+Returns a list of business categories for the provided language and GConcept ids.
+*/
+await gapi.client.mybusinessbusinessinformation.categories.batchGet({});
+
+/*
+Returns a list of business categories. Search will match the category name but not the category ID. Search only matches the front of a category name (that is, 'food' may return 'Food Court' but not 'Fast Food Restaurant').
+*/
+await gapi.client.mybusinessbusinessinformation.categories.list({});
+
+/*
+Gets the specified chain. Returns `NOT_FOUND` if the chain does not exist.
+*/
+await gapi.client.mybusinessbusinessinformation.chains.get({name: 'name'});
+
+/*
+Searches the chain based on chain name.
+*/
+await gapi.client.mybusinessbusinessinformation.chains.search({});
+
+/*
+Search all of the possible locations that are a match to the specified request.
+*/
+await gapi.client.mybusinessbusinessinformation.googleLocations.search({});
+
+/*
+Deletes a location. If this location cannot be deleted using the API and it is marked so in the `google.mybusiness.businessinformation.v1.LocationState`, use the [Google Business Profile](https://business.google.com/manage/) website.
+*/
+await gapi.client.mybusinessbusinessinformation.locations.delete({
+  name: 'name',
+});
+
+/*
+Returns the specified location as last set by the merchant. It may not reflect updates from Google or user-generated content that are live on Google Maps.
+*/
+await gapi.client.mybusinessbusinessinformation.locations.get({name: 'name'});
+
+/*
+Retrieves attributes for a location as last set by the merchant. It may not reflect updates from Google or user-generated content that are live on Google Maps.
+*/
+await gapi.client.mybusinessbusinessinformation.locations.getAttributes({
+  name: 'name',
+});
+
+/*
+Returns the specified location with extended metadata. This includes both the merchant-provided data and the consumer-facing view, which may differ. It also includes a mapping of field paths to metadata describing the current state of edits on that field, its origin source, and rejection details.
+*/
+await gapi.client.mybusinessbusinessinformation.locations.getExtended({
+  name: 'name',
+});
+
+/*
+Returns the specified location as it appears live on Google Maps and Search. This consumer-facing view may have been updated by Google or user-generated content and may differ from the merchant's version. The returned GoogleUpdatedLocation contains masks that indicate which fields differ from the merchant's information.
+*/
+await gapi.client.mybusinessbusinessinformation.locations.getGoogleUpdated({
+  name: 'name',
+});
+
+/*
+Updates the specified location.
+*/
+await gapi.client.mybusinessbusinessinformation.locations.patch({name: 'name'});
+
+/*
+Update attributes for a given location.
+*/
+await gapi.client.mybusinessbusinessinformation.locations.updateAttributes({
+  name: 'name',
+});
+```
+
+For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.mybusinessbusinessinformation-v1alpha#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
