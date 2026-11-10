@@ -78,11 +78,38 @@ var client_id = '',
     // Manage drafts and send emails
     'https://www.googleapis.com/auth/gmail.compose',
 
+    // Read, compose, send, update, and permanently delete your draft emails
+    'https://www.googleapis.com/auth/gmail.drafts',
+
+    // Compose new draft emails
+    'https://www.googleapis.com/auth/gmail.drafts.create',
+
+    // Read your draft emails
+    'https://www.googleapis.com/auth/gmail.drafts.readonly',
+
     // Add emails into your Gmail mailbox
     'https://www.googleapis.com/auth/gmail.insert',
 
     // See and edit your email labels
     'https://www.googleapis.com/auth/gmail.labels',
+
+    // Create new email labels
+    'https://www.googleapis.com/auth/gmail.labels.create',
+
+    // Read your email labels
+    'https://www.googleapis.com/auth/gmail.labels.readonly',
+
+    // Read, update, and permanently delete all your emails
+    'https://www.googleapis.com/auth/gmail.messages',
+
+    // Permanently delete all your emails
+    'https://www.googleapis.com/auth/gmail.messages.delete',
+
+    // Update but not delete your emails
+    'https://www.googleapis.com/auth/gmail.messages.modify',
+
+    // Read your emails
+    'https://www.googleapis.com/auth/gmail.messages.readonly',
 
     // View your email message metadata such as labels and headers, but not the email body
     'https://www.googleapis.com/auth/gmail.metadata',
@@ -96,8 +123,17 @@ var client_id = '',
     // Send email on your behalf
     'https://www.googleapis.com/auth/gmail.send',
 
+    // Send email to yourself
+    'https://www.googleapis.com/auth/gmail.send.self',
+
     // See, edit, create, or change your email settings and filters in Gmail
     'https://www.googleapis.com/auth/gmail.settings.basic',
+
+    // Read, create, and delete your filters
+    'https://www.googleapis.com/auth/gmail.settings.filters',
+
+    // Read your filters
+    'https://www.googleapis.com/auth/gmail.settings.filters.readonly',
 
     // Manage your sensitive mail settings, including who can manage your mail
     'https://www.googleapis.com/auth/gmail.settings.sharing',
