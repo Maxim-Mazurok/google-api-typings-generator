@@ -303,15 +303,15 @@ declare namespace gapi.client {
       workforcePoolProviderKeys?: WorkforcePoolProviderKey[];
     }
     interface ListWorkforcePoolProviderScimTenantsResponse {
-      /** Optional. Gemini Enterprise and Looker only. A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
+      /** Optional. Gemini Enterprise only. A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
       nextPageToken?: string;
-      /** Output only. Gemini Enterprise and Looker only. A list of SCIM tenants. */
+      /** Output only. Gemini Enterprise only. A list of SCIM tenants. */
       workforcePoolProviderScimTenants?: WorkforcePoolProviderScimTenant[];
     }
     interface ListWorkforcePoolProviderScimTokensResponse {
-      /** Optional. Gemini Enterprise and Looker only. A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
+      /** Optional. Gemini Enterprise only. A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
       nextPageToken?: string;
-      /** Output only. Gemini Enterprise and Looker only. A list of SCIM tokens. */
+      /** Output only. Gemini Enterprise only. A list of SCIM tokens. */
       workforcePoolProviderScimTokens?: WorkforcePoolProviderScimToken[];
     }
     interface ListWorkforcePoolProvidersResponse {
@@ -710,8 +710,6 @@ declare namespace gapi.client {
       attributeCondition?: string;
       /** Required. Maps attributes from the authentication credentials issued by an external identity provider to Google Cloud attributes, such as `subject` and `segment`. Each key must be a string specifying the Google Cloud IAM attribute to map to. The following keys are supported: * `google.subject`: The principal IAM is authenticating. You can reference this value in IAM bindings. This is also the subject that appears in Cloud Logging logs. This is a required field and the mapped subject cannot exceed 127 bytes. * `google.groups`: Groups the authenticating user belongs to. You can grant groups access to resources using an IAM `principalSet` binding; access applies to all members of the group. * `google.display_name`: The name of the authenticated user. This is an optional field and the mapped display name cannot exceed 100 bytes. If not set, `google.subject` will be displayed instead. This attribute cannot be referenced in IAM bindings. * `google.profile_photo`: The URL that specifies the authenticated user's thumbnail photo. This is an optional field. When set, the image will be visible as the user's profile picture. If not set, a generic user icon will be displayed instead. This attribute cannot be referenced in IAM bindings. * `google.posix_username`: The Linux username used by OS Login. This is an optional field and the mapped POSIX username cannot exceed 32 characters. The key must match the regex `^a-zA-Z0-9._{0,31}$`. This attribute cannot be referenced in IAM bindings. You can also provide custom attributes by specifying `attribute.{custom_attribute}`, where {custom_attribute} is the name of the custom attribute to be mapped. You can define a maximum of 50 custom attributes. The maximum length of a mapped attribute key is 100 characters, and the key may only contain the characters `[a-z0-9_]`. You can reference these attributes in IAM policies to define fine-grained access for a workforce pool to Google Cloud resources. For example: * `google.subject`: `principal://iam.googleapis.com/locations/global/workforcePools/{pool}/subject/{value}` * `google.groups`: `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool}/group/{value}` * `attribute.{custom_attribute}`: `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool}/attribute.{custom_attribute}/{value}` Each value must be a [Common Expression Language] (https://opensource.google/projects/cel) function that maps an identity provider credential to the normalized attribute specified by the corresponding map key. You can use the `assertion` keyword in the expression to access a JSON representation of the authentication credential issued by the provider. The maximum length of an attribute mapping expression is 2048 characters. When evaluated, the total size of all mapped attributes must not exceed 16 KB. For OIDC providers, you must supply a custom mapping that includes the `google.subject` attribute. For example, the following maps the `sub` claim of the incoming credential to the `subject` attribute on a Google token: ``` {"google.subject": "assertion.sub"} ``` */
       attributeMapping?: {[P in string]: string};
-      /** Optional. An interval that determines how often user attributes are synced from the IdP. Must be between 30 minutes (1800s) and 12 hours (43200s). This configuration is used only when the Google Cloud session length policy is configured. When Google Cloud session length policy is configured and `attribute_sync_interval` is not configured, attributes are synced after a default interval of 12 hours (43200 seconds). */
-      attributeSyncInterval?: string;
       /** Optional. A description of the provider. Cannot exceed 256 characters. */
       description?: string;
       /** Optional. If true, populates additional debug information in Cloud Audit Logs for this provider. Logged attribute mappings and values can be found in `sts.googleapis.com` data access logs. Default value is false. */
@@ -732,7 +730,7 @@ declare namespace gapi.client {
       oidc?: GoogleIamAdminV1WorkforcePoolProviderOidc;
       /** A SAML identity provider configuration. */
       saml?: GoogleIamAdminV1WorkforcePoolProviderSaml;
-      /** Optional. Gemini Enterprise and Looker only. Specifies whether the workforce identity pool provider uses SCIM-managed groups, or users and groups. The `scim_usage` and `extended_attributes_oauth2_client` fields are mutually exclusive. A request that enables both fields on the same workforce identity pool provider will produce an error. */
+      /** Optional. Gemini Enterprise only. Specifies whether the workforce identity pool provider uses SCIM-managed groups instead of the `google.groups` attribute mapping for authorization checks. The `scim_usage` and `extended_attributes_oauth2_client` fields are mutually exclusive. A request that enables both fields on the same workforce identity pool provider will produce an error. */
       scimUsage?:
         | 'SCIM_USAGE_UNSPECIFIED'
         | 'ENABLED_FOR_GROUPS'
@@ -765,31 +763,31 @@ declare namespace gapi.client {
       use?: 'KEY_USE_UNSPECIFIED' | 'ENCRYPTION';
     }
     interface WorkforcePoolProviderScimTenant {
-      /** Output only. Gemini Enterprise and Looker only. Represents the base URI as defined in [RFC 7644, Section 1.3](https://datatracker.ietf.org/doc/html/rfc7644#section-1.3). Clients must use this as the root address for managing resources under the tenant. Format: https://iamscim.googleapis.com/{version}/{tenant_id}/ */
+      /** Output only. Gemini Enterprise only. Represents the base URI as defined in [RFC 7644, Section 1.3](https://datatracker.ietf.org/doc/html/rfc7644#section-1.3). Clients must use this as the root address for managing resources under the tenant. Format: https://iamscim.googleapis.com/{version}/{tenant_id}/ */
       baseUri?: string;
-      /** Required. Immutable. Gemini Enterprise and Looker only. Maps SCIM attributes to Google attributes. This mapping is used to associate the attributes synced via SCIM with the Google Cloud attributes used in IAM policies for Workforce Identity Federation. SCIM-managed user and group attributes are mapped to `google.subject` and `google.group` respectively. Each key must be a string specifying the Google Cloud IAM attribute to map to. The supported keys are as follows: * `google.subject`: The principal IAM is authenticating. You can reference this value in IAM bindings. This is also the subject that appears in Cloud Logging logs. This is a required field and the mapped subject cannot exceed 127 bytes. * `google.group`: Group the authenticating user belongs to. You can grant group access to resources using an IAM `principalSet` binding; access applies to all members of the group. Each value must be a [Common Expression Language] (https://opensource.google/projects/cel) expression that maps SCIM user or group attribute to the normalized attribute specified by the corresponding map key. Example: To map the SCIM user's `externalId` to `google.subject` and the SCIM group's `externalId` to `google.group`: ``` { "google.subject": "user.externalId", "google.group": "group.externalId" } ``` */
+      /** Required. Immutable. Gemini Enterprise only. Maps SCIM attributes to Google attributes. This mapping is used to associate the attributes synced via SCIM with the Google Cloud attributes used in IAM policies for Workforce Identity Federation. SCIM-managed user and group attributes are mapped to `google.subject` and `google.group` respectively. Each key must be a string specifying the Google Cloud IAM attribute to map to. The supported keys are as follows: * `google.subject`: The principal IAM is authenticating. You can reference this value in IAM bindings. This is also the subject that appears in Cloud Logging logs. This is a required field and the mapped subject cannot exceed 127 bytes. * `google.group`: Group the authenticating user belongs to. You can grant group access to resources using an IAM `principalSet` binding; access applies to all members of the group. Each value must be a [Common Expression Language] (https://opensource.google/projects/cel) expression that maps SCIM user or group attribute to the normalized attribute specified by the corresponding map key. Example: To map the SCIM user's `externalId` to `google.subject` and the SCIM group's `externalId` to `google.group`: ``` { "google.subject": "user.externalId", "google.group": "group.externalId" } ``` */
       claimMapping?: {[P in string]: string};
-      /** Optional. Gemini Enterprise and Looker only. The description of the SCIM tenant. Cannot exceed 256 characters. */
+      /** Optional. Gemini Enterprise only. The description of the SCIM tenant. Cannot exceed 256 characters. */
       description?: string;
-      /** Optional. Gemini Enterprise and Looker only. The display name of the SCIM tenant. Cannot exceed 32 characters. */
+      /** Optional. Gemini Enterprise only. The display name of the SCIM tenant. Cannot exceed 32 characters. */
       displayName?: string;
-      /** Identifier. Gemini Enterprise and Looker only. The resource name of the SCIM Tenant. Format: `locations/{location}/workforcePools/{workforce_pool}/providers/ {workforce_pool_provider}/scimTenants/{scim_tenant}` */
+      /** Identifier. Gemini Enterprise only. The resource name of the SCIM Tenant. Format: `locations/{location}/workforcePools/{workforce_pool}/providers/ {workforce_pool_provider}/scimTenants/{scim_tenant}` */
       name?: string;
-      /** Output only. Gemini Enterprise and Looker only. The timestamp that represents the time when the SCIM tenant is purged. */
+      /** Output only. Gemini Enterprise only. The timestamp that represents the time when the SCIM tenant is purged. */
       purgeTime?: string;
       /** Output only. Service Agent created by SCIM Tenant API. SCIM tokens created under this tenant will be attached to this service agent. */
       serviceAgent?: string;
-      /** Output only. Gemini Enterprise and Looker only. The state of the tenant. */
+      /** Output only. Gemini Enterprise only. The state of the tenant. */
       state?: 'STATE_UNSPECIFIED' | 'ACTIVE' | 'DELETED';
     }
     interface WorkforcePoolProviderScimToken {
-      /** Optional. Gemini Enterprise and Looker only. The display name of the SCIM token. Cannot exceed 32 characters. */
+      /** Optional. Gemini Enterprise only. The display name of the SCIM token. Cannot exceed 32 characters. */
       displayName?: string;
-      /** Identifier. Gemini Enterprise and Looker only. The resource name of the SCIM Token. Format: `locations/{location}/workforcePools/{workforce_pool}/providers/ {workforce_pool_provider}/scimTenants/{scim_tenant}/tokens/{token}` */
+      /** Identifier. Gemini Enterprise only. The resource name of the SCIM Token. Format: `locations/{location}/workforcePools/{workforce_pool}/providers/ {workforce_pool_provider}/scimTenants/{scim_tenant}/tokens/{token}` */
       name?: string;
-      /** Output only. Gemini Enterprise and Looker only. The token string. Provide this to the IdP for authentication. Will be set only during creation. */
+      /** Output only. Gemini Enterprise only. The token string. Provide this to the IdP for authentication. Will be set only during creation. */
       securityToken?: string;
-      /** Output only. Gemini Enterprise and Looker only. The state of the token. */
+      /** Output only. Gemini Enterprise only. The state of the token. */
       state?: 'STATE_UNSPECIFIED' | 'ACTIVE' | 'DELETED';
     }
     interface WorkloadIdentityPool {
@@ -1295,7 +1293,7 @@ declare namespace gapi.client {
       }): Request<Operation>;
     }
     interface TokensResource {
-      /** Gemini Enterprise and Looker only. Creates a new WorkforcePoolProviderScimToken in a WorkforcePoolProviderScimTenant. You cannot reuse the name of a deleted SCIM token until 30 days after deletion. */
+      /** Gemini Enterprise only. Creates a new WorkforcePoolProviderScimToken in a WorkforcePoolProviderScimTenant. You cannot reuse the name of a deleted SCIM token until 30 days after deletion. */
       create(request: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -1311,7 +1309,7 @@ declare namespace gapi.client {
         key?: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
-        /** Required. Gemini Enterprise and Looker only. The parent tenant to create SCIM token. Format: 'locations/{location}/workforcePools/{workforce_pool}/providers/{provider}/scimTenants/{scim_tenant}' */
+        /** Required. Gemini Enterprise only. The parent tenant to create SCIM token. Format: 'locations/{location}/workforcePools/{workforce_pool}/providers/{provider}/scimTenants/{scim_tenant}' */
         parent: string;
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
@@ -1321,7 +1319,7 @@ declare namespace gapi.client {
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
-        /** Required. Gemini Enterprise and Looker only. The ID to use for the SCIM token, which becomes the final component of the resource name. This value should be 4-32 characters and follow the pattern: `([a-z]([a-z0-9\\-]{2,30}[a-z0-9]))` */
+        /** Required. Gemini Enterprise only. The ID to use for the SCIM token, which becomes the final component of the resource name. This value should be 4-32 characters and follow the pattern: `([a-z]([a-z0-9\\-]{2,30}[a-z0-9]))` */
         workforcePoolProviderScimTokenId?: string;
         /** Request body */
         resource: WorkforcePoolProviderScimToken;
@@ -1342,7 +1340,7 @@ declare namespace gapi.client {
           key?: string;
           /** OAuth 2.0 token for the current user. */
           oauth_token?: string;
-          /** Required. Gemini Enterprise and Looker only. The parent tenant to create SCIM token. Format: 'locations/{location}/workforcePools/{workforce_pool}/providers/{provider}/scimTenants/{scim_tenant}' */
+          /** Required. Gemini Enterprise only. The parent tenant to create SCIM token. Format: 'locations/{location}/workforcePools/{workforce_pool}/providers/{provider}/scimTenants/{scim_tenant}' */
           parent: string;
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
@@ -1352,12 +1350,12 @@ declare namespace gapi.client {
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
-          /** Required. Gemini Enterprise and Looker only. The ID to use for the SCIM token, which becomes the final component of the resource name. This value should be 4-32 characters and follow the pattern: `([a-z]([a-z0-9\\-]{2,30}[a-z0-9]))` */
+          /** Required. Gemini Enterprise only. The ID to use for the SCIM token, which becomes the final component of the resource name. This value should be 4-32 characters and follow the pattern: `([a-z]([a-z0-9\\-]{2,30}[a-z0-9]))` */
           workforcePoolProviderScimTokenId?: string;
         },
         body: WorkforcePoolProviderScimToken,
       ): Request<WorkforcePoolProviderScimToken>;
-      /** Gemini Enterprise and Looker only. Deletes a WorkforcePoolProviderScimToken. You can undelete a SCIM token for 30 days. After 30 days, the SCIM token is permanently deleted. You cannot update deleted SCIM tokens, however, you can view and list them. */
+      /** Gemini Enterprise only. Deletes a WorkforcePoolProviderScimToken. You can undelete a SCIM token for 30 days. After 30 days, the SCIM token is permanently deleted. You cannot update deleted SCIM tokens, however, you can view and list them. */
       delete(request?: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -1371,7 +1369,7 @@ declare namespace gapi.client {
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
-        /** Required. Gemini Enterprise and Looker only. The name of the SCIM token to delete. Format: `locations/{location}/workforcePools/{workforce_pool}/providers/{provider}/scimTenants/{scim_tenant}/tokens/{token}` */
+        /** Required. Gemini Enterprise only. The name of the SCIM token to delete. Format: `locations/{location}/workforcePools/{workforce_pool}/providers/{provider}/scimTenants/{scim_tenant}/tokens/{token}` */
         name: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
@@ -1384,7 +1382,7 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<WorkforcePoolProviderScimToken>;
-      /** Gemini Enterprise and Looker only. Gets an individual WorkforcePoolProviderScimToken. */
+      /** Gemini Enterprise only. Gets an individual WorkforcePoolProviderScimToken. */
       get(request?: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -1398,7 +1396,7 @@ declare namespace gapi.client {
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
-        /** Required. Gemini Enterprise and Looker only. The name of the SCIM token to retrieve. Format: `locations/{location}/workforcePools/{workforce_pool}/providers/{provider}/scimTenants/{scim_tenant}/tokens/{token}` */
+        /** Required. Gemini Enterprise only. The name of the SCIM token to retrieve. Format: `locations/{location}/workforcePools/{workforce_pool}/providers/{provider}/scimTenants/{scim_tenant}/tokens/{token}` */
         name: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
@@ -1411,7 +1409,7 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<WorkforcePoolProviderScimToken>;
-      /** Gemini Enterprise and Looker only. Lists all non-deleted WorkforcePoolProviderScimTokenss in a WorkforcePoolProviderScimTenant. If `show_deleted` is set to `true`, then deleted SCIM tokens are also listed. */
+      /** Gemini Enterprise only. Lists all non-deleted WorkforcePoolProviderScimTokenss in a WorkforcePoolProviderScimTenant. If `show_deleted` is set to `true`, then deleted SCIM tokens are also listed. */
       list(request?: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -1427,24 +1425,24 @@ declare namespace gapi.client {
         key?: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
-        /** Optional. Gemini Enterprise and Looker only. The maximum number of SCIM tokens to return. If unspecified, at most 2 SCIM tokens will be returned. */
+        /** Optional. Gemini Enterprise only. The maximum number of SCIM tokens to return. If unspecified, at most 2 SCIM tokens will be returned. */
         pageSize?: number;
-        /** Optional. Gemini Enterprise and Looker only. A page token, received from a previous `ListWorkforcePoolProviderScimTokens` call. Provide this to retrieve the subsequent page. */
+        /** Optional. Gemini Enterprise only. A page token, received from a previous `ListWorkforcePoolProviderScimTokens` call. Provide this to retrieve the subsequent page. */
         pageToken?: string;
-        /** Required. Gemini Enterprise and Looker only. The parent to list SCIM tokens. Format: 'locations/{location}/workforcePools/{workforce_pool}/providers/{provider}/scimTenants/{scim_tenant}' */
+        /** Required. Gemini Enterprise only. The parent to list SCIM tokens. Format: 'locations/{location}/workforcePools/{workforce_pool}/providers/{provider}/scimTenants/{scim_tenant}' */
         parent: string;
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
-        /** Optional. Gemini Enterprise and Looker only. Whether to return soft-deleted SCIM tokens. */
+        /** Optional. Gemini Enterprise only. Whether to return soft-deleted SCIM tokens. */
         showDeleted?: boolean;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ListWorkforcePoolProviderScimTokensResponse>;
-      /** Gemini Enterprise and Looker only. Updates an existing WorkforcePoolProviderScimToken. */
+      /** Gemini Enterprise only. Updates an existing WorkforcePoolProviderScimToken. */
       patch(request: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -1458,7 +1456,7 @@ declare namespace gapi.client {
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
-        /** Identifier. Gemini Enterprise and Looker only. The resource name of the SCIM Token. Format: `locations/{location}/workforcePools/{workforce_pool}/providers/ {workforce_pool_provider}/scimTenants/{scim_tenant}/tokens/{token}` */
+        /** Identifier. Gemini Enterprise only. The resource name of the SCIM Token. Format: `locations/{location}/workforcePools/{workforce_pool}/providers/ {workforce_pool_provider}/scimTenants/{scim_tenant}/tokens/{token}` */
         name: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
@@ -1466,7 +1464,7 @@ declare namespace gapi.client {
         prettyPrint?: boolean;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
-        /** Optional. Gemini Enterprise and Looker only. The list of fields to update. */
+        /** Optional. Gemini Enterprise only. The list of fields to update. */
         updateMask?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
@@ -1489,7 +1487,7 @@ declare namespace gapi.client {
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
           key?: string;
-          /** Identifier. Gemini Enterprise and Looker only. The resource name of the SCIM Token. Format: `locations/{location}/workforcePools/{workforce_pool}/providers/ {workforce_pool_provider}/scimTenants/{scim_tenant}/tokens/{token}` */
+          /** Identifier. Gemini Enterprise only. The resource name of the SCIM Token. Format: `locations/{location}/workforcePools/{workforce_pool}/providers/ {workforce_pool_provider}/scimTenants/{scim_tenant}/tokens/{token}` */
           name: string;
           /** OAuth 2.0 token for the current user. */
           oauth_token?: string;
@@ -1497,7 +1495,7 @@ declare namespace gapi.client {
           prettyPrint?: boolean;
           /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
           quotaUser?: string;
-          /** Optional. Gemini Enterprise and Looker only. The list of fields to update. */
+          /** Optional. Gemini Enterprise only. The list of fields to update. */
           updateMask?: string;
           /** Upload protocol for media (e.g. "raw", "multipart"). */
           upload_protocol?: string;
@@ -1508,7 +1506,7 @@ declare namespace gapi.client {
       ): Request<WorkforcePoolProviderScimToken>;
     }
     interface ScimTenantsResource {
-      /** Gemini Enterprise and Looker only. Creates a new WorkforcePoolProviderScimTenant in a WorkforcePoolProvider. You cannot reuse the name of a deleted SCIM tenant until 30 days after deletion. */
+      /** Gemini Enterprise only. Creates a new WorkforcePoolProviderScimTenant in a WorkforcePoolProvider. You cannot reuse the name of a deleted SCIM tenant until 30 days after deletion. */
       create(request: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -1524,7 +1522,7 @@ declare namespace gapi.client {
         key?: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
-        /** Required. Gemini Enterprise and Looker only. The parent to create SCIM tenant. Format: 'locations/{location}/workforcePools/{workforce_pool}/providers/{provider}' */
+        /** Required. Gemini Enterprise only. The parent to create SCIM tenant. Format: 'locations/{location}/workforcePools/{workforce_pool}/providers/{provider}' */
         parent: string;
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
@@ -1534,7 +1532,7 @@ declare namespace gapi.client {
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
-        /** Required. Gemini Enterprise and Looker only. The ID to use for the SCIM tenant, which becomes the final component of the resource name. This value should be 4-32 characters, containing the characters `[a-z0-9-]`. */
+        /** Required. Gemini Enterprise only. The ID to use for the SCIM tenant, which becomes the final component of the resource name. This value should be 4-32 characters, containing the characters `[a-z0-9-]`. */
         workforcePoolProviderScimTenantId?: string;
         /** Request body */
         resource: WorkforcePoolProviderScimTenant;
@@ -1555,7 +1553,7 @@ declare namespace gapi.client {
           key?: string;
           /** OAuth 2.0 token for the current user. */
           oauth_token?: string;
-          /** Required. Gemini Enterprise and Looker only. The parent to create SCIM tenant. Format: 'locations/{location}/workforcePools/{workforce_pool}/providers/{provider}' */
+          /** Required. Gemini Enterprise only. The parent to create SCIM tenant. Format: 'locations/{location}/workforcePools/{workforce_pool}/providers/{provider}' */
           parent: string;
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
@@ -1565,12 +1563,12 @@ declare namespace gapi.client {
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
-          /** Required. Gemini Enterprise and Looker only. The ID to use for the SCIM tenant, which becomes the final component of the resource name. This value should be 4-32 characters, containing the characters `[a-z0-9-]`. */
+          /** Required. Gemini Enterprise only. The ID to use for the SCIM tenant, which becomes the final component of the resource name. This value should be 4-32 characters, containing the characters `[a-z0-9-]`. */
           workforcePoolProviderScimTenantId?: string;
         },
         body: WorkforcePoolProviderScimTenant,
       ): Request<WorkforcePoolProviderScimTenant>;
-      /** Gemini Enterprise and Looker only. Deletes a WorkforcePoolProviderScimTenant. You can undelete a SCIM tenant for 30 days. After 30 days, deletion is permanent. You cannot update deleted SCIM tenants. However, you can view and list them. */
+      /** Gemini Enterprise only. Deletes a WorkforcePoolProviderScimTenant. You can undelete a SCIM tenant for 30 days. After 30 days, deletion is permanent. You cannot update deleted SCIM tenants. However, you can view and list them. */
       delete(request?: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -1586,7 +1584,7 @@ declare namespace gapi.client {
         hardDelete?: boolean;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
-        /** Required. Gemini Enterprise and Looker only. The name of the SCIM tenant to delete. Format: `locations/{location}/workforcePools/{workforce_pool}/providers/{provider}/scimTenants/{scim_tenant}` */
+        /** Required. Gemini Enterprise only. The name of the SCIM tenant to delete. Format: `locations/{location}/workforcePools/{workforce_pool}/providers/{provider}/scimTenants/{scim_tenant}` */
         name: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
@@ -1599,7 +1597,7 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<WorkforcePoolProviderScimTenant>;
-      /** Gemini Enterprise and Looker only. Gets an individual WorkforcePoolProviderScimTenant. */
+      /** Gemini Enterprise only. Gets an individual WorkforcePoolProviderScimTenant. */
       get(request?: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -1613,7 +1611,7 @@ declare namespace gapi.client {
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
-        /** Required. Gemini Enterprise and Looker only. The name of the SCIM tenant to retrieve. Format: `locations/{location}/workforcePools/{workforce_pool}/providers/{provider}/scimTenants/{scim_tenant}` */
+        /** Required. Gemini Enterprise only. The name of the SCIM tenant to retrieve. Format: `locations/{location}/workforcePools/{workforce_pool}/providers/{provider}/scimTenants/{scim_tenant}` */
         name: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
@@ -1656,7 +1654,7 @@ declare namespace gapi.client {
         },
         body: GetIamPolicyRequest,
       ): Request<Policy>;
-      /** Gemini Enterprise and Looker only. Lists all non-deleted WorkforcePoolProviderScimTenants in a WorkforcePoolProvider. If `show_deleted` is set to `true`, then deleted SCIM tenants are also listed. */
+      /** Gemini Enterprise only. Lists all non-deleted WorkforcePoolProviderScimTenants in a WorkforcePoolProvider. If `show_deleted` is set to `true`, then deleted SCIM tenants are also listed. */
       list(request?: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -1672,24 +1670,24 @@ declare namespace gapi.client {
         key?: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
-        /** Optional. Gemini Enterprise and Looker only. The maximum number of SCIM tenants to return. If unspecified, at most 50 SCIM tenants will be returned. The maximum value is 100; values above 100 are truncated to 100. */
+        /** Optional. Gemini Enterprise only. The maximum number of SCIM tenants to return. If unspecified, at most 50 SCIM tenants will be returned. The maximum value is 100; values above 100 are truncated to 100. */
         pageSize?: number;
-        /** Optional. Gemini Enterprise and Looker only. A page token, received from a previous `ListScimTenants` call. Provide this to retrieve the subsequent page. */
+        /** Optional. Gemini Enterprise only. A page token, received from a previous `ListScimTenants` call. Provide this to retrieve the subsequent page. */
         pageToken?: string;
-        /** Required. Gemini Enterprise and Looker only. The parent to list SCIM tenants. Format: 'locations/{location}/workforcePools/{workforce_pool}/providers/{provider}' */
+        /** Required. Gemini Enterprise only. The parent to list SCIM tenants. Format: 'locations/{location}/workforcePools/{workforce_pool}/providers/{provider}' */
         parent: string;
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
-        /** Optional. Gemini Enterprise and Looker only. Whether to return soft-deleted SCIM tenants. */
+        /** Optional. Gemini Enterprise only. Whether to return soft-deleted SCIM tenants. */
         showDeleted?: boolean;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ListWorkforcePoolProviderScimTenantsResponse>;
-      /** Gemini Enterprise and Looker only. Updates an existing WorkforcePoolProviderScimTenant. */
+      /** Gemini Enterprise only. Updates an existing WorkforcePoolProviderScimTenant. */
       patch(request: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -1703,7 +1701,7 @@ declare namespace gapi.client {
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
-        /** Identifier. Gemini Enterprise and Looker only. The resource name of the SCIM Tenant. Format: `locations/{location}/workforcePools/{workforce_pool}/providers/ {workforce_pool_provider}/scimTenants/{scim_tenant}` */
+        /** Identifier. Gemini Enterprise only. The resource name of the SCIM Tenant. Format: `locations/{location}/workforcePools/{workforce_pool}/providers/ {workforce_pool_provider}/scimTenants/{scim_tenant}` */
         name: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
@@ -1711,7 +1709,7 @@ declare namespace gapi.client {
         prettyPrint?: boolean;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
-        /** Optional. Gemini Enterprise and Looker only. The list of fields to update. */
+        /** Optional. Gemini Enterprise only. The list of fields to update. */
         updateMask?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
@@ -1734,7 +1732,7 @@ declare namespace gapi.client {
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
           key?: string;
-          /** Identifier. Gemini Enterprise and Looker only. The resource name of the SCIM Tenant. Format: `locations/{location}/workforcePools/{workforce_pool}/providers/ {workforce_pool_provider}/scimTenants/{scim_tenant}` */
+          /** Identifier. Gemini Enterprise only. The resource name of the SCIM Tenant. Format: `locations/{location}/workforcePools/{workforce_pool}/providers/ {workforce_pool_provider}/scimTenants/{scim_tenant}` */
           name: string;
           /** OAuth 2.0 token for the current user. */
           oauth_token?: string;
@@ -1742,7 +1740,7 @@ declare namespace gapi.client {
           prettyPrint?: boolean;
           /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
           quotaUser?: string;
-          /** Optional. Gemini Enterprise and Looker only. The list of fields to update. */
+          /** Optional. Gemini Enterprise only. The list of fields to update. */
           updateMask?: string;
           /** Upload protocol for media (e.g. "raw", "multipart"). */
           upload_protocol?: string;
@@ -1811,7 +1809,7 @@ declare namespace gapi.client {
         },
         body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
-      /** Gemini Enterprise and Looker only. Undeletes a WorkforcePoolProviderScimTenant, that was deleted fewer than 30 days ago. */
+      /** Gemini Enterprise only. Undeletes a WorkforcePoolProviderScimTenant, that was deleted fewer than 30 days ago. */
       undelete(request: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -1825,7 +1823,7 @@ declare namespace gapi.client {
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
-        /** Required. Gemini Enterprise and Looker only. The name of the SCIM tenant to undelete. Format: `locations/{location}/workforcePools/{workforce_pool}/providers/{provider}/scimTenants/{scim_tenant}` */
+        /** Required. Gemini Enterprise only. The name of the SCIM tenant to undelete. Format: `locations/{location}/workforcePools/{workforce_pool}/providers/{provider}/scimTenants/{scim_tenant}` */
         name: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
@@ -1854,7 +1852,7 @@ declare namespace gapi.client {
           fields?: string;
           /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
           key?: string;
-          /** Required. Gemini Enterprise and Looker only. The name of the SCIM tenant to undelete. Format: `locations/{location}/workforcePools/{workforce_pool}/providers/{provider}/scimTenants/{scim_tenant}` */
+          /** Required. Gemini Enterprise only. The name of the SCIM tenant to undelete. Format: `locations/{location}/workforcePools/{workforce_pool}/providers/{provider}/scimTenants/{scim_tenant}` */
           name: string;
           /** OAuth 2.0 token for the current user. */
           oauth_token?: string;

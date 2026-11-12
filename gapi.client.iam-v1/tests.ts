@@ -195,7 +195,6 @@ gapi.load('client', async () => {
         attributeMapping: {
           A: 'Test string',
         },
-        attributeSyncInterval: 'Test string',
         description: 'Test string',
         detailedAuditLogging: true,
         disabled: true,
@@ -280,7 +279,6 @@ gapi.load('client', async () => {
         attributeMapping: {
           A: 'Test string',
         },
-        attributeSyncInterval: 'Test string',
         description: 'Test string',
         detailedAuditLogging: true,
         disabled: true,
@@ -398,7 +396,7 @@ gapi.load('client', async () => {
     await gapi.client.iam.locations.workforcePools.providers.operations.get({
       name: 'Test string',
     });
-    /** Gemini Enterprise and Looker only. Creates a new WorkforcePoolProviderScimTenant in a WorkforcePoolProvider. You cannot reuse the name of a deleted SCIM tenant until 30 days after deletion. */
+    /** Gemini Enterprise only. Creates a new WorkforcePoolProviderScimTenant in a WorkforcePoolProvider. You cannot reuse the name of a deleted SCIM tenant until 30 days after deletion. */
     await gapi.client.iam.locations.workforcePools.providers.scimTenants.create(
       {
         parent: 'Test string',
@@ -417,14 +415,14 @@ gapi.load('client', async () => {
         state: 'Test string',
       },
     );
-    /** Gemini Enterprise and Looker only. Deletes a WorkforcePoolProviderScimTenant. You can undelete a SCIM tenant for 30 days. After 30 days, deletion is permanent. You cannot update deleted SCIM tenants. However, you can view and list them. */
+    /** Gemini Enterprise only. Deletes a WorkforcePoolProviderScimTenant. You can undelete a SCIM tenant for 30 days. After 30 days, deletion is permanent. You cannot update deleted SCIM tenants. However, you can view and list them. */
     await gapi.client.iam.locations.workforcePools.providers.scimTenants.delete(
       {
         hardDelete: true,
         name: 'Test string',
       },
     );
-    /** Gemini Enterprise and Looker only. Gets an individual WorkforcePoolProviderScimTenant. */
+    /** Gemini Enterprise only. Gets an individual WorkforcePoolProviderScimTenant. */
     await gapi.client.iam.locations.workforcePools.providers.scimTenants.get({
       name: 'Test string',
     });
@@ -439,14 +437,14 @@ gapi.load('client', async () => {
         },
       },
     );
-    /** Gemini Enterprise and Looker only. Lists all non-deleted WorkforcePoolProviderScimTenants in a WorkforcePoolProvider. If `show_deleted` is set to `true`, then deleted SCIM tenants are also listed. */
+    /** Gemini Enterprise only. Lists all non-deleted WorkforcePoolProviderScimTenants in a WorkforcePoolProvider. If `show_deleted` is set to `true`, then deleted SCIM tenants are also listed. */
     await gapi.client.iam.locations.workforcePools.providers.scimTenants.list({
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
       showDeleted: true,
     });
-    /** Gemini Enterprise and Looker only. Updates an existing WorkforcePoolProviderScimTenant. */
+    /** Gemini Enterprise only. Updates an existing WorkforcePoolProviderScimTenant. */
     await gapi.client.iam.locations.workforcePools.providers.scimTenants.patch(
       {
         name: 'Test string',
@@ -510,14 +508,14 @@ gapi.load('client', async () => {
         permissions: ['Test string'],
       },
     );
-    /** Gemini Enterprise and Looker only. Undeletes a WorkforcePoolProviderScimTenant, that was deleted fewer than 30 days ago. */
+    /** Gemini Enterprise only. Undeletes a WorkforcePoolProviderScimTenant, that was deleted fewer than 30 days ago. */
     await gapi.client.iam.locations.workforcePools.providers.scimTenants.undelete(
       {
         name: 'Test string',
       },
       {},
     );
-    /** Gemini Enterprise and Looker only. Creates a new WorkforcePoolProviderScimToken in a WorkforcePoolProviderScimTenant. You cannot reuse the name of a deleted SCIM token until 30 days after deletion. */
+    /** Gemini Enterprise only. Creates a new WorkforcePoolProviderScimToken in a WorkforcePoolProviderScimTenant. You cannot reuse the name of a deleted SCIM token until 30 days after deletion. */
     await gapi.client.iam.locations.workforcePools.providers.scimTenants.tokens.create(
       {
         parent: 'Test string',
@@ -530,19 +528,19 @@ gapi.load('client', async () => {
         state: 'Test string',
       },
     );
-    /** Gemini Enterprise and Looker only. Deletes a WorkforcePoolProviderScimToken. You can undelete a SCIM token for 30 days. After 30 days, the SCIM token is permanently deleted. You cannot update deleted SCIM tokens, however, you can view and list them. */
+    /** Gemini Enterprise only. Deletes a WorkforcePoolProviderScimToken. You can undelete a SCIM token for 30 days. After 30 days, the SCIM token is permanently deleted. You cannot update deleted SCIM tokens, however, you can view and list them. */
     await gapi.client.iam.locations.workforcePools.providers.scimTenants.tokens.delete(
       {
         name: 'Test string',
       },
     );
-    /** Gemini Enterprise and Looker only. Gets an individual WorkforcePoolProviderScimToken. */
+    /** Gemini Enterprise only. Gets an individual WorkforcePoolProviderScimToken. */
     await gapi.client.iam.locations.workforcePools.providers.scimTenants.tokens.get(
       {
         name: 'Test string',
       },
     );
-    /** Gemini Enterprise and Looker only. Lists all non-deleted WorkforcePoolProviderScimTokenss in a WorkforcePoolProviderScimTenant. If `show_deleted` is set to `true`, then deleted SCIM tokens are also listed. */
+    /** Gemini Enterprise only. Lists all non-deleted WorkforcePoolProviderScimTokenss in a WorkforcePoolProviderScimTenant. If `show_deleted` is set to `true`, then deleted SCIM tokens are also listed. */
     await gapi.client.iam.locations.workforcePools.providers.scimTenants.tokens.list(
       {
         pageSize: 42,
@@ -551,7 +549,7 @@ gapi.load('client', async () => {
         showDeleted: true,
       },
     );
-    /** Gemini Enterprise and Looker only. Updates an existing WorkforcePoolProviderScimToken. */
+    /** Gemini Enterprise only. Updates an existing WorkforcePoolProviderScimToken. */
     await gapi.client.iam.locations.workforcePools.providers.scimTenants.tokens.patch(
       {
         name: 'Test string',
