@@ -46,7 +46,7 @@
     "@types/node": "^26.6.6",
     "@types/semver": "^7.8.0",
     "@types/validate-npm-package-name": "^4.0.2",
-    "commander": "^15.0.0",
+    "commander": "^15.1.0",
     "dedent": "^1.7.2",
     "deep-sort-object": "^1.0.2",
     "dot": "^1.1.3",
