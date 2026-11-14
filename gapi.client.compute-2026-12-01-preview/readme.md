@@ -3040,16 +3040,6 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.networkFirewallPolicies.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-Returns the specified NetworkLocationBinding resource in the given scope.
-*/
-await gapi.client.compute.networkLocationBindings.get({ networkLocationBinding: "networkLocationBinding", project: "project", region: "region",  });
-
-/*
-Lists the NetworkLocationBindings for a project in the given scope.
-*/
-await gapi.client.compute.networkLocationBindings.list({ project: "project", region: "region",  });
-
-/*
 Returns the specified network profile.
 */
 await gapi.client.compute.networkProfiles.get({ networkProfile: "networkProfile", project: "project",  });
@@ -3124,13 +3114,6 @@ await gapi.client.compute.networks.requestRemovePeering({ network: "network", pr
 Switches the network mode from auto subnet mode to custom subnet mode.
 */
 await gapi.client.compute.networks.switchToCustomMode({ network: "network", project: "project",  });
-
-/*
-Updates the network profile of the specified network.
-Currently only the following operations are supported:
-  - Removing a Regionally Bound Network Profile
-*/
-await gapi.client.compute.networks.updateNetworkProfile({ network: "network", project: "project",  });
 
 /*
 Updates the specified network peering with the data included in the
@@ -3446,16 +3429,6 @@ instead.
 await gapi.client.compute.organizationSecurityPolicies.removeRule({ securityPolicy: "securityPolicy",  });
 
 /*
-Returns the specified SnapshotRecycleBinPolicy.
-*/
-await gapi.client.compute.organizationSnapshotRecycleBinPolicy.get({ organization: "organization",  });
-
-/*
-Patches the SnapshotRecycleBinPolicy.
-*/
-await gapi.client.compute.organizationSnapshotRecycleBinPolicy.patch({ organization: "organization",  });
-
-/*
 Retrieves an aggregated list of packetMirrorings.
 
 To prevent failure, Google recommends that you set the
@@ -3722,44 +3695,6 @@ await gapi.client.compute.publicDelegatedPrefixes.patch({ project: "project", pu
 Withdraws the specified PublicDelegatedPrefix in the given region.
 */
 await gapi.client.compute.publicDelegatedPrefixes.withdraw({ project: "project", publicDelegatedPrefix: "publicDelegatedPrefix", region: "region",  });
-
-/*
-Deletes the specified RecoverableSnapshot. Deleting a recoverable snapshot
-will delete the underlying PD snapshot and is irreversible.
-*/
-await gapi.client.compute.recoverableSnapshots.delete({ project: "project", recoverableSnapshot: "recoverableSnapshot",  });
-
-/*
-Returns the specified RecoverableSnapshot resource.
-*/
-await gapi.client.compute.recoverableSnapshots.get({ project: "project", recoverableSnapshot: "recoverableSnapshot",  });
-
-/*
-Gets the access control policy for a resource. May be empty if no such
-policy or resource exists.
-*/
-await gapi.client.compute.recoverableSnapshots.getIamPolicy({ project: "project", resource: "resource",  });
-
-/*
-Retrieves a list of all of the RecoverableSnapshots in your project.
-*/
-await gapi.client.compute.recoverableSnapshots.list({ project: "project",  });
-
-/*
-Recovers the specified RecoverableSnapshot.
-*/
-await gapi.client.compute.recoverableSnapshots.recover({ project: "project", recoverableSnapshot: "recoverableSnapshot",  });
-
-/*
-Sets the access control policy on the specified resource.
-Replaces any existing policy.
-*/
-await gapi.client.compute.recoverableSnapshots.setIamPolicy({ project: "project", resource: "resource",  });
-
-/*
-Returns permissions that a caller has on the specified resource.
-*/
-await gapi.client.compute.recoverableSnapshots.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
 Deletes the specified autoscaler.
@@ -5935,16 +5870,6 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.serviceAttachments.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
-Returns the specified SnapshotRecycleBinPolicy.
-*/
-await gapi.client.compute.snapshotRecycleBinPolicy.get({ project: "project",  });
-
-/*
-Patches the SnapshotRecycleBinPolicy.
-*/
-await gapi.client.compute.snapshotRecycleBinPolicy.patch({ project: "project",  });
-
-/*
 Deletes the specified Snapshot resource. Keep in mind that deleting
 a single snapshot might not necessarily delete all the data on that
 snapshot. If any data on the snapshot that is marked for deletion is
@@ -5960,13 +5885,6 @@ await gapi.client.compute.snapshots.delete({ project: "project", snapshot: "snap
 Returns the specified Snapshot resource.
 */
 await gapi.client.compute.snapshots.get({ project: "project", snapshot: "snapshot",  });
-
-/*
-Returns the effective recycle bin rule for a snapshot by merging org and
-project level rules. If no rules are defined at org and project level, the
-standard default rule is returned.
-*/
-await gapi.client.compute.snapshots.getEffectiveRecycleBinRule({ project: "project", snapshot: "snapshot",  });
 
 /*
 Gets the access control policy for a resource. May be empty if no such
