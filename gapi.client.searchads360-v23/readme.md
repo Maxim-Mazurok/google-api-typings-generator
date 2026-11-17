@@ -87,105 +87,9 @@ After that you can use Search Ads 360 Reporting API resources: <!-- TODO: make t
 
 ```typescript
 /*
-Lists date ranges for which audience insights data can be requested. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]()
-*/
-await gapi.client.searchads360.audienceInsights.listInsightsEligibleDates({});
-
-/*
 Creates a new client under manager. The new client customer is returned. List of thrown errors: [AccessInvitationError]() [AuthenticationError]() [AuthorizationError]() [CurrencyCodeError]() [HeaderError]() [InternalError]() [ManagerLinkError]() [QuotaError]() [RequestError]() [StringLengthError]() [TimeZoneError]()
 */
 await gapi.client.searchads360.customers.createCustomerClient({
-  customerId: 'customerId',
-});
-
-/*
-Returns a list of suggested AdGroups and suggested modifications (text, match type) for the given keywords. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [CollectionSizeError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
-*/
-await gapi.client.searchads360.customers.generateAdGroupThemes({
-  customerId: 'customerId',
-});
-
-/*
-Returns a collection of attributes that are represented in an audience of interest, with metrics that compare each attribute's share of the audience with its share of a baseline audience. List of thrown errors: [AudienceInsightsError]() [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]()
-*/
-await gapi.client.searchads360.customers.generateAudienceCompositionInsights({
-  customerId: 'customerId',
-});
-
-/*
-Returns a collection of audience attributes using generative AI based on the provided audience description. List of thrown errors: [AudienceInsightsError]() [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
-*/
-await gapi.client.searchads360.customers.generateAudienceDefinition({
-  customerId: 'customerId',
-});
-
-/*
-Returns a collection of audience attributes along with estimates of the overlap between their potential YouTube reach and that of a given input attribute. List of thrown errors: [AudienceInsightsError]() [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]()
-*/
-await gapi.client.searchads360.customers.generateAudienceOverlapInsights({
-  customerId: 'customerId',
-});
-
-/*
-Returns YouTube advertisement metrics for the given client against industry benchmarks. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [BenchmarksError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]()
-*/
-await gapi.client.searchads360.customers.generateBenchmarksMetrics({
-  customerId: 'customerId',
-});
-
-/*
-Creates a saved report that can be viewed in the Insights Finder tool. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]()
-*/
-await gapi.client.searchads360.customers.generateInsightsFinderReport({
-  customerId: 'customerId',
-});
-
-/*
-Returns metrics (such as impressions, clicks, total cost) of a keyword forecast for the given campaign. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [CollectionSizeError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
-*/
-await gapi.client.searchads360.customers.generateKeywordForecastMetrics({
-  customerId: 'customerId',
-});
-
-/*
-Returns a list of keyword historical metrics. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [CollectionSizeError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
-*/
-await gapi.client.searchads360.customers.generateKeywordHistoricalMetrics({
-  customerId: 'customerId',
-});
-
-/*
-Returns a list of keyword ideas. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [CollectionSizeError]() [HeaderError]() [InternalError]() [KeywordPlanIdeaError]() [QuotaError]() [RequestError]()
-*/
-await gapi.client.searchads360.customers.generateKeywordIdeas({
-  customerId: 'customerId',
-});
-
-/*
-Generates a reach forecast for a given targeting / product mix. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [ReachPlanError]() [RequestError]()
-*/
-await gapi.client.searchads360.customers.generateReachForecast({
-  customerId: 'customerId',
-});
-
-/*
-Returns a collection of targeting insights (e.g. targetable audiences) that are relevant to the requested audience. List of thrown errors: [AudienceInsightsError]() [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]()
-*/
-await gapi.client.searchads360.customers.generateSuggestedTargetingInsights({
-  customerId: 'customerId',
-});
-
-/*
-Returns potential reach metrics for targetable audiences. This method helps answer questions like "How many Men aged 18+ interested in Camping can be reached on YouTube?" List of thrown errors: [AudienceInsightsError]() [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]()
-*/
-await gapi.client.searchads360.customers.generateTargetingSuggestionMetrics({
-  customerId: 'customerId',
-});
-
-/*
-Returns Identity Verification information. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
-*/
-await gapi.client.searchads360.customers.getIdentityVerification({
   customerId: 'customerId',
 });
 
@@ -205,41 +109,6 @@ Removes automatically created assets from a campaign. List of thrown errors: [Au
 await gapi.client.searchads360.customers.removeCampaignAutomaticallyCreatedAsset(
   {customerId: 'customerId'},
 );
-
-/*
-Searches for audience attributes that can be used to generate insights. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]()
-*/
-await gapi.client.searchads360.customers.searchAudienceInsightsAttributes({
-  customerId: 'customerId',
-});
-
-/*
-Starts Identity Verification for a given verification program type. Statuses are returned. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
-*/
-await gapi.client.searchads360.customers.startIdentityVerification({
-  customerId: 'customerId',
-});
-
-/*
-Suggests keyword themes to advertise on.
-*/
-await gapi.client.searchads360.customers.suggestKeywordThemes({
-  customerId: 'customerId',
-});
-
-/*
-Suggests a Smart campaign ad compatible with the Ad family of resources, based on data points such as targeting and the business to advertise.
-*/
-await gapi.client.searchads360.customers.suggestSmartCampaignAd({
-  customerId: 'customerId',
-});
-
-/*
-Returns BudgetOption suggestions.
-*/
-await gapi.client.searchads360.customers.suggestSmartCampaignBudgetOptions({
-  customerId: 'customerId',
-});
 
 /*
 Returns Travel Asset suggestions. Asset suggestions are returned on a best-effort basis. There are no guarantees that all possible asset types will be returned for any given hotel property.
@@ -270,26 +139,9 @@ await gapi.client.searchads360.customers.uploadConversionAdjustments({
 });
 
 /*
-Uploads the given user data. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [CollectionSizeError]() [FieldError]() [HeaderError]() [InternalError]() [MutateError]() [OfflineUserDataJobError]() [QuotaError]() [RequestError]() [UserDataError]()
-*/
-await gapi.client.searchads360.customers.uploadUserData({
-  customerId: 'customerId',
-});
-
-/*
 Returns GeoTargetConstant suggestions by location name or by resource name. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [GeoTargetConstantSuggestionError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
 */
 await gapi.client.searchads360.geoTargetConstants.suggest({});
-
-/*
-Returns incentives for a given user.
-*/
-await gapi.client.searchads360.incentives.fetchIncentive({});
-
-/*
-Returns KeywordThemeConstant suggestions by keyword themes. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
-*/
-await gapi.client.searchads360.keywordThemeConstants.suggest({});
 
 /*
 Returns just the requested field. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
@@ -299,54 +151,9 @@ await gapi.client.searchads360.searchAds360Fields.get({
 });
 
 /*
-Returns all fields that match the search [query](/search-ads/reporting/concepts/field-service#use_a_query_to_get_field_details). List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QueryError]() [QuotaError]() [RequestError]()
+Returns all fields that match the search [query](https://developers.google.com/search-ads/reporting/concepts/field-service#use_a_query_to_get_field_details). List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QueryError]() [QuotaError]() [RequestError]()
 */
 await gapi.client.searchads360.searchAds360Fields.search({});
-
-/*
-Returns a collection of conversion rate suggestions for supported plannable products. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
-*/
-await gapi.client.searchads360.generateConversionRates({});
-
-/*
-Returns a date range that supports benchmarks. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
-*/
-await gapi.client.searchads360.listBenchmarksAvailableDates({});
-
-/*
-Returns the list of locations that support benchmarks (for example, countries). List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
-*/
-await gapi.client.searchads360.listBenchmarksLocations({});
-
-/*
-Returns the list of products that supports benchmarks. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
-*/
-await gapi.client.searchads360.listBenchmarksProducts({});
-
-/*
-Returns the list of benchmarks sources (for example, Industry Verticals). List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
-*/
-await gapi.client.searchads360.listBenchmarksSources({});
-
-/*
-Returns the list of plannable locations (for example, countries). List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
-*/
-await gapi.client.searchads360.listPlannableLocations({});
-
-/*
-Returns the list of per-location plannable YouTube ad formats with allowed targeting. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
-*/
-await gapi.client.searchads360.listPlannableProducts({});
-
-/*
-Returns the list of plannable user interests. A plannable user interest is one that can be targeted in a reach forecast using ReachPlanService.GenerateReachForecast. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [ListOperationError]() [QuotaError]() [RequestError]() [StringLengthError]()
-*/
-await gapi.client.searchads360.listPlannableUserInterests({});
-
-/*
-Returns the list of plannable user lists with their plannable status. User lists may not be plannable for a number of reasons, including: - They are less than 10 days old. - They have a membership lifespan that is less than 30 days - They have less than 10,000 or more than 700,000 users. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [ReachPlanError]() [RequestError]()
-*/
-await gapi.client.searchads360.listPlannableUserLists({});
 ```
 
 For provenance information see [Provenance section on NPM](https://www.npmjs.com/package/@maxim_mazurok/gapi.client.searchads360-v23#Provenance:~:text=none-,Provenance,-Built%20and%20signed)
