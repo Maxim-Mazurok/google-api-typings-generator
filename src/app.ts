@@ -122,6 +122,14 @@ export const excludedRestDescriptionIds: NonNullable<RestDescription['id']>[] =
   [
     'poly:v1', // Google Poly was shut down on June 30, 2021; The Discovery API returns 5xx error
     'composer:v1beta1', // Error: Attempted to generate stub for unknown schema 'AnalyzeTaskRequest'
+    // Document AI Warehouse shut down 2025-01-16: https://docs.cloud.google.com/document-warehouse/docs/release-notes
+    'contentwarehouse:v1', // cspell:ignore contentwarehouse
+    // Rapid Migration Assessment shut down 2025-06-30: https://docs.cloud.google.com/migration-center/docs/deprecations
+    'rapidmigrationassessment:v1', // cspell:ignore rapidmigrationassessment
+    // Legacy Data Labeling shut down 2025-01-31: https://docs.cloud.google.com/vertex-ai/docs/deprecations
+    'datalabeling:v1beta1', // cspell:ignore datalabeling
+    // My Business Q&A shut down 2025-11-03: https://developers.google.com/my-business/content/sunset-dates
+    'mybusinessqanda:v1', // cspell:ignore mybusinessqanda
   ];
 
 const generatedDisclaimer = [
